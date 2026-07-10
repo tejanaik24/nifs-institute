@@ -16,9 +16,7 @@ export function CourseCatalog() {
 
         return (
           <div key={tier}>
-            <div data-path-target="true">
-              <h2 className="font-display text-2xl italic">{tier}</h2>
-            </div>
+            <h2 className="font-display text-2xl italic">{tier}</h2>
 
             <div className="mt-10 flex flex-col gap-16 lg:gap-24">
               {tierCourses.map((course, i) => {
