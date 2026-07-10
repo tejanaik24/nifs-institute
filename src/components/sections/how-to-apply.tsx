@@ -12,7 +12,7 @@ const steps = [
 export function HowToApply() {
   return (
     <section className="bg-background py-14 lg:py-28">
-      <div className="mx-auto max-w-5xl px-6 text-center lg:px-10">
+      <div data-path-target="true" className="mx-auto max-w-5xl px-6 text-center lg:px-10">
         <h2 className="font-display text-4xl italic leading-tight md:text-5xl">
           Start your safety career in 3 steps
         </h2>

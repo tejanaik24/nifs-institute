@@ -46,7 +46,7 @@ function StatCounter({ value, suffix, label }: (typeof stats)[number]) {
 
 export function StatsBar() {
   return (
-    <section className="border-y border-border bg-background">
+    <section data-path-target="true" className="border-y border-border bg-background">
       <div className="mx-auto grid max-w-7xl grid-cols-2 divide-x divide-y divide-border border-border md:grid-cols-4 md:divide-y-0">
         {stats.map((stat) => (
           <StatCounter key={stat.label} {...stat} />

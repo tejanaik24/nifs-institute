@@ -48,7 +48,10 @@ export function Facilities() {
                   reverse && "md:[&>*:first-child]:order-2"
                 )}
               >
-                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-sm">
+                <div
+                  data-path-target="true"
+                  className="relative aspect-[4/3] w-full overflow-hidden rounded-sm"
+                >
                   {facility.image ? (
                     <Image
                       src={facility.image}

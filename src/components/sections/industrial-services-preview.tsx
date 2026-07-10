@@ -32,7 +32,7 @@ const services = [
 export function IndustrialServicesPreview() {
   return (
     <section className="bg-muted/30 py-14 lg:py-28">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10">
+      <div data-path-target="true" className="mx-auto max-w-7xl px-6 lg:px-10">
         <h2 className="font-display max-w-2xl text-4xl italic leading-tight md:text-5xl">
           We don&apos;t just train students. We serve industries.
         </h2>

@@ -7,7 +7,7 @@ import { centers } from "@/lib/data/centers";
 export function CentersGrid() {
   return (
     <section className="bg-muted/30 py-14 lg:py-28">
-      <div className="mx-auto max-w-7xl px-6 text-center lg:px-10">
+      <div data-path-target="true" className="mx-auto max-w-7xl px-6 text-center lg:px-10">
         <h2 className="font-display text-4xl italic leading-tight md:text-5xl">
           85+ Centers Across India
         </h2>
