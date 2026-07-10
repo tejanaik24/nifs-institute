@@ -9,6 +9,7 @@ import Recruiters from '@/components/sections/recruiters';
 import Centers from '@/components/sections/centers';
 import Testimonials from '@/components/sections/testimonials';
 import Footer from '@/components/sections/footer';
+import { ScrollPathLine } from '@/components/ScrollPathLine';
 
 export default function HomePage() {
   return (
@@ -17,16 +18,22 @@ export default function HomePage() {
         header { display: none !important; }
         footer.bg-foreground { display: none !important; }
       `}</style>
-      <Navbar />
-      <Hero />
-      <StatsBar />
-      <CoursesLadder />
-      <Accreditations />
-      <Services />
-      <Recruiters />
-      <Centers />
-      <Testimonials />
-      <Footer />
+      {/* Relative wrapper so ScrollPathLine absolute SVG is positioned correctly */}
+      <div className="relative bg-[#0A0A0A] text-white overflow-hidden">
+        <ScrollPathLine />
+        <div className="relative z-10">
+          <Navbar />
+          <Hero />
+          <StatsBar />
+          <CoursesLadder />
+          <Accreditations />
+          <Services />
+          <Recruiters />
+          <Centers />
+          <Testimonials />
+          <Footer />
+        </div>
+      </div>
     </>
   );
 }
