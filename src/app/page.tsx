@@ -1,4 +1,4 @@
-import { Hero } from "@/components/sections/hero";
+import { HeroSection } from "@/components/sections/hero-section";
 import { StatsBar } from "@/components/sections/stats-bar";
 import { TrustStrip } from "@/components/sections/trust-strip";
 import { SalaryOutcomes } from "@/components/sections/salary-outcomes";
@@ -14,7 +14,7 @@ import Link from "next/link";
 export default function HomePage() {
   return (
     <>
-      <Hero />
+      <HeroSection />
       <StatsBar />
       <TrustStrip />
       <SalaryOutcomes />
