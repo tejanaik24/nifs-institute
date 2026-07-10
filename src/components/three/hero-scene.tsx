@@ -94,6 +94,7 @@ export function HeroScene() {
       camera={{ position: [0, 0, 5], fov: 50 }}
       dpr={[1, 1.5]}
       gl={{ antialias: true, alpha: true }}
+      style={{ pointerEvents: "none" }}
     >
       <ambientLight intensity={0.7} />
       <Embers />
