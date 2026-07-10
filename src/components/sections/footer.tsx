@@ -4,7 +4,7 @@ import Link from "next/link";
 import { MessageSquare, Phone, Mail, MapPin } from "lucide-react";
 import { NifsCrest } from "@/components/nifs-crest";
 
-export function Footer() {
+export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (

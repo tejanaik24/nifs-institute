@@ -6,7 +6,7 @@ import { Menu, X } from "lucide-react";
 import { NifsCrest } from "@/components/nifs-crest";
 import { cn } from "@/lib/utils";
 
-export function Navbar() {
+export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 

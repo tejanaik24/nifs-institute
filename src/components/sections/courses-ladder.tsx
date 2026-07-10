@@ -10,7 +10,7 @@ interface LadderLevel {
   courses: { name: string; slug: string; desc: string }[];
 }
 
-export function CoursesLadder() {
+export default function CoursesLadder() {
   const ladderLevels: LadderLevel[] = [
     {
       level: "Certificate Programs",

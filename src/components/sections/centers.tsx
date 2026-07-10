@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { MapPin } from "lucide-react";
 import Link from "next/link";
 
-export function Centers() {
+export default function Centers() {
   const centerList = [
     "Vizag",
     "Hyderabad",

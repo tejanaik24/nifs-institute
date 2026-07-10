@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Shield } from "lucide-react";
 
-export function Accreditations() {
+export default function Accreditations() {
   const accreditations = [
     { name: "NSDC", desc: "National Skill Development Corporation" },
     { name: "Skill India", desc: "Government Skill Initiative Partner" },

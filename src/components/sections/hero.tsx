@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-export function Hero() {
+export default function Hero() {
   // CSS for floating embers
   const emberStyles = `
     @keyframes floatUp {

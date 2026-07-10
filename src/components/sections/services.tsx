@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Layers, Flame, ClipboardCheck, Users } from "lucide-react";
 
-export function IndustrialServices() {
+export default function Services() {
   const services = [
     {
       title: "In-House Training",

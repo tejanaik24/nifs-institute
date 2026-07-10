@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Quote } from "lucide-react";
 
-export function Testimonials() {
+export default function Testimonials() {
   const testimonials = [
     {
       name: "Rohan Sharma",

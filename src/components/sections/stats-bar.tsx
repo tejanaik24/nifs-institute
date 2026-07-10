@@ -53,7 +53,7 @@ function StatCounter({ number, suffix, label }: StatItemProps) {
   );
 }
 
-export function StatsBar() {
+export default function StatsBar() {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
