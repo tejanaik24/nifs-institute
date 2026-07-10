@@ -11,7 +11,7 @@ function LogoTile({ name, logo }: Recruiter) {
   }
 
   return (
-    <span className="relative flex h-16 w-32 shrink-0 items-center justify-center grayscale transition-all hover:grayscale-0">
+    <span className="relative flex h-16 w-32 shrink-0 items-center justify-center">
       <Image
         src={logo}
         alt={name}
