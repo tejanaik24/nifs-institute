@@ -8,6 +8,8 @@ import { PlacementWall } from "@/components/sections/PlacementWall";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { WhyNIFS } from "@/components/sections/WhyNIFS";
 import { TrainingYard } from "@/components/sections/TrainingYard";
+import { TrustStrip } from "@/components/sections/trust-strip";
+import { CentersGrid } from "@/components/sections/centers-grid";
 import { AccreditationsSection } from "@/components/sections/AccreditationsSection";
 import { AdmissionsCTA } from "@/components/sections/AdmissionsCTA";
 
@@ -24,6 +26,8 @@ export default function HomePage() {
         <TestimonialsSection />
         <WhyNIFS />
         <TrainingYard />
+        <TrustStrip />
+        <CentersGrid />
         <AccreditationsSection />
         <AdmissionsCTA />
       </SpineLayout>
