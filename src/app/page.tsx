@@ -1,4 +1,5 @@
 import { HeroSection } from "@/components/sections/hero-section";
+import { SpineLayout } from "@/components/SpineLayout";
 import { LogoBar } from "@/components/sections/LogoBar";
 import { TransformSection } from "@/components/sections/TransformSection";
 import { StatsSection } from "@/components/sections/StatsSection";
@@ -14,16 +15,18 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
-      <LogoBar />
-      <TransformSection />
-      <StatsSection />
-      <CoursesSection />
-      <PlacementWall />
-      <TestimonialsSection />
-      <WhyNIFS />
-      <TrainingYard />
-      <AccreditationsSection />
-      <AdmissionsCTA />
+      <SpineLayout>
+        <LogoBar />
+        <TransformSection />
+        <StatsSection />
+        <CoursesSection />
+        <PlacementWall />
+        <TestimonialsSection />
+        <WhyNIFS />
+        <TrainingYard />
+        <AccreditationsSection />
+        <AdmissionsCTA />
+      </SpineLayout>
     </>
   );
 }

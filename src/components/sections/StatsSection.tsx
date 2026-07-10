@@ -2,10 +2,13 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useInView, useReducedMotion } from "framer-motion";
+import { SpineSplit } from "@/components/sections/spine-helpers";
 
-const stats = [
+const leftStats = [
   { value: 20, suffix: "+", label: "Years Established" },
   { value: 85, suffix: "+", label: "Training Centers" },
+];
+const rightStats = [
   { value: 10000, suffix: "+", label: "Alumni Placed" },
   { value: 93, suffix: "%", label: "Placement Rate" },
 ];
@@ -14,8 +17,13 @@ function StatItem({
   value,
   suffix,
   label,
-  index,
-}: (typeof stats)[number] & { index: number }) {
+  bordered,
+}: {
+  value: number;
+  suffix: string;
+  label: string;
+  bordered?: boolean;
+}) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
   const reduceMotion = useReducedMotion();
@@ -40,11 +48,11 @@ function StatItem({
   return (
     <div
       ref={ref}
-      className={`flex flex-col items-center px-4 py-2 text-center ${
-        index > 0 ? "sm:border-l sm:border-white/30" : ""
+      className={`flex flex-1 flex-col items-center px-4 py-2 text-center ${
+        bordered ? "border-l border-white/30" : ""
       }`}
     >
-      <span className="font-display text-[clamp(3rem,6vw,5rem)] leading-none text-white italic">
+      <span className="font-display text-[clamp(2.5rem,5vw,4rem)] leading-none text-white italic">
         {count.toLocaleString("en-IN")}
         {suffix}
       </span>
@@ -57,18 +65,29 @@ function StatItem({
 
 export function StatsSection() {
   return (
-    <section className="overflow-x-hidden bg-primary py-16 lg:py-20">
-      <div className="mx-auto max-w-[900px] px-5">
-        <div className="text-center text-[10px] font-medium tracking-[0.25em] text-white uppercase">
-          NIFS By The Numbers
-        </div>
-
-        <div className="mt-12 grid grid-cols-2 gap-y-8 sm:flex sm:flex-row sm:justify-between sm:gap-y-0">
-          {stats.map((stat, i) => (
-            <StatItem key={stat.label} {...stat} index={i} />
-          ))}
-        </div>
+    <section className="relative overflow-x-hidden bg-primary">
+      <div className="text-center text-[10px] font-medium tracking-[0.25em] text-white uppercase">
+        NIFS By The Numbers
       </div>
+
+      <SpineSplit
+        className="!py-8 lg:!py-12"
+        left={
+          <div className="flex gap-4 sm:gap-8">
+            {leftStats.map((s, i) => (
+              <StatItem key={s.label} {...s} bordered={i > 0} />
+            ))}
+          </div>
+        }
+        center={<div className="h-24 w-px bg-white/30" />}
+        right={
+          <div className="flex gap-4 sm:gap-8">
+            {rightStats.map((s, i) => (
+              <StatItem key={s.label} {...s} bordered={i > 0} />
+            ))}
+          </div>
+        }
+      />
     </section>
   );
 }

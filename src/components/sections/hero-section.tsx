@@ -130,12 +130,21 @@ export function HeroSection() {
         className="absolute inset-y-0 right-0 left-[45%] hidden lg:block"
       >
         <Image
-          src="/images/hero-industrial-site.jpg"
-          alt="NIFS industrial site inspection at golden hour"
+          src="/images/hero-professional.png"
+          alt="NIFS graduate safety professional on an industrial site"
           fill
           priority
           sizes="55vw"
           className="object-cover object-[center_top]"
+        />
+        <Image
+          src="/images/hero-aerial-bg.png"
+          alt=""
+          fill
+          sizes="55vw"
+          loading="lazy"
+          aria-hidden="true"
+          className="object-cover opacity-20 mix-blend-overlay"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] via-black/20 to-black/30" />
       </motion.div>
@@ -259,12 +268,21 @@ export function HeroSection() {
         </div>
         <div className="relative">
           <Image
-            src="/images/hero-industrial-site.jpg"
-            alt="NIFS industrial site inspection at golden hour"
+            src="/images/hero-professional.png"
+            alt="NIFS graduate safety professional on an industrial site"
             fill
             priority
             sizes="55vw"
             className="object-cover object-[center_top]"
+          />
+          <Image
+            src="/images/hero-aerial-bg.png"
+            alt=""
+            fill
+            sizes="55vw"
+            loading="lazy"
+            aria-hidden="true"
+            className="object-cover opacity-20 mix-blend-overlay"
           />
           <div className="absolute inset-0 bg-black/50" />
           <div className="absolute bottom-0 left-0 p-8">
@@ -293,8 +311,8 @@ export function HeroSection() {
         </div>
         <div className="relative h-[40svh] w-full">
           <Image
-            src="/images/hero-industrial-site.jpg"
-            alt="NIFS industrial site inspection at golden hour"
+            src="/images/hero-professional.png"
+            alt="NIFS graduate safety professional on an industrial site"
             fill
             priority
             sizes="100vw"
