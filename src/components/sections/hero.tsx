@@ -1,57 +1,125 @@
-import Image from "next/image";
+"use client";
+
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 export function Hero() {
-  return (
-    <section
-      data-path-target="true"
-      className="relative flex h-[100svh] min-h-[640px] w-full items-end overflow-hidden bg-foreground"
-    >
-      <Image
-        src="/images/hero-industrial-site.jpg"
-        alt="NIFS Industrial site inspection at golden hour"
-        fill
-        priority
-        className="absolute inset-0 h-full w-full object-cover opacity-70"
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/50" />
+  // CSS for floating embers
+  const emberStyles = `
+    @keyframes floatUp {
+      0% {
+        transform: translateY(100vh) translateX(0) scale(1);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.6;
+      }
+      90% {
+        opacity: 0.6;
+      }
+      100% {
+        transform: translateY(-10vh) translateX(100px) scale(0);
+        opacity: 0;
+      }
+    }
+    .ember {
+      position: absolute;
+      bottom: -10px;
+      background: radial-gradient(circle, #FF4500 0%, rgba(255,179,71,0) 70%);
+      border-radius: 50%;
+      pointer-events: none;
+      opacity: 0;
+      filter: blur(1.5px);
+    }
+  `;
 
-      {/* Vertical rotated tagline — Gordonstoun's "Plus Est En Vous" pattern */}
-      <div className="absolute right-6 top-1/2 z-10 hidden -translate-y-1/2 md:block lg:right-10">
-        <span
-          className="font-display block whitespace-nowrap text-lg italic text-white/90"
-          style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
-        >
-          Igniting Careers in Fire and Safety
-        </span>
+  // Create an array of random embers configs
+  const embers = Array.from({ length: 25 }).map((_, i) => {
+    const size = Math.random() * 6 + 2; // 2px to 8px
+    const left = Math.random() * 100; // 0% to 100%
+    const delay = Math.random() * 10; // 0s to 10s delay
+    const duration = Math.random() * 8 + 6; // 6s to 14s duration
+    return { id: i, size, left, delay, duration };
+  });
+
+  return (
+    <section className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-[#0A0A0A] pt-24 px-6 md:px-10">
+      <style dangerouslySetInnerHTML={{ __html: emberStyles }} />
+
+      {/* Fire Gradient Overlay (Orange to Dark) */}
+      <div className="absolute inset-0 bg-radial-gradient from-[#FF4500]/15 via-transparent to-transparent pointer-events-none z-0" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-[#0A0A0A]/50 pointer-events-none z-0" />
+
+      {/* CSS Floating Embers Container */}
+      <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
+        {embers.map((ember) => (
+          <div
+            key={ember.id}
+            className="ember"
+            style={{
+              width: `${ember.size}px`,
+              height: `${ember.size}px`,
+              left: `${ember.left}%`,
+              animation: `floatUp ${ember.duration}s linear infinite`,
+              animationDelay: `${ember.delay}s`,
+            }}
+          />
+        ))}
       </div>
 
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-20 lg:px-10 lg:pb-28">
-        <h1 className="font-display max-w-3xl text-5xl italic leading-[1.05] text-white text-balance md:text-7xl">
-          Trained for the Site.
-          <br />
-          Ready for the Career.
-        </h1>
-        <p className="mt-6 max-w-xl text-lg text-white/85">
-          India&apos;s leading industrial safety and fire engineering
-          institute — NSDC &amp; Skill India approved, ISO 9001:2015
-          certified, with graduates placed at Adani, L&amp;T, ITC, Amazon
-          and 85+ centers nationwide.
-        </p>
-        <div className="mt-8 flex flex-wrap gap-4">
+      {/* Main Content (Framer Motion reveals) */}
+      <div className="relative z-10 mx-auto max-w-5xl text-center flex flex-col items-center">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" as const }}
+          className="inline-flex items-center gap-2 px-4 py-1.5 mb-6 border border-[#FF4500]/30 bg-[#FF4500]/5 rounded-full font-mono text-xs uppercase tracking-wider text-[#FFB347]"
+        >
+          <span className="w-2 h-2 rounded-full bg-[#FF4500] animate-pulse shadow-[0_0_10px_#FF4500]" />
+          Accredited Safety Leadership
+        </motion.div>
+
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" as const }}
+          className="font-display text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white leading-[1.1] max-w-4xl"
+        >
+          India&apos;s Premier <br className="hidden sm:inline" />
+          <span className="bg-gradient-to-r from-[#FF4500] to-[#FFB347] bg-clip-text text-transparent filter drop-shadow-[0_2px_10px_rgba(255,69,0,0.15)]">
+            Fire &amp; Safety
+          </span>{" "}
+          Institute
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" as const }}
+          className="mt-6 text-base sm:text-xl text-white/70 max-w-2xl leading-relaxed"
+        >
+          20+ Years of Academic Excellence | 85+ Training Centers Across India | 10,000+ Placed Graduates in Leading Industries.
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.45, ease: "easeOut" as const }}
+          className="mt-10 flex flex-wrap justify-center gap-4 w-full sm:w-auto"
+        >
           <Link
             href="/courses"
-            className="bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground transition-transform hover:scale-[1.02]"
+            className="w-full sm:w-auto bg-[#FF4500] hover:bg-[#FF4500]/90 text-white font-medium text-sm px-8 py-4 rounded-sm transition-all hover:shadow-[0_0_20px_rgba(255,69,0,0.4)]"
           >
             Explore Courses
           </Link>
           <Link
-            href="/placements"
-            className="border border-white/70 bg-white/5 px-7 py-3.5 text-sm font-medium text-white backdrop-blur transition-transform hover:scale-[1.02]"
+            href="/admissions"
+            className="w-full sm:w-auto border border-white/20 bg-white/5 hover:bg-white/10 hover:border-white/40 text-white font-medium text-sm px-8 py-4 rounded-sm backdrop-blur transition-all"
           >
-            See Placements
+            Apply Now
           </Link>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

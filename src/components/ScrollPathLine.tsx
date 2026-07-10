@@ -268,7 +268,7 @@ export function ScrollPathLine() {
     >
       <defs>
         <filter id="cometGlow" x="-200%" y="-200%" width="500%" height="500%">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="blur" />
+          <feGaussianBlur in="SourceGraphic" stdDeviation="5.5" result="blur" />
           <feMerge>
             <feMergeNode in="blur" />
             <feMergeNode in="SourceGraphic" />
@@ -293,7 +293,7 @@ export function ScrollPathLine() {
         <path
           ref={travelerPathRef}
           fill="none"
-          stroke="#ff2222"
+          stroke="#FF4500"
           strokeWidth={7}
           strokeLinecap="round"
           filter="url(#cometGlow)"
