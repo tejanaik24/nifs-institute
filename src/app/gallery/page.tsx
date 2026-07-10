@@ -27,7 +27,7 @@ export default function GalleryPage() {
       />
 
       <section className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div data-path-target="true" className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {gallery.map((g) => (
             <div key={g.slot} className="relative aspect-[4/3] w-full overflow-hidden rounded-sm border border-border">
               <Image

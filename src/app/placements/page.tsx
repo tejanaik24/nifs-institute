@@ -44,7 +44,7 @@ export default function PlacementsPage() {
           </div>
         </div>
 
-        <div className="mt-20">
+        <div data-path-target="true" className="mt-20">
           <h2 className="font-display text-2xl italic">Our Top Recruiters</h2>
           <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-6">
             {recruiters.map((r) => (

@@ -47,7 +47,7 @@ export default async function CourseDetailPage({
           </p>
         </div>
 
-        <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
+        <div data-path-target="true" className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
           {[
             { label: "Duration", value: course.duration },
             { label: "Eligibility", value: course.eligibility },
@@ -63,7 +63,10 @@ export default async function CourseDetailPage({
           ))}
         </div>
 
-        <div className="relative mt-12 aspect-[16/7] w-full overflow-hidden rounded-sm">
+        <div
+          data-path-target="true"
+          className="relative mt-12 aspect-[16/7] w-full overflow-hidden rounded-sm"
+        >
           <Image
             src={course.image}
             alt={`${course.name} — practical training`}

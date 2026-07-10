@@ -14,7 +14,7 @@ export default function BlogPage() {
         title="Safety insights & NIFS updates"
         description="Articles, events, and announcements — coming soon."
       />
-      <section className="mx-auto max-w-3xl px-6 py-24 text-center lg:px-10">
+      <section data-path-target="true" className="mx-auto max-w-3xl px-6 py-24 text-center lg:px-10">
         <p className="text-muted-foreground">
           We&apos;re migrating our articles from the old site. Check back
           soon, or follow NIFS on Instagram for the latest updates.

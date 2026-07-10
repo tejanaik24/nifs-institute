@@ -54,7 +54,10 @@ export default function IndustrialServicesPage() {
             }`}
           >
             <div className={i % 2 === 1 ? "md:order-2" : ""}>
-              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-sm">
+              <div
+                data-path-target="true"
+                className="relative aspect-[4/3] w-full overflow-hidden rounded-sm"
+              >
                 <Image
                   src={`/images/${s.slot}`}
                   alt={s.title}

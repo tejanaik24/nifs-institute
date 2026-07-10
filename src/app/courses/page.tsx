@@ -28,7 +28,10 @@ export default function CoursesPage() {
           return (
             <div key={tier} className="mb-16">
               <h2 className="font-display mb-6 text-2xl italic">{tier}</h2>
-              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              <div
+                data-path-target="true"
+                className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+              >
                 {tierCourses.map((course) => (
                   <TiltWrapper key={course.slug} className="flex flex-col">
                     <Link
