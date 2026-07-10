@@ -5,10 +5,22 @@
 Rebuilding nifsindia.net as a premium, Gordonstoun-style (gordonstoun.org.uk)
 Next.js site for NIFS (National Institute of Fire and Safety), an Indian
 industrial-safety and fire-engineering training institute. Brand accent is
-NIFS's real red (`#DC1711`, pixel-sampled from their logo), not a copied
-purple. Positioning is **industrial safety first** — their real recruiters
-(Adani, L&T, ITC, GMR, Amazon...) and career outcomes (Safety Officer, HSE
-Manager, Risk Analyst) are corporate/industrial roles, not firefighting.
+NIFS's real red (`#DC1711` in tokens, `#CC0000` used directly on several
+newer CTA/accent elements per explicit user spec), not a copied purple.
+Positioning is **industrial safety first** — their real recruiters (Adani,
+L&T, ITC, GMR, Amazon...) and career outcomes (Safety Officer, HSE Manager,
+Risk Analyst) are corporate/industrial roles, not firefighting.
+
+**Current state (end of 2026-07-10 session):** homepage fully rebuilt with
+13 new premium sections, `ScrollPathLine.tsx` (the "comet" scroll indicator)
+is correctly bracket-wrapped around content on every page (homepage +
+subpages), `/courses` was redesigned from a card grid into large alternating
+editorial rows, and the Centers section now shows an interactive India map
+(currently the **user-generated AI image** `public/images/india-map.png`,
+NOT the vector version — see Decision Log, this flip-flopped twice this
+session and AI-image-with-no-fade is the final state). Site is live and
+deployed after every change this session — check `git log` for the true
+latest state before assuming anything below is still current.
 
 Full design spec lives at:
 `C:\Users\user\.claude\plans\please-help-me-create-transient-jellyfish.md`
@@ -316,19 +328,126 @@ hypothesis to rule out first.
 
 ## Known Issues / Pending Work
 
-- **No real images yet.** All 14 image slots (see plan file's image plan) are placeholders. Prompts were handed to the user for Google Antigravity generation, output expected in `c:\claude code\nifs-images-incoming\`.
-- Dev server currently running on **port 3001** (port 3000 was occupied by an unrelated project on this machine).
+- **No real images yet** for most placeholder slots (chairman portrait, hostel, gallery). Prompts were handed to the user for Google Antigravity generation, output expected in `c:\claude code\nifs-images-incoming\`. (Several homepage/facility images DID land and are wired in — `training-yard-drill.jpg`, `hostel-facility.jpg`, course thumbnails, etc. — check `public/images/` for what's actually present before assuming a slot is still a placeholder.)
+- Dev server currently running on **port 3001** (port 3000 was occupied by an unrelated project on this machine). A stray `next dev` may already be running on port 3001 from a prior session — check before starting a new one (`npm run dev -- -p 3001` will fail with "already running" if so; just reuse it).
 - Blog is a stub — no articles migrated yet from the old site.
-- Chairman portrait, hostel, gallery pages use generic placeholder slots — need real photos or copy review once images land.
 - No CMS — if NIFS staff need to self-edit content later, that's a scope change from the current "static/typed data" decision.
+- **India map**: currently the raw AI-generated raster image (`public/images/india-map.png`) at `max-w-2xl`, full rectangle, no fade — sourced from a user-generated ChatGPT/DALL-E image, city dots are a separate accurate HTML/CSS overlay (see Decision Log). An earlier, more geographically-precise **vector** version exists in git history (commit `3a71abe`, Natural-Earth-derived, no licensing issues, resizable, no raster artifacts) if the user ever wants to switch back — do not re-build it from scratch, just check out that file.
+- `src/components/sections/india-map.tsx`'s city dot coordinates are calibrated specifically to `public/images/india-map.png`'s exact pixel layout (via 4 pixel-detected landmark anchors — Kashmir tip, Kanyakumari, Kutch, Arunachal tip). **If the image is ever regenerated/replaced, the dots will be wrong until recalibrated** — the calibration method (Python + Pillow, `is_land()` brightness/saturation threshold + landmark pixel detection) is documented in this session's chat history, not saved as a reusable script in the repo.
 
 ## Deployment
 
 **Live**: https://nifs-institute.vercel.app (Vercel project `nifs-institute`, account
-`tejasolryder24-4493`, deployed to production). Contact form will only log to console until
+`tejasolryder24-4493`, deployed to production via `vercel --prod --yes` from the local CLI —
+**not** auto-deployed from GitHub pushes; a `git push` alone does NOT update the live site,
+you must also run `vercel --prod --yes` after pushing). Contact form will only log to console until
 `RESEND_API_KEY` and `ADMISSIONS_EMAIL` env vars are set in the Vercel project settings — no real
-email sends yet. Real photography still pending (`ImagePlaceholder` throughout) — redeploy once
-images from `c:\claude code\nifs-images-incoming\` are wired in.
+email sends yet.
+
+## Session History
+
+### 2026-07-10 (continued) — Homepage premium rebuild + ScrollPathLine bracket-wrap fixes + /courses redesign + India map saga
+
+**Part 1 — 13-step homepage build** (per user's numbered spec): urgency bar
+(`urgency-bar.tsx`, fixed `#CC0000` bar above header, header shifted to
+`top-9` to compensate), improved burger menu (`mobileNav` in `nav.ts`, red
+`#CC0000` Apply Now button — Sheet already had backdrop/animation built in),
+`StatsBar` (custom requestAnimationFrame counter, no library), accreditation
++ recruiter `LogoMarquee` (downloaded real logos from nifsindia.net —
+public, unauthenticated — one broken link `qcfi.png` falls back to a
+red-bordered text badge), `SalaryOutcomes`, `IndustrialServicesPreview`,
+`HowToApply`, `CentersGrid` (later became the India map section),
+`Facilities` (alternating image/text splits, mirrors `story-block.tsx`),
+`WhatsAppButton` (fixed bottom-right, `z-[70]`). All new sections use
+`framer-motion` `whileInView` fade-ups. Lenis smooth-scroll and per-course
+`data-path-target` course-grid pattern were both already present from the
+original build — reused, not rebuilt.
+
+**Part 2 — ScrollPathLine overlap bugs across the whole site.** The user
+flagged (with screenshots) that the new sections' text/logos/cards were
+being cut through by the comet line, because `ScrollPathLine.tsx` (untouched
+all session, per explicit constraint) only bracket-wraps elements marked
+`data-path-target="true"` — unmarked content just gets a straight line
+through it. Fixed by marking the right element per section (inner
+`max-w-*` wrapper vs. per-item vs. whole-section-root, depending on layout
+shape) — pattern documented via an Explore+Plan subagent audit, then applied
+across **every page**, not just the homepage: `/courses` (was previously
+untouched — a real gap, the homepage `CourseGrid` fix didn't cover the
+separate `/courses` page component), `/courses/[slug]`, `/centers`,
+`/gallery`, `/placements`, `/industrial-services`. Two follow-up corrections
+after visual review: (1) `TrustStrip`'s two logo rows and `CourseGrid`'s 4
+per-card brackets were each collapsed into ONE wrap per section — visually
+too many small zigzagging curves — and (2) `CentersGrid`'s heading-only
+wrap left the tall card grid unmarked, causing the connector line to cut
+through a city card; fixed by wrapping the whole heading+grid block instead.
+
+**Part 3 — `/courses` full redesign.** User called the post-fix `/courses`
+page (grid-of-cards with a heavy bracket around each pair) "worst design...
+no plan," pointing at the homepage `Facilities` section as the target look.
+Confirmed via AskUserQuestion: every one of the 10 courses becomes its own
+large alternating image/text row (not one row per tier). Extracted into a
+new `src/components/sections/course-catalog.tsx` client component (the page
+itself must stay a Server Component for its `metadata` export). One
+follow-up fix: wrapping each tier heading in its own `data-path-target`
+produced a cramped, tangled bracket squeezed between two large image
+curves — removed; tier headings are short/left-aligned and don't need
+their own wrap.
+
+**Part 4 — India map, four iterations.** (1) Hand-drawn SVG path from
+memory — user correctly rejected it as "not like India." (2) Sourced a
+real, accurate outline from Natural Earth's 1:110m public-domain dataset
+(no attribution needed, unlike a CC-BY-SA alternative found first), with
+city dots computed from real lon/lat through the same projection — very
+accurate, but user still felt it was imperfect and asked to try AI
+generation instead, after being warned AI models hallucinate borders (a
+real legal-sensitivity issue in India specifically — Kashmir/Arunachal
+depictions). (3) User generated an image via ChatGPT/DALL-E from a prompt I
+wrote; first version had baked-in (partially wrong) dots — no clean way to
+remove them (no true inpainting tool available), so asked for a dots-free
+regenerate. Calibrated 15 city dots against the actual image via Python +
+Pillow pixel-detection of 4 landmark points (Kashmir tip, Kanyakumari,
+Kutch, Arunachal tip) rather than eyeballing. (4) User then asked to
+`/plan-design-review` audit the result — the AI image's soft photographic
+glow (no hard edge, couldn't be cleanly cut out — tried brightness
+threshold, saturation threshold, and edge-flood-fill, all left visible
+artifacts) read as an oval "AI slop" blob against the site's flat vector
+design language, so reverted to the accurate SVG version, enlarged, with a
+gradient fill + drop-shadow. **User then explicitly asked to bring the AI
+image back** at the same larger size with no fade — that's the final state
+this session ended on. **Do not re-litigate this choice next session without
+re-confirming with the user** — it's gone back and forth twice already.
+
+**Part 5 — Real bug found during the design audit (unrelated to the map):**
+the site header's solid/transparent background switch was driven by a
+native `window` scroll listener, but Lenis renders scroll on its own RAF
+loop — these can desync for a frame during fast scrolling, letting page
+content flash through a still-transparent header (this is what the user's
+screenshot of "85+ Centers Across India" overlapping the nav bar was).
+Fixed by having `SmoothScrollProvider` broadcast Lenis's own scroll position
+via a `window.dispatchEvent(new CustomEvent("app-scroll", ...))` on every
+Lenis tick, which `SiteHeader` now listens to directly instead of relying
+solely on native scroll timing.
+
+**Part 6 — Also found and fixed, unprompted:** the Three.js hero
+ember-particle `<Canvas>` had a computed `pointer-events: auto` on the
+actual canvas DOM node, overriding its wrapper's `pointer-events-none` —
+meaning the invisible full-page-covering canvas (it's `position:fixed
+inset-0`, present at every scroll depth, not just over the hero) was
+silently intercepting hover/click across the **entire site**. Found while
+debugging why the map's hover tooltip never appeared. Fixed with an
+explicit `style={{ pointerEvents: "none" }}` on the `<Canvas>` element in
+`hero-scene.tsx`. This was a real, previously-undetected, site-wide
+interaction bug — worth spot-checking that hover states still work
+correctly elsewhere if anything seems unresponsive in a future session.
+
+**Process note for next session:** every fix this session was verified with
+real `agent-browser` screenshots (and sometimes `eval`-based DOM/computed-style
+inspection) before shipping — not assumed from code alone. Several
+"looks fixed" theories were wrong on first inspection (the header overlap,
+the tier-heading bracket, the background-removal attempts) and only the
+actual pixel evidence caught it. Keep doing this — this codebase now has a
+track record of subtle CSS stacking / animation-timing bugs that don't
+show up by reading the code.
 
 ## Session History
 
@@ -349,3 +468,8 @@ images from `c:\claude code\nifs-images-incoming\` are wired in.
 - **3D scope**: added an R3F ember-particle hero layer beyond Gordonstoun's actual GSAP-only effects, per user's explicit "advanced 3D" request.
 - **No CMS, no existing NIFS backend assumed** — confirmed with user during planning.
 - **Scroll thread went through two redesigns on 2026-07-10.** First: replaced `scroll-circuit.tsx` with a comet-style `scroll-path-line.tsx` in `components/motion/` (glow trail, wrap-around brackets, per-section box-shadow activation, bend-safe length→y lookup table). User rejected that result outright ("completely wrong"), deleted it, and gave a much more literal, prescriptive spec instead. Second (current): `src/components/ScrollPathLine.tsx` — no section glow, no particles, `viewBox="0 0 windowWidth documentScrollHeight"` with `preserveAspectRatio="none"` (path intentionally squashed to one screen height), and traveler `stroke-dashoffset` driven by plain `self.progress * totalPathLength` from a single ScrollTrigger — explicitly overriding the earlier bend-desync fix. Attribute scheme simplified to `data-path-logo="true"` (logo only) + `data-path-target="true"` (every wrapped element; first tagged = hero-style entry, last = footer, rest = generic bracket wrap). Lesson: when a user gives an exact, literal technical spec a second time after rejecting a "corrected" version, implement it exactly as written rather than re-applying the same fix.
+- **`ScrollPathLine.tsx` itself is permanently off-limits to edit** — explicit standing constraint repeated across this whole session. Every "line overlaps content" bug fix must be solved purely via `data-path-target`/`data-path-stretch` attribute placement on the content side, never by touching the component's own logic.
+- **`data-path-target` wrap granularity rule, learned the hard way**: mark the inner `max-w-*` content wrapper (not the outer full-bleed `<section>`, which makes the bracket hug the browser edge) for most sections; mark per-item elements only when a section has few (≤4), visually large, distinct items (`Facilities`, `StoryBlock`, `industrial-services` splits — mirrors the original `story-block.tsx`/`course-grid.tsx` pattern); for anything with many small repeated items (a card grid, `CentersGrid`, `CourseGrid`) mark the WHOLE section/grid as one single target — per-item marking on many small items produces a tangled, ugly zigzag of brackets, confirmed twice this session (`TrustStrip`'s two rows, `CourseGrid`'s 4 cards, `CentersGrid`'s heading-only wrap all had to be corrected to "one wrap for the whole block" after visual review).
+- **India map: AI-generated raster image, not the accurate SVG vector** — flip-flopped twice this session (SVG → AI image → SVG → AI image again), final state is the AI image (`public/images/india-map.png`) at `max-w-2xl`, full rectangle, no CSS fade mask, dots as a precisely pixel-calibrated separate HTML overlay. The vector version (more geographically accurate, no licensing/artifact issues) still exists in git history at commit `3a71abe` if this gets revisited — reuse it, don't rebuild.
+- **Header background-switch now listens to Lenis's own scroll event, not native `window` scroll** — native scroll events can lag a frame behind Lenis's RAF-driven virtual scroll during fast scrolling, which caused a real, confirmed bug (page content briefly visible through a still-transparent header). `SmoothScrollProvider` broadcasts a custom `app-scroll` window event on every Lenis tick now; `SiteHeader` listens to both that and native scroll (kept as a fallback for `prefers-reduced-motion` users, where Lenis never initializes).
+- **Hero `<Canvas>` (Three.js ember particles) needs explicit `pointer-events: none` on the canvas element itself**, not just its wrapper div — discovered the wrapper's `pointer-events-none` was being silently overridden on the actual `<canvas>` DOM node (computed style showed `auto`), which meant the full-page-covering fixed canvas was intercepting hover/click everywhere on the site. Any future full-viewport fixed/absolute decorative layer should be checked the same way (computed style on the actual leaf DOM node, not assumed from the wrapper's class).
