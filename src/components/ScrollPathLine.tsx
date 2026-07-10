@@ -28,8 +28,11 @@ export function ScrollPathLine() {
   const trackPathRef = useRef<SVGPathElement>(null);
   const travelerPathRef = useRef<SVGPathElement>(null);
   const pathname = usePathname();
+  const isHome = pathname === "/";
 
   useEffect(() => {
+    if (isHome) return;
+
     const svg = svgRef.current;
     const group = groupRef.current;
     const trackCasing = trackCasingRef.current;
@@ -250,7 +253,9 @@ export function ScrollPathLine() {
       scrollTriggerInstance?.kill();
       gsap.killTweensOf(posState);
     };
-  }, [pathname]);
+  }, [pathname, isHome]);
+
+  if (isHome) return null;
 
   return (
     <svg
