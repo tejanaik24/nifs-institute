@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
-import { primaryNav } from "@/lib/data/nav";
+import { mobileNav } from "@/lib/data/nav";
 import { NifsCrest } from "@/components/nifs-crest";
 import { cn } from "@/lib/utils";
 
@@ -33,7 +33,7 @@ export function SiteHeader() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-colors duration-300",
+        "fixed inset-x-0 top-9 z-50 transition-colors duration-300",
         scrolled ? "bg-background/95 backdrop-blur border-b border-border" : "bg-transparent"
       )}
     >
@@ -84,7 +84,7 @@ export function SiteHeader() {
                 </button>
               </div>
               <nav className="flex flex-1 flex-col gap-1 overflow-y-auto">
-                {primaryNav.map((item) => (
+                {mobileNav.map((item) => (
                   <div key={item.href} className="border-b border-border py-3">
                     <Link
                       href={item.href}
@@ -110,11 +110,17 @@ export function SiteHeader() {
                   </div>
                 ))}
               </nav>
-              <div className="mt-6 flex items-center justify-between text-sm text-muted-foreground">
-                <span>+91-9246-624-690</span>
-                <Link href="/admissions" className="font-medium text-primary">
+              <div className="mt-6 flex flex-col gap-4">
+                <Link
+                  href="/admissions"
+                  className="block w-full bg-[#CC0000] py-3.5 text-center text-sm font-semibold text-white transition-transform hover:scale-[1.02]"
+                  onClick={() => setOpen(false)}
+                >
                   Apply Now →
                 </Link>
+                <span className="text-center text-sm text-muted-foreground">
+                  +91-9246-624-690
+                </span>
               </div>
             </div>
           </SheetContent>

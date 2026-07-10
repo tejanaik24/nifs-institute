@@ -1,7 +1,13 @@
 import { Hero } from "@/components/sections/hero";
+import { StatsBar } from "@/components/sections/stats-bar";
 import { TrustStrip } from "@/components/sections/trust-strip";
+import { SalaryOutcomes } from "@/components/sections/salary-outcomes";
+import { IndustrialServicesPreview } from "@/components/sections/industrial-services-preview";
 import { StoryBlock } from "@/components/sections/story-block";
 import { CourseGrid } from "@/components/sections/course-grid";
+import { HowToApply } from "@/components/sections/how-to-apply";
+import { CentersGrid } from "@/components/sections/centers-grid";
+import { Facilities } from "@/components/sections/facilities";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -9,7 +15,10 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <StatsBar />
       <TrustStrip />
+      <SalaryOutcomes />
+      <IndustrialServicesPreview />
 
       <StoryBlock
         eyebrow="Practical Training Yard"
@@ -68,6 +77,10 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <HowToApply />
+      <CentersGrid />
+      <Facilities />
 
       <section
         data-path-target="true"

@@ -38,6 +38,19 @@ export const primaryNav: NavItem[] = [
   { label: "Blog", href: "/blog" },
 ];
 
+// Explicit order for the mobile burger menu (Home | About | Courses |
+// Industrial Services | Centers | Placements | Contact) — distinct from
+// primaryNav's order/membership, which also drives the footer columns.
+export const mobileNav: NavItem[] = [
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  primaryNav.find((item) => item.label === "Courses")!,
+  primaryNav.find((item) => item.label === "Industrial Services")!,
+  { label: "Centers", href: "/centers" },
+  { label: "Placements", href: "/placements" },
+  { label: "Contact", href: "/contact" },
+];
+
 export const footerNav = {
   courses: "/courses",
   admissions: "/admissions",
