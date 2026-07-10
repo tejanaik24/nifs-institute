@@ -25,9 +25,17 @@ export function SiteHeader() {
       return;
     }
     const onScroll = () => setScrolled(window.scrollY > 60);
+    const onAppScroll = (e: Event) => {
+      const detail = (e as CustomEvent<{ scrollY: number }>).detail;
+      setScrolled(detail.scrollY > 60);
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("app-scroll", onAppScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("app-scroll", onAppScroll);
+    };
   }, [hasTransparentHero]);
 
   return (

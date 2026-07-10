@@ -24,7 +24,18 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
     });
     lenisRef.current = lenis;
 
-    lenis.on("scroll", ScrollTrigger.update);
+    lenis.on("scroll", (e: { scroll: number }) => {
+      ScrollTrigger.update();
+      // Broadcast Lenis's own render-synced scroll position so listeners
+      // (e.g. the header's solid/transparent switch) never desync from
+      // what's actually painted — native `window` scroll events can lag
+      // a frame behind Lenis's RAF-driven virtual scroll during fast
+      // scrolling, which let page content show through a still-transparent
+      // header.
+      window.dispatchEvent(
+        new CustomEvent("app-scroll", { detail: { scrollY: e.scroll } })
+      );
+    });
 
     gsap.ticker.add((time) => {
       lenis.raf(time * 1000);
