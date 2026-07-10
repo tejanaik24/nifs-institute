@@ -14,7 +14,7 @@ const cityDots = [
   { city: "Kolkata", x: 59.95, y: 45.53 },
   { city: "Rourkela", x: 52.95, y: 46.53 },
   { city: "Bhubaneswar", x: 54.89, y: 52.86 },
-  { city: "Visakhapatnam", x: 49.68, y: 61.26 },
+  { city: "Visakhapatnam", x: 49.68, y: 61.26, isHQ: true },
   { city: "Kakinada", x: 47.75, y: 63.51 },
   { city: "Nagpur", x: 41.44, y: 50.12 },
   { city: "Hyderabad", x: 40.24, y: 62.24 },
@@ -28,16 +28,17 @@ const cityDots = [
 
 export function IndiaMap() {
   return (
-    <div className="relative mx-auto aspect-[3/2] w-full max-w-2xl">
+    <div className="relative mx-auto aspect-[3/2] w-full max-w-xl">
       <Image
-        src="/images/india-map.png"
+        src="/images/india-map-v2.png"
         alt="Map of India"
         fill
         className="object-contain"
-        sizes="(max-width: 768px) 100vw, 42rem"
+        sizes="(max-width: 768px) 100vw, 34rem"
       />
       {cityDots.map((dot, i) => {
         const labelWidth = dot.city.length * 6.5 + 16;
+        const size = dot.isHQ ? "h-4 w-4" : "h-3 w-3";
         return (
           <div
             key={dot.city}
@@ -46,19 +47,21 @@ export function IndiaMap() {
           >
             <div className="relative -translate-x-1/2 -translate-y-1/2">
               <span
-                className="map-dot-pulse absolute inset-0 block h-3 w-3 rounded-full bg-[#CC0000]"
+                className={`map-dot-pulse absolute inset-0 block rounded-full bg-[#CC0000] ${size}`}
                 style={{ animationDelay: `${i * 0.15}s` }}
               />
               <motion.span
                 whileHover={{ scale: 1.4 }}
                 transition={{ type: "spring", stiffness: 300, damping: 15 }}
-                className="relative block h-3 w-3 rounded-full border border-white bg-[#CC0000]"
+                className={`relative block rounded-full border-2 border-white bg-[#CC0000] shadow-sm ${size}`}
               />
               <span
-                className="pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 rounded bg-foreground px-2 py-1 text-[10px] font-medium whitespace-nowrap text-background opacity-0 transition-opacity duration-200 group-hover:opacity-100"
+                className={`pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 rounded bg-foreground px-2 py-1 text-[10px] font-medium whitespace-nowrap text-background transition-opacity duration-200 group-hover:opacity-100 ${
+                  dot.isHQ ? "opacity-100" : "opacity-0"
+                }`}
                 style={{ minWidth: labelWidth }}
               >
-                {dot.city}
+                {dot.isHQ ? `${dot.city} · HQ` : dot.city}
               </span>
             </div>
           </div>
