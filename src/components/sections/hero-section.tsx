@@ -16,25 +16,25 @@ const chevronPattern =
 
 function StatsRow({ variant = "dark" }: { variant?: "dark" | "light" }) {
   return (
-    <div className="flex flex-wrap gap-4 xl:gap-6">
+    <div className="flex flex-wrap gap-4">
       {stats.map((stat, i) => (
         <div
           key={stat.label}
           className={
             i > 0
               ? variant === "dark"
-                ? "border-l border-white/15 pl-4 xl:pl-6"
-                : "border-l border-border pl-4 xl:pl-6"
+                ? "border-l border-white/15 pl-4"
+                : "border-l border-border pl-4"
               : ""
           }
         >
           <div
-            className={`font-display text-2xl italic ${variant === "dark" ? "text-white" : "text-foreground"}`}
+            className={`font-display text-[22px] italic ${variant === "dark" ? "text-white" : "text-foreground"}`}
           >
             {stat.value}
           </div>
           <div
-            className={`text-[10px] tracking-widest uppercase ${variant === "dark" ? "text-white/50" : "text-muted-foreground"}`}
+            className={`text-[9px] tracking-widest uppercase ${variant === "dark" ? "text-white/50" : "text-muted-foreground"}`}
           >
             {stat.label}
           </div>
@@ -49,13 +49,13 @@ function CtaButtons({ stacked = true }: { stacked?: boolean }) {
     <div className={`flex gap-3 ${stacked ? "flex-col" : "flex-wrap"}`}>
       <Link
         href="/courses"
-        className="inline-flex min-h-12 items-center justify-center bg-primary px-7 py-3.5 text-xs font-medium tracking-widest text-primary-foreground uppercase transition-opacity hover:opacity-90"
+        className="inline-flex h-11 items-center justify-center bg-primary px-5 text-[11px] font-medium tracking-widest text-primary-foreground uppercase transition-opacity hover:opacity-90"
       >
         Explore Courses →
       </Link>
       <Link
         href="/placements"
-        className="inline-flex min-h-12 items-center justify-center border border-white/70 px-7 py-3.5 text-xs font-medium tracking-widest text-white uppercase backdrop-blur transition-colors hover:bg-white/10"
+        className="inline-flex h-11 items-center justify-center border border-white/70 px-5 text-[11px] font-medium tracking-widest text-white uppercase backdrop-blur transition-colors hover:bg-white/10"
       >
         See Placements
       </Link>
@@ -65,21 +65,21 @@ function CtaButtons({ stacked = true }: { stacked?: boolean }) {
 
 function AccreditationRow() {
   return (
-    <div className="flex flex-wrap items-center gap-3">
+    <div className="flex flex-wrap items-center gap-2">
       {accreditationLogos
         .filter((a) => a.logo)
         .slice(0, 3)
         .map((a) => (
           <div
             key={a.name}
-            className="flex h-9 w-20 items-center justify-center bg-white/95 px-2"
+            className="flex h-6 w-14 items-center justify-center bg-white/95 px-1.5"
           >
             <Image
               src={a.logo as string}
               alt={a.name}
-              width={64}
-              height={28}
-              className="h-6 w-auto object-contain"
+              width={48}
+              height={16}
+              className="h-4 w-auto object-contain"
             />
           </div>
         ))}
@@ -141,35 +141,35 @@ export function HeroSection() {
       </motion.div>
 
       {/* ---------- DESKTOP (>1024px) ---------- */}
-      <div className="relative z-10 hidden min-h-[100svh] grid-cols-[30%_40%_30%] lg:grid">
+      <div className="relative z-10 hidden min-h-[100svh] grid-cols-[30%_40%_30%] lg:grid lg:max-h-[100svh]">
         <motion.div
           {...fadeX}
-          className="flex flex-col p-8 pt-[160px] pl-[60px] xl:p-[60px] xl:pt-[160px]"
+          className="flex flex-col p-10 pt-[120px]"
         >
           <div>
             <span className="text-primary text-[11px] font-medium tracking-[0.2em] uppercase">
               India&apos;s #1 Industrial Safety Institute
             </span>
-            <div className="bg-primary mt-4 mb-8 h-0.5 w-10" />
-            <h1 className="font-display text-[clamp(3rem,4vw,5rem)] leading-[0.95] text-white italic">
+            <div className="bg-primary mt-3 mb-5 h-0.5 w-10" />
+            <h1 className="font-display text-[clamp(2rem,3.5vw,4rem)] leading-[0.95] text-white italic">
               Igniting
               <br />
               Careers
               <br />
               <span className="text-primary">In Safety</span>
             </h1>
-            <p className="mt-6 max-w-[260px] text-sm leading-[1.7] text-white/60">
+            <p className="mt-4 max-w-[260px] text-sm leading-[1.7] text-white/60">
               20+ years of placing graduates at India&apos;s top industrial
               companies. NSDC approved. ISO certified.
             </p>
-            <motion.div {...statsIn} className="mt-10">
+            <motion.div {...statsIn} className="mt-6">
               <StatsRow variant="dark" />
             </motion.div>
-            <div className="mt-10">
+            <div className="mt-6">
               <CtaButtons />
             </div>
           </div>
-          <div className="mt-auto pt-10">
+          <div className="mt-auto pt-6">
             <AccreditationRow />
           </div>
         </motion.div>
@@ -187,24 +187,24 @@ export function HeroSection() {
               backgroundRepeat: "repeat",
             }}
           />
-          <div className="relative z-10 flex flex-col items-center gap-6 px-8 text-center">
+          <div className="relative z-10 flex flex-col items-center gap-4 px-8 text-center">
             <span className="text-[10px] tracking-[0.3em] text-white/60 uppercase">
               Est. 2004
             </span>
-            <h2 className="font-display text-[clamp(4rem,7vw,8rem)] leading-[0.9] text-white italic">
+            <h2 className="font-display text-[clamp(3rem,5.5vw,6.5rem)] leading-[0.9] text-white italic">
               Trained
               <br />
               For the
               <br />
               Plant.
             </h2>
-            <h3 className="font-display text-[clamp(2rem,4vw,4rem)] leading-[0.95] text-white/70 italic">
+            <h3 className="font-display text-[clamp(1.5rem,3vw,2.75rem)] leading-[0.95] text-white/70 italic">
               Placed In
               <br />
               The Industry.
             </h3>
           </div>
-          <div className="relative z-10 mt-16 flex flex-col items-center gap-3 px-8">
+          <div className="relative z-10 mt-8 flex flex-col items-center gap-3 px-8">
             <div className="h-px w-16 bg-white/40" />
             <span className="text-[10px] tracking-[0.2em] text-white/50 uppercase">
               National Institute of Fire &amp; Safety
