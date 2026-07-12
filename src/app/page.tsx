@@ -4,7 +4,6 @@ import { SpineLayout } from "@/components/SpineLayout";
 import { TunnelHero } from "@/components/sections/tunnel-hero";
 import { AboutNifs } from "@/components/sections/about-nifs";
 import { CentersGrid } from "@/components/sections/centers-grid";
-import { ExploreNifs } from "@/components/sections/ExploreNifs";
 
 export default function HomePage() {
   return (
@@ -12,11 +11,10 @@ export default function HomePage() {
       {/* Hero — full-viewport scroll image tunnel with headline overlay */}
       <TunnelHero />
 
-      {/* Continuous spine through About → Map → Explore */}
+      {/* Continuous spine through About → Map */}
       <SpineLayout>
         <AboutNifs />
         <CentersGrid />
-        <ExploreNifs />
       </SpineLayout>
     </>
   );
