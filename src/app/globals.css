@@ -200,6 +200,25 @@
   }
 }
 
+@keyframes spineWelcomeSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spine-welcome-ring {
+  animation: spineWelcomeSpin 8s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spine-welcome-ring {
+    animation: none;
+  }
+}
+
 /* Sitewide ambient background — soft drifting gradient auroras + grain,
    in the spirit of antigravity.google. Replaces the old Three.js ember
    particle field that scattered sharp red dots over every section. */
