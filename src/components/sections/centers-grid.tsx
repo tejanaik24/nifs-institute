@@ -8,10 +8,11 @@ import { SpineGutterBg, SpineSplit } from "@/components/sections/spine-helpers";
 
 export function CentersGrid() {
   return (
-    <section className="relative overflow-hidden py-14 lg:py-28">
+    <section className="relative overflow-hidden">
       <SpineGutterBg color="var(--background)" />
 
       <SpineSplit
+        align="start"
         left={
           <motion.div
             initial={{ opacity: 0, y: 24 }}

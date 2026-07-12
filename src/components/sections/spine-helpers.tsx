@@ -39,21 +39,24 @@ export function SpineSplit({
   center,
   right,
   className = "",
+  align = "center",
 }: {
   left: ReactNode;
   center?: ReactNode;
   right: ReactNode;
   className?: string;
+  align?: "center" | "start";
 }) {
+  const alignClass = align === "start" ? "lg:items-start" : "lg:items-center";
   return (
     <div
-      className={`relative z-[3] mx-auto flex max-w-[1600px] flex-col gap-10 px-5 py-16 lg:flex-row lg:items-center lg:gap-0 lg:px-0 lg:py-24 ${className}`}
+      className={`relative z-[3] mx-auto flex max-w-[1600px] flex-col gap-10 px-5 py-16 lg:flex-row ${alignClass} lg:gap-0 lg:px-0 lg:py-24 ${className}`}
     >
       <div className="w-full lg:w-[var(--gutter-w)]" style={gutterStyle}>
         {left}
       </div>
       <div
-        className="hidden shrink-0 items-center justify-center lg:flex"
+        className={`hidden shrink-0 justify-center lg:flex ${align === "start" ? "" : "items-center"}`}
         style={{ width: `${SPINE_WIDTH}px` }}
       >
         {center}
