@@ -18,42 +18,57 @@ gsap.registerPlugin(ScrollTrigger);
 const gutterCalc = `calc(50% - ${SPINE_WIDTH / 2}px)`;
 
 /* ══════════════════════════════════════════════════════════════════════════════
-   DESKTOP Pinned Beat Component
-   Each beat is a 100svh section. Spine text fades in/out via ScrollTrigger.
+   DESKTOP Beat Components
    ══════════════════════════════════════════════════════════════════════════════ */
 
-/** Beat 2: Academic Training — left copy + right photo with headline on photo */
+/**
+ * Beat 2: Academic Training
+ * Grid order: [copy | spine (empty) | photo]
+ * - Left white column: colored headline + paragraph + bullets + CTA
+ * - Center spine: eyebrow only, no other text
+ * - Right: photo with small caption tag
+ */
 function Beat2Desktop() {
-  const { name: title, description, ctaLabel, ctaHref, photoLeft } = divisions[0];
+  const d = divisions[0];
   return (
     <div className="relative hidden min-h-[100svh] lg:grid lg:grid-cols-[1fr_450px_1fr]">
-      {/* Spine — eyebrow only */}
+      {/* ── LEFT WHITE COLUMN — full copy ── */}
+      <div className="relative z-[3] flex items-center justify-start pl-10 pr-6">
+        <div className="beat-gutter-text max-w-[360px]">
+          <h3 className="font-display text-[clamp(2rem,3vw,3rem)] leading-[1.0] italic text-primary">
+            {d.name}
+          </h3>
+          <p className="mt-4 text-[13px] leading-[1.8] text-muted-foreground">
+            {d.description}
+          </p>
+          <ul className="mt-5 space-y-2">
+            {d.bullets.map((b) => (
+              <li key={b} className="flex items-start gap-2 text-[12px] leading-[1.6] text-foreground/70">
+                <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                {b}
+              </li>
+            ))}
+          </ul>
+          <Link
+            href={d.ctaHref}
+            className="mt-7 inline-flex h-11 items-center justify-center bg-primary px-5 text-[11px] font-medium tracking-widest text-primary-foreground uppercase transition-opacity hover:opacity-90"
+          >
+            {d.ctaLabel}
+          </Link>
+        </div>
+      </div>
+
+      {/* ── CENTER SPINE — empty passthrough (eyebrow only) ── */}
       <div className="relative z-[3] flex items-center justify-center">
         <div className="beat-spine-text flex flex-col items-center gap-3 px-8 text-center">
           <span className="text-[10px] tracking-[0.3em] text-white/60 uppercase">
-            Division 01.
+            {d.eyebrow}
           </span>
           <div className="h-px w-10 bg-white/30" />
         </div>
       </div>
-      {/* Left — copy */}
-      <div className="relative z-[3] flex items-center justify-start pl-10 pr-4">
-        <div className="beat-gutter-text max-w-[320px]">
-          <h3 className="font-display text-[clamp(2rem,3vw,3rem)] leading-[1.0] text-white italic">
-            {title}
-          </h3>
-          <p className="mt-4 text-[13px] leading-[1.7] text-white/60">
-            {description}
-          </p>
-          <Link
-            href={ctaHref}
-            className="mt-6 inline-flex h-11 items-center justify-center bg-primary px-5 text-[11px] font-medium tracking-widest text-primary-foreground uppercase transition-opacity hover:opacity-90"
-          >
-            {ctaLabel}
-          </Link>
-        </div>
-      </div>
-      {/* Right — photo with headline overlaid */}
+
+      {/* ── RIGHT — photo with small caption tag ── */}
       <div className="relative z-[3] flex items-center justify-start pl-6">
         <div className="beat-photo relative h-[70%] w-[90%] overflow-visible">
           <div
@@ -61,17 +76,16 @@ function Beat2Desktop() {
             style={{ borderRadius: "2rem 0.5rem 2rem 0.5rem" }}
           >
             <Image
-              src={photoLeft}
+              src={d.photoLeft}
               alt="NIFS classroom lecture"
               fill
               sizes="35vw"
               className="object-cover"
             />
           </div>
-          {/* Headline ON the photo */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <span className="font-display text-[clamp(2rem,4vw,3.5rem)] leading-[0.9] text-white italic drop-shadow-[0_2px_20px_rgba(0,0,0,0.7)]">
-              {title}
+          <div className="absolute bottom-4 left-4 right-4">
+            <span className="inline-block bg-black/60 px-3 py-1.5 text-[11px] font-medium text-white/90 backdrop-blur-sm">
+              {d.photoCaption}
             </span>
           </div>
         </div>
@@ -80,12 +94,18 @@ function Beat2Desktop() {
   );
 }
 
-/** Beat 3: Industrial Projects — photo left with headline, copy right */
+/**
+ * Beat 3: Industrial Projects (mirrored)
+ * Grid order: [photo | spine (empty) | copy]
+ * - Left: photo with small caption tag
+ * - Center spine: eyebrow only, no other text
+ * - Right white column: colored headline + paragraph + bullets + CTA
+ */
 function Beat3Desktop() {
-  const { name: title, description, ctaLabel, ctaHref, photoLeft } = divisions[1];
+  const d = divisions[1];
   return (
     <div className="relative hidden min-h-[100svh] lg:grid lg:grid-cols-[1fr_450px_1fr]">
-      {/* Left — photo with headline overlaid */}
+      {/* ── LEFT — photo with small caption tag ── */}
       <div className="relative z-[3] flex items-center justify-end pr-6">
         <div className="beat-photo relative h-[70%] w-[90%] overflow-visible">
           <div
@@ -93,43 +113,53 @@ function Beat3Desktop() {
             style={{ borderRadius: "0.5rem 2rem 0.5rem 2rem" }}
           >
             <Image
-              src={photoLeft}
+              src={d.photoLeft}
               alt="Industrial control room"
               fill
               sizes="35vw"
               className="object-cover"
             />
           </div>
-          <div className="absolute inset-0 flex items-center justify-center">
-            <span className="font-display text-[clamp(2rem,4vw,3.5rem)] leading-[0.9] text-white italic drop-shadow-[0_2px_20px_rgba(0,0,0,0.7)]">
-              {title}
+          <div className="absolute bottom-4 left-4 right-4">
+            <span className="inline-block bg-black/60 px-3 py-1.5 text-[11px] font-medium text-white/90 backdrop-blur-sm">
+              {d.photoCaption}
             </span>
           </div>
         </div>
       </div>
-      {/* Spine — eyebrow only */}
+
+      {/* ── CENTER SPINE — empty passthrough (eyebrow only) ── */}
       <div className="relative z-[3] flex items-center justify-center">
         <div className="beat-spine-text flex flex-col items-center gap-3 px-8 text-center">
           <span className="text-[10px] tracking-[0.3em] text-white/60 uppercase">
-            Division 02.
+            {d.eyebrow}
           </span>
           <div className="h-px w-10 bg-white/30" />
         </div>
       </div>
-      {/* Right — copy */}
-      <div className="relative z-[3] flex items-center justify-end pr-10 pl-4">
-        <div className="beat-gutter-text max-w-[320px]">
-          <h3 className="font-display text-[clamp(2rem,3vw,3rem)] leading-[1.0] text-white italic">
-            {title}
+
+      {/* ── RIGHT WHITE COLUMN — full copy ── */}
+      <div className="relative z-[3] flex items-center justify-end pr-10 pl-6">
+        <div className="beat-gutter-text max-w-[360px]">
+          <h3 className="font-display text-[clamp(2rem,3vw,3rem)] leading-[1.0] italic text-primary">
+            {d.name}
           </h3>
-          <p className="mt-4 text-[13px] leading-[1.7] text-white/60">
-            {description}
+          <p className="mt-4 text-[13px] leading-[1.8] text-muted-foreground">
+            {d.description}
           </p>
+          <ul className="mt-5 space-y-2">
+            {d.bullets.map((b) => (
+              <li key={b} className="flex items-start gap-2 text-[12px] leading-[1.6] text-foreground/70">
+                <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                {b}
+              </li>
+            ))}
+          </ul>
           <Link
-            href={ctaHref}
-            className="mt-6 inline-flex h-11 items-center justify-center border border-white/40 px-5 text-[11px] font-medium tracking-widest text-white uppercase transition-colors hover:bg-white/10"
+            href={d.ctaHref}
+            className="mt-7 inline-flex h-11 items-center justify-center border border-border px-5 text-[11px] font-medium tracking-widest uppercase transition-colors hover:bg-muted"
           >
-            {ctaLabel}
+            {d.ctaLabel}
           </Link>
         </div>
       </div>
@@ -142,6 +172,16 @@ function Beat4Desktop() {
   const [f1, f2] = facilities;
   return (
     <div className="relative hidden min-h-[70vh] lg:grid lg:grid-cols-[1fr_450px_1fr]">
+      <div
+        aria-hidden="true"
+        className="absolute inset-y-0 left-0 z-[2]"
+        style={{ width: gutterCalc, background: "#0A0A0A" }}
+      />
+      <div
+        aria-hidden="true"
+        className="absolute inset-y-0 right-0 z-[2]"
+        style={{ width: gutterCalc, background: "#0A0A0A" }}
+      />
       {/* Left — facility photo with caption overlay */}
       <div className="relative z-[3] flex items-center justify-end pr-6">
         <div className="beat-photo relative h-[60%] w-[85%] overflow-visible">
@@ -263,7 +303,6 @@ function Beat6Desktop() {
 
     const el = counterRef.current;
 
-    // If reduced motion, show final value immediately
     if (prefersReducedMotion) {
       el.textContent = "45,000";
       return;
@@ -352,41 +391,43 @@ function MobileCard({
   eyebrow,
   title,
   description,
+  bullets,
   ctaLabel,
   ctaHref,
 }: {
   eyebrow: string;
   title: string;
   description: string;
+  bullets?: string[];
   ctaLabel?: string;
   ctaHref?: string;
 }) {
   return (
     <div className="relative -mt-24 z-10 px-5 pb-10">
-      <div className="beat-spine-text relative mx-auto max-w-[400px] bg-primary p-6 text-center">
-        <div
-          className="absolute inset-0 opacity-[0.08]"
-          style={{
-            backgroundImage:
-              "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' height='25'%3E%3Cpath d='M2 6l10.5 13L23 6' stroke='white' stroke-width='1.5' fill='none' stroke-opacity='0.15'/%3E%3C/svg%3E",
-            backgroundSize: "25px 25px",
-            backgroundRepeat: "repeat",
-          }}
-        />
-        <span className="relative z-10 text-[10px] tracking-[0.3em] text-white/60 uppercase">
+      <div className="beat-spine-text relative mx-auto max-w-[400px] bg-[#0A0A0A] p-6 text-left">
+        <span className="text-[10px] tracking-[0.3em] text-white/40 uppercase">
           {eyebrow}
         </span>
-        <h3 className="relative z-10 font-display mt-2 text-[1.75rem] leading-[1.0] text-white italic">
+        <h3 className="font-display mt-2 text-[1.75rem] leading-[1.0] italic text-primary">
           {title}
         </h3>
-        <div className="relative z-10 mx-auto mt-3 h-px w-10 bg-white/40" />
-        <p className="relative z-10 mt-3 text-[13px] leading-[1.7] text-white/70">
+        <p className="mt-3 text-[13px] leading-[1.7] text-white/60">
           {description}
         </p>
+        {bullets && bullets.length > 0 && (
+          <ul className="mt-4 space-y-1.5">
+            {bullets.map((b) => (
+              <li key={b} className="flex items-start gap-2 text-[11px] leading-[1.6] text-white/55">
+                <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                {b}
+              </li>
+            ))}
+          </ul>
+        )}
         {ctaLabel && ctaHref && (
           <Link
             href={ctaHref}
-            className="relative z-10 mt-4 inline-flex h-10 items-center border border-white/40 px-5 text-[10px] font-medium tracking-[0.2em] text-white uppercase transition-colors hover:bg-white/10"
+            className="mt-5 inline-flex h-10 items-center bg-primary px-5 text-[10px] font-medium tracking-[0.2em] text-primary-foreground uppercase transition-opacity hover:opacity-90"
           >
             {ctaLabel}
           </Link>
@@ -399,17 +440,21 @@ function MobileCard({
 function MobileSection({
   src,
   alt,
+  caption,
   eyebrow,
   title,
   description,
+  bullets,
   ctaLabel,
   ctaHref,
 }: {
   src: string;
   alt: string;
+  caption?: string;
   eyebrow: string;
   title: string;
   description: string;
+  bullets?: string[];
   ctaLabel?: string;
   ctaHref?: string;
 }) {
@@ -418,11 +463,19 @@ function MobileSection({
       <div className="relative h-[55svh] w-full">
         <Image src={src} alt={alt} fill sizes="100vw" className="object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-black/30 to-transparent" />
+        {caption && (
+          <div className="absolute bottom-4 left-4 right-4">
+            <span className="inline-block bg-black/60 px-3 py-1.5 text-[11px] font-medium text-white/90 backdrop-blur-sm">
+              {caption}
+            </span>
+          </div>
+        )}
       </div>
       <MobileCard
         eyebrow={eyebrow}
         title={title}
         description={description}
+        bullets={bullets}
         ctaLabel={ctaLabel}
         ctaHref={ctaHref}
       />
@@ -431,7 +484,7 @@ function MobileSection({
 }
 
 function MobileFacilitiesSection() {
-  const [f1, f2] = facilities;
+  const [f1] = facilities;
   return (
     <section className="relative overflow-hidden">
       <div className="relative h-[50svh] w-full">
@@ -524,9 +577,6 @@ function MobileProofSection() {
 
 export function ExploreNifs() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const isDesktop = typeof window !== "undefined"
-    ? window.matchMedia("(min-width: 1024px)").matches
-    : true;
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -536,14 +586,12 @@ export function ExploreNifs() {
     ).matches;
     if (prefersReducedMotion) return;
 
-    // Only run pinned beat logic on desktop
     if (!window.matchMedia("(min-width: 1024px)").matches) return;
 
     const ctx = gsap.context(() => {
       const root = containerRef.current!;
       if (!root) return;
 
-      // Animate spine text (eyebrows) in each beat
       root.querySelectorAll<HTMLElement>(".beat-spine-text").forEach((el) => {
         gsap.fromTo(
           el,
@@ -563,7 +611,6 @@ export function ExploreNifs() {
         );
       });
 
-      // Animate gutter text (descriptions, CTAs) in each beat
       root.querySelectorAll<HTMLElement>(".beat-gutter-text").forEach((el) => {
         gsap.fromTo(
           el,
@@ -583,7 +630,6 @@ export function ExploreNifs() {
         );
       });
 
-      // Animate photos with a subtle scale-up
       root.querySelectorAll<HTMLElement>(".beat-photo").forEach((el) => {
         gsap.fromTo(
           el,
@@ -613,16 +659,16 @@ export function ExploreNifs() {
     <div ref={containerRef} className="mb-16">
       {/* ═══ BEAT 2 — Academic Training ═══ */}
       <section data-beat="2" className="relative overflow-hidden">
-        {/* Desktop */}
         <Beat2Desktop />
-        {/* Mobile / Tablet */}
         <div className="lg:hidden">
           <MobileSection
             src={d1.photoLeft}
             alt="NIFS classroom lecture"
+            caption={d1.photoCaption}
             eyebrow={d1.eyebrow}
             title={d1.name}
             description={d1.description}
+            bullets={d1.bullets}
             ctaLabel={d1.ctaLabel}
             ctaHref={d1.ctaHref}
           />
@@ -636,9 +682,11 @@ export function ExploreNifs() {
           <MobileSection
             src={d2.photoLeft}
             alt="Industrial control room"
+            caption={d2.photoCaption}
             eyebrow={d2.eyebrow}
             title={d2.name}
             description={d2.description}
+            bullets={d2.bullets}
             ctaLabel={d2.ctaLabel}
             ctaHref={d2.ctaHref}
           />
