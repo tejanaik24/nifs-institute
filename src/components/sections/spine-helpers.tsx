@@ -77,4 +77,14 @@ export function overlapFromRight(): CSSProperties {
   return { width: overlapWidth, marginLeft: "auto" };
 }
 
+/** Style for an element that should stretch past the standard container
+ * width on both sides (used for wide full-bleed blocks like the map). */
+export function fullWidthStretch(): CSSProperties {
+  return {
+    width: "calc(100% + 180px)",
+    marginLeft: "-90px",
+    marginRight: "-90px",
+  };
+}
+
 export { gutterWidth, overlapWidth };

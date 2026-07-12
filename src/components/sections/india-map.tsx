@@ -47,13 +47,13 @@ export function IndiaMap() {
           >
             <div className="relative -translate-x-1/2 -translate-y-1/2">
               <span
-                className={`map-dot-pulse absolute inset-0 block rounded-full bg-[#CC0000] ${size}`}
+                className={`map-dot-pulse absolute inset-0 block rounded-full bg-primary ${size}`}
                 style={{ animationDelay: `${i * 0.15}s` }}
               />
               <motion.span
                 whileHover={{ scale: 1.4 }}
                 transition={{ type: "spring", stiffness: 300, damping: 15 }}
-                className={`relative block rounded-full border-2 border-white bg-[#CC0000] shadow-sm ${size}`}
+                className={`relative block rounded-full border-2 border-white bg-primary shadow-sm ${size}`}
               />
               <span
                 className={`pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 rounded bg-foreground px-2 py-1 text-[10px] font-medium whitespace-nowrap text-background transition-opacity duration-200 group-hover:opacity-100 ${
