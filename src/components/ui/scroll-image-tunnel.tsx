@@ -76,9 +76,6 @@ function TunnelFrame({
         />
       </motion.div>
 
-      {/* Diagonal brand-tinted scrim — transparent through the middle, only weighted at the bottom */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-black/40" />
-
       {/* Centered editorial caption — suppressed on frame 0 (HeadlineOverlay owns that space) */}
       {caption && index !== 0 && (
         <motion.div
@@ -164,7 +161,6 @@ export function ScrollImageTunnel({
               loading="lazy"
               className="h-full w-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-black/40" />
             {image.caption && index !== 0 && (
               <div className="absolute inset-0 flex items-center justify-center px-4 text-center">
                 <p className="text-lg font-extrabold text-white sm:text-2xl">{image.caption}</p>
