@@ -62,37 +62,22 @@ export function HeroSection() {
       className="relative w-full overflow-hidden"
     >
       {/* ── GUTTER BACKGROUNDS ── */}
-      {/* Left gutter — dark background for text contrast */}
+      {/* Left gutter — dark background for text contrast (hero only; this
+          is the one beat in the sequence that intentionally stays dark) */}
       <div
         aria-hidden="true"
         className="absolute inset-y-0 left-0 z-[2] hidden bg-[#0A0A0A] lg:block"
         style={{ width: gutterCalc }}
       />
-      {/* Right gutter — hero photo bleeding past spine */}
-      <motion.div
-        {...fadeIn}
-        className="absolute inset-y-0 right-0 z-[2] hidden lg:block"
+      {/* Right gutter — no separate background image here. The single
+          cutout photo below (right column) is the only photo in this hero;
+          a second full-bleed copy used to render underneath it, producing
+          a visible double-exposure/ghosting artifact. */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-y-0 right-0 z-[2] hidden bg-[#0A0A0A] lg:block"
         style={{ width: gutterCalc }}
-      >
-        <Image
-          src="/images/hero-professional.png"
-          alt="NIFS graduate safety professional on an industrial site"
-          fill
-          priority
-          sizes="55vw"
-          className="object-cover object-[center_top]"
-        />
-        <Image
-          src="/images/hero-aerial-bg.png"
-          alt=""
-          fill
-          sizes="55vw"
-          loading="lazy"
-          aria-hidden="true"
-          className="object-cover opacity-20 mix-blend-overlay"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/10 to-black/30" />
-      </motion.div>
+      />
 
       {/* Mobile / tablet backgrounds */}
       <div className="absolute inset-0 z-[2] bg-[#0A0A0A] lg:hidden" />
@@ -109,14 +94,7 @@ export function HeroSection() {
               India&apos;s #1 Industrial Safety Institute
             </span>
             <div className="bg-primary mt-3 mb-5 h-0.5 w-10" />
-            <h1 className="font-display text-[clamp(2rem,3.5vw,4rem)] leading-[0.95] text-white italic">
-              Igniting
-              <br />
-              Careers
-              <br />
-              <span className="text-primary">In Safety</span>
-            </h1>
-            <p className="mt-4 max-w-[260px] text-sm leading-[1.7] text-white/60">
+            <p className="max-w-[260px] text-sm leading-[1.7] text-white/60">
               20+ years of placing graduates at India&apos;s top industrial
               companies. NSDC approved. ISO certified.
             </p>
@@ -146,13 +124,13 @@ export function HeroSection() {
             <span className="text-[10px] tracking-[0.3em] text-white/60 uppercase">
               Est. 2004
             </span>
-            <h2 className="font-display text-[clamp(3rem,5.5vw,6.5rem)] leading-[0.9] text-white italic">
+            <h1 className="font-display text-[clamp(3rem,5.5vw,6.5rem)] leading-[0.9] text-white italic">
               Igniting
               <br />
               Careers
               <br />
               In Safety
-            </h2>
+            </h1>
           </div>
           <div className="relative z-10 mt-8 flex flex-col items-center gap-3 px-8">
             <div className="h-px w-16 bg-white/40" />

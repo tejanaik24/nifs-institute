@@ -27,11 +27,6 @@ function Beat2Desktop() {
   const { name: title, description, ctaLabel, ctaHref, photoLeft } = divisions[0];
   return (
     <div className="relative hidden min-h-[100svh] lg:grid lg:grid-cols-[1fr_450px_1fr]">
-      <div
-        aria-hidden="true"
-        className="absolute inset-y-0 left-0 z-[2]"
-        style={{ width: gutterCalc, background: "#0A0A0A" }}
-      />
       {/* Spine — eyebrow only */}
       <div className="relative z-[3] flex items-center justify-center">
         <div className="beat-spine-text flex flex-col items-center gap-3 px-8 text-center">
@@ -90,11 +85,6 @@ function Beat3Desktop() {
   const { name: title, description, ctaLabel, ctaHref, photoLeft } = divisions[1];
   return (
     <div className="relative hidden min-h-[100svh] lg:grid lg:grid-cols-[1fr_450px_1fr]">
-      <div
-        aria-hidden="true"
-        className="absolute inset-y-0 right-0 z-[2]"
-        style={{ width: gutterCalc, background: "#111111" }}
-      />
       {/* Left — photo with headline overlaid */}
       <div className="relative z-[3] flex items-center justify-end pr-6">
         <div className="beat-photo relative h-[70%] w-[90%] overflow-visible">
@@ -152,16 +142,6 @@ function Beat4Desktop() {
   const [f1, f2] = facilities;
   return (
     <div className="relative hidden min-h-[70vh] lg:grid lg:grid-cols-[1fr_450px_1fr]">
-      <div
-        aria-hidden="true"
-        className="absolute inset-y-0 left-0 z-[2]"
-        style={{ width: gutterCalc, background: "#0A0A0A" }}
-      />
-      <div
-        aria-hidden="true"
-        className="absolute inset-y-0 right-0 z-[2]"
-        style={{ width: gutterCalc, background: "#0A0A0A" }}
-      />
       {/* Left — facility photo with caption overlay */}
       <div className="relative z-[3] flex items-center justify-end pr-6">
         <div className="beat-photo relative h-[60%] w-[85%] overflow-visible">
@@ -223,16 +203,6 @@ function Beat4Desktop() {
 function Beat5Desktop() {
   return (
     <div className="relative hidden min-h-[100svh] lg:grid lg:grid-cols-[1fr_450px_1fr]">
-      <div
-        aria-hidden="true"
-        className="absolute inset-y-0 left-0 z-[2]"
-        style={{ width: gutterCalc, background: "#0A0A0A" }}
-      />
-      <div
-        aria-hidden="true"
-        className="absolute inset-y-0 right-0 z-[2]"
-        style={{ width: gutterCalc, background: "#0A0A0A" }}
-      />
       {/* Left photo — spilling into spine */}
       <div className="relative z-[3] flex items-center justify-end">
         <div
@@ -325,18 +295,8 @@ function Beat6Desktop() {
 
   return (
     <div className="relative hidden min-h-[100svh] lg:grid lg:grid-cols-[1fr_450px_1fr]">
-      <div
-        aria-hidden="true"
-        className="absolute inset-y-0 left-0 z-[2]"
-        style={{ width: gutterCalc, background: "#0A0A0A" }}
-      />
-      <div
-        aria-hidden="true"
-        className="absolute inset-y-0 right-0 z-[2]"
-        style={{ width: gutterCalc, background: "#0A0A0A" }}
-      />
       {/* Left portrait — circular cutout */}
-      <div className="relative z-[3] flex items-center justify-end pr-4">
+      <div className="relative z-[3] flex items-center justify-end pr-4 pt-20">
         <div className="beat-photo relative h-[55%] w-[60%] overflow-hidden rounded-full">
           <Image
             src={proofSlide.photoLeft}
@@ -348,14 +308,14 @@ function Beat6Desktop() {
         </div>
       </div>
       {/* Spine — HUGE count-up stat */}
-      <div className="relative z-[3] flex items-center justify-center">
+      <div className="relative z-[3] flex items-center justify-center pt-20">
         <div className="beat-spine-text flex flex-col items-center gap-3 px-8 text-center">
           <span className="text-[10px] tracking-[0.3em] text-white/60 uppercase">
             {proofSlide.eyebrow}
           </span>
           <div
             ref={counterRef}
-            className="font-display text-[clamp(3.5rem,7vw,7.5rem)] leading-[0.85] text-white italic"
+            className="font-display text-[clamp(3rem,6vw,6.5rem)] leading-[0.85] text-white italic"
           >
             0
           </div>
