@@ -99,5 +99,5 @@ export const accreditationLogos: Recruiter[] = [
   { name: "SBTET", logo: "/images/logos/accreditations/sbtet.png" },
   { name: "DNV IAF Management", logo: "/images/logos/accreditations/dnv-iaf-mgmt.png" },
   { name: "Lincon", logo: "/images/logos/accreditations/lincon.png" },
-  { name: "QCFI", logo: null },
+  { name: "QCFI", logo: "/images/logos/accreditations/qcfi.png" },
 ];
