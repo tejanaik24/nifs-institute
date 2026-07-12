@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { SpineGutterBg, SpineSplit } from "@/components/sections/spine-helpers";
+import { NifsCrest } from "@/components/nifs-crest";
 
 const items = [
   {
@@ -27,7 +28,7 @@ const items = [
   },
   {
     number: "05",
-    title: "85 Centers Nationwide",
+    title: "86 Centers Nationwide",
     body: "Learn near home. Transfer between centers anytime. New centers opening every quarter.",
   },
 ];
@@ -50,20 +51,22 @@ export function WhyNIFS() {
       <SpineSplit
         left={
           <motion.div {...fadeUp}>
-            <span className="text-[11px] font-medium tracking-[0.15em] text-primary uppercase">
-              The Difference
+            <NifsCrest className="h-14 w-14" />
+            <span className="mt-4 block text-[11px] font-medium tracking-[0.15em] text-primary uppercase">
+              Welcome to NIFS
             </span>
             <h2 className="font-display mt-3 text-[clamp(2rem,3.5vw,3.8rem)] leading-[1.1] text-white italic">
-              Any Institute
+              Trained.
               <br />
-              Gives A Certificate.
+              Placed.
               <br />
-              We Give You
-              <br />A Career.
+              Proven.
             </h2>
             <p className="mt-6 max-w-[320px] text-sm text-white/60">
-              Since 2004, we&apos;ve built a single-minded reputation: get our
-              students jobs. Not just certificates.
+              Since 2004, NIFS has turned classroom training into real
+              industrial safety careers — trusted by 45,000+ professionals
+              and recruiters like Adani, L&amp;T and GMR. Here&apos;s why they
+              chose us:
             </p>
             <Link
               href="/about"
