@@ -68,7 +68,7 @@ function CountUp({
 
 export function CentersHighlight() {
   return (
-    <section className="relative overflow-hidden bg-background py-20 lg:py-28">
+    <section className="relative overflow-hidden py-20 lg:py-28">
       {/* ── DESKTOP: 3-column mirrored spine layout ── */}
       <div className="relative hidden lg:grid lg:grid-cols-[1fr_450px_1fr]">
         {/* Left gutter bg */}
@@ -117,10 +117,6 @@ export function CentersHighlight() {
         {/* ── RIGHT — headline + paragraph ── */}
         <div className="relative z-[3] flex items-center justify-end pr-10 pl-6">
           <div className="max-w-[380px]">
-            <span className="text-[11px] font-medium tracking-[0.2em] text-primary uppercase">
-              Our Reach
-            </span>
-
             <h2 className="font-display mt-4 max-w-[560px] text-[clamp(1.75rem,3.5vw,3rem)] leading-[1.1] italic text-foreground">
               Centers Across India
               <br />& Growing

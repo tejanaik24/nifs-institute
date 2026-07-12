@@ -18,7 +18,7 @@ export function AboutNifs() {
       };
 
   return (
-    <section className="relative overflow-hidden bg-background py-20 lg:py-28">
+    <section className="relative overflow-hidden py-20 lg:py-28">
       {/* ── DESKTOP: 3-column spine layout ── */}
       <div className="relative hidden lg:grid lg:grid-cols-[1fr_450px_1fr]">
         {/* Left gutter bg */}
@@ -37,13 +37,6 @@ export function AboutNifs() {
         {/* ── LEFT — headline + body copy ── */}
         <div className="relative z-[3] flex items-center justify-start pl-10 pr-6">
           <div className="max-w-[400px]">
-            {/* Eyebrow */}
-            <motion.div {...fadeUp}>
-              <span className="text-[11px] font-medium tracking-[0.2em] text-primary uppercase">
-                About NIFS
-              </span>
-            </motion.div>
-
             {/* Headline — deep muted red */}
             <motion.h2
               {...fadeUp}
