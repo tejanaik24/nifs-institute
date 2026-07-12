@@ -17,7 +17,7 @@ export function LogoBar() {
         }
         center={
           <span className="font-display text-[40px] leading-none text-white italic">
-            85+
+            45K+
           </span>
         }
         right={

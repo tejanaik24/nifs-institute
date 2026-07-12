@@ -10,7 +10,7 @@ const gutterCalc = `calc(50% - ${SPINE_WIDTH / 2}px)`;
 function ScrollIndicator() {
   const reduceMotion = useReducedMotion() ?? false;
   return (
-    <div className="absolute top-1/2 right-5 z-20 flex -translate-y-1/2 flex-col gap-2.5">
+    <div className="absolute top-1/2 right-6 z-20 flex -translate-y-1/2 flex-col gap-2.5">
       {[0, 1, 2, 3, 4].map((i) => (
         <motion.span
           key={i}
@@ -61,14 +61,14 @@ export function HeroSection() {
       data-path-target="true"
       className="relative w-full overflow-hidden"
     >
-      {/* ── GUTTER BACKGROUNDS (left dark, right image) ── */}
+      {/* ── GUTTER BACKGROUNDS ── */}
       {/* Left gutter — dark background for text contrast */}
       <div
         aria-hidden="true"
         className="absolute inset-y-0 left-0 z-[2] hidden bg-[#0A0A0A] lg:block"
         style={{ width: gutterCalc }}
       />
-      {/* Right gutter — hero photo bleeding out from spine edge */}
+      {/* Right gutter — hero photo bleeding past spine */}
       <motion.div
         {...fadeIn}
         className="absolute inset-y-0 right-0 z-[2] hidden lg:block"
@@ -94,7 +94,7 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/10 to-black/30" />
       </motion.div>
 
-      {/* Mobile / tablet backgrounds — spine is hidden, so full bg needed */}
+      {/* Mobile / tablet backgrounds */}
       <div className="absolute inset-0 z-[2] bg-[#0A0A0A] lg:hidden" />
 
       {/* ── DESKTOP (>1024px) ── */}
@@ -137,12 +137,11 @@ export function HeroSection() {
           </div>
         </motion.div>
 
-        {/* Center column — transparent, spine shows through from SpineLayout */}
+        {/* Center column — spine shows through from SpineLayout */}
         <motion.div
           {...scaleCenter}
           className="relative flex flex-col items-center justify-center"
         >
-          {/* Content overlaid on top of the spine */}
           <div className="relative z-10 flex flex-col items-center gap-4 px-8 text-center">
             <span className="text-[10px] tracking-[0.3em] text-white/60 uppercase">
               Est. 2004
@@ -163,8 +162,31 @@ export function HeroSection() {
           </div>
         </motion.div>
 
-        {/* Right column — scroll indicator (image is in the absolute layer) */}
-        <div className="relative">
+        {/* Right column — cutout photo bleeding past spine + scroll indicator */}
+        <div className="relative overflow-visible">
+          <motion.div
+            {...fadeIn}
+            className="absolute top-1/2 left-0 z-[4] h-[85%] w-[70%] -translate-y-1/2 overflow-visible"
+            style={{ marginLeft: "-60px" }}
+          >
+            <div
+              className="relative h-full w-full overflow-hidden"
+              style={{
+                borderRadius: "2.5rem 0.75rem 2.5rem 1rem",
+              }}
+            >
+              <Image
+                src="/images/hero-professional.png"
+                alt="NIFS graduate safety professional on an industrial site"
+                fill
+                priority
+                sizes="30vw"
+                className="object-cover object-[center_top]"
+              />
+              {/* Dark overlay at the left edge for text contrast if needed */}
+              <div className="absolute inset-0 bg-gradient-to-l from-transparent to-black/20" />
+            </div>
+          </motion.div>
           <ScrollIndicator />
         </div>
       </div>

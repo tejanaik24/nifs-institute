@@ -25,7 +25,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "NIFS India — Igniting Careers in Fire & Industrial Safety",
   description:
-    "National Institute of Fire and Safety (NIFS) — India's leading industrial safety and fire engineering training institute. NSDC & Skill India approved, ISO 9001:2015 certified, 85+ centers, placements with Adani, L&T, ITC, Amazon and more.",
+    "National Institute of Fire and Safety (NIFS) — India's leading industrial safety and fire engineering training institute. NSDC & Skill India approved, ISO 9001:2015 certified, 45,000+ placements, placements with Adani, L&T, ITC, Amazon and more.",
 };
 
 export default function RootLayout({

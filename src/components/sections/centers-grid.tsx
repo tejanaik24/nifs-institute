@@ -12,7 +12,7 @@ export function CentersGrid() {
     <section className="bg-muted/30 py-14 lg:py-28">
       <div data-path-target="true" className="mx-auto max-w-7xl px-6 text-center lg:px-10">
         <h2 className="font-display text-4xl italic leading-tight md:text-5xl">
-          85+ Centers Across India
+          45,000+ Careers Launched
         </h2>
         <p className="mt-4 text-muted-foreground">Find a center near you</p>
 
@@ -41,7 +41,7 @@ export function CentersGrid() {
 
             <div className="mt-6 flex gap-8 border-y border-border py-5">
               <div>
-                <div className="font-display text-3xl italic text-primary">85+</div>
+                <div className="font-display text-3xl italic text-primary">45K+</div>
                 <div className="text-xs text-muted-foreground">Training centers</div>
               </div>
               <div>

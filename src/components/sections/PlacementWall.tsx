@@ -67,7 +67,7 @@ export function PlacementWall() {
           Placement Record
         </span>
         <h2 className="font-display mx-auto mt-3 max-w-[600px] text-[clamp(2rem,4vw,4rem)] leading-[1.1] text-white italic">
-          10,000+ Lives Changed. Careers Built. Futures Secured.
+          45,000+ Lives Changed. Careers Built. Futures Secured.
         </h2>
         <p className="mx-auto mt-4 max-w-[500px] text-sm text-white/60">
           Our dedicated placement cell maintains direct relationships with
@@ -87,7 +87,7 @@ export function PlacementWall() {
         }
         center={
           <span className="font-display text-[56px] leading-none text-white italic">
-            10K+
+            45K+
           </span>
         }
         right={
@@ -101,7 +101,7 @@ export function PlacementWall() {
 
       <div className="relative z-[3] mx-auto max-w-[1600px] overflow-hidden border-t border-white/10 px-5 pt-8 pb-16 lg:px-0 lg:pb-24">
         <div className="mb-4 text-center text-[10px] font-medium tracking-[0.2em] text-primary uppercase">
-          85+ Companies Hiring Our Graduates
+          45,000+ Graduates Placed
         </div>
         <div className="relative overflow-hidden">
           <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-[#0A0A0A] to-transparent lg:w-28" />

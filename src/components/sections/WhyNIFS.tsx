@@ -13,7 +13,7 @@ const items = [
   {
     number: "02",
     title: "Direct Placement Cell",
-    body: "Dedicated team with direct recruiter relationships at Adani, L&T, GMR and 85+ other companies.",
+    body: "Dedicated team with direct recruiter relationships at Adani, L&T, GMR and 45,000+ placements across India.",
   },
   {
     number: "03",
