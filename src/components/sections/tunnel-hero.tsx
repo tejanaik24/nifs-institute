@@ -8,24 +8,24 @@ import { ScrollImageTunnel } from "@/components/ui/scroll-image-tunnel";
 
 const tunnelImages = [
   {
-    src: "/images/classroom-lecture.jpg",
-    alt: "NIFS classroom mid-lecture, students learning industrial safety fundamentals",
+    src: "/images/nifs-hero-campus.png",
+    alt: "NIFS campus building in Visakhapatnam",
   },
   {
-    src: "/images/training-yard-drill.jpg",
-    alt: "Hands-on hazard drill at the NIFS training yard with PPE and fire suppression practice",
+    src: "/images/nifs-hero-classroom.png",
+    alt: "NIFS classroom, instructor teaching industrial safety fundamentals",
   },
   {
-    src: "/images/placement-female.png",
-    alt: "NIFS graduate receiving certification — a proud achievement moment",
+    src: "/images/nifs-hero-training-yard.png",
+    alt: "Hands-on practical training at the NIFS training yard",
   },
   {
-    src: "/images/control-room-risk-assessment.jpg",
-    alt: "NIFS graduate working on an industrial plant floor conducting safety assessments",
+    src: "/images/nifs-hero-student-life.png",
+    alt: "NIFS students between sessions",
   },
   {
-    src: "/images/hero-professional.png",
-    alt: "Confident NIFS safety officer portrait with industrial backdrop",
+    src: "/images/nifs-hero-graduation.png",
+    alt: "NIFS graduation ceremony",
   },
 ];
 
@@ -81,7 +81,7 @@ function MobileHeroFallback() {
       {/* Secondary image strip — 4 smaller frames in a row */}
       <div className="grid grid-cols-4 gap-1 bg-background p-1">
         {tunnelImages.slice(1).map((img) => (
-          <div key={img.src} className="relative aspect-[3/4] overflow-hidden">
+          <div key={img.src} className="relative aspect-video overflow-hidden">
             <Image
               src={img.src}
               alt={img.alt}
@@ -98,7 +98,6 @@ function MobileHeroFallback() {
 
 export function TunnelHero() {
   const reduceMotion = useReducedMotion() ?? false;
-  const [scrolledPast, setScrolledPast] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -110,25 +109,23 @@ export function TunnelHero() {
     return () => mq.removeEventListener("change", onChange);
   }, []);
 
-  useEffect(() => {
-    if (reduceMotion || isMobile) return;
-
-    const onScroll = () => {
-      setScrolledPast(window.scrollY > window.innerHeight * 0.6);
-    };
-
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [reduceMotion, isMobile]);
-
   // Mobile: static stacked fallback — no dead scroll
   if (isMobile) {
     return <MobileHeroFallback />;
   }
 
-  // Desktop: full scroll tunnel with headline overlay
+  const fadeUp = reduceMotion
+    ? {}
+    : {
+        initial: { opacity: 0, y: 24 },
+        whileInView: { opacity: 1, y: 0 },
+        viewport: { once: true, margin: "-80px" } as const,
+        transition: { duration: 0.6, ease: "easeOut" as const },
+      };
+
+  // Desktop: full scroll tunnel, then headline/CTA as in-flow block
   return (
-    <div className="relative">
+    <div>
       <ScrollImageTunnel
         images={tunnelImages}
         hint=""
@@ -136,42 +133,48 @@ export function TunnelHero() {
         className="tunnel-hero"
       />
 
-      {/* Text overlay — fades out on scroll */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 z-10 flex h-[100svh] items-center justify-center">
-        <motion.div
-          animate={reduceMotion ? {} : { opacity: scrolledPast ? 0 : 1 }}
-          transition={{ duration: 0.4 }}
-          className="pointer-events-auto px-5 text-center"
+      {/* Headline + CTA — appears after the tunnel finishes */}
+      <div className="bg-background px-5 py-24 text-center lg:py-32">
+        <motion.span
+          {...fadeUp}
+          className="mb-4 inline-block text-[11px] font-medium tracking-[0.25em] text-muted-foreground uppercase"
         >
-          <span className="mb-4 inline-block text-[11px] font-medium tracking-[0.25em] text-white/70 uppercase drop-shadow-[0_1px_8px_rgba(0,0,0,0.5)]">
-            Est. 2004 — India&apos;s #1 Industrial Safety Institute
-          </span>
-          <h1 className="font-display text-[clamp(2.5rem,6vw,5rem)] leading-[0.95] text-white italic drop-shadow-[0_2px_24px_rgba(0,0,0,0.6)]">
-            Igniting
-            <br />
-            Careers
-            <br />
-            <span className="text-primary">In Safety</span>
-          </h1>
-          <p className="mx-auto mt-5 max-w-md text-[13px] leading-[1.7] text-white/75 drop-shadow-[0_1px_8px_rgba(0,0,0,0.5)]">
-            20+ years of placing graduates at India&apos;s top industrial
-            companies. NSDC approved. ISO certified. 86 centers across 24
-            states.
-          </p>
-          <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-            <Link
-              href="/courses"
-              className="inline-flex h-12 items-center justify-center bg-primary px-7 text-[11px] font-medium tracking-widest text-primary-foreground uppercase transition-opacity hover:opacity-90"
-            >
-              Explore Courses →
-            </Link>
-            <Link
-              href="/placements"
-              className="inline-flex h-12 items-center justify-center border border-white/60 px-7 text-[11px] font-medium tracking-widest text-white uppercase backdrop-blur-sm transition-colors hover:bg-white/10"
-            >
-              See Placements
-            </Link>
-          </div>
+          Est. 2004 — India&apos;s #1 Industrial Safety Institute
+        </motion.span>
+        <motion.h1
+          {...fadeUp}
+          className="font-display mx-auto max-w-[640px] text-[clamp(2.5rem,6vw,5rem)] leading-[0.95] italic text-foreground"
+        >
+          Igniting
+          <br />
+          Careers
+          <br />
+          <span className="text-primary">In Safety</span>
+        </motion.h1>
+        <motion.p
+          {...fadeUp}
+          className="mx-auto mt-5 max-w-md text-[13px] leading-[1.7] text-muted-foreground"
+        >
+          20+ years of placing graduates at India&apos;s top industrial
+          companies. NSDC approved. ISO certified. 86 centers across 24
+          states.
+        </motion.p>
+        <motion.div
+          {...fadeUp}
+          className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center"
+        >
+          <Link
+            href="/courses"
+            className="inline-flex h-12 items-center justify-center bg-primary px-7 text-[11px] font-medium tracking-widest text-primary-foreground uppercase transition-opacity hover:opacity-90"
+          >
+            Explore Courses →
+          </Link>
+          <Link
+            href="/placements"
+            className="inline-flex h-12 items-center justify-center border border-border px-7 text-[11px] font-medium tracking-widest text-foreground uppercase transition-colors hover:bg-muted"
+          >
+            See Placements
+          </Link>
         </motion.div>
       </div>
     </div>

@@ -65,32 +65,32 @@ export function AboutNifs() {
         >
           {/* NSDC Logo */}
           <div className="flex flex-col items-center gap-3">
-            <div className="relative h-[88px] w-[180px]">
+            <div className="relative h-[150px] w-[280px]">
               <Image
                 src="/images/logos/accreditations/nsdc.png"
                 alt="National Skill Development Corporation — NSDC Approved Training Partner"
                 fill
-                sizes="180px"
+                sizes="280px"
                 className="object-contain"
               />
             </div>
-            <span className="max-w-[200px] text-[11px] leading-[1.5] text-muted-foreground">
+            <span className="max-w-[280px] text-[11px] leading-[1.5] text-muted-foreground">
               Approved Training Partner of NSDC
             </span>
           </div>
 
           {/* Skill India Logo */}
           <div className="flex flex-col items-center gap-3">
-            <div className="relative h-[88px] w-[180px]">
+            <div className="relative h-[150px] w-[280px]">
               <Image
                 src="/images/logos/accreditations/skill-india.png"
                 alt="Skill India — कौशल भारत–कुशल भारत partnership"
                 fill
-                sizes="180px"
+                sizes="280px"
                 className="object-contain"
               />
             </div>
-            <span className="max-w-[200px] text-[11px] leading-[1.5] text-muted-foreground">
+            <span className="max-w-[280px] text-[11px] leading-[1.5] text-muted-foreground">
               Skill India Certified Programs
             </span>
           </div>

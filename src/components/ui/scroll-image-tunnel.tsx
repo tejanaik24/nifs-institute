@@ -56,7 +56,7 @@ function TunnelFrame({
     >
       <motion.div
         style={{ scale, y, opacity, filter }}
-        className="h-[70%] w-full max-w-xl overflow-hidden"
+        className="aspect-video w-full max-w-5xl overflow-hidden"
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
@@ -126,7 +126,7 @@ export function ScrollImageTunnel({
         {images.map((image) => (
           <div
             key={image.src}
-            className="mx-auto aspect-[3/4] w-full max-w-xl overflow-hidden bg-background"
+            className="mx-auto aspect-video w-full max-w-5xl overflow-hidden bg-background"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
