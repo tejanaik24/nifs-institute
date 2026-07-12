@@ -76,20 +76,22 @@ function TunnelFrame({
         />
       </motion.div>
 
-      {/* Gradient scrim for caption legibility */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+      {/* Diagonal brand-tinted scrim — transparent through the middle, only weighted at the bottom */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-[rgba(220,23,17,0.55)]" />
 
-      {/* Editorial caption */}
-      {caption && (
+      {/* Centered editorial caption — suppressed on frame 0 (HeadlineOverlay owns that space) */}
+      {caption && index !== 0 && (
         <motion.div
           style={{ y: captionY, opacity: captionOpacity }}
-          className="absolute bottom-12 left-6 max-w-md lg:bottom-16 lg:left-16"
+          className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center px-6 text-center"
         >
-          <span className="font-display text-sm italic text-white/60">
-            {String(index + 1).padStart(2, "0")} /{" "}
-            {String(total).padStart(2, "0")}
+          <span className="mb-4 text-xs font-light italic tracking-[0.22em] text-white/60 uppercase sm:text-sm">
+            {String(index + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
           </span>
-          <p className="font-display mt-2 text-[clamp(1.5rem,4vw,2.75rem)] leading-[1.05] italic text-white drop-shadow-[0_2px_16px_rgba(0,0,0,0.5)]">
+          <p
+            className="max-w-4xl font-sans leading-[1.05] font-extrabold tracking-[-0.02em] text-white drop-shadow-[0_2px_20px_rgba(0,0,0,0.45)]"
+            style={{ fontSize: "clamp(2rem, 6vw, 4.5rem)" }}
+          >
             {caption}
           </p>
         </motion.div>
@@ -150,10 +152,10 @@ export function ScrollImageTunnel({
   if (prefersReducedMotion) {
     return (
       <div className={cn("grid gap-4 bg-muted p-6", className)}>
-        {images.map((image) => (
+        {images.map((image, index) => (
           <div
             key={image.src}
-            className="mx-auto aspect-video w-full max-w-5xl overflow-hidden bg-background"
+            className="relative mx-auto aspect-video w-full max-w-5xl overflow-hidden bg-background"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -162,6 +164,12 @@ export function ScrollImageTunnel({
               loading="lazy"
               className="h-full w-full object-cover"
             />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-[rgba(220,23,17,0.55)]" />
+            {image.caption && index !== 0 && (
+              <div className="absolute inset-0 flex items-center justify-center px-4 text-center">
+                <p className="text-lg font-extrabold text-white sm:text-2xl">{image.caption}</p>
+              </div>
+            )}
           </div>
         ))}
       </div>
