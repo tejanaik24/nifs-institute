@@ -14,6 +14,7 @@ import { cn } from "@/lib/utils";
 export interface ScrollImageTunnelImage {
   src: string;
   alt: string;
+  caption?: string;
 }
 
 export interface ScrollImageTunnelProps {
@@ -22,17 +23,20 @@ export interface ScrollImageTunnelProps {
   stepHeight?: string;
   container?: React.RefObject<HTMLElement | null>;
   className?: string;
+  overlay?: (progress: MotionValue<number>) => React.ReactNode;
 }
 
 function TunnelFrame({
   src,
   alt,
+  caption,
   index,
   total,
   progress,
 }: {
   src: string;
   alt: string;
+  caption?: string;
   index: number;
   total: number;
   progress: MotionValue<number>;
@@ -49,14 +53,17 @@ function TunnelFrame({
   const saturate = useTransform(local, [0, 0.7], [2.6, 1]);
   const filter = useMotionTemplate`contrast(${contrast}) saturate(${saturate}) sepia(0.15) brightness(1.05)`;
 
+  const captionY = useTransform(local, [0.15, 0.6], [24, 0]);
+  const captionOpacity = useTransform(local, [0.15, 0.4], [0, 1]);
+
   return (
     <div
       style={{ zIndex: index }}
-      className="absolute inset-0 flex items-center justify-center"
+      className="absolute inset-0 overflow-hidden"
     >
       <motion.div
         style={{ scale, y, opacity, filter }}
-        className="aspect-video w-full max-w-5xl overflow-hidden"
+        className="absolute inset-0 h-full w-full"
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
@@ -68,6 +75,25 @@ function TunnelFrame({
           className="h-full w-full object-cover"
         />
       </motion.div>
+
+      {/* Gradient scrim for caption legibility */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+
+      {/* Editorial caption */}
+      {caption && (
+        <motion.div
+          style={{ y: captionY, opacity: captionOpacity }}
+          className="absolute bottom-12 left-6 max-w-md lg:bottom-16 lg:left-16"
+        >
+          <span className="font-display text-sm italic text-white/60">
+            {String(index + 1).padStart(2, "0")} /{" "}
+            {String(total).padStart(2, "0")}
+          </span>
+          <p className="font-display mt-2 text-[clamp(1.5rem,4vw,2.75rem)] leading-[1.05] italic text-white drop-shadow-[0_2px_16px_rgba(0,0,0,0.5)]">
+            {caption}
+          </p>
+        </motion.div>
+      )}
     </div>
   );
 }
@@ -78,6 +104,7 @@ export function ScrollImageTunnel({
   stepHeight = "200vh",
   container,
   className,
+  overlay,
 }: ScrollImageTunnelProps) {
   const prefersReducedMotion = useReducedMotion();
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -143,11 +170,13 @@ export function ScrollImageTunnel({
 
   return (
     <div className={cn("w-full overflow-clip", className)}>
-      <div className="my-20 grid content-start justify-items-center gap-6 text-center">
-        <span className="relative text-xs uppercase leading-tight text-muted-foreground after:absolute after:left-1/2 after:top-full after:h-16 after:w-px after:bg-gradient-to-b after:from-transparent after:to-muted-foreground/40 after:content-['']">
-          {hint}
-        </span>
-      </div>
+      {hint ? (
+        <div className="my-20 grid content-start justify-items-center gap-6 text-center">
+          <span className="relative text-xs uppercase leading-tight text-muted-foreground after:absolute after:left-1/2 after:top-full after:h-16 after:w-px after:bg-gradient-to-b after:from-transparent after:to-muted-foreground/40 after:content-['']">
+            {hint}
+          </span>
+        </div>
+      ) : null}
 
       <div
         ref={containerRef}
@@ -160,11 +189,18 @@ export function ScrollImageTunnel({
               key={image.src}
               src={image.src}
               alt={image.alt}
+              caption={image.caption}
               index={index}
               total={images.length}
               progress={progress}
             />
           ))}
+
+          {overlay && (
+            <div className="absolute inset-0" style={{ zIndex: images.length }}>
+              {overlay(progress)}
+            </div>
+          )}
         </section>
       </div>
     </div>
