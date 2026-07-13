@@ -1,15 +1,11 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SpineGutterBg, SpineSplit } from "@/components/sections/spine-helpers";
 import { NifsCrest } from "@/components/nifs-crest";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const items = [
   {
@@ -39,23 +35,72 @@ const items = [
   },
 ];
 
+/** Types out `text` one character at a time once `start` becomes true.
+ * Returns the currently-revealed substring and whether typing has finished. */
+function useTypewriter(text: string, start: boolean, speed = 40) {
+  const [output, setOutput] = useState("");
+  const [done, setDone] = useState(false);
+
+  useEffect(() => {
+    if (!start) return;
+    setOutput("");
+    setDone(false);
+    let i = 0;
+    const id = setInterval(() => {
+      i += 1;
+      setOutput(text.slice(0, i));
+      if (i >= text.length) {
+        clearInterval(id);
+        setDone(true);
+      }
+    }, speed);
+    return () => clearInterval(id);
+  }, [start, text, speed]);
+
+  return [output, done] as const;
+}
+
 /** Crest + "Welcome to NIFS" + "Why Choose NIFS" — rendered on the red spine
  * (desktop) via SpineSplit's `center` slot, and again in the mobile-only
- * stacked block (mobile has no spine column). */
+ * stacked block (mobile has no spine column). When `typing` is true, both
+ * lines type themselves out in sequence instead of appearing all at once. */
 function SpineWelcome({
   size = "large",
-  animated = false,
+  typing = false,
   className = "",
 }: {
   size?: "large" | "small";
-  animated?: boolean;
+  typing?: boolean;
   className?: string;
 }) {
+  const reduceMotion = useReducedMotion();
   const crestSize = size === "large" ? "h-32 w-32" : "h-16 w-16";
   const ringSize = size === "large" ? "160px" : "96px";
   const dividerColor = size === "large" ? "bg-white/30" : "bg-foreground/20";
+  const textColor = size === "large" ? "text-white" : "text-foreground";
+
+  const [welcomeText, welcomeDone] = useTypewriter(
+    "Welcome to NIFS",
+    typing && !reduceMotion,
+    40
+  );
+  const [whyText, whyDone] = useTypewriter(
+    "Why Choose NIFS",
+    typing && !reduceMotion && welcomeDone,
+    45
+  );
+
+  const welcomeDisplay = reduceMotion ? "Welcome to NIFS" : welcomeText;
+  const whyDisplay = reduceMotion ? "Why Choose NIFS" : whyText;
+  const showFinal = reduceMotion || typing;
+
   return (
-    <div className={`flex flex-col items-center gap-4 text-center ${className}`}>
+    <motion.div
+      initial={{ opacity: 0, scale: 0.6 }}
+      animate={{ opacity: showFinal ? 1 : 0, scale: showFinal ? 1 : 0.6 }}
+      transition={{ duration: reduceMotion ? 0 : 0.5, ease: "easeOut" }}
+      className={`flex flex-col items-center gap-4 text-center ${className}`}
+    >
       <div className="relative flex items-center justify-center">
         <div
           aria-hidden="true"
@@ -68,30 +113,33 @@ function SpineWelcome({
             filter: "blur(6px)",
           }}
         />
-        <div
-          className={`relative rounded-full bg-white p-2 ${animated ? "spine-welcome-crest" : ""}`}
-        >
+        <div className="relative rounded-full bg-white p-2">
           <NifsCrest className={crestSize} />
         </div>
       </div>
-      <span
-        className={`text-base font-bold tracking-[0.25em] uppercase ${size === "large" ? "text-white" : "text-foreground"} ${animated ? "spine-welcome-eyebrow" : ""}`}
-      >
-        Welcome to NIFS
+      <span className={`text-base font-bold tracking-[0.25em] uppercase ${textColor}`}>
+        {welcomeDisplay}
+        {!reduceMotion && typing && !welcomeDone && (
+          <span className="animate-pulse">|</span>
+        )}
       </span>
       <div className={`h-px w-10 ${dividerColor}`} />
       <span
-        className={`font-display text-xl font-semibold italic sm:text-2xl ${size === "large" ? "text-white" : "text-foreground"} ${animated ? "spine-welcome-why" : ""}`}
+        className={`font-display text-xl font-semibold italic sm:text-2xl ${textColor}`}
       >
-        Why Choose NIFS
+        {whyDisplay}
+        {!reduceMotion && typing && welcomeDone && !whyDone && (
+          <span className="animate-pulse">|</span>
+        )}
       </span>
-    </div>
+    </motion.div>
   );
 }
 
 export function WhyNIFS() {
   const reduceMotion = useReducedMotion();
   const containerRef = useRef<HTMLDivElement>(null);
+  const [inView, setInView] = useState(false);
 
   const fadeUp = reduceMotion
     ? {}
@@ -103,52 +151,34 @@ export function WhyNIFS() {
       };
 
   useEffect(() => {
-    if (reduceMotion || !containerRef.current) return;
-
-    const ctx = gsap.context(() => {
-      const crest = containerRef.current!.querySelector(".spine-welcome-crest");
-      const eyebrow = containerRef.current!.querySelector(".spine-welcome-eyebrow");
-      const why = containerRef.current!.querySelector(".spine-welcome-why");
-      if (!crest || !eyebrow || !why) return;
-
-      gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: "top 75%",
-            end: "top 20%",
-            scrub: true,
-          },
-        })
-        .from(crest, { opacity: 0, scale: 0.5, filter: "blur(10px)", duration: 0.4 })
-        .from(
-          eyebrow,
-          { opacity: 0, y: 16, filter: "blur(6px)", duration: 0.3 },
-          "-=0.15"
-        )
-        .from(
-          why,
-          { opacity: 0, y: 16, filter: "blur(6px)", duration: 0.3 },
-          "-=0.15"
-        );
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, [reduceMotion]);
+    if (!containerRef.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(containerRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section className="relative overflow-x-hidden" ref={containerRef}>
       <SpineGutterBg color="var(--background)" />
 
       <SpineSplit
+        align="start"
         left={
-          <div className="lg:flex lg:min-h-[560px] lg:flex-col lg:justify-center">
+          <div>
             {/* Mobile-only: crest + Welcome to NIFS (no spine on mobile) */}
-            <div className="mb-8 lg:hidden">
-              <SpineWelcome size="small" />
+            <div className="mb-8 flex justify-center lg:hidden">
+              <SpineWelcome size="small" typing={inView} />
             </div>
 
-            <motion.div {...fadeUp}>
+            <motion.div {...fadeUp} className="text-center">
               <h2 className="font-display text-[clamp(2rem,3.5vw,3.8rem)] leading-[1.1] text-foreground italic">
                 Trained.
                 <br />
@@ -156,7 +186,7 @@ export function WhyNIFS() {
                 <br />
                 Proven.
               </h2>
-              <p className="mt-6 max-w-[320px] text-sm text-muted-foreground">
+              <p className="mx-auto mt-6 max-w-[320px] text-sm text-muted-foreground">
                 Since 2004, NIFS has turned classroom training into real
                 industrial safety careers — trusted by 45,000+ professionals
                 and recruiters like Adani, L&amp;T and GMR. Here&apos;s why
@@ -171,11 +201,7 @@ export function WhyNIFS() {
             </motion.div>
           </div>
         }
-        center={
-          <div className="lg:flex lg:min-h-[560px] lg:flex-col lg:justify-center">
-            <SpineWelcome size="large" animated />
-          </div>
-        }
+        center={<SpineWelcome size="large" typing={inView} />}
         right={
           <div className="grid grid-cols-1 gap-4">
             {items.map((item, i) => (
