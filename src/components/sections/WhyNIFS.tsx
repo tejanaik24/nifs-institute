@@ -51,7 +51,9 @@ function SpineWelcome({
   animated?: boolean;
   className?: string;
 }) {
-  const crestSize = size === "large" ? "h-24 w-24" : "h-14 w-14";
+  const crestSize = size === "large" ? "h-32 w-32" : "h-16 w-16";
+  const ringSize = size === "large" ? "160px" : "96px";
+  const dividerColor = size === "large" ? "bg-white/30" : "bg-foreground/20";
   return (
     <div className={`flex flex-col items-center gap-4 text-center ${className}`}>
       <div className="relative flex items-center justify-center">
@@ -59,26 +61,27 @@ function SpineWelcome({
           aria-hidden="true"
           className="spine-welcome-ring absolute rounded-full opacity-70"
           style={{
-            width: size === "large" ? "128px" : "88px",
-            height: size === "large" ? "128px" : "88px",
+            width: ringSize,
+            height: ringSize,
             background:
               "conic-gradient(from 0deg, var(--nifs-green), var(--nifs-orange), var(--primary), var(--nifs-green))",
             filter: "blur(6px)",
           }}
         />
         <div
-          className={`relative rounded-full bg-white p-1.5 ${animated ? "spine-welcome-crest" : ""}`}
+          className={`relative rounded-full bg-white p-2 ${animated ? "spine-welcome-crest" : ""}`}
         >
           <NifsCrest className={crestSize} />
         </div>
       </div>
       <span
-        className={`text-sm font-bold tracking-[0.2em] uppercase ${size === "large" ? "text-white" : "text-foreground"} ${animated ? "spine-welcome-eyebrow" : ""}`}
+        className={`text-base font-bold tracking-[0.25em] uppercase ${size === "large" ? "text-white" : "text-foreground"} ${animated ? "spine-welcome-eyebrow" : ""}`}
       >
         Welcome to NIFS
       </span>
+      <div className={`h-px w-10 ${dividerColor}`} />
       <span
-        className={`font-display text-lg font-semibold italic sm:text-xl ${size === "large" ? "text-white" : "text-foreground"} ${animated ? "spine-welcome-why" : ""}`}
+        className={`font-display text-xl font-semibold italic sm:text-2xl ${size === "large" ? "text-white" : "text-foreground"} ${animated ? "spine-welcome-why" : ""}`}
       >
         Why Choose NIFS
       </span>
@@ -139,7 +142,7 @@ export function WhyNIFS() {
 
       <SpineSplit
         left={
-          <div>
+          <div className="lg:flex lg:min-h-[560px] lg:flex-col lg:justify-center">
             {/* Mobile-only: crest + Welcome to NIFS (no spine on mobile) */}
             <div className="mb-8 lg:hidden">
               <SpineWelcome size="small" />
@@ -168,7 +171,11 @@ export function WhyNIFS() {
             </motion.div>
           </div>
         }
-        center={<SpineWelcome size="large" animated />}
+        center={
+          <div className="lg:flex lg:min-h-[560px] lg:flex-col lg:justify-center">
+            <SpineWelcome size="large" animated />
+          </div>
+        }
         right={
           <div className="grid grid-cols-1 gap-4">
             {items.map((item, i) => (
