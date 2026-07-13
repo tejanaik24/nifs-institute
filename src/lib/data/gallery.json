@@ -1,0 +1,802 @@
+[
+  {
+    "slug": "practical-training-yard",
+    "name": "Practical Training Yard",
+    "images": [
+      {
+        "src": "/images/gallery/practical-training-yard/practical-training-yard-1.jpg",
+        "alt": "Practical Training Yard photo 1"
+      },
+      {
+        "src": "/images/gallery/practical-training-yard/practical-training-yard-2.jpg",
+        "alt": "Practical Training Yard photo 2"
+      },
+      {
+        "src": "/images/gallery/practical-training-yard/practical-training-yard-3.jpg",
+        "alt": "Practical Training Yard photo 3"
+      },
+      {
+        "src": "/images/gallery/practical-training-yard/practical-training-yard-4.jpg",
+        "alt": "Practical Training Yard photo 4"
+      },
+      {
+        "src": "/images/gallery/practical-training-yard/practical-training-yard-5.jpg",
+        "alt": "Practical Training Yard photo 5"
+      },
+      {
+        "src": "/images/gallery/practical-training-yard/practical-training-yard-6.jpg",
+        "alt": "Practical Training Yard photo 6"
+      },
+      {
+        "src": "/images/gallery/practical-training-yard/practical-training-yard-7.jpg",
+        "alt": "Practical Training Yard photo 7"
+      },
+      {
+        "src": "/images/gallery/practical-training-yard/practical-training-yard-8.jpg",
+        "alt": "Practical Training Yard photo 8"
+      },
+      {
+        "src": "/images/gallery/practical-training-yard/practical-training-yard-9.jpg",
+        "alt": "Practical Training Yard photo 9"
+      },
+      {
+        "src": "/images/gallery/practical-training-yard/practical-training-yard-10.jpg",
+        "alt": "Practical Training Yard photo 10"
+      },
+      {
+        "src": "/images/gallery/practical-training-yard/practical-training-yard-11.jpg",
+        "alt": "Practical Training Yard photo 11"
+      },
+      {
+        "src": "/images/gallery/practical-training-yard/practical-training-yard-12.jpg",
+        "alt": "Practical Training Yard photo 12"
+      },
+      {
+        "src": "/images/gallery/practical-training-yard/practical-training-yard-13.jpg",
+        "alt": "Practical Training Yard photo 13"
+      },
+      {
+        "src": "/images/gallery/practical-training-yard/practical-training-yard-14.jpg",
+        "alt": "Practical Training Yard photo 14"
+      },
+      {
+        "src": "/images/gallery/practical-training-yard/practical-training-yard-15.jpg",
+        "alt": "Practical Training Yard photo 15"
+      },
+      {
+        "src": "/images/gallery/practical-training-yard/practical-training-yard-16.jpg",
+        "alt": "Practical Training Yard photo 16"
+      },
+      {
+        "src": "/images/gallery/practical-training-yard/practical-training-yard-17.jpeg",
+        "alt": "Practical Training Yard photo 17"
+      },
+      {
+        "src": "/images/gallery/practical-training-yard/practical-training-yard-18.jpeg",
+        "alt": "Practical Training Yard photo 18"
+      },
+      {
+        "src": "/images/gallery/practical-training-yard/practical-training-yard-19.jpeg",
+        "alt": "Practical Training Yard photo 19"
+      },
+      {
+        "src": "/images/gallery/practical-training-yard/practical-training-yard-20.jpeg",
+        "alt": "Practical Training Yard photo 20"
+      }
+    ]
+  },
+  {
+    "slug": "infrastructure",
+    "name": "Infrastructure",
+    "images": [
+      {
+        "src": "/images/gallery/infrastructure/infrastructure-1.png",
+        "alt": "Infrastructure photo 1"
+      },
+      {
+        "src": "/images/gallery/infrastructure/infrastructure-2.png",
+        "alt": "Infrastructure photo 2"
+      },
+      {
+        "src": "/images/gallery/infrastructure/infrastructure-3.png",
+        "alt": "Infrastructure photo 3"
+      },
+      {
+        "src": "/images/gallery/infrastructure/infrastructure-4.png",
+        "alt": "Infrastructure photo 4"
+      },
+      {
+        "src": "/images/gallery/infrastructure/infrastructure-5.png",
+        "alt": "Infrastructure photo 5"
+      },
+      {
+        "src": "/images/gallery/infrastructure/infrastructure-6.png",
+        "alt": "Infrastructure photo 6"
+      },
+      {
+        "src": "/images/gallery/infrastructure/infrastructure-7.png",
+        "alt": "Infrastructure photo 7"
+      },
+      {
+        "src": "/images/gallery/infrastructure/infrastructure-8.png",
+        "alt": "Infrastructure photo 8"
+      },
+      {
+        "src": "/images/gallery/infrastructure/infrastructure-9.png",
+        "alt": "Infrastructure photo 9"
+      },
+      {
+        "src": "/images/gallery/infrastructure/infrastructure-10.png",
+        "alt": "Infrastructure photo 10"
+      },
+      {
+        "src": "/images/gallery/infrastructure/infrastructure-11.png",
+        "alt": "Infrastructure photo 11"
+      },
+      {
+        "src": "/images/gallery/infrastructure/infrastructure-12.png",
+        "alt": "Infrastructure photo 12"
+      },
+      {
+        "src": "/images/gallery/infrastructure/infrastructure-13.png",
+        "alt": "Infrastructure photo 13"
+      }
+    ]
+  },
+  {
+    "slug": "study-tours-gallery",
+    "name": "Study Tours",
+    "images": [
+      {
+        "src": "/images/gallery/study-tours-gallery/study-tours-gallery-1.png",
+        "alt": "Study Tours photo 1"
+      },
+      {
+        "src": "/images/gallery/study-tours-gallery/study-tours-gallery-2.png",
+        "alt": "Study Tours photo 2"
+      },
+      {
+        "src": "/images/gallery/study-tours-gallery/study-tours-gallery-3.png",
+        "alt": "Study Tours photo 3"
+      },
+      {
+        "src": "/images/gallery/study-tours-gallery/study-tours-gallery-4.png",
+        "alt": "Study Tours photo 4"
+      },
+      {
+        "src": "/images/gallery/study-tours-gallery/study-tours-gallery-5.png",
+        "alt": "Study Tours photo 5"
+      },
+      {
+        "src": "/images/gallery/study-tours-gallery/study-tours-gallery-6.png",
+        "alt": "Study Tours photo 6"
+      },
+      {
+        "src": "/images/gallery/study-tours-gallery/study-tours-gallery-7.png",
+        "alt": "Study Tours photo 7"
+      },
+      {
+        "src": "/images/gallery/study-tours-gallery/study-tours-gallery-8.png",
+        "alt": "Study Tours photo 8"
+      },
+      {
+        "src": "/images/gallery/study-tours-gallery/study-tours-gallery-9.png",
+        "alt": "Study Tours photo 9"
+      },
+      {
+        "src": "/images/gallery/study-tours-gallery/study-tours-gallery-10.png",
+        "alt": "Study Tours photo 10"
+      },
+      {
+        "src": "/images/gallery/study-tours-gallery/study-tours-gallery-11.png",
+        "alt": "Study Tours photo 11"
+      },
+      {
+        "src": "/images/gallery/study-tours-gallery/study-tours-gallery-12.png",
+        "alt": "Study Tours photo 12"
+      },
+      {
+        "src": "/images/gallery/study-tours-gallery/study-tours-gallery-13.png",
+        "alt": "Study Tours photo 13"
+      },
+      {
+        "src": "/images/gallery/study-tours-gallery/study-tours-gallery-14.png",
+        "alt": "Study Tours photo 14"
+      },
+      {
+        "src": "/images/gallery/study-tours-gallery/study-tours-gallery-15.png",
+        "alt": "Study Tours photo 15"
+      },
+      {
+        "src": "/images/gallery/study-tours-gallery/study-tours-gallery-16.png",
+        "alt": "Study Tours photo 16"
+      },
+      {
+        "src": "/images/gallery/study-tours-gallery/study-tours-gallery-17.png",
+        "alt": "Study Tours photo 17"
+      },
+      {
+        "src": "/images/gallery/study-tours-gallery/study-tours-gallery-18.png",
+        "alt": "Study Tours photo 18"
+      },
+      {
+        "src": "/images/gallery/study-tours-gallery/study-tours-gallery-19.png",
+        "alt": "Study Tours photo 19"
+      },
+      {
+        "src": "/images/gallery/study-tours-gallery/study-tours-gallery-20.png",
+        "alt": "Study Tours photo 20"
+      },
+      {
+        "src": "/images/gallery/study-tours-gallery/study-tours-gallery-21.png",
+        "alt": "Study Tours photo 21"
+      },
+      {
+        "src": "/images/gallery/study-tours-gallery/study-tours-gallery-22.png",
+        "alt": "Study Tours photo 22"
+      },
+      {
+        "src": "/images/gallery/study-tours-gallery/study-tours-gallery-23.png",
+        "alt": "Study Tours photo 23"
+      },
+      {
+        "src": "/images/gallery/study-tours-gallery/study-tours-gallery-24.png",
+        "alt": "Study Tours photo 24"
+      },
+      {
+        "src": "/images/gallery/study-tours-gallery/study-tours-gallery-25.png",
+        "alt": "Study Tours photo 25"
+      },
+      {
+        "src": "/images/gallery/study-tours-gallery/study-tours-gallery-26.png",
+        "alt": "Study Tours photo 26"
+      },
+      {
+        "src": "/images/gallery/study-tours-gallery/study-tours-gallery-27.png",
+        "alt": "Study Tours photo 27"
+      },
+      {
+        "src": "/images/gallery/study-tours-gallery/study-tours-gallery-28.jpeg",
+        "alt": "Study Tours photo 28"
+      },
+      {
+        "src": "/images/gallery/study-tours-gallery/study-tours-gallery-29.png",
+        "alt": "Study Tours photo 29"
+      }
+    ]
+  },
+  {
+    "slug": "industrial-visit-gallery",
+    "name": "Industrial Visit",
+    "images": [
+      {
+        "src": "/images/gallery/industrial-visit-gallery/industrial-visit-gallery-1.jpg",
+        "alt": "Industrial Visit photo 1"
+      },
+      {
+        "src": "/images/gallery/industrial-visit-gallery/industrial-visit-gallery-2.jpg",
+        "alt": "Industrial Visit photo 2"
+      },
+      {
+        "src": "/images/gallery/industrial-visit-gallery/industrial-visit-gallery-3.jpg",
+        "alt": "Industrial Visit photo 3"
+      },
+      {
+        "src": "/images/gallery/industrial-visit-gallery/industrial-visit-gallery-4.jpg",
+        "alt": "Industrial Visit photo 4"
+      },
+      {
+        "src": "/images/gallery/industrial-visit-gallery/industrial-visit-gallery-5.jpg",
+        "alt": "Industrial Visit photo 5"
+      },
+      {
+        "src": "/images/gallery/industrial-visit-gallery/industrial-visit-gallery-6.jpeg",
+        "alt": "Industrial Visit photo 6"
+      },
+      {
+        "src": "/images/gallery/industrial-visit-gallery/industrial-visit-gallery-7.jpeg",
+        "alt": "Industrial Visit photo 7"
+      },
+      {
+        "src": "/images/gallery/industrial-visit-gallery/industrial-visit-gallery-8.jpeg",
+        "alt": "Industrial Visit photo 8"
+      },
+      {
+        "src": "/images/gallery/industrial-visit-gallery/industrial-visit-gallery-9.jpeg",
+        "alt": "Industrial Visit photo 9"
+      },
+      {
+        "src": "/images/gallery/industrial-visit-gallery/industrial-visit-gallery-10.jpeg",
+        "alt": "Industrial Visit photo 10"
+      },
+      {
+        "src": "/images/gallery/industrial-visit-gallery/industrial-visit-gallery-11.jpeg",
+        "alt": "Industrial Visit photo 11"
+      },
+      {
+        "src": "/images/gallery/industrial-visit-gallery/industrial-visit-gallery-12.jpg",
+        "alt": "Industrial Visit photo 12"
+      },
+      {
+        "src": "/images/gallery/industrial-visit-gallery/industrial-visit-gallery-13.jpg",
+        "alt": "Industrial Visit photo 13"
+      },
+      {
+        "src": "/images/gallery/industrial-visit-gallery/industrial-visit-gallery-14.jpg",
+        "alt": "Industrial Visit photo 14"
+      },
+      {
+        "src": "/images/gallery/industrial-visit-gallery/industrial-visit-gallery-15.jpg",
+        "alt": "Industrial Visit photo 15"
+      },
+      {
+        "src": "/images/gallery/industrial-visit-gallery/industrial-visit-gallery-16.jpg",
+        "alt": "Industrial Visit photo 16"
+      },
+      {
+        "src": "/images/gallery/industrial-visit-gallery/industrial-visit-gallery-17.jpeg",
+        "alt": "Industrial Visit photo 17"
+      },
+      {
+        "src": "/images/gallery/industrial-visit-gallery/industrial-visit-gallery-18.jpeg",
+        "alt": "Industrial Visit photo 18"
+      },
+      {
+        "src": "/images/gallery/industrial-visit-gallery/industrial-visit-gallery-19.jpeg",
+        "alt": "Industrial Visit photo 19"
+      },
+      {
+        "src": "/images/gallery/industrial-visit-gallery/industrial-visit-gallery-20.jpeg",
+        "alt": "Industrial Visit photo 20"
+      }
+    ]
+  },
+  {
+    "slug": "corporate-yard-gallery",
+    "name": "Corporate Yard",
+    "images": [
+      {
+        "src": "/images/gallery/corporate-yard-gallery/corporate-yard-gallery-1.png",
+        "alt": "Corporate Yard photo 1"
+      },
+      {
+        "src": "/images/gallery/corporate-yard-gallery/corporate-yard-gallery-2.png",
+        "alt": "Corporate Yard photo 2"
+      },
+      {
+        "src": "/images/gallery/corporate-yard-gallery/corporate-yard-gallery-3.png",
+        "alt": "Corporate Yard photo 3"
+      },
+      {
+        "src": "/images/gallery/corporate-yard-gallery/corporate-yard-gallery-4.png",
+        "alt": "Corporate Yard photo 4"
+      },
+      {
+        "src": "/images/gallery/corporate-yard-gallery/corporate-yard-gallery-5.png",
+        "alt": "Corporate Yard photo 5"
+      },
+      {
+        "src": "/images/gallery/corporate-yard-gallery/corporate-yard-gallery-6.png",
+        "alt": "Corporate Yard photo 6"
+      },
+      {
+        "src": "/images/gallery/corporate-yard-gallery/corporate-yard-gallery-7.png",
+        "alt": "Corporate Yard photo 7"
+      }
+    ]
+  },
+  {
+    "slug": "in-house-training",
+    "name": "In-House Training",
+    "images": [
+      {
+        "src": "/images/gallery/in-house-training/in-house-training-1.jpg",
+        "alt": "In-House Training photo 1"
+      },
+      {
+        "src": "/images/gallery/in-house-training/in-house-training-2.jpg",
+        "alt": "In-House Training photo 2"
+      },
+      {
+        "src": "/images/gallery/in-house-training/in-house-training-3.jpg",
+        "alt": "In-House Training photo 3"
+      },
+      {
+        "src": "/images/gallery/in-house-training/in-house-training-4.jpg",
+        "alt": "In-House Training photo 4"
+      },
+      {
+        "src": "/images/gallery/in-house-training/in-house-training-5.jpg",
+        "alt": "In-House Training photo 5"
+      }
+    ]
+  },
+  {
+    "slug": "achievements",
+    "name": "Achievements",
+    "images": [
+      {
+        "src": "/images/gallery/achievements/achievements-1.png",
+        "alt": "Achievements photo 1"
+      },
+      {
+        "src": "/images/gallery/achievements/achievements-2.jpg",
+        "alt": "Achievements photo 2"
+      },
+      {
+        "src": "/images/gallery/achievements/achievements-3.jpg",
+        "alt": "Achievements photo 3"
+      },
+      {
+        "src": "/images/gallery/achievements/achievements-4.jpg",
+        "alt": "Achievements photo 4"
+      },
+      {
+        "src": "/images/gallery/achievements/achievements-5.jpg",
+        "alt": "Achievements photo 5"
+      },
+      {
+        "src": "/images/gallery/achievements/achievements-6.jpg",
+        "alt": "Achievements photo 6"
+      },
+      {
+        "src": "/images/gallery/achievements/achievements-7.jpg",
+        "alt": "Achievements photo 7"
+      },
+      {
+        "src": "/images/gallery/achievements/achievements-8.jpg",
+        "alt": "Achievements photo 8"
+      },
+      {
+        "src": "/images/gallery/achievements/achievements-9.jpg",
+        "alt": "Achievements photo 9"
+      },
+      {
+        "src": "/images/gallery/achievements/achievements-10.jpeg",
+        "alt": "Achievements photo 10"
+      },
+      {
+        "src": "/images/gallery/achievements/achievements-11.jpeg",
+        "alt": "Achievements photo 11"
+      },
+      {
+        "src": "/images/gallery/achievements/achievements-12.jpeg",
+        "alt": "Achievements photo 12"
+      }
+    ]
+  },
+  {
+    "slug": "graduation-celebration",
+    "name": "Graduation Celebration",
+    "images": [
+      {
+        "src": "/images/gallery/graduation-celebration/graduation-celebration-1.png",
+        "alt": "Graduation Celebration photo 1"
+      },
+      {
+        "src": "/images/gallery/graduation-celebration/graduation-celebration-2.png",
+        "alt": "Graduation Celebration photo 2"
+      },
+      {
+        "src": "/images/gallery/graduation-celebration/graduation-celebration-3.png",
+        "alt": "Graduation Celebration photo 3"
+      },
+      {
+        "src": "/images/gallery/graduation-celebration/graduation-celebration-4.png",
+        "alt": "Graduation Celebration photo 4"
+      },
+      {
+        "src": "/images/gallery/graduation-celebration/graduation-celebration-5.png",
+        "alt": "Graduation Celebration photo 5"
+      },
+      {
+        "src": "/images/gallery/graduation-celebration/graduation-celebration-6.png",
+        "alt": "Graduation Celebration photo 6"
+      },
+      {
+        "src": "/images/gallery/graduation-celebration/graduation-celebration-7.png",
+        "alt": "Graduation Celebration photo 7"
+      },
+      {
+        "src": "/images/gallery/graduation-celebration/graduation-celebration-8.png",
+        "alt": "Graduation Celebration photo 8"
+      },
+      {
+        "src": "/images/gallery/graduation-celebration/graduation-celebration-9.png",
+        "alt": "Graduation Celebration photo 9"
+      },
+      {
+        "src": "/images/gallery/graduation-celebration/graduation-celebration-10.png",
+        "alt": "Graduation Celebration photo 10"
+      },
+      {
+        "src": "/images/gallery/graduation-celebration/graduation-celebration-11.png",
+        "alt": "Graduation Celebration photo 11"
+      },
+      {
+        "src": "/images/gallery/graduation-celebration/graduation-celebration-12.png",
+        "alt": "Graduation Celebration photo 12"
+      },
+      {
+        "src": "/images/gallery/graduation-celebration/graduation-celebration-13.png",
+        "alt": "Graduation Celebration photo 13"
+      },
+      {
+        "src": "/images/gallery/graduation-celebration/graduation-celebration-14.png",
+        "alt": "Graduation Celebration photo 14"
+      },
+      {
+        "src": "/images/gallery/graduation-celebration/graduation-celebration-15.png",
+        "alt": "Graduation Celebration photo 15"
+      },
+      {
+        "src": "/images/gallery/graduation-celebration/graduation-celebration-16.png",
+        "alt": "Graduation Celebration photo 16"
+      },
+      {
+        "src": "/images/gallery/graduation-celebration/graduation-celebration-17.png",
+        "alt": "Graduation Celebration photo 17"
+      },
+      {
+        "src": "/images/gallery/graduation-celebration/graduation-celebration-18.png",
+        "alt": "Graduation Celebration photo 18"
+      },
+      {
+        "src": "/images/gallery/graduation-celebration/graduation-celebration-19.png",
+        "alt": "Graduation Celebration photo 19"
+      },
+      {
+        "src": "/images/gallery/graduation-celebration/graduation-celebration-20.png",
+        "alt": "Graduation Celebration photo 20"
+      },
+      {
+        "src": "/images/gallery/graduation-celebration/graduation-celebration-21.png",
+        "alt": "Graduation Celebration photo 21"
+      },
+      {
+        "src": "/images/gallery/graduation-celebration/graduation-celebration-22.png",
+        "alt": "Graduation Celebration photo 22"
+      },
+      {
+        "src": "/images/gallery/graduation-celebration/graduation-celebration-23.png",
+        "alt": "Graduation Celebration photo 23"
+      },
+      {
+        "src": "/images/gallery/graduation-celebration/graduation-celebration-24.png",
+        "alt": "Graduation Celebration photo 24"
+      }
+    ]
+  },
+  {
+    "slug": "guest-lectures-gallery",
+    "name": "Guest Lectures",
+    "images": [
+      {
+        "src": "/images/gallery/guest-lectures-gallery/guest-lectures-gallery-1.png",
+        "alt": "Guest Lectures photo 1"
+      },
+      {
+        "src": "/images/gallery/guest-lectures-gallery/guest-lectures-gallery-2.png",
+        "alt": "Guest Lectures photo 2"
+      },
+      {
+        "src": "/images/gallery/guest-lectures-gallery/guest-lectures-gallery-3.png",
+        "alt": "Guest Lectures photo 3"
+      },
+      {
+        "src": "/images/gallery/guest-lectures-gallery/guest-lectures-gallery-4.png",
+        "alt": "Guest Lectures photo 4"
+      },
+      {
+        "src": "/images/gallery/guest-lectures-gallery/guest-lectures-gallery-5.png",
+        "alt": "Guest Lectures photo 5"
+      },
+      {
+        "src": "/images/gallery/guest-lectures-gallery/guest-lectures-gallery-6.png",
+        "alt": "Guest Lectures photo 6"
+      },
+      {
+        "src": "/images/gallery/guest-lectures-gallery/guest-lectures-gallery-7.png",
+        "alt": "Guest Lectures photo 7"
+      },
+      {
+        "src": "/images/gallery/guest-lectures-gallery/guest-lectures-gallery-8.png",
+        "alt": "Guest Lectures photo 8"
+      },
+      {
+        "src": "/images/gallery/guest-lectures-gallery/guest-lectures-gallery-9.png",
+        "alt": "Guest Lectures photo 9"
+      },
+      {
+        "src": "/images/gallery/guest-lectures-gallery/guest-lectures-gallery-10.png",
+        "alt": "Guest Lectures photo 10"
+      },
+      {
+        "src": "/images/gallery/guest-lectures-gallery/guest-lectures-gallery-11.png",
+        "alt": "Guest Lectures photo 11"
+      }
+    ]
+  },
+  {
+    "slug": "events",
+    "name": "Events",
+    "images": [
+      {
+        "src": "/images/gallery/events/events-1.jpg",
+        "alt": "Events photo 1"
+      },
+      {
+        "src": "/images/gallery/events/events-2.jpg",
+        "alt": "Events photo 2"
+      },
+      {
+        "src": "/images/gallery/events/events-3.jpg",
+        "alt": "Events photo 3"
+      },
+      {
+        "src": "/images/gallery/events/events-4.jpg",
+        "alt": "Events photo 4"
+      },
+      {
+        "src": "/images/gallery/events/events-5.jpg",
+        "alt": "Events photo 5"
+      },
+      {
+        "src": "/images/gallery/events/events-6.jpg",
+        "alt": "Events photo 6"
+      },
+      {
+        "src": "/images/gallery/events/events-7.jpg",
+        "alt": "Events photo 7"
+      },
+      {
+        "src": "/images/gallery/events/events-8.jpg",
+        "alt": "Events photo 8"
+      },
+      {
+        "src": "/images/gallery/events/events-9.jpg",
+        "alt": "Events photo 9"
+      },
+      {
+        "src": "/images/gallery/events/events-10.jpg",
+        "alt": "Events photo 10"
+      },
+      {
+        "src": "/images/gallery/events/events-11.jpg",
+        "alt": "Events photo 11"
+      },
+      {
+        "src": "/images/gallery/events/events-12.jpeg",
+        "alt": "Events photo 12"
+      },
+      {
+        "src": "/images/gallery/events/events-13.jpeg",
+        "alt": "Events photo 13"
+      },
+      {
+        "src": "/images/gallery/events/events-14.jpeg",
+        "alt": "Events photo 14"
+      },
+      {
+        "src": "/images/gallery/events/events-15.jpeg",
+        "alt": "Events photo 15"
+      },
+      {
+        "src": "/images/gallery/events/events-16.jpg",
+        "alt": "Events photo 16"
+      },
+      {
+        "src": "/images/gallery/events/events-17.jpg",
+        "alt": "Events photo 17"
+      },
+      {
+        "src": "/images/gallery/events/events-18.jpeg",
+        "alt": "Events photo 18"
+      },
+      {
+        "src": "/images/gallery/events/events-19.jpeg",
+        "alt": "Events photo 19"
+      },
+      {
+        "src": "/images/gallery/events/events-20.jpeg",
+        "alt": "Events photo 20"
+      },
+      {
+        "src": "/images/gallery/events/events-21.jpeg",
+        "alt": "Events photo 21"
+      }
+    ]
+  },
+  {
+    "slug": "campus-drive",
+    "name": "Campus Drive",
+    "images": [
+      {
+        "src": "/images/gallery/campus-drive/campus-drive-1.jpg",
+        "alt": "Campus Drive photo 1"
+      },
+      {
+        "src": "/images/gallery/campus-drive/campus-drive-2.jpg",
+        "alt": "Campus Drive photo 2"
+      },
+      {
+        "src": "/images/gallery/campus-drive/campus-drive-3.jpg",
+        "alt": "Campus Drive photo 3"
+      },
+      {
+        "src": "/images/gallery/campus-drive/campus-drive-4.jpg",
+        "alt": "Campus Drive photo 4"
+      },
+      {
+        "src": "/images/gallery/campus-drive/campus-drive-5.jpg",
+        "alt": "Campus Drive photo 5"
+      },
+      {
+        "src": "/images/gallery/campus-drive/campus-drive-6.jpg",
+        "alt": "Campus Drive photo 6"
+      },
+      {
+        "src": "/images/gallery/campus-drive/campus-drive-7.jpg",
+        "alt": "Campus Drive photo 7"
+      },
+      {
+        "src": "/images/gallery/campus-drive/campus-drive-8.jpeg",
+        "alt": "Campus Drive photo 8"
+      },
+      {
+        "src": "/images/gallery/campus-drive/campus-drive-9.jpeg",
+        "alt": "Campus Drive photo 9"
+      },
+      {
+        "src": "/images/gallery/campus-drive/campus-drive-10.jpeg",
+        "alt": "Campus Drive photo 10"
+      },
+      {
+        "src": "/images/gallery/campus-drive/campus-drive-11.jpeg",
+        "alt": "Campus Drive photo 11"
+      }
+    ]
+  },
+  {
+    "slug": "recognition-gallery",
+    "name": "Recognition",
+    "images": [
+      {
+        "src": "/images/gallery/recognition-gallery/recognition-gallery-1.png",
+        "alt": "MEMORANDUM OF NSDC (SKILL INDIA)"
+      },
+      {
+        "src": "/images/gallery/recognition-gallery/recognition-gallery-2.png",
+        "alt": "MEMORANDUM OF ACHARYA NAGARJUNA UNIVERSITY"
+      },
+      {
+        "src": "/images/gallery/recognition-gallery/recognition-gallery-3.jpg",
+        "alt": "MEMORANDUM OF SBTET"
+      },
+      {
+        "src": "/images/gallery/recognition-gallery/recognition-gallery-4.png",
+        "alt": "MEMORANDUM OF ANNAMALIA UNIVERSITY"
+      },
+      {
+        "src": "/images/gallery/recognition-gallery/recognition-gallery-5.png",
+        "alt": "MEMORANDUM OF LINCOL UNIVERSITY, MALASIYA"
+      },
+      {
+        "src": "/images/gallery/recognition-gallery/recognition-gallery-6.png",
+        "alt": "ISO & QUALITY CERTIFICATE"
+      },
+      {
+        "src": "/images/gallery/recognition-gallery/recognition-gallery-7.png",
+        "alt": "TIMES EXCELLENCE AWARDS FOR THE \"BEST FIRE & INDUSTRIAL SAFETY INSTITUTE\""
+      },
+      {
+        "src": "/images/gallery/recognition-gallery/recognition-gallery-8.jpeg",
+        "alt": "ODISHA EDUCATION AWARDS 2019"
+      },
+      {
+        "src": "/images/gallery/recognition-gallery/recognition-gallery-9.jpeg",
+        "alt": "RADIO CITY AWARDS 2022"
+      }
+    ]
+  }
+]
