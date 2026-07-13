@@ -6,6 +6,7 @@ import { WhyNIFS } from "@/components/sections/WhyNIFS";
 import { AboutNifs } from "@/components/sections/about-nifs";
 import { Placements } from "@/components/sections/placements-section";
 import { CentersGrid } from "@/components/sections/centers-grid";
+import { FacilitiesShowcase } from "@/components/sections/facilities-showcase";
 
 export default function HomePage() {
   return (
@@ -20,6 +21,9 @@ export default function HomePage() {
         <Placements />
         <CentersGrid />
       </SpineLayout>
+
+      {/* Full-width break from the spine layout — campus photo showcase */}
+      <FacilitiesShowcase />
     </>
   );
 }
