@@ -2,46 +2,54 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { centers } from "@/lib/data/centers";
 
-// Dot positions as a percentage of the map image's width/height. Calibrated
-// by pixel-detecting four known landmarks in the actual generated image
-// (Kashmir tip, Kanyakumari, the Kutch peninsula, and the Arunachal Pradesh
-// tip) and mapping every city's real longitude/latitude onto that same
-// linear scale — not eyeballed guesses.
-const cityDots = [
-  { city: "Delhi", x: 37.48, y: 25.78 },
-  { city: "Jamshedpur", x: 55.64, y: 44.78 },
-  { city: "Kolkata", x: 59.95, y: 45.53 },
-  { city: "Rourkela", x: 52.95, y: 46.53 },
-  { city: "Bhubaneswar", x: 54.89, y: 52.86 },
-  { city: "Visakhapatnam", x: 49.68, y: 61.26, isHQ: true },
-  { city: "Kakinada", x: 47.75, y: 63.51 },
-  { city: "Nagpur", x: 41.44, y: 50.12 },
-  { city: "Hyderabad", x: 40.24, y: 62.24 },
-  { city: "Warangal", x: 42.45, y: 60.36 },
-  { city: "Guntur", x: 44.13, y: 65.71 },
-  { city: "Chennai", x: 43.8, y: 76.1 },
-  { city: "Tambaram", x: 43.46, y: 76.6 },
-  { city: "Pondicherry", x: 42.88, y: 79.77 },
-  { city: "Mumbai", x: 29.04, y: 56.79 },
-];
+type IndiaMapProps = {
+  selectedCity: string | null;
+  onSelect: (city: string) => void;
+};
 
-export function IndiaMap() {
+export function IndiaMap({ selectedCity, onSelect }: IndiaMapProps) {
   return (
-    <div className="relative mx-auto aspect-[3/2] w-full max-w-xl">
+    <div className="relative mx-auto aspect-[3/2] w-full max-w-none">
       <Image
         src="/images/india-map-v2.png"
         alt="Map of India"
         fill
         className="object-contain"
-        sizes="(max-width: 768px) 100vw, 34rem"
+        sizes="(max-width: 1024px) 100vw, 44vw"
       />
-      {cityDots.map((dot, i) => {
+
+      {/* Radar sweep — full-bleed, sits behind the dots */}
+      <div
+        aria-hidden="true"
+        className="map-radar-sweep pointer-events-none absolute inset-0 mix-blend-multiply"
+        style={{
+          background:
+            "conic-gradient(from 0deg, transparent 0deg, transparent 300deg, color-mix(in oklch, var(--primary) 18%, transparent) 340deg, transparent 360deg)",
+        }}
+      />
+      {/* Scan line — thin horizontal sweep top to bottom */}
+      <div
+        aria-hidden="true"
+        className="map-scan-line pointer-events-none absolute inset-x-0 h-[2px]"
+        style={{
+          background:
+            "linear-gradient(to right, transparent, color-mix(in oklch, var(--primary) 45%, transparent), transparent)",
+        }}
+      />
+
+      {centers.map((dot, i) => {
+        const isSelected = dot.city === selectedCity;
         const labelWidth = dot.city.length * 6.5 + 16;
         const size = dot.isHQ ? "h-4 w-4" : "h-3 w-3";
         return (
-          <div
+          <button
             key={dot.city}
+            type="button"
+            onClick={() => onSelect(dot.city)}
+            aria-pressed={isSelected}
+            aria-label={dot.city}
             className="group absolute cursor-pointer"
             style={{ left: `${dot.x}%`, top: `${dot.y}%` }}
           >
@@ -50,21 +58,32 @@ export function IndiaMap() {
                 className={`map-dot-pulse absolute inset-0 block rounded-full bg-primary ${size}`}
                 style={{ animationDelay: `${i * 0.15}s` }}
               />
+              {isSelected && (
+                <motion.span
+                  initial={{ scale: 0.6, opacity: 0 }}
+                  animate={{ scale: 1.8, opacity: 1 }}
+                  transition={{ type: "spring", stiffness: 200, damping: 18 }}
+                  className={`absolute inset-0 block rounded-full border-2 border-primary ${size}`}
+                  style={{ boxShadow: "0 0 0 6px color-mix(in oklch, var(--primary) 20%, transparent)" }}
+                />
+              )}
               <motion.span
                 whileHover={{ scale: 1.4 }}
                 transition={{ type: "spring", stiffness: 300, damping: 15 }}
-                className={`relative block rounded-full border-2 border-white bg-primary shadow-sm ${size}`}
+                className={`relative block rounded-full border-2 border-white shadow-sm ${size} ${
+                  isSelected ? "bg-foreground" : "bg-primary"
+                }`}
               />
               <span
                 className={`pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 rounded bg-foreground px-2 py-1 text-[10px] font-medium whitespace-nowrap text-background transition-opacity duration-200 group-hover:opacity-100 ${
-                  dot.isHQ ? "opacity-100" : "opacity-0"
+                  isSelected ? "opacity-100" : "opacity-0"
                 }`}
                 style={{ minWidth: labelWidth }}
               >
                 {dot.isHQ ? `${dot.city} · HQ` : dot.city}
               </span>
             </div>
-          </div>
+          </button>
         );
       })}
     </div>

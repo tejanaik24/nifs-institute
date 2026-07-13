@@ -2,25 +2,50 @@ export type Center = {
   city: string;
   state: string;
   isHQ?: boolean;
+  /** Position on the India map image, as a percentage of width/height.
+   * Calibrated by pixel-detecting known landmarks (Kashmir tip, Kanyakumari,
+   * Kutch peninsula, Arunachal tip) and mapping each city's real lat/long
+   * onto that linear scale — single source of truth, used by both the map
+   * dots and any list/detail view. */
+  x: number;
+  y: number;
+  /** Only set for HQ — no verified street address exists for the other
+   * centers, so don't fabricate one (see BRAIN.md "real facts" rule). */
+  address?: string;
 };
 
 export const centers: Center[] = [
-  { city: "Visakhapatnam", state: "Andhra Pradesh", isHQ: true },
-  { city: "Hyderabad", state: "Telangana" },
-  { city: "Guntur", state: "Andhra Pradesh" },
-  { city: "Chennai", state: "Tamil Nadu" },
-  { city: "Bhubaneswar", state: "Odisha" },
-  { city: "Kolkata", state: "West Bengal" },
-  { city: "Mumbai", state: "Maharashtra" },
-  { city: "Warangal", state: "Telangana" },
-  { city: "Delhi", state: "Delhi NCR" },
-  { city: "Kakinada", state: "Andhra Pradesh" },
-  { city: "Jamshedpur", state: "Jharkhand" },
-  { city: "Tambaram", state: "Tamil Nadu" },
-  { city: "Nagpur", state: "Maharashtra" },
-  { city: "Rourkela", state: "Odisha" },
-  { city: "Pondicherry", state: "Puducherry" },
+  {
+    city: "Visakhapatnam",
+    state: "Andhra Pradesh",
+    isHQ: true,
+    x: 49.68,
+    y: 61.26,
+    address:
+      "Door No. 47-10-15, 2nd Lane, Dwarakanagar, AG Avenue Building, 3rd Floor, Visakhapatnam (A.P.) – 530016",
+  },
+  { city: "Hyderabad", state: "Telangana", x: 40.24, y: 62.24 },
+  { city: "Guntur", state: "Andhra Pradesh", x: 44.13, y: 65.71 },
+  { city: "Chennai", state: "Tamil Nadu", x: 43.8, y: 76.1 },
+  { city: "Bhubaneswar", state: "Odisha", x: 54.89, y: 52.86 },
+  { city: "Kolkata", state: "West Bengal", x: 59.95, y: 45.53 },
+  { city: "Mumbai", state: "Maharashtra", x: 29.04, y: 56.79 },
+  { city: "Warangal", state: "Telangana", x: 42.45, y: 60.36 },
+  { city: "Delhi", state: "Delhi NCR", x: 37.48, y: 25.78 },
+  { city: "Kakinada", state: "Andhra Pradesh", x: 47.75, y: 63.51 },
+  { city: "Jamshedpur", state: "Jharkhand", x: 55.64, y: 44.78 },
+  { city: "Tambaram", state: "Tamil Nadu", x: 43.46, y: 76.6 },
+  { city: "Nagpur", state: "Maharashtra", x: 41.44, y: 50.12 },
+  { city: "Rourkela", state: "Odisha", x: 52.95, y: 46.53 },
+  { city: "Pondicherry", state: "Puducherry", x: 42.88, y: 79.77 },
 ];
+
+/** Only HQ has a verified street address today — drives the detail-card
+ * branch in CentersGrid so the other 14 centers never render fabricated
+ * contact details. */
+export function hasVerifiedAddress(c: Center): boolean {
+  return !!c.address;
+}
 
 export const recruiters = [
   "Adani",

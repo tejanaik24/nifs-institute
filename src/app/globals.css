@@ -200,6 +200,53 @@
   }
 }
 
+@keyframes mapRadarSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.map-radar-sweep {
+  animation: mapRadarSpin 12s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .map-radar-sweep {
+    animation: none;
+  }
+}
+
+@keyframes mapScanLine {
+  0% {
+    top: 0%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+.map-scan-line {
+  animation: mapScanLine 4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .map-scan-line {
+    animation: none;
+    display: none;
+  }
+}
+
 @keyframes spineWelcomeSpin {
   from {
     transform: rotate(0deg);
