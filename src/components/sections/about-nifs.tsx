@@ -80,7 +80,7 @@ export function AboutNifs() {
               alt="25+ Years of Excellence"
               fill
               sizes="380px"
-              className="object-contain mix-blend-screen"
+              className="object-contain"
             />
           </motion.div>
         </div>
