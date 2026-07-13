@@ -2,14 +2,70 @@
 
 ## ⚠️ Read this first
 
-This file was rewritten on 2026-07-13 (evening pass, after a full session of
-homepage rebuild + fixes) to replace a now-stale mid-session brief. The
-homepage architecture described below is **current as of this rewrite** —
+This file was last updated 2026-07-13 (late pass — interactive centers-map
+session, added on top of the evening pass earlier the same day). The
+homepage architecture described below is **current as of this update** —
 verify with `grep -rn` against `src/app/page.tsx` before trusting anything
 that isn't. Two older layers of history are preserved further down for
 background only: a "Historical Archive" (July 10 session, scroll-circuit/
 R3F architecture, fully replaced) and the immediately-preceding mid-session
 brief's blow-by-blow build log (still useful chronology, kept as-is).
+
+## Latest session — 2026-07-13 (interactive centers map)
+
+Two live-feedback items on the `CentersGrid` section (map/HQ block, still
+inside the homepage's `SpineLayout`):
+
+1. **`25-years-excellence.png` color mismatch** (in `AboutNifs`, one section
+   up) — user didn't like how the cyan/blue AI-generated graphic looked
+   against the red spine. **Diagnosed, not yet fixed**: `mix-blend-screen`
+   of cyan-on-grey-vignette over saturated red produces a muddy fringe.
+   **Recommendation given to user** (not applied — needs regeneration):
+   redo the graphic in warm off-white (`#FFF4EE`) numerals with a coral-
+   orange glow (`#FF6B4A`–`#FF8552`, adjacent to the existing `--nifs-orange`
+   accent) on a **true transparent background** (no grey vignette — that's
+   what's producing the muddy wash). Keep `mix-blend-screen` in code once
+   the new asset lands; no code change needed beyond swapping the file.
+   **Still open** — user hasn't regenerated the image yet.
+2. **India-map + centers block rebuilt as fully interactive** (this was
+   fully implemented, not just recommended):
+   - `src/lib/data/centers.ts` — `Center` type gained `x`/`y` (map
+     coordinates, now single-sourced here instead of duplicated in
+     `india-map.tsx`) and optional `address` (only Visakhapatnam HQ has a
+     verified one — the other 14 centers intentionally have none, no fake
+     addresses/phone numbers are ever fabricated). Added
+     `hasVerifiedAddress()` helper.
+   - `src/components/sections/india-map.tsx` — now a **controlled**
+     component (`selectedCity`, `onSelect` props), dots are real `<button>`s
+     (a11y), map widened to fill the gutter (`max-w-xl` → `max-w-none`),
+     added a radar-sweep + scan-line "futuristic" overlay (both respect
+     `prefers-reduced-motion`, mirroring the existing `.map-dot-pulse` /
+     `.spine-welcome-ring` guard pattern in `globals.css`). Permanent
+     always-on "HQ" tooltip removed — no city is visually privileged by
+     default now that the section is pan-India framed.
+   - `src/components/sections/center-detail-card.tsx` (new) — the card
+     that renders in the spine's previously-unused `center` slot (and
+     reused for the mobile fallback below the map, since `SpineSplit`'s
+     `center` slot is desktop-only by design). Two branches: verified
+     (HQ — full address + Get Directions + Call/WhatsApp) vs. generic
+     (other 14 — honest "Contact NIFS HQ for this center's address" copy +
+     same Call/WhatsApp CTAs + View All Centers link). Never renders fake
+     placeholder data.
+   - `src/components/sections/centers-grid.tsx` — owns `selectedCity`
+     state, wires it into `IndiaMap` and the spine `center` slot (via
+     `AnimatePresence` cross-fade between a placeholder and the populated
+     card). **Removed the hardcoded "NIFS Visakhapatnam" HQ-only right
+     column** — replaced with pan-India framing ("Find a center near you"),
+     kept the 86/24/3+ stat row and the major-centers chip list, made the
+     chips clickable too (second path into the same detail-card flow, not
+     just the map). Mobile gets its own detail-card render path under the
+     map with `scrollIntoView` on selection.
+   - Verified end-to-end via `agent-browser` (desktop: map click, chip
+     click, both HQ and non-HQ branches all sync correctly; mobile 375px:
+     no horizontal scroll, card appears under map, scrolls into view).
+     `npm run build` passes clean.
+   - Committed + pushed + deployed (`vercel --prod --yes`) — live at
+     https://nifs-institute.vercel.app.
 
 ## ⚡ 30-Second Brief (current, 2026-07-13 end of session)
 
