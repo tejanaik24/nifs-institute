@@ -191,6 +191,61 @@ screenshot after the above shipped:
 5. Committed + pushed + deployed (`vercel --prod --yes`) — live at
    https://nifs-institute.vercel.app.
 
+### Session — 2026-07-13 (fourth pass): Facilities showcase + design-review detour
+
+1. Ran `/plan-design-review` on the Placements section per user request —
+   the skill catalogue entry is just a stub pointing at an upstream repo
+   (`github.com/garrytan/gstack`) not installed locally, so the actual
+   review was done manually. Findings: the 25-years badge and the
+   45,000+ stat both read as generic/templated ("AI slop" — glossy
+   award-badge look, blurred-circle stat tile, flat logo-wall grid). User
+   decided to regenerate both as **Three.js/WebGL, industrial/technical
+   style** via Google AntiGravity, using a prompt I wrote (see the prompt
+   in this session's transcript if it needs regenerating — covers a
+   parameterized `StatBadge3D` component: brushed-metal plate, hazard-
+   stripe trim, rivet details, transparent canvas, reduced-motion
+   fallback). **That integration is in progress, started outside this
+   agent session** — `src/components/three/StatBadge3D.tsx` now exists
+   and is imported (uncommitted) into `about-nifs.tsx` and
+   `placements-section.tsx`. Left untouched/uncommitted this session
+   (stashed and restored around an unrelated deploy) — **don't assume it's
+   finished or wired into the actual render tree; check the live diff
+   before continuing that thread**.
+2. Also trimmed the Placements "Career Outcomes" copy (removed the
+   paragraph, converted the 5-role list to pill chips) — this WAS
+   committed/deployed, unlike item 1.
+3. **New "Facilities Showcase" homepage section** —
+   `src/components/sections/facilities-showcase.tsx`, added to
+   `src/app/page.tsx` **after `</SpineLayout>`** (deliberately outside the
+   spine system — a full-width rhythm break, not another spine column
+   section). Interactive hover/click-to-expand image accordion on
+   desktop (adapted from a 21st.dev component the user pasted — rewritten
+   to use `next/image`, real facility photos, project design tokens, and
+   `onClick`/`onFocus` alongside `onMouseEnter` since the original was
+   hover-only and unusable on touch devices), collapsing to a plain
+   2-column photo grid on mobile (hover-accordion doesn't translate to
+   touch, so mobile gets a simpler pattern rather than a broken one).
+   Six panels: Smart Classrooms, AC Lecture Theatre, Practical Training
+   Yard, Fire Hazard Drill, Hostel Accommodation, Industry Site Visits.
+   **Important data-integrity catch**: the existing (still-unused)
+   `src/lib/data/facilities.ts` pairs `hostel-facility.jpg` and
+   `gallery-industrial-visit.jpg` with an "AC Conference Hall" /
+   "Conference & Training Halls" caption — I opened both image files and
+   neither shows a conference hall (one's a hostel dorm room, one's a
+   solar-farm site visit). **No real conference-hall photo exists
+   anywhere in this repo.** Used accurate captions instead of inheriting
+   that mismatch. If a real conference-hall photo ever gets added, it'd
+   slot in as a 7th panel — don't just relabel one of the existing 6.
+4. Verified via `agent-browser` at ~1036px (desktop accordion, click-to-
+   expand confirmed working) and ~500px (mobile grid, no horizontal
+   scroll, all 6 real photos + captions render). `npm run build` clean.
+5. **Deploy note**: item 1's uncommitted `StatBadge3D` changes were
+   `git stash`ed before running `vercel --prod --yes` (so only the
+   committed Facilities-showcase + copy-trim work shipped), then
+   `git stash pop`ped back immediately after — production is NOT running
+   the in-progress 3D badge integration. Live at
+   https://nifs-institute.vercel.app.
+
 ## ⚡ 30-Second Brief (current, 2026-07-13 end of session)
 
 Rebuilding nifsindia.net as a premium Next.js site for NIFS (National
@@ -210,14 +265,15 @@ repo root. **Standing instruction (2026-07-13): always deploy (commit + push
 this repo, without waiting to be asked** — see memory
 `feedback-nifs-auto-deploy.md`.
 
-**Homepage today** (`src/app/page.tsx`, updated in the third pass of this
-same day — see "Session — 2026-07-13 (third pass" above for what changed
+**Homepage today** (`src/app/page.tsx`, updated in the fourth pass of this
+same day — see "Session — 2026-07-13 (fourth pass" above for what changed
 most recently): `TunnelHero` → `SpineLayout` wrapping `WhyNIFS` →
-`AboutNifs` → **`Placements` (new)** → `CentersGrid`. `CentersHighlight`
-and `ExploreNifs` were both **removed entirely** earlier this session per
+`AboutNifs` → `Placements` → `CentersGrid` → **`FacilitiesShowcase` (new,
+outside SpineLayout — full-width, no spine)**. `CentersHighlight` and
+`ExploreNifs` were both **removed entirely** earlier this session per
 explicit user request (see below) — the `ExploreNifs` gap that used to be
-flagged as "no replacement content decided" is now filled by the new
-`Placements` section, so that open item is resolved.
+flagged as "no replacement content decided" is now filled by
+`Placements` + `FacilitiesShowcase`, so that open item is resolved.
 
 ## Current homepage architecture
 
@@ -230,6 +286,8 @@ flagged as "no replacement content decided" is now filled by the new
   <Placements />
   <CentersGrid />
 </SpineLayout>
+<FacilitiesShowcase />
+{/* full-width, deliberately outside the spine — see "fourth pass" session note */}
 ```
 
 1. **`<TunnelHero />`** (`src/components/sections/tunnel-hero.tsx`) —
