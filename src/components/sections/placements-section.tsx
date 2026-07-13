@@ -105,19 +105,16 @@ export function Placements() {
               <h2 className="font-display mt-3 text-3xl italic leading-tight">
                 Where our graduates work
               </h2>
-              <p className="mt-4 text-sm leading-relaxed text-white/70">
-                Our placement cell partners directly with recruiters across
-                construction, EPC, manufacturing, and FMCG to place every
-                graduating batch into real industrial safety roles.
-              </p>
-              <ul className="mt-5 space-y-1.5 text-sm text-white/80">
+              <div className="mt-5 flex flex-wrap gap-2">
                 {roles.map((role) => (
-                  <li key={role} className="flex items-center gap-2">
-                    <span className="h-1 w-1 shrink-0 rounded-full bg-primary" />
+                  <span
+                    key={role}
+                    className="rounded-full border border-white/15 px-3 py-1.5 text-xs text-white/80"
+                  >
                     {role}
-                  </li>
+                  </span>
                 ))}
-              </ul>
+              </div>
               <Link
                 href="/placements"
                 className="mt-6 inline-block text-sm font-medium text-primary underline-offset-4 hover:underline"
@@ -170,25 +167,22 @@ export function Placements() {
           <h2 className="font-display mt-3 text-2xl italic leading-tight">
             Where our graduates work
           </h2>
-          <p className="mx-auto mt-4 max-w-[420px] text-sm leading-relaxed text-white/70">
-            Our placement cell partners directly with recruiters across
-            construction, EPC, manufacturing, and FMCG to place every
-            graduating batch into real industrial safety roles.
-          </p>
         </motion.div>
 
         <motion.div {...fadeUp} className="mt-10">
           <FlagshipStat size="small" />
         </motion.div>
 
-        <motion.ul {...fadeUp} className="mx-auto mt-8 flex max-w-[320px] flex-col gap-1.5 text-sm text-white/80">
+        <motion.div {...fadeUp} className="mx-auto mt-8 flex max-w-[340px] flex-wrap justify-center gap-2">
           {roles.map((role) => (
-            <li key={role} className="flex items-center justify-center gap-2">
-              <span className="h-1 w-1 shrink-0 rounded-full bg-primary" />
+            <span
+              key={role}
+              className="rounded-full border border-white/15 px-3 py-1.5 text-xs text-white/80"
+            >
               {role}
-            </li>
+            </span>
           ))}
-        </motion.ul>
+        </motion.div>
 
         <motion.div {...fadeUp} className="mt-8 grid grid-cols-3 gap-3">
           {recruiterLogos
