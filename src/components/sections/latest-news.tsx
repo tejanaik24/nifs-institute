@@ -15,9 +15,14 @@ function formatDate(iso: string) {
 }
 
 export function LatestNews() {
-  const latest = [...blogPosts]
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-    .slice(0, 3);
+  const sorted = [...blogPosts].sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+  );
+  const featured =
+    sorted.find(
+      (p) => p.slug === "nifs-india-achieves-milestone-collaboration-with-acharya-nagarjuna-university"
+    ) ?? sorted[0];
+  const rest = sorted.filter((p) => p.slug !== featured.slug).slice(0, 3);
 
   return (
     <section className="bg-muted/40 py-16 lg:py-28">
@@ -45,11 +50,49 @@ export function LatestNews() {
           </Link>
         </motion.div>
 
+        {/* Featured story — side-by-side photo + headline, matching the old
+            site's milestone-announcement card layout */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5 }}
+          className="mt-10"
+        >
+          <Link
+            href={`/blog/${featured.slug}`}
+            className="group grid grid-cols-1 items-center gap-8 border border-border bg-[#FBECEA] p-6 transition-shadow duration-300 hover:shadow-xl md:grid-cols-2 md:p-10"
+          >
+            {featured.coverImage && (
+              <div className="relative aspect-[4/3] w-full overflow-hidden">
+                <Image
+                  src={featured.coverImage}
+                  alt={featured.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+            )}
+            <div>
+              <h3 className="font-display text-2xl leading-snug font-semibold text-foreground md:text-3xl">
+                {featured.title}
+              </h3>
+              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                {featured.excerpt}
+              </p>
+              <span className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-primary transition-transform duration-300 group-hover:translate-x-1">
+                Read More… <ArrowRight className="h-3.5 w-3.5" />
+              </span>
+            </div>
+          </Link>
+        </motion.div>
+
         <div
-          className="mt-10 grid gap-6"
+          className="mt-6 grid gap-6"
           style={{ gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))" }}
         >
-          {latest.map((post, i) => (
+          {rest.map((post, i) => (
             <motion.div
               key={post.slug}
               initial={{ opacity: 0, y: 28 }}
