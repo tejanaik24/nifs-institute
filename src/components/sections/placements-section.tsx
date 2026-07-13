@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { recruiterLogos } from "@/lib/data/centers";
+import { StatBadge3D } from "@/components/three/StatBadge3D";
 import { SpineGutterBg, SpineSplit } from "@/components/sections/spine-helpers";
 import { useCountUp, useInView } from "@/components/sections/scroll-reveal-hooks";
 
@@ -121,11 +122,21 @@ export function Placements() {
               >
                 View All Placements →
               </Link>
+
+              <div className="relative mx-auto mt-8 aspect-[4/5] w-full max-w-[420px] overflow-hidden rounded-sm">
+                <Image
+                  src="/images/placement-graduate-worksite.png"
+                  alt="NIFS graduate working as an industrial safety officer on-site"
+                  fill
+                  sizes="420px"
+                  className="object-cover"
+                />
+              </div>
             </motion.div>
           }
           center={
-            <motion.div {...fadeUp}>
-              <FlagshipStat />
+            <motion.div {...fadeUp} className="w-full max-w-[380px] h-[380px] flex items-center justify-center mx-auto">
+              <StatBadge3D value="45,000+" label="Candidates Placed" />
             </motion.div>
           }
           right={
@@ -169,8 +180,8 @@ export function Placements() {
           </h2>
         </motion.div>
 
-        <motion.div {...fadeUp} className="mt-10">
-          <FlagshipStat size="small" />
+        <motion.div {...fadeUp} className="mt-10 w-full max-w-[380px] h-[380px] flex items-center justify-center mx-auto">
+          <StatBadge3D value="45,000+" label="Candidates Placed" />
         </motion.div>
 
         <motion.div {...fadeUp} className="mx-auto mt-8 flex max-w-[340px] flex-wrap justify-center gap-2">
@@ -208,6 +219,16 @@ export function Placements() {
         >
           View All Placements →
         </Link>
+
+        <div className="relative mx-auto mt-8 aspect-[4/5] w-full max-w-[420px] overflow-hidden rounded-sm">
+          <Image
+            src="/images/placement-graduate-worksite.png"
+            alt="NIFS graduate working as an industrial safety officer on-site"
+            fill
+            sizes="420px"
+            className="object-cover"
+          />
+        </div>
       </div>
 
       <LogoMarquee />

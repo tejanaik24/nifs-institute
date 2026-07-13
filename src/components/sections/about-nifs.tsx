@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
+import { StatBadge3D } from "@/components/three/StatBadge3D";
 
 const gutterCalc = `calc(50% - ${450 / 2}px)`;
 
@@ -72,16 +73,10 @@ export function AboutNifs() {
           </div>
         </div>
 
-        {/* ── CENTER SPINE — 25 Years of Excellence badge ── */}
-        <div className="relative z-[3] flex items-center justify-center">
-          <motion.div {...fadeUp} className="relative h-[280px] w-[380px]">
-            <Image
-              src="/images/25-years-excellence.png"
-              alt="25+ Years of Excellence"
-              fill
-              sizes="380px"
-              className="object-contain"
-            />
+        {/* ── CENTER SPINE — 3D 25 Years of Excellence badge ── */}
+        <div className="relative z-[3] flex items-center justify-center w-full">
+          <motion.div {...fadeUp} className="w-full max-w-[380px] h-[380px] flex items-center justify-center">
+            <StatBadge3D value="25+" label="Years of Excellence" />
           </motion.div>
         </div>
 
