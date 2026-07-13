@@ -32,14 +32,16 @@ export default function AboutPage() {
             From the Chairman&apos;s Desk
           </span>
           <h2 className="font-display mt-2 text-4xl italic leading-tight">
-            &ldquo;Safety is not an option, it must be a priority.&rdquo;
+            &ldquo;To impart futuristic and comprehensive fire engineering and
+            industrial safety education &amp; consultancy of global standards
+            with a sense of high quality, discipline and social
+            respect.&rdquo;
           </h2>
-          <p className="mt-6 text-muted-foreground">
-            We believe in empowering individuals with the knowledge and
-            skills necessary to excel in fire engineering and industrial
-            safety management. Our association with universities and
-            regulatory bodies ensures every course is technically sound and
-            aligned with what industry actually demands on the plant floor.
+          <p className="mt-6 text-sm font-semibold text-foreground">
+            Sri. Suneel Mahanty
+          </p>
+          <p className="text-xs tracking-wide text-muted-foreground uppercase">
+            Chairman and CEO, NIFS — M Sc., M Phil. &amp; MBA (FISM)
           </p>
         </div>
       </section>

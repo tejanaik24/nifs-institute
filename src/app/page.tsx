@@ -8,6 +8,7 @@ import { Placements } from "@/components/sections/placements-section";
 import { CentersGrid } from "@/components/sections/centers-grid";
 import { FacilitiesShowcase } from "@/components/sections/facilities-showcase";
 import { CoursesSection } from "@/components/sections/CoursesSection";
+import { LatestNews } from "@/components/sections/latest-news";
 import { AdmissionsCTA } from "@/components/sections/AdmissionsCTA";
 
 export default function HomePage() {
@@ -27,8 +28,9 @@ export default function HomePage() {
       {/* Full-width break from the spine layout — campus photo showcase */}
       <FacilitiesShowcase />
 
-      {/* Course teaser + closing admissions CTA before the footer */}
+      {/* Course teaser + latest news + closing admissions CTA before the footer */}
       <CoursesSection />
+      <LatestNews />
       <AdmissionsCTA />
     </>
   );
