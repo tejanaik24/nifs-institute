@@ -123,7 +123,7 @@ export function Placements() {
                 View All Placements →
               </Link>
 
-              <div className="relative mx-auto mt-8 aspect-[4/5] w-full max-w-[420px] overflow-hidden rounded-sm">
+              <div className="relative mx-auto mt-8 aspect-[4/5] w-full max-w-[420px] overflow-hidden rounded-sm bg-white/5">
                 <Image
                   src="/images/placement-graduate-worksite.png"
                   alt="NIFS graduate working as an industrial safety officer on-site"
@@ -220,7 +220,7 @@ export function Placements() {
           View All Placements →
         </Link>
 
-        <div className="relative mx-auto mt-8 aspect-[4/5] w-full max-w-[420px] overflow-hidden rounded-sm">
+        <div className="relative mx-auto mt-8 aspect-[4/5] w-full max-w-[420px] overflow-hidden rounded-sm bg-white/5">
           <Image
             src="/images/placement-graduate-worksite.png"
             alt="NIFS graduate working as an industrial safety officer on-site"
