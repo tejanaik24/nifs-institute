@@ -16,8 +16,6 @@ const roles = [
   "Risk Analyst",
 ];
 
-const featuredRecruiters = ["Adani", "L&T", "ITC", "GMR", "MEIL", "Amazon"];
-
 function FlagshipStat({ size = "large" }: { size?: "large" | "small" }) {
   const reduceMotion = useReducedMotion();
   const [ref, inView] = useInView<HTMLDivElement>(0.4);
@@ -49,13 +47,16 @@ function FlagshipStat({ size = "large" }: { size?: "large" | "small" }) {
   );
 }
 
-function LogoMarquee() {
+/** Auto-scrolling recruiter logo wall — a 2-column grid that scrolls
+ * vertically (loops seamlessly via a duplicated track), sized to fill a
+ * tall spine column instead of squeezing into one horizontal strip. */
+function LogoMarquee({ height = 420 }: { height?: number }) {
   const track = (
-    <div className="flex w-max items-center whitespace-nowrap">
+    <div className="grid grid-cols-2 gap-3">
       {recruiterLogos.map((r) => (
         <div
           key={r.name}
-          className="mx-3 flex h-16 w-32 shrink-0 items-center justify-center rounded-md bg-white p-3"
+          className="flex h-16 w-full items-center justify-center rounded-md bg-white p-3"
         >
           <div className="relative h-full w-full">
             <Image src={r.logo!} alt={r.name} fill className="object-contain" sizes="128px" />
@@ -66,10 +67,15 @@ function LogoMarquee() {
   );
 
   return (
-    <div className="relative z-[3] mt-14 overflow-hidden">
-      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-[#111111] to-transparent lg:w-32" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-[#111111] to-transparent lg:w-32" />
-      <div className="animate-marquee flex w-max">
+    <div
+      className="relative z-[3] overflow-hidden"
+      style={{
+        height,
+        maskImage: "linear-gradient(to bottom, transparent, black 12%, black 88%, transparent)",
+        WebkitMaskImage: "linear-gradient(to bottom, transparent, black 12%, black 88%, transparent)",
+      }}
+    >
+      <div className="animate-marquee-vertical flex flex-col gap-3">
         {track}
         {track}
       </div>
@@ -87,8 +93,6 @@ export function Placements() {
         viewport: { once: true, margin: "-100px" },
         transition: { duration: 0.6, ease: "easeOut" as const },
       };
-
-  const remainingCount = recruiterLogos.length - featuredRecruiters.length;
 
   return (
     <section className="relative overflow-hidden py-6 lg:py-0">
@@ -140,30 +144,13 @@ export function Placements() {
             </motion.div>
           }
           right={
-            <motion.div {...fadeUp}>
-              <div className="grid grid-cols-3 gap-3">
-                {recruiterLogos
-                  .filter((r) => featuredRecruiters.includes(r.name))
-                  .map((r) => (
-                    <div
-                      key={r.name}
-                      className="flex h-16 items-center justify-center rounded-md border border-white/10 bg-white p-3"
-                    >
-                      <div className="relative h-full w-full">
-                        <Image
-                          src={r.logo!}
-                          alt={r.name}
-                          fill
-                          className="object-contain"
-                          sizes="100px"
-                        />
-                      </div>
-                    </div>
-                  ))}
-              </div>
-              <p className="mt-3 text-xs text-white/60">
-                +{remainingCount} more recruiting partners
+            <motion.div {...fadeUp} className="w-full">
+              <p className="text-xs font-semibold tracking-widest text-white/50 uppercase">
+                Our Students Placed With
               </p>
+              <div className="mt-4">
+                <LogoMarquee height={480} />
+              </div>
             </motion.div>
           }
         />
@@ -195,23 +182,14 @@ export function Placements() {
           ))}
         </motion.div>
 
-        <motion.div {...fadeUp} className="mt-8 grid grid-cols-3 gap-3">
-          {recruiterLogos
-            .filter((r) => featuredRecruiters.includes(r.name))
-            .map((r) => (
-              <div
-                key={r.name}
-                className="flex h-16 items-center justify-center rounded-md border border-white/10 bg-white p-3"
-              >
-                <div className="relative h-full w-full">
-                  <Image src={r.logo!} alt={r.name} fill className="object-contain" sizes="100px" />
-                </div>
-              </div>
-            ))}
+        <motion.div {...fadeUp} className="mt-8">
+          <p className="text-xs font-semibold tracking-widest text-white/50 uppercase">
+            Our Students Placed With
+          </p>
+          <div className="mx-auto mt-4 max-w-[340px]">
+            <LogoMarquee height={360} />
+          </div>
         </motion.div>
-        <p className="mt-3 text-xs text-white/60">
-          +{remainingCount} more recruiting partners
-        </p>
 
         <Link
           href="/placements"
@@ -231,7 +209,6 @@ export function Placements() {
         </div>
       </div>
 
-      <LogoMarquee />
       <div className="relative z-[3] pb-10 lg:pb-16" />
     </section>
   );

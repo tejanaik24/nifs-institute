@@ -176,6 +176,25 @@
   }
 }
 
+@keyframes marqueeVertical {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-50%);
+  }
+}
+
+.animate-marquee-vertical {
+  animation: marqueeVertical 22s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee-vertical {
+    animation: none;
+  }
+}
+
 @keyframes mapPulse {
   0% {
     transform: scale(1);
