@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import Link from "next/link";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { IndiaMap } from "@/components/sections/india-map";
 import { centers } from "@/lib/data/centers";
 import { CenterDetailCard } from "@/components/sections/center-detail-card";
@@ -38,47 +38,43 @@ export function CentersGrid() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5 }}
+            className="px-6 lg:pr-10 lg:pl-0"
           >
             <IndiaMap selectedCity={selectedCity} onSelect={handleSelect} />
 
             {/* Mobile-only detail card — SpineSplit's center slot is desktop-only */}
             {selectedCenter && (
               <div ref={mobileCardRef} className="mt-6 flex justify-center lg:hidden">
-                <AnimatePresence mode="wait">
-                  <CenterDetailCard
-                    key={selectedCenter.city}
-                    center={selectedCenter}
-                    onClose={() => setSelectedCity(null)}
-                  />
-                </AnimatePresence>
+                <CenterDetailCard
+                  key={selectedCenter.city}
+                  center={selectedCenter}
+                  onClose={() => setSelectedCity(null)}
+                />
               </div>
             )}
           </motion.div>
         }
         center={
-          <AnimatePresence mode="wait">
-            {selectedCenter ? (
-              <CenterDetailCard
-                key={selectedCenter.city}
-                center={selectedCenter}
-                onClose={() => setSelectedCity(null)}
-              />
-            ) : (
-              <motion.div
-                key="placeholder"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.25 }}
-                className="flex w-full max-w-[320px] flex-col items-center gap-3 border border-dashed border-primary/30 px-6 py-10 text-center"
-              >
-                <span className="text-2xl text-primary">◎</span>
-                <p className="text-sm text-muted-foreground">
-                  Select a center on the map to view its details
-                </p>
-              </motion.div>
-            )}
-          </AnimatePresence>
+          selectedCenter ? (
+            <CenterDetailCard
+              key={selectedCenter.city}
+              center={selectedCenter}
+              onClose={() => setSelectedCity(null)}
+            />
+          ) : (
+            <motion.div
+              key="placeholder"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.25 }}
+              className="flex w-full max-w-[320px] flex-col items-center gap-3 border border-dashed border-primary/30 px-6 py-10 text-center"
+            >
+              <span className="text-2xl text-primary">◎</span>
+              <p className="text-sm text-muted-foreground">
+                Select a center on the map to view its details
+              </p>
+            </motion.div>
+          )
         }
         right={
           <motion.div
@@ -86,11 +82,12 @@ export function CentersGrid() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5, delay: 0.1 }}
+            className="px-6 lg:pr-0 lg:pl-10"
           >
             <span className="inline-block border border-primary/30 bg-primary/5 px-3 py-1 text-xs font-medium tracking-wide text-primary uppercase">
               Pan-India Network
             </span>
-            <h3 className="mt-4 font-display text-2xl italic">
+            <h3 className="mt-4 font-display text-3xl leading-[1.15] italic text-[#7A0F0C]">
               Find a center near you
             </h3>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">

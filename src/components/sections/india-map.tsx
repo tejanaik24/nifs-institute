@@ -9,14 +9,38 @@ type IndiaMapProps = {
   onSelect: (city: string) => void;
 };
 
+/** india-map-v2.png (1536×1024) has ~23%/9%/20%/9% of transparent padding
+ * baked in on L/T/R/B around the actual land mass. This crops the display
+ * to that content box (with a small safety margin) instead of showing the
+ * padding, so the map fills the panel — the land mass itself is never
+ * clipped. `centers.ts`'s x/y values are already remapped into this same
+ * cropped coordinate space. */
+const CROP_BOX = {
+  aspectRatio: "868 / 890",
+  imgWidthPct: 168.04,
+  imgHeightPct: 111.21,
+  leftPct: -35.99,
+  topPct: -3.33,
+};
+
 export function IndiaMap({ selectedCity, onSelect }: IndiaMapProps) {
   return (
-    <div className="relative mx-auto aspect-[3/2] w-full max-w-none">
+    <div
+      className="relative mx-auto w-full max-w-none overflow-hidden"
+      style={{ aspectRatio: CROP_BOX.aspectRatio }}
+    >
       <Image
         src="/images/india-map-v2.png"
         alt="Map of India"
-        fill
-        className="object-contain"
+        width={1536}
+        height={1024}
+        className="absolute max-w-none"
+        style={{
+          width: `${CROP_BOX.imgWidthPct}%`,
+          height: `${CROP_BOX.imgHeightPct}%`,
+          left: `${CROP_BOX.leftPct}%`,
+          top: `${CROP_BOX.topPct}%`,
+        }}
         sizes="(max-width: 1024px) 100vw, 44vw"
       />
 

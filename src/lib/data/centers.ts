@@ -2,11 +2,16 @@ export type Center = {
   city: string;
   state: string;
   isHQ?: boolean;
-  /** Position on the India map image, as a percentage of width/height.
-   * Calibrated by pixel-detecting known landmarks (Kashmir tip, Kanyakumari,
-   * Kutch peninsula, Arunachal tip) and mapping each city's real lat/long
-   * onto that linear scale — single source of truth, used by both the map
-   * dots and any list/detail view. */
+  /** Position as a percentage of the map's cropped content box (the actual
+   * India land-mass bounding box within india-map-v2.png, NOT the full
+   * canvas — the source PNG has ~23%/9%/20%/9% of transparent padding on
+   * L/T/R/B baked in, so IndiaMap crops to this box via CSS transform to
+   * fill the panel with less dead space). Calibrated by pixel-detecting
+   * known landmarks (Kashmir tip, Kanyakumari, Kutch peninsula, Arunachal
+   * tip), mapping each city's real lat/long onto that linear scale, then
+   * remapping into the cropped-box coordinate space (see
+   * IndiaMap.tsx's CROP_BOX constant for the crop math) — single source of
+   * truth, used by both the map dots and any list/detail view. */
   x: number;
   y: number;
   /** Only set for HQ — no verified street address exists for the other
@@ -19,25 +24,25 @@ export const centers: Center[] = [
     city: "Visakhapatnam",
     state: "Andhra Pradesh",
     isHQ: true,
-    x: 49.68,
-    y: 61.26,
+    x: 47.49,
+    y: 64.8,
     address:
       "Door No. 47-10-15, 2nd Lane, Dwarakanagar, AG Avenue Building, 3rd Floor, Visakhapatnam (A.P.) – 530016",
   },
-  { city: "Hyderabad", state: "Telangana", x: 40.24, y: 62.24 },
-  { city: "Guntur", state: "Andhra Pradesh", x: 44.13, y: 65.71 },
-  { city: "Chennai", state: "Tamil Nadu", x: 43.8, y: 76.1 },
-  { city: "Bhubaneswar", state: "Odisha", x: 54.89, y: 52.86 },
-  { city: "Kolkata", state: "West Bengal", x: 59.95, y: 45.53 },
-  { city: "Mumbai", state: "Maharashtra", x: 29.04, y: 56.79 },
-  { city: "Warangal", state: "Telangana", x: 42.45, y: 60.36 },
-  { city: "Delhi", state: "Delhi NCR", x: 37.48, y: 25.78 },
-  { city: "Kakinada", state: "Andhra Pradesh", x: 47.75, y: 63.51 },
-  { city: "Jamshedpur", state: "Jharkhand", x: 55.64, y: 44.78 },
-  { city: "Tambaram", state: "Tamil Nadu", x: 43.46, y: 76.6 },
-  { city: "Nagpur", state: "Maharashtra", x: 41.44, y: 50.12 },
-  { city: "Rourkela", state: "Odisha", x: 52.95, y: 46.53 },
-  { city: "Pondicherry", state: "Puducherry", x: 42.88, y: 79.77 },
+  { city: "Hyderabad", state: "Telangana", x: 31.62, y: 65.89 },
+  { city: "Guntur", state: "Andhra Pradesh", x: 38.16, y: 69.75 },
+  { city: "Chennai", state: "Tamil Nadu", x: 37.61, y: 81.31 },
+  { city: "Bhubaneswar", state: "Odisha", x: 56.24, y: 55.46 },
+  { city: "Kolkata", state: "West Bengal", x: 64.75, y: 47.31 },
+  { city: "Mumbai", state: "Maharashtra", x: 12.8, y: 59.83 },
+  { city: "Warangal", state: "Telangana", x: 35.34, y: 63.8 },
+  { city: "Delhi", state: "Delhi NCR", x: 26.99, y: 25.34 },
+  { city: "Kakinada", state: "Andhra Pradesh", x: 44.24, y: 67.3 },
+  { city: "Jamshedpur", state: "Jharkhand", x: 57.5, y: 46.47 },
+  { city: "Tambaram", state: "Tamil Nadu", x: 37.04, y: 81.86 },
+  { city: "Nagpur", state: "Maharashtra", x: 33.64, y: 52.41 },
+  { city: "Rourkela", state: "Odisha", x: 52.98, y: 48.42 },
+  { city: "Pondicherry", state: "Puducherry", x: 36.06, y: 85.39 },
 ];
 
 /** Only HQ has a verified street address today — drives the detail-card
