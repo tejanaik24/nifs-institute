@@ -329,6 +329,43 @@ https://nifs-institute.vercel.app.
 3. Live at https://nifs-institute.vercel.app, clean working tree (no
    uncommitted WIP left over this time).
 
+### Session — 2026-07-13 (seventh pass): "neg space" report — investigated, not a real bug
+
+User sent a mobile screenshot showing a large blank gap between the
+recruiter logo grid and the marquee in `placements-section.tsx`, asked
+for `/plan-design-review`. **Investigated properly instead of guessing**:
+reloaded the live production site fresh (clean Chrome profile, mobile
+width) and measured every element's exact position via
+`getBoundingClientRect()` rather than trusting a screenshot. Every gap
+matched its intended Tailwind spacing exactly (`mt-8` = 32px between CTA
+and photo, `mt-14`+`py-16` ≈ 120px between photo and marquee) — **no
+structural layout bug**, the photo renders correctly sized (420×525) and
+positioned right where the code says it should be. Couldn't reproduce a
+blank gap on a fresh load. Most likely explanation: the user's
+screenshot was taken moments after the previous deploy (the "make image
+bigger" commit) went live, and either their device had a half-stale
+cached page, or it was an ordinary Next.js `<Image>` lazy-load timing
+flash on a slower connection — **not a code bug to "fix" by guessing at
+layout changes**.
+
+Shipped one honest, low-risk improvement regardless of root cause: added
+`bg-white/5` to the photo's container div (both desktop and mobile) so
+if a slow-load moment ever does happen again, it shows a soft dark
+placeholder consistent with the section's palette instead of a stark
+black void that reads as broken. **Told the user to hard-refresh and
+report back if the gap is still there** — if it persists after a clean
+reload, that points to something render-environment-specific (a
+particular phone/browser) that needs a fresh screenshot + real
+investigation, not another guess. Live at
+https://nifs-institute.vercel.app.
+
+**Lesson for next time**: when a user reports a visual bug from a
+screenshot, don't assume the screenshot reflects current live state —
+reload the actual production site fresh and measure with
+`getBoundingClientRect()` before proposing a fix. Guessing at spacing
+changes for a bug that doesn't reproduce wastes a deploy cycle and
+doesn't actually address what the user saw.
+
 ## ⚡ 30-Second Brief (current, 2026-07-13 end of session)
 
 Rebuilding nifsindia.net as a premium Next.js site for NIFS (National
