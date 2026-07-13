@@ -7,15 +7,6 @@ import { motion, useReducedMotion } from "framer-motion";
 import { courses, courseTiers, type Course } from "@/lib/data/courses";
 import { SpineGutterBg, SpineSplit } from "@/components/sections/spine-helpers";
 
-const salaryByTier: Record<Course["tier"], string> = {
-  Certificate: "₹2.5–₹4 LPA",
-  Diploma: "₹3–₹6 LPA",
-  "Advanced Diploma": "₹4–₹8 LPA",
-  "PG Diploma": "₹5–₹10 LPA",
-  "B.Sc": "₹4–₹9 LPA",
-  MBA: "₹6–₹12 LPA",
-};
-
 const filters = ["All", ...courseTiers] as const;
 
 function CourseCard({ course, i }: { course: Course; i: number }) {
@@ -42,10 +33,7 @@ function CourseCard({ course, i }: { course: Course; i: number }) {
         <p className="mt-2 line-clamp-2 text-sm text-[#6B7280]">
           {course.summary}
         </p>
-        <div className="mt-4 flex items-center justify-between gap-3">
-          <span className="text-xs text-primary">
-            Average Salary: {salaryByTier[course.tier]}
-          </span>
+        <div className="mt-4 flex items-center justify-end gap-3">
           <Link
             href={`/courses/${course.slug}`}
             className="text-xs font-medium text-[#0A0A0A] transition-colors hover:text-primary"
