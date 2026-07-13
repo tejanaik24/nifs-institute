@@ -366,6 +366,49 @@ reload the actual production site fresh and measure with
 changes for a bug that doesn't reproduce wastes a deploy cycle and
 doesn't actually address what the user saw.
 
+### Session — 2026-07-13 (eighth pass): recruiter "+N more" stub → real logo wall
+
+Turned out there WAS a real issue, just not the one investigated in the
+seventh pass — the user's actual complaint was about the recruiter card
+area (right column desktop / a block in the mobile stack): it only ever
+showed 6 featured logos + a "+12 more recruiting partners" **text
+label**, never the other 12 logos themselves, leaving real dead space
+below it. User pointed at an old/historical build (`trust-strip.tsx` +
+`logo-marquee.tsx` — both orphaned, zero imports anywhere — this was
+from before the current spine rebuild) as the reference for what they
+wanted: real scrolling logo walls instead of a "+N more" stub.
+
+Iterated twice on the fix:
+1. First pass: replaced the static 6-logo grid + text with the
+   section's existing horizontal `LogoMarquee` (auto-scroll, all 18
+   logos) sized down (`compact` prop) to fit the column — this filled
+   the *original* dead space but created a *new* one: the right column
+   (short heading + one horizontal marquee row) was now much shorter
+   than the photo/badge columns beside it, still visually unbalanced
+   (the general "spine columns must be height-balanced" lesson from
+   `feedback-nifs-spine-section-height.md` applies again here).
+2. User asked mid-fix to make it **vertical, 2 rows** instead of
+   horizontal — redesigned `LogoMarquee` into a 2-column CSS grid that
+   scrolls vertically inside a fixed-height (`height` prop, 480px
+   desktop / 360px mobile) `overflow-hidden` container with a
+   top/bottom `mask-image` fade (not left/right), looping via a
+   duplicated track + a new `.animate-marquee-vertical` keyframe added
+   to `globals.css` (mirrors the existing `.animate-marquee` pattern
+   exactly, including the `prefers-reduced-motion` guard). This both
+   fills the dead space AND actually balances the column height against
+   the photo/badge columns, since the container height is an explicit
+   prop tuned to match. Removed the now-fully-redundant full-width
+   horizontal marquee that used to sit below the `SpineSplit` (was
+   showing the same 18 logos a second time in the same section).
+
+**Lesson for next time**: when replacing a "+N more" stub with the
+actual full list, check whether the new content's natural height
+matches its neighboring spine columns — a single short element (one
+heading + one horizontal scroll row) in a column next to a tall photo
+will look just as broken as the static grid it replaced, just with the
+dead space relocated instead of removed. Live at
+https://nifs-institute.vercel.app.
+
 ## ⚡ 30-Second Brief (current, 2026-07-13 end of session)
 
 Rebuilding nifsindia.net as a premium Next.js site for NIFS (National
