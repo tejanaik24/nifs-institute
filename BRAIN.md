@@ -299,6 +299,36 @@ uncommitted and still untouched by me — stashed, deployed only the
 committed icon work, popped the stash back). Live at
 https://nifs-institute.vercel.app.
 
+### Session — 2026-07-13 (sixth pass): shipped StatBadge3D + added graduate photo
+
+1. **`StatBadge3D` (the Three.js/React Three Fiber badge from the prompt
+   written earlier) is now finished and shipped**, not just WIP. Verified
+   it builds clean and renders correctly (a dark-red brushed-metal plaque
+   with hazard-stripe corner trim and white italic numerals — a real
+   visual upgrade from both the old flat PNG badge and the old blurred-
+   circle stat treatment) at desktop and mobile before committing.
+   Replaces the flat 2D graphic in `about-nifs.tsx` ("25+ Years of
+   Excellence") and the `radial-gradient`+text treatment in
+   `placements-section.tsx` ("45,000+ Candidates Placed"). Committed
+   together as one deploy this time — no more stash-before-deploy dance,
+   since the work was actually complete and verified rather than
+   mid-flight.
+2. **Placements section's empty column space now has a real image.**
+   Same pattern as before: I don't have a working image-generation tool
+   in this environment (`imagegen` and `plan-design-review` are catalogue
+   stubs pointing at an uninstalled upstream package, confirmed again
+   this session — don't try invoking them expecting real output), so I
+   wrote a prompt, the user generated it externally (ChatGPT image gen
+   this time, not AntiGravity), and I wired the result in. Saved as
+   `public/images/placement-graduate-worksite.png`. First pass sized it
+   at `max-w-[280px]` which read as too small/cramped against the column
+   — user asked to make it bigger and centered, bumped to
+   `max-w-[420px]` on both the desktop left column and the mobile
+   stacked block in `placements-section.tsx`, re-verified before
+   shipping.
+3. Live at https://nifs-institute.vercel.app, clean working tree (no
+   uncommitted WIP left over this time).
+
 ## ⚡ 30-Second Brief (current, 2026-07-13 end of session)
 
 Rebuilding nifsindia.net as a premium Next.js site for NIFS (National
