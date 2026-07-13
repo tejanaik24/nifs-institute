@@ -103,6 +103,94 @@ screenshot after the above shipped:
    - Committed + pushed + deployed again — live at
      https://nifs-institute.vercel.app.
 
+### Session — 2026-07-13 (third pass, same day): Placements section + 25-years image, take 2
+
+1. **25-years image swap, attempt 2.** The user regenerated the graphic
+   themselves (`25 years orange.png` in Downloads) with the warm
+   orange/white-on-transparent palette recommended earlier. **Real gotcha
+   hit during this swap**: the exported PNG had **no actual alpha
+   channel** (`PixelFormat.Format24bppRgb` — confirmed via .NET
+   `Bitmap.PixelFormat`) — the "checkerboard" that looks like a
+   transparency indicator in every preview tool was literally baked into
+   the file as opaque near-white/light-grey pixels (~246–254 RGB, alpha
+   always 255). Swapping the file and just dropping `mix-blend-screen`
+   (as planned) rendered a solid white/checkered rectangle on the red
+   spine, not a transparent cutout. **Fixed with a custom PowerShell
+   script** (`System.Drawing` + `LockBits`) that redraws the source onto a
+   real `Format32bppArgb` bitmap, then punches alpha to near-zero for any
+   pixel whose minimum RGB channel exceeds ~190 (smooth ramp over ~12
+   units) — this reliably separates the near-white checker/glow
+   background from the saturated orange numerals (min channel ~64) and
+   dark charcoal wordmark (min channel ~84), which stay fully opaque.
+   Result: a clean warm-glow cutout on the red spine, wordmark legible.
+   **Lesson for next time**: always verify a "transparent" PNG's actual
+   `PixelFormat`/alpha channel before trusting a preview tool's
+   checkerboard rendering — many export/screenshot tools flatten the
+   transparency indicator into real pixels instead of true alpha.
+   **Also hit a caching red herring** while iterating: after overwriting
+   the file, the dev server kept serving the *old* image across several
+   reloads and `.next/cache/images` wipes — even a brand-new Chrome
+   profile still showed stale content. Root cause was Next.js dev
+   server's in-*process* image-transform cache, not the on-disk
+   `.next/cache/images` folder (clearing that alone didn't help) — only
+   fully killing and restarting the `next dev` process picked up each
+   change. **Lesson**: when a swapped static asset doesn't show up after
+   normal cache-busting (query params, `.next/cache` wipe, fresh browser
+   profile), restart the actual `next dev` process before assuming
+   something else is wrong.
+2. **New homepage "Placements" section** —
+   `src/components/sections/placements-section.tsx`, inserted between
+   `AboutNifs` and `CentersGrid` in `src/app/page.tsx` (homepage is now
+   `TunnelHero → SpineLayout(WhyNIFS → AboutNifs → Placements →
+   CentersGrid)`). Built from a user-shared screenshot of Amity
+   University's "Top Placements" section as a **layout reference only** —
+   Amity's own numbers (36,000 placements, ₹2 crore salaries) were never
+   used; only NIFS's own verified figures went in. Structure: dark
+   (`#111111`) `SpineGutterBg`+`SpineSplit` band (deliberate contrast
+   against the white sections around it) — left column: "Career Outcomes"
+   copy + 5 real role titles, both reused verbatim from the `/placements`
+   page; center spine: a **count-up animated "45,000+ Candidates Placed"**
+   stat (first real use of the previously-dead `useCountUp`/`useInView`
+   hooks in `scroll-reveal-hooks.ts`) with a soft warm radial-gradient
+   glow behind it (deliberately NOT the multi-hue `.spine-welcome-ring`
+   conic gradient used elsewhere — tried that first, it read as a messy
+   rainbow blob at this size/context, swapped for a plain warm
+   `radial-gradient` instead — a single-hue glow suits a stat number,
+   the multi-color ring suits the crest/emblem context it was designed
+   for); right column: 6 featured recruiter logos (Adani, L&T, ITC, GMR,
+   MEIL, Amazon) as bordered white cards + "+12 more recruiting
+   partners". Below the split: a full-width scrolling marquee of **all
+   18 real recruiter logo images** (`recruiterLogos` from `centers.ts` —
+   first time these logo files are used anywhere as images; the existing
+   `/placements` page only ever rendered recruiter names as plain text
+   tiles) using the already-existing-but-unused `.animate-marquee`
+   keyframe in `globals.css`. Mobile gets its own separate `lg:hidden`
+   stacked block (same established pattern as `about-nifs.tsx` and
+   `centers-grid.tsx` — `SpineSplit`'s `center` slot is desktop-only).
+3. **Data-honesty note, important if this section gets extended later**:
+   the codebase has several orphaned (zero-import) pre-built components —
+   `StatsSection.tsx`, `stats-bar.tsx`, `PlacementWall.tsx`,
+   `LogoBar.tsx`, `TrustStrip.tsx`, `salary-outcomes.tsx`,
+   `TransformSection.tsx`, `TestimonialsSection.tsx`,
+   `CoursesSection.tsx` — containing **fabricated data that must never be
+   used as real content**: invented individual student
+   names/companies/packages, an unsourced "93% Placement Rate", and
+   conflicting placed-counts (45,000 vs 10,000 vs 8,531 elsewhere). None
+   of it was used in the new Placements section. They remain on disk
+   untouched (matches the project's existing convention of leaving
+   unused components as reference, e.g. `ExploreNifs.tsx`) — **do not
+   wire any of them into a route without first verifying every number in
+   them against a real source**.
+4. Verified end-to-end via `agent-browser` at desktop (~1036–1440px) and
+   mobile (~500px, Chrome's minimum window width — couldn't get exactly
+   375px via window resize on this Windows machine, but confirmed the
+   `lg` breakpoint collapse behaves correctly, which is what matters) —
+   count-up animates on scroll into view, marquee scrolls with edge
+   fades, mobile stacked block renders with no desktop-card duplication.
+   `npm run build` passes clean.
+5. Committed + pushed + deployed (`vercel --prod --yes`) — live at
+   https://nifs-institute.vercel.app.
+
 ## ⚡ 30-Second Brief (current, 2026-07-13 end of session)
 
 Rebuilding nifsindia.net as a premium Next.js site for NIFS (National
@@ -122,12 +210,14 @@ repo root. **Standing instruction (2026-07-13): always deploy (commit + push
 this repo, without waiting to be asked** — see memory
 `feedback-nifs-auto-deploy.md`.
 
-**Homepage today** (`src/app/page.tsx`): `TunnelHero` → `SpineLayout`
-wrapping `WhyNIFS` → `AboutNifs` → `CentersGrid`. That's it — `CentersHighlight`
-and `ExploreNifs` were both **removed entirely** this session per explicit
-user request (see below). The page currently ends after the map/HQ block;
-**no replacement content has been decided yet** for where `ExploreNifs`
-used to be — this is the most obvious next thing to plan with the user.
+**Homepage today** (`src/app/page.tsx`, updated in the third pass of this
+same day — see "Session — 2026-07-13 (third pass" above for what changed
+most recently): `TunnelHero` → `SpineLayout` wrapping `WhyNIFS` →
+`AboutNifs` → **`Placements` (new)** → `CentersGrid`. `CentersHighlight`
+and `ExploreNifs` were both **removed entirely** earlier this session per
+explicit user request (see below) — the `ExploreNifs` gap that used to be
+flagged as "no replacement content decided" is now filled by the new
+`Placements` section, so that open item is resolved.
 
 ## Current homepage architecture
 
@@ -137,6 +227,7 @@ used to be — this is the most obvious next thing to plan with the user.
 <SpineLayout>
   <WhyNIFS />
   <AboutNifs />
+  <Placements />
   <CentersGrid />
 </SpineLayout>
 ```
