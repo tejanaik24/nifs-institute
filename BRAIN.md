@@ -185,6 +185,13 @@ in a future cleanup, just don't accidentally re-wire it back in.
   **ISO 9001:2015 certified** unit of SSB Institute of Higher Studies
   Educational Society — all confirmed on the live site, logos recovered via
   cPanel and already in `public/images/logos/`.
+- **Technical collaboration partners** (added 2026-07-13 per explicit user
+  confirmation, not independently verified against the live site — treat
+  as user-provided fact): **Annamalai University**, **Acharya Nagarjuna
+  University**, **State Board of Technical Education AP**, plus the
+  existing Skill India / NSDC partnership. Shown as a small multi-color
+  credibility line in `WhyNIFS.tsx`'s left column, right after the "Here's
+  why they chose us:" paragraph.
 - **45,000 candidates placed** — this came from the MD directly (voice
   note, relayed by user), not independently verified against the old site
   (which showed smaller/conflicting figures like 8,531+ before the

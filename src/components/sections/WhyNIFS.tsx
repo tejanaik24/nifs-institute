@@ -168,6 +168,23 @@ export function WhyNIFS() {
                 and recruiters like Adani, L&amp;T and GMR. Here&apos;s why
                 they chose us:
               </p>
+
+              <p className="mx-auto mt-4 max-w-[320px] text-xs leading-[1.7] font-medium text-foreground">
+                In Technical Collaboration with{" "}
+                <span className="text-blue-600">Annamalai University</span>,{" "}
+                <span className="text-indigo-600">
+                  Acharya Nagarjuna University
+                </span>
+                ,{" "}
+                <span className="text-blue-600">
+                  State Board of Technical Education AP
+                </span>
+                <br />
+                <span className="text-primary font-semibold">
+                  Skill India | National Skill Development Corporation (NSDC)
+                </span>
+              </p>
+
               <Link
                 href="/about"
                 className="mt-8 inline-block min-h-12 py-3 text-xs font-medium tracking-[0.15em] text-primary uppercase transition-opacity hover:opacity-70"
