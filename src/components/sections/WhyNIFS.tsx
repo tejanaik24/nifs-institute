@@ -169,21 +169,38 @@ export function WhyNIFS() {
                 they chose us:
               </p>
 
-              <p className="mx-auto mt-4 max-w-[320px] text-xs leading-[1.7] font-medium text-foreground">
-                In Technical Collaboration with{" "}
-                <span className="text-blue-600">Annamalai University</span>,{" "}
-                <span className="text-indigo-600">
-                  Acharya Nagarjuna University
-                </span>
-                ,{" "}
-                <span className="text-blue-600">
-                  State Board of Technical Education AP
-                </span>
-                <br />
-                <span className="text-primary font-semibold">
-                  Skill India | National Skill Development Corporation (NSDC)
-                </span>
-              </p>
+              <div className="mx-auto mt-4 max-w-[320px] rounded-lg border border-primary/20 bg-primary/5 px-4 py-3.5 text-left">
+                <div className="mb-2 text-[11px] font-semibold tracking-[0.1em] text-foreground uppercase">
+                  In Technical Collaboration With
+                </div>
+                <ul className="space-y-1.5 text-xs leading-[1.5]">
+                  <li className="flex items-start gap-2">
+                    <span className="mt-[5px] h-1.5 w-1.5 shrink-0 rounded-full bg-blue-600" />
+                    <span className="font-bold text-blue-600">
+                      Annamalai University
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="mt-[5px] h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-600" />
+                    <span className="font-bold text-indigo-600">
+                      Acharya Nagarjuna University
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="mt-[5px] h-1.5 w-1.5 shrink-0 rounded-full bg-blue-600" />
+                    <span className="font-bold text-blue-600">
+                      State Board of Technical Education AP
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="mt-[5px] h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                    <span className="font-bold text-primary">
+                      Skill India | National Skill Development Corporation
+                      (NSDC)
+                    </span>
+                  </li>
+                </ul>
+              </div>
 
               <Link
                 href="/about"

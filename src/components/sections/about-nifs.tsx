@@ -2,62 +2,11 @@
 
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
-import {
-  useInView,
-  useCountUp,
-  useTypewriter,
-} from "@/components/sections/scroll-reveal-hooks";
 
 const gutterCalc = `calc(50% - ${450 / 2}px)`;
 
-/** "25 YEARS OF EXCELLENCE" — gradient numeral badge for the spine column.
- * Numeral counts up, then "YEARS OF EXCELLENCE" types itself out, once
- * scrolled into view. */
-function YearsOfExcellenceBadge({ trigger }: { trigger: boolean }) {
-  const reduceMotion = useReducedMotion() ?? false;
-  const [years, yearsDone] = useCountUp(25, trigger && !reduceMotion, 900);
-  const [label, labelDone] = useTypewriter(
-    "YEARS OF EXCELLENCE",
-    trigger && !reduceMotion && yearsDone,
-    35
-  );
-
-  const yearsDisplay = reduceMotion ? 25 : years;
-  const labelDisplay = reduceMotion ? "YEARS OF EXCELLENCE" : label;
-
-  return (
-    <div className="relative flex flex-col items-center gap-3 rounded-2xl border border-white/25 bg-white/10 px-10 py-8 text-center shadow-[0_0_60px_rgba(0,0,0,0.15)] backdrop-blur-sm">
-      <div
-        aria-hidden="true"
-        className="spine-welcome-ring absolute rounded-full opacity-60"
-        style={{
-          width: "220px",
-          height: "220px",
-          background:
-            "conic-gradient(from 0deg, var(--nifs-green), var(--nifs-orange), var(--primary), var(--nifs-green))",
-          filter: "blur(18px)",
-        }}
-      />
-      <span
-        className="font-display relative bg-gradient-to-br from-[var(--nifs-orange)] via-white to-[var(--nifs-green)] bg-clip-text text-[6.5rem] leading-none font-bold text-transparent italic"
-        style={{ WebkitTextStroke: "1.5px rgba(255,255,255,0.35)" }}
-      >
-        {yearsDisplay}
-      </span>
-      <div className="relative h-px w-14 bg-white/40" />
-      <span className="relative text-sm font-bold tracking-[0.25em] text-white uppercase">
-        {labelDisplay}
-        {!reduceMotion && trigger && yearsDone && !labelDone && (
-          <span className="animate-pulse">|</span>
-        )}
-      </span>
-    </div>
-  );
-}
-
 export function AboutNifs() {
   const reduceMotion = useReducedMotion() ?? false;
-  const [spineRef, spineInView] = useInView<HTMLDivElement>();
 
   const fadeUp = reduceMotion
     ? {}
@@ -124,13 +73,16 @@ export function AboutNifs() {
         </div>
 
         {/* ── CENTER SPINE — 25 Years of Excellence badge ── */}
-        <div
-          ref={spineRef}
-          className="relative z-[3] flex items-center justify-center"
-        >
-          <div className="px-8">
-            <YearsOfExcellenceBadge trigger={spineInView} />
-          </div>
+        <div className="relative z-[3] flex items-center justify-center">
+          <motion.div {...fadeUp} className="relative h-[280px] w-[380px]">
+            <Image
+              src="/images/25-years-excellence.png"
+              alt="25+ Years of Excellence"
+              fill
+              sizes="380px"
+              className="object-contain mix-blend-screen"
+            />
+          </motion.div>
         </div>
 
         {/* ── RIGHT — logos + ISO badge ── */}
