@@ -246,6 +246,59 @@ screenshot after the above shipped:
    the in-progress 3D badge integration. Live at
    https://nifs-institute.vercel.app.
 
+### Session — 2026-07-13 (fifth pass): WhyNIFS card icons
+
+User generated 2 icon sheets externally (`1.png`, `2.png`, from
+Downloads) using the icon-graphics prompt from the fourth-pass session
+and asked me to crop + place them. **`2.png` matched the requested 5
+motifs almost exactly** (rope/carabiner, briefcase+shield, hardhat+mic,
+shield+stars+ribbons, location-pin cluster — brushed-metal + hazard-
+orange style, transparent-looking backgrounds) — used all 5 from that
+sheet. **`1.png` was a different, unrelated icon set** (gear+wrench,
+server rack, plain shield, warning-hazard triangle, robotic arm) —
+didn't match any of the 5 card concepts as well as `2.png`'s icons did,
+so it wasn't used; flagged this to the user rather than silently
+picking mismatched icons.
+
+Cropping notes for next time: a variance-based auto-crop (comparing each
+pixel to a corner-sampled background color) **failed** on these sheets —
+the shared brushed-metal background photo has enough natural
+gradient/texture variance on its own that the diff threshold triggered
+everywhere, returning the full cell every time. Fell back to fixed
+centered-square crops per grid cell (`public/images/icons/*.png`, cropped
+from `2.png`'s 3×2 grid at 512×512 px/cell) with small manual per-icon
+offset nudges after visually checking each crop — 2 of the 5 needed
+re-cropping because the icon wasn't centered in its cell (shield+stars
+and location-pins both needed an upward/leftward nudge). **Always
+visually verify each crop before wiring it in** — don't assume a
+programmatic crop is correctly framed without looking at the output.
+
+Wired into `WhyNIFS.tsx`: `items` array gained an `icon` field per
+entry, the single shared `lucide-react` `CheckCircle2` (repeated
+identically on all 5 cards) was replaced with a per-item `<Image>`.
+Verified at desktop (~1536px) and sub-1024px width (mobile stacked
+layout — same `right` slot markup renders on both, no separate mobile
+component needed here since `SpineSplit`'s `right` slot isn't `hidden`
+on mobile, unlike its `center` slot).
+
+**Browser-testing note**: `agent-browser`/Chrome window resizing via
+Win32 `SetWindowPos` proved unreliable this session (repeatedly failed
+to actually change `window.innerWidth`, and once failed outright because
+a `document.title` sanity-check eval changed the window title being
+matched against). What reliably worked: fully killing Chrome and
+relaunching with `--window-size=W,H` **as a launch flag**, not resizing
+an already-running window. Even then, Chrome enforced a floor around
+~500px content width on this machine — couldn't get a true 375px
+viewport via window sizing, but 500px is still comfortably below the
+`lg` (1024px) Tailwind breakpoint so it still validates mobile-layout
+behavior correctly.
+
+Deploy: same stash-before-deploy pattern as the fourth pass (the
+`StatBadge3D` WIP in `about-nifs.tsx`/`placements-section.tsx` is still
+uncommitted and still untouched by me — stashed, deployed only the
+committed icon work, popped the stash back). Live at
+https://nifs-institute.vercel.app.
+
 ## ⚡ 30-Second Brief (current, 2026-07-13 end of session)
 
 Rebuilding nifsindia.net as a premium Next.js site for NIFS (National
