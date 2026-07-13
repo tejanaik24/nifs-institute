@@ -2,19 +2,91 @@
 
 ## ⚠️ Read this first
 
-This file was last updated 2026-07-13 (tenth pass — added Latest News
-homepage section, fixed Chairman's Desk quote, rebuilt the announcement
-ticker; see "Latest session" below for full detail and — importantly — why
-the "Our Students Placed In" carousel was investigated and deliberately
-NOT built). The homepage architecture described below is **current as of
-this update** — verify with `grep -rn` against `src/app/page.tsx` before
-trusting anything that isn't. Two older layers of history are preserved
-further down for background only: a "Historical Archive" (July 10 session,
+This file was last updated 2026-07-13 (eleventh pass — built the "Our
+Students Placed In" carousel with 63 REAL recovered student records, a
+featured-story news card, and a real 6-tab updates widget). **The tenth
+pass's conclusion that the student-placement data "does not exist anywhere
+discoverable" was WRONG** — see the eleventh-pass section below for the
+correct finding and don't repeat that dead-end investigation. The homepage
+architecture described below is **current as of this update** — verify
+with `grep -rn` against `src/app/page.tsx` before trusting anything that
+isn't. Two older layers of history are preserved further down for
+background only: a "Historical Archive" (July 10 session,
 scroll-circuit/R3F architecture, fully replaced) and the
 immediately-preceding mid-session brief's blow-by-blow build log (still
 useful chronology, kept as-is).
 
-## Latest session — 2026-07-13 (tenth pass): old-site widget parity + fabricated-data dead end
+## Latest session — 2026-07-13 (eleventh pass): recovered the real student data, built all 3 remaining widgets
+
+The user pushed back hard on the tenth pass's conclusion, insisting the
+student-placement screenshot was real and from nifsindia.net. **They were
+right.** Correct finding this time:
+
+1. **The tenth pass's live-DOM/REST-API/cPanel investigation was real but
+   incomplete** — it only checked the *current* live site, which had the
+   section removed. **The fix was checking the Wayback Machine's full
+   snapshot history**, not just the latest 2025 snapshot. Found: the
+   homepage had a **"Recently Placed Students"** (later renamed "Our
+   Students Placed In") section with **63 individually-designed card
+   images** (`wp-content/uploads/2018/08/1.png`–`63.png`, each baked-in
+   photo+name+role+company+CTC) live on the site from **Feb 2019 through
+   mid-2023**, removed in a 2023 redesign that replaced it with the current
+   logo-only recruiter carousel. **Lesson for future fabricated-data-style
+   dead ends**: before concluding old-site content "doesn't exist," check
+   the Wayback Machine's *full* CDX snapshot list across years
+   (`web.archive.org/cdx/search/cdx?url=<domain>&output=json`), not just
+   the most recent capture — sites get redesigned and real content gets
+   silently dropped.
+2. **Recovered all 63 images** via
+   `web.archive.org/web/20230609000000im_/http://www.nifsindia.net/
+   wp-content/uploads/2018/08/<n>.png` (the `im_` Wayback modifier serves
+   the raw archived asset). Saved to `public/images/placements/<n>.png`,
+   all verified unique (md5) and visually read/transcribed by hand into
+   `src/lib/data/placed-students.ts` (`{id, image, name, role, company,
+   ctc}[]` — text fields exist only for alt text, the cards render as the
+   real recovered images, not re-created HTML).
+3. **New `src/components/sections/student-placements.tsx`** — a custom
+   paged prev/next carousel (5 cards/page desktop, 2/page mobile, no
+   carousel library added — follows the same no-new-dependency precedent
+   as the Gallery's custom lightbox). Wired into `src/app/page.tsx` right
+   after `FacilitiesShowcase`.
+4. **`src/components/sections/latest-news.tsx` extended** with a featured
+   story treatment for the top post (side-by-side photo + headline on a
+   blush background, matching the old site's "milestone collaboration"
+   card layout) — pinned to the real ANU-collaboration post if present,
+   falls back to most recent otherwise. The rest of the grid below is
+   unchanged from the tenth pass.
+5. **New `src/components/sections/updates-tabs.tsx`** — a real 6-tab
+   widget (NIFS Updates / Articles / Events / Journals / Jobs / Industrial
+   Works) with a vertical icon-tab nav (red active tab, matching the old
+   screenshot's visual language). Content per tab, all real, sourced from
+   the old site's raw homepage HTML (`src/lib/data/updates-tabs.ts`):
+   - **NIFS Updates**: the same 2 real announcement strings already used in
+     the site-wide ticker (see tenth pass).
+   - **Jobs**: upgraded to pull from the live `awsm_job_openings` REST API
+     (`src/lib/data/job-openings.ts`, 6 of the 23 real listings) instead of
+     the old site's single external Blogspot link — a genuine improvement,
+     not just a replica. The full 23-listing board is still a separate,
+     larger open item (see "Open work" below), this only surfaces a handful
+     inline.
+   - **Articles / Events / Journals / Industrial Works**: honest replicas
+     of what the old site actually did — real external links to
+     `nifs-india.blogspot.com` posts, a real Google Form event link, and
+     the new site's own `/industrial-services` page (swapped in for the old
+     site's legacy `in_house_training.html` static page, since we have a
+     real internal equivalent now). No fabricated internal content for tabs
+     that never had any.
+6. Verified via `agent-browser` at desktop (1440px) and mobile (500px) —
+   carousel paging works and matches the user's original screenshot exactly
+   (Sai Teja / S Pavan Sai / N Vamsi / Satish / B Sarat Reddy appear on
+   page 2), tabs switch correctly, Jobs tab shows real live listings, no
+   horizontal overflow on mobile. `npm run build` and `npx tsc --noEmit`
+   both clean.
+7. Committed + pushed + deployed (`vercel --prod --yes`), verified live via
+   `curl` against production HTML (`Bhanu Kumar` present, placement image
+   200s). Live at https://nifs-institute.vercel.app.
+
+## Previous session — 2026-07-13 (tenth pass): old-site widget parity + fabricated-data dead end (student-carousel conclusion later corrected — see eleventh pass above)
 
 User shared 4 screenshots of old nifsindia.net homepage widgets missing from
 the new site: a "milestone collaboration" news card, an "Our Students Placed
@@ -690,14 +762,15 @@ repo root. **Standing instruction (2026-07-13): always deploy (commit + push
 this repo, without waiting to be asked** — see memory
 `feedback-nifs-auto-deploy.md`.
 
-**Homepage today** (`src/app/page.tsx`, updated in the tenth pass — see
+**Homepage today** (`src/app/page.tsx`, updated in the eleventh pass — see
 that section above): `TunnelHero` → `SpineLayout` wrapping `WhyNIFS` →
 `AboutNifs` → `Placements` → `CentersGrid` → `FacilitiesShowcase` →
-`CoursesSection` → **`LatestNews` (new this pass)** → `AdmissionsCTA`, all
+**`StudentPlacements` (new eleventh pass)** → `CoursesSection` →
+`LatestNews` → **`UpdatesTabs` (new eleventh pass)** → `AdmissionsCTA`, all
 full-width outside `SpineLayout`. The site-wide `UrgencyBar` (fixed top bar,
-rendered in `layout.tsx` above the header, not part of this flow) is now a
-real scrolling ticker with 2 real announcement strings — see tenth-pass
-notes. `CentersHighlight` and `ExploreNifs` were both
+rendered in `layout.tsx` above the header, not part of this flow) is a real
+scrolling ticker with 2 real announcement strings — see tenth-pass notes.
+`CentersHighlight` and `ExploreNifs` were both
 **removed entirely** in an earlier session per explicit user request — the
 `ExploreNifs` gap that used to be flagged as "no replacement content
 decided" is filled by `Placements` + `FacilitiesShowcase` + `CoursesSection`
