@@ -59,8 +59,8 @@ function AccordionPanel({
       onFocus={onActivate}
       onClick={onActivate}
       aria-pressed={isActive}
-      className={`group relative h-[420px] shrink-0 overflow-hidden rounded-sm transition-[width] duration-700 ease-in-out ${
-        isActive ? "w-[360px]" : "w-[64px]"
+      className={`group relative h-[420px] min-w-[64px] overflow-hidden rounded-sm transition-[flex-grow] duration-700 ease-in-out ${
+        isActive ? "flex-[6]" : "flex-1"
       }`}
     >
       <Image
@@ -114,7 +114,7 @@ export function FacilitiesShowcase() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="mt-12 hidden gap-3 overflow-x-auto lg:flex"
+          className="mt-12 hidden gap-3 lg:flex"
         >
           {panels.map((panel, i) => (
             <AccordionPanel
