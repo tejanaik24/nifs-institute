@@ -26,20 +26,31 @@ function YearsOfExcellenceBadge({ trigger }: { trigger: boolean }) {
   const labelDisplay = reduceMotion ? "YEARS OF EXCELLENCE" : label;
 
   return (
-    <div className="flex flex-col items-center gap-2 text-center">
+    <div className="relative flex flex-col items-center gap-3 rounded-2xl border border-white/25 bg-white/10 px-10 py-8 text-center shadow-[0_0_60px_rgba(0,0,0,0.15)] backdrop-blur-sm">
+      <div
+        aria-hidden="true"
+        className="spine-welcome-ring absolute rounded-full opacity-60"
+        style={{
+          width: "220px",
+          height: "220px",
+          background:
+            "conic-gradient(from 0deg, var(--nifs-green), var(--nifs-orange), var(--primary), var(--nifs-green))",
+          filter: "blur(18px)",
+        }}
+      />
       <span
-        className="font-display bg-gradient-to-br from-[var(--nifs-orange)] via-white to-[var(--nifs-green)] bg-clip-text text-[5rem] leading-none font-bold text-transparent italic"
-        style={{ WebkitTextStroke: "1px rgba(255,255,255,0.3)" }}
+        className="font-display relative bg-gradient-to-br from-[var(--nifs-orange)] via-white to-[var(--nifs-green)] bg-clip-text text-[6.5rem] leading-none font-bold text-transparent italic"
+        style={{ WebkitTextStroke: "1.5px rgba(255,255,255,0.35)" }}
       >
         {yearsDisplay}
       </span>
-      <span className="text-xs font-bold tracking-[0.25em] text-white uppercase">
+      <div className="relative h-px w-14 bg-white/40" />
+      <span className="relative text-sm font-bold tracking-[0.25em] text-white uppercase">
         {labelDisplay}
         {!reduceMotion && trigger && yearsDone && !labelDone && (
           <span className="animate-pulse">|</span>
         )}
       </span>
-      <div className="h-px w-10 bg-white/30" />
     </div>
   );
 }
@@ -124,40 +135,40 @@ export function AboutNifs() {
 
         {/* ── RIGHT — logos + ISO badge ── */}
         <div className="relative z-[3] flex items-center justify-end pr-10 pl-6">
-          <div className="max-w-[380px]">
+          <div className="max-w-[460px]">
             {/* Logo pair — NSDC + Skill India */}
             <motion.div
               {...fadeUp}
-              className="flex flex-col items-center gap-10 sm:flex-row sm:gap-14"
+              className="flex flex-col flex-wrap items-center justify-center gap-10 sm:flex-row"
             >
               {/* NSDC Logo */}
               <div className="flex flex-col items-center gap-4">
-                <div className="relative h-[150px] w-[250px]">
+                <div className="relative h-[120px] w-[200px]">
                   <Image
                     src="/images/logos/accreditations/nsdc.png"
                     alt="National Skill Development Corporation — NSDC Approved Training Partner"
                     fill
-                    sizes="250px"
+                    sizes="200px"
                     className="object-contain"
                   />
                 </div>
-                <span className="max-w-[220px] text-center text-sm font-semibold tracking-wide text-foreground">
+                <span className="max-w-[200px] text-center text-sm font-semibold tracking-wide text-foreground">
                   Approved Training Partner of NSDC
                 </span>
               </div>
 
               {/* Skill India Logo */}
               <div className="flex flex-col items-center gap-4">
-                <div className="relative h-[150px] w-[250px]">
+                <div className="relative h-[120px] w-[200px]">
                   <Image
                     src="/images/logos/accreditations/skill-india.png"
                     alt="Skill India — कौशल भारत–कुशल भारत partnership"
                     fill
-                    sizes="250px"
+                    sizes="200px"
                     className="object-contain"
                   />
                 </div>
-                <span className="max-w-[220px] text-center text-sm font-semibold tracking-wide text-foreground">
+                <span className="max-w-[200px] text-center text-sm font-semibold tracking-wide text-foreground">
                   Skill India Certified Programs
                 </span>
               </div>
@@ -166,7 +177,7 @@ export function AboutNifs() {
             {/* ISO badge */}
             <motion.div
               {...fadeUp}
-              className="mt-10 inline-flex items-center gap-3 border border-border px-6 py-3.5"
+              className="mx-auto mt-10 flex w-fit items-center gap-3 border border-border px-6 py-3.5"
             >
               <span className="h-2.5 w-2.5 rounded-full bg-primary" />
               <span className="text-sm font-bold tracking-wide text-foreground">
