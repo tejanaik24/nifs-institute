@@ -122,49 +122,40 @@ in a future cleanup, just don't accidentally re-wire it back in.
 
 ## Open work / not yet done
 
-- **The 5 hero tunnel images have not been generated yet.** The tunnel is
-  currently cycling through old placeholder photos
-  (`classroom-lecture.jpg`, `training-yard-drill.jpg`, `placement-female.png`,
-  `control-room-risk-assessment.jpg`, `hero-professional.png`) via
-  `tunnelImages` in `tunnel-hero.tsx` — these are NOT the real story
-  sequence and need swapping once real images exist.
-- **Image prompt iteration history (useful — don't repeat the same
-  mistakes):**
-  1. First attempt: generic "photorealistic young man, golden hour, shallow
-     depth of field" portrait-orientation prompts — user rejected as
-     unrealistic/generic AI-slop and pointed out the tunnel's frame is
-     portrait-shaped (`max-w-xl` × `70%` viewport height), so portrait
-     images were also the wrong aspect ratio for on-screen use — wanted
-     landscape/horizontal instead, working on both mobile and desktop.
-  2. Second attempt: rewrote as 16:9 landscape with a literal fire/flame
-     motif ("The Spark," "Ignition") tying to the "Igniting Careers"
-     tagline — user rejected this too: NIFS is industrial safety, not
-     firefighting, and leaning on literal flame imagery over-indexes the
-     wrong specialty (this is the SAME correction made in the old July 10
-     archived session — a recurring point, don't drop it again).
-  3. Third attempt: rebalanced to industrial/EHS-first beats (hazard
-     identification/lockout-tagout tag, EHS classroom, plant-floor PPE
-     inspection, industrial scale/environmental shot, NIFS badge/emblem
-     close-up) — landscape 16:9, varied cinematic framing instead of 5
-     repeated portrait shots, thematic/color continuity instead of forcing
-     the same face across independent generations. **User was still not
-     happy with this and ended the session before resolving it** — the
-     image concept is unresolved. A fresh session should not assume the
-     3rd attempt is approved; re-derive the brief with the user before
-     generating anything.
-- **`scroll-image-tunnel.tsx`'s frame aspect ratio was never actually
-  changed** to properly suit landscape images — it's still `h-[70%] w-full
-  max-w-xl` (portrait-biased). If landscape images get approved, this frame
-  needs adjusting (e.g. to `aspect-video w-full max-w-6xl` or similar)
-  before they'll display without heavy side-cropping. Flagged to the user,
-  not yet actioned.
-- **Hero text placement doesn't match what the user actually asked for.**
-  They picked "headline/CTA appear after the tunnel finishes, leading into
-  About NIFS" via AskUserQuestion, but what OpenCode built has the text
-  overlaid on top of the tunnel from the start, fading out on scroll — the
-  other option they didn't pick. Not yet corrected — flagged to the user,
-  awaiting their call on whether to fix it or keep it now that they've seen
-  it in context.
+- **RESOLVED this session (2026-07-13, second pass):** the 5 real hero
+  tunnel images were generated (grounded in actual NIFS gallery photos
+  pulled from nifsindia.net — real building, real training-yard, real
+  light-blue-uniform students, real graduation ceremony — not generic
+  AI-slop), wired into `tunnelImages` in `tunnel-hero.tsx`, and the tunnel
+  frame in `scroll-image-tunnel.tsx` was changed from the old
+  portrait-biased `h-[70%] w-full max-w-xl` box to full-bleed
+  `absolute inset-0` (edge-to-edge, no white margin). The hero
+  headline/CTA now renders as an `overlay` prop on frame 0 only
+  (`HeadlineOverlay` in `tunnel-hero.tsx`), fading out as the user scrolls
+  into frame 1 — matches what the user actually asked for via
+  AskUserQuestion earlier (previously it incorrectly overlaid on top of
+  the whole tunnel). Per-image captions were added, then redesigned from
+  a low-contrast bottom-left italic treatment to a centered bold
+  extrabold treatment with a lighter brand-red-tinted scrim (inspired by
+  `D:\Vyzma\clients\malatamba-school`'s `WalkerScroll.tsx` hero pattern) —
+  frame 0 suppresses its own caption so it doesn't collide with
+  `HeadlineOverlay`. Do not re-litigate any of this without a concrete new
+  complaint — it's been through 2 full review/fix cycles already.
+- **Next-session plan: continuous spine + Kent-system parity** (agreed
+  2026-07-13, not yet built) — see "Kent design system parity" below for
+  full detail. Short version: extend the red spine to run continuously
+  from right after the hero through `AboutNifs` → `CentersHighlight` →
+  `ExploreNifs` (currently `SpineLayout` only wraps `ExploreNifs`, leaving
+  a seam); add one or two cutout (transparent-background) student photos
+  breaking a card edge inside `ExploreNifs`'s beats, generated fresh and
+  background-removed (not derived from the 5 hero photos — cutting people
+  out of those would undo the "grounded in real NIFS photos" work just
+  finished); add a `fullWidthStretch()` helper to `spine-helpers.tsx` to
+  match Kent's third overlap utility. Hero itself stays spine-free and its
+  photos stay full rectangular (no cutouts) — explicit, repeated user
+  decision. Subpage sidebar spine variant (Kent's 390px left-nav spine for
+  interior pages) is explicitly OUT of scope for this — separate future
+  session.
 - **Content-gap audit items** (142 blog posts / SEO redirects, jobs board,
   5 missing courses, FAQ page) are still fully unaddressed — this session
   focused entirely on homepage hero/visual work, not that list.
@@ -180,8 +171,16 @@ in a future cleanup, just don't accidentally re-wire it back in.
 
 - **86 Centers in 24 States across India**, recently started in **3 African
   countries** (source: nifsindia.net `/centers/` page body text).
-- **20+ years** — founded 2004, so "20+ years of excellence" / "Est. 2004"
-  are both accurate.
+- **25+ years** — changed from "20+ years" to "25+ years" on 2026-07-13 per
+  explicit user decision (confirmed via AskUserQuestion after a hand-drawn
+  screenshot annotation), used in the new gradient "25 Years of Excellence"
+  spine badge in `AboutNifs` plus the hero/tunnel-hero copy and the About
+  NIFS headline. **Note the arithmetic doesn't reconcile with "Est. 2004"**
+  (2004 + 25 = 2029, a future year as of this session's actual date,
+  2026-07-13) — "Est. 2004" was left untouched since changing the founding
+  year wasn't part of what was asked, but flag this to the user if it comes
+  up again; may have been a rounding/marketing choice rather than a strict
+  arithmetic claim, or "Est. 2004" itself may need revisiting.
 - **NSDC approved training partner**, **Skill India** collaboration,
   **ISO 9001:2015 certified** unit of SSB Institute of Higher Studies
   Educational Society — all confirmed on the live site, logos recovered via
@@ -209,11 +208,98 @@ in a future cleanup, just don't accidentally re-wire it back in.
 - **Kent College reference**: kentcollege.com — the explicit structural/
   design benchmark for this rebuild, analyzed via 4 detailed user-provided
   screenshots (hero → values section → academic section → "Explore Kent
-  College" interactive carousel-that's-actually-scroll-driven section).
-  Design language notes: continuous spine-like color column, photos as
-  cutouts breaking rectangular bounds, headlines overlaid directly on
-  photos, low text density, varied section rhythm, no click-driven
-  pagination widgets anywhere on their real site.
+  College" interactive carousel-that's-actually-scroll-driven section) plus
+  a text-level WebFetch re-check (2026-07-13): Kent's actual homepage has
+  NO dramatic hero — it opens straight into community testimonials, then
+  values, academics, sport/music/pastoral, campus maps, entry-point cards.
+  Their real visual signature is **cutout (transparent-background) student
+  photography** breaking rectangular bounds, not a scroll-hero effect.
+  Design language notes: continuous spine-like color column, cutout
+  photos, headlines overlaid directly on photos, low text density, varied
+  section rhythm, no click-driven pagination widgets on their real site.
+  Decision: NIFS keeps its dramatic hero (industrial-training audience
+  justifies it; testimonial-first was explicitly rejected for this site)
+  but adopts the continuous spine and selective cutout photography.
+
+### Kent design system parity (user-provided code, 2026-07-13) — plan for next session
+
+The user pasted Kent's actual extracted design tokens/components. Cross-
+checked against this repo's existing implementation — **most of it is
+already built**, from an earlier session, faithfully adapted to NIFS's own
+brand (not Kent's colors/fonts):
+
+| Kent has | NIFS equivalent (already built) |
+|---|---|
+| `--color-maroon: #AA0040` spine color | `bg-primary` (NIFS red `#DC1711`) — correctly NOT copied as Kent's literal color |
+| `--spine-width-home: 450px` | `SPINE_WIDTH = 450` in `SpineLayout.tsx` — exact match |
+| Chevron transparent PNG texture, repeat, `25px 25px` | Inline SVG chevron data-URI in `SpineLayout.tsx`, same `25px 25px` repeat, `stroke-opacity 0.15` — same effect, no PNG asset needed |
+| `.overlap-from-left` / `.overlap-from-right` (120px bleed into spine) | `overlapFromLeft()` / `overlapFromRight()` in `src/components/sections/spine-helpers.tsx` — same 120px bleed math, exact match |
+| `HomepageSpineLayout` wrapping children | `SpineLayout` in `src/components/SpineLayout.tsx` — same concept |
+| Mobile: hide spine, reset overlaps to full-width stack | Already handled via `lg:block`/`lg:hidden` splits throughout `SpineLayout.tsx` and `spine-helpers.tsx` |
+
+**Genuine gaps to close next session (agreed plan, do not re-derive from
+scratch — implement this):**
+
+1. **Make the spine continuous, not `ExploreNifs`-only.** Currently only
+   `<SpineLayout><ExploreNifs /></SpineLayout>` gets the column; `AboutNifs`
+   and `CentersHighlight` above it are plain white with no spine, creating
+   a seam. Extend `SpineLayout` (or wrap `AboutNifs` + `CentersHighlight` +
+   `ExploreNifs` together in one `SpineLayout`) so the red column starts
+   right after the hero ends and runs uninterrupted through all three
+   sections. **The hero itself stays spine-free** — explicit, twice-
+   confirmed decision, don't add a spine line over the full-bleed tunnel
+   photos.
+2. **Add `fullWidthStretch()` to `spine-helpers.tsx`**, matching Kent's
+   `.full-width-stretch` (stretches an element `calc(100% + 180px)` with
+   `-90px` margins each side) — same pattern as the existing
+   `overlapFromLeft`/`overlapFromRight` functions, just a third variant.
+3. **Add 1-2 cutout (transparent-background) student photos** inside
+   `ExploreNifs`'s beat cards, positioned to bleed across a spine/card
+   edge using the overlap helpers above. Generate these as NEW purpose-
+   shot images with a plain/simple background specifically for clean
+   extraction (Adobe's `image_remove_background` tool is available in
+   this environment for the extraction step) — do NOT attempt to cut
+   people out of the 5 existing hero photos; those are real-environment
+   documentary shots (actual NIFS building/classroom/yard) and removing
+   the background would undo the "grounded in real NIFS photos, not
+   AI-slop" work from this session. Use selectively (1-2 beats, not all
+   5) — Kest itself doesn't use cutouts everywhere either.
+4. **Explicitly out of scope for next session**: Kent's 390px left-sidebar
+   spine variant for interior/subpages (`/about`, `/courses`, `/centers`)
+   — real Kent-system scope, but a separate future session since it
+   touches pages untouched this session.
+5. **About NIFS text color decisions** (approved via a layout mockup
+   artifact, 2026-07-13): in the body paragraph, both the NSDC phrase
+   ("approved training partner of the National Skill Development
+   Corporation (NSDC)") AND the Skill India phrase get bold brand-red
+   (`text-primary`), not just plain `text-foreground` bold as today — the
+   ISO 9001:2015 phrase is untouched (not part of this decision). The
+   headline ("20+ Years of Excellence...") gets a **deeper/darker red**
+   shade, deliberately distinct from the bright `text-primary` — bright
+   red stays reserved for emphasis text and CTAs so it always reads as
+   "act on this," not just decoration on a heading. Use a literal deep
+   maroon-red value (e.g. `#7A0F0C`) rather than adding a new CSS token
+   for a single use.
+6. **Revive `CentersGrid` + `IndiaMap`** (`src/components/sections/
+   centers-grid.tsx`, `src/components/sections/india-map.tsx`) — both
+   already fully built from an earlier session but currently **not wired
+   into any live page** (confirmed via grep — no import anywhere in
+   `src/app`). Plan: keep the new spine-based Centers Highlight row
+   (headline/stats/CTA, mocked up this session) as the short intro, then
+   place the map+sidebar directly below it as its own **full-width block**
+   (using the new `fullWidthStretch()` helper from item 2 — the map+info
+   sidebar is a wide 2-column layout that would look cramped squeezed into
+   the narrow column next to a 450px spine). To keep the spine's visual
+   thread from breaking when the layout suddenly goes full-width, give
+   this block a solid brand-red top rule so it visually "hangs off" the
+   spine rather than starting cold as an unrelated white card. Also fix
+   stale data while reviving it: `centers-grid.tsx` currently shows
+   "45K+ Training centers" (actually the candidates-placed figure,
+   mislabeled) and a live-computed `stateCount` — replace with the
+   verified source-of-truth numbers (86 Centers, 24 States, 3+ African
+   Countries) instead. Also recolor the map's hardcoded `#CC0000` dots/
+   accents (pre-dates the current pixel-sampled brand red) to the current
+   `--primary` token for consistency.
 
 ## Deployment
 

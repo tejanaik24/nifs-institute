@@ -63,7 +63,7 @@ function MobileHeroFallback() {
             <span className="text-primary">In Safety</span>
           </h1>
           <p className="mt-4 max-w-sm text-[13px] leading-[1.7] text-white/75">
-            20+ years of placing graduates at India&apos;s top industrial
+            25+ years of placing graduates at India&apos;s top industrial
             companies.
           </p>
           <div className="mt-6 flex flex-col gap-3">
@@ -124,7 +124,7 @@ function HeadlineOverlay({ progress }: { progress: MotionValue<number> }) {
             <span className="text-primary">In Safety</span>
           </h1>
           <p className="mx-auto mt-5 max-w-md text-[13px] leading-[1.7] text-white/75 drop-shadow-[0_1px_8px_rgba(0,0,0,0.5)]">
-            20+ years of placing graduates at India&apos;s top industrial
+            25+ years of placing graduates at India&apos;s top industrial
             companies. NSDC approved. ISO certified. 86 centers across 24
             states.
           </p>
@@ -164,7 +164,7 @@ function HeadlineOverlay({ progress }: { progress: MotionValue<number> }) {
           <span className="text-primary">In Safety</span>
         </h1>
         <p className="mx-auto mt-5 max-w-md text-[13px] leading-[1.7] text-white/75 drop-shadow-[0_1px_8px_rgba(0,0,0,0.5)]">
-          20+ years of placing graduates at India&apos;s top industrial
+          25+ years of placing graduates at India&apos;s top industrial
           companies. NSDC approved. ISO certified. 86 centers across 24
           states.
         </p>

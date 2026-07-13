@@ -2,11 +2,51 @@
 
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
+import {
+  useInView,
+  useCountUp,
+  useTypewriter,
+} from "@/components/sections/scroll-reveal-hooks";
 
 const gutterCalc = `calc(50% - ${450 / 2}px)`;
 
+/** "25 YEARS OF EXCELLENCE" — gradient numeral badge for the spine column.
+ * Numeral counts up, then "YEARS OF EXCELLENCE" types itself out, once
+ * scrolled into view. */
+function YearsOfExcellenceBadge({ trigger }: { trigger: boolean }) {
+  const reduceMotion = useReducedMotion() ?? false;
+  const [years, yearsDone] = useCountUp(25, trigger && !reduceMotion, 900);
+  const [label, labelDone] = useTypewriter(
+    "YEARS OF EXCELLENCE",
+    trigger && !reduceMotion && yearsDone,
+    35
+  );
+
+  const yearsDisplay = reduceMotion ? 25 : years;
+  const labelDisplay = reduceMotion ? "YEARS OF EXCELLENCE" : label;
+
+  return (
+    <div className="flex flex-col items-center gap-2 text-center">
+      <span
+        className="font-display bg-gradient-to-br from-[var(--nifs-orange)] via-white to-[var(--nifs-green)] bg-clip-text text-[5rem] leading-none font-bold text-transparent italic"
+        style={{ WebkitTextStroke: "1px rgba(255,255,255,0.3)" }}
+      >
+        {yearsDisplay}
+      </span>
+      <span className="text-xs font-bold tracking-[0.25em] text-white uppercase">
+        {labelDisplay}
+        {!reduceMotion && trigger && yearsDone && !labelDone && (
+          <span className="animate-pulse">|</span>
+        )}
+      </span>
+      <div className="h-px w-10 bg-white/30" />
+    </div>
+  );
+}
+
 export function AboutNifs() {
   const reduceMotion = useReducedMotion() ?? false;
+  const [spineRef, spineInView] = useInView<HTMLDivElement>();
 
   const fadeUp = reduceMotion
     ? {}
@@ -42,7 +82,7 @@ export function AboutNifs() {
               {...fadeUp}
               className="font-display mt-4 max-w-[640px] text-[clamp(1.75rem,3.5vw,3rem)] leading-[1.1] italic text-[#7A0F0C]"
             >
-              20+ Years of Excellence
+              25+ Years of Excellence
               <br />
               in Industrial Safety Education
             </motion.h2>
@@ -72,13 +112,13 @@ export function AboutNifs() {
           </div>
         </div>
 
-        {/* ── CENTER SPINE — eyebrow only ── */}
-        <div className="relative z-[3] flex items-center justify-center">
-          <div className="flex flex-col items-center gap-3 px-8 text-center">
-            <span className="text-[10px] tracking-[0.3em] text-white/60 uppercase">
-              About NIFS
-            </span>
-            <div className="h-px w-10 bg-white/30" />
+        {/* ── CENTER SPINE — 25 Years of Excellence badge ── */}
+        <div
+          ref={spineRef}
+          className="relative z-[3] flex items-center justify-center"
+        >
+          <div className="px-8">
+            <YearsOfExcellenceBadge trigger={spineInView} />
           </div>
         </div>
 
@@ -88,36 +128,36 @@ export function AboutNifs() {
             {/* Logo pair — NSDC + Skill India */}
             <motion.div
               {...fadeUp}
-              className="flex flex-col items-center gap-8 sm:flex-row sm:gap-10"
+              className="flex flex-col items-center gap-10 sm:flex-row sm:gap-14"
             >
               {/* NSDC Logo */}
-              <div className="flex flex-col items-center gap-3">
-                <div className="relative h-[120px] w-[200px]">
+              <div className="flex flex-col items-center gap-4">
+                <div className="relative h-[150px] w-[250px]">
                   <Image
                     src="/images/logos/accreditations/nsdc.png"
                     alt="National Skill Development Corporation — NSDC Approved Training Partner"
                     fill
-                    sizes="200px"
+                    sizes="250px"
                     className="object-contain"
                   />
                 </div>
-                <span className="max-w-[200px] text-center text-[10px] leading-[1.5] text-muted-foreground">
+                <span className="max-w-[220px] text-center text-sm font-semibold tracking-wide text-foreground">
                   Approved Training Partner of NSDC
                 </span>
               </div>
 
               {/* Skill India Logo */}
-              <div className="flex flex-col items-center gap-3">
-                <div className="relative h-[120px] w-[200px]">
+              <div className="flex flex-col items-center gap-4">
+                <div className="relative h-[150px] w-[250px]">
                   <Image
                     src="/images/logos/accreditations/skill-india.png"
                     alt="Skill India — कौशल भारत–कुशल भारत partnership"
                     fill
-                    sizes="200px"
+                    sizes="250px"
                     className="object-contain"
                   />
                 </div>
-                <span className="max-w-[200px] text-center text-[10px] leading-[1.5] text-muted-foreground">
+                <span className="max-w-[220px] text-center text-sm font-semibold tracking-wide text-foreground">
                   Skill India Certified Programs
                 </span>
               </div>
@@ -126,13 +166,13 @@ export function AboutNifs() {
             {/* ISO badge */}
             <motion.div
               {...fadeUp}
-              className="mt-8 inline-flex items-center gap-2 border border-border px-5 py-2.5"
+              className="mt-10 inline-flex items-center gap-3 border border-border px-6 py-3.5"
             >
-              <span className="h-2 w-2 rounded-full bg-primary" />
-              <span className="text-[12px] font-medium tracking-wide text-foreground">
+              <span className="h-2.5 w-2.5 rounded-full bg-primary" />
+              <span className="text-sm font-bold tracking-wide text-foreground">
                 ISO 9001:2015 Certified
               </span>
-              <span className="text-[12px] text-muted-foreground">
+              <span className="text-sm text-muted-foreground">
                 — SSB Institute of Higher Studies Educational Society
               </span>
             </motion.div>
@@ -152,7 +192,7 @@ export function AboutNifs() {
           {...fadeUp}
           className="font-display mx-auto mt-4 max-w-[640px] text-[clamp(1.75rem,3.5vw,3rem)] leading-[1.1] italic text-[#7A0F0C]"
         >
-          20+ Years of Excellence
+          25+ Years of Excellence
           <br />
           in Industrial Safety Education
         </motion.h2>

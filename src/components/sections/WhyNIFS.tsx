@@ -6,6 +6,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
 import { SpineGutterBg, SpineSplit } from "@/components/sections/spine-helpers";
 import { NifsCrest } from "@/components/nifs-crest";
+import { useTypewriter } from "@/components/sections/scroll-reveal-hooks";
 
 const items = [
   {
@@ -34,31 +35,6 @@ const items = [
     body: "Learn near home. Transfer between centers anytime. New centers opening every quarter.",
   },
 ];
-
-/** Types out `text` one character at a time once `start` becomes true.
- * Returns the currently-revealed substring and whether typing has finished. */
-function useTypewriter(text: string, start: boolean, speed = 40) {
-  const [output, setOutput] = useState("");
-  const [done, setDone] = useState(false);
-
-  useEffect(() => {
-    if (!start) return;
-    setOutput("");
-    setDone(false);
-    let i = 0;
-    const id = setInterval(() => {
-      i += 1;
-      setOutput(text.slice(0, i));
-      if (i >= text.length) {
-        clearInterval(id);
-        setDone(true);
-      }
-    }, speed);
-    return () => clearInterval(id);
-  }, [start, text, speed]);
-
-  return [output, done] as const;
-}
 
 /** Crest + "Welcome to NIFS" + "Why Choose NIFS" — rendered on the red spine
  * (desktop) via SpineSplit's `center` slot, and again in the mobile-only
@@ -203,7 +179,7 @@ export function WhyNIFS() {
         }
         center={<SpineWelcome size="large" typing={inView} />}
         right={
-          <div className="grid grid-cols-1 gap-4">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             {items.map((item, i) => (
               <motion.div
                 key={item.number}
