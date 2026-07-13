@@ -48,6 +48,8 @@ export const mobileNav: NavItem[] = [
   primaryNav.find((item) => item.label === "Industrial Services")!,
   { label: "Centers", href: "/centers" },
   { label: "Placements", href: "/placements" },
+  { label: "Gallery", href: "/gallery" },
+  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
 
