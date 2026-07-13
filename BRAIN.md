@@ -67,6 +67,42 @@ inside the homepage's `SpineLayout`):
    - Committed + pushed + deployed (`vercel --prod --yes`) — live at
      https://nifs-institute.vercel.app.
 
+**Follow-up fixes, same day** — user flagged three more issues from a live
+screenshot after the above shipped:
+   - **Map had a lot of dead space** — `india-map-v2.png` (1536×1024) has
+     ~23%/9%/20%/9% of transparent padding baked in on L/T/R/B around the
+     actual India land mass. Fixed by cropping the *display* (not the
+     source file) to the land-mass bounding box via a CSS transform in
+     `india-map.tsx` (`CROP_BOX` constant — width/height/position all in
+     %, computed from a pixel-scan of the real PNG content bounds with a
+     small safety margin so the outline is never clipped). `centers.ts`'s
+     x/y values were remapped into this same cropped coordinate space —
+     if the map image ever changes, both need recalibrating together.
+   - **"Find a center near you" text was touching/overlapping the spine**
+     — `SpineSplit`'s gutter columns have zero built-in padding (by
+     design, so different sections can choose their own). Added
+     `px-6 lg:pr-10 lg:pl-0` (left/map column) and `px-6 lg:pr-0 lg:pl-10`
+     (right/text column) directly in `centers-grid.tsx`, mirroring the
+     `pl-10 pr-6` / `pr-10 pl-6` pattern `about-nifs.tsx` already uses for
+     the same problem. Also gave the "Find a center near you" heading the
+     same deep-red (`#7A0F0C`) brand treatment used elsewhere for
+     spine-adjacent headlines (was plain foreground color before).
+   - **Real bug found during this pass, not user-reported**: switching
+     directly from one selected city to another (e.g. Nagpur → Mumbai
+     without deselecting first) left the spine/mobile detail card showing
+     the *previous* city's data — confirmed via `agent-browser` that
+     stale card DOM nodes were silently accumulating (never being
+     removed) rather than being replaced. Root cause: `AnimatePresence`'s
+     exit animation was never completing on rapid key swaps (`mode="wait"`
+     didn't fix it either — the exiting element just never got cleaned
+     up). Fixed by dropping `AnimatePresence` for this swap entirely —
+     plain conditional rendering keyed by city name remounts instantly
+     and correctly; the card's own `motion.div` still plays its enter
+     animation. Stress-tested by firing 5 rapid clicks in a row — verified
+     exactly one detail card renders each time, no duplicates.
+   - Committed + pushed + deployed again — live at
+     https://nifs-institute.vercel.app.
+
 ## ⚡ 30-Second Brief (current, 2026-07-13 end of session)
 
 Rebuilding nifsindia.net as a premium Next.js site for NIFS (National
