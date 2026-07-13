@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
-import { CheckCircle2 } from "lucide-react";
 import { SpineGutterBg, SpineSplit } from "@/components/sections/spine-helpers";
 import { NifsCrest } from "@/components/nifs-crest";
 import { useTypewriter } from "@/components/sections/scroll-reveal-hooks";
@@ -13,26 +13,31 @@ const items = [
     number: "01",
     title: "Practical Training Yard",
     body: "Real hazard simulations on actual equipment. 85% of curriculum is hands-on, not classroom theory.",
+    icon: "/images/icons/training-yard.png",
   },
   {
     number: "02",
     title: "Direct Placement Cell",
     body: "Dedicated team with direct recruiter relationships at Adani, L&T, GMR and 45,000+ placements across India.",
+    icon: "/images/icons/placement-cell.png",
   },
   {
     number: "03",
     title: "Industry Faculty Only",
     body: "Every trainer has minimum 10 years field experience. No academics teaching what they've never done.",
+    icon: "/images/icons/faculty.png",
   },
   {
     number: "04",
     title: "Government Recognized",
     body: "NSDC + Skill India approved. Certificates valid across India, Gulf, and international markets.",
+    icon: "/images/icons/government-recognized.png",
   },
   {
     number: "05",
     title: "86 Centers Nationwide",
     body: "Learn near home. Transfer between centers anytime. New centers opening every quarter.",
+    icon: "/images/icons/centers-nationwide.png",
   },
 ];
 
@@ -223,7 +228,15 @@ export function WhyNIFS() {
                 transition={{ duration: 0.6, ease: "easeOut", delay: i * 0.08 }}
                 className="flex items-start gap-4 rounded-lg border border-border bg-card p-5 shadow-sm transition-colors hover:border-primary/40 hover:bg-primary/5"
               >
-                <CheckCircle2 className="mt-0.5 h-6 w-6 shrink-0 text-primary" />
+                <div className="relative h-11 w-11 shrink-0">
+                  <Image
+                    src={item.icon}
+                    alt=""
+                    fill
+                    sizes="44px"
+                    className="object-contain"
+                  />
+                </div>
                 <div>
                   <div className="text-sm font-semibold tracking-wide text-foreground uppercase">
                     {item.title}
