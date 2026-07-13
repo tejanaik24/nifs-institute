@@ -2,18 +2,85 @@
 
 ## ⚠️ Read this first
 
-This file was last updated 2026-07-13 (ninth pass — full 142-post blog
-migration, full 182-photo gallery migration, `CoursesSection`/`AdmissionsCTA`
-wired into the homepage and redesigned, `FacilitiesShowcase` dead-space fix,
-end-to-end content audit). The homepage architecture described below is
-**current as of this update** — verify with `grep -rn` against
-`src/app/page.tsx` before trusting anything that isn't. Two older layers of
-history are preserved further down for background only: a "Historical
-Archive" (July 10 session, scroll-circuit/R3F architecture, fully replaced)
-and the immediately-preceding mid-session brief's blow-by-blow build log
-(still useful chronology, kept as-is).
+This file was last updated 2026-07-13 (tenth pass — added Latest News
+homepage section, fixed Chairman's Desk quote, rebuilt the announcement
+ticker; see "Latest session" below for full detail and — importantly — why
+the "Our Students Placed In" carousel was investigated and deliberately
+NOT built). The homepage architecture described below is **current as of
+this update** — verify with `grep -rn` against `src/app/page.tsx` before
+trusting anything that isn't. Two older layers of history are preserved
+further down for background only: a "Historical Archive" (July 10 session,
+scroll-circuit/R3F architecture, fully replaced) and the
+immediately-preceding mid-session brief's blow-by-blow build log (still
+useful chronology, kept as-is).
 
-## Latest session — 2026-07-13 (interactive centers map)
+## Latest session — 2026-07-13 (tenth pass): old-site widget parity + fabricated-data dead end
+
+User shared 4 screenshots of old nifsindia.net homepage widgets missing from
+the new site: a "milestone collaboration" news card, an "Our Students Placed
+In" student carousel (real names/roles/CTC), a 6-tab widget (NIFS
+Updates/Articles/Events/Journals/Jobs/Industrial Works), and a "From
+Chairman's Desk" section.
+
+1. **Investigated all 4 before building anything** — live DOM inspection
+   (`agent-browser`) of the current nifsindia.net homepage, WordPress public
+   REST API (`/wp/v2/media`, `/wp/v2/pages`, `/wp/v2/categories`), and (after
+   the user explicitly said to check cPanel, twice) a live cPanel File
+   Manager login. Findings:
+   - **News card**: real, matches the already-migrated 142 blog posts. Built.
+   - **Chairman's Desk**: real, but the site already had a *different*,
+     generic placeholder quote on `/about` ("Safety is not an option, it
+     must be a priority.", no attribution). Fixed with the real quote +
+     Sri. Suneel Mahanty's name/credentials.
+   - **6-tab widget**: mostly a thin shell — "NIFS Updates" is just 2
+     scrolling announcement strings (marquee plugin), the other 5 tabs link
+     **out** to an external Blogspot blog or a legacy static HTML page, no
+     real internal content to migrate. Built only the 2 real announcement
+     strings, folded into the existing `UrgencyBar` (was already a static
+     single-message red top bar — turned it into a real scrolling
+     multi-message ticker instead of adding a redundant second bar).
+   - **Student carousel — real data does NOT exist anywhere discoverable.**
+     The screenshot showed named students (S Pavan Sai, N Vamsi, etc.) with
+     roles/companies/CTC, but: the live homepage's "Our Students Placed In"
+     section (confirmed via raw HTML + rendered DOM) only ever contains
+     recruiter **logos**, no individual records; WP media library search for
+     student/placement/achiever/names returned nothing relevant; the
+     cPanel `wordpress-backups` folder exists but is **empty**; there's no
+     `/placements/` page on the old site (404); `wp-admin` itself is
+     CAPTCHA-gated (didn't bypass, per browser-automation safety rules).
+     **Concluded the screenshot's data isn't recoverable and deliberately
+     did not build this widget** — this is exactly the "fabricated data"
+     trap the repo already warns about (`PlacementWall.tsx`,
+     `TestimonialsSection.tsx` — orphaned files with invented student
+     names/CTC). **If this needs to be built later, the real records must
+     come directly from the user/MD, not reconstructed by guessing** — flag
+     this to the user before attempting it again.
+2. **New `src/components/sections/latest-news.tsx`** — homepage-only,
+   pulls the 3 most recent posts from `src/lib/data/blog.ts`
+   (`blogPosts`, already-existing accessor, same one `/blog` uses), same
+   card visual language as `CoursesSection`. Wired into `src/app/page.tsx`
+   between `CoursesSection` and `AdmissionsCTA`.
+3. **`src/components/layout/urgency-bar.tsx` rebuilt** from a static
+   single-line red bar into a real horizontal scrolling ticker (reused the
+   existing `.animate-marquee` keyframe from `globals.css`, same pattern as
+   `LogoMarquee` — no new CSS invented) looping both real announcement
+   strings pulled verbatim from the old site's raw HTML.
+4. **`src/app/about/page.tsx`** — Chairman's Desk quote replaced with the
+   real one, name/credentials line added below it (previously absent).
+   Left the page's separate `StoryBlock` "Vision & Mission" copy untouched
+   (different section, coincidentally similar wording, not the same thing).
+5. Verified via `agent-browser` at desktop and mobile (500px viewport, via
+   `agent-browser set viewport 500 900` — note: this command works despite
+   printing a spurious "Invalid response" error, verified by screenshot).
+   `npm run build` clean. Note: the site-wide `ScrollPathLine` decorative
+   red thread crosses through the Chairman's Desk text at mobile width in a
+   screenshot taken mid-scroll — this is pre-existing sitewide behavior
+   (see AGENTS.md's `ScrollPathLine` notes), not a regression from this
+   session's edits; left as-is.
+6. Committed + pushed + deployed (`vercel --prod --yes`), verified live via
+   `curl` against production HTML. Live at https://nifs-institute.vercel.app.
+
+## Previous session — 2026-07-13 (interactive centers map)
 
 Two live-feedback items on the `CentersGrid` section (map/HQ block, still
 inside the homepage's `SpineLayout`):
@@ -623,11 +690,14 @@ repo root. **Standing instruction (2026-07-13): always deploy (commit + push
 this repo, without waiting to be asked** — see memory
 `feedback-nifs-auto-deploy.md`.
 
-**Homepage today** (`src/app/page.tsx`, updated in the ninth pass — see
+**Homepage today** (`src/app/page.tsx`, updated in the tenth pass — see
 that section above): `TunnelHero` → `SpineLayout` wrapping `WhyNIFS` →
 `AboutNifs` → `Placements` → `CentersGrid` → `FacilitiesShowcase` →
-**`CoursesSection` → `AdmissionsCTA` (both new this pass, full-width,
-outside SpineLayout)**. `CentersHighlight` and `ExploreNifs` were both
+`CoursesSection` → **`LatestNews` (new this pass)** → `AdmissionsCTA`, all
+full-width outside `SpineLayout`. The site-wide `UrgencyBar` (fixed top bar,
+rendered in `layout.tsx` above the header, not part of this flow) is now a
+real scrolling ticker with 2 real announcement strings — see tenth-pass
+notes. `CentersHighlight` and `ExploreNifs` were both
 **removed entirely** in an earlier session per explicit user request — the
 `ExploreNifs` gap that used to be flagged as "no replacement content
 decided" is filled by `Placements` + `FacilitiesShowcase` + `CoursesSection`
