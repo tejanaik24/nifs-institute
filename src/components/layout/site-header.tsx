@@ -76,7 +76,7 @@ export function SiteHeader() {
         {/* Mobile burger button */}
         <button
           aria-label={menuOpen ? "Close menu" : "Open menu"}
-          className="relative z-[60] flex h-12 w-12 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg transition-transform hover:scale-105 md:hidden"
+          className="relative z-[60] flex h-12 w-12 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg transition-transform hover:scale-105"
           onClick={() => setMenuOpen((prev) => !prev)}
         >
           <span className="flex flex-col items-center justify-center gap-[5px]">
