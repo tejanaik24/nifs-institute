@@ -122,15 +122,6 @@ export function WhyNIFS() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(false);
 
-  const fadeUp = reduceMotion
-    ? {}
-    : {
-        initial: { opacity: 0, y: 30 },
-        whileInView: { opacity: 1, y: 0 },
-        viewport: { once: true, margin: "-100px" },
-        transition: { duration: 0.7, ease: "easeOut" as const },
-      };
-
   useEffect(() => {
     if (!containerRef.current) return;
     const observer = new IntersectionObserver(
@@ -159,14 +150,69 @@ export function WhyNIFS() {
               <SpineWelcome size="small" typing={inView} />
             </div>
 
-            <motion.div {...fadeUp} className="text-center">
-              <h2 className="font-display text-[clamp(2rem,3.5vw,3.8rem)] leading-[1.1] text-foreground italic">
-                Trained.
-                <br />
-                Placed.
-                <br />
-                Proven.
-              </h2>
+            <div className="text-center">
+              <motion.h2
+                className="font-display text-[clamp(2rem,3.5vw,3.8rem)] leading-[1.1] text-foreground italic"
+                variants={{
+                  hidden: {},
+                  visible: { transition: { staggerChildren: 0.15 } },
+                }}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-100px" }}
+              >
+                <motion.span
+                  className="mb-1 block overflow-hidden"
+                  variants={{
+                    hidden: {},
+                    visible: { transition: { staggerChildren: 0.15 } },
+                  }}
+                >
+                  <motion.span
+                    className="block"
+                    variants={{
+                      hidden: { y: 60, opacity: 0 },
+                      visible: { y: 0, opacity: 1, transition: { duration: 0.6, ease: "easeOut" as const } },
+                    }}
+                  >
+                    Trained.
+                  </motion.span>
+                </motion.span>
+                <motion.span
+                  className="mb-1 block overflow-hidden"
+                  variants={{
+                    hidden: {},
+                    visible: { transition: { staggerChildren: 0.15 } },
+                  }}
+                >
+                  <motion.span
+                    className="block"
+                    variants={{
+                      hidden: { y: 60, opacity: 0 },
+                      visible: { y: 0, opacity: 1, transition: { duration: 0.6, ease: "easeOut" as const } },
+                    }}
+                  >
+                    Placed.
+                  </motion.span>
+                </motion.span>
+                <motion.span
+                  className="block overflow-hidden"
+                  variants={{
+                    hidden: {},
+                    visible: { transition: { staggerChildren: 0.15 } },
+                  }}
+                >
+                  <motion.span
+                    className="block"
+                    variants={{
+                      hidden: { y: 60, opacity: 0 },
+                      visible: { y: 0, opacity: 1, transition: { duration: 0.6, ease: "easeOut" as const } },
+                    }}
+                  >
+                    Proven.
+                  </motion.span>
+                </motion.span>
+              </motion.h2>
               <p className="mx-auto mt-6 max-w-[320px] text-sm text-muted-foreground">
                 Since 2004, NIFS has turned classroom training into real
                 industrial safety careers — trusted by 45,000+ professionals
@@ -213,7 +259,7 @@ export function WhyNIFS() {
               >
                 Our Story →
               </Link>
-            </motion.div>
+            </div>
           </div>
         }
         center={<SpineWelcome size="large" typing={inView} />}
@@ -222,29 +268,59 @@ export function WhyNIFS() {
             {items.map((item, i) => (
               <motion.div
                 key={item.number}
-                initial={reduceMotion ? {} : { opacity: 0, x: 24 }}
-                whileInView={reduceMotion ? {} : { opacity: 1, x: 0 }}
+                initial={reduceMotion ? {} : { y: 50, opacity: 0 }}
+                whileInView={reduceMotion ? {} : { y: 0, opacity: 1 }}
                 viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.6, ease: "easeOut", delay: i * 0.08 }}
-                className="flex items-start gap-4 rounded-lg border border-border bg-card p-5 shadow-sm transition-colors hover:border-primary/40 hover:bg-primary/5"
+                transition={
+                  reduceMotion
+                    ? {}
+                    : { type: "spring" as const, stiffness: 200, damping: 20, delay: i * 0.1 }
+                }
+                whileHover={
+                  reduceMotion
+                    ? {}
+                    : { y: -8, transition: { type: "spring" as const, stiffness: 300 } }
+                }
+                className="group relative flex items-start gap-4 rounded-lg border border-transparent bg-card p-5 shadow-sm transition-[border-color,box-shadow] hover:border-[rgba(220,38,38,0.3)] hover:shadow-[0_24px_60px_rgba(220,38,38,0.12)]"
               >
                 <div className="relative h-11 w-11 shrink-0">
-                  <Image
-                    src={item.icon}
-                    alt=""
-                    fill
-                    sizes="44px"
-                    className="object-contain"
+                  {/* Red circle behind icon */}
+                  <motion.div
+                    className="absolute inset-0 rounded-full bg-primary/10"
+                    initial={{ scale: 0 }}
+                    whileHover={{ scale: 1 }}
+                    transition={{ type: "spring" as const, stiffness: 300, damping: 20 }}
                   />
+                  <motion.div
+                    className="relative h-full w-full transition-transform"
+                    whileHover={{ scale: 1.15 }}
+                    transition={{ type: "spring" as const, stiffness: 300, damping: 20 }}
+                  >
+                    <Image
+                      src={item.icon}
+                      alt=""
+                      fill
+                      sizes="44px"
+                      className="object-contain"
+                    />
+                  </motion.div>
                 </div>
                 <div>
-                  <div className="text-sm font-semibold tracking-wide text-foreground uppercase">
+                  <div className="text-sm font-semibold tracking-wide text-foreground uppercase transition-colors group-hover:text-red-600">
                     {item.title}
                   </div>
                   <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
                     {item.body}
                   </p>
                 </div>
+                {/* Red accent line */}
+                <motion.div
+                  className="absolute bottom-0 left-0 h-[2px] w-full bg-red-600"
+                  initial={{ scaleX: 0, originX: 0 }}
+                  whileInView={{ scaleX: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: i * 0.1 + 0.3 }}
+                />
               </motion.div>
             ))}
           </div>
