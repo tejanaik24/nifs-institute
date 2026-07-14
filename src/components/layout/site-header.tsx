@@ -103,7 +103,7 @@ export function SiteHeader() {
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            className="fixed inset-0 z-50 flex flex-col bg-white"
+            className="fixed inset-0 z-[100] flex flex-col bg-white"
             initial={{ clipPath: "circle(0% at top right)" }}
             animate={{ clipPath: "circle(150% at top right)" }}
             exit={{ clipPath: "circle(0% at top right)" }}
