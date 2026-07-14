@@ -16,16 +16,17 @@ function CourseCard({ course, i }: { course: Course; i: number }) {
   return (
     <motion.div
       layout
-      initial={reduceMotion ? {} : { opacity: 0, y: 28 }}
-      animate={reduceMotion ? {} : { opacity: 1, y: 0 }}
-      exit={reduceMotion ? {} : { opacity: 0, scale: 0.95 }}
-      transition={{ duration: 0.4, delay: (i % 4) * 0.05 }}
+      initial={reduceMotion ? {} : { opacity: 0, scale: 0.92, y: 20 }}
+      animate={reduceMotion ? {} : { opacity: 1, scale: 1, y: 0 }}
+      exit={reduceMotion ? {} : { opacity: 0, scale: 0.88, y: -10 }}
+      transition={{ type: "spring" as const, stiffness: 260, damping: 22, delay: (i % 4) * 0.06 }}
+      whileHover={reduceMotion ? {} : { y: -6 }}
       className="min-w-[240px] flex-1"
     >
       <TiltWrapper className="flex h-full flex-col">
         <Link
           href={`/courses/${course.slug}`}
-          className="group flex flex-1 flex-col overflow-hidden border border-border bg-card transition-shadow duration-300 hover:shadow-xl"
+          className="group flex flex-1 flex-col overflow-hidden border border-border bg-card shadow-sm transition-[box-shadow] duration-300 hover:shadow-[inset_0_0_0_1.5px_rgba(220,38,38,0.5),0_16px_48px_rgba(220,38,38,0.1)]"
         >
           <div className="relative aspect-[4/3] w-full overflow-hidden">
             <Image
@@ -55,15 +56,15 @@ function CourseCard({ course, i }: { course: Course; i: number }) {
               <span className="text-xs font-semibold tracking-widest text-primary uppercase">
                 {course.duration}
               </span>
-              <span className="text-[10px] tracking-widest text-muted-foreground uppercase">
+              <span className="rounded-sm border border-border bg-muted px-2 py-0.5 text-[10px] font-semibold tracking-widest text-muted-foreground uppercase transition-colors duration-200 group-hover:border-red-600 group-hover:bg-red-600 group-hover:text-white">
                 {course.shortName}
               </span>
             </div>
             <h3 className="font-display mt-2 text-xl leading-snug italic">
               {course.name}
             </h3>
-            <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-foreground transition-transform duration-300 group-hover:translate-x-1 group-hover:text-primary">
-              Learn more <ArrowRight className="h-3.5 w-3.5" />
+            <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-foreground transition-all duration-300 group-hover:translate-x-1 group-hover:text-primary">
+              Learn more <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
             </span>
           </div>
         </Link>
@@ -88,21 +89,21 @@ export function CoursesSection() {
           key={f}
           type="button"
           onClick={() => setActive(f)}
-          className={`relative isolate min-h-10 px-4 py-2 text-[11px] font-medium tracking-[0.1em] uppercase transition-colors ${
+          className={`relative isolate min-h-10 px-4 py-2 text-[11px] font-medium tracking-[0.1em] uppercase transition-colors duration-200 ${
             active === f
               ? variant === "dark"
                 ? "text-primary"
                 : "text-white"
               : variant === "dark"
-                ? "border border-white/30 text-white/70 hover:border-white"
-                : "border border-[#E5E7EB] bg-white text-[#0A0A0A] hover:border-primary"
+                ? "text-white/70 hover:text-red-500"
+                : "text-[#0A0A0A]/70 hover:text-red-600"
           }`}
         >
           {active === f && (
             <motion.span
               layoutId={variant === "dark" ? "course-tab-active-center" : "course-tab-active"}
-              className={`absolute inset-0 -z-10 ${variant === "dark" ? "bg-white" : "bg-primary"}`}
-              transition={{ type: "spring", stiffness: 500, damping: 35 }}
+              className="absolute bottom-0 left-0 right-0 h-[2px] bg-red-600"
+              transition={{ type: "spring" as const, stiffness: 500, damping: 35 }}
             />
           )}
           {f}
@@ -124,6 +125,13 @@ export function CoursesSection() {
               <motion.div
                 layout
                 className="flex flex-wrap gap-5"
+                variants={{
+                  hidden: {},
+                  visible: { transition: { staggerChildren: 0.06 } },
+                }}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-80px" }}
               >
                 <AnimatePresence mode="popLayout">
                   {leftCourses.map((course, i) => (
@@ -163,6 +171,13 @@ export function CoursesSection() {
               <motion.div
                 layout
                 className="flex flex-wrap gap-5"
+                variants={{
+                  hidden: {},
+                  visible: { transition: { staggerChildren: 0.06 } },
+                }}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-80px" }}
               >
                 <AnimatePresence mode="popLayout">
                   {rightCourses.map((course, i) => (
@@ -193,7 +208,17 @@ export function CoursesSection() {
 
         <div className="mt-8">{filterTabs("light")}</div>
 
-        <motion.div layout className="mt-10 flex flex-wrap gap-6">
+        <motion.div
+          layout
+          className="mt-10 flex flex-wrap gap-6"
+          variants={{
+            hidden: {},
+            visible: { transition: { staggerChildren: 0.06 } },
+          }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+        >
           <AnimatePresence mode="popLayout">
             {filtered.map((course, i) => (
               <CourseCard key={course.slug} course={course} i={i} />
