@@ -1,5 +1,41 @@
 # BRAIN.md — NIFS India Website Rebuild
 
+## 🎯 NEXT SESSION PRIORITY — read this before anything else
+
+**2026-07-13, end of eleventh pass: user gave direct, blunt feedback that
+overrides normal "what's open" bookkeeping.** Verbatim framing: the site is
+*"okish"*, has **no wow factor, no premium feel, and is not worth 50 lakhs**
+(₹50 lakh — implying this is being benchmarked against a real, expensive
+client budget/expectation, not a hobby site). This is NOT a request for
+another individual widget/section — it's a verdict on the **overall design
+quality/impressiveness** of the site as a whole, after 11 sessions of
+incremental content/feature work (blog migration, gallery, placements
+carousel, tabs widget, etc.).
+
+**What this means for the next session:**
+- Don't respond with another small content fix or missing-widget hunt —
+  that pattern is what led to "okish." This needs a **design-quality
+  pass**: typography confidence, spacing/rhythm, motion polish, color
+  restraint, photography quality, information hierarchy — the stuff that
+  separates "a Next.js site with real content" from "a site that reads as
+  premium."
+- Start by asking the user what "premium" looks like to them (reference
+  sites? specific pages that feel flat? is it visual only, or also
+  interaction/motion?) — don't guess and start redesigning blindly, but
+  also don't just ask generic questions; look at the live site fresh
+  yourself first (`agent-browser`, full scroll-through, both breakpoints)
+  and form a real opinion before asking, per the standing
+  `feedback-think-innovative-not-blind.md` lesson (creative judgment over
+  literal execution).
+- Worth considering: `/plan-design-review`-style honest audit of the
+  current homepage flow section-by-section, flagging which sections read
+  as templated/generic ("AI slop," a term the user has used before via
+  `/plan-design-review` in an earlier session) vs. genuinely premium.
+- Kent College (kentcollege.com) is the standing structural/visual
+  benchmark referenced throughout this project's history — revisit whether
+  the current site actually delivers that level of polish or just the
+  structural pattern (spine layout) without the visual confidence.
+
 ## ⚠️ Read this first
 
 This file was last updated 2026-07-13 (eleventh pass — built the "Our
