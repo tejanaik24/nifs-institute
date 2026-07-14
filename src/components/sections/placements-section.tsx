@@ -6,7 +6,6 @@ import { motion, useReducedMotion } from "framer-motion";
 import { recruiterLogos } from "@/lib/data/centers";
 import { StatBadge3D } from "@/components/three/StatBadge3D";
 import { SpineGutterBg, SpineSplit } from "@/components/sections/spine-helpers";
-import { useCountUp, useInView } from "@/components/sections/scroll-reveal-hooks";
 
 const roles = [
   "Fire Safety Officer",
@@ -16,47 +15,16 @@ const roles = [
   "Risk Analyst",
 ];
 
-function FlagshipStat({ size = "large" }: { size?: "large" | "small" }) {
-  const reduceMotion = useReducedMotion();
-  const [ref, inView] = useInView<HTMLDivElement>(0.4);
-  const [value, done] = useCountUp(45000, inView, 1400);
-  const displayValue = reduceMotion ? 45000 : value;
-  const glowSize = size === "large" ? "320px" : "220px";
-  const numberClass = size === "large" ? "text-6xl" : "text-4xl";
-
-  return (
-    <div ref={ref} className="relative flex flex-col items-center justify-center gap-2 text-center">
-      <div
-        aria-hidden="true"
-        className="absolute rounded-full"
-        style={{
-          width: glowSize,
-          height: glowSize,
-          background:
-            "radial-gradient(circle, color-mix(in oklch, var(--nifs-orange) 55%, transparent) 0%, transparent 70%)",
-        }}
-      />
-      <span className={`relative font-display italic text-white ${numberClass}`}>
-        {displayValue.toLocaleString("en-IN")}
-        {(done || reduceMotion) && "+"}
-      </span>
-      <span className="relative text-xs font-medium tracking-[0.2em] text-white/70 uppercase">
-        Candidates Placed
-      </span>
-    </div>
-  );
-}
-
-/** Auto-scrolling recruiter logo wall — a 2-column grid that scrolls
+/** Auto-scrolling recruiter logo wall — a 3-column grid that scrolls
  * vertically (loops seamlessly via a duplicated track), sized to fill a
  * tall spine column instead of squeezing into one horizontal strip. */
 function LogoMarquee({ height = 420 }: { height?: number }) {
   const track = (
-    <div className="grid grid-cols-2 gap-3">
+    <div className="grid grid-cols-3 gap-3">
       {recruiterLogos.map((r) => (
         <div
           key={r.name}
-          className="flex h-16 w-full items-center justify-center rounded-md bg-white p-3"
+          className="flex h-16 w-full items-center justify-center rounded-md border border-border bg-white p-3"
         >
           <div className="relative h-full w-full">
             <Image src={r.logo!} alt={r.name} fill className="object-contain" sizes="128px" />
@@ -96,25 +64,25 @@ export function Placements() {
 
   return (
     <section className="relative overflow-hidden py-6 lg:py-0">
-      <SpineGutterBg color="#111111" />
+      <SpineGutterBg color="var(--background)" />
 
       {/* ── DESKTOP: spine split ── */}
       <div className="hidden lg:block">
         <SpineSplit
-          align="center"
+          align="start"
           left={
-            <motion.div {...fadeUp} className="text-white">
+            <motion.div {...fadeUp} className="px-6 lg:pr-10 lg:pl-0">
               <span className="text-xs font-semibold tracking-widest text-primary uppercase">
                 Career Outcomes
               </span>
-              <h2 className="font-display mt-3 text-3xl italic leading-tight">
+              <h2 className="font-display mt-3 text-3xl italic leading-tight text-[#7A0F0C]">
                 Where our graduates work
               </h2>
               <div className="mt-5 flex flex-wrap gap-2">
                 {roles.map((role) => (
                   <span
                     key={role}
-                    className="rounded-full border border-white/15 px-3 py-1.5 text-xs text-white/80"
+                    className="rounded-full border border-border px-3 py-1.5 text-xs text-foreground/80"
                   >
                     {role}
                   </span>
@@ -127,7 +95,7 @@ export function Placements() {
                 View All Placements →
               </Link>
 
-              <div className="relative mx-auto mt-8 aspect-[4/5] w-full max-w-[420px] overflow-hidden rounded-sm bg-white/5">
+              <div className="relative mx-auto mt-8 aspect-[4/5] w-full max-w-[420px] overflow-hidden rounded-sm bg-muted/40">
                 <Image
                   src="/images/placement-graduate-worksite.png"
                   alt="NIFS graduate working as an industrial safety officer on-site"
@@ -144,12 +112,12 @@ export function Placements() {
             </motion.div>
           }
           right={
-            <motion.div {...fadeUp} className="w-full">
-              <p className="text-xs font-semibold tracking-widest text-white/50 uppercase">
+            <motion.div {...fadeUp} className="w-full px-6 lg:pr-0 lg:pl-10">
+              <p className="text-xs font-semibold tracking-widest text-muted-foreground uppercase">
                 Our Students Placed With
               </p>
               <div className="mt-4">
-                <LogoMarquee height={480} />
+                <LogoMarquee height={720} />
               </div>
             </motion.div>
           }
@@ -157,12 +125,12 @@ export function Placements() {
       </div>
 
       {/* ── MOBILE: stacked single column ── */}
-      <div className="relative z-[3] mx-auto max-w-5xl px-6 py-16 text-center text-white lg:hidden">
+      <div className="relative z-[3] mx-auto max-w-5xl px-6 py-16 text-center lg:hidden">
         <motion.div {...fadeUp}>
           <span className="text-xs font-semibold tracking-widest text-primary uppercase">
             Career Outcomes
           </span>
-          <h2 className="font-display mt-3 text-2xl italic leading-tight">
+          <h2 className="font-display mt-3 text-2xl italic leading-tight text-[#7A0F0C]">
             Where our graduates work
           </h2>
         </motion.div>
@@ -175,7 +143,7 @@ export function Placements() {
           {roles.map((role) => (
             <span
               key={role}
-              className="rounded-full border border-white/15 px-3 py-1.5 text-xs text-white/80"
+              className="rounded-full border border-border px-3 py-1.5 text-xs text-foreground/80"
             >
               {role}
             </span>
@@ -183,7 +151,7 @@ export function Placements() {
         </motion.div>
 
         <motion.div {...fadeUp} className="mt-8">
-          <p className="text-xs font-semibold tracking-widest text-white/50 uppercase">
+          <p className="text-xs font-semibold tracking-widest text-muted-foreground uppercase">
             Our Students Placed With
           </p>
           <div className="mx-auto mt-4 max-w-[340px]">
@@ -198,7 +166,7 @@ export function Placements() {
           View All Placements →
         </Link>
 
-        <div className="relative mx-auto mt-8 aspect-[4/5] w-full max-w-[420px] overflow-hidden rounded-sm bg-white/5">
+        <div className="relative mx-auto mt-8 aspect-[4/5] w-full max-w-[420px] overflow-hidden rounded-sm bg-muted/40">
           <Image
             src="/images/placement-graduate-worksite.png"
             alt="NIFS graduate working as an industrial safety officer on-site"

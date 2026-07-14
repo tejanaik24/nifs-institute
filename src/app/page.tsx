@@ -19,25 +19,21 @@ export default function HomePage() {
       {/* Hero — full-viewport scroll image tunnel with headline overlay */}
       <TunnelHero />
 
-      {/* Continuous spine through Welcome → About → Placements → Map */}
+      {/* Continuous spine running behind the entire post-hero homepage,
+          from Welcome through the closing admissions CTA — stops right
+          where the footer begins. */}
       <SpineLayout>
         <WhyNIFS />
         <AboutNifs />
         <Placements />
         <CentersGrid />
+        <FacilitiesShowcase />
+        <StudentPlacements />
+        <CoursesSection />
+        <LatestNews />
+        <UpdatesTabs />
+        <AdmissionsCTA />
       </SpineLayout>
-
-      {/* Full-width break from the spine layout — campus photo showcase */}
-      <FacilitiesShowcase />
-
-      {/* Real, individually named students placed with real companies */}
-      <StudentPlacements />
-
-      {/* Course teaser + latest news + closing admissions CTA before the footer */}
-      <CoursesSection />
-      <LatestNews />
-      <UpdatesTabs />
-      <AdmissionsCTA />
     </>
   );
 }

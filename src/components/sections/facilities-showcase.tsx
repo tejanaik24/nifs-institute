@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { SpineGutterBg, SpineSplit } from "@/components/sections/spine-helpers";
 
 type FacilityPanel = {
   title: string;
@@ -10,7 +11,7 @@ type FacilityPanel = {
   alt: string;
 };
 
-const panels: FacilityPanel[] = [
+const panelsLeft: FacilityPanel[] = [
   {
     title: "Smart Classrooms",
     image: "/images/courses-classroom.png",
@@ -26,6 +27,9 @@ const panels: FacilityPanel[] = [
     image: "/images/training-yard-drill.jpg",
     alt: "Trainees running a rope-rescue drill at the practical training yard",
   },
+];
+
+const panelsRight: FacilityPanel[] = [
   {
     title: "Fire Hazard Drill",
     image: "/images/training-drill.png",
@@ -43,6 +47,8 @@ const panels: FacilityPanel[] = [
   },
 ];
 
+const allPanels = [...panelsLeft, ...panelsRight];
+
 function AccordionPanel({
   panel,
   isActive,
@@ -59,15 +65,15 @@ function AccordionPanel({
       onFocus={onActivate}
       onClick={onActivate}
       aria-pressed={isActive}
-      className={`group relative h-[420px] min-w-[64px] overflow-hidden rounded-sm transition-[flex-grow] duration-700 ease-in-out ${
-        isActive ? "flex-[6]" : "flex-1"
+      className={`group relative h-[480px] min-w-[56px] overflow-hidden rounded-sm transition-[flex-grow] duration-700 ease-in-out ${
+        isActive ? "flex-[3]" : "flex-1"
       }`}
     >
       <Image
         src={panel.image}
         alt={panel.alt}
         fill
-        sizes="360px"
+        sizes="280px"
         className="object-cover"
       />
       <div
@@ -76,10 +82,10 @@ function AccordionPanel({
         }`}
       />
       <span
-        className={`absolute font-display text-base font-semibold text-white transition-all duration-300 ${
+        className={`absolute font-display text-sm font-semibold text-white transition-all duration-300 ${
           isActive
             ? "bottom-5 left-1/2 -translate-x-1/2 rotate-0 text-center"
-            : "bottom-20 left-1/2 -translate-x-1/2 rotate-90 whitespace-nowrap"
+            : "bottom-16 left-1/2 -translate-x-1/2 rotate-90 whitespace-nowrap"
         }`}
       >
         {panel.title}
@@ -88,12 +94,108 @@ function AccordionPanel({
   );
 }
 
-export function FacilitiesShowcase() {
-  const [activeIndex, setActiveIndex] = useState(2);
-
+function AccordionColumn({ panels }: { panels: FacilityPanel[] }) {
+  const [activeIndex, setActiveIndex] = useState(0);
   return (
-    <section className="bg-background py-16 lg:py-28">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10">
+    <div className="flex gap-3">
+      {panels.map((panel, i) => (
+        <AccordionPanel
+          key={panel.title}
+          panel={panel}
+          isActive={i === activeIndex}
+          onActivate={() => setActiveIndex(i)}
+        />
+      ))}
+    </div>
+  );
+}
+
+function MobileGrid() {
+  return (
+    <div className="mt-10 grid grid-cols-2 gap-3 lg:hidden">
+      {allPanels.map((panel, i) => (
+        <motion.div
+          key={panel.title}
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.5, delay: i * 0.05 }}
+          className="relative aspect-[3/4] overflow-hidden rounded-sm"
+        >
+          <Image
+            src={panel.image}
+            alt={panel.alt}
+            fill
+            sizes="50vw"
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+          <span className="absolute bottom-3 left-3 font-display text-sm font-semibold text-white">
+            {panel.title}
+          </span>
+        </motion.div>
+      ))}
+    </div>
+  );
+}
+
+export function FacilitiesShowcase() {
+  return (
+    <section className="relative overflow-hidden py-16 lg:py-0">
+      <SpineGutterBg color="var(--background)" />
+
+      {/* ── DESKTOP: spine split — 3 panels flanking each gutter ── */}
+      <div className="hidden lg:block">
+        <SpineSplit
+          align="center"
+          left={
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+              className="px-6 lg:pr-10 lg:pl-0"
+            >
+              <AccordionColumn panels={panelsLeft} />
+            </motion.div>
+          }
+          center={
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+              className="text-center"
+            >
+              <span className="text-xs font-semibold tracking-widest text-white/70 uppercase">
+                Our Campus
+              </span>
+              <h2 className="font-display mt-3 text-3xl leading-tight text-white italic">
+                State-of-the-art
+                <br />
+                training infrastructure
+              </h2>
+              <span className="mt-4 inline-block text-xs tracking-widest text-white/50 uppercase">
+                6 real facilities
+              </span>
+            </motion.div>
+          }
+          right={
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="px-6 lg:pr-0 lg:pl-10"
+            >
+              <AccordionColumn panels={panelsRight} />
+            </motion.div>
+          }
+        />
+      </div>
+
+      {/* ── MOBILE: heading + simple 2-column photo grid ── */}
+      <div className="relative z-[3] mx-auto max-w-5xl px-6 py-16 lg:hidden">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -103,54 +205,11 @@ export function FacilitiesShowcase() {
           <span className="text-xs font-semibold tracking-widest text-primary uppercase">
             Our Campus
           </span>
-          <h2 className="font-display mt-3 max-w-xl text-4xl italic leading-tight md:text-5xl">
+          <h2 className="font-display mt-3 max-w-xl text-3xl italic leading-tight">
             State-of-the-art training infrastructure
           </h2>
         </motion.div>
-
-        {/* Desktop: hover/click-to-expand accordion */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="mt-12 hidden gap-3 lg:flex"
-        >
-          {panels.map((panel, i) => (
-            <AccordionPanel
-              key={panel.title}
-              panel={panel}
-              isActive={i === activeIndex}
-              onActivate={() => setActiveIndex(i)}
-            />
-          ))}
-        </motion.div>
-
-        {/* Mobile / tablet: simple 2-column photo grid */}
-        <div className="mt-10 grid grid-cols-2 gap-3 lg:hidden">
-          {panels.map((panel, i) => (
-            <motion.div
-              key={panel.title}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.5, delay: i * 0.05 }}
-              className="relative aspect-[3/4] overflow-hidden rounded-sm"
-            >
-              <Image
-                src={panel.image}
-                alt={panel.alt}
-                fill
-                sizes="50vw"
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-              <span className="absolute bottom-3 left-3 font-display text-sm font-semibold text-white">
-                {panel.title}
-              </span>
-            </motion.div>
-          ))}
-        </div>
+        <MobileGrid />
       </div>
     </section>
   );

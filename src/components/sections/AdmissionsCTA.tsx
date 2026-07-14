@@ -7,8 +7,7 @@ import { FileText, Download, Phone } from "lucide-react";
 import { SpineSplit } from "@/components/sections/spine-helpers";
 import { SPINE_WIDTH } from "@/components/SpineLayout";
 
-const chevronTexture =
-  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' height='25'%3E%3Cpath d='M2 6l10.5 13L23 6' stroke='white' stroke-width='1.5' fill='none' stroke-opacity='0.15'/%3E%3C/svg%3E";
+const gutterWidth = `calc(50% - ${SPINE_WIDTH / 2}px)`;
 
 const cards = [
   { icon: FileText, title: "Apply Online", sub: "5-minute application", cta: "APPLY NOW →", href: "/admissions", variant: "filled" as const },
@@ -29,7 +28,43 @@ export function AdmissionsCTA() {
 
   return (
     <section className="relative overflow-x-hidden">
-      <div className="absolute inset-0">
+      {/* Background photo covers only the left/right gutters on desktop —
+          the center 450px is left uncovered so the real continuous spine
+          (rendered by the shared SpineLayout wrapper) shows through
+          uninterrupted, instead of this section faking its own strip. */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-y-0 left-0 z-0 hidden overflow-hidden lg:block"
+        style={{ width: gutterWidth }}
+      >
+        <Image
+          src="/images/admissions-cta-bg.png"
+          alt=""
+          fill
+          loading="lazy"
+          sizes="50vw"
+          className="object-cover object-left"
+        />
+        <div className="absolute inset-0 bg-black/85" />
+      </div>
+      <div
+        aria-hidden="true"
+        className="absolute inset-y-0 right-0 z-0 hidden overflow-hidden lg:block"
+        style={{ width: gutterWidth }}
+      >
+        <Image
+          src="/images/admissions-cta-bg.png"
+          alt=""
+          fill
+          loading="lazy"
+          sizes="50vw"
+          className="object-cover object-right"
+        />
+        <div className="absolute inset-0 bg-black/85" />
+      </div>
+      {/* Mobile: spine is hidden, so a single full-bleed background covers
+          the whole section as before. */}
+      <div className="absolute inset-0 z-0 lg:hidden">
         <Image
           src="/images/admissions-cta-bg.png"
           alt=""
@@ -41,22 +76,6 @@ export function AdmissionsCTA() {
         />
         <div className="absolute inset-0 bg-black/85" />
       </div>
-
-      {/* Local spine strip continuing over the photo background, painted
-          after it so it sits visually on top here (image is z-0 locally). */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-y-0 left-1/2 hidden lg:block"
-        style={{
-          width: `${SPINE_WIDTH}px`,
-          transform: "translateX(-50%)",
-          background: "#DC1711",
-          backgroundImage: `url("${chevronTexture}")`,
-          backgroundRepeat: "repeat",
-          backgroundSize: "25px 25px",
-          opacity: 0.9,
-        }}
-      />
 
       <SpineSplit
         left={
