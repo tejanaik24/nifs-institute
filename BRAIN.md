@@ -2,39 +2,24 @@
 
 ## 🎯 NEXT SESSION PRIORITY — read this before anything else
 
-**2026-07-13, end of eleventh pass: user gave direct, blunt feedback that
-overrides normal "what's open" bookkeeping.** Verbatim framing: the site is
-*"okish"*, has **no wow factor, no premium feel, and is not worth 50 lakhs**
-(₹50 lakh — implying this is being benchmarked against a real, expensive
-client budget/expectation, not a hobby site). This is NOT a request for
-another individual widget/section — it's a verdict on the **overall design
-quality/impressiveness** of the site as a whole, after 11 sessions of
-incremental content/feature work (blog migration, gallery, placements
-carousel, tabs widget, etc.).
-
-**What this means for the next session:**
-- Don't respond with another small content fix or missing-widget hunt —
-  that pattern is what led to "okish." This needs a **design-quality
-  pass**: typography confidence, spacing/rhythm, motion polish, color
-  restraint, photography quality, information hierarchy — the stuff that
-  separates "a Next.js site with real content" from "a site that reads as
-  premium."
-- Start by asking the user what "premium" looks like to them (reference
-  sites? specific pages that feel flat? is it visual only, or also
-  interaction/motion?) — don't guess and start redesigning blindly, but
-  also don't just ask generic questions; look at the live site fresh
-  yourself first (`agent-browser`, full scroll-through, both breakpoints)
-  and form a real opinion before asking, per the standing
-  `feedback-think-innovative-not-blind.md` lesson (creative judgment over
-  literal execution).
-- Worth considering: `/plan-design-review`-style honest audit of the
-  current homepage flow section-by-section, flagging which sections read
-  as templated/generic ("AI slop," a term the user has used before via
-  `/plan-design-review` in an earlier session) vs. genuinely premium.
-- Kent College (kentcollege.com) is the standing structural/visual
-  benchmark referenced throughout this project's history — revisit whether
-  the current site actually delivers that level of polish or just the
-  structural pattern (spine layout) without the visual confidence.
+**2026-07-14, twelfth pass: structural rebuild done (spine now runs the
+whole homepage, Placements fixed) — but this was explicitly a layout pass,
+not the design-quality pass the eleventh-pass verdict actually called for.**
+The user gave three concrete, screenshot-annotated structural bugs this
+session (Placements black bg, logo-column dead space, spine stopping after
+the map) and asked for the "full structural rebuild" option. All three are
+now fixed and verified (see session entry below) — but the underlying
+eleventh-pass complaint (*"okish, no wow factor, not worth 50 lakhs"*) was
+about **typography confidence, motion polish, photography quality,
+information hierarchy** — none of which this pass touched. Don't mistake
+"spine now runs continuously and nothing is visually broken" for "site now
+reads premium." **The next session should pick the eleventh-pass priority
+back up**: a real design-quality pass, or at minimum ask the user directly
+whether the structural fixes moved the needle on the "not worth 50 lakhs"
+feeling, since a full section-by-section typography/motion/photography
+audit was explicitly out of scope this time (see `/plan-design-review` /
+Kent College benchmark notes preserved below — still the standing
+reference, still not re-evaluated).
 
 ## ⚠️ Read this first
 
@@ -52,7 +37,122 @@ scroll-circuit/R3F architecture, fully replaced) and the
 immediately-preceding mid-session brief's blow-by-blow build log (still
 useful chronology, kept as-is).
 
-## Latest session — 2026-07-13 (eleventh pass): recovered the real student data, built all 3 remaining widgets
+## Latest session — 2026-07-14 (twelfth pass): full structural rebuild — Placements bg/dead-space fix + spine extended to footer
+
+User gave three annotated-screenshot structural bugs and explicitly chose
+"full structural rebuild" over lighter fixes when asked how far to take it.
+
+1. **`placements-section.tsx` — black background swapped for white/light.**
+   Was `<SpineGutterBg color="#111111" />` with matching `text-white`/
+   `border-white/15` throughout — user wanted the section reading white
+   like `AboutNifs`/`CentersGrid`. Swapped to `SpineGutterBg
+   color="var(--background)"`, recolored every text/border class to the
+   light-mode equivalents (`text-foreground`, `text-muted-foreground`,
+   `border-border`), kept `StatBadge3D` untouched (already a self-contained
+   dark-red plaque, reads fine on white).
+2. **Placements logo-column dead space fixed.** Root cause matched the
+   already-documented `feedback-nifs-spine-section-height.md` bug class:
+   `LogoMarquee` (2-column grid, `height=480`) was much shorter than the
+   left column's real content (headline + pills + link + ~525px photo,
+   ~700-800px total), and `SpineSplit align="center"` was vertically
+   centering the short column inside the tall row, leaving gaps top/bottom.
+   Fixed two ways at once: switched the grid to **3 columns** (uses the
+   gutter's ~575px width better — this was the "unused width on the right
+   edge" the user's diagonal arrow was pointing at) and bumped `height` to
+   **720** (mobile stays at 360, 2-col). Also switched `SpineSplit
+   align="center"` → `align="start"` for this section so columns top-align
+   instead of centering height-mismatches. Verified via `agent-browser`
+   screenshot at 1440px — no dead space top/bottom/right in the logo
+   column anymore.
+3. **Real spine extended from `WhyNIFS` all the way to `AdmissionsCTA`.**
+   Previously `<SpineLayout>` in `src/app/page.tsx` only wrapped
+   `WhyNIFS → AboutNifs → Placements → CentersGrid`; everything after
+   (`FacilitiesShowcase`, `StudentPlacements`, `CoursesSection`,
+   `LatestNews`, `UpdatesTabs`, `AdmissionsCTA`) sat outside it as
+   full-width sections with no spine, and `AdmissionsCTA.tsx` faked its own
+   local red chevron-textured strip (lines 45-59 in the old version) purely
+   so it wasn't spine-less right before the footer. Moved the
+   `<SpineLayout>` wrapper to enclose all ten sections
+   (`WhyNIFS` through `AdmissionsCTA`) in one continuous element, and
+   removed `AdmissionsCTA`'s fake local strip. **Real gotcha**:
+   `AdmissionsCTA`'s full-bleed background photo (`absolute inset-0`)
+   would otherwise sit inside the same z-3 stacking context as the real
+   spine and completely paint over the now-uncovered center 450px, making
+   the spine visually disappear again right where it mattered most. Fixed
+   by splitting the background photo into two `left-0`/`right-0` gutter-
+   width panels (`object-position: left`/`right` crops of the same image)
+   on desktop, leaving the center genuinely transparent so the global
+   spine shows through; mobile keeps one full-bleed panel since the spine
+   is hidden below `lg`. This is the general pattern to reuse if any
+   future full-bleed-photo section needs to sit inside the spine.
+4. **Rebuilt `FacilitiesShowcase`, `StudentPlacements`, `CoursesSection`,
+   `LatestNews`, `UpdatesTabs` as real spine-integrated sections** (all
+   previously plain full-width `bg-background` sections with no
+   `SpineGutterBg`/`SpineSplit`), each now `SpineGutterBg` + a
+   `hidden lg:block` desktop `SpineSplit` + a separate `lg:hidden` mobile
+   stacked block (same convention as `about-nifs.tsx`/`centers-grid.tsx`):
+   - **FacilitiesShowcase**: 6-panel accordion split into two 3-panel
+     `AccordionColumn`s (own `activeIndex` state each) flanking a center
+     "Our Campus" heading + "6 real facilities" label. Mobile keeps the
+     original 2-column photo grid unchanged.
+   - **StudentPlacements**: carousel `PER_PAGE_DESKTOP` raised 5→6 (3 left
+     gutter + 3 right gutter, `visible.slice(0, half)`/`slice(half)`),
+     heading + `ShieldCheck` icon + prev/next controls moved to center
+     spine column (white/70-bordered circular buttons, since center sits
+     directly on the red spine). Mobile keeps its own full carousel
+     (`PER_PAGE_MOBILE` raised 2→4 for a fuller 2×2 grid).
+   - **CoursesSection**: course grid split into two `flex flex-wrap +
+     min-w-[240px] flex-1` groups (the `GalleryGrid.tsx`-established fix
+     for the `auto-fit` partial-row dead-space bug flagged in the
+     ninth-pass note — **also retroactively fixes that section's own
+     long-standing unfixed `auto-fit` bug**, since it no longer uses that
+     grid mode at all) flanking a center column with the heading + tier
+     filter tabs (restyled as white/red pills for the red backdrop, a
+     second `layoutId` so the two tab-bar instances — center desktop vs.
+     mobile stacked — don't fight over the same shared layout animation).
+   - **LatestNews**: featured story card in the left gutter, 4 secondary
+     `PostCard`s (compact horizontal thumbnail + title, new smaller
+     layout to fit the narrower ~575px gutter) in the right gutter,
+     heading + "View All Updates" link in center. Mobile keeps the
+     original featured-card + stacked-list layout.
+   - **UpdatesTabs**: vertical icon-tab nav in left gutter, active tab's
+     content panel in right gutter, center spine column left mostly bare
+     (a small vertical "STAY UPDATED" label, `writing-mode: vertical-rl`)
+     per the plan's explicit allowance that a sparse center is fine here
+     (mirrors `CentersGrid`'s occasional empty-center precedent). Mobile
+     keeps the original horizontal `[nav][panel]` grid layout.
+5. **Inter-section negative-space audit**: measured every section
+   boundary via `getBoundingClientRect()` at 1440px, 1100px, and mobile
+   500px after the rebuild — every section-to-section gap came out at
+   effectively 0px (all ten spine sections use `py-*-0` at `lg` and rely
+   entirely on `SpineSplit`'s own internal `py-16`/`py-24`, so they now
+   butt directly against each other with no extra margin). No standalone
+   "shrink a tall gap" fix was needed beyond the Placements/spine-
+   extension changes above — the height-balancing done in items 1-4
+   incidentally resolved what would otherwise have been the same
+   short-column-next-to-tall-column dead-space class flagged in the
+   user's second screenshot.
+6. Verified end-to-end via `agent-browser` (Chrome launched with
+   `--remote-debugging-port=9223 --window-size=1440,1400`, then
+   `agent-browser set viewport <w> <h>` to switch to 1100px and 500px —
+   note the CLI's viewport-change command is `set viewport`, not a
+   top-level `viewport`/`resize` command, on this CLI version 0.27.0):
+   spine visually continuous and uninterrupted from just below the hero
+   all the way to the footer at all three widths, zero horizontal
+   overflow (`scrollWidth > clientWidth` checked `false` at each width),
+   Placements reads white/light with a filled 3-column logo grid, no dead
+   gaps anywhere. `npm run build` and `npx tsc --noEmit` both clean.
+7. Committed (one commit, all changes left `npm run build` passing) +
+   pushed + deployed (`vercel --prod --yes`) — live at
+   https://nifs-institute.vercel.app, confirmed via `curl` (200, page
+   contains "45,000", "Candidates Placed", "State-of-the-art").
+8. **Explicitly did NOT attempt** the eleventh-pass's actual ask (a
+   typography/motion/photography design-quality pass) — this session's
+   scope was three concrete structural bugs, not the broader "premium
+   feel" verdict. See the updated NEXT SESSION PRIORITY at the top of this
+   file.
+
+## Previous session — 2026-07-13 (eleventh pass): recovered the real student data, built all 3 remaining widgets
 
 The user pushed back hard on the tenth pass's conclusion, insisting the
 student-placement screenshot was real and from nifsindia.net. **They were
