@@ -1,0 +1,1663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NIFS India â€” National Institute of Fire & Safety | 25+ Years of Excellence</title>
+<meta name="description" content="India's leading fire and industrial safety training institute. 86 centers across 24 states. NSDC Approved. ISO Certified. 45,000+ alumni placed in top industries.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config={
+  theme:{
+    extend:{
+      colors:{
+        'nifs-red':'#DC1711',
+        'nifs-green':'#26BE29',
+        'nifs-orange':'#FC8010',
+      },
+      fontFamily:{
+        montserrat:['Montserrat','sans-serif'],
+      }
+    }
+  }
+}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased}
+.bar-fill{width:0}
+.faq-hidden{opacity:0;transform:translateX(-80px)}
+.marquee-track{display:flex;gap:60px;animation:marquee 25s linear infinite;width:max-content}
+.marquee-track:hover{animation-play-state:paused}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@keyframes mapSweep{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes mapScan{0%{top:0%;opacity:0}10%{opacity:0.8}90%{opacity:0.8}100%{top:100%;opacity:0}}
+.marquee-blog-track{display:flex;gap:24px;animation:marquee-blog-scroll 45s linear infinite;width:max-content}
+.marquee-blog-track:hover{animation-play-state:paused}
+@keyframes marquee-blog-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:0.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:0.01ms!important;
+    scroll-behavior:auto!important;
+  }
+  .bar-fill{width:100%!important}
+  .faq-hidden{opacity:1!important;transform:none!important}
+}
+</style>
+</head>
+<body class="bg-white text-black font-montserrat">
+
+<!-- NAVIGATION BAR -->
+<nav class="w-full fixed top-0 left-0 z-50 bg-white/80 backdrop-blur-lg border-b border-gray-100 transition-all duration-300" id="main-nav">
+  <div class="max-w-[1400px] mx-auto px-6 py-4 flex items-center justify-between">
+    <!-- Logo -->
+    <a href="#" class="flex items-center gap-2 group">
+      <div class="w-9 h-9 rounded-xl bg-nifs-red flex items-center justify-center text-white font-black text-lg transition-transform group-hover:scale-105">N</div>
+      <div class="flex flex-col">
+        <span class="text-nifs-red font-black text-xl leading-none tracking-tight">NIFS</span>
+        <span class="text-[9px] font-bold uppercase tracking-wider text-gray-500">National Institute</span>
+      </div>
+    </a>
+
+    <!-- Desktop Navigation Links -->
+    <div class="hidden lg:flex items-center gap-8">
+      <a href="#courses" class="text-sm font-semibold text-gray-700 hover:text-nifs-red transition-colors">Programs</a>
+      <a href="#process" class="text-sm font-semibold text-gray-700 hover:text-nifs-red transition-colors">How to Join</a>
+      <a href="#centers" class="text-sm font-semibold text-gray-700 hover:text-nifs-red transition-colors">86 Centers</a>
+      <a href="#apply" class="text-sm font-semibold text-gray-700 hover:text-nifs-red transition-colors">Contact</a>
+    </div>
+
+    <!-- CTA & Phone (Desktop) -->
+    <div class="hidden lg:flex items-center gap-6">
+      <a href="tel:+919246624690" class="flex items-center gap-2 text-sm font-bold text-gray-800 hover:text-nifs-red transition-colors">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-4 h-4 text-nifs-red"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        +91-9246624690
+      </a>
+      <a href="#apply" class="bg-nifs-red hover:bg-red-800 text-white text-xs font-extrabold uppercase tracking-wider px-6 py-3 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-nifs-red/20">Quick Admission</a>
+    </div>
+
+    <!-- Hamburger Button (Mobile/Tablet) -->
+    <button class="lg:hidden flex flex-col justify-center items-center w-10 h-10 rounded-xl hover:bg-gray-100 transition-colors" id="nav-toggle" aria-label="Toggle Menu">
+      <span class="w-5 h-0.5 bg-black rounded transition-all duration-300 origin-center translate-y-0" id="nav-line-1"></span>
+      <span class="w-5 h-0.5 bg-black rounded transition-all duration-300 origin-center my-[6px]" id="nav-line-2"></span>
+      <span class="w-5 h-0.5 bg-black rounded transition-all duration-300 origin-center translate-y-0" id="nav-line-3"></span>
+    </button>
+  </div>
+
+  <!-- Mobile Dropdown Menu -->
+  <div class="hidden lg:hidden w-full bg-white/95 backdrop-blur-xl border-t border-gray-100 absolute top-full left-0 py-6 px-6 flex-col gap-6 shadow-xl" id="mobile-menu">
+    <div class="flex flex-col gap-4">
+      <a href="#courses" class="text-base font-bold text-gray-800 py-2 border-b border-gray-50 hover:text-nifs-red transition-colors mobile-nav-link">Programs</a>
+      <a href="#process" class="text-base font-bold text-gray-800 py-2 border-b border-gray-50 hover:text-nifs-red transition-colors mobile-nav-link">How to Join</a>
+      <a href="#centers" class="text-base font-bold text-gray-800 py-2 border-b border-gray-50 hover:text-nifs-red transition-colors mobile-nav-link">86 Centers</a>
+      <a href="#apply" class="text-base font-bold text-gray-800 py-2 border-b border-gray-50 hover:text-nifs-red transition-colors mobile-nav-link">Contact</a>
+    </div>
+    <div class="flex flex-col gap-4 pt-4 border-t border-gray-100">
+      <a href="tel:+919246624690" class="flex items-center justify-center gap-2 py-3 border-2 border-gray-200 rounded-full text-base font-bold text-gray-800 hover:text-nifs-red hover:border-nifs-red transition-colors">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-4 h-4 text-nifs-red"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        +91-9246624690
+      </a>
+      <a href="#apply" class="flex items-center justify-center bg-nifs-red hover:bg-red-800 text-white text-base font-bold py-3.5 rounded-full transition-all duration-300 mobile-nav-link">Quick Admission</a>
+    </div>
+  </div>
+</nav>
+
+<script>
+(function() {
+  const toggleBtn = document.getElementById('nav-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const line1 = document.getElementById('nav-line-1');
+  const line2 = document.getElementById('nav-line-2');
+  const line3 = document.getElementById('nav-line-3');
+  const nav = document.getElementById('main-nav');
+
+  function toggleMenu() {
+    const isExpanded = mobileMenu.classList.contains('flex');
+    if (isExpanded) {
+      mobileMenu.classList.remove('flex');
+      mobileMenu.classList.add('hidden');
+      line1.classList.remove('rotate-45', 'translate-y-[8px]');
+      line2.classList.remove('opacity-0');
+      line3.classList.remove('-rotate-45', '-translate-y-[8px]');
+    } else {
+      mobileMenu.classList.remove('hidden');
+      mobileMenu.classList.add('flex');
+      line1.classList.add('rotate-45', 'translate-y-[8px]');
+      line2.classList.add('opacity-0');
+      line3.classList.add('-rotate-45', '-translate-y-[8px]');
+    }
+  }
+
+  toggleBtn.addEventListener('click', toggleMenu);
+
+  // Close mobile menu when clicking a link
+  document.querySelectorAll('.mobile-nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('flex');
+      mobileMenu.classList.add('hidden');
+      line1.classList.remove('rotate-45', 'translate-y-[8px]');
+      line2.classList.remove('opacity-0');
+      line3.classList.remove('-rotate-45', '-translate-y-[8px]');
+    });
+  });
+
+  // Handle scroll class for extra styling on scroll
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+      nav.classList.add('shadow-md', 'bg-white/95');
+      nav.classList.remove('bg-white/80');
+    } else {
+      nav.classList.remove('shadow-md', 'bg-white/95');
+      nav.classList.add('bg-white/80');
+    }
+  });
+})();
+</script>
+
+<!-- HERO -->
+<section class="min-h-screen w-full bg-white flex pt-[100px] max-lg:pt-[70px] max-md:pt-[80px] pb-[100px] max-lg:pb-[70px] max-md:pb-[60px] flex-col items-center justify-center">
+  <div class="flex justify-center items-center flex-col w-[90%] max-sm:w-[95%] gap-12 max-sm:gap-4 max-lg:gap-6">
+    <div class="flex flex-col justify-start items-center relative gap-6 max-sm:gap-4">
+      <div class="inline-flex items-center gap-2 bg-nifs-red text-white px-5 py-2 rounded-full text-xs font-bold uppercase tracking-widest">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5"><path d="M9 12l2 2 4-4"/><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/></svg>
+        NSDC Approved Training Partner
+      </div>
+      <p class="font-montserrat text-[40px] max-md:text-[32px] max-sm:text-[24px] font-normal leading-[130%] max-sm:leading-[100%] text-center">25+ Years of Excellence</p>
+      <h1 class="text-[9vh] font-montserrat font-black text-center max-lg:text-[10vw] max-sm:text-[11vw] leading-[105%] max-lg:leading-[100%] max-sm:leading-[120%] w-[80%] max-lg:w-[100%]">
+        India's Leader in Fire &<span class="text-nifs-red"> Industrial Safety</span> Training
+      </h1>
+      <p class="text-center font-montserrat text-2xl max-sm:text-[14px] text-gray-500 max-w-[600px]">From Visakhapatnam to every corner of India â€” 86 centers, 45,000+ alumni, careers that protect lives.</p>
+      <div class="flex gap-4 max-sm:flex-col max-sm:w-full max-sm:items-center">
+        <a href="#courses" class="px-8 py-[14px] border-2 border-solid rounded-[48px] max-md:rounded-[32px] bg-nifs-red hover:bg-red-800 transition-all duration-300 text-2xl max-sm:text-[20px] tracking-tight font-montserrat cursor-pointer font-bold text-white hover:text-white text-center">Explore Courses</a>
+        <a href="#process" class="px-8 py-[14px] border-2 border-solid rounded-[48px] max-md:rounded-[32px] bg-white hover:bg-black transition-all duration-300 text-2xl max-sm:text-[20px] tracking-tight font-montserrat cursor-pointer font-bold text-black hover:text-white text-center">How to Join</a>
+      </div>
+    </div>
+    <div class="flex gap-10 max-sm:gap-6 max-md:gap-8 justify-center flex-wrap">
+      <div class="text-center">
+        <span class="block text-[48px] max-sm:text-[32px] font-black leading-none" data-value="25" data-suffix="+">25+</span>
+        <span class="text-sm font-semibold uppercase tracking-wider text-gray-400">Years</span>
+      </div>
+      <div class="text-center">
+        <span class="block text-[48px] max-sm:text-[32px] font-black leading-none" data-value="86" data-suffix="">86</span>
+        <span class="text-sm font-semibold uppercase tracking-wider text-gray-400">Centers</span>
+      </div>
+      <div class="text-center">
+        <span class="block text-[48px] max-sm:text-[32px] font-black leading-none" data-value="45000" data-suffix="+">45,000+</span>
+        <span class="text-sm font-semibold uppercase tracking-wider text-gray-400">Alumni</span>
+      </div>
+      <div class="text-center">
+        <span class="block text-[48px] max-sm:text-[32px] font-black leading-none" data-value="24" data-suffix="">24</span>
+        <span class="text-sm font-semibold uppercase tracking-wider text-gray-400">States</span>
+      </div>
+    </div>
+    <div class="flex flex-col gap-6">
+      <h2 class="font-montserrat text-[32px] max-md:text-[28px] max-sm:text-[16px] font-bold text-center">Our Graduates Work At</h2>
+      <div class="flex gap-12 max-sm:gap-6 max-md:gap-8 justify-center items-center flex-wrap px-4">
+        <img src="https://nifs-institute.vercel.app/images/logos/recruiters/adani_logo.png" alt="Adani" class="h-10 max-sm:h-8 object-contain hover:scale-105 transition-transform duration-300" style="clip-path: inset(4px);">
+        <img src="https://nifs-institute.vercel.app/images/logos/recruiters/lt.png" alt="L&T" class="h-10 max-sm:h-8 object-contain hover:scale-105 transition-transform duration-300" style="clip-path: inset(4px);">
+        <img src="https://nifs-institute.vercel.app/images/logos/recruiters/itc.png" alt="ITC" class="h-10 max-sm:h-8 object-contain hover:scale-105 transition-transform duration-300" style="clip-path: inset(4px);">
+        <img src="https://nifs-institute.vercel.app/images/logos/recruiters/gmr.png" alt="GMR" class="h-10 max-sm:h-8 object-contain hover:scale-105 transition-transform duration-300" style="clip-path: inset(4px);">
+        <img src="https://nifs-institute.vercel.app/images/logos/recruiters/amazon.png" alt="Amazon" class="h-10 max-sm:h-8 object-contain hover:scale-105 transition-transform duration-300" style="clip-path: inset(4px);">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RECRUITER MARQUEE -->
+<section class="bg-white py-8 overflow-hidden border-y border-gray-100">
+  <div class="marquee-track flex items-center">
+    <!-- Set 1 -->
+    <img src="https://nifs-institute.vercel.app/images/logos/recruiters/adani_logo.png" alt="Adani" class="h-10 object-contain hover:scale-105 transition-transform duration-300" style="clip-path: inset(4px);">
+    <img src="https://nifs-institute.vercel.app/images/logos/recruiters/amazon.png" alt="Amazon" class="h-10 object-contain hover:scale-105 transition-transform duration-300" style="clip-path: inset(4px);">
+    <img src="https://nifs-institute.vercel.app/images/logos/recruiters/asianpaints.png" alt="Asian Paints" class="h-10 object-contain hover:scale-105 transition-transform duration-300" style="clip-path: inset(4px);">
+    <img src="https://nifs-institute.vercel.app/images/logos/recruiters/coca-cola.png" alt="Coca-Cola" class="h-10 object-contain hover:scale-105 transition-transform duration-300" style="clip-path: inset(4px);">
+    <img src="https://nifs-institute.vercel.app/images/logos/recruiters/gmr.png" alt="GMR" class="h-10 object-contain hover:scale-105 transition-transform duration-300" style="clip-path: inset(4px);">
+    <img src="https://nifs-institute.vercel.app/images/logos/recruiters/itc.png" alt="ITC" class="h-10 object-contain hover:scale-105 transition-transform duration-300" style="clip-path: inset(4px);">
+    <img src="https://nifs-institute.vercel.app/images/logos/recruiters/lt.png" alt="L&T" class="h-10 object-contain hover:scale-105 transition-transform duration-300" style="clip-path: inset(4px);">
+    <img src="https://nifs-institute.vercel.app/images/logos/recruiters/meil.png" alt="MEIL" class="h-10 object-contain hover:scale-105 transition-transform duration-300" style="clip-path: inset(4px);">
+    <img src="https://nifs-institute.vercel.app/images/logos/recruiters/nilkamal.png" alt="Nilkamal" class="h-10 object-contain hover:scale-105 transition-transform duration-300" style="clip-path: inset(4px);">
+    <img src="https://nifs-institute.vercel.app/images/logos/recruiters/nsl.png" alt="NSL" class="h-10 object-contain hover:scale-105 transition-transform duration-300" style="clip-path: inset(4px);">
+    <img src="https://nifs-institute.vercel.app/images/logos/recruiters/power-mech.png" alt="Power Mech" class="h-10 object-contain hover:scale-105 transition-transform duration-300" style="clip-path: inset(4px);">
+    <img src="https://nifs-institute.vercel.app/images/logos/recruiters/kcp.png" alt="KCP" class="h-10 object-contain hover:scale-105 transition-transform duration-300" style="clip-path: inset(4px);">
+    <img src="https://nifs-institute.vercel.app/images/logos/recruiters/interarch.png" alt="Interarch" class="h-10 object-contain hover:scale-105 transition-transform duration-300" style="clip-path: inset(4px);">
+    <img src="https://nifs-institute.vercel.app/images/logos/recruiters/petron.png" alt="Petron" class="h-10 object-contain hover:scale-105 transition-transform duration-300" style="clip-path: inset(4px);">
+    <img src="https://nifs-institute.vercel.app/images/logos/recruiters/bothra.png" alt="Bothra" class="h-10 object-contain hover:scale-105 transition-transform duration-300" style="clip-path: inset(4px);">
+    <img src="https://nifs-institute.vercel.app/images/logos/recruiters/indwell.png" alt="Indwell" class="h-10 object-contain hover:scale-105 transition-transform duration-300" style="clip-path: inset(4px);">
+    <img src="https://nifs-institute.vercel.app/images/logos/recruiters/lansum.png" alt="Lansum" class="h-10 object-contain hover:scale-105 transition-transform duration-300" style="clip-path: inset(4px);">
+    <img src="https://nifs-institute.vercel.app/images/logos/recruiters/skillease.png" alt="Skillease" class="h-10 object-contain hover:scale-105 transition-transform duration-300" style="clip-path: inset(4px);">
+    <!-- Set 2 -->
+    <img src="https://nifs-institute.vercel.app/images/logos/recruiters/adani_logo.png" alt="Adani" class="h-10 object-contain hover:scale-105 transition-transform duration-300" style="clip-path: inset(4px);">
+    <img src="https://nifs-institute.vercel.app/images/logos/recruiters/amazon.png" alt="Amazon" class="h-10 object-contain hover:scale-105 transition-transform duration-300" style="clip-path: inset(4px);">
+    <img src="https://nifs-institute.vercel.app/images/logos/recruiters/asianpaints.png" alt="Asian Paints" class="h-10 object-contain hover:scale-105 transition-transform duration-300" style="clip-path: inset(4px);">
+    <img src="https://nifs-institute.vercel.app/images/logos/recruiters/coca-cola.png" alt="Coca-Cola" class="h-10 object-contain hover:scale-105 transition-transform duration-300" style="clip-path: inset(4px);">
+    <img src="https://nifs-institute.vercel.app/images/logos/recruiters/gmr.png" alt="GMR" class="h-10 object-contain hover:scale-105 transition-transform duration-300" style="clip-path: inset(4px);">
+    <img src="https://nifs-institute.vercel.app/images/logos/recruiters/itc.png" alt="ITC" class="h-10 object-contain hover:scale-105 transition-transform duration-300" style="clip-path: inset(4px);">
+    <img src="https://nifs-institute.vercel.app/images/logos/recruiters/lt.png" alt="L&T" class="h-10 object-contain hover:scale-105 transition-transform duration-300" style="clip-path: inset(4px);">
+    <img src="https://nifs-institute.vercel.app/images/logos/recruiters/meil.png" alt="MEIL" class="h-10 object-contain hover:scale-105 transition-transform duration-300" style="clip-path: inset(4px);">
+    <img src="https://nifs-institute.vercel.app/images/logos/recruiters/nilkamal.png" alt="Nilkamal" class="h-10 object-contain hover:scale-105 transition-transform duration-300" style="clip-path: inset(4px);">
+    <img src="https://nifs-institute.vercel.app/images/logos/recruiters/nsl.png" alt="NSL" class="h-10 object-contain hover:scale-105 transition-transform duration-300" style="clip-path: inset(4px);">
+    <img src="https://nifs-institute.vercel.app/images/logos/recruiters/power-mech.png" alt="Power Mech" class="h-10 object-contain hover:scale-105 transition-transform duration-300" style="clip-path: inset(4px);">
+    <img src="https://nifs-institute.vercel.app/images/logos/recruiters/kcp.png" alt="KCP" class="h-10 object-contain hover:scale-105 transition-transform duration-300" style="clip-path: inset(4px);">
+    <img src="https://nifs-institute.vercel.app/images/logos/recruiters/interarch.png" alt="Interarch" class="h-10 object-contain hover:scale-105 transition-transform duration-300" style="clip-path: inset(4px);">
+    <img src="https://nifs-institute.vercel.app/images/logos/recruiters/petron.png" alt="Petron" class="h-10 object-contain hover:scale-105 transition-transform duration-300" style="clip-path: inset(4px);">
+    <img src="https://nifs-institute.vercel.app/images/logos/recruiters/bothra.png" alt="Bothra" class="h-10 object-contain hover:scale-105 transition-transform duration-300" style="clip-path: inset(4px);">
+    <img src="https://nifs-institute.vercel.app/images/logos/recruiters/indwell.png" alt="Indwell" class="h-10 object-contain hover:scale-105 transition-transform duration-300" style="clip-path: inset(4px);">
+    <img src="https://nifs-institute.vercel.app/images/logos/recruiters/lansum.png" alt="Lansum" class="h-10 object-contain hover:scale-105 transition-transform duration-300" style="clip-path: inset(4px);">
+    <img src="https://nifs-institute.vercel.app/images/logos/recruiters/skillease.png" alt="Skillease" class="h-10 object-contain hover:scale-105 transition-transform duration-300" style="clip-path: inset(4px);">
+  </div>
+</section>
+
+<!-- TRAINED. PLACED. PROVEN. -->
+<section class="w-full py-[120px] max-lg:py-[70px] bg-[#101010] flex justify-center items-center flex-col">
+  <div class="w-[90%] max-sm:w-[95%] flex flex-col gap-16 items-center">
+    <div class="text-center">
+      <h2 class="text-[6vw] max-lg:text-[8vw] font-black text-white leading-none">Trained. Placed. Proven.</h2>
+      <p class="text-white/60 font-montserrat text-[20px] max-sm:text-[16px] mt-6 max-w-[700px] mx-auto">Since 2004, NIFS has turned classroom training into real industrial safety careers â€” trusted by 45,000+ professionals and recruiters like Adani, L&T and GMR.</p>
+    </div>
+    <div class="grid grid-cols-3 max-lg:grid-cols-1 gap-6 w-full">
+      <!-- Card 1: Skill India -->
+      <div class="relative overflow-hidden rounded-[48px] max-md:rounded-[32px] p-10 min-h-[480px] flex flex-col justify-between group shadow-xl">
+        <!-- Background Image -->
+        <img src="skill_india_bg.png" alt="Skill India Training" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        <!-- Dark Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/85 to-black/30"></div>
+        
+        <!-- Content -->
+        <div class="relative z-10 flex flex-col justify-between h-full flex-1 gap-8">
+          <div class="flex justify-between items-center w-full">
+            <div class="bg-white px-8 py-5 rounded-3xl shadow-2xl flex items-center justify-center h-28 w-48 overflow-hidden">
+              <img src="https://nifs-institute.vercel.app/images/logos/accreditations/skill-india.png" alt="Skill India Logo" class="h-28 object-contain scale-[2.2] transform transition-transform duration-300 group-hover:scale-[2.4]">
+            </div>
+            <span class="text-[11px] font-black uppercase tracking-widest text-nifs-orange bg-nifs-orange/20 px-3.5 py-1.5 rounded-full backdrop-blur-sm">Skill India</span>
+          </div>
+          <div>
+            <h3 class="text-white text-[28px] font-bold font-montserrat leading-tight mb-3">Skill India Partner</h3>
+            <p class="text-white/80 text-[15px] leading-relaxed">Delivering standardized government safety courses under the Skill India (à¤•à¥Œà¤¶à¤² à¤­à¤¾à¤°à¤¤â€“à¤•à¥à¤¶à¤² à¤­à¤¾à¤°à¤¤) mission to build high-quality professional competency.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: NSDC Skill Development -->
+      <div class="relative overflow-hidden rounded-[48px] max-md:rounded-[32px] p-10 min-h-[480px] flex flex-col justify-between group shadow-xl">
+        <!-- Background Image -->
+        <img src="nsdc_bg.png" alt="NSDC Training" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        <!-- Dark Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/85 to-black/30"></div>
+        
+        <!-- Content -->
+        <div class="relative z-10 flex flex-col justify-between h-full flex-1 gap-8">
+          <div class="flex justify-between items-center w-full">
+            <div class="bg-white px-8 py-5 rounded-3xl shadow-2xl flex items-center justify-center h-28 w-48 overflow-hidden">
+              <img src="https://nifs-institute.vercel.app/images/logos/accreditations/nsdc.png" alt="NSDC Logo" class="h-28 object-contain scale-[1.8] transform transition-transform duration-300 group-hover:scale-[2.0]">
+            </div>
+            <span class="text-[11px] font-black uppercase tracking-widest text-nifs-red bg-nifs-red/20 px-3.5 py-1.5 rounded-full backdrop-blur-sm">NSDC</span>
+          </div>
+          <div>
+            <h3 class="text-white text-[28px] font-bold font-montserrat leading-tight mb-3">Approved Training Partner</h3>
+            <p class="text-white/80 text-[15px] leading-relaxed">Affiliated as an approved vocational training partner of the National Skill Development Corporation (NSDC), elevating safety compliance standards across India.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Technical Collaboration -->
+      <div class="relative overflow-hidden rounded-[48px] max-md:rounded-[32px] p-10 min-h-[480px] flex flex-col justify-between group shadow-xl">
+        <!-- Background Image -->
+        <img src="collaboration_bg.png" alt="University Collaboration" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        <!-- Dark Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/85 to-black/30"></div>
+        
+        <!-- Content -->
+        <div class="relative z-10 flex flex-col justify-between h-full flex-1 gap-8">
+          <div class="flex justify-between items-center w-full">
+            <div class="bg-white px-8 py-5 rounded-3xl shadow-2xl flex items-center justify-center h-28 w-48 gap-4">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-16 h-16 text-nifs-green" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" fill="#26BE29" fill-opacity="0.1" stroke="#26BE29" stroke-width="1.5"/>
+                <path d="M12 6L4 10L12 14L20 10L12 6Z" stroke="#26BE29" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M6 11V14.5C6 15.5 9 17 12 17C15 17 18 15.5 18 14.5V11" stroke="#26BE29" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span class="font-extrabold text-[12px] uppercase tracking-wider text-gray-800 leading-tight">Univ<br>Collab</span>
+            </div>
+            <span class="text-[11px] font-black uppercase tracking-widest text-nifs-green bg-nifs-green/20 px-3.5 py-1.5 rounded-full backdrop-blur-sm">University</span>
+          </div>
+          <div>
+            <h3 class="text-white text-[24px] font-bold font-montserrat leading-tight mb-4">Technical Collaboration With</h3>
+            <ul class="text-white/90 text-[14px] space-y-3 font-semibold">
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-nifs-green"></span>
+                Annamalai University
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-nifs-green"></span>
+                Acharya Nagarjuna University
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-nifs-green"></span>
+                State Board of Technical Education AP
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY NIFS -->
+<section class="bg-black w-full min-h-screen py-[200px] max-lg:py-[70px] max-md:py-[60px] max-sm:py-[80px] flex justify-center items-center flex-col overflow-hidden">
+  <div class="w-[90%] max-sm:w-[95%] relative flex flex-col gap-[64px] max-sm:gap-[32px] justify-center items-center">
+    <h2 class="text-white font-montserrat text-[10vw] max-lg:text-[12vw] font-black leading-[100%] tracking-normal">Why NIFS</h2>
+    <div class="grid grid-cols-2 max-lg:grid-cols-1 gap-6 w-[90%] max-sm:w-[95%]">
+      <div class="relative overflow-hidden group col-span-1 row-span-2 max-md:row-span-1 rounded-[48px] max-md:rounded-[32px] p-10 max-sm:p-6 flex flex-col gap-6 justify-between h-full min-h-[480px] shadow-xl">
+        <!-- Background Image -->
+        <img src="why_training_yard_bg.png" alt="Practical Training Yard" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        <!-- Colored Gradient Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-red-950/85 to-[#dc2626]/40"></div>
+        
+        <!-- Content -->
+        <div class="relative z-10 flex flex-col justify-between h-full flex-1">
+          <div>
+            <h3 class="text-[48px] max-lg:text-[36px] max-sm:text-[32px] font-bold font-montserrat leading-none text-white">Practical Training Yard</h3>
+            <p class="text-white font-montserrat font-normal text-[18px] max-sm:text-[15px] mt-[16px] leading-relaxed">Real hazard simulations on actual equipment. 85% of curriculum is hands-on, not classroom theory.</p>
+          </div>
+          <div class="w-full my-6 flex items-center justify-center">
+            <svg viewBox="0 0 120 120" class="w-[180px] h-[180px]" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="60" cy="60" r="55" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+              <path d="M60 25L35 85h50L60 25z" stroke="white" stroke-width="3" stroke-linejoin="round"/>
+              <path d="M45 60h30" stroke="white" stroke-width="3"/>
+              <path d="M40 73h40" stroke="white" stroke-width="3"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-bold text-[24px] max-sm:text-[20px] leading-none font-montserrat text-white mb-4">85% Hands-On Practice</h3>
+            <a href="#process" class="w-full flex justify-center rounded-[48px] bg-black px-[24px] py-[14px] text-nifs-red font-bold text-[20px] max-sm:text-[16px] font-montserrat cursor-pointer border-2 border-transparent hover:border-white transition-all">Learn Practice</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Card 2: Direct Placement Cell -->
+      <div class="relative overflow-hidden group col-span-1 row-span-1 rounded-[48px] max-md:rounded-[32px] p-10 max-sm:p-6 flex gap-6 items-center max-md:flex-col justify-between min-h-[280px] shadow-xl">
+        <!-- Background Image -->
+        <img src="why_placement_bg.png" alt="Direct Placement Cell" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        <!-- Colored Gradient Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-green-950/85 to-[#16a34a]/40"></div>
+
+        <!-- Content -->
+        <div class="relative z-10 flex flex-col justify-between h-full flex-1">
+          <div>
+            <h3 class="text-[40px] max-lg:text-[32px] font-bold font-montserrat leading-tight text-white">Direct Placement Cell</h3>
+            <p class="text-white/95 font-montserrat font-normal text-[18px] max-sm:text-[15px] mt-[12px] leading-relaxed">Dedicated team with direct recruiter relationships at Adani, L&T, GMR and 45,000+ placements across India.</p>
+          </div>
+          <a href="#placements" class="w-fit max-sm:w-full flex justify-center rounded-[48px] bg-black px-[32px] py-[14px] text-nifs-green font-bold text-[20px] max-sm:text-[16px] font-montserrat cursor-pointer mt-6 border-2 border-transparent hover:border-white transition-all">See Placements</a>
+        </div>
+        <div class="relative z-10 w-[160px] h-[160px] shrink-0 flex items-center justify-center max-md:mt-4">
+          <svg viewBox="0 0 120 120" class="w-full h-full" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="15" y="15" width="90" height="90" rx="12" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+            <path d="M40 65c-3-3-3-8 0-11l15-15c3-3 8-3 11 0l5 5c3 3 3 8 0 11L56 70" stroke="white" stroke-width="3" stroke-linecap="round"/>
+            <path d="M80 55c3 3 3 8 0 11L65 81c-3 3-8 3-11 0l-5-5c-3-3-3-8 0-11l15-15" stroke="white" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Card 3: Government Recognized -->
+      <div class="relative overflow-hidden group col-span-1 row-span-1 rounded-[48px] max-md:rounded-[32px] p-10 max-sm:p-6 flex gap-6 items-center max-md:flex-col justify-between min-h-[280px] shadow-xl">
+        <!-- Background Image -->
+        <img src="why_government_bg.png" alt="Government Recognized" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        <!-- Colored Gradient Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-orange-950/85 to-[#ea580c]/40"></div>
+
+        <!-- Content -->
+        <div class="relative z-10 flex flex-col justify-between h-full flex-1">
+          <div>
+            <h3 class="text-[40px] max-lg:text-[32px] font-bold font-montserrat leading-tight text-white">Government Recognized</h3>
+            <p class="text-white/95 font-montserrat font-normal text-[18px] max-sm:text-[15px] mt-[12px] leading-relaxed">NSDC + Skill India approved. Certificates valid across India, Gulf, and international markets.</p>
+          </div>
+          <a href="#credentials" class="w-fit max-sm:w-full flex justify-center rounded-[48px] bg-black px-[32px] py-[14px] text-nifs-orange font-bold text-[20px] max-sm:text-[16px] font-montserrat cursor-pointer mt-6 border-2 border-transparent hover:border-white transition-all">Verify Approvals</a>
+        </div>
+        <div class="relative z-10 w-[160px] h-[160px] shrink-0 flex items-center justify-center max-md:mt-4">
+          <svg viewBox="0 0 120 120" class="w-full h-full">
+            <circle cx="60" cy="60" r="55" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+            <path d="M60 25c15 0 25 5 25 5v25c0 20-15 30-25 35C50 85 35 75 35 55V30s10-5 25-5z" stroke="white" stroke-width="3" fill="none" stroke-linejoin="round"/>
+            <path d="M48 55l8 8 16-16" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Card 4: 86 Centers Nationwide -->
+      <div class="relative overflow-hidden group col-span-1 row-span-1 rounded-[48px] max-md:rounded-[32px] p-10 max-sm:p-6 flex gap-6 items-center max-md:flex-col justify-between hover:border-nifs-red/30 transition-all duration-300 min-h-[280px] shadow-xl">
+        <!-- Background Image -->
+        <img src="why_centers_bg.png" alt="86 Centers Nationwide" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        <!-- Dark Charcoal Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-neutral-950/95 to-neutral-900/60"></div>
+
+        <!-- Content -->
+        <div class="relative z-10 flex flex-col justify-between h-full flex-1">
+          <div>
+            <h3 class="text-[40px] max-lg:text-[32px] font-bold font-montserrat leading-tight text-white">86 Centers Nationwide</h3>
+            <p class="text-white/80 font-montserrat font-normal text-[18px] max-sm:text-[15px] mt-[12px] leading-relaxed">Learn near home. Transfer between centers anytime. New centers opening every quarter.</p>
+          </div>
+          <a href="#centers" class="w-fit max-sm:w-full flex justify-center rounded-[48px] bg-transparent border-2 border-white/20 hover:border-white hover:bg-white hover:text-black px-[32px] py-[14px] text-white font-bold text-[20px] max-sm:text-[16px] font-montserrat cursor-pointer mt-6 transition-all">Find a Center</a>
+        </div>
+        <div class="relative z-10 w-[160px] h-[160px] shrink-0 flex items-center justify-center max-md:mt-4">
+          <svg viewBox="0 0 120 120" class="w-full h-full" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="60" cy="60" r="55" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.15)" stroke-width="2"/>
+            <path d="M60 25c-15 0-27 12-27 27 0 21 27 43 27 43s27-22 27-43c0-15-12-27-27-27z" stroke="white" stroke-width="3" fill="none"/>
+            <circle cx="60" cy="52" r="8" fill="white"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Card 5: Industry Faculty Only -->
+      <div class="relative overflow-hidden group col-span-1 row-span-1 rounded-[48px] max-md:rounded-[32px] p-10 max-sm:p-6 flex gap-6 items-center max-md:flex-col justify-between hover:border-nifs-green/30 transition-all duration-300 min-h-[280px] shadow-xl">
+        <!-- Background Image -->
+        <img src="why_faculty_bg.png" alt="Industry Faculty Only" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        <!-- Dark Charcoal Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-neutral-950/95 to-neutral-900/60"></div>
+
+        <!-- Content -->
+        <div class="relative z-10 flex flex-col justify-between h-full flex-1">
+          <div>
+            <h3 class="text-[40px] max-lg:text-[32px] font-bold font-montserrat leading-tight text-white">Industry Faculty Only</h3>
+            <p class="text-white/80 font-montserrat font-normal text-[18px] max-sm:text-[15px] mt-[12px] leading-relaxed">Every trainer has minimum 10 years field experience. No academics teaching what they've never done.</p>
+          </div>
+          <a href="#faculty" class="w-fit max-sm:w-full flex justify-center rounded-[48px] bg-transparent border-2 border-white/20 hover:border-white hover:bg-white hover:text-black px-[32px] py-[14px] text-white font-bold text-[20px] max-sm:text-[16px] font-montserrat cursor-pointer mt-6 transition-all">Meet Faculty</a>
+        </div>
+        <div class="relative z-10 w-[160px] h-[160px] shrink-0 flex items-center justify-center max-md:mt-4">
+          <svg viewBox="0 0 120 120" class="w-full h-full" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="60" cy="60" r="55" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.15)" stroke-width="2"/>
+            <path d="M60 30L30 45l30 15 30-15-30-15z" stroke="white" stroke-width="3" fill="none" stroke-linejoin="round"/>
+            <path d="M42 51v14c0 6 8 10 18 10s18-4 18-10V51" stroke="white" stroke-width="3" stroke-linejoin="round"/>
+            <path d="M80 45v20" stroke="white" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COURSES -->
+<section id="courses" class="w-full min-h-screen py-[200px] max-lg:py-[70px] max-md:py-[60px] max-sm:py-[80px] bg-[#101010] flex justify-center items-center flex-col overflow-hidden">
+  <div class="w-[90%] max-sm:w-[95%] relative flex flex-col gap-[64px] max-sm:gap-[32px] justify-center items-center">
+    <h2 class="text-white font-montserrat text-[10vw] max-lg:text-[12vw] font-black leading-[100%] tracking-normal">Our Programs</h2>
+    <!-- Grid 1: 6 cards (3 columns) -->
+    <div class="grid grid-cols-3 max-lg:grid-cols-1 w-[100%] gap-8">
+      <!-- Card 1: Diploma in Fire & Safety -->
+      <div class="cursor-pointer group relative overflow-hidden rounded-[32px] shadow-xl">
+        <img src="https://nifs-institute.vercel.app/images/courses/diploma-in-fire-safety.jpg" alt="Diploma in Fire & Safety" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-red-950/85 to-[#dc2626]/30"></div>
+        <div class="relative z-10 p-8 flex flex-col justify-between min-h-[250px] h-full">
+          <div class="flex justify-between items-start">
+            <span class="text-xs font-bold uppercase tracking-widest text-nifs-red bg-nifs-red/15 px-3 py-1 rounded-full border border-nifs-red/20">DFS</span>
+            <span class="font-semibold text-white/60 text-[14px]">1 Year</span>
+          </div>
+          <div class="mt-4">
+            <h3 class="font-montserrat font-bold text-[22px] text-white leading-tight group-hover:text-nifs-red transition-colors">Diploma in Fire &amp; Safety</h3>
+            <p class="text-white/60 text-[14px] mt-2 leading-relaxed">Fire Prevention &amp; Emergency Response</p>
+          </div>
+          <div class="flex justify-between items-center mt-6 pt-4 border-t border-white/10">
+            <span class="text-xs text-white/40 font-medium">NSDC Approved</span>
+            <span class="text-nifs-red text-[14px] font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform">Learn More â†’</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Diploma in HSE -->
+      <div class="cursor-pointer group relative overflow-hidden rounded-[32px] shadow-xl">
+        <img src="https://nifs-institute.vercel.app/images/courses/diploma-in-health-safety-environment.jpg" alt="Diploma in HSE" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-green-950/85 to-[#16a34a]/30"></div>
+        <div class="relative z-10 p-8 flex flex-col justify-between min-h-[250px] h-full">
+          <div class="flex justify-between items-start">
+            <span class="text-xs font-bold uppercase tracking-widest text-nifs-green bg-nifs-green/15 px-3 py-1 rounded-full border border-nifs-green/20">DHSE</span>
+            <span class="font-semibold text-white/60 text-[14px]">1 Year</span>
+          </div>
+          <div class="mt-4">
+            <h3 class="font-montserrat font-bold text-[22px] text-white leading-tight group-hover:text-nifs-green transition-colors">Diploma in HSE</h3>
+            <p class="text-white/60 text-[14px] mt-2 leading-relaxed">Health, Safety &amp; Environment</p>
+          </div>
+          <div class="flex justify-between items-center mt-6 pt-4 border-t border-white/10">
+            <span class="text-xs text-white/40 font-medium">NSDC Approved</span>
+            <span class="text-nifs-green text-[14px] font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform">Learn More â†’</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Diploma in Industrial Safety -->
+      <div class="cursor-pointer group relative overflow-hidden rounded-[32px] shadow-xl">
+        <img src="https://nifs-institute.vercel.app/images/course-card-industrial-safety.jpg" alt="Diploma in Industrial Safety" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-orange-950/85 to-[#ea580c]/30"></div>
+        <div class="relative z-10 p-8 flex flex-col justify-between min-h-[250px] h-full">
+          <div class="flex justify-between items-start">
+            <span class="text-xs font-bold uppercase tracking-widest text-nifs-orange bg-nifs-orange/15 px-3 py-1 rounded-full border border-nifs-orange/20">DIS</span>
+            <span class="font-semibold text-white/60 text-[14px]">1 Year</span>
+          </div>
+          <div class="mt-4">
+            <h3 class="font-montserrat font-bold text-[22px] text-white leading-tight group-hover:text-nifs-orange transition-colors">Diploma in Industrial Safety</h3>
+            <p class="text-white/60 text-[14px] mt-2 leading-relaxed">Industrial Hygiene &amp; Hazard Management</p>
+          </div>
+          <div class="flex justify-between items-center mt-6 pt-4 border-t border-white/10">
+            <span class="text-xs text-white/40 font-medium">NSDC Approved</span>
+            <span class="text-nifs-orange text-[14px] font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform">Learn More â†’</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4: PG Diploma in Fire & Safety -->
+      <div class="cursor-pointer group relative overflow-hidden rounded-[32px] shadow-xl">
+        <img src="https://nifs-institute.vercel.app/images/course-card-fire-safety.jpg" alt="PG Diploma in Fire & Safety" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-red-950/85 to-[#dc2626]/30"></div>
+        <div class="relative z-10 p-8 flex flex-col justify-between min-h-[250px] h-full">
+          <div class="flex justify-between items-start">
+            <span class="text-xs font-bold uppercase tracking-widest text-nifs-red bg-nifs-red/15 px-3 py-1 rounded-full border border-nifs-red/20">PGDFS</span>
+            <span class="font-semibold text-white/60 text-[14px]">1 Year</span>
+          </div>
+          <div class="mt-4">
+            <h3 class="font-montserrat font-bold text-[22px] text-white leading-tight group-hover:text-nifs-red transition-colors">PG Diploma in Fire &amp; Safety</h3>
+            <p class="text-white/60 text-[14px] mt-2 leading-relaxed">Advanced Fire Engineering</p>
+          </div>
+          <div class="flex justify-between items-center mt-6 pt-4 border-t border-white/10">
+            <span class="text-xs text-white/40 font-medium">NSDC Approved</span>
+            <span class="text-nifs-red text-[14px] font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform">Learn More â†’</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5: PG Diploma in HSE -->
+      <div class="cursor-pointer group relative overflow-hidden rounded-[32px] shadow-xl">
+        <img src="https://nifs-institute.vercel.app/images/corporate-training-onsite.jpg" alt="PG Diploma in HSE" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-green-950/85 to-[#16a34a]/30"></div>
+        <div class="relative z-10 p-8 flex flex-col justify-between min-h-[250px] h-full">
+          <div class="flex justify-between items-start">
+            <span class="text-xs font-bold uppercase tracking-widest text-nifs-green bg-nifs-green/15 px-3 py-1 rounded-full border border-nifs-green/20">PGDHSE</span>
+            <span class="font-semibold text-white/60 text-[14px]">1 Year</span>
+          </div>
+          <div class="mt-4">
+            <h3 class="font-montserrat font-bold text-[22px] text-white leading-tight group-hover:text-nifs-green transition-colors">PG Diploma in HSE</h3>
+            <p class="text-white/60 text-[14px] mt-2 leading-relaxed">Senior HSE Management</p>
+          </div>
+          <div class="flex justify-between items-center mt-6 pt-4 border-t border-white/10">
+            <span class="text-xs text-white/40 font-medium">NSDC Approved</span>
+            <span class="text-nifs-green text-[14px] font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform">Learn More â†’</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6: Advanced Diploma in Fire & Safety -->
+      <div class="cursor-pointer group relative overflow-hidden rounded-[32px] shadow-xl">
+        <img src="https://nifs-institute.vercel.app/images/training-yard-drill.jpg" alt="Advanced Diploma in Fire & Safety" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-orange-950/85 to-[#ea580c]/30"></div>
+        <div class="relative z-10 p-8 flex flex-col justify-between min-h-[250px] h-full">
+          <div class="flex justify-between items-start">
+            <span class="text-xs font-bold uppercase tracking-widest text-nifs-orange bg-nifs-orange/15 px-3 py-1 rounded-full border border-nifs-orange/20">ADFS</span>
+            <span class="font-semibold text-white/60 text-[14px]">18 Months</span>
+          </div>
+          <div class="mt-4">
+            <h3 class="font-montserrat font-bold text-[22px] text-white leading-tight group-hover:text-nifs-orange transition-colors">Advanced Diploma in Fire &amp; Safety</h3>
+            <p class="text-white/60 text-[14px] mt-2 leading-relaxed">Fire Risk Assessment &amp; Safety Audits</p>
+          </div>
+          <div class="flex justify-between items-center mt-6 pt-4 border-t border-white/10">
+            <span class="text-xs text-white/40 font-medium">NSDC Approved</span>
+            <span class="text-nifs-orange text-[14px] font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform">Learn More â†’</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Grid 2: 4 cards (4 columns) -->
+    <div class="grid grid-cols-4 max-lg:grid-cols-2 max-md:grid-cols-1 w-[100%] gap-8 mt-8">
+      <!-- Card 7: Advanced Diploma in Industrial Safety -->
+      <div class="cursor-pointer group relative overflow-hidden rounded-[32px] shadow-xl">
+        <img src="https://nifs-institute.vercel.app/images/gallery-industrial-visit.jpg" alt="Advanced Diploma in Industrial Safety" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-red-950/85 to-[#dc2626]/30"></div>
+        <div class="relative z-10 p-8 flex flex-col justify-between min-h-[250px] h-full">
+          <div class="flex justify-between items-start">
+            <span class="text-xs font-bold uppercase tracking-widest text-nifs-red bg-nifs-red/15 px-3 py-1 rounded-full border border-nifs-red/20">ADIS</span>
+            <span class="font-semibold text-white/60 text-[14px]">18 Months</span>
+          </div>
+          <div class="mt-4">
+            <h3 class="font-montserrat font-bold text-[22px] text-white leading-tight group-hover:text-nifs-red transition-colors">Advanced Diploma in Industrial Safety</h3>
+            <p class="text-white/60 text-[14px] mt-2 leading-relaxed">Industrial safety officer training</p>
+          </div>
+          <div class="flex justify-between items-center mt-6 pt-4 border-t border-white/10">
+            <span class="text-xs text-white/40 font-medium">State Govt Recognized</span>
+            <span class="text-nifs-red text-[14px] font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform">Learn More â†’</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 8: B.Sc in Fire & Industrial Safety -->
+      <div class="cursor-pointer group relative overflow-hidden rounded-[32px] shadow-xl">
+        <img src="https://nifs-institute.vercel.app/images/gallery-practical-yard.jpg" alt="B.Sc in Fire & Industrial Safety" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-green-950/85 to-[#16a34a]/30"></div>
+        <div class="relative z-10 p-8 flex flex-col justify-between min-h-[250px] h-full">
+          <div class="flex justify-between items-start">
+            <span class="text-xs font-bold uppercase tracking-widest text-nifs-green bg-nifs-green/15 px-3 py-1 rounded-full border border-nifs-green/20">B.Sc</span>
+            <span class="font-semibold text-white/60 text-[14px]">3 Years</span>
+          </div>
+          <div class="mt-4">
+            <h3 class="font-montserrat font-bold text-[22px] text-white leading-tight group-hover:text-nifs-green transition-colors">B.Sc in Fire &amp; Industrial Safety</h3>
+            <p class="text-white/60 text-[14px] mt-2 leading-relaxed">Full degree with internship training</p>
+          </div>
+          <div class="flex justify-between items-center mt-6 pt-4 border-t border-white/10">
+            <span class="text-xs text-white/40 font-medium">University Approved</span>
+            <span class="text-nifs-green text-[14px] font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform">Learn More â†’</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 9: MBA in Safety Management -->
+      <div class="cursor-pointer group relative overflow-hidden rounded-[32px] shadow-xl">
+        <img src="https://nifs-institute.vercel.app/images/control-room-risk-assessment.jpg" alt="MBA in Safety Management" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-orange-950/85 to-[#ea580c]/30"></div>
+        <div class="relative z-10 p-8 flex flex-col justify-between min-h-[250px] h-full">
+          <div class="flex justify-between items-start">
+            <span class="text-xs font-bold uppercase tracking-widest text-nifs-orange bg-nifs-orange/15 px-3 py-1 rounded-full border border-nifs-orange/20">MBA</span>
+            <span class="font-semibold text-white/60 text-[14px]">2 Years</span>
+          </div>
+          <div class="mt-4">
+            <h3 class="font-montserrat font-bold text-[22px] text-white leading-tight group-hover:text-nifs-orange transition-colors">MBA in Safety Management</h3>
+            <p class="text-white/60 text-[14px] mt-2 leading-relaxed">Management-level safety leadership</p>
+          </div>
+          <div class="flex justify-between items-center mt-6 pt-4 border-t border-white/10">
+            <span class="text-xs text-white/40 font-medium">University Approved</span>
+            <span class="text-nifs-orange text-[14px] font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform">Learn More â†’</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 10: Certificate Course in Fire & Safety -->
+      <div class="cursor-pointer group relative overflow-hidden rounded-[32px] shadow-xl">
+        <img src="https://nifs-institute.vercel.app/images/courses/certificate-course-in-fire-safety.jpg" alt="Certificate Course in Fire & Safety" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-red-950/85 to-[#dc2626]/30"></div>
+        <div class="relative z-10 p-8 flex flex-col justify-between min-h-[250px] h-full">
+          <div class="flex justify-between items-start">
+            <span class="text-xs font-bold uppercase tracking-widest text-nifs-red bg-nifs-red/15 px-3 py-1 rounded-full border border-nifs-red/20">CCFS</span>
+            <span class="font-semibold text-white/60 text-[14px]">3-6 Months</span>
+          </div>
+          <div class="mt-4">
+            <h3 class="font-montserrat font-bold text-[22px] text-white leading-tight group-hover:text-nifs-red transition-colors">Certificate Course in Fire &amp; Safety</h3>
+            <p class="text-white/60 text-[14px] mt-2 leading-relaxed">Quick-entry safety certification</p>
+          </div>
+          <div class="flex justify-between items-center mt-6 pt-4 border-t border-white/10">
+            <span class="text-xs text-white/40 font-medium">NSDC Approved</span>
+            <span class="text-nifs-red text-[14px] font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform">Learn More â†’</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <a href="#apply" class="bg-white text-black font-montserrat rounded-[48px] max-md:rounded-[32px] px-[32px] py-[14px] transition-all duration-300 ease-linear border-2 border-black border-solid text-[24px] max-sm:text-[18px] font-bold cursor-pointer hover:bg-nifs-red hover:border-nifs-red hover:text-white inline-block">Apply Now</a>
+    </div>
+  </div>
+</section>
+
+<section class="w-full py-[200px] max-lg:py-[70px] bg-[#101010] flex justify-center items-center flex-col overflow-hidden">
+  <div class="w-[90%] max-sm:w-[95%] flex flex-col gap-16 items-center">
+    <div class="text-center">
+      <h2 class="text-white font-montserrat text-[6vw] max-lg:text-[8vw] font-black leading-none">State-of-the-art<br>training infrastructure</h2>
+      <p class="text-white/60 font-montserrat text-[20px] max-sm:text-[16px] mt-6">6 real facilities â€” not brochures, reality</p>
+    </div>
+    <div class="grid grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-1 gap-6 w-full">
+      <!-- Card 1: Smart Classrooms -->
+      <div class="relative overflow-hidden rounded-[32px] p-8 max-sm:p-6 flex flex-col min-h-[220px] justify-end group cursor-pointer shadow-xl">
+        <img src="https://nifs-institute.vercel.app/images/nifs-hero-classroom.png" alt="Smart Classrooms" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-red-950/80 to-[#dc2626]/20"></div>
+        <h3 class="text-white text-[24px] font-bold relative z-10 font-montserrat">Smart Classrooms</h3>
+        <p class="text-white/80 text-[15px] relative z-10 mt-1 leading-normal">AC classrooms with digital displays and safety training posters</p>
+      </div>
+
+      <!-- Card 2: AC Lecture Theatre -->
+      <div class="relative overflow-hidden rounded-[32px] p-8 max-sm:p-6 flex flex-col min-h-[220px] justify-end group cursor-pointer shadow-xl">
+        <img src="https://nifs-institute.vercel.app/images/classroom-lecture.jpg" alt="AC Lecture Theatre" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-green-950/80 to-[#16a34a]/20"></div>
+        <h3 class="text-white text-[24px] font-bold relative z-10 font-montserrat">AC Lecture Theatre</h3>
+        <p class="text-white/80 text-[15px] relative z-10 mt-1 leading-normal">Tiered lecture theatre with large touchscreen display</p>
+      </div>
+
+      <!-- Card 3: Practical Training Yard -->
+      <div class="relative overflow-hidden rounded-[32px] p-8 max-sm:p-6 flex flex-col min-h-[220px] justify-end group cursor-pointer shadow-xl">
+        <img src="https://nifs-institute.vercel.app/images/nifs-hero-training-yard.png" alt="Practical Training Yard" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-orange-950/80 to-[#ea580c]/20"></div>
+        <h3 class="text-white text-[24px] font-bold relative z-10 font-montserrat">Practical Training Yard</h3>
+        <p class="text-white/80 text-[15px] relative z-10 mt-1 leading-normal">Real hazard simulations on actual equipment. 85% hands-on curriculum</p>
+      </div>
+
+      <!-- Card 4: Fire Hazard Drill -->
+      <div class="relative overflow-hidden rounded-[32px] p-8 max-sm:p-6 flex flex-col min-h-[220px] justify-end group cursor-pointer shadow-xl">
+        <img src="https://nifs-institute.vercel.app/images/training-drill.png" alt="Fire Hazard Drill" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-red-950/80 to-[#dc2626]/20"></div>
+        <h3 class="text-white text-[24px] font-bold relative z-10 font-montserrat">Fire Hazard Drill</h3>
+        <p class="text-white/80 text-[15px] relative z-10 mt-1 leading-normal">Live fire hazard identification and emergency response drills</p>
+      </div>
+
+      <!-- Card 5: Hostel Accommodation -->
+      <div class="relative overflow-hidden rounded-[32px] p-8 max-sm:p-6 flex flex-col min-h-[220px] justify-end group cursor-pointer shadow-xl">
+        <img src="https://nifs-institute.vercel.app/images/hostel-facility.jpg" alt="Hostel Accommodation" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-green-950/80 to-[#16a34a]/20"></div>
+        <h3 class="text-white text-[24px] font-bold relative z-10 font-montserrat">Hostel Accommodation</h3>
+        <p class="text-white/80 text-[15px] relative z-10 mt-1 leading-normal">On-campus housing for out-of-town students across all centers</p>
+      </div>
+
+      <!-- Card 6: Industry Site Visits -->
+      <div class="relative overflow-hidden rounded-[32px] p-8 max-sm:p-6 flex flex-col min-h-[220px] justify-end group cursor-pointer shadow-xl">
+        <img src="https://nifs-institute.vercel.app/images/gallery-industrial-visit.jpg" alt="Industry Site Visits" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-orange-950/80 to-[#ea580c]/20"></div>
+        <h3 class="text-white text-[24px] font-bold relative z-10 font-montserrat">Industry Site Visits</h3>
+        <p class="text-white/80 text-[15px] relative z-10 mt-1 leading-normal">Industrial visits to power plants, factories, and construction sites</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAREER OUTCOMES -->
+<section class="w-full py-[120px] max-lg:py-[70px] bg-black flex justify-center items-center flex-col overflow-hidden">
+  <div class="w-[90%] max-sm:w-[95%] flex flex-col gap-12 items-center">
+    <h2 class="text-white font-montserrat text-[6vw] max-lg:text-[8vw] font-black leading-none text-center">Where Our Graduates Work</h2>
+    <div class="flex flex-wrap gap-4 justify-center">
+      <span class="px-6 py-3 bg-white/10 border border-white/20 rounded-full text-white text-[16px] font-semibold hover:bg-nifs-red hover:border-nifs-red transition-all cursor-pointer">Fire Safety Officer</span>
+      <span class="px-6 py-3 bg-white/10 border border-white/20 rounded-full text-white text-[16px] font-semibold hover:bg-nifs-green hover:border-nifs-green transition-all cursor-pointer">Industrial Safety Supervisor</span>
+      <span class="px-6 py-3 bg-white/10 border border-white/20 rounded-full text-white text-[16px] font-semibold hover:bg-nifs-orange hover:border-nifs-orange transition-all cursor-pointer">HSE Manager</span>
+      <span class="px-6 py-3 bg-white/10 border border-white/20 rounded-full text-white text-[16px] font-semibold hover:bg-nifs-red hover:border-nifs-red transition-all cursor-pointer">Emergency Response Coordinator</span>
+      <span class="px-6 py-3 bg-white/10 border border-white/20 rounded-full text-white text-[16px] font-semibold hover:bg-nifs-green hover:border-nifs-green transition-all cursor-pointer">Risk Analyst</span>
+      <span class="px-6 py-3 bg-white/10 border border-white/20 rounded-full text-white text-[16px] font-semibold hover:bg-nifs-orange hover:border-nifs-orange transition-all cursor-pointer">Safety Inspector</span>
+      <span class="px-6 py-3 bg-white/10 border border-white/20 rounded-full text-white text-[16px] font-semibold hover:bg-nifs-red hover:border-nifs-red transition-all cursor-pointer">Plant Safety Coordinator</span>
+      <span class="px-6 py-3 bg-white/10 border border-white/20 rounded-full text-white text-[16px] font-semibold hover:bg-nifs-green hover:border-nifs-green transition-all cursor-pointer">Environmental Compliance Analyst</span>
+    </div>
+    <div class="flex gap-10 max-sm:gap-6 justify-center flex-wrap mt-4">
+      <div class="text-center">
+        <span class="block text-[48px] max-sm:text-[32px] font-black text-nifs-red leading-none">45,000+</span>
+        <span class="text-sm font-semibold uppercase tracking-wider text-white/40 mt-2 block">Candidates Placed</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLACEMENTS CAROUSEL -->
+<section class="w-full py-[80px] max-lg:py-[50px] bg-[#101010] flex justify-center items-center flex-col overflow-hidden">
+  <div class="w-[90%] max-sm:w-[95%] flex flex-col gap-8 items-center">
+    <h2 class="text-white font-montserrat text-[3.5vw] max-lg:text-[5vw] max-sm:text-[28px] font-black leading-none text-center">Our Students Placed In</h2>
+    <div class="overflow-hidden w-full relative" id="carouselWrap">
+      <div class="flex gap-8" id="placementTrack" style="width:max-content">
+        <!-- Card 1: CH Sridhar -->
+        <div class="flex-shrink-0 w-[160px] flex flex-col items-center text-center">
+          <div class="w-[130px] h-[130px] rounded-full overflow-hidden border-2 border-nifs-red shadow-lg flex-shrink-0 relative">
+            <img src="https://nifs-institute.vercel.app/images/placements/1.png" alt="CH Sridhar" class="w-full h-full object-cover" style="transform: scale(1.6); transform-origin: 50% 20%;">
+          </div>
+          <h3 class="text-white text-[16px] font-bold font-montserrat mt-3 leading-tight">CH Sridhar</h3>
+          <p class="text-white/60 text-[12px] font-montserrat mt-0.5 leading-tight">Safety Supervisor</p>
+          <p class="text-[13px] font-bold text-nifs-red font-montserrat mt-1">Kotac Automotives</p>
+        </div>
+
+        <!-- Card 2: G Lokesh -->
+        <div class="flex-shrink-0 w-[160px] flex flex-col items-center text-center">
+          <div class="w-[130px] h-[130px] rounded-full overflow-hidden border-2 border-nifs-green shadow-lg flex-shrink-0 relative">
+            <img src="https://nifs-institute.vercel.app/images/placements/2.png" alt="G Lokesh" class="w-full h-full object-cover" style="transform: scale(1.6); transform-origin: 50% 20%;">
+          </div>
+          <h3 class="text-white text-[16px] font-bold font-montserrat mt-3 leading-tight">G Lokesh</h3>
+          <p class="text-white/60 text-[12px] font-montserrat mt-0.5 leading-tight">Safety Supervisor</p>
+          <p class="text-[13px] font-bold text-nifs-green font-montserrat mt-1">Kotac Automotives</p>
+        </div>
+
+        <!-- Card 3: V Prudhiv Raj -->
+        <div class="flex-shrink-0 w-[160px] flex flex-col items-center text-center">
+          <div class="w-[130px] h-[130px] rounded-full overflow-hidden border-2 border-nifs-orange shadow-lg flex-shrink-0 relative">
+            <img src="https://nifs-institute.vercel.app/images/placements/3.png" alt="V Prudhiv Raj" class="w-full h-full object-cover" style="transform: scale(1.6); transform-origin: 50% 20%;">
+          </div>
+          <h3 class="text-white text-[16px] font-bold font-montserrat mt-3 leading-tight">V Prudhiv Raj</h3>
+          <p class="text-white/60 text-[12px] font-montserrat mt-0.5 leading-tight">Safety Inspector</p>
+          <p class="text-[13px] font-bold text-nifs-orange font-montserrat mt-1">L&T</p>
+        </div>
+
+        <!-- Card 4: Bhanu Kumar -->
+        <div class="flex-shrink-0 w-[160px] flex flex-col items-center text-center">
+          <div class="w-[130px] h-[130px] rounded-full overflow-hidden border-2 border-nifs-red shadow-lg flex-shrink-0 relative">
+            <img src="https://nifs-institute.vercel.app/images/placements/4.png" alt="Bhanu Kumar" class="w-full h-full object-cover" style="transform: scale(1.6); transform-origin: 50% 20%;">
+          </div>
+          <h3 class="text-white text-[16px] font-bold font-montserrat mt-3 leading-tight">Bhanu Kumar</h3>
+          <p class="text-white/60 text-[12px] font-montserrat mt-0.5 leading-tight">Safety Inspector</p>
+          <p class="text-[13px] font-bold text-nifs-red font-montserrat mt-1">L&T</p>
+        </div>
+
+        <!-- Card 5: Yadagiri Babu -->
+        <div class="flex-shrink-0 w-[160px] flex flex-col items-center text-center">
+          <div class="w-[130px] h-[130px] rounded-full overflow-hidden border-2 border-nifs-green shadow-lg flex-shrink-0 relative">
+            <img src="https://nifs-institute.vercel.app/images/placements/5.png" alt="Yadagiri Babu" class="w-full h-full object-cover" style="transform: scale(1.6); transform-origin: 50% 20%;">
+          </div>
+          <h3 class="text-white text-[16px] font-bold font-montserrat mt-3 leading-tight">Yadagiri Babu</h3>
+          <p class="text-white/60 text-[12px] font-montserrat mt-0.5 leading-tight">Safety Inspector</p>
+          <p class="text-[13px] font-bold text-nifs-green font-montserrat mt-1">L&T</p>
+        </div>
+
+        <!-- Card 6: Sai Teja -->
+        <div class="flex-shrink-0 w-[160px] flex flex-col items-center text-center">
+          <div class="w-[130px] h-[130px] rounded-full overflow-hidden border-2 border-nifs-orange shadow-lg flex-shrink-0 relative">
+            <img src="https://nifs-institute.vercel.app/images/placements/6.png" alt="Sai Teja" class="w-full h-full object-cover" style="transform: scale(1.6); transform-origin: 50% 20%;">
+          </div>
+          <h3 class="text-white text-[16px] font-bold font-montserrat mt-3 leading-tight">Sai Teja</h3>
+          <p class="text-white/60 text-[12px] font-montserrat mt-0.5 leading-tight">Fire Safety Steward</p>
+          <p class="text-[13px] font-bold text-nifs-orange font-montserrat mt-1">Lansum Group</p>
+        </div>
+
+        <!-- Card 7: CH Sridhar -->
+        <div class="flex-shrink-0 w-[160px] flex flex-col items-center text-center">
+          <div class="w-[130px] h-[130px] rounded-full overflow-hidden border-2 border-nifs-red shadow-lg flex-shrink-0 relative">
+            <img src="https://nifs-institute.vercel.app/images/placements/1.png" alt="CH Sridhar" class="w-full h-full object-cover" style="transform: scale(1.6); transform-origin: 50% 20%;">
+          </div>
+          <h3 class="text-white text-[16px] font-bold font-montserrat mt-3 leading-tight">CH Sridhar</h3>
+          <p class="text-white/60 text-[12px] font-montserrat mt-0.5 leading-tight">Safety Supervisor</p>
+          <p class="text-[13px] font-bold text-nifs-red font-montserrat mt-1">Kotac Automotives</p>
+        </div>
+
+        <!-- Card 8: G Lokesh -->
+        <div class="flex-shrink-0 w-[160px] flex flex-col items-center text-center">
+          <div class="w-[130px] h-[130px] rounded-full overflow-hidden border-2 border-nifs-green shadow-lg flex-shrink-0 relative">
+            <img src="https://nifs-institute.vercel.app/images/placements/2.png" alt="G Lokesh" class="w-full h-full object-cover" style="transform: scale(1.6); transform-origin: 50% 20%;">
+          </div>
+          <h3 class="text-white text-[16px] font-bold font-montserrat mt-3 leading-tight">G Lokesh</h3>
+          <p class="text-white/60 text-[12px] font-montserrat mt-0.5 leading-tight">Safety Supervisor</p>
+          <p class="text-[13px] font-bold text-nifs-green font-montserrat mt-1">Kotac Automotives</p>
+        </div>
+
+        <!-- Card 9: V Prudhiv Raj -->
+        <div class="flex-shrink-0 w-[160px] flex flex-col items-center text-center">
+          <div class="w-[130px] h-[130px] rounded-full overflow-hidden border-2 border-nifs-orange shadow-lg flex-shrink-0 relative">
+            <img src="https://nifs-institute.vercel.app/images/placements/3.png" alt="V Prudhiv Raj" class="w-full h-full object-cover" style="transform: scale(1.6); transform-origin: 50% 20%;">
+          </div>
+          <h3 class="text-white text-[16px] font-bold font-montserrat mt-3 leading-tight">V Prudhiv Raj</h3>
+          <p class="text-white/60 text-[12px] font-montserrat mt-0.5 leading-tight">Safety Inspector</p>
+          <p class="text-[13px] font-bold text-nifs-orange font-montserrat mt-1">L&T</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process" class="w-full min-h-screen py-[200px] max-lg:py-[70px] max-md:py-[60px] max-sm:py-[80px] bg-white flex justify-center items-center flex-col overflow-x-hidden">
+  <div class="w-[1200px] max-w-full max-lg:w-[90%] max-sm:w-[95%] flex flex-col gap-[64px] max-sm:gap-[32px] justify-center items-center">
+    <h2 class="font-montserrat text-[7vw] max-lg:text-[10vw] font-black leading-[100%] tracking-normal text-center">4 Steps to Your Safety Career</h2>
+    <div class="flex flex-col justify-center items-center w-full gap-[64px] max-md:gap-[48px]">
+      <div class="flex flex-row max-md:flex-col-reverse justify-center items-center">
+        <div class="w-1/2 max-sm:w-full flex flex-col gap-[32px] max-sm:gap-[8px]">
+          <div class="text-right flex flex-col gap-[16px] text-slide-left">
+            <span class="text-[48px] max-md:text-[40px] max-sm:text-[28px] font-montserrat font-bold leading-none text-nifs-red">01</span>
+            <h3 class="font-bold text-[60px] max-md:text-[44px] max-sm:text-[32px] text-black leading-[100%] font-montserrat">Apply</h3>
+            <p class="text-right font-normal font-montserrat text-[24px] text-gray-500">Fill out the online application or visit your nearest NIFS center. Choose from 10+ programs across diploma, postgraduate, and degree levels.</p>
+          </div>
+          <div class="rounded-[48px] max-md:rounded-[32px] h-[40px] bg-gray-200"><div class="h-full rounded-[inherit] flex justify-end"><div class="bar-fill bg-nifs-red h-full rounded-[inherit]" data-width="100%"></div></div></div>
+        </div>
+        <div class="w-1/2 max-sm:w-full flex items-center justify-center p-8">
+          <svg viewBox="0 0 200 200" class="w-[180px] h-[180px]"><circle cx="100" cy="100" r="80" fill="#DC1711" opacity="0.1"/><circle cx="100" cy="100" r="50" fill="#DC1711" opacity="0.15"/><text x="100" y="115" text-anchor="middle" font-size="48" font-weight="900" fill="#DC1711" font-family="Montserrat">01</text></svg>
+        </div>
+      </div>
+      <div class="flex flex-row-reverse max-md:flex-col-reverse justify-center items-center">
+        <div class="w-1/2 max-sm:w-full flex flex-col gap-[32px] max-sm:gap-[8px]">
+          <div class="flex flex-col gap-[16px] text-slide-right">
+            <span class="text-[48px] max-md:text-[40px] max-sm:text-[28px] font-montserrat font-bold leading-none text-left text-nifs-green">02</span>
+            <h3 class="font-bold text-[60px] max-md:text-[44px] max-sm:text-[32px] text-black leading-[100%] font-montserrat text-left">Assessment</h3>
+            <p class="font-normal font-montserrat text-[24px] text-left text-gray-500">Our counselors guide you through eligibility verification and help select the right program based on your qualifications and career goals.</p>
+          </div>
+          <div class="rounded-[48px] max-md:rounded-[32px] h-[40px] bg-gray-200"><div class="h-full rounded-[inherit] flex justify-start"><div class="bar-fill bg-nifs-green h-full rounded-[inherit]" data-width="75%"></div></div></div>
+        </div>
+        <div class="w-1/2 max-sm:w-full flex items-center justify-center p-8">
+          <svg viewBox="0 0 200 200" class="w-[180px] h-[180px]"><circle cx="100" cy="100" r="80" fill="#26BE29" opacity="0.1"/><circle cx="100" cy="100" r="50" fill="#26BE29" opacity="0.15"/><text x="100" y="115" text-anchor="middle" font-size="48" font-weight="900" fill="#26BE29" font-family="Montserrat">02</text></svg>
+        </div>
+      </div>
+      <div class="flex flex-row max-md:flex-col-reverse justify-center items-center">
+        <div class="w-1/2 max-sm:w-full flex flex-col gap-[32px] max-sm:gap-[8px]">
+          <div class="text-right flex flex-col gap-[16px] text-slide-left">
+            <span class="text-[48px] max-md:text-[40px] max-sm:text-[28px] font-montserrat font-bold leading-none text-nifs-orange">03</span>
+            <h3 class="font-bold text-[60px] max-md:text-[44px] max-sm:text-[32px] text-black leading-[100%] font-montserrat">Enroll</h3>
+            <p class="text-right font-normal font-montserrat text-[24px] text-gray-500">Complete enrollment with flexible payment options. Education loan facility available for all courses. Begin your training at any of our 86 centers.</p>
+          </div>
+          <div class="rounded-[48px] max-md:rounded-[32px] h-[40px] bg-gray-200"><div class="h-full rounded-[inherit] flex justify-end"><div class="bar-fill bg-nifs-orange h-full rounded-[inherit]" data-width="50%"></div></div></div>
+        </div>
+        <div class="w-1/2 max-sm:w-full flex items-center justify-center p-8">
+          <svg viewBox="0 0 200 200" class="w-[180px] h-[180px]"><circle cx="100" cy="100" r="80" fill="#FC8010" opacity="0.1"/><circle cx="100" cy="100" r="50" fill="#FC8010" opacity="0.15"/><text x="100" y="115" text-anchor="middle" font-size="48" font-weight="900" fill="#FC8010" font-family="Montserrat">03</text></svg>
+        </div>
+      </div>
+      <div class="flex flex-col items-center gap-8 max-w-[700px]">
+        <div class="flex flex-col items-center gap-4 text-center">
+          <span class="text-[48px] max-md:text-[40px] max-sm:text-[28px] font-montserrat font-bold leading-none text-nifs-red">04</span>
+          <h3 class="font-bold text-[60px] max-md:text-[44px] max-sm:text-[32px] text-black leading-[100%] font-montserrat">Placement</h3>
+          <p class="font-normal font-montserrat text-[24px] text-gray-500 text-center">Our dedicated placement cell connects you with top recruiters. Graduate into a career at leading industries across India and abroad.</p>
+        </div>
+        <div class="rounded-[48px] h-[40px] bg-gray-200 w-full max-w-[500px]"><div class="h-full rounded-[inherit]"><div class="bar-fill bg-nifs-red h-full rounded-[inherit]" data-width="100%"></div></div></div>
+      </div>
+    </div>
+    <div>
+      <a href="#apply" class="rounded-[48px] max-md:rounded-[32px] bg-black px-[32px] py-[14px] text-[24px] max-sm:text-[20px] text-nifs-red font-montserrat font-bold cursor-pointer border-2 border-black hover:bg-nifs-red hover:text-white transition-all duration-300 inline-block">Apply for Admission</a>
+    </div>
+  </div>
+</section>
+
+<!-- CENTERS -->
+<section id="centers" class="w-full py-[120px] max-lg:py-[70px] bg-gray-50 flex justify-center items-center flex-col">
+  <div class="w-[90%] max-sm:w-[95%] flex flex-col gap-12">
+    <div class="flex flex-row max-lg:flex-col gap-12 items-center w-full">
+      <!-- Left Column: Content & Stats -->
+      <div class="w-[42%] max-lg:w-full flex flex-col gap-8">
+        <div class="max-lg:text-center text-left">
+          <span class="text-nifs-red font-bold text-xs tracking-widest uppercase">National Presence</span>
+          <h2 class="text-[3.2vw] max-lg:text-[5vw] max-sm:text-[32px] font-black leading-tight text-gray-900 font-montserrat mt-1">86 Centers Across 24 States</h2>
+          <p class="text-gray-500 text-[15px] mt-2 font-medium">India's largest network of safety training institutes, offering local courses to international standards.</p>
+        </div>
+        
+        <div class="grid grid-cols-2 gap-4 w-full">
+          <div class="flex gap-4 items-center p-4 bg-white rounded-[20px] shadow-sm border border-gray-100">
+            <div class="w-12 h-12 rounded-xl bg-nifs-red/10 flex items-center justify-center text-nifs-red font-bold text-[20px] flex-shrink-0">ðŸ¢</div>
+            <div>
+              <span class="block text-[22px] font-black text-gray-900 leading-none">86</span>
+              <span class="text-[10px] font-bold uppercase tracking-wider text-gray-400 mt-1 block">Centers</span>
+            </div>
+          </div>
+          <div class="flex gap-4 items-center p-4 bg-white rounded-[20px] shadow-sm border border-gray-100">
+            <div class="w-12 h-12 rounded-xl bg-nifs-green/10 flex items-center justify-center text-nifs-green font-bold text-[20px] flex-shrink-0">ðŸ“</div>
+            <div>
+              <span class="block text-[22px] font-black text-gray-900 leading-none">24</span>
+              <span class="text-[10px] font-bold uppercase tracking-wider text-gray-400 mt-1 block">States</span>
+            </div>
+          </div>
+          <div class="flex gap-4 items-center p-4 bg-white rounded-[20px] shadow-sm border border-gray-100">
+            <div class="w-12 h-12 rounded-xl bg-nifs-orange/10 flex items-center justify-center text-nifs-orange font-bold text-[20px] flex-shrink-0">ðŸŒ</div>
+            <div>
+              <span class="block text-[22px] font-black text-gray-900 leading-none">3+</span>
+              <span class="text-[10px] font-bold uppercase tracking-wider text-gray-400 mt-1 block">Countries</span>
+            </div>
+          </div>
+          <div class="flex gap-4 items-center p-4 bg-white rounded-[20px] shadow-sm border border-gray-100">
+            <div class="w-12 h-12 rounded-xl bg-nifs-red/10 flex items-center justify-center text-nifs-red font-bold text-[20px] flex-shrink-0">â­</div>
+            <div>
+              <span class="block text-[22px] font-black text-gray-900 leading-none">HQ</span>
+              <span class="text-[10px] font-bold uppercase tracking-wider text-gray-400 mt-1 block">Vizag</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <span class="text-[11px] font-bold text-gray-400 uppercase tracking-widest text-left">Explore States</span>
+          <div class="flex flex-wrap gap-2.5 max-h-[160px] overflow-y-auto pr-2" style="scrollbar-width: thin; scrollbar-color: #DC1711 #f3f4f6;">
+            <span class="px-4 py-2 bg-white border border-gray-200 rounded-full text-[14px] font-semibold hover:border-nifs-red hover:text-nifs-red transition-colors cursor-pointer">Andhra Pradesh <b class="text-nifs-red">7</b></span>
+            <span class="px-4 py-2 bg-white border border-gray-200 rounded-full text-[14px] font-semibold hover:border-nifs-red hover:text-nifs-red transition-colors cursor-pointer">Tamil Nadu <b class="text-nifs-red">10</b></span>
+            <span class="px-4 py-2 bg-white border border-gray-200 rounded-full text-[14px] font-semibold hover:border-nifs-red hover:text-nifs-red transition-colors cursor-pointer">Maharashtra <b class="text-nifs-red">5</b></span>
+            <span class="px-4 py-2 bg-white border border-gray-200 rounded-full text-[14px] font-semibold hover:border-nifs-red hover:text-nifs-red transition-colors cursor-pointer">Gujarat <b class="text-nifs-red">6</b></span>
+            <span class="px-4 py-2 bg-white border border-gray-200 rounded-full text-[14px] font-semibold hover:border-nifs-red hover:text-nifs-red transition-colors cursor-pointer">Uttar Pradesh <b class="text-nifs-red">7</b></span>
+            <span class="px-4 py-2 bg-white border border-gray-200 rounded-full text-[14px] font-semibold hover:border-nifs-red hover:text-nifs-red transition-colors cursor-pointer">Punjab &amp; Haryana <b class="text-nifs-red">7</b></span>
+            <span class="px-4 py-2 bg-white border border-gray-200 rounded-full text-[14px] font-semibold hover:border-nifs-red hover:text-nifs-red transition-colors cursor-pointer">Delhi NCR <b class="text-nifs-red">4</b></span>
+            <span class="px-4 py-2 bg-white border border-gray-200 rounded-full text-[14px] font-semibold hover:border-nifs-red hover:text-nifs-red transition-colors cursor-pointer">Rajasthan <b class="text-nifs-red">5</b></span>
+            <span class="px-4 py-2 bg-white border border-gray-200 rounded-full text-[14px] font-semibold hover:border-nifs-red hover:text-nifs-red transition-colors cursor-pointer">Madhya Pradesh <b class="text-nifs-red">4</b></span>
+            <span class="px-4 py-2 bg-white border border-gray-200 rounded-full text-[14px] font-semibold hover:border-nifs-red hover:text-nifs-red transition-colors cursor-pointer">Karnataka <b class="text-nifs-red">4</b></span>
+            <span class="px-4 py-2 bg-white border border-gray-200 rounded-full text-[14px] font-semibold hover:border-nifs-red hover:text-nifs-red transition-colors cursor-pointer">Kerala <b class="text-nifs-red">4</b></span>
+            <span class="px-4 py-2 bg-white border border-gray-200 rounded-full text-[14px] font-semibold hover:border-nifs-red hover:text-nifs-red transition-colors cursor-pointer">West Bengal <b class="text-nifs-red">3</b></span>
+            <span class="px-4 py-2 bg-white border border-gray-200 rounded-full text-[14px] font-semibold hover:border-nifs-red hover:text-nifs-red transition-colors cursor-pointer">Bihar <b class="text-nifs-red">3</b></span>
+            <span class="px-4 py-2 bg-white border border-gray-200 rounded-full text-[14px] font-semibold hover:border-nifs-red hover:text-nifs-red transition-colors cursor-pointer">Jharkhand <b class="text-nifs-red">3</b></span>
+            <span class="px-4 py-2 bg-white border border-gray-200 rounded-full text-[14px] font-semibold hover:border-nifs-red hover:text-nifs-red transition-colors cursor-pointer">Telangana <b class="text-nifs-red">2</b></span>
+            <span class="px-4 py-2 bg-white border border-gray-200 rounded-full text-[14px] font-semibold hover:border-nifs-red hover:text-nifs-red transition-colors cursor-pointer">Odisha <b class="text-nifs-red">3</b></span>
+            <span class="px-4 py-2 bg-white border border-gray-200 rounded-full text-[14px] font-semibold hover:border-nifs-red hover:text-nifs-red transition-colors cursor-pointer">Chhattisgarh <b class="text-nifs-red">2</b></span>
+            <span class="px-4 py-2 bg-white border border-gray-200 rounded-full text-[14px] font-semibold hover:border-nifs-red hover:text-nifs-red transition-colors cursor-pointer">Uttarakhand <b class="text-nifs-red">2</b></span>
+            <span class="px-4 py-2 bg-white border border-gray-200 rounded-full text-[14px] font-semibold hover:border-nifs-red hover:text-nifs-red transition-colors cursor-pointer">Himachal Pradesh <b class="text-nifs-red">2</b></span>
+            <span class="px-4 py-2 bg-white border border-gray-200 rounded-full text-[14px] font-semibold hover:border-nifs-red hover:text-nifs-red transition-colors cursor-pointer">Assam <b class="text-nifs-red">1</b></span>
+            <span class="px-4 py-2 bg-white border border-gray-200 rounded-full text-[14px] font-semibold hover:border-nifs-red hover:text-nifs-red transition-colors cursor-pointer">J&amp;K <b class="text-nifs-red">1</b></span>
+            <span class="px-4 py-2 bg-white border border-gray-200 rounded-full text-[14px] font-semibold hover:border-nifs-red hover:text-nifs-red transition-colors cursor-pointer">Goa <b class="text-nifs-red">1</b></span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Right Column: Interactive Map -->
+      <div class="w-[58%] max-lg:w-full flex justify-center items-center">
+        <div class="relative w-full max-w-[580px] aspect-[868/890] flex-shrink-0 select-none overflow-hidden">
+          <!-- Map Image with Crop and Offset styling identical to Vercel site -->
+          <img src="https://nifs-institute.vercel.app/images/india-map-v2.png" alt="NIFS India Centers Map" class="absolute max-w-none" style="width: 168.04%; height: 111.21%; left: -35.99%; top: -3.33%;">
+          
+          <!-- Radar Sweep & Scan Line -->
+          <div aria-hidden="true" class="pointer-events-none absolute inset-0 mix-blend-multiply opacity-20 rounded-full" style="background:conic-gradient(from 0deg, transparent 0deg, transparent 300deg, #DC1711 340deg, transparent 360deg); animation: mapSweep 8s linear infinite; transform-origin: center;"></div>
+          <div aria-hidden="true" class="pointer-events-none absolute inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-[#DC1711]/50 to-transparent" style="animation: mapScan 5s linear infinite;"></div>
+
+          <!-- Visakhapatnam -->
+          <button type="button" onclick="showStateInfo('Andhra Pradesh', 'Visakhapatnam', '7 Centers', 'National Headquarters. 7 state-of-the-art training centers including the massive Visakhapatnam Practical Yard.')" class="group absolute cursor-pointer focus:outline-none" style="left:47.49%;top:64.8%">
+            <div class="relative -translate-x-1/2 -translate-y-1/2">
+              <span class="animate-ping absolute inset-0 inline-flex h-4 w-4 rounded-full bg-nifs-red opacity-75"></span>
+              <span class="relative block rounded-full border-2 border-white shadow-sm h-4 w-4 bg-nifs-red"></span>
+              <span class="pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 rounded bg-gray-900 px-2 py-1 text-[10px] font-medium whitespace-nowrap text-white transition-opacity duration-200 group-hover:opacity-100 opacity-0 z-30">Visakhapatnam (HQ)</span>
+            </div>
+          </button>
+          
+          <!-- Hyderabad -->
+          <button type="button" onclick="showStateInfo('Telangana', 'Hyderabad', '2 Centers', '2 centers in Hyderabad. Comprehensive coaching for fire safety & HSE diplomas.')" class="group absolute cursor-pointer focus:outline-none" style="left:31.62%;top:65.89%">
+            <div class="relative -translate-x-1/2 -translate-y-1/2">
+              <span class="animate-ping absolute inset-0 inline-flex h-3 w-3 rounded-full bg-nifs-red opacity-75"></span>
+              <span class="relative block rounded-full border-2 border-white shadow-sm h-3 w-3 bg-nifs-red"></span>
+              <span class="pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 rounded bg-gray-900 px-2 py-1 text-[10px] font-medium whitespace-nowrap text-white transition-opacity duration-200 group-hover:opacity-100 opacity-0 z-30">Hyderabad</span>
+            </div>
+          </button>
+
+          <!-- Guntur -->
+          <button type="button" onclick="showStateInfo('Andhra Pradesh', 'Guntur', '7 Centers', 'Key training facility in Guntur offering practical drills and AC classrooms.')" class="group absolute cursor-pointer focus:outline-none" style="left:38.16%;top:69.75%">
+            <div class="relative -translate-x-1/2 -translate-y-1/2">
+              <span class="animate-ping absolute inset-0 inline-flex h-3 w-3 rounded-full bg-nifs-red opacity-75"></span>
+              <span class="relative block rounded-full border-2 border-white shadow-sm h-3 w-3 bg-nifs-red"></span>
+              <span class="pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 rounded bg-gray-900 px-2 py-1 text-[10px] font-medium whitespace-nowrap text-white transition-opacity duration-200 group-hover:opacity-100 opacity-0 z-30">Guntur</span>
+            </div>
+          </button>
+
+          <!-- Chennai -->
+          <button type="button" onclick="showStateInfo('Tamil Nadu', 'Chennai', '10 Centers', '10 centers in Tamil Nadu. Leading center for NSDC and university-approved programs.')" class="group absolute cursor-pointer focus:outline-none" style="left:37.61%;top:81.31%">
+            <div class="relative -translate-x-1/2 -translate-y-1/2">
+              <span class="animate-ping absolute inset-0 inline-flex h-3 w-3 rounded-full bg-nifs-red opacity-75"></span>
+              <span class="relative block rounded-full border-2 border-white shadow-sm h-3 w-3 bg-nifs-red"></span>
+              <span class="pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 rounded bg-gray-900 px-2 py-1 text-[10px] font-medium whitespace-nowrap text-white transition-opacity duration-200 group-hover:opacity-100 opacity-0 z-30">Chennai</span>
+            </div>
+          </button>
+
+          <!-- Bhubaneswar -->
+          <button type="button" onclick="showStateInfo('Odisha', 'Bhubaneswar', '3 Centers', '3 centers in Odisha providing regional safety officer certification training.')" class="group absolute cursor-pointer focus:outline-none" style="left:56.24%;top:55.46%">
+            <div class="relative -translate-x-1/2 -translate-y-1/2">
+              <span class="animate-ping absolute inset-0 inline-flex h-3 w-3 rounded-full bg-nifs-red opacity-75"></span>
+              <span class="relative block rounded-full border-2 border-white shadow-sm h-3 w-3 bg-nifs-red"></span>
+              <span class="pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 rounded bg-gray-900 px-2 py-1 text-[10px] font-medium whitespace-nowrap text-white transition-opacity duration-200 group-hover:opacity-100 opacity-0 z-30">Bhubaneswar</span>
+            </div>
+          </button>
+
+          <!-- Kolkata -->
+          <button type="button" onclick="showStateInfo('West Bengal', 'Kolkata', '3 Centers', '3 centers in West Bengal, delivering safety audits and industrial safety training.')" class="group absolute cursor-pointer focus:outline-none" style="left:64.75%;top:47.31%">
+            <div class="relative -translate-x-1/2 -translate-y-1/2">
+              <span class="animate-ping absolute inset-0 inline-flex h-3 w-3 rounded-full bg-nifs-red opacity-75"></span>
+              <span class="relative block rounded-full border-2 border-white shadow-sm h-3 w-3 bg-nifs-red"></span>
+              <span class="pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 rounded bg-gray-900 px-2 py-1 text-[10px] font-medium whitespace-nowrap text-white transition-opacity duration-200 group-hover:opacity-100 opacity-0 z-30">Kolkata</span>
+            </div>
+          </button>
+
+          <!-- Mumbai -->
+          <button type="button" onclick="showStateInfo('Maharashtra', 'Mumbai', '5 Centers', '5 centers in Maharashtra. Located in industrial hubs to facilitate placements.')" class="group absolute cursor-pointer focus:outline-none" style="left:12.8%;top:59.83%">
+            <div class="relative -translate-x-1/2 -translate-y-1/2">
+              <span class="animate-ping absolute inset-0 inline-flex h-3 w-3 rounded-full bg-nifs-red opacity-75"></span>
+              <span class="relative block rounded-full border-2 border-white shadow-sm h-3 w-3 bg-nifs-red"></span>
+              <span class="pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 rounded bg-gray-900 px-2 py-1 text-[10px] font-medium whitespace-nowrap text-white transition-opacity duration-200 group-hover:opacity-100 opacity-0 z-30">Mumbai</span>
+            </div>
+          </button>
+
+          <!-- Warangal -->
+          <button type="button" onclick="showStateInfo('Telangana', 'Warangal', '2 Centers', 'Warangal center providing local access to top-tier safety curriculum.')" class="group absolute cursor-pointer focus:outline-none" style="left:35.34%;top:63.8%">
+            <div class="relative -translate-x-1/2 -translate-y-1/2">
+              <span class="animate-ping absolute inset-0 inline-flex h-3 w-3 rounded-full bg-nifs-red opacity-75"></span>
+              <span class="relative block rounded-full border-2 border-white shadow-sm h-3 w-3 bg-nifs-red"></span>
+              <span class="pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 rounded bg-gray-900 px-2 py-1 text-[10px] font-medium whitespace-nowrap text-white transition-opacity duration-200 group-hover:opacity-100 opacity-0 z-30">Warangal</span>
+            </div>
+          </button>
+
+          <!-- Delhi -->
+          <button type="button" onclick="showStateInfo('Delhi NCR', 'Delhi', '4 Centers', '4 centers in the National Capital Region (NCR). Focused on corporate HSE placements.')" class="group absolute cursor-pointer focus:outline-none" style="left:26.99%;top:25.34%">
+            <div class="relative -translate-x-1/2 -translate-y-1/2">
+              <span class="animate-ping absolute inset-0 inline-flex h-3 w-3 rounded-full bg-nifs-red opacity-75"></span>
+              <span class="relative block rounded-full border-2 border-white shadow-sm h-3 w-3 bg-nifs-red"></span>
+              <span class="pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 rounded bg-gray-900 px-2 py-1 text-[10px] font-medium whitespace-nowrap text-white transition-opacity duration-200 group-hover:opacity-100 opacity-0 z-30">Delhi NCR</span>
+            </div>
+          </button>
+
+          <!-- Kakinada -->
+          <button type="button" onclick="showStateInfo('Andhra Pradesh', 'Kakinada', '7 Centers', 'Kakinada center. Specializing in port and dock fire safety training.')" class="group absolute cursor-pointer focus:outline-none" style="left:44.24%;top:67.3%">
+            <div class="relative -translate-x-1/2 -translate-y-1/2">
+              <span class="animate-ping absolute inset-0 inline-flex h-3 w-3 rounded-full bg-nifs-red opacity-75"></span>
+              <span class="relative block rounded-full border-2 border-white shadow-sm h-3 w-3 bg-nifs-red"></span>
+              <span class="pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 rounded bg-gray-900 px-2 py-1 text-[10px] font-medium whitespace-nowrap text-white transition-opacity duration-200 group-hover:opacity-100 opacity-0 z-30">Kakinada</span>
+            </div>
+          </button>
+
+          <!-- Jamshedpur -->
+          <button type="button" onclick="showStateInfo('Jharkhand', 'Jamshedpur', '3 Centers', '3 centers in Jharkhand. Focused on metallurgy and heavy industry safety protocols.')" class="group absolute cursor-pointer focus:outline-none" style="left:57.5%;top:46.47%">
+            <div class="relative -translate-x-1/2 -translate-y-1/2">
+              <span class="animate-ping absolute inset-0 inline-flex h-3 w-3 rounded-full bg-nifs-red opacity-75"></span>
+              <span class="relative block rounded-full border-2 border-white shadow-sm h-3 w-3 bg-nifs-red"></span>
+              <span class="pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 rounded bg-gray-900 px-2 py-1 text-[10px] font-medium whitespace-nowrap text-white transition-opacity duration-200 group-hover:opacity-100 opacity-0 z-30">Jamshedpur</span>
+            </div>
+          </button>
+
+          <!-- Tambaram -->
+          <button type="button" onclick="showStateInfo('Tamil Nadu', 'Tambaram', '10 Centers', 'Tambaram Chennai branch. Top placements in Southern industrial corridors.')" class="group absolute cursor-pointer focus:outline-none" style="left:37.04%;top:81.86%">
+            <div class="relative -translate-x-1/2 -translate-y-1/2">
+              <span class="animate-ping absolute inset-0 inline-flex h-3 w-3 rounded-full bg-nifs-red opacity-75"></span>
+              <span class="relative block rounded-full border-2 border-white shadow-sm h-3 w-3 bg-nifs-red"></span>
+              <span class="pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 rounded bg-gray-900 px-2 py-1 text-[10px] font-medium whitespace-nowrap text-white transition-opacity duration-200 group-hover:opacity-100 opacity-0 z-30">Tambaram</span>
+            </div>
+          </button>
+
+          <!-- Nagpur -->
+          <button type="button" onclick="showStateInfo('Maharashtra', 'Nagpur', '5 Centers', 'Nagpur center. Delivering logistics and factory safety management programs.')" class="group absolute cursor-pointer focus:outline-none" style="left:33.64%;top:52.41%">
+            <div class="relative -translate-x-1/2 -translate-y-1/2">
+              <span class="animate-ping absolute inset-0 inline-flex h-3 w-3 rounded-full bg-nifs-red opacity-75"></span>
+              <span class="relative block rounded-full border-2 border-white shadow-sm h-3 w-3 bg-nifs-red"></span>
+              <span class="pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 rounded bg-gray-900 px-2 py-1 text-[10px] font-medium whitespace-nowrap text-white transition-opacity duration-200 group-hover:opacity-100 opacity-0 z-30">Nagpur</span>
+            </div>
+          </button>
+
+          <!-- Rourkela -->
+          <button type="button" onclick="showStateInfo('Odisha', 'Rourkela', '3 Centers', 'Rourkela branch, catering to steel plant safety officer candidates.')" class="group absolute cursor-pointer focus:outline-none" style="left:52.98%;top:48.42%">
+            <div class="relative -translate-x-1/2 -translate-y-1/2">
+              <span class="animate-ping absolute inset-0 inline-flex h-3 w-3 rounded-full bg-nifs-red opacity-75"></span>
+              <span class="relative block rounded-full border-2 border-white shadow-sm h-3 w-3 bg-nifs-red"></span>
+              <span class="pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 rounded bg-gray-900 px-2 py-1 text-[10px] font-medium whitespace-nowrap text-white transition-opacity duration-200 group-hover:opacity-100 opacity-0 z-30">Rourkela</span>
+            </div>
+          </button>
+
+          <!-- Pondicherry -->
+          <button type="button" onclick="showStateInfo('Pondicherry (UT)', 'Pondicherry', '1 Center', 'Pondicherry UT center. Serving coastal industrial safety requirements.')" class="group absolute cursor-pointer focus:outline-none" style="left:36.06%;top:85.39%">
+            <div class="relative -translate-x-1/2 -translate-y-1/2">
+              <span class="animate-ping absolute inset-0 inline-flex h-3 w-3 rounded-full bg-nifs-red opacity-75"></span>
+              <span class="relative block rounded-full border-2 border-white shadow-sm h-3 w-3 bg-nifs-red"></span>
+              <span class="pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 rounded bg-gray-900 px-2 py-1 text-[10px] font-medium whitespace-nowrap text-white transition-opacity duration-200 group-hover:opacity-100 opacity-0 z-30">Pondicherry</span>
+            </div>
+          </button>
+
+          <!-- Dynamic Info Modal Popup -->
+          <div id="stateInfoModal" class="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-md border border-gray-150 rounded-[24px] p-5 shadow-2xl z-40 transition-all duration-300 transform translate-y-4 opacity-0 pointer-events-none">
+            <div class="flex justify-between items-start">
+              <div class="text-left">
+                <span id="modalStateTag" class="text-[10px] font-bold uppercase tracking-widest text-nifs-red bg-nifs-red/10 px-2.5 py-1 rounded-full">STATE INFO</span>
+                <h4 id="modalCityName" class="text-[20px] font-bold text-gray-900 font-montserrat mt-2">Visakhapatnam</h4>
+                <p id="modalStateCount" class="text-[13px] font-semibold text-nifs-red font-montserrat mt-0.5">7 Centers in Andhra Pradesh</p>
+              </div>
+              <button type="button" onclick="closeStateInfo()" class="text-gray-400 hover:text-gray-600 focus:outline-none p-1 text-[20px] font-bold leading-none">&times;</button>
+            </div>
+            <p id="modalStateDetails" class="text-gray-600 text-[13px] mt-2.5 leading-relaxed font-medium text-left">National Headquarters. 7 state-of-the-art training centers including the massive Visakhapatnam Practical Yard.</p>
+          </div>
+        </div>
+      </div>
+      
+      <script>
+      function showStateInfo(state, city, count, details) {
+        var modal = document.getElementById('stateInfoModal');
+        if (modal) {
+          document.getElementById('modalStateTag').innerText = state.toUpperCase();
+          document.getElementById('modalCityName').innerText = city;
+          document.getElementById('modalStateCount').innerText = count + ' in ' + state;
+          document.getElementById('modalStateDetails').innerText = details;
+          
+          modal.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
+          modal.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+        }
+      }
+
+      function closeStateInfo() {
+        var modal = document.getElementById('stateInfoModal');
+        if (modal) {
+          modal.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+          modal.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+        }
+      }
+      </script>
+    </div>
+  </div>
+</section>
+<!-- FEATURED NEWS: ANU COLLABORATION -->
+<section class="w-full bg-[#f8f4f3] py-[80px] max-lg:py-[60px]">
+  <div class="max-w-[1200px] mx-auto px-6">
+    <div class="flex gap-12 max-lg:flex-col items-center">
+
+      <!-- Photo Side -->
+      <div class="w-[52%] max-lg:w-full flex-shrink-0 relative">
+        <div class="rounded-[28px] overflow-hidden shadow-[0_20px_80px_rgba(0,0,0,0.18)] relative">
+          <img src="https://nifs-institute.vercel.app/images/blog/nifs-india-achieves-milestone-collaboration-with-acharya-nagarjuna-university-65.jpeg"
+               alt="NIFS India achieves Milestone Collaboration with Acharya Nagarjuna University"
+               class="w-full h-[420px] max-sm:h-[260px] object-cover">
+          <!-- Overlay badge -->
+          <div class="absolute bottom-5 left-5 flex items-center gap-2">
+            <span class="bg-nifs-red text-white text-[11px] font-bold uppercase tracking-[2px] px-3 py-1.5 rounded-full shadow">Featured News</span>
+            <span class="bg-black/60 text-white text-[11px] font-medium px-3 py-1.5 rounded-full backdrop-blur-sm">July 31, 2025</span>
+          </div>
+        </div>
+        <!-- Decorative dot grid -->
+        <div class="absolute -bottom-6 -left-6 w-24 h-24 opacity-20 pointer-events-none" style="background-image:radial-gradient(circle,#cc1b1b 1.5px,transparent 1.5px);background-size:10px 10px;"></div>
+      </div>
+
+      <!-- Content Side -->
+      <div class="flex-1 flex flex-col gap-6 max-lg:items-center max-lg:text-center">
+        <!-- Accent line -->
+        <div class="flex items-center gap-3 max-lg:justify-center">
+          <div class="w-8 h-[3px] bg-nifs-red rounded-full"></div>
+          <span class="text-nifs-red text-[12px] font-bold uppercase tracking-[3px]">Latest Update</span>
+        </div>
+
+        <h2 class="font-montserrat text-[2.2vw] max-lg:text-[4vw] max-sm:text-[22px] font-black leading-[1.2] text-gray-900">
+          NIFS India Achieves Milestone<br>Collaboration with<br>
+          <span class="text-nifs-red">Acharya Nagarjuna University</span>
+        </h2>
+
+        <p class="text-gray-500 text-[15px] max-sm:text-[14px] leading-[1.7] max-w-[480px]">
+          In a significant development in the field of fire and safety education, NIFS India has achieved a landmark collaboration with Acharya Nagarjuna University. This partnership enables students to pursue advanced safety certifications backed by a recognized university degree — opening doors to careers across India, Gulf countries, and beyond.
+        </p>
+
+        <!-- Stats row -->
+        <div class="flex gap-8 max-sm:gap-5 max-lg:justify-center">
+          <div class="flex flex-col">
+            <span class="text-gray-900 font-black text-[22px] font-montserrat">2025</span>
+            <span class="text-gray-400 text-[12px] uppercase tracking-widest font-semibold">Year</span>
+          </div>
+          <div class="w-px bg-gray-200"></div>
+          <div class="flex flex-col">
+            <span class="text-gray-900 font-black text-[22px] font-montserrat">UG + PG</span>
+            <span class="text-gray-400 text-[12px] uppercase tracking-widest font-semibold">Programs</span>
+          </div>
+          <div class="w-px bg-gray-200"></div>
+          <div class="flex flex-col">
+            <span class="text-gray-900 font-black text-[22px] font-montserrat">Pan-India</span>
+            <span class="text-gray-400 text-[12px] uppercase tracking-widest font-semibold">Access</span>
+          </div>
+        </div>
+
+        <a href="https://nifs-institute.vercel.app/blog/nifs-india-achieves-milestone-collaboration-with-acharya-nagarjuna-university" target="_blank"
+           class="inline-flex items-center gap-2 bg-nifs-red text-white font-montserrat font-bold text-[15px] px-7 py-3.5 rounded-full hover:bg-red-700 transition-colors duration-300 max-lg:self-center group">
+          Read Full Story
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NIFS UPDATES TAB PANEL -->
+
+<section class="w-full bg-[#0d0d0d] py-[90px] max-lg:py-[60px]">
+  <div class="max-w-[1200px] mx-auto px-6 flex flex-col gap-10">
+    <div class="flex flex-col gap-2">
+      <span class="text-nifs-red text-xs font-bold uppercase tracking-[4px]">Live Feed</span>
+      <h2 class="text-white font-montserrat text-[2.8vw] max-lg:text-[5vw] max-sm:text-[26px] font-black leading-tight">NIFS Updates</h2>
+      <p class="text-white/40 text-[14px] font-montserrat">Real-time announcements, events, and opportunities from NIFS</p>
+    </div>
+    <div class="flex gap-6 max-lg:flex-col">
+      <div class="flex flex-col gap-3 w-[220px] max-lg:flex-row max-lg:w-full max-lg:overflow-x-auto max-lg:pb-2 flex-shrink-0">
+        <button onclick="switchNifsTab('updates')" id="ntab-updates" class="ntab-btn flex items-center gap-3 px-5 py-3.5 rounded-[14px] text-left transition-all duration-300 font-montserrat font-bold text-[14px] whitespace-nowrap bg-nifs-red text-white shadow-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+          NIFS Updates
+        </button>
+        <button onclick="switchNifsTab('events')" id="ntab-events" class="ntab-btn flex items-center gap-3 px-5 py-3.5 rounded-[14px] text-left transition-all duration-300 font-montserrat font-bold text-[14px] whitespace-nowrap bg-white/5 text-white/60 hover:bg-white/10 hover:text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Events
+        </button>
+        <button onclick="switchNifsTab('jobs')" id="ntab-jobs" class="ntab-btn flex items-center gap-3 px-5 py-3.5 rounded-[14px] text-left transition-all duration-300 font-montserrat font-bold text-[14px] whitespace-nowrap bg-white/5 text-white/60 hover:bg-white/10 hover:text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          Jobs
+        </button>
+        <button onclick="switchNifsTab('industrial')" id="ntab-industrial" class="ntab-btn flex items-center gap-3 px-5 py-3.5 rounded-[14px] text-left transition-all duration-300 font-montserrat font-bold text-[14px] whitespace-nowrap bg-white/5 text-white/60 hover:bg-white/10 hover:text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-2 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+          Industrial Works
+        </button>
+      </div>
+      <div class="flex-1 bg-white/[0.04] border border-white/10 rounded-[24px] p-8 max-sm:p-5 min-h-[320px] relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-[300px] h-[300px] bg-nifs-red/5 rounded-full blur-[80px] pointer-events-none"></div>
+        <!-- Updates -->
+        <div id="ncontent-updates" class="ncontent flex flex-col gap-4">
+          <div class="flex items-start gap-4 p-4 bg-white/5 hover:bg-white/10 transition-colors duration-200 rounded-[16px] cursor-pointer group">
+            <span class="w-2 h-2 rounded-full bg-nifs-red mt-2 flex-shrink-0 group-hover:scale-125 transition-transform"></span>
+            <div><p class="text-white font-montserrat font-semibold text-[14px] leading-snug">Admissions Open for Diploma / PG Diploma / Degree / PG and International Courses 2026</p><span class="text-white/40 text-[12px] mt-1 block">Latest Â· Admissions</span></div>
+          </div>
+          <div class="flex items-start gap-4 p-4 bg-white/5 hover:bg-white/10 transition-colors duration-200 rounded-[16px] cursor-pointer group">
+            <span class="w-2 h-2 rounded-full bg-nifs-orange mt-2 flex-shrink-0 group-hover:scale-125 transition-transform"></span>
+            <div><p class="text-white font-montserrat font-semibold text-[14px] leading-snug">NIFS offering Certification in Defensive Driving Training recognized by Govt of Andhra Pradesh</p><span class="text-white/40 text-[12px] mt-1 block">Certification Â· New Program</span></div>
+          </div>
+          <div class="flex items-start gap-4 p-4 bg-white/5 hover:bg-white/10 transition-colors duration-200 rounded-[16px] cursor-pointer group">
+            <span class="w-2 h-2 rounded-full bg-nifs-green mt-2 flex-shrink-0 group-hover:scale-125 transition-transform"></span>
+            <div><p class="text-white font-montserrat font-semibold text-[14px] leading-snug">NIFS India achieves Milestone Collaboration with Acharya Nagarjuna University for advanced certifications</p><span class="text-white/40 text-[12px] mt-1 block">Partnership Â· July 2025</span></div>
+          </div>
+          <div class="flex items-start gap-4 p-4 bg-white/5 hover:bg-white/10 transition-colors duration-200 rounded-[16px] cursor-pointer group">
+            <span class="w-2 h-2 rounded-full bg-nifs-red mt-2 flex-shrink-0 group-hover:scale-125 transition-transform"></span>
+            <div><p class="text-white font-montserrat font-semibold text-[14px] leading-snug">NSDC-approved e-Learning programs now available for working professionals across India</p><span class="text-white/40 text-[12px] mt-1 block">E-Learning Â· Online</span></div>
+          </div>
+        </div>
+        <!-- Events -->
+        <div id="ncontent-events" class="ncontent hidden flex-col gap-4">
+          <div class="flex items-start gap-4 p-4 bg-white/5 hover:bg-white/10 transition-colors duration-200 rounded-[16px] cursor-pointer group">
+            <div class="flex-shrink-0 flex flex-col items-center bg-nifs-red/20 rounded-[12px] px-3 py-2 min-w-[52px] text-center"><span class="text-nifs-red font-black text-[20px] leading-none">28</span><span class="text-nifs-red/70 text-[10px] uppercase font-bold">Jul</span></div>
+            <div><p class="text-white font-montserrat font-semibold text-[14px] leading-snug">Campus Recruitment Drive â€” Adani, L&amp;T, GMR Group</p><span class="text-white/40 text-[12px] mt-1 block">Visakhapatnam HQ Â· Open to all graduates</span></div>
+          </div>
+          <div class="flex items-start gap-4 p-4 bg-white/5 hover:bg-white/10 transition-colors duration-200 rounded-[16px] cursor-pointer group">
+            <div class="flex-shrink-0 flex flex-col items-center bg-nifs-orange/20 rounded-[12px] px-3 py-2 min-w-[52px] text-center"><span class="text-nifs-orange font-black text-[20px] leading-none">05</span><span class="text-nifs-orange/70 text-[10px] uppercase font-bold">Aug</span></div>
+            <div><p class="text-white font-montserrat font-semibold text-[14px] leading-snug">Industrial Fire Safety Awareness Seminar â€” Hyderabad Center</p><span class="text-white/40 text-[12px] mt-1 block">Hyderabad Â· Free Entry</span></div>
+          </div>
+          <div class="flex items-start gap-4 p-4 bg-white/5 hover:bg-white/10 transition-colors duration-200 rounded-[16px] cursor-pointer group">
+            <div class="flex-shrink-0 flex flex-col items-center bg-nifs-green/20 rounded-[12px] px-3 py-2 min-w-[52px] text-center"><span class="text-nifs-green font-black text-[20px] leading-none">15</span><span class="text-nifs-green/70 text-[10px] uppercase font-bold">Aug</span></div>
+            <div><p class="text-white font-montserrat font-semibold text-[14px] leading-snug">NIFS Annual Convocation Ceremony â€” 2025 Batch</p><span class="text-white/40 text-[12px] mt-1 block">Vizag Â· Students &amp; Parents Welcome</span></div>
+          </div>
+        </div>
+        <!-- Jobs -->
+        <div id="ncontent-jobs" class="ncontent hidden flex-col gap-4">
+          <div class="flex items-start gap-4 p-4 bg-white/5 hover:bg-white/10 transition-colors duration-200 rounded-[16px] cursor-pointer group">
+            <span class="w-2 h-2 rounded-full bg-nifs-green mt-2 flex-shrink-0"></span>
+            <div class="flex-1"><div class="flex items-center justify-between gap-2 flex-wrap"><p class="text-white font-montserrat font-semibold text-[14px] leading-snug">Safety Officer â€” Adani Ports, Visakhapatnam</p><span class="bg-nifs-green/20 text-nifs-green text-[11px] font-bold px-2.5 py-1 rounded-full">Hiring</span></div><span class="text-white/40 text-[12px] mt-1 block">B.Sc / Diploma Â· 1-3 yrs exp</span></div>
+          </div>
+          <div class="flex items-start gap-4 p-4 bg-white/5 hover:bg-white/10 transition-colors duration-200 rounded-[16px] cursor-pointer group">
+            <span class="w-2 h-2 rounded-full bg-nifs-green mt-2 flex-shrink-0"></span>
+            <div class="flex-1"><div class="flex items-center justify-between gap-2 flex-wrap"><p class="text-white font-montserrat font-semibold text-[14px] leading-snug">Fire Safety Inspector â€” L&amp;T Construction, Chennai</p><span class="bg-nifs-green/20 text-nifs-green text-[11px] font-bold px-2.5 py-1 rounded-full">Hiring</span></div><span class="text-white/40 text-[12px] mt-1 block">Diploma / PG Diploma Â· Fresher OK</span></div>
+          </div>
+          <div class="flex items-start gap-4 p-4 bg-white/5 hover:bg-white/10 transition-colors duration-200 rounded-[16px] cursor-pointer group">
+            <span class="w-2 h-2 rounded-full bg-nifs-orange mt-2 flex-shrink-0"></span>
+            <div class="flex-1"><div class="flex items-center justify-between gap-2 flex-wrap"><p class="text-white font-montserrat font-semibold text-[14px] leading-snug">HSE Supervisor â€” GMR Group, Hyderabad Airport</p><span class="bg-nifs-orange/20 text-nifs-orange text-[11px] font-bold px-2.5 py-1 rounded-full">Urgent</span></div><span class="text-white/40 text-[12px] mt-1 block">Advanced Diploma Â· 2+ yrs exp</span></div>
+          </div>
+        </div>
+        <!-- Industrial Works -->
+        <div id="ncontent-industrial" class="ncontent hidden flex-col gap-4">
+          <div class="flex items-start gap-4 p-4 bg-white/5 hover:bg-white/10 transition-colors duration-200 rounded-[16px] cursor-pointer group">
+            <span class="w-2 h-2 rounded-full bg-nifs-red mt-2 flex-shrink-0"></span>
+            <div><p class="text-white font-montserrat font-semibold text-[14px] leading-snug">Fire Safety Audit conducted at Nilkamal Manufacturing Plant, Silvassa</p><span class="text-white/40 text-[12px] mt-1 block">Industrial Services Â· June 2025</span></div>
+          </div>
+          <div class="flex items-start gap-4 p-4 bg-white/5 hover:bg-white/10 transition-colors duration-200 rounded-[16px] cursor-pointer group">
+            <span class="w-2 h-2 rounded-full bg-nifs-orange mt-2 flex-shrink-0"></span>
+            <div><p class="text-white font-montserrat font-semibold text-[14px] leading-snug">Emergency Response Drill for MEIL Infrastructure sites across 3 states</p><span class="text-white/40 text-[12px] mt-1 block">Industrial Services Â· May 2025</span></div>
+          </div>
+          <div class="flex items-start gap-4 p-4 bg-white/5 hover:bg-white/10 transition-colors duration-200 rounded-[16px] cursor-pointer group">
+            <span class="w-2 h-2 rounded-full bg-nifs-green mt-2 flex-shrink-0"></span>
+            <div><p class="text-white font-montserrat font-semibold text-[14px] leading-snug">Safety Compliance Assessment for Amazon Fulfillment Center, Hyderabad â€” NIFS Certified</p><span class="text-white/40 text-[12px] mt-1 block">Compliance Â· April 2025</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+  function switchNifsTab(name) {
+    document.querySelectorAll('.ncontent').forEach(function(el){el.classList.add('hidden');el.classList.remove('flex');});
+    document.querySelectorAll('.ntab-btn').forEach(function(btn){btn.classList.remove('bg-nifs-red','text-white','shadow-lg');btn.classList.add('bg-white/5','text-white/60');});
+    var c=document.getElementById('ncontent-'+name);if(c){c.classList.remove('hidden');c.classList.add('flex');}
+    var t=document.getElementById('ntab-'+name);if(t){t.classList.remove('bg-white/5','text-white/60');t.classList.add('bg-nifs-red','text-white','shadow-lg');}
+  }
+  switchNifsTab('updates');
+  </script>
+</section>
+
+<!-- BLOG MARQUEE -->
+<section class="w-full py-[90px] max-lg:py-[60px] bg-white flex justify-center items-center flex-col overflow-hidden">
+  <div class="w-[90%] max-sm:w-[95%] flex flex-col gap-10 items-center">
+    <div class="text-center">
+      <span class="text-nifs-red text-xs font-bold uppercase tracking-[4px]">Articles &amp; Insights</span>
+      <h2 class="text-gray-900 font-montserrat text-[2.8vw] max-lg:text-[5vw] max-sm:text-[26px] font-black leading-tight mt-2">What's Happening<br>At NIFS</h2>
+      <p class="text-gray-400 font-montserrat text-[14px] mt-3">Latest blogs, stories, and updates â€” hover to pause</p>
+    </div>
+    <div class="w-full overflow-hidden relative">
+      <div class="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+      <div class="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+      <div class="marquee-blog-track">
+        <a href="https://nifs-institute.vercel.app/blog/nifs-india-achieves-milestone-collaboration-with-acharya-nagarjuna-university" target="_blank" class="w-[320px] flex-shrink-0 bg-white rounded-[20px] overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.08)] border border-gray-100 flex flex-col hover:shadow-[0_8px_40px_rgba(0,0,0,0.14)] hover:-translate-y-1 transition-all duration-300 group">
+          <div class="w-full h-[180px] overflow-hidden relative"><img src="https://nifs-institute.vercel.app/images/blog/nifs-india-achieves-milestone-collaboration-with-acharya-nagarjuna-university-65.jpeg" alt="NIFS ANU" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"><div class="absolute top-3 left-3 bg-nifs-red text-white text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">July 31</div></div>
+          <div class="p-5 flex flex-col flex-grow"><h3 class="text-[14px] font-bold font-montserrat text-gray-900 leading-snug line-clamp-2">NIFS India Achieves Milestone Collaboration with Acharya Nagarjuna University</h3><p class="text-gray-400 text-[12px] mt-2 line-clamp-2 leading-relaxed">Landmark collaboration for advanced certifications in fire and safety education.</p><span class="text-nifs-red font-bold text-[12px] mt-auto pt-3 block group-hover:translate-x-1 transition-transform">Read More â†’</span></div>
+        </a>
+        <a href="https://nifs-institute.vercel.app/blog/pdis-course-eligibility-criteria-based-on-academic-and-work-background" target="_blank" class="w-[320px] flex-shrink-0 bg-white rounded-[20px] overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.08)] border border-gray-100 flex flex-col hover:shadow-[0_8px_40px_rgba(0,0,0,0.14)] hover:-translate-y-1 transition-all duration-300 group">
+          <div class="w-full h-[180px] overflow-hidden relative"><img src="https://nifs-institute.vercel.app/images/blog/pdis-course-eligibility-criteria-based-on-academic-and-work-background-1.jpg" alt="PDIS Eligibility" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"><div class="absolute top-3 left-3 bg-nifs-green text-white text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">July 28</div></div>
+          <div class="p-5 flex flex-col flex-grow"><h3 class="text-[14px] font-bold font-montserrat text-gray-900 leading-snug line-clamp-2">PDIS Course Eligibility Criteria Based on Academic and Work Background</h3><p class="text-gray-400 text-[12px] mt-2 line-clamp-2 leading-relaxed">Detailed eligibility requirements for the Post Diploma in Industrial Safety.</p><span class="text-nifs-green font-bold text-[12px] mt-auto pt-3 block group-hover:translate-x-1 transition-transform">Read More â†’</span></div>
+        </a>
+        <a href="https://nifs-institute.vercel.app/blog/what-you-can-learn-in-6-to-12-months-of-safety-officer-course-training" target="_blank" class="w-[320px] flex-shrink-0 bg-white rounded-[20px] overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.08)] border border-gray-100 flex flex-col hover:shadow-[0_8px_40px_rgba(0,0,0,0.14)] hover:-translate-y-1 transition-all duration-300 group">
+          <div class="w-full h-[180px] overflow-hidden relative"><img src="https://nifs-institute.vercel.app/images/blog/what-you-can-learn-in-6-to-12-months-of-safety-officer-course-training-2.jpg" alt="Safety Officer Training" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"><div class="absolute top-3 left-3 bg-nifs-orange text-white text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">July 26</div></div>
+          <div class="p-5 flex flex-col flex-grow"><h3 class="text-[14px] font-bold font-montserrat text-gray-900 leading-snug line-clamp-2">What You Can Learn in 6 to 12 Months of Safety Officer Course Training</h3><p class="text-gray-400 text-[12px] mt-2 line-clamp-2 leading-relaxed">Skills, certifications, and career outcomes from short-term safety programs.</p><span class="text-nifs-orange font-bold text-[12px] mt-auto pt-3 block group-hover:translate-x-1 transition-transform">Read More â†’</span></div>
+        </a>
+        <a href="https://nifs-institute.vercel.app/blog/how-to-choose-a-credible-industrial-safety-online-course-with-practical-training" target="_blank" class="w-[320px] flex-shrink-0 bg-white rounded-[20px] overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.08)] border border-gray-100 flex flex-col hover:shadow-[0_8px_40px_rgba(0,0,0,0.14)] hover:-translate-y-1 transition-all duration-300 group">
+          <div class="w-full h-[180px] overflow-hidden relative"><img src="https://nifs-institute.vercel.app/images/blog/how-to-choose-a-credible-industrial-safety-online-course-with-practical-training-3.jpg" alt="Online Safety Course" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"><div class="absolute top-3 left-3 bg-nifs-red text-white text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">July 26</div></div>
+          <div class="p-5 flex flex-col flex-grow"><h3 class="text-[14px] font-bold font-montserrat text-gray-900 leading-snug line-clamp-2">How to Choose a Credible Industrial Safety Online Course with Practical Training</h3><p class="text-gray-400 text-[12px] mt-2 line-clamp-2 leading-relaxed">Key factors: accreditations, hands-on drills, placement support.</p><span class="text-nifs-red font-bold text-[12px] mt-auto pt-3 block group-hover:translate-x-1 transition-transform">Read More â†’</span></div>
+        </a>
+        <a href="https://nifs-institute.vercel.app/blog/advantages-of-studying-industrial-safety-from-a-government-recognized-institute" target="_blank" class="w-[320px] flex-shrink-0 bg-white rounded-[20px] overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.08)] border border-gray-100 flex flex-col hover:shadow-[0_8px_40px_rgba(0,0,0,0.14)] hover:-translate-y-1 transition-all duration-300 group">
+          <div class="w-full h-[180px] overflow-hidden relative"><img src="https://nifs-institute.vercel.app/images/blog/advantages-of-studying-industrial-safety-from-a-government-recognized-institute-4.jpg" alt="Govt Recognized" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"><div class="absolute top-3 left-3 bg-nifs-green text-white text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">July 26</div></div>
+          <div class="p-5 flex flex-col flex-grow"><h3 class="text-[14px] font-bold font-montserrat text-gray-900 leading-snug line-clamp-2">Advantages of Studying Industrial Safety from a Government-Recognized Institute</h3><p class="text-gray-400 text-[12px] mt-2 line-clamp-2 leading-relaxed">Why govt-approved certifications matter for India, Gulf, and global markets.</p><span class="text-nifs-green font-bold text-[12px] mt-auto pt-3 block group-hover:translate-x-1 transition-transform">Read More â†’</span></div>
+        </a>
+        <!-- Duplicates for seamless loop -->
+        <a href="https://nifs-institute.vercel.app/blog/nifs-india-achieves-milestone-collaboration-with-acharya-nagarjuna-university" target="_blank" class="w-[320px] flex-shrink-0 bg-white rounded-[20px] overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.08)] border border-gray-100 flex flex-col hover:shadow-[0_8px_40px_rgba(0,0,0,0.14)] hover:-translate-y-1 transition-all duration-300 group">
+          <div class="w-full h-[180px] overflow-hidden relative"><img src="https://nifs-institute.vercel.app/images/blog/nifs-india-achieves-milestone-collaboration-with-acharya-nagarjuna-university-65.jpeg" alt="NIFS ANU" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"><div class="absolute top-3 left-3 bg-nifs-red text-white text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">July 31</div></div>
+          <div class="p-5 flex flex-col flex-grow"><h3 class="text-[14px] font-bold font-montserrat text-gray-900 leading-snug line-clamp-2">NIFS India Achieves Milestone Collaboration with Acharya Nagarjuna University</h3><p class="text-gray-400 text-[12px] mt-2 line-clamp-2 leading-relaxed">Landmark collaboration for advanced certifications in fire and safety education.</p><span class="text-nifs-red font-bold text-[12px] mt-auto pt-3 block group-hover:translate-x-1 transition-transform">Read More â†’</span></div>
+        </a>
+        <a href="https://nifs-institute.vercel.app/blog/pdis-course-eligibility-criteria-based-on-academic-and-work-background" target="_blank" class="w-[320px] flex-shrink-0 bg-white rounded-[20px] overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.08)] border border-gray-100 flex flex-col hover:shadow-[0_8px_40px_rgba(0,0,0,0.14)] hover:-translate-y-1 transition-all duration-300 group">
+          <div class="w-full h-[180px] overflow-hidden relative"><img src="https://nifs-institute.vercel.app/images/blog/pdis-course-eligibility-criteria-based-on-academic-and-work-background-1.jpg" alt="PDIS Eligibility" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"><div class="absolute top-3 left-3 bg-nifs-green text-white text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">July 28</div></div>
+          <div class="p-5 flex flex-col flex-grow"><h3 class="text-[14px] font-bold font-montserrat text-gray-900 leading-snug line-clamp-2">PDIS Course Eligibility Criteria Based on Academic and Work Background</h3><p class="text-gray-400 text-[12px] mt-2 line-clamp-2 leading-relaxed">Detailed eligibility requirements for the Post Diploma in Industrial Safety.</p><span class="text-nifs-green font-bold text-[12px] mt-auto pt-3 block group-hover:translate-x-1 transition-transform">Read More â†’</span></div>
+        </a>
+        <a href="https://nifs-institute.vercel.app/blog/what-you-can-learn-in-6-to-12-months-of-safety-officer-course-training" target="_blank" class="w-[320px] flex-shrink-0 bg-white rounded-[20px] overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.08)] border border-gray-100 flex flex-col hover:shadow-[0_8px_40px_rgba(0,0,0,0.14)] hover:-translate-y-1 transition-all duration-300 group">
+          <div class="w-full h-[180px] overflow-hidden relative"><img src="https://nifs-institute.vercel.app/images/blog/what-you-can-learn-in-6-to-12-months-of-safety-officer-course-training-2.jpg" alt="Safety Officer Training" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"><div class="absolute top-3 left-3 bg-nifs-orange text-white text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">July 26</div></div>
+          <div class="p-5 flex flex-col flex-grow"><h3 class="text-[14px] font-bold font-montserrat text-gray-900 leading-snug line-clamp-2">What You Can Learn in 6 to 12 Months of Safety Officer Course Training</h3><p class="text-gray-400 text-[12px] mt-2 line-clamp-2 leading-relaxed">Skills, certifications, and career outcomes from short-term safety programs.</p><span class="text-nifs-orange font-bold text-[12px] mt-auto pt-3 block group-hover:translate-x-1 transition-transform">Read More â†’</span></div>
+        </a>
+        <a href="https://nifs-institute.vercel.app/blog/how-to-choose-a-credible-industrial-safety-online-course-with-practical-training" target="_blank" class="w-[320px] flex-shrink-0 bg-white rounded-[20px] overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.08)] border border-gray-100 flex flex-col hover:shadow-[0_8px_40px_rgba(0,0,0,0.14)] hover:-translate-y-1 transition-all duration-300 group">
+          <div class="w-full h-[180px] overflow-hidden relative"><img src="https://nifs-institute.vercel.app/images/blog/how-to-choose-a-credible-industrial-safety-online-course-with-practical-training-3.jpg" alt="Online Safety Course" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"><div class="absolute top-3 left-3 bg-nifs-red text-white text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">July 26</div></div>
+          <div class="p-5 flex flex-col flex-grow"><h3 class="text-[14px] font-bold font-montserrat text-gray-900 leading-snug line-clamp-2">How to Choose a Credible Industrial Safety Online Course with Practical Training</h3><p class="text-gray-400 text-[12px] mt-2 line-clamp-2 leading-relaxed">Key factors: accreditations, hands-on drills, placement support.</p><span class="text-nifs-red font-bold text-[12px] mt-auto pt-3 block group-hover:translate-x-1 transition-transform">Read More â†’</span></div>
+        </a>
+        <a href="https://nifs-institute.vercel.app/blog/advantages-of-studying-industrial-safety-from-a-government-recognized-institute" target="_blank" class="w-[320px] flex-shrink-0 bg-white rounded-[20px] overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.08)] border border-gray-100 flex flex-col hover:shadow-[0_8px_40px_rgba(0,0,0,0.14)] hover:-translate-y-1 transition-all duration-300 group">
+          <div class="w-full h-[180px] overflow-hidden relative"><img src="https://nifs-institute.vercel.app/images/blog/advantages-of-studying-industrial-safety-from-a-government-recognized-institute-4.jpg" alt="Govt Recognized" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"><div class="absolute top-3 left-3 bg-nifs-green text-white text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">July 26</div></div>
+          <div class="p-5 flex flex-col flex-grow"><h3 class="text-[14px] font-bold font-montserrat text-gray-900 leading-snug line-clamp-2">Advantages of Studying Industrial Safety from a Government-Recognized Institute</h3><p class="text-gray-400 text-[12px] mt-2 line-clamp-2 leading-relaxed">Why govt-approved certifications matter for India, Gulf, and global markets.</p><span class="text-nifs-green font-bold text-[12px] mt-auto pt-3 block group-hover:translate-x-1 transition-transform">Read More â†’</span></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- TESTIMONIALS -->
+<section class="w-full py-[100px] max-lg:py-[60px] max-md:py-[50px] max-sm:py-[60px] pb-[200px] bg-black flex justify-center items-center flex-col">
+  <div class="w-[1100px] max-w-full max-lg:w-[90%] max-sm:w-[95%] relative flex flex-col gap-[40px] max-sm:gap-[24px] justify-center items-center">
+    <h2 class="font-montserrat text-[3.5vw] max-lg:text-[7vw] max-sm:text-[28px] font-black leading-[100%] tracking-normal text-center text-white">What Our Graduates Say</h2>
+    <div class="w-[95%] max-lg:w-[90%] max-sm:w-[100%] relative flex flex-col gap-6">
+      <div class="rounded-[32px] max-md:rounded-[28px] h-[280px] max-lg:h-[310px] max-md:h-[360px] max-sm:h-[400px] sticky top-[90px] left-0 bg-white z-[1] p-8 py-10 max-sm:p-5">
+        <div class="flex flex-col justify-between h-full">
+          <p class="text-[17px] max-md:text-[14px] font-montserrat leading-[130%] font-medium text-black">"I had the best decision of my life to join NIFS. The distance education and practical training along with training for placements made me get a job at one of the top construction companies. I especially encourage anyone seeking job centered courses to attend NIFS."</p>
+          <div class="flex max-sm:flex-col justify-between items-center mt-4">
+            <div class="flex gap-4 max-sm:flex-col max-sm:w-full items-center">
+              <div class="w-[52px] h-[52px] rounded-xl bg-nifs-red flex items-center justify-center text-white font-black text-[22px]">R</div>
+              <h3 class="font-montserrat font-bold text-[18px] max-sm:text-[16px]">Rajesh Kumar</h3>
+            </div>
+            <p class="font-montserrat font-normal text-[18px] max-sm:text-[14px] max-sm:justify-start max-sm:w-full text-gray-400">Safety Officer, Vizag</p>
+          </div>
+        </div>
+      </div>
+      <div class="rounded-[32px] max-md:rounded-[28px] h-[280px] max-lg:h-[310px] max-md:h-[360px] max-sm:h-[400px] sticky top-[90px] left-0 bg-white z-[2] p-8 py-10 max-sm:p-5">
+        <div class="flex flex-col justify-between h-full">
+          <p class="text-[17px] max-md:text-[14px] font-montserrat leading-[130%] font-medium text-black">"NIFS provided me with the right mix of theoretical knowledge and practical skills. The faculty's industry experience made every concept relevant. I was placed even before completing my course through the campus recruitment drive."</p>
+          <div class="flex max-sm:flex-col justify-between items-center mt-4">
+            <div class="flex gap-4 max-sm:flex-col max-sm:w-full items-center">
+              <div class="w-[52px] h-[52px] rounded-xl bg-nifs-green flex items-center justify-center text-white font-black text-[22px]">P</div>
+              <h3 class="font-montserrat font-bold text-[18px] max-sm:text-[16px]">NIFS Graduate</h3>
+            </div>
+            <p class="font-montserrat font-normal text-[18px] max-sm:text-[14px] max-sm:justify-start max-sm:w-full text-gray-400">Campus Placement</p>
+          </div>
+        </div>
+      </div>
+      <div class="rounded-[32px] max-md:rounded-[28px] h-[280px] max-lg:h-[310px] max-md:h-[360px] max-sm:h-[400px] sticky top-[90px] left-0 bg-white z-[3] p-8 py-10 max-sm:p-5">
+        <div class="flex flex-col justify-between h-full">
+          <p class="text-[17px] max-md:text-[14px] font-montserrat leading-[130%] font-medium text-black">"The dual diploma in Fire and Safety gave me both qualifications in a single program. That extra qualification expanded my job opportunities significantly. NIFS curriculum truly matches what the industry demands."</p>
+          <div class="flex max-sm:flex-col justify-between items-center mt-4">
+            <div class="flex gap-4 max-sm:flex-col max-sm:w-full items-center">
+              <div class="w-[52px] h-[52px] rounded-xl bg-nifs-orange flex items-center justify-center text-white font-black text-[22px]">A</div>
+              <h3 class="font-montserrat font-bold text-[18px] max-sm:text-[16px]">NIFS Alumni</h3>
+            </div>
+            <p class="font-montserrat font-normal text-[18px] max-sm:text-[14px] max-sm:justify-start max-sm:w-full text-gray-400">Dual Diploma Graduate</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <a href="#apply" class="rounded-[48px] max-md:rounded-[32px] bg-white px-[28px] py-[12px] text-[18px] max-sm:text-[16px] text-black hover:bg-nifs-red hover:text-white font-montserrat font-bold cursor-pointer border-2 border-white hover:border-nifs-red transition-all duration-300 inline-block">Apply Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="w-full py-[80px] max-lg:py-[50px] max-md:py-[40px] max-sm:py-[50px] bg-white flex justify-center items-center flex-col overflow-x-hidden">
+  <div class="w-[1100px] max-w-full max-lg:w-[90%] max-sm:w-[95%] flex flex-col gap-[40px] max-sm:gap-[24px] items-center">
+    <h2 class="font-montserrat text-[5vw] max-lg:text-[8vw] max-sm:text-[36px] font-black leading-none text-left w-full">FAQ</h2>
+    <dl class="w-full flex flex-col gap-[20px] max-sm:gap-[16px]">
+      <div class="border-b-2 pb-[20px] faq-hidden">
+        <dt class="text-[22px] max-md:text-[18px] max-sm:text-[16px] font-montserrat font-bold pb-[8px]">What are the eligibility criteria for NIFS courses?</dt>
+        <dd class="text-black font-montserrat font-medium leading-[150%] text-[15px] max-sm:text-[14px]">Diploma courses require 10th / SSC / HSE. PG Diplomas and Advanced Diplomas require a Bachelor's Degree or 3-year Diploma in any stream. B.Sc. programs require 10+2. MBA requires a Bachelor's degree. SBTET requires BE / B.Tech / Diploma with experience.</dd>
+      </div>
+      <div class="border-b-2 pb-[20px] faq-hidden">
+        <dt class="text-[22px] max-md:text-[18px] max-sm:text-[16px] font-montserrat font-bold pb-[8px]">How long do NIFS courses take?</dt>
+        <dd class="text-black font-montserrat font-medium leading-[150%] text-[15px] max-sm:text-[14px]">Certificate courses: 3-6 months. Diplomas: 1 year. Advanced Diplomas: 18 months. B.Sc.: 3 years. MBA: 2 years. Course durations range from 3 months to 3 years.</dd>
+      </div>
+      <div class="border-b-2 pb-[20px] faq-hidden">
+        <dt class="text-[22px] max-md:text-[18px] max-sm:text-[16px] font-montserrat font-bold pb-[8px]">Does NIFS provide placement assistance?</dt>
+        <dd class="text-black font-montserrat font-medium leading-[150%] text-[15px] max-sm:text-[14px]">Yes. Dedicated placement cell connecting graduates with Adani, L&T, ITC, GMR, Amazon, Lansum, MEIL, Nilkamal, and hundreds of leading industries. Resume preparation, interview readiness, and recruiter coordination included.</dd>
+      </div>
+      <div class="border-b-2 pb-[20px] faq-hidden">
+        <dt class="text-[22px] max-md:text-[18px] max-sm:text-[16px] font-montserrat font-bold pb-[8px]">Where are NIFS centers located?</dt>
+        <dd class="text-black font-montserrat font-medium leading-[150%] text-[15px] max-sm:text-[14px]">86 training centers across 24 states. Headquarters in Visakhapatnam, Andhra Pradesh. Major centers in Chennai, Mumbai, Delhi NCR, Kolkata, Bangalore, Hyderabad, Ahmedabad, and many more. Also in 3+ African countries.</dd>
+      </div>
+      <div class="border-b-2 pb-[20px] faq-hidden">
+        <dt class="text-[22px] max-md:text-[18px] max-sm:text-[16px] font-montserrat font-bold pb-[8px]">Are NIFS certifications recognized for government jobs?</dt>
+        <dd class="text-black font-montserrat font-medium leading-[150%] text-[15px] max-sm:text-[14px]">Yes. NSDC approved, affiliated with Acharya Nagarjuna University, Annamalai University, and recognized by SBTET, Andhra Pradesh. Qualifications are valid for government and public sector job applications across India, Gulf, and international markets.</dd>
+      </div>
+      <div class="border-b-2 pb-[20px] faq-hidden">
+        <dt class="text-[22px] max-md:text-[18px] max-sm:text-[16px] font-montserrat font-bold pb-[8px]">Is education loan facility available?</dt>
+        <dd class="text-black font-montserrat font-medium leading-[150%] text-[15px] max-sm:text-[14px]">Yes, education loan facility is available for all NIFS courses. We assist students in connecting with financial institutions that offer education loans for professional safety training programs.</dd>
+      </div>
+      <div class="border-b-2 pb-[20px] faq-hidden">
+        <dt class="text-[22px] max-md:text-[18px] max-sm:text-[16px] font-montserrat font-bold pb-[8px]">Can I pursue NIFS courses online?</dt>
+        <dd class="text-black font-montserrat font-medium leading-[150%] text-[15px] max-sm:text-[14px]">Yes. NSDC-approved diploma programs and certain certificate courses are available through e-learning. Working professionals and students in remote areas can access NIFS training without relocating.</dd>
+      </div>
+      <div class="border-b-2 pb-[20px] faq-hidden">
+        <dt class="text-[22px] max-md:text-[18px] max-sm:text-[16px] font-montserrat font-bold pb-[8px]">What is the 70/30 curriculum model?</dt>
+        <dd class="text-black font-montserrat font-medium leading-[150%] text-[15px] max-sm:text-[14px]">70% practical hands-on training in fire drills, safety audits, hazard simulations, and industrial site visits. 30% classroom theory. This ensures graduates are job-ready from day one, not just degree-holders.</dd>
+      </div>
+      <div class="border-b-2 pb-[20px] faq-hidden">
+        <dt class="text-[22px] max-md:text-[18px] max-sm:text-[16px] font-montserrat font-bold pb-[8px]">Does NIFS offer Defensive Driving Training?</dt>
+        <dd class="text-black font-montserrat font-medium leading-[150%] text-[15px] max-sm:text-[14px]">Yes. NIFS offers Defensive Driving Certification recognized by the Government of Andhra Pradesh â€” a specialized program for transport and logistics safety professionals.</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+
+<!-- FOOTER CTA -->
+<section id="apply" class="w-full bg-nifs-red py-[120px] max-lg:py-[80px] flex justify-center items-center flex-col text-center px-6">
+  <h2 class="text-white font-montserrat text-[5vw] max-lg:text-[7vw] font-black leading-none mb-6">Your Safety Career Starts Here</h2>
+  <p class="text-white/80 font-montserrat text-[22px] max-sm:text-[16px] mb-10 max-w-[600px]">Admissions open for Diploma, PG Diploma, Degree, and Certificate programs. Education loans and scholarships available. Join 45,000+ alumni.</p>
+  <p class="text-white/60 font-montserrat text-[16px] mb-8">Limited seats available for August 2026 intake</p>
+  <div class="flex gap-4 max-sm:flex-col max-sm:w-full max-sm:items-center">
+    <a href="https://nifs-institute.vercel.app/admissions" class="rounded-[48px] bg-white px-[40px] py-[18px] text-[24px] max-sm:text-[18px] text-nifs-red font-montserrat font-bold cursor-pointer border-2 border-white hover:bg-transparent hover:text-white transition-all duration-300 inline-block">Apply Now â†’</a>
+    <a href="tel:+919246624690" class="rounded-[48px] bg-transparent px-[40px] py-[18px] text-[24px] max-sm:text-[18px] text-white font-montserrat font-bold cursor-pointer border-2 border-white hover:bg-white hover:text-nifs-red transition-all duration-300 inline-block">Call Now</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-black text-white py-[64px] px-[5%]">
+  <div class="max-w-[1200px] mx-auto grid grid-cols-4 max-lg:grid-cols-2 max-md:grid-cols-1 gap-12 mb-12">
+    <div class="col-span-1">
+      <h3 class="font-montserrat text-[24px] font-black uppercase mb-4">NIFS India</h3>
+      <p class="text-gray-400 text-[14px] leading-relaxed">National Institute of Fire and Safety â€” igniting careers in fire engineering and industrial safety since 2004. An ISO 9001:2015 certified unit of SSB Institute of Higher Studies Educational Society.</p>
+    </div>
+    <div>
+      <h4 class="text-[13px] uppercase tracking-widest font-bold mb-4">Explore</h4>
+      <a href="#courses" class="block text-gray-400 text-[14px] py-1 hover:text-white transition-colors">Courses</a>
+      <a href="#" class="block text-gray-400 text-[14px] py-1 hover:text-white transition-colors">Industrial Services</a>
+      <a href="#centers" class="block text-gray-400 text-[14px] py-1 hover:text-white transition-colors">Centers</a>
+      <a href="#" class="block text-gray-400 text-[14px] py-1 hover:text-white transition-colors">Placements</a>
+      <a href="#" class="block text-gray-400 text-[14px] py-1 hover:text-white transition-colors">Gallery</a>
+      <a href="#" class="block text-gray-400 text-[14px] py-1 hover:text-white transition-colors">About</a>
+      <a href="#" class="block text-gray-400 text-[14px] py-1 hover:text-white transition-colors">Blog</a>
+    </div>
+    <div>
+      <h4 class="text-[13px] uppercase tracking-widest font-bold mb-4">Accreditations</h4>
+      <a href="#" class="block text-gray-400 text-[14px] py-1 hover:text-white transition-colors">NSDC</a>
+      <a href="#" class="block text-gray-400 text-[14px] py-1 hover:text-white transition-colors">Skill India</a>
+      <a href="#" class="block text-gray-400 text-[14px] py-1 hover:text-white transition-colors">Acharya Nagarjuna University</a>
+      <a href="#" class="block text-gray-400 text-[14px] py-1 hover:text-white transition-colors">Annamalai University</a>
+      <a href="#" class="block text-gray-400 text-[14px] py-1 hover:text-white transition-colors">National Safety Council</a>
+    </div>
+    <div>
+      <h4 class="text-[13px] uppercase tracking-widest font-bold mb-4">Contact</h4>
+      <p class="text-gray-400 text-[14px] py-1">Door No. 47-10-15, 2nd Lane,</p>
+      <p class="text-gray-400 text-[14px] py-0">Dwarakanagar, AG Avenue Building,</p>
+      <p class="text-gray-400 text-[14px] py-0">3rd Floor, Visakhapatnam (A.P.) â€“ 530016</p>
+      <p class="text-gray-400 text-[14px] py-2">+91-9246-624-690 Â· +91-8374-340-999</p>
+      <a href="https://wa.me/919246624690" class="text-nifs-green text-[14px] py-1 hover:underline inline-block mt-2">Chat on WhatsApp â†’</a>
+    </div>
+  </div>
+  <div class="max-w-[1200px] mx-auto border-t border-gray-800 pt-6 flex justify-between items-center flex-wrap gap-4">
+    <p class="text-gray-600 text-[13px]">&copy; 2026 NIFS India. All rights reserved.</p>
+    <div class="flex gap-3">
+      <a href="#" class="w-[36px] h-[36px] rounded-lg bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-nifs-red hover:text-white transition-all"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+      <a href="#" class="w-[36px] h-[36px] rounded-lg bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-nifs-red hover:text-white transition-all"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+      <a href="#" class="w-[36px] h-[36px] rounded-lg bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-nifs-red hover:text-white transition-all"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/><polygon points="9.75,15.02 15.5,11.75 9.75,8.48" fill="white"/></svg></a>
+      <a href="#" class="w-[36px] h-[36px] rounded-lg bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-nifs-red hover:text-white transition-all"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Section headings: scrub-scale
+  gsap.utils.toArray('h2').forEach(function(h){
+    if(h.closest('.marquee-track')||h.closest('.faq-hidden'))return;
+    gsap.from(h,{scale:1.5,scrollTrigger:{trigger:h,scrub:true}});
+  });
+
+  // Hero entrance
+  var heroH1=document.querySelector('h1');
+  var heroP=document.querySelector('section p');
+  if(heroH1)gsap.from(heroH1,{opacity:0,y:40,duration:0.8,ease:'power3.out',delay:0.3});
+
+  // Stat count-up
+  document.querySelectorAll('[data-value]').forEach(function(el){
+    ScrollTrigger.create({
+      trigger:el,start:'top 85%',once:true,
+      onEnter:function(){
+        var target=parseInt(el.getAttribute('data-value'),10);
+        var suffix=el.getAttribute('data-suffix')||'';
+        var hasComma=target>=1000;
+        var counter={val:0};
+        gsap.to(counter,{val:target,duration:1.8,ease:'power2.out',onUpdate:function(){
+          var v=Math.round(counter.val);
+          el.textContent=(hasComma?v.toLocaleString('en-IN'):v)+suffix;
+        }});
+      }
+    });
+  });
+
+  // Course cards parallax
+  gsap.utils.toArray('.course-img').forEach(function(img){
+    gsap.to(img,{y:-60,ease:'none',scrollTrigger:{trigger:img,start:'top bottom',end:'bottom top',scrub:true}});
+  });
+
+  // Infrastructure parallax
+  gsap.utils.toArray('.infra-img').forEach(function(img){
+    gsap.to(img,{y:-40,ease:'none',scrollTrigger:{trigger:img,start:'top bottom',end:'bottom top',scrub:true}});
+  });
+
+  // Process bars
+  document.querySelectorAll('.bar-fill').forEach(function(bar){
+    gsap.to(bar,{width:bar.getAttribute('data-width'),scrollTrigger:{trigger:bar,scrub:true,start:'top bottom'}});
+  });
+
+  // Process text slide
+  gsap.utils.toArray('.text-slide-left').forEach(function(el){
+    gsap.from(el,{x:-100,scrollTrigger:{trigger:el,scrub:true,start:'top bottom'}});
+  });
+  gsap.utils.toArray('.text-slide-right').forEach(function(el){
+    gsap.from(el,{x:100,scrollTrigger:{trigger:el,scrub:true,start:'top bottom'}});
+  });
+
+  // FAQ slide-in
+  gsap.utils.toArray('.faq-hidden').forEach(function(card){
+    gsap.fromTo(card,{opacity:0,x:-80},{opacity:1,x:0,scrollTrigger:{trigger:card,start:'top 85%',end:'top 50%',scrub:true}});
+  });
+
+  // Placement carousel
+  var track=document.getElementById('placementTrack');
+  if(track&&track.children.length>1){
+    var half=Math.ceil(track.children.length/2);
+    var cardW=track.children[0].offsetWidth+32;
+    var scrollDist=cardW*half;
+    gsap.set(track,{x:0});
+    var scrollTL=gsap.timeline({repeat:-1});
+    scrollTL.to(track,{x:-scrollDist,duration:25,ease:'none'});
+    var wrap=document.getElementById('carouselWrap');
+    if(wrap){wrap.addEventListener('mouseenter',function(){scrollTL.pause()});wrap.addEventListener('mouseleave',function(){scrollTL.resume()})}
+  }
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      var t=document.querySelector(a.getAttribute('href'));
+      if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}
+    });
+  });
+});
+</script>
+</body>
+</html>

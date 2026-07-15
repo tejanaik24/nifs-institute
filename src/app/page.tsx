@@ -1,39 +1,5 @@
-"use client";
-
-import { SpineLayout } from "@/components/SpineLayout";
-import { TunnelHero } from "@/components/sections/tunnel-hero";
-import { WhyNIFS } from "@/components/sections/WhyNIFS";
-import { AboutNifs } from "@/components/sections/about-nifs";
-import { Placements } from "@/components/sections/placements-section";
-import { CentersGrid } from "@/components/sections/centers-grid";
-import { FacilitiesShowcase } from "@/components/sections/facilities-showcase";
-import { StudentPlacements } from "@/components/sections/student-placements";
-import { CoursesSection } from "@/components/sections/CoursesSection";
-import { LatestNews } from "@/components/sections/latest-news";
-import { UpdatesTabs } from "@/components/sections/updates-tabs";
-import { AdmissionsCTA } from "@/components/sections/AdmissionsCTA";
+import { redirect } from "next/navigation";
 
 export default function HomePage() {
-  return (
-    <>
-      {/* Hero — full-viewport scroll image tunnel with headline overlay */}
-      <TunnelHero />
-
-      {/* Continuous spine running behind the entire post-hero homepage,
-          from Welcome through the closing admissions CTA — stops right
-          where the footer begins. */}
-      <SpineLayout>
-        <WhyNIFS />
-        <AboutNifs />
-        <Placements />
-        <CentersGrid />
-        <FacilitiesShowcase />
-        <StudentPlacements />
-        <CoursesSection />
-        <LatestNews />
-        <UpdatesTabs />
-        <AdmissionsCTA />
-      </SpineLayout>
-    </>
-  );
+  redirect("/homepage.html");
 }
