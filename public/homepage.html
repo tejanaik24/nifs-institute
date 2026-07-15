@@ -318,90 +318,85 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased}
   <div class="w-[90%] max-sm:w-[95%] flex flex-col gap-[64px] max-sm:gap-[32px] items-center">
     <h2 class="text-white font-montserrat text-[10vw] max-lg:text-[12vw] font-black leading-[100%] tracking-normal">Why NIFS</h2>
 
-    <div id="whyCarousel" class="w-full max-w-4xl rounded-md p-10 max-sm:p-6" style="background-color:rgb(15 23 42);transition:background-color 0.5s">
-      <div class="flex max-md:flex-col gap-10 items-center justify-center">
-        <div class="max-w-xl flex-1">
-          <h3 id="whyTitle" class="text-2xl font-bold text-slate-100"></h3>
-          <p id="whyDesc" class="text-lg text-slate-300 mt-10 max-md:mt-4"></p>
-          <div class="flex items-center gap-6 mt-10 max-md:mt-6">
-            <button id="whyPrev" aria-label="Previous" class="w-[2.7rem] h-[2.7rem] rounded-full bg-[#141414] flex items-center justify-center text-white hover:bg-nifs-red transition-colors cursor-pointer border-none">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-            </button>
-            <button id="whyNext" aria-label="Next" class="w-[2.7rem] h-[2.7rem] rounded-full bg-[#141414] flex items-center justify-center text-white hover:bg-nifs-red transition-colors cursor-pointer border-none">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </button>
-            <div id="whyDots" class="flex items-center gap-2 ml-2"></div>
+    <div id="whyStickyScroll" class="h-[36rem] max-sm:h-[30rem] w-full max-w-5xl overflow-y-auto flex justify-center relative space-x-10 rounded-2xl p-10 max-sm:p-6 border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.5)]" style="background-color:rgb(15 23 42);transition:background-color 0.5s">
+      <div class="relative flex items-start px-4">
+        <div class="max-w-2xl">
+          <div class="why-item my-20" data-index="0">
+            <h3 class="why-title text-2xl font-bold text-slate-100" style="opacity:1;transition:opacity 0.3s">Practical Training Yard</h3>
+            <p class="why-desc text-lg text-slate-300 max-w-sm mt-10" style="opacity:1;transition:opacity 0.3s">Real hazard simulations on actual equipment. 85% of curriculum is hands-on, not classroom theory.</p>
           </div>
+          <div class="why-item my-20" data-index="1">
+            <h3 class="why-title text-2xl font-bold text-slate-100" style="opacity:0.3;transition:opacity 0.3s">Direct Placement Cell</h3>
+            <p class="why-desc text-lg text-slate-300 max-w-sm mt-10" style="opacity:0.3;transition:opacity 0.3s">Dedicated team with direct recruiter relationships at Adani, L&T, GMR and 45,000+ placements across India.</p>
+          </div>
+          <div class="why-item my-20" data-index="2">
+            <h3 class="why-title text-2xl font-bold text-slate-100" style="opacity:0.3;transition:opacity 0.3s">Government Recognized</h3>
+            <p class="why-desc text-lg text-slate-300 max-w-sm mt-10" style="opacity:0.3;transition:opacity 0.3s">NSDC + Skill India approved. Certificates valid across India, Gulf, and international markets.</p>
+          </div>
+          <div class="why-item my-20" data-index="3">
+            <h3 class="why-title text-2xl font-bold text-slate-100" style="opacity:0.3;transition:opacity 0.3s">86 Centers Nationwide</h3>
+            <p class="why-desc text-lg text-slate-300 max-w-sm mt-10" style="opacity:0.3;transition:opacity 0.3s">Learn near home. Transfer between centers anytime. New centers opening every quarter.</p>
+          </div>
+          <div class="why-item my-20" data-index="4">
+            <h3 class="why-title text-2xl font-bold text-slate-100" style="opacity:0.3;transition:opacity 0.3s">Industry Faculty Only</h3>
+            <p class="why-desc text-lg text-slate-300 max-w-sm mt-10" style="opacity:0.3;transition:opacity 0.3s">Every trainer has minimum 10 years field experience. No academics teaching what they've never done.</p>
+          </div>
+          <div class="h-40"></div>
         </div>
-        <div class="hidden lg:block h-60 w-80 rounded-md bg-white overflow-hidden shrink-0">
-          <img id="whyPanelImg" src="why_training_yard_bg.png" alt="" class="w-full h-full object-cover" style="transition:opacity 0.2s">
-        </div>
+      </div>
+      <div class="hidden lg:block h-64 w-96 rounded-xl bg-white sticky top-10 overflow-hidden shrink-0 shadow-2xl">
+        <img id="whyPanelImg" src="why_training_yard_bg.png" alt="" class="w-full h-full object-cover" style="transition:opacity 0.2s">
       </div>
     </div>
   </div>
 </section>
 <script>
 (function(){
-  var whyItems = [
-    {title:'Practical Training Yard', desc:'Real hazard simulations on actual equipment. 85% of curriculum is hands-on, not classroom theory.', img:'why_training_yard_bg.png'},
-    {title:'Direct Placement Cell', desc:'Dedicated team with direct recruiter relationships at Adani, L&T, GMR and 45,000+ placements across India.', img:'why_placement_bg.png'},
-    {title:'Government Recognized', desc:'NSDC + Skill India approved. Certificates valid across India, Gulf, and international markets.', img:'why_government_bg.png'},
-    {title:'86 Centers Nationwide', desc:'Learn near home. Transfer between centers anytime. New centers opening every quarter.', img:'why_centers_bg.png'},
-    {title:'Industry Faculty Only', desc:'Every trainer has minimum 10 years field experience. No academics teaching what they\\'ve never done.', img:'why_faculty_bg.png'}
-  ];
-  var backgroundColors = ['rgb(15 23 42)','rgb(0 0 0)','rgb(23 23 23)'];
-
-  var container = document.getElementById('whyCarousel');
-  var titleEl = document.getElementById('whyTitle');
-  var descEl = document.getElementById('whyDesc');
+  var container = document.getElementById('whyStickyScroll');
+  var items = container.querySelectorAll('.why-item');
   var panelImg = document.getElementById('whyPanelImg');
-  var dotsWrap = document.getElementById('whyDots');
-  var prevBtn = document.getElementById('whyPrev');
-  var nextBtn = document.getElementById('whyNext');
-  if(!container) return;
+  if(!container || !items.length) return;
 
-  var len = whyItems.length;
-  var active = 0;
-  var autoplayTimer = null;
-
-  whyItems.forEach(function(_, i){
-    var dot = document.createElement('button');
-    dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
-    dot.className = 'why-dot w-2 h-2 rounded-full bg-white/30 transition-colors cursor-pointer border-none p-0';
-    dot.addEventListener('click', function(){ setActive(i); resetAutoplay(); });
-    dotsWrap.appendChild(dot);
-  });
-  var dots = dotsWrap.querySelectorAll('.why-dot');
+  var cardLength = items.length;
+  var images = ['why_training_yard_bg.png','why_placement_bg.png','why_government_bg.png','why_centers_bg.png','why_faculty_bg.png'];
+  var backgroundColors = ['rgb(15 23 42)','rgb(0 0 0)','rgb(23 23 23)'];
+  var activeCard = -1;
 
   function setActive(index){
-    active = ((index % len) + len) % len;
-    var item = whyItems[active];
-    container.style.backgroundColor = backgroundColors[active % backgroundColors.length];
-    titleEl.textContent = item.title;
-    descEl.textContent = item.desc;
+    if(index === activeCard) return;
+    activeCard = index;
+    container.style.backgroundColor = backgroundColors[index % backgroundColors.length];
+    items.forEach(function(item){
+      var i = Number(item.dataset.index);
+      var opacity = i === index ? '1' : '0.3';
+      item.querySelector('.why-title').style.opacity = opacity;
+      item.querySelector('.why-desc').style.opacity = opacity;
+    });
     panelImg.style.opacity = '0';
     setTimeout(function(){
-      panelImg.src = item.img;
+      panelImg.src = images[index];
       panelImg.style.opacity = '1';
     }, 150);
-    dots.forEach(function(dot, i){
-      dot.className = 'why-dot w-2 h-2 rounded-full transition-colors cursor-pointer border-none p-0 ' + (i === active ? 'bg-white' : 'bg-white/30');
+  }
+
+  function handleScroll(){
+    var scrollTop = container.scrollTop;
+    var scrollHeight = container.scrollHeight;
+    var clientHeight = container.clientHeight;
+    var progress = scrollTop / (scrollHeight - clientHeight || 1);
+    var cardsBreakpoints = [];
+    for(var i = 0; i < cardLength; i++){ cardsBreakpoints.push(i / cardLength); }
+    var closest = 0;
+    cardsBreakpoints.forEach(function(breakpoint, index){
+      if(Math.abs(progress - breakpoint) < Math.abs(progress - cardsBreakpoints[closest])){
+        closest = index;
+      }
     });
+    setActive(closest);
   }
 
-  function next(){ setActive(active + 1); }
-  function prev(){ setActive(active - 1); }
-
-  function resetAutoplay(){
-    if(autoplayTimer) clearInterval(autoplayTimer);
-    autoplayTimer = setInterval(function(){ setActive(active + 1); }, 5000);
-  }
-
-  prevBtn.addEventListener('click', function(){ prev(); resetAutoplay(); });
-  nextBtn.addEventListener('click', function(){ next(); resetAutoplay(); });
-
+  container.addEventListener('scroll', handleScroll, {passive:true});
   setActive(0);
-  resetAutoplay();
 })();
 </script>
 
