@@ -314,89 +314,94 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased}
 </section>
 
 <!-- WHY NIFS -->
-<section class="bg-black w-full flex justify-center items-center flex-col overflow-hidden py-[100px] max-lg:py-[70px] max-sm:py-[60px]">
+<section class="bg-black w-full flex justify-center items-center flex-col overflow-hidden pt-[180px] pb-[100px] max-lg:pt-[140px] max-lg:pb-[70px] max-sm:pt-[120px] max-sm:pb-[60px]">
   <div class="w-[90%] max-sm:w-[95%] flex flex-col gap-[64px] max-sm:gap-[32px] items-center">
     <h2 class="text-white font-montserrat text-[10vw] max-lg:text-[12vw] font-black leading-[100%] tracking-normal">Why NIFS</h2>
 
-    <div id="whyStickyScroll" class="h-[30rem] w-full max-w-4xl overflow-y-auto flex justify-center relative space-x-10 rounded-md p-10" style="background-color:rgb(15 23 42);transition:background-color 0.5s">
-      <div class="relative flex items-start px-4">
-        <div class="max-w-2xl">
-          <div class="why-item my-20" data-index="0">
-            <h3 class="why-title text-2xl font-bold text-slate-100" style="opacity:1;transition:opacity 0.3s">Practical Training Yard</h3>
-            <p class="why-desc text-lg text-slate-300 max-w-sm mt-10" style="opacity:1;transition:opacity 0.3s">Real hazard simulations on actual equipment. 85% of curriculum is hands-on, not classroom theory.</p>
+    <div id="whyCarousel" class="w-full max-w-4xl rounded-md p-10 max-sm:p-6" style="background-color:rgb(15 23 42);transition:background-color 0.5s">
+      <div class="flex max-md:flex-col gap-10 items-center justify-center">
+        <div class="max-w-xl flex-1">
+          <h3 id="whyTitle" class="text-2xl font-bold text-slate-100"></h3>
+          <p id="whyDesc" class="text-lg text-slate-300 mt-10 max-md:mt-4"></p>
+          <div class="flex items-center gap-6 mt-10 max-md:mt-6">
+            <button id="whyPrev" aria-label="Previous" class="w-[2.7rem] h-[2.7rem] rounded-full bg-[#141414] flex items-center justify-center text-white hover:bg-nifs-red transition-colors cursor-pointer border-none">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            </button>
+            <button id="whyNext" aria-label="Next" class="w-[2.7rem] h-[2.7rem] rounded-full bg-[#141414] flex items-center justify-center text-white hover:bg-nifs-red transition-colors cursor-pointer border-none">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+            <div id="whyDots" class="flex items-center gap-2 ml-2"></div>
           </div>
-          <div class="why-item my-20" data-index="1">
-            <h3 class="why-title text-2xl font-bold text-slate-100" style="opacity:0.3;transition:opacity 0.3s">Direct Placement Cell</h3>
-            <p class="why-desc text-lg text-slate-300 max-w-sm mt-10" style="opacity:0.3;transition:opacity 0.3s">Dedicated team with direct recruiter relationships at Adani, L&T, GMR and 45,000+ placements across India.</p>
-          </div>
-          <div class="why-item my-20" data-index="2">
-            <h3 class="why-title text-2xl font-bold text-slate-100" style="opacity:0.3;transition:opacity 0.3s">Government Recognized</h3>
-            <p class="why-desc text-lg text-slate-300 max-w-sm mt-10" style="opacity:0.3;transition:opacity 0.3s">NSDC + Skill India approved. Certificates valid across India, Gulf, and international markets.</p>
-          </div>
-          <div class="why-item my-20" data-index="3">
-            <h3 class="why-title text-2xl font-bold text-slate-100" style="opacity:0.3;transition:opacity 0.3s">86 Centers Nationwide</h3>
-            <p class="why-desc text-lg text-slate-300 max-w-sm mt-10" style="opacity:0.3;transition:opacity 0.3s">Learn near home. Transfer between centers anytime. New centers opening every quarter.</p>
-          </div>
-          <div class="why-item my-20" data-index="4">
-            <h3 class="why-title text-2xl font-bold text-slate-100" style="opacity:0.3;transition:opacity 0.3s">Industry Faculty Only</h3>
-            <p class="why-desc text-lg text-slate-300 max-w-sm mt-10" style="opacity:0.3;transition:opacity 0.3s">Every trainer has minimum 10 years field experience. No academics teaching what they've never done.</p>
-          </div>
-          <div class="h-40"></div>
         </div>
-      </div>
-      <div class="hidden lg:block h-60 w-80 rounded-md bg-white sticky top-10 overflow-hidden shrink-0">
-        <img id="whyPanelImg" src="why_training_yard_bg.png" alt="" class="w-full h-full object-cover" style="transition:opacity 0.2s">
+        <div class="hidden lg:block h-60 w-80 rounded-md bg-white overflow-hidden shrink-0">
+          <img id="whyPanelImg" src="why_training_yard_bg.png" alt="" class="w-full h-full object-cover" style="transition:opacity 0.2s">
+        </div>
       </div>
     </div>
   </div>
 </section>
 <script>
 (function(){
-  var container = document.getElementById('whyStickyScroll');
-  var items = container.querySelectorAll('.why-item');
-  var panelImg = document.getElementById('whyPanelImg');
-  if(!container || !items.length) return;
-
-  var cardLength = items.length;
-  var images = ['why_training_yard_bg.png','why_placement_bg.png','why_government_bg.png','why_centers_bg.png','why_faculty_bg.png'];
+  var whyItems = [
+    {title:'Practical Training Yard', desc:'Real hazard simulations on actual equipment. 85% of curriculum is hands-on, not classroom theory.', img:'why_training_yard_bg.png'},
+    {title:'Direct Placement Cell', desc:'Dedicated team with direct recruiter relationships at Adani, L&T, GMR and 45,000+ placements across India.', img:'why_placement_bg.png'},
+    {title:'Government Recognized', desc:'NSDC + Skill India approved. Certificates valid across India, Gulf, and international markets.', img:'why_government_bg.png'},
+    {title:'86 Centers Nationwide', desc:'Learn near home. Transfer between centers anytime. New centers opening every quarter.', img:'why_centers_bg.png'},
+    {title:'Industry Faculty Only', desc:'Every trainer has minimum 10 years field experience. No academics teaching what they\\'ve never done.', img:'why_faculty_bg.png'}
+  ];
   var backgroundColors = ['rgb(15 23 42)','rgb(0 0 0)','rgb(23 23 23)'];
-  var activeCard = -1;
+
+  var container = document.getElementById('whyCarousel');
+  var titleEl = document.getElementById('whyTitle');
+  var descEl = document.getElementById('whyDesc');
+  var panelImg = document.getElementById('whyPanelImg');
+  var dotsWrap = document.getElementById('whyDots');
+  var prevBtn = document.getElementById('whyPrev');
+  var nextBtn = document.getElementById('whyNext');
+  if(!container) return;
+
+  var len = whyItems.length;
+  var active = 0;
+  var autoplayTimer = null;
+
+  whyItems.forEach(function(_, i){
+    var dot = document.createElement('button');
+    dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+    dot.className = 'why-dot w-2 h-2 rounded-full bg-white/30 transition-colors cursor-pointer border-none p-0';
+    dot.addEventListener('click', function(){ setActive(i); resetAutoplay(); });
+    dotsWrap.appendChild(dot);
+  });
+  var dots = dotsWrap.querySelectorAll('.why-dot');
 
   function setActive(index){
-    if(index === activeCard) return;
-    activeCard = index;
-    container.style.backgroundColor = backgroundColors[index % backgroundColors.length];
-    items.forEach(function(item){
-      var i = Number(item.dataset.index);
-      var opacity = i === index ? '1' : '0.3';
-      item.querySelector('.why-title').style.opacity = opacity;
-      item.querySelector('.why-desc').style.opacity = opacity;
-    });
+    active = ((index % len) + len) % len;
+    var item = whyItems[active];
+    container.style.backgroundColor = backgroundColors[active % backgroundColors.length];
+    titleEl.textContent = item.title;
+    descEl.textContent = item.desc;
     panelImg.style.opacity = '0';
     setTimeout(function(){
-      panelImg.src = images[index];
+      panelImg.src = item.img;
       panelImg.style.opacity = '1';
     }, 150);
-  }
-
-  function handleScroll(){
-    var scrollTop = container.scrollTop;
-    var scrollHeight = container.scrollHeight;
-    var clientHeight = container.clientHeight;
-    var progress = scrollTop / (scrollHeight - clientHeight || 1);
-    var cardsBreakpoints = [];
-    for(var i = 0; i < cardLength; i++){ cardsBreakpoints.push(i / cardLength); }
-    var closest = 0;
-    cardsBreakpoints.forEach(function(breakpoint, index){
-      if(Math.abs(progress - breakpoint) < Math.abs(progress - cardsBreakpoints[closest])){
-        closest = index;
-      }
+    dots.forEach(function(dot, i){
+      dot.className = 'why-dot w-2 h-2 rounded-full transition-colors cursor-pointer border-none p-0 ' + (i === active ? 'bg-white' : 'bg-white/30');
     });
-    setActive(closest);
   }
 
-  container.addEventListener('scroll', handleScroll, {passive:true});
+  function next(){ setActive(active + 1); }
+  function prev(){ setActive(active - 1); }
+
+  function resetAutoplay(){
+    if(autoplayTimer) clearInterval(autoplayTimer);
+    autoplayTimer = setInterval(function(){ setActive(active + 1); }, 5000);
+  }
+
+  prevBtn.addEventListener('click', function(){ prev(); resetAutoplay(); });
+  nextBtn.addEventListener('click', function(){ next(); resetAutoplay(); });
+
   setActive(0);
+  resetAutoplay();
 })();
 </script>
 
@@ -555,63 +560,64 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased}
 })();
 </script>
 
-<section class="w-full py-[200px] max-lg:py-[70px] bg-[#101010] flex justify-center items-center flex-col overflow-hidden">
-  <div class="w-[90%] max-sm:w-[95%] flex flex-col gap-16 items-center">
-    <div class="text-center">
-      <h2 class="text-white font-montserrat text-[6vw] max-lg:text-[8vw] font-black leading-none">State-of-the-art<br>training infrastructure</h2>
-      <p class="text-white/60 font-montserrat text-[20px] max-sm:text-[16px] mt-6">6 real facilities â€” not brochures, reality</p>
-    </div>
-    <div class="grid grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-1 gap-6 w-full">
-      <!-- Card 1: Smart Classrooms -->
-      <div class="relative overflow-hidden rounded-[32px] p-8 max-sm:p-6 flex flex-col min-h-[220px] justify-end group cursor-pointer shadow-xl">
-        <img src="https://nifs-institute.vercel.app/images/nifs-hero-classroom.png" alt="Smart Classrooms" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/85 to-black/30"></div>
-        <h3 class="text-white text-[24px] font-bold relative z-10 font-montserrat">Smart Classrooms</h3>
-        <p class="text-white/80 text-[15px] relative z-10 mt-1 leading-normal">AC classrooms with digital displays and safety training posters</p>
-      </div>
-
-      <!-- Card 2: AC Lecture Theatre -->
-      <div class="relative overflow-hidden rounded-[32px] p-8 max-sm:p-6 flex flex-col min-h-[220px] justify-end group cursor-pointer shadow-xl">
-        <img src="https://nifs-institute.vercel.app/images/classroom-lecture.jpg" alt="AC Lecture Theatre" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/85 to-black/30"></div>
-        <h3 class="text-white text-[24px] font-bold relative z-10 font-montserrat">AC Lecture Theatre</h3>
-        <p class="text-white/80 text-[15px] relative z-10 mt-1 leading-normal">Tiered lecture theatre with large touchscreen display</p>
-      </div>
-
-      <!-- Card 3: Practical Training Yard -->
-      <div class="relative overflow-hidden rounded-[32px] p-8 max-sm:p-6 flex flex-col min-h-[220px] justify-end group cursor-pointer shadow-xl">
-        <img src="https://nifs-institute.vercel.app/images/nifs-hero-training-yard.png" alt="Practical Training Yard" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/85 to-black/30"></div>
-        <h3 class="text-white text-[24px] font-bold relative z-10 font-montserrat">Practical Training Yard</h3>
-        <p class="text-white/80 text-[15px] relative z-10 mt-1 leading-normal">Real hazard simulations on actual equipment. 85% hands-on curriculum</p>
-      </div>
-
-      <!-- Card 4: Fire Hazard Drill -->
-      <div class="relative overflow-hidden rounded-[32px] p-8 max-sm:p-6 flex flex-col min-h-[220px] justify-end group cursor-pointer shadow-xl">
-        <img src="https://nifs-institute.vercel.app/images/training-drill.png" alt="Fire Hazard Drill" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/85 to-black/30"></div>
-        <h3 class="text-white text-[24px] font-bold relative z-10 font-montserrat">Fire Hazard Drill</h3>
-        <p class="text-white/80 text-[15px] relative z-10 mt-1 leading-normal">Live fire hazard identification and emergency response drills</p>
-      </div>
-
-      <!-- Card 5: Hostel Accommodation -->
-      <div class="relative overflow-hidden rounded-[32px] p-8 max-sm:p-6 flex flex-col min-h-[220px] justify-end group cursor-pointer shadow-xl">
-        <img src="https://nifs-institute.vercel.app/images/hostel-facility.jpg" alt="Hostel Accommodation" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/85 to-black/30"></div>
-        <h3 class="text-white text-[24px] font-bold relative z-10 font-montserrat">Hostel Accommodation</h3>
-        <p class="text-white/80 text-[15px] relative z-10 mt-1 leading-normal">On-campus housing for out-of-town students across all centers</p>
-      </div>
-
-      <!-- Card 6: Industry Site Visits -->
-      <div class="relative overflow-hidden rounded-[32px] p-8 max-sm:p-6 flex flex-col min-h-[220px] justify-end group cursor-pointer shadow-xl">
-        <img src="https://nifs-institute.vercel.app/images/gallery-industrial-visit.jpg" alt="Industry Site Visits" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/85 to-black/30"></div>
-        <h3 class="text-white text-[24px] font-bold relative z-10 font-montserrat">Industry Site Visits</h3>
-        <p class="text-white/80 text-[15px] relative z-10 mt-1 leading-normal">Industrial visits to power plants, factories, and construction sites</p>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- FACILITIES -->
+<section class="w-full py-[200px] max-lg:py-[70px] bg-[#101010] flex justify-center items-center flex-col overflow-hidden">
+  <div class="w-[90%] max-sm:w-[95%] flex flex-col gap-16 items-center">
+    <div class="text-center">
+      <h2 class="text-white font-montserrat text-[6vw] max-lg:text-[8vw] font-black leading-none">State-of-the-art<br>training infrastructure</h2>
+      <p class="text-white/60 font-montserrat text-[20px] max-sm:text-[16px] mt-6">6 real facilities — not brochures, reality</p>
+    </div>
+    <div class="grid grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-1 gap-6 w-full">
+      <!-- Card 1: Smart Classrooms -->
+      <div class="relative overflow-hidden rounded-[32px] p-8 max-sm:p-6 flex flex-col min-h-[280px] justify-end group cursor-pointer shadow-xl border border-white/10 hover:border-nifs-red/50 hover:-translate-y-2 transition-all duration-300 hover:shadow-[0_0_40px_rgba(220,23,17,0.25)]">
+        <img src="https://nifs-institute.vercel.app/images/nifs-hero-classroom.png" alt="Smart Classrooms" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/85 to-black/30"></div>
+        <h3 class="text-white text-[24px] font-bold relative z-10 font-montserrat">Smart Classrooms</h3>
+        <p class="text-white/80 text-[15px] relative z-10 mt-1 leading-normal">AC classrooms with digital displays and safety training posters</p>
+      </div>
+
+      <!-- Card 2: AC Lecture Theatre -->
+      <div class="relative overflow-hidden rounded-[32px] p-8 max-sm:p-6 flex flex-col min-h-[280px] justify-end group cursor-pointer shadow-xl border border-white/10 hover:border-nifs-green/50 hover:-translate-y-2 transition-all duration-300 hover:shadow-[0_0_40px_rgba(38,190,41,0.25)]">
+        <img src="https://nifs-institute.vercel.app/images/classroom-lecture.jpg" alt="AC Lecture Theatre" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/85 to-black/30"></div>
+        <h3 class="text-white text-[24px] font-bold relative z-10 font-montserrat">AC Lecture Theatre</h3>
+        <p class="text-white/80 text-[15px] relative z-10 mt-1 leading-normal">Tiered lecture theatre with large touchscreen display</p>
+      </div>
+
+      <!-- Card 3: Practical Training Yard -->
+      <div class="relative overflow-hidden rounded-[32px] p-8 max-sm:p-6 flex flex-col min-h-[280px] justify-end group cursor-pointer shadow-xl border border-white/10 hover:border-nifs-orange/50 hover:-translate-y-2 transition-all duration-300 hover:shadow-[0_0_40px_rgba(252,128,16,0.25)]">
+        <img src="https://nifs-institute.vercel.app/images/nifs-hero-training-yard.png" alt="Practical Training Yard" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/85 to-black/30"></div>
+        <h3 class="text-white text-[24px] font-bold relative z-10 font-montserrat">Practical Training Yard</h3>
+        <p class="text-white/80 text-[15px] relative z-10 mt-1 leading-normal">Real hazard simulations on actual equipment. 85% hands-on curriculum</p>
+      </div>
+
+      <!-- Card 4: Fire Hazard Drill -->
+      <div class="relative overflow-hidden rounded-[32px] p-8 max-sm:p-6 flex flex-col min-h-[280px] justify-end group cursor-pointer shadow-xl border border-white/10 hover:border-nifs-red/50 hover:-translate-y-2 transition-all duration-300 hover:shadow-[0_0_40px_rgba(220,23,17,0.25)]">
+        <img src="https://nifs-institute.vercel.app/images/training-drill.png" alt="Fire Hazard Drill" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/85 to-black/30"></div>
+        <h3 class="text-white text-[24px] font-bold relative z-10 font-montserrat">Fire Hazard Drill</h3>
+        <p class="text-white/80 text-[15px] relative z-10 mt-1 leading-normal">Live fire hazard identification and emergency response drills</p>
+      </div>
+
+      <!-- Card 5: Hostel Accommodation -->
+      <div class="relative overflow-hidden rounded-[32px] p-8 max-sm:p-6 flex flex-col min-h-[280px] justify-end group cursor-pointer shadow-xl border border-white/10 hover:border-nifs-green/50 hover:-translate-y-2 transition-all duration-300 hover:shadow-[0_0_40px_rgba(38,190,41,0.25)]">
+        <img src="https://nifs-institute.vercel.app/images/hostel-facility.jpg" alt="Hostel Accommodation" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/85 to-black/30"></div>
+        <h3 class="text-white text-[24px] font-bold relative z-10 font-montserrat">Hostel Accommodation</h3>
+        <p class="text-white/80 text-[15px] relative z-10 mt-1 leading-normal">On-campus housing for out-of-town students across all centers</p>
+      </div>
+
+      <!-- Card 6: Industry Site Visits -->
+      <div class="relative overflow-hidden rounded-[32px] p-8 max-sm:p-6 flex flex-col min-h-[280px] justify-end group cursor-pointer shadow-xl border border-white/10 hover:border-nifs-orange/50 hover:-translate-y-2 transition-all duration-300 hover:shadow-[0_0_40px_rgba(252,128,16,0.25)]">
+        <img src="https://nifs-institute.vercel.app/images/gallery-industrial-visit.jpg" alt="Industry Site Visits" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/85 to-black/30"></div>
+        <h3 class="text-white text-[24px] font-bold relative z-10 font-montserrat">Industry Site Visits</h3>
+        <p class="text-white/80 text-[15px] relative z-10 mt-1 leading-normal">Industrial visits to power plants, factories, and construction sites</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- CAREER OUTCOMES -->
 <section class="w-full py-[120px] max-lg:py-[70px] bg-black flex justify-center items-center flex-col overflow-hidden">
