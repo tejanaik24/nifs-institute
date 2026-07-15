@@ -405,26 +405,24 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased}
   <div class="w-[90%] max-sm:w-[95%] relative flex flex-col gap-[64px] max-sm:gap-[32px] justify-center items-center">
     <h2 class="text-white font-montserrat text-[10vw] max-lg:text-[12vw] font-black leading-[100%] tracking-normal">Our Programs</h2>
 
-    <div id="courseCarousel" class="w-full max-w-[1400px]" style="perspective:1000px">
+    <div id="courseCarousel" class="w-full max-w-[56rem] mx-auto" style="perspective:1000px">
       <div class="grid grid-cols-2 max-md:grid-cols-1 gap-[5rem] items-center">
         <!-- Image stack -->
         <div id="courseImageStack" class="relative w-full h-[24rem] max-sm:h-[18rem]"></div>
 
         <!-- Content -->
-        <div class="flex flex-col justify-between">
+        <div class="flex flex-col justify-between max-md:pt-4">
           <div id="courseContent">
-            <span id="courseTag" class="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full border inline-block mb-4"></span>
-            <h3 id="courseTitle" class="font-montserrat font-black text-[36px] max-sm:text-[26px] text-white leading-tight"></h3>
-            <p id="courseDuration" class="text-white/60 font-montserrat text-[16px] mt-2"></p>
-            <p id="courseDesc" class="text-white/80 font-montserrat text-[18px] max-sm:text-[15px] mt-6 leading-relaxed"></p>
-            <p id="courseBadge" class="text-white/40 font-montserrat text-[13px] font-medium mt-6"></p>
+            <h3 id="courseTitle" class="font-montserrat font-bold text-[28px] max-sm:text-[24px] text-white leading-tight"></h3>
+            <p id="courseDuration" class="font-montserrat text-white/50 text-[15px] mt-2"></p>
+            <p id="courseDesc" class="font-montserrat text-white/70 text-[18px] mt-8 leading-[1.75]"></p>
           </div>
-          <div class="flex gap-6 pt-10 max-md:pt-6">
-            <button id="coursePrev" aria-label="Previous course" class="w-[54px] h-[54px] rounded-full bg-[#141414] border border-white/10 flex items-center justify-center text-white hover:bg-nifs-red transition-colors cursor-pointer">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          <div class="flex gap-6 pt-12 max-md:pt-8">
+            <button id="coursePrev" aria-label="Previous course" class="w-[2.7rem] h-[2.7rem] rounded-full bg-[#141414] flex items-center justify-center text-white hover:bg-nifs-red transition-colors cursor-pointer border-none">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
             </button>
-            <button id="courseNext" aria-label="Next course" class="w-[54px] h-[54px] rounded-full bg-[#141414] border border-white/10 flex items-center justify-center text-white hover:bg-nifs-red transition-colors cursor-pointer">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <button id="courseNext" aria-label="Next course" class="w-[2.7rem] h-[2.7rem] rounded-full bg-[#141414] flex items-center justify-center text-white hover:bg-nifs-red transition-colors cursor-pointer border-none">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </button>
           </div>
         </div>
@@ -440,29 +438,22 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased}
 <script>
 (function(){
   var courses = [
-    {tag:'DFS', title:'Diploma in Fire & Safety', duration:'1 Year', desc:'Fire Prevention & Emergency Response', badge:'NSDC Approved', img:'https://nifs-institute.vercel.app/images/courses/diploma-in-fire-safety.jpg', color:'red'},
-    {tag:'DHSE', title:'Diploma in HSE', duration:'1 Year', desc:'Health, Safety & Environment', badge:'NSDC Approved', img:'https://nifs-institute.vercel.app/images/courses/diploma-in-health-safety-environment.jpg', color:'green'},
-    {tag:'DIS', title:'Diploma in Industrial Safety', duration:'1 Year', desc:'Industrial Hygiene & Hazard Management', badge:'NSDC Approved', img:'https://nifs-institute.vercel.app/images/course-card-industrial-safety.jpg', color:'orange'},
-    {tag:'PGDFS', title:'PG Diploma in Fire & Safety', duration:'1 Year', desc:'Advanced Fire Engineering', badge:'NSDC Approved', img:'https://nifs-institute.vercel.app/images/course-card-fire-safety.jpg', color:'red'},
-    {tag:'PGDHSE', title:'PG Diploma in HSE', duration:'1 Year', desc:'Senior HSE Management', badge:'NSDC Approved', img:'https://nifs-institute.vercel.app/images/corporate-training-onsite.jpg', color:'green'},
-    {tag:'ADFS', title:'Advanced Diploma in Fire & Safety', duration:'18 Months', desc:'Fire Risk Assessment & Safety Audits', badge:'NSDC Approved', img:'https://nifs-institute.vercel.app/images/training-yard-drill.jpg', color:'orange'},
-    {tag:'ADIS', title:'Advanced Diploma in Industrial Safety', duration:'18 Months', desc:'Industrial safety officer training', badge:'State Govt Recognized', img:'https://nifs-institute.vercel.app/images/gallery-industrial-visit.jpg', color:'red'},
-    {tag:'B.Sc', title:'B.Sc in Fire & Industrial Safety', duration:'3 Years', desc:'Full degree with internship training', badge:'University Approved', img:'https://nifs-institute.vercel.app/images/gallery-practical-yard.jpg', color:'green'},
-    {tag:'MBA', title:'MBA in Safety Management', duration:'2 Years', desc:'Management-level safety leadership', badge:'University Approved', img:'https://nifs-institute.vercel.app/images/control-room-risk-assessment.jpg', color:'orange'},
-    {tag:'CCFS', title:'Certificate Course in Fire & Safety', duration:'3-6 Months', desc:'Quick-entry safety certification', badge:'NSDC Approved', img:'https://nifs-institute.vercel.app/images/courses/certificate-course-in-fire-safety.jpg', color:'red'}
+    {tag:'DFS', title:'Diploma in Fire & Safety', duration:'1 Year • NSDC Approved', desc:'Fire Prevention & Emergency Response', img:'https://nifs-institute.vercel.app/images/courses/diploma-in-fire-safety.jpg'},
+    {tag:'DHSE', title:'Diploma in HSE', duration:'1 Year • NSDC Approved', desc:'Health, Safety & Environment', img:'https://nifs-institute.vercel.app/images/courses/diploma-in-health-safety-environment.jpg'},
+    {tag:'DIS', title:'Diploma in Industrial Safety', duration:'1 Year • NSDC Approved', desc:'Industrial Hygiene & Hazard Management', img:'https://nifs-institute.vercel.app/images/course-card-industrial-safety.jpg'},
+    {tag:'PGDFS', title:'PG Diploma in Fire & Safety', duration:'1 Year • NSDC Approved', desc:'Advanced Fire Engineering', img:'https://nifs-institute.vercel.app/images/course-card-fire-safety.jpg'},
+    {tag:'PGDHSE', title:'PG Diploma in HSE', duration:'1 Year • NSDC Approved', desc:'Senior HSE Management', img:'https://nifs-institute.vercel.app/images/corporate-training-onsite.jpg'},
+    {tag:'ADFS', title:'Advanced Diploma in Fire & Safety', duration:'18 Months • NSDC Approved', desc:'Fire Risk Assessment & Safety Audits', img:'https://nifs-institute.vercel.app/images/training-yard-drill.jpg'},
+    {tag:'ADIS', title:'Advanced Diploma in Industrial Safety', duration:'18 Months • State Govt Recognized', desc:'Industrial safety officer training', img:'https://nifs-institute.vercel.app/images/gallery-industrial-visit.jpg'},
+    {tag:'B.Sc', title:'B.Sc in Fire & Industrial Safety', duration:'3 Years • University Approved', desc:'Full degree with internship training', img:'https://nifs-institute.vercel.app/images/gallery-practical-yard.jpg'},
+    {tag:'MBA', title:'MBA in Safety Management', duration:'2 Years • University Approved', desc:'Management-level safety leadership', img:'https://nifs-institute.vercel.app/images/control-room-risk-assessment.jpg'},
+    {tag:'CCFS', title:'Certificate Course in Fire & Safety', duration:'3-6 Months • NSDC Approved', desc:'Quick-entry safety certification', img:'https://nifs-institute.vercel.app/images/courses/certificate-course-in-fire-safety.jpg'}
   ];
-  var colorMap = {
-    red:   {text:'text-nifs-red',   bg:'bg-nifs-red/15',   border:'border-nifs-red/20'},
-    green: {text:'text-nifs-green', bg:'bg-nifs-green/15', border:'border-nifs-green/20'},
-    orange:{text:'text-nifs-orange',bg:'bg-nifs-orange/15',border:'border-nifs-orange/20'}
-  };
 
   var stack = document.getElementById('courseImageStack');
-  var tagEl = document.getElementById('courseTag');
   var titleEl = document.getElementById('courseTitle');
   var durationEl = document.getElementById('courseDuration');
   var descEl = document.getElementById('courseDesc');
-  var badgeEl = document.getElementById('courseBadge');
   var prevBtn = document.getElementById('coursePrev');
   var nextBtn = document.getElementById('courseNext');
   if(!stack) return;
@@ -476,16 +467,17 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased}
     img.src = c.img;
     img.alt = c.title;
     img.dataset.index = i;
-    img.className = 'absolute inset-0 w-full h-full object-cover rounded-[24px] shadow-2xl';
+    img.className = 'absolute inset-0 w-full h-full object-cover rounded-[1.5rem]';
+    img.style.boxShadow = '0 10px 30px rgba(0,0,0,0.4)';
     img.style.transition = 'all 0.8s cubic-bezier(.4,2,.3,1)';
     stack.appendChild(img);
   });
   var imgs = stack.querySelectorAll('img');
 
   function calculateGap(width){
-    var minWidth = 480, maxWidth = 900, minGap = 30, maxGap = 60;
+    var minWidth = 1024, maxWidth = 1456, minGap = 60, maxGap = 86;
     if(width <= minWidth) return minGap;
-    if(width >= maxWidth) return maxGap;
+    if(width >= maxWidth) return Math.max(minGap, maxGap + 0.06018 * (width - maxWidth));
     return minGap + (maxGap - minGap) * ((width - minWidth) / (maxWidth - minWidth));
   }
 
@@ -500,7 +492,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased}
       if(isActive){
         img.style.zIndex = 3;
         img.style.opacity = 1;
-        img.style.transform = 'translateX(0) translateY(0) scale(1) rotateY(0deg)';
+        img.style.transform = 'translateX(0px) translateY(0px) scale(1) rotateY(0deg)';
       } else if(isLeft){
         img.style.zIndex = 2;
         img.style.opacity = 1;
@@ -518,17 +510,13 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased}
 
   function renderContent(){
     var c = courses[active];
-    var colors = colorMap[c.color];
-    tagEl.textContent = c.tag;
-    tagEl.className = 'text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full border inline-block mb-4 ' + colors.text + ' ' + colors.bg + ' ' + colors.border;
     titleEl.textContent = c.title;
     durationEl.textContent = c.duration;
-    badgeEl.textContent = c.badge;
 
     descEl.innerHTML = '';
     c.desc.split(' ').forEach(function(word, i){
       var span = document.createElement('span');
-      span.textContent = word + ' ';
+      span.textContent = word + ' ';
       span.style.display = 'inline-block';
       span.style.opacity = '0';
       span.style.filter = 'blur(10px)';
