@@ -119,6 +119,10 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
   .mobile-timeline::before{content:'';position:absolute;left:12px;top:0;bottom:0;width:3px;background:linear-gradient(to bottom,#DC1711,#26BE29,#FC8010)}
 }
 
+@media(max-width:639px){
+  dl dd{max-height:0;opacity:0;overflow:hidden}
+}
+
 </style>
 
 </head>
@@ -207,84 +211,88 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
 
 <!-- HERO -->
 
-<section class="min-h-screen w-full bg-white flex pt-28 pb-[100px] max-lg:pt-24 max-md:pt-20 max-lg:pb-[70px] max-md:pb-[60px] flex-col items-center justify-center">
+<section class="relative min-h-screen w-full overflow-hidden flex flex-col justify-end md:flex-row md:items-center md:justify-start pt-0 md:pt-40 max-lg:md:pt-36 pb-10 md:pb-[100px] max-lg:md:pb-[70px]">
 
-  <div class="flex justify-center items-center flex-col w-[90%] max-sm:w-[95%] gap-12 max-sm:gap-4 max-lg:gap-6">
+  <img src="images/hero-safety-officer.png" alt="NIFS-trained industrial safety officer on-site at an industrial plant" class="absolute inset-0 w-full h-full object-cover object-[68%_30%] md:object-[84%_center]">
 
-    <div class="flex flex-col justify-start items-center relative gap-6 max-sm:gap-4">
+  <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/5 md:bg-gradient-to-r md:from-white md:from-[10%] md:via-white/85 md:via-[30%] md:to-white/0 md:to-[42%]"></div>
 
-      <p class="font-montserrat text-[40px] max-md:text-[32px] max-sm:text-[24px] font-normal leading-[130%] max-sm:leading-[100%] text-center">25+ Years of Excellence</p>
+  <div class="relative z-10 flex flex-col items-start w-full px-[5%] md:pt-0 md:w-[90%] md:max-w-[620px] gap-6 md:gap-10 md:pl-[3%]">
 
-      <h1 class="text-[9vh] font-montserrat font-black text-center max-lg:text-[10vw] max-sm:text-[11vw] leading-[105%] max-lg:leading-[100%] max-sm:leading-[120%] w-[80%] max-lg:w-[100%]">
+    <div class="flex flex-col justify-start items-start relative gap-6 max-sm:gap-4">
+
+      <p class="font-montserrat text-[32px] max-md:text-[28px] max-sm:text-[22px] font-normal leading-[130%] max-sm:leading-[100%] text-left text-white md:text-black">25+ Years of Excellence</p>
+
+      <h1 class="text-[7vh] font-montserrat font-black text-left max-lg:text-[9vw] max-sm:text-[8vw] leading-[105%] max-lg:leading-[100%] max-sm:leading-[115%] w-full text-white md:text-black">
 
         India's Leader in Fire &<span class="text-nifs-red"> Industrial Safety</span> Organization
 
       </h1>
 
-      <p class="text-center font-montserrat text-2xl max-sm:text-[16px] text-gray-500 max-w-[600px]">From Visakhapatnam to every corner of India — 86 centers, 45,000+ alumni, careers that protect lives.</p>
+      <p class="text-left font-montserrat text-xl max-sm:text-[16px] text-white/80 md:text-gray-600 max-w-[520px]">From the classroom to the refinery floor — 86 centers, 45,000+ alumni, careers that protect lives.</p>
 
 
-      <div class="flex gap-4 max-sm:flex-col max-sm:w-full max-sm:items-center">
+      <div class="flex gap-4 max-sm:flex-col max-sm:w-full max-sm:items-stretch">
 
-        <a href="#courses" class="px-8 py-[14px] border-2 border-solid rounded-[48px] max-md:rounded-[32px] bg-nifs-red hover:bg-red-800 transition-all duration-300 text-2xl max-sm:text-[20px] tracking-tight font-montserrat cursor-pointer font-bold text-white hover:text-white text-center">Explore Courses</a>
+        <a href="#courses" class="px-8 py-[14px] border-2 border-solid rounded-[48px] max-md:rounded-[32px] bg-nifs-red hover:bg-red-800 transition-all duration-300 text-xl max-sm:text-[18px] tracking-tight font-montserrat cursor-pointer font-bold text-white hover:text-white text-center">Explore Courses</a>
 
-        <a href="#process" class="px-8 py-[14px] border-2 border-solid rounded-[48px] max-md:rounded-[32px] bg-white hover:bg-black transition-all duration-300 text-2xl max-sm:text-[20px] tracking-tight font-montserrat cursor-pointer font-bold text-black hover:text-white text-center">How to Join</a>
-
-      </div>
-
-    </div>
-
-    <div class="flex gap-10 max-sm:gap-6 max-md:gap-8 justify-center flex-wrap">
-
-      <div class="text-center">
-
-        <span class="block text-[48px] max-sm:text-[32px] font-black leading-none" data-value="25" data-suffix="+">25+</span>
-
-        <span class="text-sm font-semibold uppercase tracking-wider text-gray-400">Years</span>
-
-      </div>
-
-      <div class="text-center">
-
-        <span class="block text-[48px] max-sm:text-[32px] font-black leading-none" data-value="86" data-suffix="">86</span>
-
-        <span class="text-sm font-semibold uppercase tracking-wider text-gray-400">Centers</span>
-
-      </div>
-
-      <div class="text-center">
-
-        <span class="block text-[48px] max-sm:text-[32px] font-black leading-none" data-value="45000" data-suffix="+">45,000+</span>
-
-        <span class="text-sm font-semibold uppercase tracking-wider text-gray-400">Alumni</span>
-
-      </div>
-
-      <div class="text-center">
-
-        <span class="block text-[48px] max-sm:text-[32px] font-black leading-none" data-value="24" data-suffix="">24</span>
-
-        <span class="text-sm font-semibold uppercase tracking-wider text-gray-400">States</span>
+        <a href="#process" class="px-8 py-[14px] border-2 border-solid rounded-[48px] max-md:rounded-[32px] bg-white hover:bg-black transition-all duration-300 text-xl max-sm:text-[18px] tracking-tight font-montserrat cursor-pointer font-bold text-black hover:text-white text-center">How to Join</a>
 
       </div>
 
     </div>
 
-    <div class="flex flex-col gap-6">
+    <div class="flex gap-8 max-sm:gap-5 max-md:gap-6 justify-start flex-wrap">
 
-      <h2 class="font-montserrat text-[32px] max-md:text-[28px] max-sm:text-[16px] font-bold text-center">Our Graduates Work At</h2>
+      <div class="text-left">
 
-      <div class="flex gap-12 max-sm:gap-6 max-md:gap-8 justify-center items-center flex-wrap px-4">
+        <span class="block text-[40px] max-sm:text-[28px] font-black leading-none text-white md:text-black" data-value="25" data-suffix="+">25+</span>
 
-        <img src="https://nifs-institute.vercel.app/images/logos/recruiters/adani_logo.png" alt="Adani" class="h-10 max-sm:h-8 object-contain hover:scale-105 transition-transform duration-300" style="clip-path: inset(4px);">
+        <span class="text-sm font-semibold uppercase tracking-wider text-white/60 md:text-gray-400">Years</span>
 
-        <img src="https://nifs-institute.vercel.app/images/logos/recruiters/lt.png" alt="L&T" class="h-10 max-sm:h-8 object-contain hover:scale-105 transition-transform duration-300" style="clip-path: inset(4px);">
+      </div>
 
-        <img src="https://nifs-institute.vercel.app/images/logos/recruiters/itc.png" alt="ITC" class="h-10 max-sm:h-8 object-contain hover:scale-105 transition-transform duration-300" style="clip-path: inset(4px);">
+      <div class="text-left">
 
-        <img src="https://nifs-institute.vercel.app/images/logos/recruiters/gmr.png" alt="GMR" class="h-10 max-sm:h-8 object-contain hover:scale-105 transition-transform duration-300" style="clip-path: inset(4px);">
+        <span class="block text-[40px] max-sm:text-[28px] font-black leading-none text-white md:text-black" data-value="86" data-suffix="">86</span>
 
-        <img src="https://nifs-institute.vercel.app/images/logos/recruiters/amazon.png" alt="Amazon" class="h-10 max-sm:h-8 object-contain hover:scale-105 transition-transform duration-300" style="clip-path: inset(4px);">
+        <span class="text-sm font-semibold uppercase tracking-wider text-white/60 md:text-gray-400">Centers</span>
+
+      </div>
+
+      <div class="text-left">
+
+        <span class="block text-[40px] max-sm:text-[28px] font-black leading-none text-white md:text-black" data-value="45000" data-suffix="+">45,000+</span>
+
+        <span class="text-sm font-semibold uppercase tracking-wider text-white/60 md:text-gray-400">Alumni</span>
+
+      </div>
+
+      <div class="text-left">
+
+        <span class="block text-[40px] max-sm:text-[28px] font-black leading-none text-white md:text-black" data-value="24" data-suffix="">24</span>
+
+        <span class="text-sm font-semibold uppercase tracking-wider text-white/60 md:text-gray-400">States</span>
+
+      </div>
+
+    </div>
+
+    <div class="flex flex-col gap-5 items-start">
+
+      <h2 class="font-montserrat text-[22px] max-md:text-[20px] max-sm:text-[15px] font-bold text-left text-white md:text-black">Our Graduates Work At</h2>
+
+      <div class="flex gap-8 max-sm:gap-3 max-md:gap-6 justify-start items-center flex-wrap">
+
+        <span class="bg-white/90 md:bg-transparent rounded-lg p-1.5 md:p-0 flex items-center"><img src="https://nifs-institute.vercel.app/images/logos/recruiters/adani_logo.png" alt="Adani" class="h-9 max-sm:h-6 object-contain hover:scale-105 transition-transform duration-300" style="clip-path: inset(4px);"></span>
+
+        <span class="bg-white/90 md:bg-transparent rounded-lg p-1.5 md:p-0 flex items-center"><img src="https://nifs-institute.vercel.app/images/logos/recruiters/lt.png" alt="L&T" class="h-9 max-sm:h-6 object-contain hover:scale-105 transition-transform duration-300" style="clip-path: inset(4px);"></span>
+
+        <span class="bg-white/90 md:bg-transparent rounded-lg p-1.5 md:p-0 flex items-center"><img src="https://nifs-institute.vercel.app/images/logos/recruiters/itc.png" alt="ITC" class="h-9 max-sm:h-6 object-contain hover:scale-105 transition-transform duration-300" style="clip-path: inset(4px);"></span>
+
+        <span class="bg-white/90 md:bg-transparent rounded-lg p-1.5 md:p-0 flex items-center"><img src="https://nifs-institute.vercel.app/images/logos/recruiters/gmr.png" alt="GMR" class="h-9 max-sm:h-6 object-contain hover:scale-105 transition-transform duration-300" style="clip-path: inset(4px);"></span>
+
+        <span class="bg-white/90 md:bg-transparent rounded-lg p-1.5 md:p-0 flex items-center"><img src="https://nifs-institute.vercel.app/images/logos/recruiters/amazon.png" alt="Amazon" class="h-9 max-sm:h-6 object-contain hover:scale-105 transition-transform duration-300" style="clip-path: inset(4px);"></span>
 
       </div>
 
@@ -292,24 +300,6 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
 
   </div>
 
-</section>
-
-
-<!-- CHAIRMAN SPOTLIGHT -->
-<section class="w-full py-[120px] max-lg:py-[70px] max-sm:py-[60px] flex justify-center items-center" style="background:linear-gradient(180deg,#232323,#2f2f2f)">
-  <div class="w-[90%] max-sm:w-[95%] max-w-6xl grid grid-cols-2 max-lg:grid-cols-1 gap-16 max-lg:gap-10 items-center">
-    <div class="chairman-photo relative rounded-[32px] overflow-hidden aspect-[4/5] shadow-2xl ring-1 ring-white/10" style="opacity:0;transform:scale(0.92)">
-      <img src="images/nifs-chairman-portrait.jpg" alt="Sri. Suneel Mahanty, Chairman and CEO, NIFS" class="absolute inset-0 w-full h-full object-cover">
-    </div>
-    <div>
-      <span class="text-nifs-red font-montserrat font-black text-[11px] uppercase tracking-[0.2em]">From the Chairman's Desk</span>
-      <h3 class="font-montserrat font-black text-white text-[32px] max-sm:text-[24px] leading-[120%] mt-4">Inspiring India's Next Generation of <span class="text-nifs-red">Safety Leaders</span></h3>
-      <p class="font-montserrat italic text-white/70 text-[18px] max-sm:text-[15px] leading-relaxed mt-6">&ldquo;To impart futuristic and comprehensive fire engineering and industrial safety education &amp; consultancy of global standards with a sense of high quality, discipline and social respect.&rdquo;</p>
-      <div class="w-16 h-[3px] bg-nifs-red mt-8 mb-4"></div>
-      <p class="font-montserrat font-bold text-white text-[16px]">Sri. Suneel Mahanty</p>
-      <p class="font-montserrat text-white/50 text-[12px] uppercase tracking-wide">Chairman and CEO, NIFS — M Sc., M Phil. &amp; MBA (FISM)</p>
-    </div>
-  </div>
 </section>
 
 <!-- RECRUITER MARQUEE -->
@@ -399,6 +389,24 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
 </section>
 
 
+<!-- CHAIRMAN SPOTLIGHT -->
+<section class="w-full py-[120px] max-lg:py-[70px] max-sm:py-[60px] flex justify-center items-center" style="background:linear-gradient(180deg,#232323,#2f2f2f)">
+  <div class="w-[90%] max-sm:w-[95%] max-w-6xl grid grid-cols-2 max-lg:grid-cols-1 gap-16 max-lg:gap-10 items-center">
+    <div class="chairman-photo relative rounded-[32px] overflow-hidden aspect-[4/5] shadow-2xl ring-1 ring-white/10" style="opacity:0;transform:scale(0.92)">
+      <img src="images/nifs-chairman-portrait.jpg" alt="Sri. Suneel Mahanty, Chairman and CEO, NIFS" class="absolute inset-0 w-full h-full object-cover">
+    </div>
+    <div>
+      <span class="text-nifs-red font-montserrat font-black text-[11px] uppercase tracking-[0.2em]">From the Chairman's Desk</span>
+      <h3 class="font-montserrat font-black text-white text-[32px] max-sm:text-[24px] leading-[120%] mt-4">Inspiring India's Next Generation of <span class="text-nifs-red">Safety Leaders</span></h3>
+      <p class="font-montserrat italic text-white/70 text-[18px] max-sm:text-[15px] leading-relaxed mt-6">&ldquo;To impart futuristic and comprehensive fire engineering and industrial safety education &amp; consultancy of global standards with a sense of high quality, discipline and social respect.&rdquo;</p>
+      <div class="w-16 h-[3px] bg-nifs-red mt-8 mb-4"></div>
+      <p class="font-montserrat font-bold text-white text-[16px]">Sri. Suneel Mahanty</p>
+      <p class="font-montserrat text-white/50 text-[12px] uppercase tracking-wide">Chairman and CEO, NIFS — M Sc., M Phil. &amp; MBA (FISM)</p>
+    </div>
+  </div>
+</section>
+
+
 
 <!-- TRAINED. PLACED. PROVEN. -->
 
@@ -418,7 +426,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
 
       <!-- Card 1: Skill India -->
 
-      <div class="trained-card relative overflow-hidden rounded-[48px] max-md:rounded-[32px] p-10 min-h-[480px] max-md:min-h-[85vh] flex flex-col justify-between group shadow-xl">
+      <div class="trained-card relative overflow-hidden rounded-[48px] max-md:rounded-[32px] p-10 max-md:p-6 min-h-[480px] max-md:min-h-[380px] flex flex-col justify-between group shadow-xl">
 
         <!-- Background Image -->
 
@@ -432,13 +440,13 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
 
         <!-- Content -->
 
-        <div class="relative z-10 flex flex-col justify-between h-full flex-1 gap-8">
+        <div class="relative z-10 flex flex-col justify-between h-full flex-1 gap-8 max-md:gap-4">
 
           <div class="flex justify-between items-center w-full">
 
-            <div class="bg-white px-8 py-5 rounded-3xl shadow-2xl flex items-center justify-center h-28 w-48 overflow-hidden">
+            <div class="bg-white px-8 py-5 max-md:px-4 max-md:py-2.5 rounded-3xl shadow-2xl flex items-center justify-center h-28 max-md:h-16 w-48 max-md:w-32 overflow-hidden">
 
-              <img src="https://nifs-institute.vercel.app/images/logos/accreditations/skill-india.png" alt="Skill India Logo" class="h-28 object-contain scale-[2.2] transform transition-transform duration-300 group-hover:scale-[2.4]">
+              <img src="https://nifs-institute.vercel.app/images/logos/accreditations/skill-india.png" alt="Skill India Logo" class="h-28 max-md:h-14 object-contain scale-[2.2] max-md:scale-100 transform transition-transform duration-300 group-hover:scale-[2.4]">
 
             </div>
 
@@ -448,7 +456,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
 
           <div>
 
-            <h3 class="text-white text-[28px] font-bold font-montserrat leading-tight mb-3">Skill India Partner</h3>
+            <h3 class="text-white text-[28px] max-md:text-[20px] font-bold font-montserrat leading-tight mb-3 max-md:mb-2">Skill India Partner</h3>
 
             <p class="text-white/80 text-[15px] leading-relaxed">Delivering standardized government safety courses under the Skill India (कौशल भारतâ€“कुशल भारत) mission to build high-quality professional competency.</p>
 
@@ -462,7 +470,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
 
       <!-- Card 2: NSDC Skill Development -->
 
-      <div class="trained-card relative overflow-hidden rounded-[48px] max-md:rounded-[32px] p-10 min-h-[480px] max-md:min-h-[85vh] flex flex-col justify-between group shadow-xl">
+      <div class="trained-card relative overflow-hidden rounded-[48px] max-md:rounded-[32px] p-10 max-md:p-6 min-h-[480px] max-md:min-h-[380px] flex flex-col justify-between group shadow-xl">
 
         <!-- Background Image -->
 
@@ -476,13 +484,13 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
 
         <!-- Content -->
 
-        <div class="relative z-10 flex flex-col justify-between h-full flex-1 gap-8">
+        <div class="relative z-10 flex flex-col justify-between h-full flex-1 gap-8 max-md:gap-4">
 
           <div class="flex justify-between items-center w-full">
 
-            <div class="bg-white px-8 py-5 rounded-3xl shadow-2xl flex items-center justify-center h-28 w-48 overflow-hidden">
+            <div class="bg-white px-8 py-5 max-md:px-4 max-md:py-2.5 rounded-3xl shadow-2xl flex items-center justify-center h-28 max-md:h-16 w-48 max-md:w-32 overflow-hidden">
 
-              <img src="https://nifs-institute.vercel.app/images/logos/accreditations/nsdc.png" alt="NSDC Logo" class="h-28 object-contain scale-[1.8] transform transition-transform duration-300 group-hover:scale-[2.0]">
+              <img src="https://nifs-institute.vercel.app/images/logos/accreditations/nsdc.png" alt="NSDC Logo" class="h-28 max-md:h-14 object-contain scale-[1.8] max-md:scale-100 transform transition-transform duration-300 group-hover:scale-[2.0]">
 
             </div>
 
@@ -492,7 +500,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
 
           <div>
 
-            <h3 class="text-white text-[28px] font-bold font-montserrat leading-tight mb-3">Approved Training Partner</h3>
+            <h3 class="text-white text-[28px] max-md:text-[20px] font-bold font-montserrat leading-tight mb-3 max-md:mb-2">Approved Training Partner</h3>
 
             <p class="text-white/80 text-[15px] leading-relaxed">Affiliated as an approved vocational training partner of the National Skill Development Corporation (NSDC), elevating safety compliance standards across India.</p>
 
@@ -506,7 +514,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
 
       <!-- Card 3: Technical Collaboration -->
 
-      <div class="trained-card relative overflow-hidden rounded-[48px] max-md:rounded-[32px] p-10 min-h-[480px] max-md:min-h-[85vh] flex flex-col justify-between group shadow-xl">
+      <div class="trained-card relative overflow-hidden rounded-[48px] max-md:rounded-[32px] p-10 max-md:p-6 min-h-[480px] max-md:min-h-[380px] flex flex-col justify-between group shadow-xl">
 
         <!-- Background Image -->
 
@@ -520,13 +528,13 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
 
         <!-- Content -->
 
-        <div class="relative z-10 flex flex-col justify-between h-full flex-1 gap-8">
+        <div class="relative z-10 flex flex-col justify-between h-full flex-1 gap-8 max-md:gap-4">
 
           <div class="flex justify-between items-center w-full">
 
-            <div class="bg-white px-8 py-5 rounded-3xl shadow-2xl flex items-center justify-center h-28 w-48 gap-4">
+            <div class="bg-white px-8 py-5 max-md:px-4 max-md:py-2.5 rounded-3xl shadow-2xl flex items-center justify-center h-28 max-md:h-16 w-48 max-md:w-32 gap-4 max-md:gap-2">
 
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-16 h-16 text-nifs-green" xmlns="http://www.w3.org/2000/svg">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-16 h-16 max-md:w-9 max-md:h-9 text-nifs-green" xmlns="http://www.w3.org/2000/svg">
 
                 <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" fill="#26BE29" fill-opacity="0.1" stroke="#26BE29" stroke-width="1.5"/>
 
@@ -536,7 +544,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
 
               </svg>
 
-              <span class="font-extrabold text-[12px] uppercase tracking-wider text-gray-800 leading-tight">Univ<br>Collab</span>
+              <span class="font-extrabold text-[12px] max-md:text-[10px] uppercase tracking-wider text-gray-800 leading-tight">Univ<br>Collab</span>
 
             </div>
 
@@ -546,7 +554,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
 
           <div>
 
-            <h3 class="text-white text-[24px] font-bold font-montserrat leading-tight mb-4">Technical Collaboration With</h3>
+            <h3 class="text-white text-[24px] max-md:text-[18px] font-bold font-montserrat leading-tight mb-4 max-md:mb-2">Technical Collaboration With</h3>
 
             <ul class="text-white/90 text-[14px] space-y-3 font-semibold">
 
@@ -598,25 +606,30 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
     <div id="whyStickyScroll" class="h-[36rem] max-sm:h-auto max-sm:overflow-visible max-sm:block w-full max-w-5xl overflow-y-auto flex justify-center relative space-x-10 max-sm:space-x-0 rounded-2xl p-10 max-sm:p-6 border border-white/10 max-sm:border-0 max-sm:bg-transparent shadow-[0_20px_60px_rgba(0,0,0,0.5)] max-sm:shadow-none" style="background-color:rgb(15 23 42);transition:background-color 0.5s">
       <div class="relative flex items-start px-4">
         <div class="max-w-2xl">
-          <div class="why-item my-20" data-index="0">
+          <div class="why-item my-20 max-sm:my-10" data-index="0">
             <h3 class="why-title text-2xl font-bold text-slate-100" style="opacity:1;transition:opacity 0.3s">Practical Training Yard</h3>
-            <p class="why-desc text-lg text-slate-300 max-w-sm mt-10" style="opacity:1;transition:opacity 0.3s">Real hazard simulations on actual equipment. 85% of curriculum is hands-on, not classroom theory.</p>
+            <img src="why_training_yard_bg.png" alt="Practical Training Yard" class="hidden max-sm:block w-full h-40 object-cover rounded-xl mt-4">
+            <p class="why-desc text-lg text-slate-300 max-w-sm mt-10 max-sm:mt-4" style="opacity:1;transition:opacity 0.3s">Real hazard simulations on actual equipment. 85% of curriculum is hands-on, not classroom theory.</p>
           </div>
-          <div class="why-item my-20" data-index="1">
+          <div class="why-item my-20 max-sm:my-10" data-index="1">
             <h3 class="why-title text-2xl font-bold text-slate-100" style="opacity:0.3;transition:opacity 0.3s">Direct Placement Cell</h3>
-            <p class="why-desc text-lg text-slate-300 max-w-sm mt-10" style="opacity:0.3;transition:opacity 0.3s">Dedicated team with direct recruiter relationships at Adani, L&T, GMR and 45,000+ placements across India.</p>
+            <img src="why_placement_bg.png" alt="Direct Placement Cell" class="hidden max-sm:block w-full h-40 object-cover rounded-xl mt-4">
+            <p class="why-desc text-lg text-slate-300 max-w-sm mt-10 max-sm:mt-4" style="opacity:0.3;transition:opacity 0.3s">Dedicated team with direct recruiter relationships at Adani, L&T, GMR and 45,000+ placements across India.</p>
           </div>
-          <div class="why-item my-20" data-index="2">
+          <div class="why-item my-20 max-sm:my-10" data-index="2">
             <h3 class="why-title text-2xl font-bold text-slate-100" style="opacity:0.3;transition:opacity 0.3s">Government Recognized</h3>
-            <p class="why-desc text-lg text-slate-300 max-w-sm mt-10" style="opacity:0.3;transition:opacity 0.3s">NSDC + Skill India approved. Certificates valid across India, Gulf, and international markets.</p>
+            <img src="why_government_bg.png" alt="Government Recognized" class="hidden max-sm:block w-full h-40 object-cover rounded-xl mt-4">
+            <p class="why-desc text-lg text-slate-300 max-w-sm mt-10 max-sm:mt-4" style="opacity:0.3;transition:opacity 0.3s">NSDC + Skill India approved. Certificates valid across India, Gulf, and international markets.</p>
           </div>
-          <div class="why-item my-20" data-index="3">
+          <div class="why-item my-20 max-sm:my-10" data-index="3">
             <h3 class="why-title text-2xl font-bold text-slate-100" style="opacity:0.3;transition:opacity 0.3s">86 Centers Nationwide</h3>
-            <p class="why-desc text-lg text-slate-300 max-w-sm mt-10" style="opacity:0.3;transition:opacity 0.3s">Learn near home. Transfer between centers anytime. New centers opening every quarter.</p>
+            <img src="why_centers_bg.png" alt="86 Centers Nationwide" class="hidden max-sm:block w-full h-40 object-cover rounded-xl mt-4">
+            <p class="why-desc text-lg text-slate-300 max-w-sm mt-10 max-sm:mt-4" style="opacity:0.3;transition:opacity 0.3s">Learn near home. Transfer between centers anytime. New centers opening every quarter.</p>
           </div>
-          <div class="why-item my-20" data-index="4">
+          <div class="why-item my-20 max-sm:my-10" data-index="4">
             <h3 class="why-title text-2xl font-bold text-slate-100" style="opacity:0.3;transition:opacity 0.3s">Industry Faculty Only</h3>
-            <p class="why-desc text-lg text-slate-300 max-w-sm mt-10" style="opacity:0.3;transition:opacity 0.3s">Every trainer has minimum 10 years field experience. No academics teaching what they've never done.</p>
+            <img src="why_faculty_bg.png" alt="Industry Faculty Only" class="hidden max-sm:block w-full h-40 object-cover rounded-xl mt-4">
+            <p class="why-desc text-lg text-slate-300 max-w-sm mt-10 max-sm:mt-4" style="opacity:0.3;transition:opacity 0.3s">Every trainer has minimum 10 years field experience. No academics teaching what they've never done.</p>
           </div>
           <div class="h-40"></div>
         </div>
@@ -684,7 +697,9 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
   <div class="w-[90%] max-sm:w-[95%] relative flex flex-col gap-[64px] max-sm:gap-[32px] justify-center items-center">
     <h2 class="text-white font-montserrat text-[10vw] max-lg:text-[12vw] font-black leading-[100%] tracking-normal">Our Programs</h2>
 
-    <div id="courseCarousel" class="w-full max-w-[56rem] mx-auto" style="perspective:1000px">
+    <div id="coursesMobileScroll" class="hidden max-md:flex mobile-hscroll w-full px-4"></div>
+
+    <div id="courseCarousel" class="w-full max-w-[56rem] mx-auto max-md:hidden" style="perspective:1000px">
       <div class="grid grid-cols-2 max-md:grid-cols-1 gap-[5rem] max-md:gap-8 items-center">
         <!-- Image stack -->
         <div id="courseImageStack" class="relative w-full h-[24rem] max-sm:h-[18rem]"></div>
@@ -732,6 +747,23 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
     {tag:'MBA', title:'MBA in Safety Management', duration:'2 Years • University Approved', desc:'Management-level safety leadership', img:'https://nifs-institute.vercel.app/images/control-room-risk-assessment.jpg'},
     {tag:'CCFS', title:'Certificate Course in Fire & Safety', duration:'3-6 Months • NSDC Approved', desc:'Quick-entry safety certification', img:'https://nifs-institute.vercel.app/images/courses/certificate-course-in-fire-safety.jpg'}
   ];
+
+  var mobileScroll = document.getElementById('coursesMobileScroll');
+  if(mobileScroll){
+    courses.forEach(function(c){
+      var card = document.createElement('div');
+      card.className = 'relative overflow-hidden rounded-[32px] p-6 flex flex-col min-h-[320px] justify-end group cursor-pointer shadow-xl border border-white/10';
+      card.style.width = '85vw';
+      var waHref = 'https://wa.me/919246624690?text=' + encodeURIComponent('Hi, I\'m interested in ' + c.title);
+      card.innerHTML = '<img src="' + c.img + '" alt="' + c.title + '" class="absolute inset-0 w-full h-full object-cover">' +
+        '<div class="absolute inset-x-0 bottom-0 h-[60%] bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>' +
+        '<h3 class="text-white text-[20px] font-bold relative z-10 font-montserrat">' + c.title + '</h3>' +
+        '<p class="text-white/70 text-[13px] relative z-10 mt-1">' + c.duration + '</p>' +
+        '<p class="text-white/80 text-[14px] relative z-10 mt-1">' + c.desc + '</p>' +
+        '<a href="' + waHref + '" target="_blank" rel="noopener" class="text-nifs-green text-[13px] font-semibold relative z-10 mt-3 inline-block">Chat about this course →</a>';
+      mobileScroll.appendChild(card);
+    });
+  }
 
   var stack = document.getElementById('courseImageStack');
   var titleEl = document.getElementById('courseTitle');
@@ -2271,7 +2303,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
 
     <div class="w-[95%] max-lg:w-[90%] max-sm:w-[100%] relative flex flex-col gap-6">
 
-      <div class="rounded-[32px] max-md:rounded-[28px] h-[280px] max-lg:h-[310px] max-md:h-[360px] max-sm:h-[400px] sticky top-[90px] left-0 bg-white z-[1] p-8 py-10 max-sm:p-5">
+      <div class="rounded-[32px] max-md:rounded-[28px] h-[280px] max-lg:h-[310px] max-md:h-[280px] max-sm:h-auto sticky max-sm:static top-[90px] max-sm:top-0 left-0 bg-white z-[1] p-8 py-10 max-sm:p-5">
 
         <div class="flex flex-col justify-between h-full">
 
@@ -2295,7 +2327,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
 
       </div>
 
-      <div class="rounded-[32px] max-md:rounded-[28px] h-[280px] max-lg:h-[310px] max-md:h-[360px] max-sm:h-[400px] sticky top-[90px] left-0 bg-white z-[2] p-8 py-10 max-sm:p-5">
+      <div class="rounded-[32px] max-md:rounded-[28px] h-[280px] max-lg:h-[310px] max-md:h-[280px] max-sm:h-auto sticky max-sm:static top-[90px] max-sm:top-0 left-0 bg-white z-[2] p-8 py-10 max-sm:p-5">
 
         <div class="flex flex-col justify-between h-full">
 
@@ -2319,7 +2351,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
 
       </div>
 
-      <div class="rounded-[32px] max-md:rounded-[28px] h-[280px] max-lg:h-[310px] max-md:h-[360px] max-sm:h-[400px] sticky top-[90px] left-0 bg-white z-[3] p-8 py-10 max-sm:p-5">
+      <div class="rounded-[32px] max-md:rounded-[28px] h-[280px] max-lg:h-[310px] max-md:h-[280px] max-sm:h-auto sticky max-sm:static top-[90px] max-sm:top-0 left-0 bg-white z-[3] p-8 py-10 max-sm:p-5">
 
         <div class="flex flex-col justify-between h-full">
 
@@ -2529,7 +2561,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
 
       <p class="text-gray-400 text-[14px] py-0">Dwarakanagar, AG Avenue Building,</p>
 
-      <p class="text-gray-400 text-[14px] py-0">3rd Floor, Visakhapatnam (A.P.) â€“ 530016</p>
+      <p class="text-gray-400 text-[14px] py-0">3rd Floor, Visakhapatnam (A.P.) – 530016</p>
 
       <p class="text-gray-400 text-[14px] py-2">+91-9246-624-690 · +91-8374-340-999</p>
 
