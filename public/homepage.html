@@ -56,9 +56,9 @@ tailwind.config={
 
 *{margin:0;padding:0;box-sizing:border-box}
 
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;overflow-x:hidden}
 
-body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased}
+body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 
 .bar-fill{width:0}
 
@@ -127,8 +127,8 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased}
 
 <!-- Standalone Logo -->
 <a href="/" class="fixed top-5 left-5 z-50 flex items-center gap-3 group" data-path-logo="true">
-  <img src="/images/nifs-crest.png" alt="NIFS India" class="w-20 h-20 rounded-full ring-2 ring-white/30 shadow-xl group-hover:ring-amber-400/60 transition-all duration-300" onerror="this.style.display='none'">
-  <span class="text-white font-montserrat font-black text-xl tracking-tight hidden sm:inline drop-shadow-lg">NIFS</span>
+  <img src="/images/nifs-crest.png" alt="NIFS India" class="w-20 h-20 max-sm:w-12 max-sm:h-12 rounded-full ring-2 ring-white/30 shadow-xl group-hover:ring-amber-400/60 transition-all duration-300" onerror="this.style.display='none'">
+  <span class="text-white font-montserrat font-black text-xl max-sm:text-base tracking-tight hidden sm:inline drop-shadow-lg">NIFS</span>
 </a>
 <!-- /Standalone Logo -->
 <!-- Dark Nav Pill (desktop) -->
@@ -151,7 +151,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased}
   <span id="nav-line-3" class="block w-5 h-0.5 bg-white rounded-full transition-all duration-300"></span>
 </button>
 <!-- Mobile Menu Overlay -->
-<div id="mobile-menu" class="hidden fixed inset-0 z-[55] bg-gray-900/98 backdrop-blur-xl flex-col items-center justify-center gap-2 md:hidden">
+<div id="mobile-menu" class="hidden fixed inset-0 z-[55] bg-gray-900/95 backdrop-blur-xl flex-col items-center justify-center gap-2 md:hidden">
   <a href="/courses" class="mobile-nav-link w-64 text-center py-4 text-white/90 text-lg font-semibold rounded-2xl hover:bg-white/10 transition-all">Courses</a>
   <a href="/industrial-services" class="mobile-nav-link w-64 text-center py-4 text-white/90 text-lg font-semibold rounded-2xl hover:bg-white/10 transition-all">Services</a>
   <a href="/placements" class="mobile-nav-link w-64 text-center py-4 text-white/90 text-lg font-semibold rounded-2xl hover:bg-white/10 transition-all">Placements</a>
@@ -621,7 +621,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased}
   <div class="w-[90%] max-sm:w-[95%] flex flex-col gap-[64px] max-sm:gap-[32px] items-center">
     <h2 class="text-white font-montserrat text-[10vw] max-lg:text-[12vw] font-black leading-[100%] tracking-normal">Why NIFS</h2>
 
-    <div id="whyStickyScroll" class="h-[36rem] max-sm:h-[30rem] w-full max-w-5xl overflow-y-auto flex justify-center relative space-x-10 rounded-2xl p-10 max-sm:p-6 border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.5)]" style="background-color:rgb(15 23 42);transition:background-color 0.5s">
+    <div id="whyStickyScroll" class="h-[36rem] max-sm:h-auto max-sm:overflow-visible max-sm:block w-full max-w-5xl overflow-y-auto flex justify-center relative space-x-10 max-sm:space-x-0 rounded-2xl p-10 max-sm:p-6 border border-white/10 max-sm:border-0 max-sm:bg-transparent shadow-[0_20px_60px_rgba(0,0,0,0.5)] max-sm:shadow-none" style="background-color:rgb(15 23 42);transition:background-color 0.5s">
       <div class="relative flex items-start px-4">
         <div class="max-w-2xl">
           <div class="why-item my-20" data-index="0">
@@ -655,6 +655,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased}
 </section>
 <script>
 (function(){
+  if(window.innerWidth < 768) return;
   var container = document.getElementById('whyStickyScroll');
   var items = container.querySelectorAll('.why-item');
   var panelImg = document.getElementById('whyPanelImg');
