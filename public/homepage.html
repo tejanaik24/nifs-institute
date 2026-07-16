@@ -128,7 +128,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
 <!-- Standalone Logo -->
 <a href="/" class="fixed top-5 left-5 z-50 flex items-center gap-3 group" data-path-logo="true">
   <img src="/images/nifs-crest.png" alt="NIFS India" class="w-20 h-20 max-sm:w-12 max-sm:h-12 rounded-full ring-2 ring-white/30 shadow-xl group-hover:ring-amber-400/60 transition-all duration-300" onerror="this.style.display='none'">
-  <span class="text-white font-montserrat font-black text-xl max-sm:text-base tracking-tight hidden sm:inline drop-shadow-lg">NIFS</span>
+  <span class="text-nifs-red font-montserrat font-bold text-sm max-sm:text-xs leading-tight tracking-tight hidden sm:inline drop-shadow-lg max-w-[140px]">National Institute of<br>Fire &amp; Safety</span>
 </a>
 <!-- /Standalone Logo -->
 <!-- Dark Nav Pill (desktop) -->
@@ -211,16 +211,6 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
 
     <div class="flex flex-col justify-start items-center relative gap-6 max-sm:gap-4">
 
-      <div class="flex flex-wrap items-center justify-center gap-3">
-        <div class="inline-flex items-center gap-2 bg-nifs-red text-white px-5 py-2 rounded-full text-xs font-bold uppercase tracking-widest">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-3.5 h-3.5"><path d="M9 12l2 2 4-4"/><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/></svg>
-          NSDC Approved Training Partner
-        </div>
-        <a href="https://ifesm.com/profile.html" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-white border-2 border-black text-black px-5 py-2 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-black hover:text-white transition-colors duration-300">
-          Industrial Projects Division &middot; IFESM
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-3 h-3"><path d="M7 17L17 7M7 7h10v10"/></svg>
-        </a>
-      </div>
       <p class="font-montserrat text-[40px] max-md:text-[32px] max-sm:text-[24px] font-normal leading-[130%] max-sm:leading-[100%] text-center">25+ Years of Excellence</p>
 
       <h1 class="text-[9vh] font-montserrat font-black text-center max-lg:text-[10vw] max-sm:text-[11vw] leading-[105%] max-lg:leading-[100%] max-sm:leading-[120%] w-[80%] max-lg:w-[100%]">
@@ -231,40 +221,6 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
 
       <p class="text-center font-montserrat text-2xl max-sm:text-[16px] text-gray-500 max-w-[600px]">From Visakhapatnam to every corner of India â€” 86 centers, 45,000+ alumni, careers that protect lives.</p>
 
-      <!-- Explore Our Divisions -->
-<div id="divisionsWidget" style="opacity:0;transform:translateY(10px);transition:opacity 0.45s ease,transform 0.45s ease" class="w-full max-w-[640px] mx-auto">
-  <p class="text-center text-[11px] font-bold uppercase tracking-[0.2em] text-gray-400 mb-3">Explore Our Divisions</p>
-  <div style="background:rgba(255,255,255,0.75);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(0,0,0,0.08);border-radius:20px;box-shadow:0 4px 24px rgba(0,0,0,0.06)" class="flex flex-col sm:flex-row overflow-hidden">
-    <a href="#courses" class="flex-1 flex items-start gap-3 p-5 border-b sm:border-b-0 sm:border-r border-black/[0.08] transition-colors duration-300 hover:bg-red-50 group">
-      <div class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" style="background:rgba(220,23,17,0.08)">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#DC1711" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 6 3 12 0v-5"/></svg>
-      </div>
-      <div class="flex flex-col gap-0.5">
-        <span class="text-[15px] font-bold text-gray-900">NIFS Academy</span>
-        <span class="text-[13px] text-gray-500">Academic Training</span>
-        <span class="text-[12px] text-gray-400">Courses &bull; Placement</span>
-      </div>
-    </a>
-    <a href="https://ifesm.com" target="_blank" rel="noopener" class="flex-1 flex items-start gap-3 p-5 transition-colors duration-300 hover:bg-orange-50 group">
-      <div class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" style="background:rgba(252,128,16,0.08)">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FC8010" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8L8 13V8L2 13z"/></svg>
-      </div>
-      <div class="flex flex-col gap-0.5">
-        <span class="text-[15px] font-bold text-gray-900 flex items-center gap-1">IFESM Projects <span class="inline-block transition-transform duration-300 group-hover:translate-x-1 text-gray-400">↗</span></span>
-        <span class="text-[13px] text-gray-500">Industrial Services</span>
-        <span class="text-[12px] text-gray-400">EPC &bull; Audits &bull; Consulting</span>
-      </div>
-    </a>
-  </div>
-</div>
-<script>
-(function(){
-  setTimeout(function(){
-    var el=document.getElementById('divisionsWidget');
-    if(el){el.style.opacity='1';el.style.transform='translateY(0)'}
-  },450);
-})();
-</script>
 
       <div class="flex gap-4 max-sm:flex-col max-sm:w-full max-sm:items-center">
 
@@ -335,7 +291,6 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
   </div>
 
 </section>
-
 
 
 <!-- RECRUITER MARQUEE -->
@@ -703,7 +658,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
   setActive(0);
 })();
 </script>
-
+
 <!-- COURSES -->
 
 <section id="courses" class="w-full min-h-screen py-[200px] max-lg:py-[70px] max-md:py-[60px] max-sm:py-[80px] bg-[#101010] flex justify-center items-center flex-col overflow-hidden">
