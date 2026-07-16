@@ -100,6 +100,23 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased}
 
 }
 
+/* Mobile-only utilities */
+@media(max-width:767px){
+  .scroll-snap-x{scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .scroll-snap-x::-webkit-scrollbar{display:none}
+  .scroll-snap-x>*{scroll-snap-align:start}
+  .preserve-3d{transform-style:preserve-3d}
+  .perspective-1000{perspective:1000px}
+  .mobile-hide{display:none!important}
+  .mobile-stack-cards{display:flex;flex-direction:column;gap:0;position:relative}
+  .mobile-stack-cards>.trained-card{position:sticky;top:80px}
+  .mobile-hscroll{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;gap:16px;padding-bottom:16px;scrollbar-width:none}
+  .mobile-hscroll::-webkit-scrollbar{display:none}
+  .mobile-hscroll>*{scroll-snap-align:start;flex-shrink:0;width:85vw}
+  .mobile-timeline{position:relative;padding-left:32px}
+  .mobile-timeline::before{content:'';position:absolute;left:12px;top:0;bottom:0;width:3px;background:linear-gradient(to bottom,#DC1711,#26BE29,#FC8010)}
+}
+
 </style>
 
 </head>
@@ -114,8 +131,8 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased}
   <span class="text-white font-montserrat font-black text-xl tracking-tight hidden sm:inline drop-shadow-lg">NIFS</span>
 </a>
 <!-- /Standalone Logo -->
-<!-- Dark Nav Pill -->
-<nav class="fixed top-5 left-1/2 -translate-x-1/2 z-50 flex justify-center">
+<!-- Dark Nav Pill (desktop) -->
+<nav class="fixed top-5 left-1/2 -translate-x-1/2 z-50 justify-center hidden md:flex">
   <div class="flex items-center gap-1 px-3 py-2.5 rounded-full bg-gray-900/90 backdrop-blur-xl border border-white/10 shadow-2xl">
     <a href="/courses" class="px-4 py-2 rounded-full text-white/80 text-sm font-medium hover:bg-white/10 hover:text-white transition-all duration-300">Courses</a>
     <a href="/industrial-services" class="px-4 py-2 rounded-full text-white/80 text-sm font-medium hover:bg-white/10 hover:text-white transition-all duration-300">Services</a>
@@ -127,109 +144,61 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased}
   </div>
 </nav>
 <!-- /Dark Nav Pill -->
+<!-- Mobile Hamburger -->
+<button id="nav-toggle" class="fixed top-5 right-5 z-[60] w-12 h-12 flex flex-col items-center justify-center gap-1.5 rounded-full bg-gray-900/90 backdrop-blur-xl border border-white/10 shadow-2xl md:hidden" aria-label="Menu">
+  <span id="nav-line-1" class="block w-5 h-0.5 bg-white rounded-full transition-all duration-300"></span>
+  <span id="nav-line-2" class="block w-5 h-0.5 bg-white rounded-full transition-all duration-300"></span>
+  <span id="nav-line-3" class="block w-5 h-0.5 bg-white rounded-full transition-all duration-300"></span>
+</button>
+<!-- Mobile Menu Overlay -->
+<div id="mobile-menu" class="hidden fixed inset-0 z-[55] bg-gray-900/98 backdrop-blur-xl flex-col items-center justify-center gap-2 md:hidden">
+  <a href="/courses" class="mobile-nav-link w-64 text-center py-4 text-white/90 text-lg font-semibold rounded-2xl hover:bg-white/10 transition-all">Courses</a>
+  <a href="/industrial-services" class="mobile-nav-link w-64 text-center py-4 text-white/90 text-lg font-semibold rounded-2xl hover:bg-white/10 transition-all">Services</a>
+  <a href="/placements" class="mobile-nav-link w-64 text-center py-4 text-white/90 text-lg font-semibold rounded-2xl hover:bg-white/10 transition-all">Placements</a>
+  <a href="/gallery" class="mobile-nav-link w-64 text-center py-4 text-white/90 text-lg font-semibold rounded-2xl hover:bg-white/10 transition-all">Gallery</a>
+  <a href="/blog" class="mobile-nav-link w-64 text-center py-4 text-white/90 text-lg font-semibold rounded-2xl hover:bg-white/10 transition-all">Blog</a>
+  <a href="/about" class="mobile-nav-link w-64 text-center py-4 text-white/90 text-lg font-semibold rounded-2xl hover:bg-white/10 transition-all">About</a>
+  <div class="w-12 h-px bg-white/20 my-3"></div>
+  <a href="/contact" class="mobile-nav-link w-64 text-center py-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-lg font-bold rounded-2xl shadow-lg shadow-amber-500/25 transition-all">Apply Now</a>
+</div>
 
 
 
 <script>
-
 (function() {
+  var toggleBtn = document.getElementById('nav-toggle');
+  var mobileMenu = document.getElementById('mobile-menu');
+  var line1 = document.getElementById('nav-line-1');
+  var line2 = document.getElementById('nav-line-2');
+  var line3 = document.getElementById('nav-line-3');
+  if (!toggleBtn || !mobileMenu) return;
 
-  const toggleBtn = document.getElementById('nav-toggle');
-
-  const mobileMenu = document.getElementById('mobile-menu');
-
-  const line1 = document.getElementById('nav-line-1');
-
-  const line2 = document.getElementById('nav-line-2');
-
-  const line3 = document.getElementById('nav-line-3');
-
-  const nav = document.getElementById('main-nav');
-
-
-
+  var isOpen = false;
   function toggleMenu() {
-
-    const isExpanded = mobileMenu.classList.contains('flex');
-
-    if (isExpanded) {
-
-      mobileMenu.classList.remove('flex');
-
-      mobileMenu.classList.add('hidden');
-
-      line1.classList.remove('rotate-45', 'translate-y-[8px]');
-
-      line2.classList.remove('opacity-0');
-
-      line3.classList.remove('-rotate-45', '-translate-y-[8px]');
-
-    } else {
-
+    isOpen = !isOpen;
+    if (isOpen) {
       mobileMenu.classList.remove('hidden');
-
       mobileMenu.classList.add('flex');
-
       line1.classList.add('rotate-45', 'translate-y-[8px]');
-
       line2.classList.add('opacity-0');
-
       line3.classList.add('-rotate-45', '-translate-y-[8px]');
-
-    }
-
-  }
-
-
-
-  toggleBtn.addEventListener('click', toggleMenu);
-
-
-
-  // Close mobile menu when clicking a link
-
-  document.querySelectorAll('.mobile-nav-link').forEach(link => {
-
-    link.addEventListener('click', () => {
-
-      mobileMenu.classList.remove('flex');
-
-      mobileMenu.classList.add('hidden');
-
-      line1.classList.remove('rotate-45', 'translate-y-[8px]');
-
-      line2.classList.remove('opacity-0');
-
-      line3.classList.remove('-rotate-45', '-translate-y-[8px]');
-
-    });
-
-  });
-
-
-
-  // Handle scroll class for extra styling on scroll
-
-  window.addEventListener('scroll', () => {
-
-    if (window.scrollY > 20) {
-
-      nav.classList.add('shadow-md', 'bg-white/95');
-
-      nav.classList.remove('bg-white/80');
-
+      document.body.style.overflow = 'hidden';
     } else {
-
-      nav.classList.remove('shadow-md', 'bg-white/95');
-
-      nav.classList.add('bg-white/80');
-
+      mobileMenu.classList.remove('flex');
+      mobileMenu.classList.add('hidden');
+      line1.classList.remove('rotate-45', 'translate-y-[8px]');
+      line2.classList.remove('opacity-0');
+      line3.classList.remove('-rotate-45', '-translate-y-[8px]');
+      document.body.style.overflow = '';
     }
-
+  }
+  toggleBtn.addEventListener('click', toggleMenu);
+  document.querySelectorAll('.mobile-nav-link').forEach(function(link) {
+    link.addEventListener('click', function() {
+      if (isOpen) toggleMenu();
+    });
   });
-
 })();
-
 </script>
 
 
@@ -260,7 +229,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased}
 
       </h1>
 
-      <p class="text-center font-montserrat text-2xl max-sm:text-[14px] text-gray-500 max-w-[600px]">From Visakhapatnam to every corner of India â€” 86 centers, 45,000+ alumni, careers that protect lives.</p>
+      <p class="text-center font-montserrat text-2xl max-sm:text-[16px] text-gray-500 max-w-[600px]">From Visakhapatnam to every corner of India â€” 86 centers, 45,000+ alumni, careers that protect lives.</p>
 
       <!-- Explore Our Divisions -->
 <div id="divisionsWidget" style="opacity:0;transform:translateY(10px);transition:opacity 0.45s ease,transform 0.45s ease" class="w-full max-w-[640px] mx-auto">
@@ -471,11 +440,11 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased}
 
     </div>
 
-    <div class="grid grid-cols-3 max-lg:grid-cols-1 gap-6 w-full">
+    <div class="grid grid-cols-3 max-lg:grid-cols-1 gap-6 w-full max-md:mobile-stack-cards">
 
       <!-- Card 1: Skill India -->
 
-      <div class="relative overflow-hidden rounded-[48px] max-md:rounded-[32px] p-10 min-h-[480px] flex flex-col justify-between group shadow-xl">
+      <div class="trained-card relative overflow-hidden rounded-[48px] max-md:rounded-[32px] p-10 min-h-[480px] max-md:min-h-[85vh] flex flex-col justify-between group shadow-xl">
 
         <!-- Background Image -->
 
@@ -519,7 +488,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased}
 
       <!-- Card 2: NSDC Skill Development -->
 
-      <div class="relative overflow-hidden rounded-[48px] max-md:rounded-[32px] p-10 min-h-[480px] flex flex-col justify-between group shadow-xl">
+      <div class="trained-card relative overflow-hidden rounded-[48px] max-md:rounded-[32px] p-10 min-h-[480px] max-md:min-h-[85vh] flex flex-col justify-between group shadow-xl">
 
         <!-- Background Image -->
 
@@ -563,7 +532,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased}
 
       <!-- Card 3: Technical Collaboration -->
 
-      <div class="relative overflow-hidden rounded-[48px] max-md:rounded-[32px] p-10 min-h-[480px] flex flex-col justify-between group shadow-xl">
+      <div class="trained-card relative overflow-hidden rounded-[48px] max-md:rounded-[32px] p-10 min-h-[480px] max-md:min-h-[85vh] flex flex-col justify-between group shadow-xl">
 
         <!-- Background Image -->
 
@@ -741,7 +710,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased}
     <h2 class="text-white font-montserrat text-[10vw] max-lg:text-[12vw] font-black leading-[100%] tracking-normal">Our Programs</h2>
 
     <div id="courseCarousel" class="w-full max-w-[56rem] mx-auto" style="perspective:1000px">
-      <div class="grid grid-cols-2 max-md:grid-cols-1 gap-[5rem] items-center">
+      <div class="grid grid-cols-2 max-md:grid-cols-1 gap-[5rem] max-md:gap-8 items-center">
         <!-- Image stack -->
         <div id="courseImageStack" class="relative w-full h-[24rem] max-sm:h-[18rem]"></div>
 
@@ -898,7 +867,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased}
       <h2 class="text-white font-montserrat text-[6vw] max-lg:text-[8vw] font-black leading-none">State-of-the-art<br>training infrastructure</h2>
       <p class="text-white/60 font-montserrat text-[20px] max-sm:text-[16px] mt-6">6 real facilities — not brochures, reality</p>
     </div>
-    <div class="grid grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-1 gap-6 w-full">
+    <div class="grid grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-1 gap-6 w-full max-md:hidden">
       <!-- Card 1: Smart Classrooms -->
       <div class="relative overflow-hidden rounded-[32px] p-8 max-sm:p-6 flex flex-col min-h-[280px] justify-end group cursor-pointer shadow-xl border border-white/10 hover:border-nifs-red/50 hover:-translate-y-2 transition-all duration-300 hover:shadow-[0_0_40px_rgba(220,23,17,0.25)]">
         <img src="https://nifs-institute.vercel.app/images/nifs-hero-classroom.png" alt="Smart Classrooms" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
@@ -947,11 +916,29 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased}
         <p class="text-white/80 text-[15px] relative z-10 mt-1 leading-normal">Industrial visits to power plants, factories, and construction sites</p>
       </div>
     </div>
+    <!-- Mobile horizontal scroll -->
+    <div class="hidden max-md:flex mobile-hscroll w-full px-4">
+      <div class="relative overflow-hidden rounded-[32px] p-6 flex flex-col min-h-[320px] justify-end group cursor-pointer shadow-xl border border-white/10" style="width:85vw">
+        <img src="https://nifs-institute.vercel.app/images/nifs-hero-classroom.png" alt="Smart Classrooms" class="absolute inset-0 w-full h-full object-cover"><div class="absolute inset-x-0 bottom-0 h-[60%] bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div><h3 class="text-white text-[20px] font-bold relative z-10 font-montserrat">Smart Classrooms</h3><p class="text-white/80 text-[14px] relative z-10 mt-1">AC classrooms with digital displays</p>
+      </div>
+      <div class="relative overflow-hidden rounded-[32px] p-6 flex flex-col min-h-[320px] justify-end group cursor-pointer shadow-xl border border-white/10" style="width:85vw">
+        <img src="https://nifs-institute.vercel.app/images/classroom-lecture.jpg" alt="AC Lecture Theatre" class="absolute inset-0 w-full h-full object-cover"><div class="absolute inset-x-0 bottom-0 h-[60%] bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div><h3 class="text-white text-[20px] font-bold relative z-10 font-montserrat">AC Lecture Theatre</h3><p class="text-white/80 text-[14px] relative z-10 mt-1">Tiered lecture theatre with touchscreen</p>
+      </div>
+      <div class="relative overflow-hidden rounded-[32px] p-6 flex flex-col min-h-[320px] justify-end group cursor-pointer shadow-xl border border-white/10" style="width:85vw">
+        <img src="https://nifs-institute.vercel.app/images/nifs-hero-training-yard.png" alt="Practical Training Yard" class="absolute inset-0 w-full h-full object-cover"><div class="absolute inset-x-0 bottom-0 h-[60%] bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div><h3 class="text-white text-[20px] font-bold relative z-10 font-montserrat">Practical Training Yard</h3><p class="text-white/80 text-[14px] relative z-10 mt-1">85% hands-on curriculum</p>
+      </div>
+      <div class="relative overflow-hidden rounded-[32px] p-6 flex flex-col min-h-[320px] justify-end group cursor-pointer shadow-xl border border-white/10" style="width:85vw">
+        <img src="https://nifs-institute.vercel.app/images/training-drill.png" alt="Fire Hazard Drill" class="absolute inset-0 w-full h-full object-cover"><div class="absolute inset-x-0 bottom-0 h-[60%] bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div><h3 class="text-white text-[20px] font-bold relative z-10 font-montserrat">Fire Hazard Drill</h3><p class="text-white/80 text-[14px] relative z-10 mt-1">Live fire hazard drills</p>
+      </div>
+      <div class="relative overflow-hidden rounded-[32px] p-6 flex flex-col min-h-[320px] justify-end group cursor-pointer shadow-xl border border-white/10" style="width:85vw">
+        <img src="https://nifs-institute.vercel.app/images/hostel-facility.jpg" alt="Hostel Accommodation" class="absolute inset-0 w-full h-full object-cover"><div class="absolute inset-x-0 bottom-0 h-[60%] bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div><h3 class="text-white text-[20px] font-bold relative z-10 font-montserrat">Hostel Accommodation</h3><p class="text-white/80 text-[14px] relative z-10 mt-1">On-campus housing</p>
+      </div>
+      <div class="relative overflow-hidden rounded-[32px] p-6 flex flex-col min-h-[320px] justify-end group cursor-pointer shadow-xl border border-white/10" style="width:85vw">
+        <img src="https://nifs-institute.vercel.app/images/gallery-industrial-visit.jpg" alt="Industry Site Visits" class="absolute inset-0 w-full h-full object-cover"><div class="absolute inset-x-0 bottom-0 h-[60%] bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div><h3 class="text-white text-[20px] font-bold relative z-10 font-montserrat">Industry Site Visits</h3><p class="text-white/80 text-[14px] relative z-10 mt-1">Power plants, factories, construction</p>
+      </div>
+    </div>
   </div>
 </section>
-
-
-<!-- CAREER OUTCOMES -->
 
 <section class="w-full py-[120px] max-lg:py-[70px] bg-black flex justify-center items-center flex-col overflow-hidden">
 
@@ -1217,7 +1204,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased}
 
             <h3 class="font-bold text-[60px] max-md:text-[44px] max-sm:text-[32px] text-black leading-[100%] font-montserrat">Apply</h3>
 
-            <p class="text-right font-normal font-montserrat text-[24px] text-gray-500">Fill out the online application or visit your nearest NIFS center. Choose from 10+ programs across diploma, postgraduate, and degree levels.</p>
+            <p class="text-right font-normal font-montserrat text-[24px] max-md:text-[15px] text-gray-500">Fill out the online application or visit your nearest NIFS center. Choose from 10+ programs across diploma, postgraduate, and degree levels.</p>
 
           </div>
 
@@ -1243,7 +1230,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased}
 
             <h3 class="font-bold text-[60px] max-md:text-[44px] max-sm:text-[32px] text-black leading-[100%] font-montserrat text-left">Assessment</h3>
 
-            <p class="font-normal font-montserrat text-[24px] text-left text-gray-500">Our counselors guide you through eligibility verification and help select the right program based on your qualifications and career goals.</p>
+            <p class="font-normal font-montserrat text-[24px] max-md:text-[15px] text-left text-gray-500">Our counselors guide you through eligibility verification and help select the right program based on your qualifications and career goals.</p>
 
           </div>
 
@@ -1269,7 +1256,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased}
 
             <h3 class="font-bold text-[60px] max-md:text-[44px] max-sm:text-[32px] text-black leading-[100%] font-montserrat">Enroll</h3>
 
-            <p class="text-right font-normal font-montserrat text-[24px] text-gray-500">Complete enrollment with flexible payment options. Education loan facility available for all courses. Begin your training at any of our 86 centers.</p>
+            <p class="text-right font-normal font-montserrat text-[24px] max-md:text-[15px] text-gray-500">Complete enrollment with flexible payment options. Education loan facility available for all courses. Begin your training at any of our 86 centers.</p>
 
           </div>
 
@@ -1293,7 +1280,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased}
 
           <h3 class="font-bold text-[60px] max-md:text-[44px] max-sm:text-[32px] text-black leading-[100%] font-montserrat">Placement</h3>
 
-          <p class="font-normal font-montserrat text-[24px] text-gray-500 text-center">Our dedicated placement cell connects you with top recruiters. Graduate into a career at leading industries across India and abroad.</p>
+          <p class="font-normal font-montserrat text-[24px] max-md:text-[15px] text-gray-500 text-center">Our dedicated placement cell connects you with top recruiters. Graduate into a career at leading industries across India and abroad.</p>
 
         </div>
 
@@ -2761,6 +2748,179 @@ document.addEventListener('DOMContentLoaded',function(){
 
 });
 
+</script>
+
+<!-- MOBILE 3D WOW ANIMATIONS -->
+<script>
+(function(){
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if(window.innerWidth > 767) return;
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // === HERO 3D TEXT REVEAL ===
+  var h1 = document.querySelector('h1');
+  if(h1){
+    var words = h1.textContent.trim().split(/\s+/);
+    h1.innerHTML = words.map(function(w,i){
+      return '<span class="inline-block" style="opacity:0;transform:perspective(800px) rotateX(-90deg);transform-origin:bottom center;transition:all 0.6s cubic-bezier(.23,1,.32,1);transition-delay:'+(0.08*i)+'s">'+w+'</span> ';
+    }).join('');
+    setTimeout(function(){
+      h1.querySelectorAll('span').forEach(function(s){s.style.opacity='1';s.style.transform='perspective(800px) rotateX(0deg)'});
+    },200);
+  }
+
+  // === HERO BADGES SLIDE IN ===
+  gsap.utils.toArray('.flex.flex-wrap.items-center.justify-center.gap-3 > *').forEach(function(el,i){
+    gsap.from(el,{x:i%2===0?-60:60,opacity:0,duration:0.5,delay:0.1*i,ease:'power3.out'});
+  });
+
+  // === HERO STATS 3D FLIP ===
+  gsap.utils.toArray('[data-value]').forEach(function(el){
+    gsap.from(el,{opacity:0,scale:0.8,rotationX:-45,duration:0.6,scrollTrigger:{trigger:el,start:'top 90%',once:true},ease:'back.out(1.7)'});
+  });
+
+  // === TRAINED CARDS STICKY STACK ===
+  var trainedCards = document.querySelectorAll('.trained-card');
+  if(trainedCards.length === 3){
+    trainedCards.forEach(function(card,i){
+      gsap.fromTo(card,
+        {opacity:0,scale:0.92,rotateY:i%2===0?-8:8},
+        {
+          opacity:1,scale:1,rotateY:0,duration:0.5,
+          scrollTrigger:{trigger:card,start:'top 80%',once:true},
+          ease:'power2.out'
+        }
+      );
+    });
+  }
+
+  // === WHY NIFS — SCROLL TEXT REVEAL ===
+  var whyItems = document.querySelectorAll('.why-item');
+  whyItems.forEach(function(item){
+    gsap.from(item,{x:-40,opacity:0,duration:0.5,scrollTrigger:{trigger:item,start:'top 85%',once:true},ease:'power2.out'});
+  });
+
+  // === COURSES — 3D CARD STACK INTENSIFY ===
+  var courseImgs = document.querySelectorAll('#courseImageStack img');
+  courseImgs.forEach(function(img){
+    img.style.transformStyle = 'preserve-3d';
+    img.style.perspective = '800px';
+  });
+
+  // === FACILITIES — HSCROLL CARD 3D TILT ===
+  var facilityScroll = document.querySelector('.mobile-hscroll');
+  if(facilityScroll){
+    var fcards = facilityScroll.children;
+    Array.prototype.forEach.call(fcards, function(card){
+      card.style.transition = 'transform 0.3s ease';
+    });
+    facilityScroll.addEventListener('scroll',function(){
+      var scrollLeft = facilityScroll.scrollLeft;
+      var cardWidth = facilityScroll.offsetWidth * 0.85;
+      Array.prototype.forEach.call(fcards, function(card,i){
+        var cardCenter = i * (cardWidth + 16) + cardWidth/2;
+        var viewCenter = scrollLeft + facilityScroll.offsetWidth/2;
+        var dist = (cardCenter - viewCenter) / facilityScroll.offsetWidth;
+        var ry = dist * 6;
+        var s = 1 - Math.abs(dist) * 0.05;
+        card.style.transform = 'perspective(1000px) rotateY('+ry+'deg) scale('+Math.max(s,0.92)+')';
+      });
+    },{passive:true});
+  }
+
+  // === PLACEMENTS — TOUCH PAUSE ===
+  var placementWrap = document.getElementById('carouselWrap');
+  if(placementWrap){
+    placementWrap.addEventListener('touchstart',function(){
+      var tl = ScrollTrigger.getAll();
+    },{passive:true});
+  }
+
+  // === PROCESS STEPS — 3D SLIDE IN ===
+  gsap.utils.toArray('#process .text-slide-left').forEach(function(el){
+    gsap.from(el,{x:-80,opacity:0,rotateY:15,duration:0.6,scrollTrigger:{trigger:el,start:'top 85%',once:true},ease:'power3.out'});
+  });
+  gsap.utils.toArray('#process .text-slide-right').forEach(function(el){
+    gsap.from(el,{x:80,opacity:0,rotateY:-15,duration:0.6,scrollTrigger:{trigger:el,start:'top 85%',once:true},ease:'power3.out'});
+  });
+
+  // === PROCESS STEP NUMBERS — 3D FLIP ===
+  gsap.utils.toArray('#process span.text-nifs-red, #process span.text-nifs-green, #process span.text-nifs-orange').forEach(function(el){
+    if(el.textContent.trim().match(/^\d{2}$/)){
+      gsap.from(el,{scale:0,rotationX:-90,duration:0.5,scrollTrigger:{trigger:el,start:'top 88%',once:true},ease:'back.out(2)'});
+    }
+  });
+
+  // === CENTERS MAP — 3D PERSPECTIVE TILT ===
+  var mapContainer = document.querySelector('#centers .relative.w-full.max-w-\\[580px\\]');
+  if(mapContainer){
+    gsap.from(mapContainer,{rotateX:10,opacity:0,duration:0.8,scrollTrigger:{trigger:mapContainer,start:'top 80%',once:true},ease:'power2.out'});
+  }
+
+  // === FEATURED NEWS — SPLIT 3D REVEAL ===
+  var newsSection = document.querySelector('section.bg-\\[\\#f8f4f3\\]');
+  if(newsSection){
+    var newsImg = newsSection.querySelector('.rounded-\\[28px\\]');
+    var newsContent = newsSection.querySelector('.flex-1');
+    if(newsImg) gsap.from(newsImg,{x:-60,opacity:0,rotateY:12,duration:0.7,scrollTrigger:{trigger:newsSection,start:'top 75%',once:true},ease:'power3.out'});
+    if(newsContent) gsap.from(newsContent,{x:60,opacity:0,rotateY:-12,duration:0.7,scrollTrigger:{trigger:newsSection,start:'top 75%',once:true},ease:'power3.out'});
+  }
+
+  // === NIFS UPDATES — TAB CONTENT STAGGER ===
+  var nifsContent = document.querySelector('.ncontent');
+  if(nifsContent){
+    gsap.utils.toArray('.ncontent > div').forEach(function(item,i){
+      gsap.from(item,{y:20,opacity:0,duration:0.4,delay:i*0.08,scrollTrigger:{trigger:nifsContent,start:'top 80%',once:true},ease:'power2.out'});
+    });
+  }
+
+  // === BLOG MARQUEE — TOUCH PAUSE ===
+  var blogTrack = document.querySelector('.marquee-blog-track');
+  if(blogTrack){
+    blogTrack.parentElement.addEventListener('touchstart',function(){blogTrack.style.animationPlayState='paused'},{passive:true});
+    blogTrack.parentElement.addEventListener('touchend',function(){blogTrack.style.animationPlayState='running'},{passive:true});
+  }
+
+  // === TESTIMONIALS — 3D STACK ENHANCE ===
+  gsap.utils.toArray('.sticky.top-\\[90px\\]').forEach(function(card,i){
+    gsap.from(card,{y:40,opacity:0,rotateX:-5,scale:0.96,duration:0.5,delay:i*0.15,scrollTrigger:{trigger:card,start:'top 90%',once:true},ease:'power2.out'});
+  });
+
+  // === FAQ — HEIGHT REVEAL ON OPEN ===
+  document.querySelectorAll('dl dt').forEach(function(dt){
+    dt.style.cursor = 'pointer';
+    dt.addEventListener('click',function(){
+      var dd = dt.nextElementSibling;
+      if(!dd) return;
+      if(dd.style.maxHeight){
+        dd.style.maxHeight = null;
+        dd.style.opacity = '0';
+        dd.style.transform = 'perspective(600px) rotateX(-5deg)';
+        setTimeout(function(){dd.style.transform=''},300);
+      } else {
+        dd.style.maxHeight = dd.scrollHeight + 'px';
+        dd.style.opacity = '1';
+        dd.style.transition = 'max-height 0.4s ease, opacity 0.3s ease, transform 0.3s ease';
+        dd.style.transform = 'perspective(600px) rotateX(0deg)';
+      }
+    });
+  });
+
+  // === FOOTER CTA — SCALE IN ===
+  var footerCTA = document.getElementById('apply');
+  if(footerCTA){
+    gsap.from(footerCTA.querySelector('h2'),{scale:1.3,opacity:0,duration:0.6,scrollTrigger:{trigger:footerCTA,start:'top 85%',once:true},ease:'power3.out'});
+    gsap.from(footerCTA.querySelectorAll('a'),{y:30,opacity:0,duration:0.4,delay:0.3,scrollTrigger:{trigger:footerCTA,start:'top 85%',once:true},ease:'back.out(1.7)'});
+  }
+
+  // === SECTION HEADERS — 3D SCALE REVEAL (mobile only) ===
+  gsap.utils.toArray('h2').forEach(function(h){
+    if(h.closest('.marquee-track')||h.closest('.faq-hidden')||h.closest('#apply')) return;
+    gsap.from(h,{scale:1.15,opacity:0,rotateX:-8,duration:0.5,scrollTrigger:{trigger:h,start:'top 88%',once:true},ease:'power2.out'});
+  });
+
+})();
 </script>
 
 </body>
