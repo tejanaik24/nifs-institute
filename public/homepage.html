@@ -127,8 +127,8 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
 
 <!-- Standalone Logo -->
 <a href="/" class="fixed top-5 left-5 z-50 flex items-center gap-3 group" data-path-logo="true">
-  <img src="/images/nifs-crest.png" alt="NIFS India" class="w-20 h-20 max-sm:w-12 max-sm:h-12 rounded-full ring-2 ring-white/30 shadow-xl group-hover:ring-amber-400/60 transition-all duration-300" onerror="this.style.display='none'">
-  <span class="text-nifs-red font-montserrat font-bold text-sm max-sm:text-xs leading-tight tracking-tight hidden sm:inline drop-shadow-lg max-w-[140px]">National Institute of<br>Fire &amp; Safety</span>
+  <img src="images/nifs-crest.png" alt="NIFS India" class="w-28 h-28 max-sm:w-16 max-sm:h-16 rounded-full ring-2 ring-white/30 shadow-xl group-hover:ring-amber-400/60 transition-all duration-300" onerror="this.style.display='none'">
+  <span class="text-nifs-red font-montserrat font-black text-2xl max-sm:text-base leading-tight tracking-tight hidden sm:inline drop-shadow-lg max-w-[220px]">National Institute of Fire &amp; Safety</span>
 </a>
 <!-- /Standalone Logo -->
 <!-- Dark Nav Pill (desktop) -->
@@ -2876,6 +2876,151 @@ document.addEventListener('DOMContentLoaded',function(){
     gsap.from(h,{scale:1.15,opacity:0,rotateX:-8,duration:0.5,scrollTrigger:{trigger:h,start:'top 88%',once:true},ease:'power2.out'});
   });
 
+})();
+</script>
+
+<!-- CUSTOM CURSOR (cloned from zenith-interface CustomCursor.tsx + magnetic/morph/stretch/ripple/tint upgrades) -->
+<div id="customCursor" style="position:fixed;top:0;left:0;width:32px;height:32px;border-radius:9999px;background:#fff;color:#000;pointer-events:none;z-index:10000;mix-blend-mode:difference;align-items:center;justify-content:center;font-size:10px;font-weight:700;opacity:0;transform:translate(0px,0px);transition:background 0.25s ease,width 0.25s ease,height 0.25s ease,margin 0.25s ease"></div>
+<style>
+#customCursor{display:none}
+@media(min-width:768px){
+  #customCursor{display:flex}
+  body{cursor:none}
+  a,button{cursor:none}
+}
+.cursor-ripple{position:fixed;top:0;left:0;width:32px;height:32px;margin-left:-16px;margin-top:-16px;border-radius:9999px;border:2px solid #fff;pointer-events:none;z-index:9999}
+</style>
+<script>
+(function(){
+  var el = document.getElementById('customCursor');
+  if(!el) return;
+  var mouseX = 0, mouseY = 0;
+  var x = 0, y = 0, vx = 0, vy = 0;
+  var visible = false;
+  var stiffness = 700, damping = 25, mass = 1;
+  var lastTime = null;
+
+  var magneticSelector = 'a[href="#courses"], a[href="#process"], a[href="#apply"], nav a, #coursePrev, #courseNext, .mobile-nav-link';
+  var morphSelector = '#courseImageStack img, .trained-card';
+  var magnetTarget = null;   // element currently pulling the cursor
+  var morphTarget = null;    // element currently showing text/scale morph
+  var rippleColor = '#fff';
+
+  function setTint(mode){
+    if(mode === 'button'){
+      el.style.background = '#DC1711';
+      el.style.mixBlendMode = 'normal';
+      rippleColor = '#DC1711';
+    } else if(mode === 'card'){
+      el.style.background = '#FC8010';
+      el.style.mixBlendMode = 'normal';
+      rippleColor = '#FC8010';
+    } else {
+      el.style.background = '#fff';
+      el.style.mixBlendMode = 'difference';
+      rippleColor = '#fff';
+    }
+  }
+
+  function enterMorph(target){
+    morphTarget = target;
+    el.style.width = '64px';
+    el.style.height = '64px';
+    el.style.marginLeft = '-32px';
+    el.style.marginTop = '-32px';
+    el.textContent = 'View';
+    el.style.color = '#fff';
+    setTint('card');
+  }
+
+  function exitMorph(){
+    morphTarget = null;
+    el.style.width = '32px';
+    el.style.height = '32px';
+    el.style.marginLeft = '0px';
+    el.style.marginTop = '0px';
+    el.textContent = '';
+    if(!magnetTarget) setTint('default');
+  }
+
+  document.addEventListener('mouseover', function(e){
+    var magnetEl = e.target.closest(magneticSelector);
+    if(magnetEl && magnetEl !== magnetTarget){
+      magnetTarget = magnetEl;
+      setTint('button');
+    }
+    var morphEl = e.target.closest(morphSelector);
+    if(morphEl && morphEl !== morphTarget){
+      enterMorph(morphEl);
+    }
+  });
+
+  document.addEventListener('mouseout', function(e){
+    if(magnetTarget && e.target.closest(magneticSelector) === magnetTarget){
+      var stillInside = e.relatedTarget && magnetTarget.contains(e.relatedTarget);
+      if(!stillInside){ magnetTarget = null; if(!morphTarget) setTint('default'); }
+    }
+    if(morphTarget && e.target.closest(morphSelector) === morphTarget){
+      var stillInsideCard = e.relatedTarget && morphTarget.contains(e.relatedTarget);
+      if(!stillInsideCard) exitMorph();
+    }
+  });
+
+  window.addEventListener('mousemove', function(e){
+    mouseX = e.clientX - 16;
+    mouseY = e.clientY - 16;
+    if(!visible){ visible = true; el.style.opacity = '1'; x = mouseX; y = mouseY; }
+  });
+
+  window.addEventListener('mousedown', function(e){
+    document.body.classList.add('cursor-clicking');
+    var ring = document.createElement('div');
+    ring.className = 'cursor-ripple';
+    ring.style.left = e.clientX + 'px';
+    ring.style.top = e.clientY + 'px';
+    ring.style.borderColor = rippleColor;
+    document.body.appendChild(ring);
+    var anim = ring.animate(
+      [{ transform: 'scale(0)', opacity: 1 }, { transform: 'scale(2.5)', opacity: 0 }],
+      { duration: 500, easing: 'ease-out' }
+    );
+    anim.onfinish = function(){ ring.remove(); };
+  });
+  window.addEventListener('mouseup', function(){ document.body.classList.remove('cursor-clicking'); });
+
+  function tick(now){
+    if(lastTime === null) lastTime = now;
+    var dt = Math.min((now - lastTime) / 1000, 0.032);
+    lastTime = now;
+    if(visible){
+      var targetX = mouseX, targetY = mouseY;
+      if(magnetTarget){
+        var rect = magnetTarget.getBoundingClientRect();
+        var cx = rect.left + rect.width / 2 - 16;
+        var cy = rect.top + rect.height / 2 - 16;
+        targetX = mouseX * 0.4 + cx * 0.6;
+        targetY = mouseY * 0.4 + cy * 0.6;
+      }
+      var ax = (stiffness * (targetX - x) - damping * vx) / mass;
+      var ay = (stiffness * (targetY - y) - damping * vy) / mass;
+      vx += ax * dt;
+      vy += ay * dt;
+      x += vx * dt;
+      y += vy * dt;
+
+      var transform = 'translate(' + x + 'px,' + y + 'px)';
+      if(!magnetTarget && !morphTarget){
+        var speed = Math.min(Math.hypot(vx, vy) / 1400, 0.6);
+        if(speed > 0.02){
+          var angle = Math.atan2(vy, vx) * 180 / Math.PI;
+          transform += ' rotate(' + angle + 'deg) scaleX(' + (1 + speed) + ') scaleY(' + (1 - speed * 0.5) + ') rotate(' + (-angle) + 'deg)';
+        }
+      }
+      el.style.transform = transform;
+    }
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
 })();
 </script>
 
