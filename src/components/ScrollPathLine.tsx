@@ -43,11 +43,35 @@ export function ScrollPathLine() {
     let totalPathLength = 0;
     let scrollTriggerInstance: ScrollTrigger | undefined;
     let lengthForY: (targetY: number) => number = () => 0;
+    let stretchStartLen = 0;
+    let stretchEndLen = 0;
     const posState = { pos: 0 };
 
     const setDashOffset = (pos: number) => {
       travelerPath.style.strokeDashoffset = String(totalPathLength - pos);
     };
+
+    const setPos = gsap.quickTo(posState, "pos", {
+      duration: 0.4,
+      ease: "power2.out",
+      onUpdate: () => {
+        let currentCometLength = COMET_LENGTH;
+        const p = posState.pos;
+
+        if (stretchEndLen > stretchStartLen) {
+          if (p >= stretchStartLen && p <= stretchEndLen) {
+            currentCometLength = Math.max(COMET_LENGTH, p - stretchStartLen);
+          } else if (p > stretchEndLen) {
+            const shrinkProgress = Math.min(1, (p - stretchEndLen) / 300);
+            const maxLength = stretchEndLen - stretchStartLen;
+            currentCometLength = maxLength + (COMET_LENGTH - maxLength) * shrinkProgress;
+          }
+        }
+
+        travelerPath.style.strokeDasharray = `${currentCometLength} ${totalPathLength}`;
+        setDashOffset(p);
+      },
+    });
 
     const followScroll = () => {
       group.setAttribute("transform", `translate(0 ${-window.scrollY})`);
@@ -183,6 +207,18 @@ export function ScrollPathLine() {
       posState.pos = 0;
       setDashOffset(0);
 
+      // Cache the stretch target's document-relative span once per build/resize —
+      // its position doesn't change between scroll ticks, so there's no need to
+      // re-query and re-measure it on every scrub update.
+      stretchStartLen = 0;
+      stretchEndLen = 0;
+      const stretchEl = document.querySelector<HTMLElement>('[data-path-stretch="true"]');
+      if (stretchEl) {
+        const stretchRect = docRect(stretchEl);
+        stretchStartLen = lengthForY(stretchRect.top);
+        stretchEndLen = lengthForY(stretchRect.bottom);
+      }
+
       scrollTriggerInstance?.kill();
       scrollTriggerInstance = ScrollTrigger.create({
         trigger: document.body,
@@ -192,45 +228,7 @@ export function ScrollPathLine() {
         onUpdate: () => {
           followScroll();
           const targetY = window.scrollY + window.innerHeight * 0.5;
-          const targetPos = lengthForY(targetY);
-
-          // Find stretch target elements
-          const stretchEl = document.querySelector<HTMLElement>('[data-path-stretch="true"]');
-          let startLen = 0;
-          let endLen = 0;
-
-          if (stretchEl) {
-            const stretchRect = stretchEl.getBoundingClientRect();
-            const scrollY = window.scrollY;
-            const stretchTop = stretchRect.top + scrollY;
-            const stretchBottom = stretchRect.bottom + scrollY;
-            startLen = lengthForY(stretchTop);
-            endLen = lengthForY(stretchBottom);
-          }
-
-          gsap.to(posState, {
-            pos: targetPos,
-            duration: 0.4,
-            ease: "power2.out",
-            overwrite: true,
-            onUpdate: () => {
-              let currentCometLength = COMET_LENGTH;
-              const p = posState.pos;
-
-              if (stretchEl && startLen > 0 && endLen > startLen) {
-                if (p >= startLen && p <= endLen) {
-                  currentCometLength = Math.max(COMET_LENGTH, p - startLen);
-                } else if (p > endLen) {
-                  const shrinkProgress = Math.min(1, (p - endLen) / 300);
-                  const maxLength = endLen - startLen;
-                  currentCometLength = maxLength + (COMET_LENGTH - maxLength) * shrinkProgress;
-                }
-              }
-
-              travelerPath.style.strokeDasharray = `${currentCometLength} ${totalPathLength}`;
-              setDashOffset(p);
-            },
-          });
+          setPos(lengthForY(targetY));
         },
       });
     };
