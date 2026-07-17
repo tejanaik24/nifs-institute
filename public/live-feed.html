@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NIFS Live Feed — Real-time Updates, Events & Opportunities</title>
+<meta name="description" content="Real-time announcements, events, placement updates, and opportunities from NIFS India. Stay updated with the latest from 70+ centers across 24 states.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:'Montserrat',system-ui,sans-serif;background:#0A0A0A;color:#fff;line-height:1.4;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+
+/* Nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 5%;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;letter-spacing:-0.3px}
+.nav-logo-mark{width:36px;height:36px;background:#DC1711;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:11px;color:#fff}
+.nav-pill{display:flex;align-items:center;gap:28px;padding:8px 20px;border-radius:60px;border:0.5px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.08);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+.nav-pill a{font-size:13px;font-weight:500;color:rgba(255,255,255,0.6);transition:color 0.2s}
+.nav-pill a:hover{color:#fff}
+.nav-pill a.active{color:#fff;font-weight:700}
+.nav-cta-pill{padding:10px 22px;border-radius:60px;background:#DC1711;color:#fff;font-size:13px;font-weight:700;border:none;cursor:pointer;transition:background 0.2s,transform 0.15s}
+.nav-cta-pill:hover{background:#B8130E;transform:translateY(-1px)}
+
+/* Hero */
+.hero-feed{padding:140px 5% 60px;text-align:center;position:relative;overflow:hidden}
+.hero-feed::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(220,23,17,0.08),transparent 70%);pointer-events:none}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border-radius:60px;border:0.5px solid rgba(220,23,17,0.4);background:rgba(220,23,17,0.12);backdrop-filter:blur(10px);font-size:13px;font-weight:600;color:#DC1711;margin-bottom:24px}
+.hero-badge-dot{width:6px;height:6px;background:#DC1711;border-radius:50%;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+.hero-feed h1{font-size:clamp(36px,7vw,80px);font-weight:900;line-height:0.95;letter-spacing:-3px;margin-bottom:16px}
+.hero-feed h1 .accent{color:#DC1711}
+.hero-feed p{font-size:clamp(15px,2vw,18px);color:rgba(255,255,255,0.5);max-width:540px;margin:0 auto;line-height:1.7}
+
+/* Filter Tabs */
+.filter-bar{display:flex;justify-content:center;gap:8px;padding:0 5% 48px;flex-wrap:wrap}
+.filter-btn{padding:10px 20px;border-radius:60px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.04);color:rgba(255,255,255,0.5);font-size:13px;font-weight:600;cursor:pointer;transition:all 0.25s;font-family:inherit}
+.filter-btn:hover{border-color:rgba(255,255,255,0.2);color:rgba(255,255,255,0.8)}
+.filter-btn.active{background:#DC1711;border-color:#DC1711;color:#fff}
+
+/* Feed Grid */
+.feed-section{padding:0 5% 120px;max-width:1200px;margin:0 auto}
+.feed-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+@media(max-width:768px){.feed-grid{grid-template-columns:1fr}}
+
+/* Feed Card */
+.feed-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:20px;overflow:hidden;transition:transform 0.3s cubic-bezier(0.22,1,0.36,1),border-color 0.3s,box-shadow 0.3s}
+.feed-card:hover{transform:translateY(-4px);border-color:rgba(255,255,255,0.12);box-shadow:0 20px 60px rgba(0,0,0,0.4)}
+.feed-card-img{width:100%;height:200px;object-fit:cover;object-position:center}
+.feed-card-body{padding:20px}
+.feed-card-meta{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.feed-card-badge{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;padding:4px 10px;border-radius:20px}
+.badge-update{background:rgba(220,23,17,0.15);color:#DC1711}
+.badge-event{background:rgba(252,128,16,0.15);color:#FC8010}
+.badge-job{background:rgba(38,190,41,0.15);color:#26BE29}
+.badge-industrial{background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.6)}
+.feed-card-time{font-size:11px;color:rgba(255,255,255,0.3);margin-left:auto}
+.feed-card-title{font-size:16px;font-weight:700;line-height:1.3;margin-bottom:8px}
+.feed-card-desc{font-size:13px;color:rgba(255,255,255,0.45);line-height:1.6}
+.feed-card-footer{display:flex;align-items:center;gap:16px;padding:14px 20px;border-top:1px solid rgba(255,255,255,0.05)}
+.feed-card-action{display:flex;align-items:center;gap:6px;font-size:12px;color:rgba(255,255,255,0.35);cursor:pointer;transition:color 0.2s}
+.feed-card-action:hover{color:rgba(255,255,255,0.7)}
+.feed-card-action svg{width:16px;height:16px}
+
+/* Card with image vs without */
+.feed-card.no-img .feed-card-body{padding:24px 20px}
+.feed-card.no-img .feed-card-title{font-size:15px}
+
+/* Live indicator */
+.live-dot{width:8px;height:8px;background:#DC1711;border-radius:50%;animation:pulse 1.5s ease-in-out infinite;display:inline-block}
+
+/* Footer */
+.footer{padding:48px 5%;border-top:1px solid rgba(255,255,255,0.06);text-align:center}
+.footer p{font-size:13px;color:rgba(255,255,255,0.3)}
+.footer a{color:rgba(255,255,255,0.5);transition:color 0.2s}
+.footer a:hover{color:#fff}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav">
+  <a href="/homepage.html" class="nav-logo">
+    <div class="nav-logo-mark">NIFS</div>
+    <span>National Institute of Fire &amp; Safety</span>
+  </a>
+  <div class="nav-pill">
+    <a href="/homepage.html">Home</a>
+    <a href="/courses">Courses</a>
+    <a href="/industrial-services">Services</a>
+    <a href="/placements">Placements</a>
+    <a href="/blog">Blog</a>
+    <a href="/live-feed.html" class="active">Live Feed</a>
+    <a href="/contact">Contact</a>
+    <a href="/contact" class="nav-cta-pill">Apply Now</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero-feed">
+  <div class="hero-badge"><span class="hero-badge-dot"></span> Live Feed</div>
+  <h1>NIFS <span class="accent">Updates</span></h1>
+  <p>Real-time announcements, events, placement updates, and opportunities from NIFS India</p>
+</section>
+
+<!-- Filter Tabs -->
+<div class="filter-bar">
+  <button class="filter-btn active" data-filter="all">All</button>
+  <button class="filter-btn" data-filter="update">Updates</button>
+  <button class="filter-btn" data-filter="event">Events</button>
+  <button class="filter-btn" data-filter="job">Jobs</button>
+  <button class="filter-btn" data-filter="industrial">Industrial Works</button>
+</div>
+
+<!-- Feed -->
+<section class="feed-section">
+  <div class="feed-grid" id="feedGrid">
+
+    <!-- Card 1: Admissions -->
+    <div class="feed-card" data-category="update">
+      <img src="https://nifs-institute.vercel.app/images/nifs-hero-classroom.png" alt="NIFS Admissions 2026" class="feed-card-img">
+      <div class="feed-card-body">
+        <div class="feed-card-meta">
+          <span class="feed-card-badge badge-update">Update</span>
+          <span class="feed-card-time">2 hours ago</span>
+        </div>
+        <h3 class="feed-card-title">Admissions Open for Diploma / PG Diploma / Degree / PG and International Courses 2026</h3>
+        <p class="feed-card-desc">NIFS India invites applications for all programs across 70+ centers. NSDC approved. 45,000+ alumni. Placement assistance guaranteed.</p>
+      </div>
+      <div class="feed-card-footer">
+        <span class="feed-card-action"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg> 234</span>
+        <span class="feed-card-action"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg> 18</span>
+        <span class="feed-card-action"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8M16 6l-4-4-4 4M12 2v13"/></svg> Share</span>
+      </div>
+    </div>
+
+    <!-- Card 2: Campus Recruitment -->
+    <div class="feed-card" data-category="event">
+      <img src="https://nifs-institute.vercel.app/images/placement-success-story.jpg" alt="Campus Recruitment Drive" class="feed-card-img">
+      <div class="feed-card-body">
+        <div class="feed-card-meta">
+          <span class="feed-card-badge badge-event">Event</span>
+          <span class="feed-card-time">5 hours ago</span>
+        </div>
+        <h3 class="feed-card-title">Campus Recruitment Drive — Adani, L&T, GMR Group</h3>
+        <p class="feed-card-desc">Visakhapatnam HQ. Open to all graduates. Direct interviews with HR teams from top recruiters. Bring your resume and certificates.</p>
+      </div>
+      <div class="feed-card-footer">
+        <span class="feed-card-action"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg> 189</span>
+        <span class="feed-card-action"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg> 32</span>
+        <span class="feed-card-action"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8M16 6l-4-4-4 4M12 2v13"/></svg> Share</span>
+      </div>
+    </div>
+
+    <!-- Card 3: Defensive Driving -->
+    <div class="feed-card" data-category="update">
+      <div class="feed-card-body">
+        <div class="feed-card-meta">
+          <span class="feed-card-badge badge-update">Update</span>
+          <span class="feed-card-time">1 day ago</span>
+        </div>
+        <h3 class="feed-card-title">NIFS offering Certification in Defensive Driving Training recognized by Govt of Andhra Pradesh</h3>
+        <p class="feed-card-desc">New certification program now available at Visakhapatnam and Hyderabad centers. Government recognized. Enrollment open.</p>
+      </div>
+      <div class="feed-card-footer">
+        <span class="feed-card-action"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg> 156</span>
+        <span class="feed-card-action"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg> 12</span>
+        <span class="feed-card-action"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8M16 6l-4-4-4 4M12 2v13"/></svg> Share</span>
+      </div>
+    </div>
+
+    <!-- Card 4: Safety Officer Hiring -->
+    <div class="feed-card" data-category="job">
+      <img src="https://nifs-institute.vercel.app/images/nifs-hero-training-yard.png" alt="Safety Officer Position" class="feed-card-img">
+      <div class="feed-card-body">
+        <div class="feed-card-meta">
+          <span class="feed-card-badge badge-job">Job</span>
+          <span style="background:rgba(38,190,41,0.2);color:#26BE29;font-size:10px;font-weight:700;padding:3px 8px;border-radius:12px">Hiring</span>
+          <span class="feed-card-time">1 day ago</span>
+        </div>
+        <h3 class="feed-card-title">Safety Officer — Adani Ports, Visakhapatnam</h3>
+        <p class="feed-card-desc">B.Sc / Diploma required. 1-3 years experience. Competitive salary. Direct placement through NIFS placement cell.</p>
+      </div>
+      <div class="feed-card-footer">
+        <span class="feed-card-action"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg> 312</span>
+        <span class="feed-card-action"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg> 45</span>
+        <span class="feed-card-action"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8M16 6l-4-4-4 4M12 2v13"/></svg> Share</span>
+      </div>
+    </div>
+
+    <!-- Card 5: Nagarjuna University -->
+    <div class="feed-card" data-category="update">
+      <img src="https://nifs-institute.vercel.app/images/blog/nifs-india-achieves-milestone-collaboration-with-acharya-nagarjuna-university-65.jpeg" alt="Nagarjuna University Collaboration" class="feed-card-img">
+      <div class="feed-card-body">
+        <div class="feed-card-meta">
+          <span class="feed-card-badge badge-update">Update</span>
+          <span class="feed-card-time">3 days ago</span>
+        </div>
+        <h3 class="feed-card-title">NIFS India achieves Milestone Collaboration with Acharya Nagarjuna University</h3>
+        <p class="feed-card-desc">Partnership enables students to pursue advanced safety certifications backed by a recognized university degree. B.Sc & M.Sc programs.</p>
+      </div>
+      <div class="feed-card-footer">
+        <span class="feed-card-action"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg> 428</span>
+        <span class="feed-card-action"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg> 56</span>
+        <span class="feed-card-action"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8M16 6l-4-4-4 4M12 2v13"/></svg> Share</span>
+      </div>
+    </div>
+
+    <!-- Card 6: Fire Safety Seminar -->
+    <div class="feed-card" data-category="event">
+      <div class="feed-card-body">
+        <div class="feed-card-meta">
+          <span class="feed-card-badge badge-event">Event</span>
+          <span class="feed-card-time">4 days ago</span>
+        </div>
+        <h3 class="feed-card-title">Industrial Fire Safety Awareness Seminar — Hyderabad Center</h3>
+        <p class="feed-card-desc">Free entry. Open to students, professionals, and industry personnel. Expert speakers from IFESM industrial division.</p>
+      </div>
+      <div class="feed-card-footer">
+        <span class="feed-card-action"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg> 98</span>
+        <span class="feed-card-action"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg> 14</span>
+        <span class="feed-card-action"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8M16 6l-4-4-4 4M12 2v13"/></svg> Share</span>
+      </div>
+    </div>
+
+    <!-- Card 7: EHS Manager Job -->
+    <div class="feed-card" data-category="job">
+      <div class="feed-card-body">
+        <div class="feed-card-meta">
+          <span class="feed-card-badge badge-job">Job</span>
+          <span style="background:rgba(38,190,41,0.2);color:#26BE29;font-size:10px;font-weight:700;padding:3px 8px;border-radius:12px">Hiring</span>
+          <span class="feed-card-time">5 days ago</span>
+        </div>
+        <h3 class="feed-card-title">EHS Manager — L&T Construction, Chennai</h3>
+        <p class="feed-card-desc">PG Diploma / B.Sc required. 3-5 years experience. Multiple positions available. Gulf opportunity also available.</p>
+      </div>
+      <div class="feed-card-footer">
+        <span class="feed-card-action"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg> 267</span>
+        <span class="feed-card-action"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg> 38</span>
+        <span class="feed-card-action"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8M16 6l-4-4-4 4M12 2v13"/></svg> Share</span>
+      </div>
+    </div>
+
+    <!-- Card 8: NSDC e-Learning -->
+    <div class="feed-card" data-category="update">
+      <img src="https://nifs-institute.vercel.app/images/nifs-hero-student-life.png" alt="NSDC e-Learning" class="feed-card-img">
+      <div class="feed-card-body">
+        <div class="feed-card-meta">
+          <span class="feed-card-badge badge-update">Update</span>
+          <span class="feed-card-time">1 week ago</span>
+        </div>
+        <h3 class="feed-card-title">NSDC-approved e-Learning programs now available for working professionals across India</h3>
+        <p class="feed-card-desc">Study at your own pace. NSDC certified. Perfect for working professionals who want to upskill without leaving their jobs.</p>
+      </div>
+      <div class="feed-card-footer">
+        <span class="feed-card-action"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg> 178</span>
+        <span class="feed-card-action"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg> 22</span>
+        <span class="feed-card-action"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8M16 6l-4-4-4 4M12 2v13"/></svg> Share</span>
+      </div>
+    </div>
+
+    <!-- Card 9: Convocation -->
+    <div class="feed-card" data-category="event">
+      <img src="https://nifs-institute.vercel.app/images/nifs-hero-graduation.png" alt="Annual Convocation" class="feed-card-img">
+      <div class="feed-card-body">
+        <div class="feed-card-meta">
+          <span class="feed-card-badge badge-event">Event</span>
+          <span class="feed-card-time">1 week ago</span>
+        </div>
+        <h3 class="feed-card-title">NIFS Annual Convocation Ceremony — 2025 Batch</h3>
+        <p class="feed-card-desc">Vizag. Students & parents welcome. Chief guest from Adani Group. Certificate distribution for all 2025 graduates.</p>
+      </div>
+      <div class="feed-card-footer">
+        <span class="feed-card-action"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg> 345</span>
+        <span class="feed-card-action"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg> 41</span>
+        <span class="feed-card-action"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8M16 6l-4-4-4 4M12 2v13"/></svg> Share</span>
+      </div>
+    </div>
+
+    <!-- Card 10: Turnkey Project -->
+    <div class="feed-card" data-category="industrial">
+      <img src="https://nifs-institute.vercel.app/images/control-room-risk-assessment.jpg" alt="Turnkey Fire Project" class="feed-card-img">
+      <div class="feed-card-body">
+        <div class="feed-card-meta">
+          <span class="feed-card-badge badge-industrial">Industrial</span>
+          <span class="feed-card-time">2 weeks ago</span>
+        </div>
+        <h3 class="feed-card-title">IFESM completes Turnkey Fire Engineering Project at GMR Hyderabad Airport</h3>
+        <p class="feed-card-desc">Design, installation, and manning of fire suppression systems. Full compliance with DGCA and airport safety regulations.</p>
+      </div>
+      <div class="feed-card-footer">
+        <span class="feed-card-action"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg> 198</span>
+        <span class="feed-card-action"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg> 27</span>
+        <span class="feed-card-action"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8M16 6l-4-4-4 4M12 2v13"/></svg> Share</span>
+      </div>
+    </div>
+
+    <!-- Card 11: Safety Audit -->
+    <div class="feed-card" data-category="industrial">
+      <div class="feed-card-body">
+        <div class="feed-card-meta">
+          <span class="feed-card-badge badge-industrial">Industrial</span>
+          <span class="feed-card-time">2 weeks ago</span>
+        </div>
+        <h3 class="feed-card-title">IFESM completes HIRA Safety Audit for Adani Ports & SEZ — Kakinada</h3>
+        <p class="feed-card-desc">Comprehensive Hazard Identification and Risk Assessment across port operations. 47 hazards identified, all mitigated within 30 days.</p>
+      </div>
+      <div class="feed-card-footer">
+        <span class="feed-card-action"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg> 145</span>
+        <span class="feed-card-action"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg> 19</span>
+        <span class="feed-card-action"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8M16 6l-4-4-4 4M12 2v13"/></svg> Share</span>
+      </div>
+    </div>
+
+    <!-- Card 12: Fire Officer Job -->
+    <div class="feed-card" data-category="job">
+      <div class="feed-card-body">
+        <div class="feed-card-meta">
+          <span class="feed-card-badge badge-job">Job</span>
+          <span style="background:rgba(38,190,41,0.2);color:#26BE29;font-size:10px;font-weight:700;padding:3px 8px;border-radius:12px">Hiring</span>
+          <span class="feed-card-time">3 weeks ago</span>
+        </div>
+        <h3 class="feed-card-title">Fire Officer — ITC Paperboards, Bhadrachalam</h3>
+        <p class="feed-card-desc">Diploma in Fire & Safety required. 2+ years experience. On-campus accommodation provided. Immediate joining.</p>
+      </div>
+      <div class="feed-card-footer">
+        <span class="feed-card-action"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg> 203</span>
+        <span class="feed-card-action"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg> 29</span>
+        <span class="feed-card-action"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8M16 6l-4-4-4 4M12 2v13"/></svg> Share</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <p>&copy; 2026 NIFS India — National Institute of Fire &amp; Safety. All rights reserved. | <a href="/homepage.html">Back to Home</a></p>
+</footer>
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+// Filter tabs
+var filterBtns=document.querySelectorAll('.filter-btn');
+var cards=document.querySelectorAll('.feed-card');
+filterBtns.forEach(function(btn){
+  btn.addEventListener('click',function(){
+    filterBtns.forEach(function(b){b.classList.remove('active')});
+    btn.classList.add('active');
+    var filter=btn.dataset.filter;
+    cards.forEach(function(card){
+      if(filter==='all'||card.dataset.category===filter){
+        card.style.display='';gsap.fromTo(card,{opacity:0,y:20},{opacity:1,y:0,duration:0.4,ease:'power2.out'});
+      }else{
+        card.style.display='none';
+      }
+    });
+  });
+});
+
+// Card entrance animation
+gsap.utils.toArray('.feed-card').forEach(function(card,i){
+  gsap.from(card,{opacity:0,y:30,duration:0.5,ease:'power2.out',scrollTrigger:{trigger:card,start:'top 92%',once:true},delay:(i%2)*0.1});
+});
+</script>
+
+</body>
+</html>

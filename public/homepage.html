@@ -10,7 +10,7 @@
 
 <title>NIFS India â€” National Institute of Fire & Safety | 25+ Years of Excellence</title>
 
-<meta name="description" content="India's leading fire and industrial safety training institute. 86 centers across 24 states. NSDC Approved. ISO Certified. 45,000+ alumni placed in top industries.">
+<meta name="description" content="India's leading fire and industrial safety training institute. 70+ centers across 24 states. NSDC Approved. ISO Certified. 45,000+ alumni placed in top industries.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 
@@ -123,6 +123,33 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
   dl dd{max-height:0;opacity:0;overflow:hidden}
 }
 
+/* ─── HERO CINEMATIC CROSSFADE ─── */
+.hero-cine-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:68% 30%;opacity:0;will-change:opacity,transform,filter;pointer-events:none;transform:scale(1);filter:blur(0px)}
+@media(min-width:768px){.hero-cine-img{object-position:84% center}}
+.hero-cine-img[data-active="true"]{opacity:1;z-index:1}
+
+/* ─── INDUSTRY GLASS PILL ─── */
+.hero-cine-pill{display:inline-flex;align-items:center;gap:8px;padding:6px 16px 6px 12px;border-radius:9999px;background:rgba(255,255,255,0.08);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.15);box-shadow:0 4px 24px rgba(0,0,0,0.2);position:relative;overflow:hidden}
+.hero-cine-pill::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.1),transparent 60%);pointer-events:none}
+.hero-cine-pill-dot{width:6px;height:6px;border-radius:50%;background:#26BE29;flex-shrink:0}
+.hero-cine-pill-text{font-size:13px;font-weight:600;color:rgba(255,255,255,0.9);letter-spacing:0.02em}
+.hero-cine-pill-job{font-size:12px;font-weight:500;color:rgba(255,255,255,0.5);margin-left:4px}
+
+/* ─── EMBER PARTICLES ─── */
+.hero-ember-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:3}
+
+/* ─── BACKGROUND DRIFT ─── */
+.hero-bg-drift{position:absolute;inset:-10px;width:calc(100% + 20px);background:linear-gradient(180deg,rgba(10,10,10,0.2) 0%,rgba(10,10,10,0.6) 50%,rgba(10,10,10,1) 100%);will-change:transform}
+
+/* ─── REDUCED MOTION ─── */
+@media(prefers-reduced-motion:reduce){
+  .hero-cine-img{opacity:0!important;transform:none!important;filter:none!important;transition:none!important}
+  .hero-cine-img[data-active="true"]{opacity:1!important}
+  .hero-ember-canvas{display:none!important}
+  .hero-bg-drift{transform:none!important}
+  .hero-cine-pill,.hero-cine-pill *{transition:none!important}
+}
+
 </style>
 
 </head>
@@ -145,6 +172,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
     <a href="/placements" class="px-4 py-2 rounded-full text-white/80 text-sm font-medium hover:bg-white/10 hover:text-white transition-all duration-300">Placements</a>
     <a href="/gallery" class="px-4 py-2 rounded-full text-white/80 text-sm font-medium hover:bg-white/10 hover:text-white transition-all duration-300">Gallery</a>
     <a href="/blog" class="px-4 py-2 rounded-full text-white/80 text-sm font-medium hover:bg-white/10 hover:text-white transition-all duration-300">Blog</a>
+    <a href="/live-feed.html" class="px-4 py-2 rounded-full text-white/80 text-sm font-medium hover:bg-white/10 hover:text-white transition-all duration-300">Live Feed</a>
     <a href="/about" class="px-4 py-2 rounded-full text-white/80 text-sm font-medium hover:bg-white/10 hover:text-white transition-all duration-300">About</a>
     <a href="/contact" class="px-5 py-2 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 text-white text-sm font-semibold hover:from-amber-400 hover:to-orange-400 transition-all duration-300 shadow-lg shadow-amber-500/25 ml-1">Apply Now</a>
   </div>
@@ -163,6 +191,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
   <a href="/placements" class="mobile-nav-link w-64 text-center py-4 text-white/90 text-lg font-semibold rounded-2xl hover:bg-white/10 transition-all">Placements</a>
   <a href="/gallery" class="mobile-nav-link w-64 text-center py-4 text-white/90 text-lg font-semibold rounded-2xl hover:bg-white/10 transition-all">Gallery</a>
   <a href="/blog" class="mobile-nav-link w-64 text-center py-4 text-white/90 text-lg font-semibold rounded-2xl hover:bg-white/10 transition-all">Blog</a>
+  <a href="/live-feed.html" class="mobile-nav-link w-64 text-center py-4 text-white/90 text-lg font-semibold rounded-2xl hover:bg-white/10 transition-all">Live Feed</a>
   <a href="/about" class="mobile-nav-link w-64 text-center py-4 text-white/90 text-lg font-semibold rounded-2xl hover:bg-white/10 transition-all">About</a>
   <div class="w-12 h-px bg-white/20 my-3"></div>
   <a href="/contact" class="mobile-nav-link w-64 text-center py-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-lg font-bold rounded-2xl shadow-lg shadow-amber-500/25 transition-all">Apply Now</a>
@@ -213,9 +242,20 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
 
 <section class="relative min-h-screen w-full overflow-hidden flex flex-col justify-end md:flex-row md:items-center md:justify-start pt-0 md:pt-40 max-lg:md:pt-36 pb-10 md:pb-[100px] max-lg:md:pb-[70px]">
 
-  <img src="images/hero-safety-officer.png" alt="NIFS-trained industrial safety officer on-site at an industrial plant" class="absolute inset-0 w-full h-full object-cover object-[68%_30%] md:object-[84%_center]">
+  <!-- Background drift layer -->
+  <div class="hero-bg-drift absolute inset-0" aria-hidden="true"></div>
 
-  <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/5 md:bg-gradient-to-r md:from-white md:from-[10%] md:via-white/85 md:via-[30%] md:to-white/0 md:to-[42%]"></div>
+  <!-- Cinematic crossfade images -->
+  <img src="images/hero/oil-gas.png" alt="Safety officer at an oil and gas refinery" class="hero-cine-img" data-cine="0" data-active="true">
+  <img src="images/hero/fire-officer.png" alt="Fire and rescue safety officer on duty" class="hero-cine-img" data-cine="1">
+  <img src="images/hero/airplane-officer.png" alt="Airport safety officer at an airfield" class="hero-cine-img" data-cine="2">
+  <img src="images/hero/shipyard-officer.png" alt="Marine and shipyard safety officer" class="hero-cine-img" data-cine="3">
+  <img src="images/hero/power-plant-officer.png" alt="Power plant industrial safety officer" class="hero-cine-img" data-cine="4">
+
+  <!-- Ember particles canvas -->
+  <canvas class="hero-ember-canvas" aria-hidden="true"></canvas>
+
+  <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/5 md:bg-gradient-to-r md:from-white md:from-[10%] md:via-white/85 md:via-[30%] md:to-white/0 md:to-[42%] z-[4]"></div>
 
   <div class="relative z-10 flex flex-col items-start w-full px-[5%] md:pt-0 md:w-[90%] md:max-w-[620px] gap-6 md:gap-10 md:pl-[3%]">
 
@@ -229,7 +269,14 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
 
       </h1>
 
-      <p class="text-left font-montserrat text-xl max-sm:text-[16px] text-white/80 md:text-gray-600 max-w-[520px]">From the classroom to the refinery floor — 86 centers, 45,000+ alumni, careers that protect lives.</p>
+      <!-- Cinematic industry label pill -->
+      <div class="hero-cine-pill" aria-live="polite">
+        <span class="hero-cine-pill-dot"></span>
+        <span class="hero-cine-pill-text" id="hero-cine-industry">Oil &amp; Gas</span>
+        <span class="hero-cine-pill-job" id="hero-cine-jobtitle">— HSE Officer</span>
+      </div>
+
+      <p class="text-left font-montserrat text-xl max-sm:text-[16px] text-white/80 md:text-gray-600 max-w-[520px]">From the classroom to the refinery floor — 70+ centers, 45,000+ alumni, careers that protect lives.</p>
 
 
       <div class="flex gap-4 max-sm:flex-col max-sm:w-full max-sm:items-stretch">
@@ -254,7 +301,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
 
       <div class="text-left">
 
-        <span class="block text-[40px] max-sm:text-[28px] font-black leading-none text-white md:text-black" data-value="86" data-suffix="">86</span>
+        <span class="block text-[40px] max-sm:text-[28px] font-black leading-none text-white md:text-black" data-value="70" data-suffix="+">70+</span>
 
         <span class="text-sm font-semibold uppercase tracking-wider text-white/60 md:text-gray-400">Centers</span>
 
@@ -388,6 +435,29 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
 
 </section>
 
+<!-- IFESM — NIFS INDUSTRIAL DIVISION -->
+<section class="w-full py-[48px] max-lg:py-[36px] flex justify-center items-center border-t border-b border-white/5" style="background:linear-gradient(180deg,#0A0A0A,#111111)">
+  <div class="w-[90%] max-sm:w-[95%] max-w-6xl flex items-center justify-between max-lg:flex-col max-lg:gap-8 max-lg:text-center">
+    <!-- IFESM Logo + tagline -->
+    <div class="flex items-center gap-4 max-lg:justify-center shrink-0">
+      <img src="https://ifesm.com/assets/images/ifesm-logo-1-302x117.png" alt="IFESM — Industrial Fire Engineering & Safety Management" class="h-10 max-sm:h-8 object-contain brightness-0 invert opacity-70 hover:opacity-100 transition-opacity duration-300">
+      <div class="h-8 w-px bg-white/10 max-lg:hidden"></div>
+      <p class="text-white/40 text-[13px] font-semibold uppercase tracking-wider max-lg:hidden">A Division of NIFS</p>
+    </div>
+
+    <!-- Stat -->
+    <div class="flex flex-col items-center max-lg:items-center">
+      <span class="text-white font-montserrat font-black text-[32px] max-sm:text-[26px] leading-none ifesm-stat" data-ifesm-count="500">0</span>
+      <span class="text-white/50 text-[13px] font-semibold mt-1">Companies Served Across India</span>
+    </div>
+
+    <!-- Headline + CTA -->
+    <div class="flex items-center gap-6 max-lg:flex-col max-lg:gap-4">
+      <p class="text-white/70 text-[15px] font-medium max-sm:text-[13px]">NIFS Trains.<span class="text-nifs-red font-bold"> IFESM Deploys.</span></p>
+      <a href="https://ifesm.com" target="_blank" rel="noopener" class="px-6 py-2.5 rounded-full border border-white/15 bg-white/5 text-white text-[13px] font-semibold hover:bg-nifs-red hover:border-nifs-red transition-all duration-300 whitespace-nowrap">Visit IFESM →</a>
+    </div>
+  </div>
+</section>
 
 <!-- CHAIRMAN SPOTLIGHT -->
 <section class="w-full py-[120px] max-lg:py-[70px] max-sm:py-[60px] flex justify-center items-center" style="background:linear-gradient(180deg,#232323,#2f2f2f)">
@@ -424,21 +494,13 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
 
     <div class="grid grid-cols-3 max-lg:grid-cols-1 gap-6 w-full max-md:mobile-stack-cards">
 
-      <!-- Card 1: Skill India -->
+      <!-- Card 1: Acharya Nagarjuna University -->
 
       <div class="trained-card relative overflow-hidden rounded-[48px] max-md:rounded-[32px] p-10 max-md:p-6 min-h-[480px] max-md:min-h-[380px] flex flex-col justify-between group shadow-xl">
 
-        <!-- Background Image -->
-
-        <img src="skill_india_bg.png" alt="Skill India Training" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-
-        <!-- Dark Overlay -->
+        <img src="collaboration_bg.png" alt="Acharya Nagarjuna University Collaboration" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
 
         <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/85 to-black/30"></div>
-
-        
-
-        <!-- Content -->
 
         <div class="relative z-10 flex flex-col justify-between h-full flex-1 gap-8 max-md:gap-4">
 
@@ -446,19 +508,19 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
 
             <div class="bg-white px-8 py-5 max-md:px-4 max-md:py-2.5 rounded-3xl shadow-2xl flex items-center justify-center h-28 max-md:h-16 w-48 max-md:w-32 overflow-hidden">
 
-              <img src="https://nifs-institute.vercel.app/images/logos/accreditations/skill-india.png" alt="Skill India Logo" class="h-28 max-md:h-14 object-contain scale-[2.2] max-md:scale-100 transform transition-transform duration-300 group-hover:scale-[2.4]">
+              <img src="images/logos/accreditations/acharya_nagaarjuna_university.jpg" alt="Acharya Nagarjuna University Logo" class="h-28 max-md:h-14 object-contain transition-transform duration-300 group-hover:scale-105">
 
             </div>
 
-            <span class="text-[11px] font-black uppercase tracking-widest text-nifs-orange bg-nifs-orange/20 px-3.5 py-1.5 rounded-full backdrop-blur-sm">Skill India</span>
+            <span class="text-[11px] font-black uppercase tracking-widest text-nifs-green bg-nifs-green/20 px-3.5 py-1.5 rounded-full backdrop-blur-sm">University</span>
 
           </div>
 
           <div>
 
-            <h3 class="text-white text-[28px] max-md:text-[20px] font-bold font-montserrat leading-tight mb-3 max-md:mb-2">Skill India Partner</h3>
+            <h3 class="text-white text-[28px] max-md:text-[20px] font-bold font-montserrat leading-tight mb-3 max-md:mb-2">Acharya Nagarjuna University</h3>
 
-            <p class="text-white/80 text-[15px] leading-relaxed">Delivering standardized government safety courses under the Skill India (कौशल भारतâ€“कुशल भारत) mission to build high-quality professional competency.</p>
+            <p class="text-white/80 text-[15px] leading-relaxed">Official technical collaboration for B.Sc &amp; M.Sc in Fire and Safety, research partnerships, and faculty exchange programs across Andhra Pradesh.</p>
 
           </div>
 
@@ -608,7 +670,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
         <div class="max-w-2xl">
           <div class="why-item my-20 max-sm:my-10" data-index="0">
             <h3 class="why-title text-2xl font-bold text-slate-100" style="opacity:1;transition:opacity 0.3s">Practical Training Yard</h3>
-            <img src="why_training_yard_bg.png" alt="Practical Training Yard" class="hidden max-sm:block w-full h-40 object-cover rounded-xl mt-4">
+            <img src="why_training_yard_bg.png" alt="Practical Training Yard" class="hidden max-sm:block w-full h-40 object-cover object-top rounded-xl mt-4">
             <p class="why-desc text-lg text-slate-300 max-w-sm mt-10 max-sm:mt-4" style="opacity:1;transition:opacity 0.3s">Real hazard simulations on actual equipment. 85% of curriculum is hands-on, not classroom theory.</p>
           </div>
           <div class="why-item my-20 max-sm:my-10" data-index="1">
@@ -622,8 +684,8 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
             <p class="why-desc text-lg text-slate-300 max-w-sm mt-10 max-sm:mt-4" style="opacity:0.3;transition:opacity 0.3s">NSDC + Skill India approved. Certificates valid across India, Gulf, and international markets.</p>
           </div>
           <div class="why-item my-20 max-sm:my-10" data-index="3">
-            <h3 class="why-title text-2xl font-bold text-slate-100" style="opacity:0.3;transition:opacity 0.3s">86 Centers Nationwide</h3>
-            <img src="why_centers_bg.png" alt="86 Centers Nationwide" class="hidden max-sm:block w-full h-40 object-cover rounded-xl mt-4">
+            <h3 class="why-title text-2xl font-bold text-slate-100" style="opacity:0.3;transition:opacity 0.3s">70+ Centers Nationwide</h3>
+            <img src="why_centers_bg.png" alt="70+ Centers Nationwide" class="hidden max-sm:block w-full h-40 object-cover rounded-xl mt-4">
             <p class="why-desc text-lg text-slate-300 max-w-sm mt-10 max-sm:mt-4" style="opacity:0.3;transition:opacity 0.3s">Learn near home. Transfer between centers anytime. New centers opening every quarter.</p>
           </div>
           <div class="why-item my-20 max-sm:my-10" data-index="4">
@@ -635,7 +697,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
         </div>
       </div>
       <div class="hidden lg:block h-64 w-96 rounded-xl bg-white sticky top-10 overflow-hidden shrink-0 shadow-2xl">
-        <img id="whyPanelImg" src="why_training_yard_bg.png" alt="" class="w-full h-full object-cover" style="transition:opacity 0.2s">
+        <img id="whyPanelImg" src="why_training_yard_bg.png" alt="" class="w-full h-full object-cover object-top" style="transition:opacity 0.2s">
       </div>
     </div>
   </div>
@@ -1269,7 +1331,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
 
             <h3 class="font-bold text-[60px] max-md:text-[44px] max-sm:text-[32px] text-black leading-[100%] font-montserrat">Enroll</h3>
 
-            <p class="text-right font-normal font-montserrat text-[24px] max-md:text-[15px] text-gray-500">Complete enrollment with flexible payment options. Education loan facility available for all courses. Begin your training at any of our 86 centers.</p>
+            <p class="text-right font-normal font-montserrat text-[24px] max-md:text-[15px] text-gray-500">Complete enrollment with flexible payment options. Education loan facility available for all courses. Begin your training at any of our 70+ centers.</p>
 
           </div>
 
@@ -1331,7 +1393,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
 
           <span class="text-nifs-red font-bold text-xs tracking-widest uppercase">National Presence</span>
 
-          <h2 class="text-[3.2vw] max-lg:text-[5vw] max-sm:text-[32px] font-black leading-tight text-gray-900 font-montserrat mt-1">86 Centers Across 24 States</h2>
+          <h2 class="text-[3.2vw] max-lg:text-[5vw] max-sm:text-[32px] font-black leading-tight text-gray-900 font-montserrat mt-1">70+ Centers Across 24 States</h2>
 
           <p class="text-gray-500 text-[15px] mt-2 font-medium">India's largest network of safety training institutes, offering local courses to international standards.</p>
 
@@ -1347,7 +1409,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
 
             <div>
 
-              <span class="block text-[22px] font-black text-gray-900 leading-none">86</span>
+              <span class="block text-[22px] font-black text-gray-900 leading-none">70+</span>
 
               <span class="text-[10px] font-bold uppercase tracking-wider text-gray-400 mt-1 block">Centers</span>
 
@@ -1479,9 +1541,9 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
 
 
 
-          <!-- Visakhapatnam -->
+          <!-- Andhra Pradesh -->
 
-          <button type="button" onclick="showStateInfo('Andhra Pradesh', 'Visakhapatnam', '7 Centers', 'National Headquarters. 7 state-of-the-art training centers including the massive Visakhapatnam Practical Yard.')" class="group absolute cursor-pointer focus:outline-none" style="left:47.49%;top:64.8%">
+          <button type="button" onclick="showStateInfo('Andhra Pradesh', '7 Centers', '7 centers across Andhra Pradesh including Visakhapatnam HQ, Guntur, and Kakinada.')" class="group absolute cursor-pointer focus:outline-none" style="left:44%;top:67%">
 
             <div class="relative -translate-x-1/2 -translate-y-1/2">
 
@@ -1489,17 +1551,15 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
 
               <span class="relative block rounded-full border-2 border-white shadow-sm h-4 w-4 bg-nifs-red"></span>
 
-              <span class="pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 rounded bg-gray-900 px-2 py-1 text-[10px] font-medium whitespace-nowrap text-white transition-opacity duration-200 group-hover:opacity-100 opacity-0 z-30">Visakhapatnam (HQ)</span>
+              <span class="pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 rounded bg-gray-900 px-2 py-1 text-[10px] font-medium whitespace-nowrap text-white transition-opacity duration-200 group-hover:opacity-100 opacity-0 z-30">Andhra Pradesh</span>
 
             </div>
 
           </button>
 
-          
+          <!-- Telangana -->
 
-          <!-- Hyderabad -->
-
-          <button type="button" onclick="showStateInfo('Telangana', 'Hyderabad', '2 Centers', '2 centers in Hyderabad. Comprehensive coaching for fire safety & HSE diplomas.')" class="group absolute cursor-pointer focus:outline-none" style="left:31.62%;top:65.89%">
+          <button type="button" onclick="showStateInfo('Telangana', '2 Centers', '2 centers in Telangana — Hyderabad and Warangal.')" class="group absolute cursor-pointer focus:outline-none" style="left:33%;top:65%">
 
             <div class="relative -translate-x-1/2 -translate-y-1/2">
 
@@ -1507,17 +1567,31 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
 
               <span class="relative block rounded-full border-2 border-white shadow-sm h-3 w-3 bg-nifs-red"></span>
 
-              <span class="pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 rounded bg-gray-900 px-2 py-1 text-[10px] font-medium whitespace-nowrap text-white transition-opacity duration-200 group-hover:opacity-100 opacity-0 z-30">Hyderabad</span>
+              <span class="pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 rounded bg-gray-900 px-2 py-1 text-[10px] font-medium whitespace-nowrap text-white transition-opacity duration-200 group-hover:opacity-100 opacity-0 z-30">Telangana</span>
 
             </div>
 
           </button>
 
+          <!-- Tamil Nadu -->
 
+          <button type="button" onclick="showStateInfo('Tamil Nadu', '10 Centers', '10 centers in Tamil Nadu — Chennai, Tambaram, and more.')" class="group absolute cursor-pointer focus:outline-none" style="left:37%;top:81%">
 
-          <!-- Guntur -->
+            <div class="relative -translate-x-1/2 -translate-y-1/2">
 
-          <button type="button" onclick="showStateInfo('Andhra Pradesh', 'Guntur', '7 Centers', 'Key training facility in Guntur offering practical drills and AC classrooms.')" class="group absolute cursor-pointer focus:outline-none" style="left:38.16%;top:69.75%">
+              <span class="animate-ping absolute inset-0 inline-flex h-4 w-4 rounded-full bg-nifs-red opacity-75"></span>
+
+              <span class="relative block rounded-full border-2 border-white shadow-sm h-4 w-4 bg-nifs-red"></span>
+
+              <span class="pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 rounded bg-gray-900 px-2 py-1 text-[10px] font-medium whitespace-nowrap text-white transition-opacity duration-200 group-hover:opacity-100 opacity-0 z-30">Tamil Nadu</span>
+
+            </div>
+
+          </button>
+
+          <!-- Odisha -->
+
+          <button type="button" onclick="showStateInfo('Odisha', '3 Centers', '3 centers in Odisha — Bhubaneswar, Rourkela, and more.')" class="group absolute cursor-pointer focus:outline-none" style="left:55%;top:52%">
 
             <div class="relative -translate-x-1/2 -translate-y-1/2">
 
@@ -1525,17 +1599,15 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
 
               <span class="relative block rounded-full border-2 border-white shadow-sm h-3 w-3 bg-nifs-red"></span>
 
-              <span class="pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 rounded bg-gray-900 px-2 py-1 text-[10px] font-medium whitespace-nowrap text-white transition-opacity duration-200 group-hover:opacity-100 opacity-0 z-30">Guntur</span>
+              <span class="pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 rounded bg-gray-900 px-2 py-1 text-[10px] font-medium whitespace-nowrap text-white transition-opacity duration-200 group-hover:opacity-100 opacity-0 z-30">Odisha</span>
 
             </div>
 
           </button>
 
+          <!-- West Bengal -->
 
-
-          <!-- Chennai -->
-
-          <button type="button" onclick="showStateInfo('Tamil Nadu', 'Chennai', '10 Centers', '10 centers in Tamil Nadu. Leading center for NSDC and university-approved programs.')" class="group absolute cursor-pointer focus:outline-none" style="left:37.61%;top:81.31%">
+          <button type="button" onclick="showStateInfo('West Bengal', '3 Centers', '3 centers in West Bengal — Kolkata and regional hubs.')" class="group absolute cursor-pointer focus:outline-none" style="left:64%;top:47%">
 
             <div class="relative -translate-x-1/2 -translate-y-1/2">
 
@@ -1543,17 +1615,15 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
 
               <span class="relative block rounded-full border-2 border-white shadow-sm h-3 w-3 bg-nifs-red"></span>
 
-              <span class="pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 rounded bg-gray-900 px-2 py-1 text-[10px] font-medium whitespace-nowrap text-white transition-opacity duration-200 group-hover:opacity-100 opacity-0 z-30">Chennai</span>
+              <span class="pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 rounded bg-gray-900 px-2 py-1 text-[10px] font-medium whitespace-nowrap text-white transition-opacity duration-200 group-hover:opacity-100 opacity-0 z-30">West Bengal</span>
 
             </div>
 
           </button>
 
+          <!-- Maharashtra -->
 
-
-          <!-- Bhubaneswar -->
-
-          <button type="button" onclick="showStateInfo('Odisha', 'Bhubaneswar', '3 Centers', '3 centers in Odisha providing regional safety officer certification training.')" class="group absolute cursor-pointer focus:outline-none" style="left:56.24%;top:55.46%">
+          <button type="button" onclick="showStateInfo('Maharashtra', '5 Centers', '5 centers in Maharashtra — Mumbai, Nagpur, and industrial hubs.')" class="group absolute cursor-pointer focus:outline-none" style="left:23%;top:56%">
 
             <div class="relative -translate-x-1/2 -translate-y-1/2">
 
@@ -1561,17 +1631,15 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
 
               <span class="relative block rounded-full border-2 border-white shadow-sm h-3 w-3 bg-nifs-red"></span>
 
-              <span class="pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 rounded bg-gray-900 px-2 py-1 text-[10px] font-medium whitespace-nowrap text-white transition-opacity duration-200 group-hover:opacity-100 opacity-0 z-30">Bhubaneswar</span>
+              <span class="pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 rounded bg-gray-900 px-2 py-1 text-[10px] font-medium whitespace-nowrap text-white transition-opacity duration-200 group-hover:opacity-100 opacity-0 z-30">Maharashtra</span>
 
             </div>
 
           </button>
 
+          <!-- Gujarat -->
 
-
-          <!-- Kolkata -->
-
-          <button type="button" onclick="showStateInfo('West Bengal', 'Kolkata', '3 Centers', '3 centers in West Bengal, delivering safety audits and industrial safety training.')" class="group absolute cursor-pointer focus:outline-none" style="left:64.75%;top:47.31%">
+          <button type="button" onclick="showStateInfo('Gujarat', '6 Centers', '6 centers in Gujarat covering industrial corridors.')" class="group absolute cursor-pointer focus:outline-none" style="left:15%;top:45%">
 
             <div class="relative -translate-x-1/2 -translate-y-1/2">
 
@@ -1579,17 +1647,15 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
 
               <span class="relative block rounded-full border-2 border-white shadow-sm h-3 w-3 bg-nifs-red"></span>
 
-              <span class="pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 rounded bg-gray-900 px-2 py-1 text-[10px] font-medium whitespace-nowrap text-white transition-opacity duration-200 group-hover:opacity-100 opacity-0 z-30">Kolkata</span>
+              <span class="pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 rounded bg-gray-900 px-2 py-1 text-[10px] font-medium whitespace-nowrap text-white transition-opacity duration-200 group-hover:opacity-100 opacity-0 z-30">Gujarat</span>
 
             </div>
 
           </button>
 
+          <!-- Uttar Pradesh -->
 
-
-          <!-- Mumbai -->
-
-          <button type="button" onclick="showStateInfo('Maharashtra', 'Mumbai', '5 Centers', '5 centers in Maharashtra. Located in industrial hubs to facilitate placements.')" class="group absolute cursor-pointer focus:outline-none" style="left:12.8%;top:59.83%">
+          <button type="button" onclick="showStateInfo('Uttar Pradesh', '7 Centers', '7 centers in UP covering Noida, Lucknow, and more.')" class="group absolute cursor-pointer focus:outline-none" style="left:35%;top:35%">
 
             <div class="relative -translate-x-1/2 -translate-y-1/2">
 
@@ -1597,17 +1663,15 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
 
               <span class="relative block rounded-full border-2 border-white shadow-sm h-3 w-3 bg-nifs-red"></span>
 
-              <span class="pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 rounded bg-gray-900 px-2 py-1 text-[10px] font-medium whitespace-nowrap text-white transition-opacity duration-200 group-hover:opacity-100 opacity-0 z-30">Mumbai</span>
+              <span class="pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 rounded bg-gray-900 px-2 py-1 text-[10px] font-medium whitespace-nowrap text-white transition-opacity duration-200 group-hover:opacity-100 opacity-0 z-30">Uttar Pradesh</span>
 
             </div>
 
           </button>
 
+          <!-- Punjab & Haryana -->
 
-
-          <!-- Warangal -->
-
-          <button type="button" onclick="showStateInfo('Telangana', 'Warangal', '2 Centers', 'Warangal center providing local access to top-tier safety curriculum.')" class="group absolute cursor-pointer focus:outline-none" style="left:35.34%;top:63.8%">
+          <button type="button" onclick="showStateInfo('Punjab & Haryana', '7 Centers', '7 centers across Punjab and Haryana including Chandigarh.')" class="group absolute cursor-pointer focus:outline-none" style="left:25%;top:22%">
 
             <div class="relative -translate-x-1/2 -translate-y-1/2">
 
@@ -1615,17 +1679,15 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
 
               <span class="relative block rounded-full border-2 border-white shadow-sm h-3 w-3 bg-nifs-red"></span>
 
-              <span class="pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 rounded bg-gray-900 px-2 py-1 text-[10px] font-medium whitespace-nowrap text-white transition-opacity duration-200 group-hover:opacity-100 opacity-0 z-30">Warangal</span>
+              <span class="pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 rounded bg-gray-900 px-2 py-1 text-[10px] font-medium whitespace-nowrap text-white transition-opacity duration-200 group-hover:opacity-100 opacity-0 z-30">Punjab & Haryana</span>
 
             </div>
 
           </button>
 
+          <!-- Delhi NCR -->
 
-
-          <!-- Delhi -->
-
-          <button type="button" onclick="showStateInfo('Delhi NCR', 'Delhi', '4 Centers', '4 centers in the National Capital Region (NCR). Focused on corporate HSE placements.')" class="group absolute cursor-pointer focus:outline-none" style="left:26.99%;top:25.34%">
+          <button type="button" onclick="showStateInfo('Delhi NCR', '4 Centers', '4 centers in the National Capital Region.')" class="group absolute cursor-pointer focus:outline-none" style="left:28%;top:27%">
 
             <div class="relative -translate-x-1/2 -translate-y-1/2">
 
@@ -1639,11 +1701,9 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
 
           </button>
 
+          <!-- Rajasthan -->
 
-
-          <!-- Kakinada -->
-
-          <button type="button" onclick="showStateInfo('Andhra Pradesh', 'Kakinada', '7 Centers', 'Kakinada center. Specializing in port and dock fire safety training.')" class="group absolute cursor-pointer focus:outline-none" style="left:44.24%;top:67.3%">
+          <button type="button" onclick="showStateInfo('Rajasthan', '5 Centers', '5 centers in Rajasthan covering Jaipur and industrial zones.')" class="group absolute cursor-pointer focus:outline-none" style="left:20%;top:35%">
 
             <div class="relative -translate-x-1/2 -translate-y-1/2">
 
@@ -1651,17 +1711,15 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
 
               <span class="relative block rounded-full border-2 border-white shadow-sm h-3 w-3 bg-nifs-red"></span>
 
-              <span class="pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 rounded bg-gray-900 px-2 py-1 text-[10px] font-medium whitespace-nowrap text-white transition-opacity duration-200 group-hover:opacity-100 opacity-0 z-30">Kakinada</span>
+              <span class="pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 rounded bg-gray-900 px-2 py-1 text-[10px] font-medium whitespace-nowrap text-white transition-opacity duration-200 group-hover:opacity-100 opacity-0 z-30">Rajasthan</span>
 
             </div>
 
           </button>
 
+          <!-- Madhya Pradesh -->
 
-
-          <!-- Jamshedpur -->
-
-          <button type="button" onclick="showStateInfo('Jharkhand', 'Jamshedpur', '3 Centers', '3 centers in Jharkhand. Focused on metallurgy and heavy industry safety protocols.')" class="group absolute cursor-pointer focus:outline-none" style="left:57.5%;top:46.47%">
+          <button type="button" onclick="showStateInfo('Madhya Pradesh', '4 Centers', '4 centers in MP covering Bhopal and industrial corridors.')" class="group absolute cursor-pointer focus:outline-none" style="left:32%;top:45%">
 
             <div class="relative -translate-x-1/2 -translate-y-1/2">
 
@@ -1669,17 +1727,15 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
 
               <span class="relative block rounded-full border-2 border-white shadow-sm h-3 w-3 bg-nifs-red"></span>
 
-              <span class="pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 rounded bg-gray-900 px-2 py-1 text-[10px] font-medium whitespace-nowrap text-white transition-opacity duration-200 group-hover:opacity-100 opacity-0 z-30">Jamshedpur</span>
+              <span class="pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 rounded bg-gray-900 px-2 py-1 text-[10px] font-medium whitespace-nowrap text-white transition-opacity duration-200 group-hover:opacity-100 opacity-0 z-30">Madhya Pradesh</span>
 
             </div>
 
           </button>
 
+          <!-- Karnataka -->
 
-
-          <!-- Tambaram -->
-
-          <button type="button" onclick="showStateInfo('Tamil Nadu', 'Tambaram', '10 Centers', 'Tambaram Chennai branch. Top placements in Southern industrial corridors.')" class="group absolute cursor-pointer focus:outline-none" style="left:37.04%;top:81.86%">
+          <button type="button" onclick="showStateInfo('Karnataka', '4 Centers', '4 centers in Karnataka — Bangalore and regional hubs.')" class="group absolute cursor-pointer focus:outline-none" style="left:28%;top:72%">
 
             <div class="relative -translate-x-1/2 -translate-y-1/2">
 
@@ -1687,17 +1743,15 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
 
               <span class="relative block rounded-full border-2 border-white shadow-sm h-3 w-3 bg-nifs-red"></span>
 
-              <span class="pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 rounded bg-gray-900 px-2 py-1 text-[10px] font-medium whitespace-nowrap text-white transition-opacity duration-200 group-hover:opacity-100 opacity-0 z-30">Tambaram</span>
+              <span class="pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 rounded bg-gray-900 px-2 py-1 text-[10px] font-medium whitespace-nowrap text-white transition-opacity duration-200 group-hover:opacity-100 opacity-0 z-30">Karnataka</span>
 
             </div>
 
           </button>
 
+          <!-- Kerala -->
 
-
-          <!-- Nagpur -->
-
-          <button type="button" onclick="showStateInfo('Maharashtra', 'Nagpur', '5 Centers', 'Nagpur center. Delivering logistics and factory safety management programs.')" class="group absolute cursor-pointer focus:outline-none" style="left:33.64%;top:52.41%">
+          <button type="button" onclick="showStateInfo('Kerala', '4 Centers', '4 centers in Kerala covering Kochi and coastal regions.')" class="group absolute cursor-pointer focus:outline-none" style="left:27%;top:82%">
 
             <div class="relative -translate-x-1/2 -translate-y-1/2">
 
@@ -1705,17 +1759,15 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
 
               <span class="relative block rounded-full border-2 border-white shadow-sm h-3 w-3 bg-nifs-red"></span>
 
-              <span class="pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 rounded bg-gray-900 px-2 py-1 text-[10px] font-medium whitespace-nowrap text-white transition-opacity duration-200 group-hover:opacity-100 opacity-0 z-30">Nagpur</span>
+              <span class="pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 rounded bg-gray-900 px-2 py-1 text-[10px] font-medium whitespace-nowrap text-white transition-opacity duration-200 group-hover:opacity-100 opacity-0 z-30">Kerala</span>
 
             </div>
 
           </button>
 
+          <!-- Bihar -->
 
-
-          <!-- Rourkela -->
-
-          <button type="button" onclick="showStateInfo('Odisha', 'Rourkela', '3 Centers', 'Rourkela branch, catering to steel plant safety officer candidates.')" class="group absolute cursor-pointer focus:outline-none" style="left:52.98%;top:48.42%">
+          <button type="button" onclick="showStateInfo('Bihar', '3 Centers', '3 centers in Bihar covering Patna and industrial zones.')" class="group absolute cursor-pointer focus:outline-none" style="left:52%;top:38%">
 
             <div class="relative -translate-x-1/2 -translate-y-1/2">
 
@@ -1723,17 +1775,15 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
 
               <span class="relative block rounded-full border-2 border-white shadow-sm h-3 w-3 bg-nifs-red"></span>
 
-              <span class="pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 rounded bg-gray-900 px-2 py-1 text-[10px] font-medium whitespace-nowrap text-white transition-opacity duration-200 group-hover:opacity-100 opacity-0 z-30">Rourkela</span>
+              <span class="pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 rounded bg-gray-900 px-2 py-1 text-[10px] font-medium whitespace-nowrap text-white transition-opacity duration-200 group-hover:opacity-100 opacity-0 z-30">Bihar</span>
 
             </div>
 
           </button>
 
+          <!-- Jharkhand -->
 
-
-          <!-- Pondicherry -->
-
-          <button type="button" onclick="showStateInfo('Pondicherry (UT)', 'Pondicherry', '1 Center', 'Pondicherry UT center. Serving coastal industrial safety requirements.')" class="group absolute cursor-pointer focus:outline-none" style="left:36.06%;top:85.39%">
+          <button type="button" onclick="showStateInfo('Jharkhand', '3 Centers', '3 centers in Jharkhand — Jamshedpur and steel belt region.')" class="group absolute cursor-pointer focus:outline-none" style="left:57%;top:46%">
 
             <div class="relative -translate-x-1/2 -translate-y-1/2">
 
@@ -1741,7 +1791,103 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
 
               <span class="relative block rounded-full border-2 border-white shadow-sm h-3 w-3 bg-nifs-red"></span>
 
-              <span class="pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 rounded bg-gray-900 px-2 py-1 text-[10px] font-medium whitespace-nowrap text-white transition-opacity duration-200 group-hover:opacity-100 opacity-0 z-30">Pondicherry</span>
+              <span class="pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 rounded bg-gray-900 px-2 py-1 text-[10px] font-medium whitespace-nowrap text-white transition-opacity duration-200 group-hover:opacity-100 opacity-0 z-30">Jharkhand</span>
+
+            </div>
+
+          </button>
+
+          <!-- Chhattisgarh -->
+
+          <button type="button" onclick="showStateInfo('Chhattisgarh', '2 Centers', '2 centers in Chhattisgarh covering Raipur.')" class="group absolute cursor-pointer focus:outline-none" style="left:45%;top:48%">
+
+            <div class="relative -translate-x-1/2 -translate-y-1/2">
+
+              <span class="animate-ping absolute inset-0 inline-flex h-3 w-3 rounded-full bg-nifs-red opacity-75"></span>
+
+              <span class="relative block rounded-full border-2 border-white shadow-sm h-3 w-3 bg-nifs-red"></span>
+
+              <span class="pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 rounded bg-gray-900 px-2 py-1 text-[10px] font-medium whitespace-nowrap text-white transition-opacity duration-200 group-hover:opacity-100 opacity-0 z-30">Chhattisgarh</span>
+
+            </div>
+
+          </button>
+
+          <!-- Uttarakhand -->
+
+          <button type="button" onclick="showStateInfo('Uttarakhand', '2 Centers', '2 centers in Uttarakhand covering Dehradun.')" class="group absolute cursor-pointer focus:outline-none" style="left:32%;top:22%">
+
+            <div class="relative -translate-x-1/2 -translate-y-1/2">
+
+              <span class="animate-ping absolute inset-0 inline-flex h-3 w-3 rounded-full bg-nifs-red opacity-75"></span>
+
+              <span class="relative block rounded-full border-2 border-white shadow-sm h-3 w-3 bg-nifs-red"></span>
+
+              <span class="pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 rounded bg-gray-900 px-2 py-1 text-[10px] font-medium whitespace-nowrap text-white transition-opacity duration-200 group-hover:opacity-100 opacity-0 z-30">Uttarakhand</span>
+
+            </div>
+
+          </button>
+
+          <!-- Himachal Pradesh -->
+
+          <button type="button" onclick="showStateInfo('Himachal Pradesh', '2 Centers', '2 centers in Himachal Pradesh.')" class="group absolute cursor-pointer focus:outline-none" style="left:28%;top:18%">
+
+            <div class="relative -translate-x-1/2 -translate-y-1/2">
+
+              <span class="animate-ping absolute inset-0 inline-flex h-3 w-3 rounded-full bg-nifs-red opacity-75"></span>
+
+              <span class="relative block rounded-full border-2 border-white shadow-sm h-3 w-3 bg-nifs-red"></span>
+
+              <span class="pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 rounded bg-gray-900 px-2 py-1 text-[10px] font-medium whitespace-nowrap text-white transition-opacity duration-200 group-hover:opacity-100 opacity-0 z-30">Himachal Pradesh</span>
+
+            </div>
+
+          </button>
+
+          <!-- Assam -->
+
+          <button type="button" onclick="showStateInfo('Assam', '1 Center', '1 center in Assam covering Northeast India.')" class="group absolute cursor-pointer focus:outline-none" style="left:72%;top:35%">
+
+            <div class="relative -translate-x-1/2 -translate-y-1/2">
+
+              <span class="animate-ping absolute inset-0 inline-flex h-3 w-3 rounded-full bg-nifs-red opacity-75"></span>
+
+              <span class="relative block rounded-full border-2 border-white shadow-sm h-3 w-3 bg-nifs-red"></span>
+
+              <span class="pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 rounded bg-gray-900 px-2 py-1 text-[10px] font-medium whitespace-nowrap text-white transition-opacity duration-200 group-hover:opacity-100 opacity-0 z-30">Assam</span>
+
+            </div>
+
+          </button>
+
+          <!-- J&K -->
+
+          <button type="button" onclick="showStateInfo('Jammu & Kashmir', '1 Center', '1 center in J&K.')" class="group absolute cursor-pointer focus:outline-none" style="left:25%;top:10%">
+
+            <div class="relative -translate-x-1/2 -translate-y-1/2">
+
+              <span class="animate-ping absolute inset-0 inline-flex h-3 w-3 rounded-full bg-nifs-red opacity-75"></span>
+
+              <span class="relative block rounded-full border-2 border-white shadow-sm h-3 w-3 bg-nifs-red"></span>
+
+              <span class="pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 rounded bg-gray-900 px-2 py-1 text-[10px] font-medium whitespace-nowrap text-white transition-opacity duration-200 group-hover:opacity-100 opacity-0 z-30">Jammu & Kashmir</span>
+
+            </div>
+
+          </button>
+
+          <!-- Goa -->
+
+          <button type="button" onclick="showStateInfo('Goa', '1 Center', '1 center in Goa.')" class="group absolute cursor-pointer focus:outline-none" style="left:22%;top:73%">
+
+            <div class="relative -translate-x-1/2 -translate-y-1/2">
+
+              <span class="animate-ping absolute inset-0 inline-flex h-3 w-3 rounded-full bg-nifs-red opacity-75"></span>
+
+              <span class="relative block rounded-full border-2 border-white shadow-sm h-3 w-3 bg-nifs-red"></span>
+
+              <span class="pointer-events-none absolute bottom-full left-1/2 mb-1.5 -translate-x-1/2 rounded bg-gray-900 px-2 py-1 text-[10px] font-medium whitespace-nowrap text-white transition-opacity duration-200 group-hover:opacity-100 opacity-0 z-30">Goa</span>
 
             </div>
 
@@ -1759,9 +1905,9 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
 
                 <span id="modalStateTag" class="text-[10px] font-bold uppercase tracking-widest text-nifs-red bg-nifs-red/10 px-2.5 py-1 rounded-full">STATE INFO</span>
 
-                <h4 id="modalCityName" class="text-[20px] font-bold text-gray-900 font-montserrat mt-2">Visakhapatnam</h4>
+                <h4 id="modalStateName" class="text-[20px] font-bold text-gray-900 font-montserrat mt-2">Andhra Pradesh</h4>
 
-                <p id="modalStateCount" class="text-[13px] font-semibold text-nifs-red font-montserrat mt-0.5">7 Centers in Andhra Pradesh</p>
+                <p id="modalStateCount" class="text-[13px] font-semibold text-nifs-red font-montserrat mt-0.5">7 Centers</p>
 
               </div>
 
@@ -1769,7 +1915,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
 
             </div>
 
-            <p id="modalStateDetails" class="text-gray-600 text-[13px] mt-2.5 leading-relaxed font-medium text-left">National Headquarters. 7 state-of-the-art training centers including the massive Visakhapatnam Practical Yard.</p>
+            <p id="modalStateDetails" class="text-gray-600 text-[13px] mt-2.5 leading-relaxed font-medium text-left">7 centers across Andhra Pradesh including Visakhapatnam HQ, Guntur, and Kakinada.</p>
 
           </div>
 
@@ -1781,7 +1927,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
 
       <script>
 
-      function showStateInfo(state, city, count, details) {
+      function showStateInfo(state, count, details) {
 
         var modal = document.getElementById('stateInfoModal');
 
@@ -1789,9 +1935,9 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
 
           document.getElementById('modalStateTag').innerText = state.toUpperCase();
 
-          document.getElementById('modalCityName').innerText = city;
+          document.getElementById('modalStateName').innerText = state;
 
-          document.getElementById('modalStateCount').innerText = count + ' in ' + state;
+          document.getElementById('modalStateCount').innerText = count;
 
           document.getElementById('modalStateDetails').innerText = details;
 
@@ -2632,6 +2778,127 @@ document.addEventListener('DOMContentLoaded',function(){
 
   if(heroH1)gsap.from(heroH1,{opacity:0,y:40,duration:0.8,ease:'power3.out',delay:0.3});
 
+
+
+  // ─── HERO CINEMATIC CROSSFADE ───
+  (function(){
+    var reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var cineImgs=document.querySelectorAll('.hero-cine-img');
+    var industryEl=document.getElementById('hero-cine-industry');
+    var jobEl=document.getElementById('hero-cine-jobtitle');
+    var heroSection=document.querySelector('section.relative');
+    var driftEl=document.querySelector('.hero-bg-drift');
+    var canvas=document.querySelector('.hero-ember-canvas');
+    if(!cineImgs.length||!heroSection)return;
+
+    var industries=[
+      {label:'Oil & Gas',job:'HSE Officer'},
+      {label:'Fire & Rescue',job:'Fire Safety Officer'},
+      {label:'Airport Safety',job:'Airport Safety Officer'},
+      {label:'Marine Safety',job:'Marine Safety Officer'},
+      {label:'Power Plant',job:'Industrial Safety Officer'}
+    ];
+    var current=0;
+    var imgW=cineImgs[0].naturalWidth||1920;
+    var imgH=cineImgs[0].naturalHeight||1080;
+
+    // Preload
+    var loaded=0;
+    function onImgLoad(){loaded++;if(loaded>=cineImgs.length&&!reducedMotion)startCinematic();}
+    cineImgs.forEach(function(img){
+      if(img.complete&&img.naturalWidth>0){onImgLoad();}else{img.onload=onImgLoad;img.onerror=onImgLoad;}
+    });
+    if(reducedMotion){cineImgs.forEach(function(img,i){img.style.opacity=i===0?'1':'0';});return;}
+
+    function startCinematic(){
+      // Crossfade loop
+      setInterval(function(){
+        var next=(current+1)%cineImgs.length;
+        var outImg=cineImgs[current];
+        var inImg=cineImgs[next];
+        var info=industries[next];
+
+        // Fade out current
+        gsap.to(outImg,{opacity:0,scale:1.03,filter:'blur(6px)',duration:0.7,ease:'power3.inOut',onComplete:function(){outImg.removeAttribute('data-active');}});
+        // Fade in next
+        inImg.style.zIndex='2';
+        outImg.style.zIndex='1';
+        gsap.fromTo(inImg,{opacity:0,scale:1.05,filter:'blur(6px)'},{opacity:1,scale:1,filter:'blur(0px)',duration:0.7,ease:'power3.inOut',onComplete:function(){inImg.setAttribute('data-active','true');inImg.style.zIndex='';outImg.style.zIndex='';}});
+
+        // Update labels
+        gsap.to(industryEl,{opacity:0,y:6,duration:0.2,ease:'power2.in',onComplete:function(){
+          industryEl.textContent=info.label;
+          gsap.to(industryEl,{opacity:1,y:0,duration:0.3,ease:'power2.out'});
+        }});
+        gsap.to(jobEl,{opacity:0,y:6,duration:0.2,ease:'power2.in',onComplete:function(){
+          jobEl.textContent='— '+info.job;
+          gsap.to(jobEl,{opacity:1,y:0,duration:0.3,ease:'power2.out'});
+        }});
+
+        current=next;
+      },3200);
+
+      // Mouse parallax
+      var mouseX=0,mouseY=0,curX=0,curY=0;
+      document.addEventListener('mousemove',function(e){
+        mouseX=(e.clientX/window.innerWidth-0.5)*30;
+        mouseY=(e.clientY/window.innerHeight-0.5)*20;
+      },{passive:true});
+      function animParallax(){
+        curX+=(mouseX-curX)*0.06;
+        curY+=(mouseY-curY)*0.06;
+        cineImgs.forEach(function(img){
+          img.style.transform='translate('+curX.toFixed(2)+'px,'+curY.toFixed(2)+'px) scale(1.02)';
+        });
+        requestAnimationFrame(animParallax);
+      }
+      animParallax();
+
+      // Scroll parallax
+      gsap.to(cineImgs,{yPercent:-15,ease:'none',scrollTrigger:{trigger:heroSection,start:'top top',end:'bottom top',scrub:0.25}});
+
+      // Background drift
+      if(driftEl)gsap.to(driftEl,{x:8,duration:20,repeat:-1,yoyo:true,ease:'linear'});
+
+      // Ember particles
+      if(canvas){
+        var ctx=canvas.getContext('2d');
+        var particles=[];
+        function resizeCanvas(){canvas.width=heroSection.offsetWidth;canvas.height=heroSection.offsetHeight;}
+        resizeCanvas();
+        window.addEventListener('resize',resizeCanvas,{passive:true});
+        for(var i=0;i<18;i++){
+          particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,vx:(Math.random()-0.5)*0.3,vy:-Math.random()*0.4-0.1,size:Math.random()*2+0.5,opacity:Math.random()*0.08});
+        }
+        function drawEmbers(){
+          ctx.clearRect(0,0,canvas.width,canvas.height);
+          particles.forEach(function(p){
+            p.x+=p.vx;p.y+=p.vy;
+            if(p.y<-10){p.y=canvas.height+10;p.x=Math.random()*canvas.width;}
+            if(p.x<-10)p.x=canvas.width+10;if(p.x>canvas.width+10)p.x=-10;
+            ctx.beginPath();ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
+            ctx.fillStyle='rgba(252,128,16,'+p.opacity+')';ctx.fill();
+          });
+          requestAnimationFrame(drawEmbers);
+        }
+        drawEmbers();
+      }
+    }
+  })();
+
+  // IFESM stat count-up
+  var ifesmStat=document.querySelector('.ifesm-stat');
+  if(ifesmStat){
+    ScrollTrigger.create({
+      trigger:ifesmStat,start:'top 90%',once:true,
+      onEnter:function(){
+        var target=500;var counter={val:0};
+        gsap.to(counter,{val:target,duration:2,ease:'power2.out',onUpdate:function(){
+          ifesmStat.textContent=Math.round(counter.val)+'+';}});
+      }
+    });
+    gsap.from(ifesmStat.closest('section'),{opacity:0,y:20,duration:0.6,scrollTrigger:{trigger:ifesmStat.closest('section'),start:'top 90%',once:true}});
+  }
 
 
   // Stat count-up
