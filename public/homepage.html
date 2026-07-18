@@ -64,6 +64,14 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
 
 .faq-hidden{opacity:0;transform:translateX(-80px)}
 
+.cta-magnet{position:relative;isolation:isolate;animation:cta-pulse-ring 2.4s cubic-bezier(.4,0,.2,1) infinite}
+.cta-magnet::before{content:'';position:absolute;inset:-6px;border-radius:9999px;border:2px solid rgba(255,255,255,0.9);opacity:0;z-index:-1;animation:cta-ring-expand 2.4s cubic-bezier(.4,0,.2,1) infinite}
+.cta-magnet::after{content:'';position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(115deg,transparent,rgba(220,23,17,0.35),transparent);transform:skewX(-20deg);animation:cta-shine 2.8s ease-in-out infinite}
+.cta-magnet:hover{transform:scale(1.06)}
+@keyframes cta-pulse-ring{0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,0.5),0 8px 24px rgba(0,0,0,0.25)}50%{box-shadow:0 0 0 10px rgba(255,255,255,0),0 8px 24px rgba(0,0,0,0.25)}}
+@keyframes cta-ring-expand{0%{transform:scale(1);opacity:0.7}100%{transform:scale(1.35);opacity:0}}
+@keyframes cta-shine{0%{left:-60%}100%{left:140%}}
+@media(prefers-reduced-motion:reduce){.cta-magnet,.cta-magnet::before,.cta-magnet::after{animation:none!important}}
 .marquee-track{display:flex;gap:60px;animation:marquee 25s linear infinite;width:max-content}
 
 .marquee-track:hover{animation-play-state:paused}
@@ -439,7 +447,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
 </section>
 
 <!-- IFESM — NIFS INDUSTRIAL DIVISION -->
-<section class="w-full py-[48px] max-lg:py-[36px] flex justify-center items-center border-t border-b border-white/5" style="background:linear-gradient(180deg,#0A0A0A,#111111)">
+<section class="w-full py-[48px] max-lg:py-[36px] flex justify-center items-center border-t border-b border-white/10" style="background:linear-gradient(135deg,#DC1711,#7A0F0C)">
   <div class="w-[90%] max-sm:w-[95%] max-w-6xl flex items-center justify-between max-lg:flex-col max-lg:gap-8 max-lg:text-center">
     <!-- IFESM Logo + tagline -->
     <div class="flex items-center gap-4 max-lg:justify-center shrink-0">
@@ -457,7 +465,7 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
     <!-- Headline + CTA -->
     <div class="flex items-center gap-6 max-lg:flex-col max-lg:gap-4">
       <p class="text-white/70 text-[15px] font-medium max-sm:text-[13px]">NIFS Trains.<span class="text-nifs-red font-bold"> IFESM Deploys.</span></p>
-      <a href="https://ifesm.com" target="_blank" rel="noopener" class="px-6 py-2.5 rounded-full border border-white/15 bg-white/5 text-white text-[13px] font-semibold hover:bg-nifs-red hover:border-nifs-red transition-all duration-300 whitespace-nowrap">Visit IFESM →</a>
+      <a href="https://ifesm.com" target="_blank" rel="noopener" class="cta-magnet px-6 py-2.5 rounded-full border-2 border-white bg-white text-nifs-red text-[13px] font-bold hover:bg-black hover:text-white hover:border-black transition-all duration-300 whitespace-nowrap shadow-lg overflow-hidden">Industrial Service →</a>
     </div>
   </div>
 </section>
