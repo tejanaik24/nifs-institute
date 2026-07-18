@@ -9,8 +9,44 @@ const contactSchema = z.object({
   message: z.string().optional(),
 });
 
+// Per-instance in-memory rate limiter (not distributed across serverless cold starts).
+// Upstash/@vercel/firewall is the upgrade path if real abuse volume shows up.
+const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
+
 export async function POST(request: Request) {
-  const body = await request.json();
+  // Rate limiting check
+  const ip = request.headers.get("x-forwarded-for")?.split(",")[0].trim() || "127.0.0.1";
+  const now = Date.now();
+  const windowMs = 10 * 60 * 1000; // 10 minutes
+  const limit = 5;
+
+  const record = rateLimitMap.get(ip);
+  if (!record) {
+    rateLimitMap.set(ip, { count: 1, resetTime: now + windowMs });
+  } else {
+    if (now > record.resetTime) {
+      rateLimitMap.set(ip, { count: 1, resetTime: now + windowMs });
+    } else {
+      if (record.count >= limit) {
+        return NextResponse.json(
+          { error: "Too many requests. Please try again after 10 minutes." },
+          { status: 429 }
+        );
+      }
+      record.count++;
+    }
+  }
+
+  let body;
+  try {
+    body = await request.json();
+  } catch {
+    return NextResponse.json(
+      { error: "Invalid body format" },
+      { status: 400 }
+    );
+  }
+
   const parsed = contactSchema.safeParse(body);
 
   if (!parsed.success) {
@@ -38,7 +74,11 @@ export async function POST(request: Request) {
       }),
     });
   } else {
-    console.log("[contact] RESEND_API_KEY not set — logging submission instead:", parsed.data);
+    console.log("[contact] RESEND_API_KEY not set — submission dropped");
+    return NextResponse.json(
+      { error: "Email service is not configured." },
+      { status: 503 }
+    );
   }
 
   return NextResponse.json({ ok: true });
