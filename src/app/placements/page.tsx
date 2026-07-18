@@ -20,7 +20,7 @@ export default function PlacementsPage() {
 
       <section className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
-          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-sm">
+          <div data-path-target="true" className="relative aspect-[4/5] w-full overflow-hidden rounded-sm">
             <Image
               src="/images/placement-success-story.jpg"
               alt="NIFS graduate, now a corporate safety officer"

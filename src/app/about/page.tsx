@@ -19,7 +19,7 @@ export default function AboutPage() {
       />
 
       <section className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-6 py-20 md:grid-cols-2 lg:px-10">
-        <div className="relative aspect-[4/5] w-full overflow-hidden rounded-sm">
+        <div data-path-target="true" className="relative aspect-[4/5] w-full overflow-hidden rounded-sm">
           <Image
             src="/images/nifs-chairman-portrait.jpg"
             alt="From the Chairman's Desk"
