@@ -92,9 +92,30 @@ export function ScrollPathLine() {
       const logoX = logoRect ? logoRect.left + logoRect.width / 2 : 24;
       const logoY = logoRect ? logoRect.top + logoRect.height / 2 : 24;
 
-      const targets = Array.from(
+      // Explicit tags win for fine-grained routing (e.g. a photo beside
+      // untagged text in the same section). Any top-level section under
+      // <main> that has NO explicit tag anywhere inside it is auto-wrapped
+      // as a whole block instead — this is what keeps the line from ever
+      // running as one long straight segment through untagged pages
+      // (Gallery, Courses, Admissions, Contact, ...) without requiring
+      // every page to be hand-tagged.
+      const explicitEls = Array.from(
         document.querySelectorAll<HTMLElement>('[data-path-target="true"]')
-      )
+      );
+      const mainEl = document.querySelector<HTMLElement>("main");
+      const autoEls: HTMLElement[] = [];
+      if (mainEl) {
+        Array.from(mainEl.children).forEach((child) => {
+          if (!(child instanceof HTMLElement)) return;
+          if (child.getBoundingClientRect().height < 4) return;
+          const alreadyCovered = explicitEls.some(
+            (t) => child === t || child.contains(t)
+          );
+          if (!alreadyCovered) autoEls.push(child);
+        });
+      }
+
+      const targets = [...explicitEls, ...autoEls]
         .map((el) => docRect(el))
         .sort((a, b) => a.top - b.top);
 
