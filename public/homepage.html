@@ -447,25 +447,42 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
 </section>
 
 <!-- IFESM — NIFS INDUSTRIAL DIVISION -->
-<section class="w-full py-[72px] max-lg:py-[56px] flex justify-center items-center border-t border-b border-white/10" style="background:linear-gradient(135deg,rgba(220,23,17,0.92),rgba(122,15,12,0.92)),url('/images/gallery-industrial-visit.jpg');background-size:cover;background-position:center">
-  <div class="w-[90%] max-sm:w-[95%] max-w-6xl flex items-center justify-between max-lg:flex-col max-lg:gap-8 max-lg:text-center">
-    <!-- IFESM Logo + tagline -->
-    <div class="flex items-center gap-4 max-lg:justify-center shrink-0">
-      <img src="https://ifesm.com/assets/images/ifesm-logo-1-302x117.png" alt="IFESM — Industrial Fire Engineering & Safety Management" class="h-14 max-sm:h-10 object-contain brightness-0 invert opacity-70 hover:opacity-100 transition-opacity duration-300">
-      <div class="h-8 w-px bg-white/10 max-lg:hidden"></div>
-      <p class="text-white/40 text-[13px] font-semibold uppercase tracking-wider max-lg:hidden">A Division of NIFS</p>
-    </div>
+<section class="w-full py-[64px] max-lg:py-[40px] flex justify-center items-center px-4">
+  <div class="relative w-[92%] max-w-6xl rounded-[32px] shadow-2xl ring-1 ring-white/15 overflow-hidden" style="background:linear-gradient(135deg,rgba(220,23,17,0.95),rgba(90,10,8,0.95)),url('/images/gallery-industrial-visit.jpg');background-size:cover;background-position:center">
 
-    <!-- Stat -->
-    <div class="flex flex-col items-center max-lg:items-center">
-      <span class="text-white font-montserrat font-black text-[40px] max-sm:text-[32px] leading-none ifesm-stat" data-ifesm-count="500">0</span>
-      <span class="text-white/50 text-[13px] font-semibold mt-1">Companies Served Across India</span>
-    </div>
+    <!-- Corner eyebrow badge -->
+    <div class="absolute top-0 left-8 max-sm:left-4 -translate-y-1/2 px-4 py-1.5 rounded-full bg-white text-nifs-red text-[11px] font-black uppercase tracking-widest shadow-lg">Official Industrial Division</div>
 
-    <!-- Headline + CTA -->
-    <div class="flex items-center gap-6 max-lg:flex-col max-lg:gap-4">
-      <p class="text-white/70 text-[15px] font-medium max-sm:text-[13px]">NIFS Trains.<span class="text-nifs-red font-bold"> IFESM Deploys.</span></p>
-      <a href="https://ifesm.com" target="_blank" rel="noopener" class="cta-magnet px-7 py-3 rounded-full border-2 border-white bg-white text-nifs-red text-[13px] font-bold hover:bg-black hover:text-white hover:border-black transition-all duration-300 whitespace-nowrap shadow-lg overflow-hidden">Industrial Service →</a>
+    <div class="flex items-center justify-between max-lg:flex-col max-lg:gap-10 max-lg:text-center px-10 py-[56px] max-lg:px-6 max-lg:py-[48px]">
+      <!-- IFESM Logo + tagline -->
+      <div class="flex items-center gap-4 max-lg:justify-center shrink-0">
+        <img src="https://ifesm.com/assets/images/ifesm-logo-1-302x117.png" alt="IFESM — Industrial Fire Engineering & Safety Management" class="h-16 max-sm:h-12 object-contain brightness-0 invert opacity-90 hover:opacity-100 transition-opacity duration-300">
+        <div class="h-10 w-px bg-white/15 max-lg:hidden"></div>
+        <p class="text-white/50 text-[13px] font-semibold uppercase tracking-wider max-lg:hidden">A Division of NIFS</p>
+      </div>
+
+      <!-- Stat with glow ring -->
+      <div class="relative flex flex-col items-center max-lg:items-center">
+        <div class="absolute inset-0 -m-6 rounded-full blur-2xl opacity-60" style="background:radial-gradient(circle,rgba(255,255,255,0.35),transparent 70%)"></div>
+        <span class="relative text-white font-montserrat font-black text-[52px] max-sm:text-[38px] leading-none ifesm-stat" data-ifesm-count="500">0</span>
+        <span class="relative text-white/60 text-[13px] font-semibold mt-1">Companies Served Across India</span>
+      </div>
+
+      <!-- Headline + CTAs -->
+      <div class="flex flex-col items-center max-lg:items-center gap-4">
+        <p class="text-white/80 text-[16px] font-medium max-sm:text-[14px]">NIFS Trains.<span class="text-white font-bold"> IFESM Deploys.</span></p>
+        <div class="flex items-center gap-4 max-sm:flex-col">
+          <a href="https://ifesm.com" target="_blank" rel="noopener" class="rounded-full bg-white text-nifs-red text-[13px] font-bold w-[168px] h-[168px] flex flex-col items-center justify-center shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+            <span class="text-[15px] font-black">IFESM</span>
+            <span class="text-[11px] mt-1">Visit Site →</span>
+          </a>
+          <a href="/industrial-services" class="rounded-full bg-transparent border-2 border-white text-white text-[13px] font-bold w-[168px] h-[168px] flex flex-col items-center justify-center shadow-xl hover:shadow-2xl hover:-translate-y-1 hover:bg-white hover:text-nifs-red transition-all duration-300">
+            <span class="text-[15px] font-black">Industrial</span>
+            <span class="text-[15px] font-black -mt-1">Services</span>
+            <span class="text-[11px] mt-1">Explore →</span>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
