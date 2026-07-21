@@ -73,13 +73,13 @@ export function CenterDetailCard({
 
       <div className="mt-6 flex justify-center gap-3">
         <a
-          href="tel:+919246624690"
+          href="tel:+918374340999"
           className="inline-flex items-center bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
         >
           Call HQ
         </a>
         <a
-          href="https://wa.me/919246624690"
+          href="https://wa.me/918374340999"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center border border-border px-4 py-2.5 text-sm font-medium transition-colors hover:bg-muted"

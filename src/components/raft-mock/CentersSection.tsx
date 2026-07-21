@@ -90,13 +90,13 @@ export function CentersSection() {
 
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <a
-              href="tel:+919246624690"
+              href="tel:+918374340999"
               className="inline-flex items-center rounded-md bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
             >
               Call HQ
             </a>
             <a
-              href="https://wa.me/919246624690"
+              href="https://wa.me/918374340999"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center rounded-md border border-border px-5 py-3 text-sm font-medium transition-colors hover:bg-muted"

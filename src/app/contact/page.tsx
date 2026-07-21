@@ -25,7 +25,7 @@ export default function ContactPage() {
           <div className="flex gap-4">
             <Phone className="h-5 w-5 shrink-0 text-primary" />
             <p className="text-sm text-muted-foreground">
-              +91-9246-624-690 · +91-8374-340-999
+              +91-8374-340-999
             </p>
           </div>
           <div className="flex gap-4">

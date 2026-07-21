@@ -45,7 +45,7 @@ export function HowToApply() {
           Apply Now →
         </Link>
         <p className="mt-4 text-sm text-muted-foreground">
-          Or call us: +91-9246-624-690
+          Or call us: +91-8374-340-999
         </p>
       </div>
     </section>

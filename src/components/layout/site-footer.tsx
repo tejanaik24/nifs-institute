@@ -40,9 +40,22 @@ export function SiteFooter() {
           <div>
             <h3 className="font-display italic text-lg">Accreditations</h3>
             <ul className="mt-4 space-y-2 text-sm text-background/70">
-              {accreditations.slice(0, 5).map((a) => (
-                <li key={a.name}>{a.name}</li>
-              ))}
+              {accreditations
+                .filter((a) => a.name !== "NSDC" && a.name !== "Skill India")
+                .slice(0, 4)
+                .map((a) => (
+                  <li key={a.name}>{a.name}</li>
+                ))}
+              <li>
+                <a
+                  href="https://www.nagarjunauniversity.ac.in/departments/science/firesafety/"
+                  target="_blank"
+                  rel="noopener"
+                  className="hover:text-background"
+                >
+                  Fire Safety Dept (ANU)
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -53,7 +66,7 @@ export function SiteFooter() {
               3rd Floor, Visakhapatnam (A.P.) – 530016
             </p>
             <p className="mt-2 text-sm text-background/70">
-              +91-9246-624-690 · +91-8374-340-999
+              +91-8374-340-999
             </p>
             <Link
               href="/admissions"
