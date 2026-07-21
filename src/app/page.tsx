@@ -1,6 +1,8 @@
-// This route's output (out/index.html) is overwritten by
-// scripts/copy-homepage.js (postbuild) with the content of
-// public/homepage.html, so this component never actually renders.
+import { redirect } from "next/navigation";
+
+// On cPanel, public/.htaccess internally rewrites "/" to serve
+// homepage.html without changing the URL. This redirect only matters
+// on hosts (like Vercel) that don't read .htaccess.
 export default function HomePage() {
-  return null;
+  redirect("/homepage.html");
 }

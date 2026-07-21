@@ -1,5 +1,9 @@
 RewriteEngine On
 
+# Serve homepage.html for the root URL without changing the address bar
+# (internal rewrite, not a redirect) — avoids "/homepage.html" showing up.
+RewriteRule ^$ /homepage.html [L]
+
 RewriteRule ^pdis-course-eligibility-criteria-based-on-academic-and-work-background/?$ /blog/pdis-course-eligibility-criteria-based-on-academic-and-work-background/ [R=301,L]
 RewriteRule ^what-you-can-learn-in-6-to-12-months-of-safety-officer-course-training/?$ /blog/what-you-can-learn-in-6-to-12-months-of-safety-officer-course-training/ [R=301,L]
 RewriteRule ^how-to-choose-a-credible-industrial-safety-online-course-with-practical-training/?$ /blog/how-to-choose-a-credible-industrial-safety-online-course-with-practical-training/ [R=301,L]
