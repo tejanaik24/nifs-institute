@@ -42,20 +42,24 @@ export function SiteFooter() {
             <ul className="mt-4 space-y-2 text-sm text-background/70">
               {accreditations
                 .filter((a) => a.name !== "NSDC" && a.name !== "Skill India")
-                .slice(0, 4)
-                .map((a) => (
-                  <li key={a.name}>{a.name}</li>
-                ))}
-              <li>
-                <a
-                  href="https://www.nagarjunauniversity.ac.in/departments/science/firesafety/"
-                  target="_blank"
-                  rel="noopener"
-                  className="hover:text-background"
-                >
-                  Fire Safety Dept (ANU)
-                </a>
-              </li>
+                .slice(0, 3)
+                .flatMap((a) =>
+                  a.name === "Acharya Nagarjuna University"
+                    ? [
+                        <li key={a.name}>{a.name}</li>,
+                        <li key="anu-fire-safety-dept">
+                          <a
+                            href="https://www.nagarjunauniversity.ac.in/departments/science/firesafety/"
+                            target="_blank"
+                            rel="noopener"
+                            className="hover:text-background"
+                          >
+                            Fire Safety Dept (ANU)
+                          </a>
+                        </li>,
+                      ]
+                    : [<li key={a.name}>{a.name}</li>],
+                )}
             </ul>
           </div>
 
