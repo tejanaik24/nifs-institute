@@ -46,14 +46,13 @@ export default function CentersPage() {
               <MapPin className="h-5 w-5 shrink-0 text-primary" />
               <div>
                 <p className="font-medium">
-                  {c.city}
+                  {c.state}
                   {c.isHQ && (
                     <span className="ml-2 text-xs font-semibold uppercase tracking-widest text-primary">
                       HQ
                     </span>
                   )}
                 </p>
-                <p className="text-sm text-muted-foreground">{c.state}</p>
               </div>
             </div>
           </TiltWrapper>
