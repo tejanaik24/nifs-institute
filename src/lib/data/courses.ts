@@ -2,7 +2,7 @@ export type Course = {
   slug: string;
   name: string;
   shortName: string;
-  tier: "Certificate" | "Diploma" | "Advanced Diploma" | "PG Diploma" | "B.Sc" | "MBA";
+  tier: "Certificate" | "Diploma" | "Advanced Diploma" | "PG Diploma" | "B.Sc";
   duration: string;
   eligibility: string;
   mode: string;
@@ -130,7 +130,7 @@ export const courses: Course[] = [
     name: "B.Sc in Health, Safety & Environment",
     shortName: "B.Sc HSE",
     tier: "B.Sc",
-    duration: "3 Years",
+    duration: "4 Years",
     eligibility: "10+2 / ITI (2 Yrs) / Diploma (3 Yrs, Any Stream)",
     mode: "Classroom / Online",
     summary:
@@ -139,20 +139,6 @@ export const courses: Course[] = [
     careers: ["HSE Officer", "Environmental Compliance Analyst", "Industrial Hygienist"],
     image: "/images/gallery-industrial-visit.jpg",
   },
-  {
-    slug: "mba-in-safety-management",
-    name: "MBA in Safety Management",
-    shortName: "MBA",
-    tier: "MBA",
-    duration: "2 Years",
-    eligibility: "Any Graduate",
-    mode: "Classroom / Online",
-    summary:
-      "A management-track postgraduate program for candidates aiming at senior HSE leadership — combining safety science with the strategic and people-management skills large organizations expect from safety heads.",
-    subjects: ["Strategic Safety Management", "Organizational Risk Leadership", "HSE Policy & Compliance", "Safety Culture & Behavioral Change"],
-    careers: ["Head of Safety", "HSE Director", "Corporate Safety Consultant"],
-    image: "/images/control-room-risk-assessment.jpg",
-  },
 ];
 
-export const courseTiers = ["Certificate", "Diploma", "Advanced Diploma", "PG Diploma", "B.Sc", "MBA"] as const;
+export const courseTiers = ["Certificate", "Diploma", "Advanced Diploma", "PG Diploma", "B.Sc"] as const;

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 const steps = [
-  { title: "Choose your course", body: "Pick a program that matches your current stage — Certificate, Diploma, PG Diploma, B.Sc or MBA." },
+  { title: "Choose your course", body: "Pick a program that matches your current stage — Certificate, Diploma, PG Diploma, or B.Sc." },
   { title: "Submit your enquiry", body: "Fill the form below or call us directly — our admissions team responds within 24 hours." },
   { title: "Document verification", body: "Submit eligibility documents; our team verifies and confirms your seat." },
   { title: "Begin classes", body: "Join classroom or online batches, with education loan support available for all courses." },

@@ -30,10 +30,17 @@ export function EnquiryForm() {
   const onSubmit = async (values: FormValues) => {
     setStatus("submitting");
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch("https://formsubmit.co/ajax/admissions@nifsindia.net", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          name: values.name,
+          phone: values.phone,
+          email: values.email,
+          course: values.course,
+          message: values.message,
+          _subject: `New enquiry from ${values.name}`,
+        }),
       });
       if (!res.ok) throw new Error("failed");
       setStatus("success");
