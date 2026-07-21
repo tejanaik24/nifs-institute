@@ -23,11 +23,12 @@ export default function CentersPage() {
       <section className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
         <div
           data-path-target="true"
-          className="relative aspect-[21/9] w-full overflow-hidden rounded-sm"
+          className="relative mx-auto w-full max-w-md overflow-hidden rounded-sm"
+          style={{ aspectRatio: "1024 / 1536" }}
         >
           <Image
-            src="/images/centers-exterior.jpg"
-            alt="NIFS training center exterior"
+            src="/images/nifs-center-building.jpg"
+            alt="NIFS training center building"
             fill
             priority
             className="object-cover"
