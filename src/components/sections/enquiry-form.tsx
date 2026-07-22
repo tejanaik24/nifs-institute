@@ -30,7 +30,7 @@ export function EnquiryForm() {
   const onSubmit = async (values: FormValues) => {
     setStatus("submitting");
     try {
-      const res = await fetch("https://formsubmit.co/ajax/admissions@nifsindia.net", {
+      const res = await fetch("https://formsubmit.co/ajax/headoffice@nifsindia.com", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({

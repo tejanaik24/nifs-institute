@@ -2,42 +2,23 @@
 
 ## 🎯 NEXT SESSION PRIORITY — read this before anything else
 
-**2026-07-14, twelfth pass: structural rebuild done (spine now runs the
-whole homepage, Placements fixed) — but this was explicitly a layout pass,
-not the design-quality pass the eleventh-pass verdict actually called for.**
-The user gave three concrete, screenshot-annotated structural bugs this
-session (Placements black bg, logo-column dead space, spine stopping after
-the map) and asked for the "full structural rebuild" option. All three are
-now fixed and verified (see session entry below) — but the underlying
-eleventh-pass complaint (*"okish, no wow factor, not worth 50 lakhs"*) was
-about **typography confidence, motion polish, photography quality,
-information hierarchy** — none of which this pass touched. Don't mistake
-"spine now runs continuously and nothing is visually broken" for "site now
-reads premium." **The next session should pick the eleventh-pass priority
-back up**: a real design-quality pass, or at minimum ask the user directly
-whether the structural fixes moved the needle on the "not worth 50 lakhs"
-feeling, since a full section-by-section typography/motion/photography
-audit was explicitly out of scope this time (see `/plan-design-review` /
-Kent College benchmark notes preserved below — still the standing
-reference, still not re-evaluated).
+**2026-07-22, thirteenth pass: Email updates, phone link fixes, and form endpoint migrations are complete and deployed. Form activation is pending verification by the client clicking the activation email from FormSubmit.co.**
+The next session should verify that the forms submit successfully after client activation of `headoffice@nifsindia.com` in FormSubmit.co, and then pick up the design-quality pass (typography/motion/photography) or address any additional requests.
 
 ## ⚠️ Read this first
 
-This file was last updated 2026-07-13 (eleventh pass — built the "Our
-Students Placed In" carousel with 63 REAL recovered student records, a
-featured-story news card, and a real 6-tab updates widget). **The tenth
-pass's conclusion that the student-placement data "does not exist anywhere
-discoverable" was WRONG** — see the eleventh-pass section below for the
-correct finding and don't repeat that dead-end investigation. The homepage
-architecture described below is **current as of this update** — verify
-with `grep -rn` against `src/app/page.tsx` before trusting anything that
-isn't. Two older layers of history are preserved further down for
-background only: a "Historical Archive" (July 10 session,
-scroll-circuit/R3F architecture, fully replaced) and the
-immediately-preceding mid-session brief's blow-by-blow build log (still
-useful chronology, kept as-is).
+This file was last updated 2026-07-22 (thirteenth pass — updated contact details, fixed incorrect phone numbers on live feed, and migrated both forms to FormSubmit.co pointing to headoffice@nifsindia.com). The homepage architecture described below is current as of this update.
 
-## Latest session — 2026-07-14 (twelfth pass): full structural rebuild — Placements bg/dead-space fix + spine extended to footer
+## Latest session — 2026-07-22 (thirteenth pass): email/phone update + form destination migration and direct FTP sync deployment
+
+This session addressed the email updates, broken/static call elements, and form submissions:
+1. **Email updates:** Replaced `admissions@nifsindia.net` with `headoffice@nifsindia.com` and `Counsellor@nifsindia.com` as clickable mailto links on the contact page and homepage footer.
+2. **Call link fixes:** Fixed a wrong number (`9949210086`) in `public/live-feed.html` to official `8374340999` for both call/WhatsApp, and converted static footer/contact numbers to clickable tel links.
+3. **Form endpoint migration:** Pointed both the React Enquiry Form and the static homepage callback popup form to `https://formsubmit.co/ajax/headoffice@nifsindia.com` (replacing the broken `/api/contact` route that was returning 404).
+4. **FTP Sync deployment:** Successfully built (`npm run build`) and synced all updated HTML and JS chunk assets via FTP to `/home7/nifsindi/public_html`. Verified live page updates.
+5. **Form activation trigger:** Made test submissions to trigger one-time activation emails to `headoffice@nifsindia.com` from FormSubmit.co.
+
+## Previous session — 2026-07-14 (twelfth pass): full structural rebuild — Placements bg/dead-space fix + spine extended to footer
 
 User gave three annotated-screenshot structural bugs and explicitly chose
 "full structural rebuild" over lighter fixes when asked how far to take it.

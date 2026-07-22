@@ -24,13 +24,20 @@ export default function ContactPage() {
           </div>
           <div className="flex gap-4">
             <Phone className="h-5 w-5 shrink-0 text-primary" />
-            <p className="text-sm text-muted-foreground">
+            <a href="tel:+918374340999" className="text-sm text-muted-foreground hover:underline">
               +91-8374-340-999
-            </p>
+            </a>
           </div>
           <div className="flex gap-4">
             <Mail className="h-5 w-5 shrink-0 text-primary" />
-            <p className="text-sm text-muted-foreground">admissions@nifsindia.net</p>
+            <div className="flex flex-col gap-1 text-sm text-muted-foreground">
+              <a href="mailto:headoffice@nifsindia.com" className="hover:underline">
+                headoffice@nifsindia.com
+              </a>
+              <a href="mailto:Counsellor@nifsindia.com" className="hover:underline">
+                Counsellor@nifsindia.com
+              </a>
+            </div>
           </div>
         </div>
 

@@ -2735,11 +2735,13 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
 
       <p class="text-gray-400 text-[14px] py-0">3rd Floor, Visakhapatnam (A.P.) – 530016</p>
 
-      <p class="text-gray-400 text-[14px] py-2">+91-8374-340-999</p>
+      <a href="tel:+918374340999" class="text-gray-400 text-[14px] py-2 hover:underline hover:text-white block">+91-8374-340-999</a>
 
       <a href="https://wa.me/918374340999" class="text-nifs-green text-[14px] py-1 hover:underline inline-block mt-2">Chat on WhatsApp →</a>
 
-      <a href="mailto:admissions@nifsindia.net" class="text-gray-400 text-[14px] py-1 hover:underline hover:text-white inline-block mt-1">admissions@nifsindia.net</a>
+      <a href="mailto:headoffice@nifsindia.com" class="text-gray-400 text-[14px] py-1 hover:underline hover:text-white block mt-1">headoffice@nifsindia.com</a>
+
+      <a href="mailto:Counsellor@nifsindia.com" class="text-gray-400 text-[14px] py-1 hover:underline hover:text-white block mt-0.5">Counsellor@nifsindia.com</a>
 
     </div>
 
@@ -3334,13 +3336,17 @@ document.addEventListener('DOMContentLoaded',function(){
       phone: form.phone.value.trim(),
       email: form.email.value.trim(),
       course: form.course.value,
-      message: 'Homepage lead popup'
+      message: 'Homepage lead popup',
+      _subject: 'New enquiry from ' + form.name.value.trim()
     };
     status.textContent = 'Sending...';
     status.style.color = '#6b7280';
-    fetch('/api/contact', {
+    fetch('https://formsubmit.co/ajax/headoffice@nifsindia.com', {
       method: 'POST',
-      headers: {'Content-Type': 'application/json'},
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
       body: JSON.stringify(data)
     }).then(function(res){
       if(!res.ok) throw new Error('Request failed');
