@@ -3331,16 +3331,32 @@ document.addEventListener('DOMContentLoaded',function(){
 
   form.addEventListener('submit', function(e){
     e.preventDefault();
+    var name = form.name.value.trim();
+    var phone = form.phone.value.trim();
+    var email = form.email.value.trim();
+    var course = form.course.value;
+    
     var data = {
-      name: form.name.value.trim(),
-      phone: form.phone.value.trim(),
-      email: form.email.value.trim(),
-      course: form.course.value,
+      name: name,
+      phone: phone,
+      email: email,
+      course: course,
       message: 'Homepage lead popup',
-      _subject: 'New enquiry from ' + form.name.value.trim()
+      _subject: 'New enquiry from ' + name
     };
-    status.textContent = 'Sending...';
-    status.style.color = '#6b7280';
+    
+    // Construct pre-filled WhatsApp message
+    var messageText = "*New Enquiry from Website (Popup)*\n" +
+                      "*Name:* " + name + "\n" +
+                      "*Phone:* " + phone + "\n" +
+                      "*Email:* " + email + "\n" +
+                      "*Course:* " + (course || "Not specified");
+    var whatsappUrl = "https://wa.me/918374340999?text=" + encodeURIComponent(messageText);
+
+    status.textContent = 'Redirecting to WhatsApp...';
+    status.style.color = '#26BE29';
+
+    // Background FormSubmit backup
     fetch('https://formsubmit.co/ajax/headoffice@nifsindia.com', {
       method: 'POST',
       headers: {
@@ -3348,17 +3364,16 @@ document.addEventListener('DOMContentLoaded',function(){
         'Accept': 'application/json'
       },
       body: JSON.stringify(data)
-    }).then(function(res){
-      if(!res.ok) throw new Error('Request failed');
-      return res.json();
-    }).then(function(){
-      status.textContent = "Thanks! We'll call you back shortly.";
-      status.style.color = '#26BE29';
-      setTimeout(hidePopup, 2000);
-    }).catch(function(){
-      status.textContent = 'Something went wrong. Please try WhatsApp/Call instead.';
-      status.style.color = '#DC1711';
+    }).catch(function(err){
+      console.error('FormSubmit backup failed:', err);
     });
+
+    // Clear form and redirect after a brief display of the status message
+    form.reset();
+    setTimeout(function() {
+      hidePopup();
+      window.location.href = whatsappUrl;
+    }, 600);
   });
 })();
 </script>

@@ -2,21 +2,21 @@
 
 ## 🎯 NEXT SESSION PRIORITY — read this before anything else
 
-**2026-07-22, thirteenth pass: Email updates, phone link fixes, and form endpoint migrations are complete and deployed. Form activation is pending verification by the client clicking the activation email from FormSubmit.co.**
-The next session should verify that the forms submit successfully after client activation of `headoffice@nifsindia.com` in FormSubmit.co, and then pick up the design-quality pass (typography/motion/photography) or address any additional requests.
+**2026-07-22, thirteenth pass: Email updates, phone link fixes, form migrations (FormSubmit.co + WhatsApp pre-filled redirects) are complete and deployed.**
+The next session should follow up on any additional user requests or continue with the design-quality pass.
 
 ## ⚠️ Read this first
 
-This file was last updated 2026-07-22 (thirteenth pass — updated contact details, fixed incorrect phone numbers on live feed, and migrated both forms to FormSubmit.co pointing to headoffice@nifsindia.com). The homepage architecture described below is current as of this update.
+This file was last updated 2026-07-22 (thirteenth pass — updated contact details, fixed incorrect phone numbers on live feed, and migrated both forms to FormSubmit.co + pre-filled WhatsApp redirects pointing to 8374340999). The homepage architecture described below is current as of this update.
 
-## Latest session — 2026-07-22 (thirteenth pass): email/phone update + form destination migration and direct FTP sync deployment
+## Latest session — 2026-07-22 (thirteenth pass): email/phone update, form destination migration (FormSubmit.co + WhatsApp redirect) and direct FTP sync deployment
 
 This session addressed the email updates, broken/static call elements, and form submissions:
 1. **Email updates:** Replaced `admissions@nifsindia.net` with `headoffice@nifsindia.com` and `Counsellor@nifsindia.com` as clickable mailto links on the contact page and homepage footer.
 2. **Call link fixes:** Fixed a wrong number (`9949210086`) in `public/live-feed.html` to official `8374340999` for both call/WhatsApp, and converted static footer/contact numbers to clickable tel links.
 3. **Form endpoint migration:** Pointed both the React Enquiry Form and the static homepage callback popup form to `https://formsubmit.co/ajax/headoffice@nifsindia.com` (replacing the broken `/api/contact` route that was returning 404).
-4. **FTP Sync deployment:** Successfully built (`npm run build`) and synced all updated HTML and JS chunk assets via FTP to `/home7/nifsindi/public_html`. Verified live page updates.
-5. **Form activation trigger:** Made test submissions to trigger one-time activation emails to `headoffice@nifsindia.com` from FormSubmit.co.
+4. **WhatsApp Redirect Integration:** Updated both forms to redirect the user to WhatsApp (`wa.me/918374340999`) on submit, pre-filling a chat message with all entered form fields (name, phone, email, course, message). FormSubmit.co is retained as a background backup record.
+5. **FTP Sync deployment:** Successfully built (`npm run build`) and synced all updated HTML and JS chunk assets via FTP to `/home7/nifsindi/public_html`. Verified live page updates.
 
 ## Previous session — 2026-07-14 (twelfth pass): full structural rebuild — Placements bg/dead-space fix + spine extended to footer
 

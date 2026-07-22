@@ -29,8 +29,14 @@ export function EnquiryForm() {
 
   const onSubmit = async (values: FormValues) => {
     setStatus("submitting");
+    
+    // Construct pre-filled WhatsApp message URL
+    const messageText = `*New Enquiry from Website*\n*Name:* ${values.name}\n*Phone:* ${values.phone}\n*Email:* ${values.email}\n*Course:* ${values.course || "Not specified"}\n*Message:* ${values.message || "Not specified"}`;
+    const whatsappUrl = `https://wa.me/918374340999?text=${encodeURIComponent(messageText)}`;
+    
     try {
-      const res = await fetch("https://formsubmit.co/ajax/headoffice@nifsindia.com", {
+      // Fire FormSubmit.co fetch in the background as a backup record
+      fetch("https://formsubmit.co/ajax/headoffice@nifsindia.com", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
@@ -41,13 +47,15 @@ export function EnquiryForm() {
           message: values.message,
           _subject: `New enquiry from ${values.name}`,
         }),
-      });
-      if (!res.ok) throw new Error("failed");
-      setStatus("success");
-      reset();
-    } catch {
-      setStatus("error");
+      }).catch(err => console.error("FormSubmit backup failed:", err));
+    } catch (e) {
+      console.error(e);
     }
+    
+    // Redirect to WhatsApp
+    setStatus("success");
+    reset();
+    window.location.href = whatsappUrl;
   };
 
   if (status === "success") {
