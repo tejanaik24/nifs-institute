@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { courses } from "@/lib/data/courses";
 import Image from "next/image";
+import { CourseSchema, FAQSchema, BreadcrumbSchema } from "@/lib/seo/schema";
 
 export function generateStaticParams() {
   return courses.map((c) => ({ slug: c.slug }));
@@ -33,7 +34,46 @@ export default async function CourseDetailPage({
   if (!course) notFound();
 
   return (
-    <article className="pt-28 lg:pt-32">
+    <>
+      <CourseSchema
+        name={course.name}
+        description={course.summary}
+        url={`https://nifsindia.net/courses/${course.slug}/`}
+        duration={course.duration}
+        tier={course.tier}
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://nifsindia.net" },
+          { name: "Courses", url: "https://nifsindia.net/courses/" },
+          { name: course.name, url: `https://nifsindia.net/courses/${course.slug}/` },
+        ]}
+      />
+      <FAQSchema
+        faqs={[
+          {
+            question: `What is ${course.name}?`,
+            answer: course.summary,
+          },
+          {
+            question: `What is the eligibility for ${course.name}?`,
+            answer: `${course.name} requires ${course.eligibility}. The course duration is ${course.duration} and is available in ${course.mode} mode.`,
+          },
+          {
+            question: `What is the duration of ${course.name}?`,
+            answer: `${course.name} has a duration of ${course.duration}.`,
+          },
+          {
+            question: `What are the career opportunities after ${course.name}?`,
+            answer: `After completing ${course.name}, graduates can pursue careers as ${course.careers.join(", ")}.`,
+          },
+          {
+            question: `Is ${course.name} recognized by the government?`,
+            answer: `Yes, ${course.name} from NIFS India is NSDC approved and recognized by the Government of India.`,
+          },
+        ]}
+      />
+      <article className="pt-28 lg:pt-32">
       <div className="mx-auto max-w-5xl px-6 py-12 lg:px-10">
         <div data-path-target="true">
           <span className="text-xs font-semibold uppercase tracking-widest text-primary">
@@ -116,5 +156,6 @@ export default async function CourseDetailPage({
         </div>
       </div>
     </article>
+    </>
   );
 }

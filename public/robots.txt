@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /raft-mock/
+
+Sitemap: https://nifsindia.net/sitemap.xml

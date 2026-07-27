@@ -2,12 +2,11 @@
 
 ## 🎯 NEXT SESSION PRIORITY — read this before anything else
 
-**2026-07-24, fourteenth pass: B.Sc course offerings updated to B.Sc in Fire & Industrial Safety (3 Years / 6 Semesters) and B.Sc (Honours) in Fire & Industrial Safety (4 Years / 8 Semesters) across homepage and Next.js catalog data. All build artifacts synced to FTP.**
-**2026-07-27: Created DEPLOYMENT.md containing full cPanel FTP credentials (nifsindi:0xyg3N@751023) and PowerShell upload scripts so OpenCode / any coding agent can deploy blog posts and static builds directly.**
+**2026-07-27, fifteenth pass: Reverted unrelated git changes (restored src/app/page.tsx to HEAD). Fixed icon font rendering (restored Font Awesome 6.5.1 CDN link) and Mojibake encoding mismatch (placed <meta charset="UTF-8"> as first tag in <head>, converted all HTML/text to clean UTF-8). Synced to cPanel FTP.**
 
 ## ⚠️ Read this first
 
-This file was last updated 2026-07-22 (thirteenth pass — updated contact details, fixed incorrect phone numbers on live feed, and migrated both forms to FormSubmit.co + pre-filled WhatsApp redirects pointing to 8374340999). The homepage architecture described below is current as of this update.
+This file was last updated 2026-07-27 (fifteenth pass — fixed icon font rendering, restored Font Awesome 6.5.1 CDN, eliminated Mojibake text corruptions, verified clean UTF-8 rendering on live domain).
 
 ## Latest session — 2026-07-22 (thirteenth pass): email/phone update, form destination migration (FormSubmit.co + WhatsApp redirect) and direct FTP sync deployment
 

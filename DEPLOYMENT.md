@@ -70,9 +70,13 @@ function Upload-Folder ($localPath) {
     }
 }
 
-# Sync _next JS/CSS bundles and blog pages
+# Sync _next JS/CSS bundles, blog pages, courses, and images
 Upload-Folder "$localBase\_next"
 Upload-Folder "$localBase\blog"
+Upload-Folder "$localBase\courses"
+if (Test-Path "$localBase\images") {
+    Upload-Folder "$localBase\images"
+}
 
 # Upload homepage if updated
 if (Test-Path "$localBase\homepage.html") {

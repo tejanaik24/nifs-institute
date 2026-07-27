@@ -22,12 +22,8 @@ export function CourseCatalog() {
               {tierCourses.map((course, i) => {
                 const reverse = i % 2 === 1;
                 return (
-                  <motion.div
+                  <div
                     key={course.slug}
-                    initial={{ opacity: 0, y: 32 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.6 }}
                     className={cn(
                       "grid grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-12",
                       reverse && "md:[&>*:first-child]:order-2"
@@ -61,7 +57,7 @@ export function CourseCatalog() {
                         View curriculum <ArrowRight className="h-3.5 w-3.5" />
                       </Link>
                     </div>
-                  </motion.div>
+                  </div>
                 );
               })}
             </div>

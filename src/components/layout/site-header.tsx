@@ -44,6 +44,12 @@ export function SiteHeader() {
     };
   }, [menuOpen]);
 
+  useEffect(() => {
+    setMenuOpen(false);
+    setMegaOpen(null);
+    document.body.style.overflow = "";
+  }, [pathname]);
+
   const openMega = useCallback((label: string) => {
     if (megaTimer.current) clearTimeout(megaTimer.current);
     setMegaOpen(label);
