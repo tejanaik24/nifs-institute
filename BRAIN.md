@@ -3,7 +3,7 @@
 ## 🎯 NEXT SESSION PRIORITY — read this before anything else
 
 **2026-07-24, fourteenth pass: B.Sc course offerings updated to B.Sc in Fire & Industrial Safety (3 Years / 6 Semesters) and B.Sc (Honours) in Fire & Industrial Safety (4 Years / 8 Semesters) across homepage and Next.js catalog data. All build artifacts synced to FTP.**
-The next session should follow up on any additional user requests or continue with design-quality updates.
+**2026-07-27: Created DEPLOYMENT.md containing full cPanel FTP credentials (nifsindi:0xyg3N@751023) and PowerShell upload scripts so OpenCode / any coding agent can deploy blog posts and static builds directly.**
 
 ## ⚠️ Read this first
 
