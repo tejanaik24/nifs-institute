@@ -10,7 +10,24 @@
 
 This file was last updated 2026-07-29 (sixteenth pass — fixed chatbot panel opacity bug, resolved phone number mismatch across all links, deployed to cPanel FTP, empirically verified via CDP with 3 live screenshots).
 
-## Latest session — 2026-07-22 (thirteenth pass): email/phone update, form destination migration (FormSubmit.co + WhatsApp redirect) and direct FTP sync deployment
+## Latest session — 2026-07-29 (sixteenth pass): Chatbot panel background opacity fix, phone number link consistency fix, production deployment & CDP empirical verification
+
+1. **Chatbot panel transparent background fix:**
+   - **Root Cause:** In `public/homepage.html`, `#cf-panel.cf-show` had CSS `animation: cf-pop .22s cubic-bezier(.34,1.56,.64,1) both`. Keyframe `@keyframes cf-pop` defined `from { opacity: 0; ... }`. Due to `animation-fill-mode: both` and state evaluation in Chrome rendering engine, the panel remained stuck at computed `opacity: 0` (100% transparent), letting hero heading text bleed through option button gaps.
+   - **Fix:** Set `#cf-bubble { z-index: 99999 !important }`, `#cf-panel { background: #ffffff !important; background-color: #ffffff !important; opacity: 1 !important }`, `#cf-panel.cf-show { opacity: 1 !important }`, and changed `@keyframes cf-pop` to `from { opacity: 1; transform: scale(.75) translateY(12px) } to { opacity: 1; transform: scale(1) translateY(0) }`.
+   - **Verification:** Live CDP computed style inspection confirmed `display: block`, `backgroundColor: rgb(255, 255, 255)`, `opacity: 1`, `transform: matrix(1, 0, 0, 1, 0, 0)`.
+
+2. **Footer & Page Phone Number Mismatch fix:**
+   - **Root Cause:** 12 `tel:` and `wa.me` links across `public/homepage.html` pointed to `9246624690` while visible text displayed `+91-8374-340-999`.
+   - **Fix:** Replaced all 12 occurrences of `9246624690` in `public/homepage.html` with `8374340999` (`tel:+918374340999` and `https://wa.me/918374340999`).
+   - **Verification:** Source audit confirmed 0 occurrences of `9246624690` and 12 occurrences of `8374340999`.
+
+3. **Production Deployment & Screenshots:**
+   - Deployed updated `index.html` and `.htaccess` to cPanel FTP `/home7/nifsindi/public_html`.
+   - Captured 3 live screenshots: `live_widget_step1.png`, `live_widget_step2.png`, `live_footer.png`.
+   - Committed and pushed to `origin/main` (commit `ff22d53`).
+
+## Previous session — 2026-07-22 (thirteenth pass): email/phone update, form destination migration (FormSubmit.co + WhatsApp redirect) and direct FTP sync deployment
 
 This session addressed the email updates, broken/static call elements, and form submissions:
 1. **Email updates:** Replaced `admissions@nifsindia.net` with `headoffice@nifsindia.com` and `Counsellor@nifsindia.com` as clickable mailto links on the contact page and homepage footer.
