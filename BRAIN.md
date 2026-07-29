@@ -2,11 +2,13 @@
 
 ## 🎯 NEXT SESSION PRIORITY — read this before anything else
 
-**2026-07-27, fifteenth pass: Reverted unrelated git changes (restored src/app/page.tsx to HEAD). Fixed icon font rendering (restored Font Awesome 6.5.1 CDN link) and Mojibake encoding mismatch (placed <meta charset="UTF-8"> as first tag in <head>, converted all HTML/text to clean UTF-8). Synced to cPanel FTP.**
+**2026-07-29, sixteenth pass: Fixed two recurring production bugs with full live CDP empirical verification:**
+1. **Chatbot panel transparent background:** Identified root cause — `@keyframes cf-pop` was animating `opacity` from `0` to `1` with `animation-fill-mode: both`, leaving `#cf-panel` stuck with computed `opacity: 0` (transparent container where hero text bled through option button gaps). Fixed in `public/homepage.html` by setting `#cf-bubble { z-index: 99999 !important }`, `#cf-panel { background: #ffffff !important; opacity: 1 !important }`, `#cf-panel.cf-show { opacity: 1 !important }`, and updating `@keyframes cf-pop` to keep `opacity: 1` solid in both keyframe steps (`from { opacity: 1; transform: scale(.75) translateY(12px) } to { opacity: 1; transform: scale(1) translateY(0) }`). Verified live with CDP — computed opacity is `1`, background color is `rgb(255, 255, 255)`, zero hero bleed-through. Captured screenshots `live_widget_step1.png` and `live_widget_step2.png`.
+2. **Footer phone number mismatch:** Found 12 `tel:` and `wa.me` links pointing to old number `9246624690` across `public/homepage.html` while visible text showed `+91-8374-340-999`. Replaced all 12 occurrences with `8374340999` / `+918374340999` so all links match the displayed text. Deployed to production FTP (`/home7/nifsindi/public_html`). Verified live with CDP — 0 occurrences of old number, 12 occurrences of new number. Captured screenshot `live_footer.png`.
 
 ## ⚠️ Read this first
 
-This file was last updated 2026-07-27 (fifteenth pass — fixed icon font rendering, restored Font Awesome 6.5.1 CDN, eliminated Mojibake text corruptions, verified clean UTF-8 rendering on live domain).
+This file was last updated 2026-07-29 (sixteenth pass — fixed chatbot panel opacity bug, resolved phone number mismatch across all links, deployed to cPanel FTP, empirically verified via CDP with 3 live screenshots).
 
 ## Latest session — 2026-07-22 (thirteenth pass): email/phone update, form destination migration (FormSubmit.co + WhatsApp redirect) and direct FTP sync deployment
 
