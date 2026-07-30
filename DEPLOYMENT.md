@@ -16,12 +16,12 @@ This document provides exact server credentials and automated scripts for deploy
 
 ## 🛠️ Step-by-Step Deployment Process
 
-### 1. Build the Next.js Project
 Run the production build script in the repository root (`C:\claude code\nifs-india`):
 ```bash
 npm run build
 ```
-This outputs compiled static HTML and JS/CSS assets to `C:\claude code\nifs-india\out`.
+This outputs compiled static HTML and JS/CSS assets to `C:\claude code\nifs-india\out`. 
+> **CRITICAL RULE:** `npm run build` now automatically runs a post-build sync script that copies `public/homepage.html` (220KB) over `out/index.html`. Never deploy raw Next.js `out/index.html` without verifying it matches `public/homepage.html`. Alternatively, use `node restore-homepage-html.js` or `node fast-deploy.js` which automatically performs this sync before FTP upload.
 
 ---
 

@@ -399,6 +399,8 @@
 
 .blog-prose p {
   margin: 0 0 1.5em;
+}
+.blog-prose p:where(:not([class*="text-"])) {
   color: oklch(0.25 0 0);
 }
 
@@ -419,6 +421,8 @@
   font-size: 1.35rem;
   line-height: 1.35;
   margin: 1.8em 0 0.6em;
+}
+.blog-prose h3:where(:not([class*="text-"])) {
   color: oklch(0.2 0 0);
 }
 

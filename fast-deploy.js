@@ -25,6 +25,13 @@ function getAllFiles(dirPath, arrayOfFiles = []) {
 }
 
 const outDir = path.join(__dirname, 'out');
+const hpPath = path.join(__dirname, 'public', 'homepage.html');
+if (fs.existsSync(hpPath)) {
+  fs.copyFileSync(hpPath, path.join(outDir, 'index.html'));
+  fs.copyFileSync(hpPath, path.join(outDir, 'homepage.html'));
+  console.log('✅ Synchronized public/homepage.html to out/index.html in fast-deploy.js');
+}
+
 const nextFiles = getAllFiles(path.join(outDir, '_next'));
 const blogFiles = getAllFiles(path.join(outDir, 'blog'));
 const courseFiles = getAllFiles(path.join(outDir, 'courses'));

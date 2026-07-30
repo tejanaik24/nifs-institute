@@ -28,7 +28,8 @@ export function ScrollPathLine() {
   const trackPathRef = useRef<SVGPathElement>(null);
   const travelerPathRef = useRef<SVGPathElement>(null);
   const pathname = usePathname();
-  const isHome = pathname === "/";
+  const isBlogPost = /^\/blog\/[^/]+/.test(pathname ?? "");
+  const isHome = pathname === "/" || isBlogPost;
 
   useEffect(() => {
     if (isHome) return;
@@ -201,7 +202,7 @@ export function ScrollPathLine() {
       }
 
       d += ` L ${spineX} ${last.top}`;
-      d += ` L ${spineX} ${last.top + (last.bottom - last.top) / 2}`;
+      d += ` L ${spineX} ${last.bottom}`;
 
       trackCasing.setAttribute("d", d);
       trackPath.setAttribute("d", d);
