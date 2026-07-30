@@ -97,6 +97,11 @@ being generated externally (Google Antigravity) and will land in
 and swap each placeholder for `next/image` when they arrive.
 
 ## Deploy instructions
-Not yet deployed. `npm run build` passes clean. Target Vercel. Set
-`RESEND_API_KEY` and `ADMISSIONS_EMAIL` env vars before launch or the
-contact form only logs to console instead of sending real email.
+- Domain: `https://www.nifsindia.net/` | FTP: `ftp://nifsindia.net/public_html` | User: `nifsindi`
+- **Source of Truth:** `public/homepage.html` (220KB). Next.js `npm run build` outputs a 25KB shell into `out/index.html`.
+- **Auto-Sync Requirement:** `npm run build`, `fast-deploy.js`, and `upload-real-homepage.js` automatically overwrite `out/index.html` with `public/homepage.html` before uploading. Never upload raw 25KB Next.js shell file to `/public_html/index.html`.
+- **Deploy Command:** Run `node restore-homepage-html.js` or `node upload-real-homepage.js`.
+- **Live Verification Protocol:**
+  1. Fetch `https://www.nifsindia.net/?cb=` + Date.now() over HTTP. Confirm `Status 200`, `Length ~220,000`, `Has Dark Nav Pill: true`, `Phone 8374340999: 12`.
+  2. Run CDP headless Chrome script `C:\Users\user\.gemini\antigravity\scratch\debug_cdp.js` to verify visual rendering and capture screenshots `live_widget_step1.png`, `live_widget_step2.png`, `live_footer.png`.
+  3. Update `BRAIN.md` and append to `D:\Vyzma\_BRAIN\daily-notes\{YYYY-MM-DD}.md`.
