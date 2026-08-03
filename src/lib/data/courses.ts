@@ -60,7 +60,7 @@ export const courses: Course[] = [
     name: "Advanced Diploma in Fire & Safety (ADFS)",
     shortName: "ADFS",
     tier: "Advanced Diploma",
-    duration: "18 Months",
+    duration: "12 Months",
     eligibility: "10+2 / Diploma (Any Stream)",
     mode: "Classroom / Online",
     summary:
@@ -74,7 +74,7 @@ export const courses: Course[] = [
     name: "Advanced Diploma in Industrial Safety (ADIS)",
     shortName: "ADIS",
     tier: "Advanced Diploma",
-    duration: "18 Months",
+    duration: "12 Months",
     eligibility: "10+2 / Diploma (Any Stream)",
     mode: "Classroom / Online",
     summary:
