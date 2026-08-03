@@ -39,12 +39,12 @@ for the complete design spec.
 - Body font `var(--font-sans)` = Inter
 
 ## Route map
-`/`, `/about`, `/courses`, `/courses/[slug]` (10 static slugs — see
+`/`, `/about`, `/courses`, `/courses/[slug]` (9 static slugs — see
 `src/lib/data/courses.ts`), `/industrial-services`, `/centers`,
-`/placements`, `/gallery`, `/admissions`, `/contact`, `/blog`, `/api/contact`
+`/placements`, `/gallery`, `/admissions`, `/contact`, `/blog`
 
 ## Key files
-- `src/lib/data/courses.ts` — all 10 course definitions
+- `src/lib/data/courses.ts` — all 9 course definitions
 - `src/lib/data/centers.ts` — centers, recruiters, accreditations
 - `src/components/sections/story-block.tsx` — the GSAP scroll-pin + progress-rail pattern, reused across the site
 - `src/components/image-placeholder.tsx` — stand-in for missing photography; swap for `next/image` per-slot once real files exist

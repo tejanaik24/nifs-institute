@@ -37,16 +37,15 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
       );
     });
 
-    gsap.ticker.add((time) => {
+    const ticker = (time: number) => {
       lenis.raf(time * 1000);
-    });
+    };
+    gsap.ticker.add(ticker);
     gsap.ticker.lagSmoothing(0);
 
     return () => {
+      gsap.ticker.remove(ticker);
       lenis.destroy();
-      gsap.ticker.remove((time) => {
-        lenis.raf(time * 1000);
-      });
     };
   }, []);
 

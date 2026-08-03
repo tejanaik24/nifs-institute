@@ -64,12 +64,6 @@ export function SiteHeader() {
     setMegaOpen(null);
   }, []);
 
-  // Close mega menu on route change
-  useEffect(() => {
-    setMegaOpen(null);
-    setMenuOpen(false);
-  }, [pathname]);
-
   return (
     <header
       className={cn(
@@ -175,9 +169,9 @@ export function SiteHeader() {
                             className="group flex items-start gap-3 rounded-xl px-3.5 py-3 transition-colors hover:bg-white/8"
                             onClick={closeMega}
                           >
-                            <div className="mt-0.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#DC1711] opacity-60 transition-opacity group-hover:opacity-100" />
+                            <div className="mt-0.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary opacity-60 transition-opacity group-hover:opacity-100" />
                             <div className="min-w-0">
-                              <div className="text-sm font-medium text-white transition-colors group-hover:text-[#DC1711]">
+                              <div className="text-sm font-medium text-white transition-colors group-hover:text-primary">
                                 {child.label}
                               </div>
                               {child.description && (
@@ -216,7 +210,7 @@ export function SiteHeader() {
           </a>
           <Link
             href="/admissions"
-            className="rounded-full bg-[#DC1711] px-5 py-2 text-xs font-bold uppercase tracking-wider text-white transition-all duration-300 hover:bg-[#B0120E] hover:shadow-lg hover:shadow-[#DC1711]/25"
+            className="rounded-full bg-primary px-5 py-2 text-xs font-bold uppercase tracking-wider text-white transition-all duration-300 hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/25"
           >
             Apply Now
           </Link>
@@ -225,7 +219,7 @@ export function SiteHeader() {
         {/* Mobile hamburger */}
         <button
           aria-label={menuOpen ? "Close menu" : "Open menu"}
-          className="relative z-[60] flex h-10 w-10 items-center justify-center rounded-xl bg-[#DC1711] text-white shadow-lg transition-transform hover:scale-105 lg:hidden"
+          className="relative z-[60] flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-white shadow-lg transition-transform hover:scale-105 lg:hidden"
           onClick={() => setMenuOpen((prev) => !prev)}
         >
           <span className="flex flex-col items-center justify-center gap-[5px]">
@@ -327,7 +321,7 @@ export function SiteHeader() {
                     className="group block py-3 text-3xl font-bold text-white transition-colors"
                     onClick={() => setMenuOpen(false)}
                   >
-                    <span className="inline-block transition-transform duration-200 group-hover:translate-x-2 group-hover:text-[#DC1711]">
+                    <span className="inline-block transition-transform duration-200 group-hover:translate-x-2 group-hover:text-primary">
                       {item.label}
                     </span>
                   </Link>
@@ -337,7 +331,7 @@ export function SiteHeader() {
                         <Link
                           key={child.href}
                           href={child.href}
-                          className="text-sm text-white/40 transition-colors hover:text-[#DC1711]"
+                          className="text-sm text-white/40 transition-colors hover:text-primary"
                           onClick={() => setMenuOpen(false)}
                         >
                           {child.label}
@@ -366,7 +360,7 @@ export function SiteHeader() {
               >
                 <Link
                   href="/admissions"
-                  className="block w-full rounded-full bg-[#DC1711] py-4 text-center text-sm font-bold uppercase tracking-wider text-white transition-transform hover:scale-[1.02]"
+                  className="block w-full rounded-full bg-primary py-4 text-center text-sm font-bold uppercase tracking-wider text-white transition-transform hover:scale-[1.02]"
                   onClick={() => setMenuOpen(false)}
                 >
                   Apply Now →
@@ -383,7 +377,7 @@ export function SiteHeader() {
                     href="https://wa.me/918374340999"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="transition-colors hover:text-[#25D366]"
+                    className="transition-colors hover:text-whatsapp"
                   >
                     WhatsApp
                   </a>

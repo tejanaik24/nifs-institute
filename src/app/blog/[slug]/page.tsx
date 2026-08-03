@@ -57,7 +57,7 @@ export default async function BlogPostPage({
         <div className="mb-6">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-1.5 text-xs font-bold text-[#DC1711] transition-transform hover:-translate-x-1"
+            className="inline-flex items-center gap-1.5 text-xs font-bold text-primary transition-transform hover:-translate-x-1"
           >
             <ArrowLeft className="h-4 w-4" />
             Back to Articles
@@ -67,7 +67,7 @@ export default async function BlogPostPage({
         {/* Card Header Container */}
         <div className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-10 shadow-sm">
           {post.categories?.[0] && (
-            <div className="mb-4 inline-flex items-center gap-1.5 rounded-md bg-[#DC1711] px-3 py-1 text-xs font-bold uppercase tracking-wider text-white">
+            <div className="mb-4 inline-flex items-center gap-1.5 rounded-md bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-white">
               <ShieldCheck className="h-3.5 w-3.5" />
               {post.categories[0]}
             </div>
@@ -120,7 +120,7 @@ export default async function BlogPostPage({
           <div className="mt-12 overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-slate-900 to-[#7A0F0C] p-6 text-white shadow-xl sm:p-8">
             <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
               <div>
-                <span className="text-xs font-bold uppercase tracking-wider text-[#DC1711] bg-white/10 px-2.5 py-1 rounded">
+                <span className="text-xs font-bold uppercase tracking-wider text-primary bg-white/10 px-2.5 py-1 rounded">
                   NIFS Admissions Open
                 </span>
                 <h3 className="mt-3 text-xl font-extrabold text-white sm:text-2xl">
@@ -134,7 +134,7 @@ export default async function BlogPostPage({
               <div className="flex flex-wrap items-center gap-3 shrink-0">
                 <Link
                   href="/admissions"
-                  className="inline-flex items-center gap-2 rounded-xl bg-[#DC1711] px-5 py-3 text-xs font-bold uppercase tracking-wider text-white shadow-lg transition-transform hover:scale-105"
+                  className="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-xs font-bold uppercase tracking-wider text-white shadow-lg transition-transform hover:scale-105"
                 >
                   Apply Now →
                 </Link>

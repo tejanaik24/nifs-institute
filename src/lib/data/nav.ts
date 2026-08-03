@@ -17,7 +17,7 @@ export const primaryNav: NavItem[] = [
       { label: "PG Diploma in Fire & Safety", href: "/courses/pg-diploma-in-fire-safety-pg-dfs" },
       { label: "PG Diploma in HSE", href: "/courses/pg-diploma-in-health-safety-environment-pg-dhse" },
       { label: "B.Sc Fire & Industrial Safety", href: "/courses/b-sc-in-fire-industrial-safety" },
-      { label: "B.Sc Health, Safety & Environment", href: "/courses/b-sc-in-health-safety-environment" },
+      { label: "B.Sc (Honours) in Fire & Industrial Safety", href: "/courses/b-sc-honours-in-fire-industrial-safety" },
     ],
   },
   {

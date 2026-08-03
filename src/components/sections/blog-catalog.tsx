@@ -103,7 +103,7 @@ export function BlogCatalog({ posts }: { posts: BlogPost[] }) {
                   <BookOpen className="h-16 w-16 text-slate-300" />
                 </div>
               )}
-              <div className="absolute left-4 top-4 z-10 rounded-md bg-[#DC1711] px-3 py-1 text-xs font-bold uppercase tracking-wider text-white shadow-sm">
+              <div className="absolute left-4 top-4 z-10 rounded-md bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-white shadow-sm">
                 Featured Article
               </div>
             </div>
@@ -111,7 +111,7 @@ export function BlogCatalog({ posts }: { posts: BlogPost[] }) {
             <div className="flex flex-col justify-between p-6 sm:p-8 lg:col-span-5">
               <div>
                 <div className="flex items-center gap-3 text-xs font-semibold text-slate-500">
-                  <span className="flex items-center gap-1 text-[#DC1711]">
+                  <span className="flex items-center gap-1 text-primary">
                     <Calendar className="h-3.5 w-3.5" />
                     {formatDate(featuredPost.date)}
                   </span>
@@ -125,7 +125,7 @@ export function BlogCatalog({ posts }: { posts: BlogPost[] }) {
                 <h2 className="mt-3 text-xl font-extrabold leading-snug text-slate-900 sm:text-2xl dark:text-white">
                   <Link
                     href={`/blog/${featuredPost.slug}`}
-                    className="transition-colors hover:text-[#DC1711]"
+                    className="transition-colors hover:text-primary"
                   >
                     {featuredPost.title}
                   </Link>
@@ -139,7 +139,7 @@ export function BlogCatalog({ posts }: { posts: BlogPost[] }) {
               <div className="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800">
                 <Link
                   href={`/blog/${featuredPost.slug}`}
-                  className="group inline-flex items-center gap-2 rounded-lg bg-[#DC1711] px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white transition-all duration-300 hover:bg-[#B0120E]"
+                  className="group inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white transition-all duration-300 hover:bg-primary/90"
                 >
                   Read Full Story
                   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -160,7 +160,7 @@ export function BlogCatalog({ posts }: { posts: BlogPost[] }) {
               onClick={() => handleCategoryChange(cat)}
               className={`rounded-lg px-3.5 py-1.5 text-xs font-semibold transition-all duration-200 ${
                 selectedCategory === cat
-                  ? "bg-[#DC1711] text-white shadow-sm"
+                  ? "bg-primary text-white shadow-sm"
                   : "bg-white text-slate-600 border border-slate-200 hover:bg-slate-100 dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700"
               }`}
             >
@@ -177,7 +177,7 @@ export function BlogCatalog({ posts }: { posts: BlogPost[] }) {
             placeholder="Search blog..."
             value={searchQuery}
             onChange={(e) => handleSearchChange(e.target.value)}
-            className="w-full rounded-lg border border-slate-200 bg-white py-1.5 pl-9 pr-4 text-xs text-slate-900 placeholder:text-slate-400 focus:border-[#DC1711] focus:outline-none focus:ring-1 focus:ring-[#DC1711] dark:border-slate-700 dark:bg-slate-800 dark:text-white"
+            className="w-full rounded-lg border border-slate-200 bg-white py-1.5 pl-9 pr-4 text-xs text-slate-900 placeholder:text-slate-400 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary dark:border-slate-700 dark:bg-slate-800 dark:text-white"
           />
         </div>
       </div>
@@ -197,7 +197,7 @@ export function BlogCatalog({ posts }: { posts: BlogPost[] }) {
               setSearchQuery("");
               setSelectedCategory("All");
             }}
-            className="mt-4 inline-flex items-center gap-1.5 rounded-lg border border-[#DC1711] px-4 py-1.5 text-xs font-semibold text-[#DC1711] transition-colors hover:bg-[#DC1711] hover:text-white"
+            className="mt-4 inline-flex items-center gap-1.5 rounded-lg border border-primary px-4 py-1.5 text-xs font-semibold text-primary transition-colors hover:bg-primary hover:text-white"
           >
             Clear Filters
           </button>
@@ -243,7 +243,7 @@ export function BlogCatalog({ posts }: { posts: BlogPost[] }) {
                     <span>{estimateReadTime(post.wordCount)}</span>
                   </div>
 
-                  <h3 className="mt-2.5 text-base font-bold leading-snug text-slate-900 transition-colors duration-200 group-hover:text-[#DC1711] dark:text-white">
+                  <h3 className="mt-2.5 text-base font-bold leading-snug text-slate-900 transition-colors duration-200 group-hover:text-primary dark:text-white">
                     {post.title}
                   </h3>
 
@@ -252,7 +252,7 @@ export function BlogCatalog({ posts }: { posts: BlogPost[] }) {
                   </p>
                 </div>
 
-                <div className="mt-5 flex items-center justify-between border-t border-slate-100 pt-3 text-xs font-semibold text-[#DC1711] dark:border-slate-800">
+                <div className="mt-5 flex items-center justify-between border-t border-slate-100 pt-3 text-xs font-semibold text-primary dark:border-slate-800">
                   <span className="group-hover:underline">Read Article</span>
                   <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
                 </div>

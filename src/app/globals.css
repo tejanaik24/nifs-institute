@@ -44,6 +44,8 @@
   --color-nifs-red-tint: var(--nifs-red-tint);
   --color-nifs-green: var(--nifs-green);
   --color-nifs-orange: var(--nifs-orange);
+  /* WhatsApp brand green — the chat CTA accent, not a NIFS color */
+  --color-whatsapp: var(--whatsapp);
   --radius-sm: calc(var(--radius) * 0.4);
   --radius-md: calc(var(--radius) * 0.6);
   --radius-lg: var(--radius);
@@ -97,6 +99,7 @@
   --nifs-red-tint: #f3b3b2;
   --nifs-green: #26be29;
   --nifs-orange: #fc8010;
+  --whatsapp: #25d366;
 }
 
 .dark {

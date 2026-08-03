@@ -23,7 +23,6 @@ function docRect(el: HTMLElement) {
 
 export function ScrollPathLine() {
   const svgRef = useRef<SVGSVGElement>(null);
-  const groupRef = useRef<SVGGElement>(null);
   const trackCasingRef = useRef<SVGPathElement>(null);
   const trackPathRef = useRef<SVGPathElement>(null);
   const travelerPathRef = useRef<SVGPathElement>(null);
@@ -35,47 +34,20 @@ export function ScrollPathLine() {
     if (isHome) return;
 
     const svg = svgRef.current;
-    const group = groupRef.current;
     const trackCasing = trackCasingRef.current;
     const trackPath = trackPathRef.current;
     const travelerPath = travelerPathRef.current;
-    if (!svg || !group || !trackCasing || !trackPath || !travelerPath) return;
+    if (!svg || !trackCasing || !trackPath || !travelerPath) return;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     let totalPathLength = 0;
     let scrollTriggerInstance: ScrollTrigger | undefined;
-    let lengthForY: (targetY: number) => number = () => 0;
-    let stretchStartLen = 0;
-    let stretchEndLen = 0;
-    const posState = { pos: 0 };
 
-    const setDashOffset = (pos: number) => {
-      travelerPath.style.strokeDashoffset = String(totalPathLength - pos);
-    };
-
-    const setPos = gsap.quickTo(posState, "pos", {
-      duration: 0.4,
-      ease: "power2.out",
-      onUpdate: () => {
-        let currentCometLength = COMET_LENGTH;
-        const p = posState.pos;
-
-        if (stretchEndLen > stretchStartLen) {
-          if (p >= stretchStartLen && p <= stretchEndLen) {
-            currentCometLength = Math.max(COMET_LENGTH, p - stretchStartLen);
-          } else if (p > stretchEndLen) {
-            const shrinkProgress = Math.min(1, (p - stretchEndLen) / 300);
-            const maxLength = stretchEndLen - stretchStartLen;
-            currentCometLength = maxLength + (COMET_LENGTH - maxLength) * shrinkProgress;
-          }
-        }
-
-        travelerPath.style.strokeDasharray = `${currentCometLength} ${totalPathLength}`;
-        setDashOffset(p);
-      },
-    });
-
-    const followScroll = () => {
-      group.setAttribute("transform", `translate(0 ${-window.scrollY})`);
+    const setDashOffset = (progress: number) => {
+      travelerPath.style.strokeDashoffset = String(
+        totalPathLength * (1 - progress)
+      );
     };
 
     const build = () => {
@@ -83,8 +55,10 @@ export function ScrollPathLine() {
       const cornerRadius = (rect: { width: number; top: number; bottom: number }) =>
         Math.max(12, Math.min(baseR, rect.width / 2 - 4, (rect.bottom - rect.top) / 2 - 4));
       const docWidth = window.innerWidth;
+      const docHeight = document.documentElement.scrollHeight;
 
-      svg.setAttribute("viewBox", `0 0 ${docWidth} ${window.innerHeight}`);
+      svg.setAttribute("viewBox", `0 0 ${docWidth} ${docHeight}`);
+      svg.setAttribute("preserveAspectRatio", "none");
 
       const logoEl = document.querySelector<HTMLElement>(
         '[data-path-logo="true"]'
@@ -209,37 +183,8 @@ export function ScrollPathLine() {
       travelerPath.setAttribute("d", d);
       totalPathLength = trackPath.getTotalLength();
 
-      const sampleCount = 300;
-      const samples: { len: number; y: number }[] = [];
-      for (let i = 0; i <= sampleCount; i++) {
-        const len = (totalPathLength * i) / sampleCount;
-        samples.push({ len, y: trackPath.getPointAtLength(len).y });
-      }
-      lengthForY = (targetY: number) => {
-        let result = 0;
-        for (const s of samples) {
-          if (s.y <= targetY) result = s.len;
-          else break;
-        }
-        return result;
-      };
-
       travelerPath.style.strokeDasharray = `${COMET_LENGTH} ${totalPathLength}`;
-      followScroll();
-      posState.pos = 0;
       setDashOffset(0);
-
-      // Cache the stretch target's document-relative span once per build/resize —
-      // its position doesn't change between scroll ticks, so there's no need to
-      // re-query and re-measure it on every scrub update.
-      stretchStartLen = 0;
-      stretchEndLen = 0;
-      const stretchEl = document.querySelector<HTMLElement>('[data-path-stretch="true"]');
-      if (stretchEl) {
-        const stretchRect = docRect(stretchEl);
-        stretchStartLen = lengthForY(stretchRect.top);
-        stretchEndLen = lengthForY(stretchRect.bottom);
-      }
 
       scrollTriggerInstance?.kill();
       scrollTriggerInstance = ScrollTrigger.create({
@@ -247,11 +192,7 @@ export function ScrollPathLine() {
         start: "top top",
         end: "bottom bottom",
         scrub: 1.5,
-        onUpdate: () => {
-          followScroll();
-          const targetY = window.scrollY + window.innerHeight * 0.5;
-          setPos(lengthForY(targetY));
-        },
+        onUpdate: (self) => setDashOffset(self.progress),
       });
     };
 
@@ -271,7 +212,6 @@ export function ScrollPathLine() {
       window.clearTimeout(resizeTimeout);
       window.removeEventListener("resize", onResize);
       scrollTriggerInstance?.kill();
-      gsap.killTweensOf(posState);
     };
   }, [pathname, isHome]);
 
@@ -281,6 +221,7 @@ export function ScrollPathLine() {
     <svg
       ref={svgRef}
       aria-hidden="true"
+      preserveAspectRatio="none"
       style={{
         position: "fixed",
         top: 0,
@@ -300,30 +241,28 @@ export function ScrollPathLine() {
           </feMerge>
         </filter>
       </defs>
-      <g ref={groupRef}>
-        <path
-          ref={trackCasingRef}
-          fill="none"
-          stroke="rgba(0,0,0,0.35)"
-          strokeWidth={12}
-          strokeLinecap="round"
-        />
-        <path
-          ref={trackPathRef}
-          fill="none"
-          stroke="rgba(255,255,255,0.9)"
-          strokeWidth={7}
-          strokeLinecap="round"
-        />
-        <path
-          ref={travelerPathRef}
-          fill="none"
-          stroke="#ff2222"
-          strokeWidth={7}
-          strokeLinecap="round"
-          filter="url(#cometGlow)"
-        />
-      </g>
+      <path
+        ref={trackCasingRef}
+        fill="none"
+        stroke="rgba(0,0,0,0.35)"
+        strokeWidth={12}
+        strokeLinecap="round"
+      />
+      <path
+        ref={trackPathRef}
+        fill="none"
+        stroke="rgba(255,255,255,0.9)"
+        strokeWidth={7}
+        strokeLinecap="round"
+      />
+      <path
+        ref={travelerPathRef}
+        fill="none"
+        stroke="#ff2222"
+        strokeWidth={7}
+        strokeLinecap="round"
+        filter="url(#cometGlow)"
+      />
     </svg>
   );
 }

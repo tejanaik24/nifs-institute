@@ -209,41 +209,6 @@ export function BreadcrumbSchema({
   );
 }
 
-export function LocalBusinessSchema({
-  city,
-  state,
-  address,
-  phone,
-}: {
-  city: string;
-  state: string;
-  address?: string;
-  phone?: string;
-}) {
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{
-        __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "LocalBusiness",
-          name: `NIFS India — ${city}`,
-          description: `Fire and safety training courses in ${city}, ${state}. NSDC approved. 25+ years of excellence.`,
-          url: `https://nifsindia.net/centers/${city.toLowerCase().replace(/\s+/g, "-")}/`,
-          address: {
-            "@type": "PostalAddress",
-            streetAddress: address || `NIFS ${city} Center`,
-            addressLocality: city,
-            addressRegion: state,
-            addressCountry: "IN",
-          },
-          openingHours: "Mo-Sa 09:00-18:00",
-        }),
-      }}
-    />
-  );
-}
-
 export function WebsiteSearchActionSchema() {
   return (
     <script

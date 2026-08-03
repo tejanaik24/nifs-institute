@@ -8,7 +8,7 @@ import { TiltWrapper } from "@/components/motion/tilt-wrapper";
 export const metadata: Metadata = {
   title: "Our Centers — 15+ Locations Across India | NIFS India",
   description:
-    "NIFS training centers across Visakhapatnam, Hyderabad, Chennai, Mumbai, Kolkata, Delhi and more — plus international centers.",
+    "NIFS training centers across Visakhapatnam, Hyderabad, Chennai, Mumbai, Kolkata, Delhi and more.",
 };
 
 export default function CentersPage() {
@@ -47,13 +47,14 @@ export default function CentersPage() {
               <MapPin className="h-5 w-5 shrink-0 text-primary" />
               <div>
                 <p className="font-medium">
-                  {c.state}
+                  {c.city}
                   {c.isHQ && (
                     <span className="ml-2 text-xs font-semibold uppercase tracking-widest text-primary">
                       HQ
                     </span>
                   )}
                 </p>
+                <p className="text-xs text-muted-foreground">{c.state}</p>
               </div>
             </div>
           </TiltWrapper>
