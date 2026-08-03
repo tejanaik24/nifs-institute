@@ -2,15 +2,41 @@
 
 ## 🎯 NEXT SESSION PRIORITY — read this before anything else
 
-**2026-07-29, sixteenth pass: Fixed two recurring production bugs with full live CDP empirical verification:**
-1. **Chatbot panel transparent background:** Identified root cause — `@keyframes cf-pop` was animating `opacity` from `0` to `1` with `animation-fill-mode: both`, leaving `#cf-panel` stuck with computed `opacity: 0` (transparent container where hero text bled through option button gaps). Fixed in `public/homepage.html` by setting `#cf-bubble { z-index: 99999 !important }`, `#cf-panel { background: #ffffff !important; opacity: 1 !important }`, `#cf-panel.cf-show { opacity: 1 !important }`, and updating `@keyframes cf-pop` to keep `opacity: 1` solid in both keyframe steps (`from { opacity: 1; transform: scale(.75) translateY(12px) } to { opacity: 1; transform: scale(1) translateY(0) }`). Verified live with CDP — computed opacity is `1`, background color is `rgb(255, 255, 255)`, zero hero bleed-through. Captured screenshots `live_widget_step1.png` and `live_widget_step2.png`.
-2. **Footer phone number mismatch:** Found 12 `tel:` and `wa.me` links pointing to old number `9246624690` across `public/homepage.html` while visible text showed `+91-8374-340-999`. Replaced all 12 occurrences with `8374340999` / `+918374340999` so all links match the displayed text. Deployed to production FTP (`/home7/nifsindi/public_html`). Verified live with CDP — 0 occurrences of old number, 12 occurrences of new number. Captured screenshot `live_footer.png`.
+**2026-08-03, seventeenth pass: Complete SEO Audit, Technical Infrastructure, Viral Blog Launch & Brand Fixes:**
+1. **Brand Logo Update:** Replaced all logo assets (`public/images/nifs-crest.png`, `nifs-logo.png`, `nifs-emblem.png`, `nifs-logo-full.png`) with the official PNG from user downloads.
+2. **Course Duration Fix:** Corrected ADFS and ADIS course duration from `18 Months` to `12 Months` in `src/lib/data/courses.ts`.
+3. **SEO Audit & Documentation:** Authored `NIFS_SEO_CHECK.md` (88.88/100 Health Score), `NIFS_SEO_STRATEGY.md`, `NIFS_SEO_ACTION_PLAN.md`, and `NIFS_BLOG_CONTENT_ROADMAP_2026.md`.
+4. **Technical SEO & AI Search Assets:** Created `public/llms.txt` (GEO accessibility), `src/app/robots.ts` (dynamic bot rules with `force-static`), and `src/app/sitemap.ts` (dynamic sitemap).
+5. **Viral Blog Launch:** Published two high-converting organic blog articles (`top-fire-and-safety-courses-after-10th-12th-graduation-2026` and `why-fresh-engineers-are-switching-to-fire-safety-careers-2026`) with 3 high-res inline figures each in `src/lib/data/blog-posts.json`.
+6. **Git & Production Deployment:** Committed (`c59bb7e`), pushed to `origin/main`, deployed static export (`171/171` pages) via `fast-deploy.js` to FTP root `/home7/nifsindi/public_html`, and empirically verified live with `curl` (HTTP 200 OK at `https://www.nifsindia.net/courses/` and `/blog/why-fresh-engineers-are-switching-to-fire-safety-careers-2026/`).
 
 ## ⚠️ Read this first
 
-This file was last updated 2026-07-29 (sixteenth pass — fixed chatbot panel opacity bug, resolved phone number mismatch across all links, deployed to cPanel FTP, empirically verified via CDP with 3 live screenshots).
+This file was last updated 2026-08-03 (seventeenth pass — official logo update, ADFS 12-month duration fix, full SEO audit & strategy docs, llms.txt, robots.ts, sitemap.ts, 2 viral blogs published, live FTP deploy & curl HTTP 200 OK verification).
 
-## Latest session — 2026-07-29 (sixteenth pass): Chatbot panel background opacity fix, phone number link consistency fix, production deployment & CDP empirical verification
+## Latest session — 2026-08-03 (seventeenth pass): SEO Overhaul, Viral Blogs, Logo & Course Duration Fix, Live FTP Deployment
+
+1. **Official NIFS PNG Logo Swap:**
+   - Replaced `nifs-crest.png`, `nifs-logo.png`, `nifs-emblem.png`, and `nifs-logo-full.png` across `public/images/` using the official PNG asset (`C:\Users\user\Downloads\nifs png logo.png`).
+
+2. **Course Duration Correction:**
+   - Updated `Advanced Diploma in Fire & Safety (ADFS)` and `Advanced Diploma in Industrial Safety (ADIS)` duration from `18 Months` to `12 Months` in `src/lib/data/courses.ts`.
+
+3. **SEO Documentation & Technical Assets:**
+   - Created `NIFS_SEO_CHECK.md` (88.88/100 Health Score), `NIFS_SEO_STRATEGY.md`, `NIFS_SEO_ACTION_PLAN.md`, and `NIFS_BLOG_CONTENT_ROADMAP_2026.md`.
+   - Created `public/llms.txt`, `src/app/robots.ts`, and `src/app/sitemap.ts` (configured with `export const dynamic = "force-static"` for static export).
+
+4. **Viral Blog Articles:**
+   - Published `Top 10 Fire and Safety Courses After 10th, 12th & Graduation (2026 Fees, Eligibility & 100% Placement Jobs)`.
+   - Published `Why 90% of Fresh Engineers in India Are Switching to Fire & Safety Careers in 2026 (And Earning ₹1 Lakh+/Month in Gulf)`.
+   - Added 3 inline captioned/alt-tagged figures to both articles.
+
+5. **Build, Git & Live Verification:**
+   - Built (`npm run build`, 171/171 static pages compiled).
+   - Committed (`c59bb7e`) and pushed to GitHub `main`.
+   - Deployed via `node fast-deploy.js` to FTP root `ftp://nifsindia.net/public_html`.
+   - Empirically verified live via `curl` returning `HTTP/1.1 200 OK` on `https://www.nifsindia.net/courses/` and `/blog/why-fresh-engineers-are-switching-to-fire-safety-careers-2026/`.
+
 
 1. **Chatbot panel transparent background fix:**
    - **Root Cause:** In `public/homepage.html`, `#cf-panel.cf-show` had CSS `animation: cf-pop .22s cubic-bezier(.34,1.56,.64,1) both`. Keyframe `@keyframes cf-pop` defined `from { opacity: 0; ... }`. Due to `animation-fill-mode: both` and state evaluation in Chrome rendering engine, the panel remained stuck at computed `opacity: 0` (100% transparent), letting hero heading text bleed through option button gaps.
