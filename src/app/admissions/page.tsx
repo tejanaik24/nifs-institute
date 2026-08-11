@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Admissions — How to Apply | NIFS India",
   description:
     "Apply to NIFS India's Fire & Industrial Safety and Health, Safety & Environment courses. Education loans available for all courses.",
+  alternates: { canonical: "/admissions/" },
 };
 
 const steps = [

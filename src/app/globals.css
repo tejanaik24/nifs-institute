@@ -141,7 +141,6 @@
     @apply border-border outline-ring/50;
   }
   html {
-    scroll-behavior: smooth;
     font-family: var(--font-sans);
   }
   body {
@@ -161,6 +160,30 @@
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .skip-to-content {
+    position: absolute;
+    top: -100%;
+    left: 1rem;
+    z-index: 100;
+    background-color: var(--nifs-red, #dc1711);
+    color: #ffffff;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.5rem;
+    font-weight: 700;
+    font-size: 0.875rem;
+    transition: top 0.2s ease;
+  }
+
+  .skip-to-content:focus {
+    top: 1rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .skip-to-content {
+      transition: none;
+    }
   }
 }
 
@@ -223,53 +246,6 @@
   .map-dot-pulse {
     animation: none;
     opacity: 0;
-  }
-}
-
-@keyframes mapRadarSpin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.map-radar-sweep {
-  animation: mapRadarSpin 12s linear infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .map-radar-sweep {
-    animation: none;
-  }
-}
-
-@keyframes mapScanLine {
-  0% {
-    top: 0%;
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 1;
-  }
-  100% {
-    top: 100%;
-    opacity: 0;
-  }
-}
-
-.map-scan-line {
-  animation: mapScanLine 4s ease-in-out infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .map-scan-line {
-    animation: none;
-    display: none;
   }
 }
 

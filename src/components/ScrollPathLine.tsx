@@ -23,21 +23,24 @@ function docRect(el: HTMLElement) {
 
 export function ScrollPathLine() {
   const svgRef = useRef<SVGSVGElement>(null);
+  const groupRef = useRef<SVGGElement>(null);
   const trackCasingRef = useRef<SVGPathElement>(null);
   const trackPathRef = useRef<SVGPathElement>(null);
   const travelerPathRef = useRef<SVGPathElement>(null);
   const pathname = usePathname();
   const isBlogPost = /^\/blog\/[^/]+/.test(pathname ?? "");
-  const isHome = pathname === "/" || isBlogPost;
+  const isCentersPage = pathname?.startsWith("/centers") ?? false;
+  const isHome = pathname === "/" || isBlogPost || isCentersPage;
 
   useEffect(() => {
     if (isHome) return;
 
     const svg = svgRef.current;
+    const group = groupRef.current;
     const trackCasing = trackCasingRef.current;
     const trackPath = trackPathRef.current;
     const travelerPath = travelerPathRef.current;
-    if (!svg || !trackCasing || !trackPath || !travelerPath) return;
+    if (!svg || !group || !trackCasing || !trackPath || !travelerPath) return;
 
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
@@ -50,15 +53,17 @@ export function ScrollPathLine() {
       );
     };
 
+    const followScroll = () => {
+      group.setAttribute("transform", `translate(0 ${-window.scrollY})`);
+    };
+
     const build = () => {
       const baseR = window.innerWidth < 768 ? 60 : 100;
       const cornerRadius = (rect: { width: number; top: number; bottom: number }) =>
         Math.max(12, Math.min(baseR, rect.width / 2 - 4, (rect.bottom - rect.top) / 2 - 4));
       const docWidth = window.innerWidth;
-      const docHeight = document.documentElement.scrollHeight;
 
-      svg.setAttribute("viewBox", `0 0 ${docWidth} ${docHeight}`);
-      svg.setAttribute("preserveAspectRatio", "none");
+      svg.setAttribute("viewBox", `0 0 ${docWidth} ${window.innerHeight}`);
 
       const logoEl = document.querySelector<HTMLElement>(
         '[data-path-logo="true"]'
@@ -184,6 +189,7 @@ export function ScrollPathLine() {
       totalPathLength = trackPath.getTotalLength();
 
       travelerPath.style.strokeDasharray = `${COMET_LENGTH} ${totalPathLength}`;
+      followScroll();
       setDashOffset(0);
 
       scrollTriggerInstance?.kill();
@@ -192,7 +198,10 @@ export function ScrollPathLine() {
         start: "top top",
         end: "bottom bottom",
         scrub: 1.5,
-        onUpdate: (self) => setDashOffset(self.progress),
+        onUpdate: (self) => {
+          followScroll();
+          setDashOffset(self.progress);
+        },
       });
     };
 
@@ -241,28 +250,30 @@ export function ScrollPathLine() {
           </feMerge>
         </filter>
       </defs>
-      <path
-        ref={trackCasingRef}
-        fill="none"
-        stroke="rgba(0,0,0,0.35)"
-        strokeWidth={12}
-        strokeLinecap="round"
-      />
-      <path
-        ref={trackPathRef}
-        fill="none"
-        stroke="rgba(255,255,255,0.9)"
-        strokeWidth={7}
-        strokeLinecap="round"
-      />
-      <path
-        ref={travelerPathRef}
-        fill="none"
-        stroke="#ff2222"
-        strokeWidth={7}
-        strokeLinecap="round"
-        filter="url(#cometGlow)"
-      />
+      <g ref={groupRef}>
+        <path
+          ref={trackCasingRef}
+          fill="none"
+          stroke="rgba(0,0,0,0.35)"
+          strokeWidth={12}
+          strokeLinecap="round"
+        />
+        <path
+          ref={trackPathRef}
+          fill="none"
+          stroke="rgba(255,255,255,0.9)"
+          strokeWidth={7}
+          strokeLinecap="round"
+        />
+        <path
+          ref={travelerPathRef}
+          fill="none"
+          stroke="#ff2222"
+          strokeWidth={7}
+          strokeLinecap="round"
+          filter="url(#cometGlow)"
+        />
+      </g>
     </svg>
   );
 }

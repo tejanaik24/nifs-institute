@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Placements — Our Graduates at Adani, L&T, ITC & More | NIFS India",
   description:
     "NIFS placement outcomes: graduates working as safety officers and EHS professionals at Adani, L&T, MEIL, GMR, ITC, Amazon and more.",
+  alternates: { canonical: "/placements/" },
 };
 
 export default function PlacementsPage() {

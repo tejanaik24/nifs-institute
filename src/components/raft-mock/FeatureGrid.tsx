@@ -30,7 +30,7 @@ const items = [
   },
   {
     number: "05",
-    title: "86 Centers Nationwide",
+    title: "70+ Centers Nationwide",
     body: "Learn near home. Transfer between centers anytime. New centers opening every quarter.",
     icon: "/images/icons/centers-nationwide.png",
   },

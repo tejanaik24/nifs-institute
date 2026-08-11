@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "About NIFS — Chairman's Desk & Our Mission | NIFS India",
   description:
     "NIFS is a unit of SSB Institute of Higher Studies Educational Society, ISO 9001:2015 certified, training India's industrial safety workforce since inception.",
+  alternates: { canonical: "/about/" },
 };
 
 export default function AboutPage() {

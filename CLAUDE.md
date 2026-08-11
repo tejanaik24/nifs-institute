@@ -1,3 +1,16 @@
+## SESSION START — Read Before Anything
+1. ~/.claude/CLAUDE.md (all agency rules)
+2. D:\Vyzma\_BRAIN\vyzma-website-build-standards.md
+3. D:\Vyzma\_BRAIN\clients\nifs\brand-voice.md
+4. C:\claude code\nifs-india\PRODUCT.md
+
+For design work also run:
+node C:\Users\user\.claude\plugins\cache\impeccable\impeccable\3.9.1\skills\impeccable\scripts\context.mjs
+
+Confirm loaded before starting any task.
+
+---
+
 # NIFS India
 
 ## What is this?
@@ -6,7 +19,8 @@ Premium website rebuild for NIFS India — fire & industrial safety training ins
 
 ## Live URLs
 - Vercel: nifs-institute.vercel.app
-- Real domain (not connected yet): nifsindia.net
+- nifsindia.net — LIVE production domain.
+  Deploy: node fast-deploy.js (FTP to cPanel)
 
 ## Stack
 - Next.js 16, React 19, Tailwind v4, shadcn

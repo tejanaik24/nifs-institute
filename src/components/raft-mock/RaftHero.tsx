@@ -7,7 +7,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 
 const statPills = [
   { value: "45,000+", label: "Alumni" },
-  { value: "86", label: "Centers" },
+  { value: "70+", label: "Centers" },
   { value: "25", label: "Years" },
 ];
 
@@ -65,7 +65,7 @@ export function RaftHero() {
           className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-muted-foreground"
         >
           25+ years of placing graduates at India&apos;s top industrial companies.
-          NSDC approved. ISO certified. 86 centers across 24 states.
+          NSDC approved. ISO certified. 70+ centers across 21 states.
         </motion.p>
 
         <motion.div

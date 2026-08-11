@@ -6,6 +6,7 @@ import { accreditations } from "@/lib/data/centers";
 export function SiteFooter() {
   return (
     <footer
+      role="contentinfo"
       data-path-target="true"
       className="border-t border-border bg-foreground text-background"
     >

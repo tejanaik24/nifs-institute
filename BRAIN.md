@@ -2,6 +2,14 @@
 
 ## 🎯 NEXT SESSION PRIORITY — read this before anything else
 
+**2026-08-11 session — navbar polish, Industrial Services → IFESM diversion, Governance/Centers light-theme redesign, Find My Course/Job widget, org chart update. NOTHING COMMITTED OR DEPLOYED — see full report below before touching git/deploy.**
+
+1. **Orphaned pages, unresolved:** `/industrial-services/[slug]` (10 pages, still built + in sitemap) have no nav link anymore since Industrial Services now diverts entirely to `https://ifesm.com/`. Never got a decision from Teja on delete / link elsewhere / leave as-is.
+2. **No visual QA done by Claude this session** — Puppeteer/headless browser timed out on every attempt (external Google Fonts/Tailwind CDN blocking `load`). Every change below is verified by code review + `npm run build` (187/187 clean) only. Teja needs to eyeball `/`, `/about/governance`, `/centers` before deploy.
+3. **Full session detail:** see "Latest session — 2026-08-11" below.
+
+## Previous NEXT SESSION PRIORITY
+
 **2026-08-03, seventeenth pass: Complete SEO Audit, Technical Infrastructure, Viral Blog Launch & Brand Fixes:**
 1. **Brand Logo Update:** Replaced all logo assets (`public/images/nifs-crest.png`, `nifs-logo.png`, `nifs-emblem.png`, `nifs-logo-full.png`) with the official PNG from user downloads.
 2. **Course Duration Fix:** Corrected ADFS and ADIS course duration from `18 Months` to `12 Months` in `src/lib/data/courses.ts`.
@@ -10,11 +18,44 @@
 5. **Viral Blog Launch:** Published two high-converting organic blog articles (`top-fire-and-safety-courses-after-10th-12th-graduation-2026` and `why-fresh-engineers-are-switching-to-fire-safety-careers-2026`) with 3 high-res inline figures each in `src/lib/data/blog-posts.json`.
 6. **Git & Production Deployment:** Committed (`c59bb7e`), pushed to `origin/main`, deployed static export (`171/171` pages) via `fast-deploy.js` to FTP root `/home7/nifsindi/public_html`, and empirically verified live with `curl` (HTTP 200 OK at `https://www.nifsindia.net/courses/` and `/blog/why-fresh-engineers-are-switching-to-fire-safety-careers-2026/`).
 
+## Latest session — 2026-08-11: Navbar, Industrial Services diversion, Governance/Centers redesign, Find My Course/Job widget, org chart update
+
+**Status: nothing committed, nothing deployed. All changes are local working-tree edits only.**
+
+1. **Navbar (`public/homepage.html` + `src/components/layout/site-header.tsx` + `src/lib/data/nav.ts`):**
+   - Fixed logo/nav-pill overlap by unifying two separate `fixed` elements into one flex `<header>` row. Logo kept standalone/transparent (not merged into the dark nav pill), doubled in size, wordmark text scaled to match.
+   - Added hover-dropdown submenus (desktop) + accordion groups (mobile) for About/Courses/Industrial Services.
+   - Raised navbar (`pt-4` → `pt-1.5`).
+   - Industrial Services expanded from 4 to IFESM's 10 categories, each built as a real page at `/industrial-services/[slug]` (mirrors `courses/[slug]` pattern) — **then the entire section (main link + all 10 dropdown items) was diverted to `https://ifesm.com/` in a new tab**, since IFESM is confirmed the real sister company delivering these services. The 10 internal pages are still built and in `sitemap.xml` but now **orphaned** (no nav links to them) — unresolved, see priority note above.
+
+2. **Governance & Centers pages redesigned** (`src/app/about/governance/page.tsx`, `src/components/sections/center-directory.tsx`, `src/components/sections/india-map.tsx`, `src/app/globals.css`): dropped a dark "sci-fi HUD/radar console" aesthetic (monospace labels, pulsing dots, terminal framing) that clashed with the site's light/editorial brand — replaced with white/light cards matching the rest of the site. Removed radar-sweep/scan-line CSS entirely.
+
+3. **Governance page "wow factor" pass** (explicit creative-license request): added real 3D tilt cards (`AdvisorCard3D`) for the 7 board advisors, and 3 `StatBadge3D` (existing React-Three-Fiber component, reused not rebuilt) stat plates over self-hosted contextual photography (`public/images/governance/*.jpg`, sourced from Unsplash, 2 of 3 initial picks rejected on review — one was an identifiable Moscow landmark, one was tonally a hackathon photo — replaced before shipping).
+
+4. **Find My Course/Job widget** (`public/homepage.html`, vanilla JS, ~19KB script — this widget is static-HTML-only, does not exist in the React app):
+   - Existing "Find My Course" chat-bubble (Priya avatar, 3-question flow) extended with a fork screen ("What are you here for?") branching into Course flow (unchanged) or new **Job flow**: full 8 questions kept exactly as specified (Qualification/Experience/Industry/Role/Location/Employment Type/Salary/Availability) + a Name/Phone/Email/Resume step.
+   - Submit fires **both** simultaneously: resume as a real email attachment via FormSubmit.co (`headoffice@nifsindia.com`, same pipeline as `enquiry-form.tsx`), and a WhatsApp deep-link (`918374340999`) with all answers as text — **flagged to Teja and shown in-UI that a `wa.me` link cannot carry a file**, so WhatsApp gets a text note instead.
+   - No fake "XX matching opportunities" — results are lead-capture only per Rule 9 (never invent data).
+   - Trigger redesigned: was a red pill button, now Priya's photo in a 116px round avatar (doubled twice this session) with a pulsing green "online" dot and a slow bob idle animation, plus a "Hey! I'm here to help you 👋" speech-bubble teaser. Panel auto-pops open on **every** page load (no session-storage gating — Teja explicitly wants it every time, not once-per-session).
+   - Site's custom round-dot cursor (magnetic/morph/ripple effects, `homepage.html` only) **removed entirely** — reverted to default OS arrow, per direct request ("old fashion cursor").
+
+5. **Governance org chart replaced** per `NIFS_FLOW CHART AUG2026 REVISED.docx` (Teja's Downloads folder — extracted via raw VML/XML parsing, no LibreOffice available to render it visually, so layout was reconstructed from garbled position data and **confirmed with Teja question-by-question** before shipping): Chairman + CEO merged into one box (was two levels); departments now 15 total across two GM branches (8 under Operations & Principal, 7 under Projects), with R&D and Admin genuinely duplicated once per branch (confirmed intentional, not an error).
+
+**Verification:** `npx next build` clean, 187/187 pages, throughout every step. No live browser QA possible this session (Puppeteer timeout on external font/CDN fetches) — Teja needs to visually check before any deploy.
+
 ## ⚠️ Read this first
 
-This file was last updated 2026-08-03 (seventeenth pass — official logo update, ADFS 12-month duration fix, full SEO audit & strategy docs, llms.txt, robots.ts, sitemap.ts, 2 viral blogs published, live FTP deploy & curl HTTP 200 OK verification).
+This file was last updated 2026-08-03 (eighteenth pass — scroll-stuck fix deployed live: removed `scroll-behavior: smooth` (Lenis conflict) + injected real width/height into 14 dimension-less blog imgs; full 1081-asset FTP deploy + curl verification).
 
-## Latest session — 2026-08-03 (seventeenth pass): SEO Overhaul, Viral Blogs, Logo & Course Duration Fix, Live FTP Deployment
+## Latest session — 2026-08-03 (eighteenth pass): Scroll-stuck root cause + fix, live FTP deployment
+
+1. **Root cause of "scrolling sometimes stuck on blog":** Lenis max-scroll `limit` is recomputed on a 250ms-debounced ResizeObserver; 14 inline blog imgs (4 articles) had no width/height, so lazy loads grew page height mid-scroll → wheel swallowed/clamped until debounce caught up. Also `html { scroll-behavior: smooth }` (globals.css:144) fights Lenis on keyboard/anchor/scroll-restore sitewide.
+2. **Fix applied:** removed `scroll-behavior: smooth` from `globals.css` and `data-scroll-behavior` from `layout.tsx`; injected real dims (magic-byte parsed PNG/JPG) into the 14 tags in `src/lib/data/blog-posts.json` (3 files are JPGs misnamed `.png` — extensions left as-is). 53 pre-existing proportional dim mismatches (≤0.4%) left untouched (invisible).
+3. **Build & Deploy:** `npm run build` 171/171; `node fast-deploy.js` (1081 assets, 0 failures, 40 placement PNGs finished in a follow-up targeted upload); `node upload-real-homepage.js` (index + .htaccess).
+4. **Live verification:** `/` HTTP 200 / 220377 bytes; `/blog/safety-officer-salary-in-india-2026-complete-guide/` 0 `scroll-behavior` occurrences, content imgs carry `width="1024" height="1024"`; all CSS/JS chunks HTTP 200; Lenis runtime intact.
+5. **Not committed** — working tree has `globals.css`, `layout.tsx`, `blog-posts.json` uncommitted (deploy is FTP-based, git independent).
+
+## Previous latest session — 2026-08-03 (seventeenth pass): SEO Overhaul, Viral Blogs, Logo & Course Duration Fix, Live FTP Deployment
 
 1. **Official NIFS PNG Logo Swap:**
    - Replaced `nifs-crest.png`, `nifs-logo.png`, `nifs-emblem.png`, and `nifs-logo-full.png` across `public/images/` using the official PNG asset (`C:\Users\user\Downloads\nifs png logo.png`).

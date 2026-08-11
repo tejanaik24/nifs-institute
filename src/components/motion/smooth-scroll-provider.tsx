@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 import Lenis from "lenis";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -9,6 +10,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export function SmoothScrollProvider({ children }: { children: React.ReactNode }) {
   const lenisRef = useRef<Lenis | null>(null);
+  const pathname = usePathname();
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia(
@@ -26,12 +28,6 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
 
     lenis.on("scroll", (e: { scroll: number }) => {
       ScrollTrigger.update();
-      // Broadcast Lenis's own render-synced scroll position so listeners
-      // (e.g. the header's solid/transparent switch) never desync from
-      // what's actually painted — native `window` scroll events can lag
-      // a frame behind Lenis's RAF-driven virtual scroll during fast
-      // scrolling, which let page content show through a still-transparent
-      // header.
       window.dispatchEvent(
         new CustomEvent("app-scroll", { detail: { scrollY: e.scroll } })
       );
@@ -43,11 +39,30 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
     gsap.ticker.add(ticker);
     gsap.ticker.lagSmoothing(0);
 
+    // Watch dynamic height changes on body (lazy images, dynamic DOM elements, etc.)
+    const resizeObserver = new ResizeObserver(() => {
+      lenis.resize();
+      ScrollTrigger.refresh();
+    });
+    resizeObserver.observe(document.body);
+
     return () => {
       gsap.ticker.remove(ticker);
+      resizeObserver.disconnect();
       lenis.destroy();
     };
   }, []);
+
+  // Sync scroll height and reset scroll to top on client-side route changes
+  useEffect(() => {
+    if (lenisRef.current) {
+      // Force instant scroll to top on navigation to match standard browser behavior
+      lenisRef.current.scrollTo(0, { immediate: true });
+      // Recalculate page height limits for the new route
+      lenisRef.current.resize();
+      ScrollTrigger.refresh();
+    }
+  }, [pathname]);
 
   return <>{children}</>;
 }

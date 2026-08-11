@@ -156,6 +156,14 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
 .skip-to-content{position:absolute;top:-100%;left:1rem;z-index:100;background-color:#DC1711;color:#ffffff;padding:0.75rem 1.25rem;border-radius:0.5rem;font-weight:700;font-size:0.875rem;transition:top 0.2s ease}
 .skip-to-content:focus{top:1rem}
 @media (prefers-reduced-motion: reduce){.skip-to-content{transition:none}}
+
+/* ─── NAV DROPDOWNS ─── */
+.nav-drop-panel{opacity:0;visibility:hidden;transform:translate(-50%,4px);transition:opacity .2s ease,transform .2s ease,visibility .2s}
+.nav-item:hover .nav-drop-panel,.nav-item:focus-within .nav-drop-panel{opacity:1;visibility:visible;transform:translate(-50%,0)}
+.nav-item:hover .nav-chevron{transform:rotate(180deg)}
+.mobile-nav-group summary{list-style:none}
+.mobile-nav-group summary::-webkit-details-marker{display:none}
+.mobile-nav-group[open] .mobile-chevron{transform:rotate(180deg)}
 </style>
 
 </head>
@@ -164,43 +172,166 @@ body{font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased;over
 
 <a href="#main-content" class="skip-to-content">Skip to main content</a>
 
-<!-- Standalone Logo -->
-<a href="/" class="fixed top-5 left-5 z-50 flex items-center gap-3 group" data-path-logo="true">
-  <img loading="eager" fetchpriority="high" decoding="async" src="/images/nifs-official-logo-v3.png" alt="NIFS India" class="w-28 h-28 max-sm:w-16 max-sm:h-16 object-contain drop-shadow-xl group-hover:scale-105 transition-all duration-300" onerror="this.style.display='none'">
-  <span class="text-nifs-red font-montserrat font-black text-2xl max-sm:text-base leading-tight tracking-tight hidden sm:inline drop-shadow-lg max-w-[220px]">National Institute of Fire &amp; Safety</span>
-</a>
-<!-- /Standalone Logo -->
-<!-- Dark Nav Pill (desktop) -->
-<nav aria-label="Main navigation" class="fixed top-5 left-1/2 -translate-x-1/2 z-50 justify-center hidden md:flex">
-  <div class="flex items-center gap-1 px-3 py-2.5 rounded-full bg-gray-900/90 backdrop-blur-xl border border-white/10 shadow-2xl">
-    <a href="/courses" class="px-4 py-2 rounded-full text-white/80 text-sm font-medium hover:bg-white/10 hover:text-white transition-all duration-300">Courses</a>
-    <a href="https://ifesm.com" target="_blank" rel="noopener" class="px-4 py-2 rounded-full text-white/80 text-sm font-medium hover:bg-white/10 hover:text-white transition-all duration-300">Industrial Services</a>
-    <a href="/placements" class="px-4 py-2 rounded-full text-white/80 text-sm font-medium hover:bg-white/10 hover:text-white transition-all duration-300">Placements</a>
-    <a href="/gallery" class="px-4 py-2 rounded-full text-white/80 text-sm font-medium hover:bg-white/10 hover:text-white transition-all duration-300">Gallery</a>
-    <a href="/blog" class="px-4 py-2 rounded-full text-white/80 text-sm font-medium hover:bg-white/10 hover:text-white transition-all duration-300">Blog</a>
-    <a href="/live-feed.html" class="px-4 py-2 rounded-full text-white/80 text-sm font-medium hover:bg-white/10 hover:text-white transition-all duration-300">Live Feed</a>
-    <a href="/about" class="px-4 py-2 rounded-full text-white/80 text-sm font-medium hover:bg-white/10 hover:text-white transition-all duration-300">About</a>
-    <a href="/contact" class="px-5 py-2 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 text-white text-sm font-semibold hover:from-amber-400 hover:to-orange-400 transition-all duration-300 shadow-lg shadow-amber-500/25 ml-1">Apply Now</a>
+<!-- Unified Header: logo + nav pill share one flex row, never overlap -->
+<header class="fixed inset-x-0 top-0 z-50 flex items-center justify-between gap-3 px-4 pt-1.5 sm:px-6 lg:px-10">
+
+  <!-- Logo (standalone, no dark background, as per brand mark) -->
+  <a href="/" class="flex shrink-0 items-center gap-2.5 group" data-path-logo="true">
+    <img loading="eager" fetchpriority="high" decoding="async" src="/images/nifs-official-logo-v3.png" alt="NIFS India" class="h-28 w-28 object-contain drop-shadow-xl transition-transform duration-300 group-hover:scale-105 sm:h-32 sm:w-32" onerror="this.style.display='none'">
+    <span class="hidden sm:flex flex-col leading-[1.1]">
+      <span class="text-nifs-red font-black text-2xl sm:text-3xl tracking-tight whitespace-nowrap drop-shadow-lg">National Institute</span>
+      <span class="text-nifs-red font-black text-2xl sm:text-3xl tracking-tight whitespace-nowrap drop-shadow-lg">of Fire &amp; Safety</span>
+    </span>
+  </a>
+
+<nav aria-label="Main navigation" class="flex shrink-0 items-center gap-2 rounded-full border border-white/15 bg-gray-950/85 backdrop-blur-2xl backdrop-saturate-150 pl-2.5 pr-2.5 py-2 shadow-2xl shadow-black/50 shadow-nifs-red/10 sm:pl-3 sm:pr-3">
+
+  <!-- Desktop Nav Items -->
+  <div class="hidden items-center gap-1 lg:flex">
+
+    <div class="nav-item relative">
+      <a href="/about" class="px-4 py-2 rounded-full text-white/80 text-sm font-semibold hover:bg-white/15 hover:text-white transition-all duration-300 flex items-center gap-1.5">
+        About
+        <svg class="nav-chevron h-3 w-3 transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </a>
+      <div class="nav-drop-panel absolute left-1/2 top-full pt-3 -translate-x-1/2 w-[280px] z-[70]">
+        <div class="overflow-hidden rounded-3xl border border-white/15 bg-zinc-950/95 shadow-2xl shadow-black/60 backdrop-blur-2xl p-2">
+          <a href="/about" class="block rounded-2xl px-3.5 py-3 hover:bg-white/10 transition-all">
+            <div class="text-sm font-medium text-white">Chairman's Desk</div>
+            <div class="mt-0.5 text-xs text-white/40">Our history, vision &amp; mission</div>
+          </a>
+          <a href="/about/governance" class="block rounded-2xl px-3.5 py-3 hover:bg-white/10 transition-all">
+            <div class="text-sm font-medium text-white">Governance &amp; Advisors</div>
+            <div class="mt-0.5 text-xs text-white/40">Board of Advisors &amp; organization hierarchy</div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-item relative">
+      <a href="/courses" class="px-4 py-2 rounded-full text-white/80 text-sm font-semibold hover:bg-white/15 hover:text-white transition-all duration-300 flex items-center gap-1.5">
+        Courses
+        <svg class="nav-chevron h-3 w-3 transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </a>
+      <div class="nav-drop-panel absolute left-1/2 top-full pt-3 -translate-x-1/2 w-[500px] z-[70]">
+        <div class="overflow-hidden rounded-3xl border border-white/15 bg-zinc-950/95 shadow-2xl shadow-black/60 backdrop-blur-2xl p-2">
+          <div class="grid grid-cols-2 gap-1 p-2">
+            <a href="/courses/certificate-course-in-fire-safety" class="rounded-2xl px-3.5 py-3 text-sm font-medium text-white hover:bg-white/10 transition-all">Certificate Course (CCFS)</a>
+            <a href="/courses/diploma-in-fire-safety" class="rounded-2xl px-3.5 py-3 text-sm font-medium text-white hover:bg-white/10 transition-all">Diploma in Fire &amp; Safety</a>
+            <a href="/courses/diploma-in-health-safety-environment" class="rounded-2xl px-3.5 py-3 text-sm font-medium text-white hover:bg-white/10 transition-all">Diploma in HSE</a>
+            <a href="/courses/advanced-diploma-in-fire-safety-adfs" class="rounded-2xl px-3.5 py-3 text-sm font-medium text-white hover:bg-white/10 transition-all">Advanced Diploma (ADFS)</a>
+            <a href="/courses/advanced-diploma-in-industrial-safety-adis" class="rounded-2xl px-3.5 py-3 text-sm font-medium text-white hover:bg-white/10 transition-all">Advanced Diploma (ADIS)</a>
+            <a href="/courses/pg-diploma-in-fire-safety-pg-dfs" class="rounded-2xl px-3.5 py-3 text-sm font-medium text-white hover:bg-white/10 transition-all">PG Diploma in Fire &amp; Safety</a>
+            <a href="/courses/pg-diploma-in-health-safety-environment-pg-dhse" class="rounded-2xl px-3.5 py-3 text-sm font-medium text-white hover:bg-white/10 transition-all">PG Diploma in HSE</a>
+            <a href="/courses/b-sc-in-fire-industrial-safety" class="rounded-2xl px-3.5 py-3 text-sm font-medium text-white hover:bg-white/10 transition-all">B.Sc Fire &amp; Industrial Safety</a>
+            <a href="/courses/b-sc-honours-in-fire-industrial-safety" class="rounded-2xl px-3.5 py-3 text-sm font-medium text-white hover:bg-white/10 transition-all">B.Sc (Honours) Fire &amp; Industrial Safety</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <a href="/placements" class="px-4 py-2 rounded-full text-white/80 text-sm font-semibold hover:bg-white/15 hover:text-white transition-all duration-300">Placements</a>
+
+    <div class="nav-item relative">
+      <a href="https://ifesm.com/" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-full text-white/80 text-sm font-semibold hover:bg-white/15 hover:text-white transition-all duration-300 flex items-center gap-1.5">
+        Industrial Services
+        <svg class="nav-chevron h-3 w-3 transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </a>
+      <div class="nav-drop-panel absolute left-1/2 top-full pt-3 -translate-x-1/2 w-[500px] z-[70]">
+        <div class="overflow-hidden rounded-3xl border border-white/15 bg-zinc-950/95 shadow-2xl shadow-black/60 backdrop-blur-2xl p-2">
+          <div class="grid grid-cols-2 gap-1 p-2">
+            <a href="https://ifesm.com/" target="_blank" rel="noopener noreferrer" class="rounded-2xl px-3.5 py-3 text-sm font-medium text-white hover:bg-white/10 transition-all">Fire Engineering Services</a>
+            <a href="https://ifesm.com/" target="_blank" rel="noopener noreferrer" class="rounded-2xl px-3.5 py-3 text-sm font-medium text-white hover:bg-white/10 transition-all">Industrial Safety Services</a>
+            <a href="https://ifesm.com/" target="_blank" rel="noopener noreferrer" class="rounded-2xl px-3.5 py-3 text-sm font-medium text-white hover:bg-white/10 transition-all">Occupational Health &amp; Environment</a>
+            <a href="https://ifesm.com/" target="_blank" rel="noopener noreferrer" class="rounded-2xl px-3.5 py-3 text-sm font-medium text-white hover:bg-white/10 transition-all">HSE Consultancy &amp; Compliance</a>
+            <a href="https://ifesm.com/" target="_blank" rel="noopener noreferrer" class="rounded-2xl px-3.5 py-3 text-sm font-medium text-white hover:bg-white/10 transition-all">Safety Audits &amp; Inspections</a>
+            <a href="https://ifesm.com/" target="_blank" rel="noopener noreferrer" class="rounded-2xl px-3.5 py-3 text-sm font-medium text-white hover:bg-white/10 transition-all">Emergency Preparedness</a>
+            <a href="https://ifesm.com/" target="_blank" rel="noopener noreferrer" class="rounded-2xl px-3.5 py-3 text-sm font-medium text-white hover:bg-white/10 transition-all">Corporate &amp; In-House Trainings</a>
+            <a href="https://ifesm.com/" target="_blank" rel="noopener noreferrer" class="rounded-2xl px-3.5 py-3 text-sm font-medium text-white hover:bg-white/10 transition-all">Manpower Deployment</a>
+            <a href="https://ifesm.com/" target="_blank" rel="noopener noreferrer" class="rounded-2xl px-3.5 py-3 text-sm font-medium text-white hover:bg-white/10 transition-all">AI-Enabled Digital Safety</a>
+            <a href="https://ifesm.com/" target="_blank" rel="noopener noreferrer" class="rounded-2xl px-3.5 py-3 text-sm font-medium text-white hover:bg-white/10 transition-all">Technical Education</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <a href="/centers" class="px-4 py-2 rounded-full text-white/80 text-sm font-semibold hover:bg-white/15 hover:text-white transition-all duration-300">Centers</a>
+    <a href="/gallery" class="px-4 py-2 rounded-full text-white/80 text-sm font-semibold hover:bg-white/15 hover:text-white transition-all duration-300">Gallery</a>
+    <a href="/blog" class="px-4 py-2 rounded-full text-white/80 text-sm font-semibold hover:bg-white/15 hover:text-white transition-all duration-300">Blog</a>
   </div>
+
+  <!-- Right: CTA + mobile trigger -->
+  <div class="flex shrink-0 items-center gap-2">
+    <a href="/admissions" class="hidden lg:inline-flex px-5 py-2 rounded-full bg-gradient-to-r from-nifs-red to-red-600 text-white text-sm font-bold uppercase tracking-wider hover:scale-105 transition-all duration-300 shadow-lg shadow-nifs-red/30">Apply Now</a>
+
+    <button id="nav-toggle" class="flex h-9 w-9 flex-col items-center justify-center gap-1.5 rounded-full bg-white/10 border border-white/10 lg:hidden" aria-label="Menu">
+      <span id="nav-line-1" class="block w-4 h-0.5 bg-white rounded-full transition-all duration-300"></span>
+      <span id="nav-line-2" class="block w-4 h-0.5 bg-white rounded-full transition-all duration-300"></span>
+      <span id="nav-line-3" class="block w-4 h-0.5 bg-white rounded-full transition-all duration-300"></span>
+    </button>
+  </div>
+
 </nav>
-<!-- /Dark Nav Pill -->
-<!-- Mobile Hamburger -->
-<button id="nav-toggle" class="fixed top-5 right-5 z-[60] w-12 h-12 flex flex-col items-center justify-center gap-1.5 rounded-full bg-gray-900/90 backdrop-blur-xl border border-white/10 shadow-2xl md:hidden" aria-label="Menu">
-  <span id="nav-line-1" class="block w-5 h-0.5 bg-white rounded-full transition-all duration-300"></span>
-  <span id="nav-line-2" class="block w-5 h-0.5 bg-white rounded-full transition-all duration-300"></span>
-  <span id="nav-line-3" class="block w-5 h-0.5 bg-white rounded-full transition-all duration-300"></span>
-</button>
+</header>
+<!-- /Unified Header -->
 <!-- Mobile Menu Overlay -->
-<div id="mobile-menu" class="hidden fixed inset-0 z-[55] bg-gray-900/95 backdrop-blur-xl flex-col items-center justify-center gap-2 md:hidden">
-  <a href="/courses" class="mobile-nav-link w-64 text-center py-4 text-white/90 text-lg font-semibold rounded-2xl hover:bg-white/10 transition-all">Courses</a>
-  <a href="https://ifesm.com" target="_blank" rel="noopener" class="mobile-nav-link w-64 text-center py-4 text-white/90 text-lg font-semibold rounded-2xl hover:bg-white/10 transition-all">Industrial Services</a>
+<div id="mobile-menu" class="hidden fixed inset-0 z-[55] bg-gray-900/95 backdrop-blur-xl flex-col items-center justify-center gap-2 lg:hidden overflow-y-auto py-8">
+
+  <details class="mobile-nav-group w-64">
+    <summary class="flex items-center justify-between py-4 px-2 text-white/90 text-lg font-semibold rounded-2xl hover:bg-white/10 transition-all cursor-pointer">
+      About
+      <svg class="mobile-chevron h-4 w-4 transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+    </summary>
+    <div class="flex flex-col gap-1 pb-2 pl-4">
+      <a href="/about" class="mobile-nav-link py-2.5 text-white/70 text-base hover:text-white transition-all">Chairman's Desk</a>
+      <a href="/about/governance" class="mobile-nav-link py-2.5 text-white/70 text-base hover:text-white transition-all">Governance &amp; Advisors</a>
+    </div>
+  </details>
+
+  <details class="mobile-nav-group w-64">
+    <summary class="flex items-center justify-between py-4 px-2 text-white/90 text-lg font-semibold rounded-2xl hover:bg-white/10 transition-all cursor-pointer">
+      Courses
+      <svg class="mobile-chevron h-4 w-4 transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+    </summary>
+    <div class="flex flex-col gap-1 pb-2 pl-4">
+      <a href="/courses/certificate-course-in-fire-safety" class="mobile-nav-link py-2.5 text-white/70 text-base hover:text-white transition-all">Certificate Course (CCFS)</a>
+      <a href="/courses/diploma-in-fire-safety" class="mobile-nav-link py-2.5 text-white/70 text-base hover:text-white transition-all">Diploma in Fire &amp; Safety</a>
+      <a href="/courses/diploma-in-health-safety-environment" class="mobile-nav-link py-2.5 text-white/70 text-base hover:text-white transition-all">Diploma in HSE</a>
+      <a href="/courses/advanced-diploma-in-fire-safety-adfs" class="mobile-nav-link py-2.5 text-white/70 text-base hover:text-white transition-all">Advanced Diploma (ADFS)</a>
+      <a href="/courses/advanced-diploma-in-industrial-safety-adis" class="mobile-nav-link py-2.5 text-white/70 text-base hover:text-white transition-all">Advanced Diploma (ADIS)</a>
+      <a href="/courses/pg-diploma-in-fire-safety-pg-dfs" class="mobile-nav-link py-2.5 text-white/70 text-base hover:text-white transition-all">PG Diploma in Fire &amp; Safety</a>
+      <a href="/courses/pg-diploma-in-health-safety-environment-pg-dhse" class="mobile-nav-link py-2.5 text-white/70 text-base hover:text-white transition-all">PG Diploma in HSE</a>
+      <a href="/courses/b-sc-in-fire-industrial-safety" class="mobile-nav-link py-2.5 text-white/70 text-base hover:text-white transition-all">B.Sc Fire &amp; Industrial Safety</a>
+      <a href="/courses/b-sc-honours-in-fire-industrial-safety" class="mobile-nav-link py-2.5 text-white/70 text-base hover:text-white transition-all">B.Sc (Honours) Fire &amp; Industrial Safety</a>
+    </div>
+  </details>
+
   <a href="/placements" class="mobile-nav-link w-64 text-center py-4 text-white/90 text-lg font-semibold rounded-2xl hover:bg-white/10 transition-all">Placements</a>
+
+  <details class="mobile-nav-group w-64">
+    <summary class="flex items-center justify-between py-4 px-2 text-white/90 text-lg font-semibold rounded-2xl hover:bg-white/10 transition-all cursor-pointer">
+      Industrial Services
+      <svg class="mobile-chevron h-4 w-4 transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+    </summary>
+    <div class="flex flex-col gap-1 pb-2 pl-4">
+      <a href="https://ifesm.com/" target="_blank" rel="noopener noreferrer" class="mobile-nav-link py-2.5 text-white/70 text-base hover:text-white transition-all">Fire Engineering Services</a>
+      <a href="https://ifesm.com/" target="_blank" rel="noopener noreferrer" class="mobile-nav-link py-2.5 text-white/70 text-base hover:text-white transition-all">Industrial Safety Services</a>
+      <a href="https://ifesm.com/" target="_blank" rel="noopener noreferrer" class="mobile-nav-link py-2.5 text-white/70 text-base hover:text-white transition-all">Occupational Health &amp; Environment</a>
+      <a href="https://ifesm.com/" target="_blank" rel="noopener noreferrer" class="mobile-nav-link py-2.5 text-white/70 text-base hover:text-white transition-all">HSE Consultancy &amp; Compliance</a>
+      <a href="https://ifesm.com/" target="_blank" rel="noopener noreferrer" class="mobile-nav-link py-2.5 text-white/70 text-base hover:text-white transition-all">Safety Audits &amp; Inspections</a>
+      <a href="https://ifesm.com/" target="_blank" rel="noopener noreferrer" class="mobile-nav-link py-2.5 text-white/70 text-base hover:text-white transition-all">Emergency Preparedness</a>
+      <a href="https://ifesm.com/" target="_blank" rel="noopener noreferrer" class="mobile-nav-link py-2.5 text-white/70 text-base hover:text-white transition-all">Corporate &amp; In-House Trainings</a>
+      <a href="https://ifesm.com/" target="_blank" rel="noopener noreferrer" class="mobile-nav-link py-2.5 text-white/70 text-base hover:text-white transition-all">Manpower Deployment</a>
+      <a href="https://ifesm.com/" target="_blank" rel="noopener noreferrer" class="mobile-nav-link py-2.5 text-white/70 text-base hover:text-white transition-all">AI-Enabled Digital Safety</a>
+      <a href="https://ifesm.com/" target="_blank" rel="noopener noreferrer" class="mobile-nav-link py-2.5 text-white/70 text-base hover:text-white transition-all">Technical Education</a>
+    </div>
+  </details>
+
+  <a href="/centers" class="mobile-nav-link w-64 text-center py-4 text-white/90 text-lg font-semibold rounded-2xl hover:bg-white/10 transition-all">Centers</a>
   <a href="/gallery" class="mobile-nav-link w-64 text-center py-4 text-white/90 text-lg font-semibold rounded-2xl hover:bg-white/10 transition-all">Gallery</a>
   <a href="/blog" class="mobile-nav-link w-64 text-center py-4 text-white/90 text-lg font-semibold rounded-2xl hover:bg-white/10 transition-all">Blog</a>
-  <a href="/live-feed.html" class="mobile-nav-link w-64 text-center py-4 text-white/90 text-lg font-semibold rounded-2xl hover:bg-white/10 transition-all">Live Feed</a>
-  <a href="/about" class="mobile-nav-link w-64 text-center py-4 text-white/90 text-lg font-semibold rounded-2xl hover:bg-white/10 transition-all">About</a>
   <div class="w-12 h-px bg-white/20 my-3"></div>
-  <a href="/contact" class="mobile-nav-link w-64 text-center py-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-lg font-bold rounded-2xl shadow-lg shadow-amber-500/25 transition-all">Apply Now</a>
+  <a href="/admissions" class="mobile-nav-link w-64 text-center py-4 bg-gradient-to-r from-nifs-red to-red-600 text-white text-lg font-bold rounded-2xl shadow-lg shadow-nifs-red/25 transition-all">Apply Now</a>
 </div>
 
 <div id="main-content"></div>
@@ -3463,159 +3594,28 @@ document.addEventListener('DOMContentLoaded',function(){
 })();
 </script>
 
-<!-- CUSTOM CURSOR (cloned from zenith-interface CustomCursor.tsx + magnetic/morph/stretch/ripple/tint upgrades) -->
-<div id="customCursor" style="position:fixed;top:0;left:0;width:32px;height:32px;border-radius:9999px;background:#fff;color:#000;pointer-events:none;z-index:10000;mix-blend-mode:difference;align-items:center;justify-content:center;font-size:10px;font-weight:700;opacity:0;transform:translate(0px,0px);transition:background 0.25s ease,width 0.25s ease,height 0.25s ease,margin 0.25s ease"></div>
-<style>
-#customCursor{display:none}
-@media(min-width:768px){
-  #customCursor{display:flex}
-  body{cursor:none}
-  a,button{cursor:none}
-}
-.cursor-ripple{position:fixed;top:0;left:0;width:32px;height:32px;margin-left:-16px;margin-top:-16px;border-radius:9999px;border:2px solid #fff;pointer-events:none;z-index:9999}
-</style>
-<script>
-(function(){
-  var el = document.getElementById('customCursor');
-  if(!el) return;
-  var mouseX = 0, mouseY = 0;
-  var x = 0, y = 0, vx = 0, vy = 0;
-  var visible = false;
-  var stiffness = 700, damping = 25, mass = 1;
-  var lastTime = null;
-
-  var magneticSelector = 'a[href="#courses"], a[href="#process"], a[href="#apply"], nav a, #coursePrev, #courseNext, .mobile-nav-link';
-  var morphSelector = '#courseImageStack img, .trained-card';
-  var magnetTarget = null;   // element currently pulling the cursor
-  var morphTarget = null;    // element currently showing text/scale morph
-  var rippleColor = '#fff';
-
-  function setTint(mode){
-    if(mode === 'button'){
-      el.style.background = '#DC1711';
-      el.style.mixBlendMode = 'normal';
-      rippleColor = '#DC1711';
-    } else if(mode === 'card'){
-      el.style.background = '#FC8010';
-      el.style.mixBlendMode = 'normal';
-      rippleColor = '#FC8010';
-    } else {
-      el.style.background = '#fff';
-      el.style.mixBlendMode = 'difference';
-      rippleColor = '#fff';
-    }
-  }
-
-  function enterMorph(target){
-    morphTarget = target;
-    el.style.width = '64px';
-    el.style.height = '64px';
-    el.style.marginLeft = '-32px';
-    el.style.marginTop = '-32px';
-    el.textContent = 'View';
-    el.style.color = '#fff';
-    setTint('card');
-  }
-
-  function exitMorph(){
-    morphTarget = null;
-    el.style.width = '32px';
-    el.style.height = '32px';
-    el.style.marginLeft = '0px';
-    el.style.marginTop = '0px';
-    el.textContent = '';
-    if(!magnetTarget) setTint('default');
-  }
-
-  document.addEventListener('mouseover', function(e){
-    var magnetEl = e.target.closest(magneticSelector);
-    if(magnetEl && magnetEl !== magnetTarget){
-      magnetTarget = magnetEl;
-      setTint('button');
-    }
-    var morphEl = e.target.closest(morphSelector);
-    if(morphEl && morphEl !== morphTarget){
-      enterMorph(morphEl);
-    }
-  });
-
-  document.addEventListener('mouseout', function(e){
-    if(magnetTarget && e.target.closest(magneticSelector) === magnetTarget){
-      var stillInside = e.relatedTarget && magnetTarget.contains(e.relatedTarget);
-      if(!stillInside){ magnetTarget = null; if(!morphTarget) setTint('default'); }
-    }
-    if(morphTarget && e.target.closest(morphSelector) === morphTarget){
-      var stillInsideCard = e.relatedTarget && morphTarget.contains(e.relatedTarget);
-      if(!stillInsideCard) exitMorph();
-    }
-  });
-
-  window.addEventListener('mousemove', function(e){
-    mouseX = e.clientX - 16;
-    mouseY = e.clientY - 16;
-    if(!visible){ visible = true; el.style.opacity = '1'; x = mouseX; y = mouseY; }
-  });
-
-  window.addEventListener('mousedown', function(e){
-    document.body.classList.add('cursor-clicking');
-    var ring = document.createElement('div');
-    ring.className = 'cursor-ripple';
-    ring.style.left = e.clientX + 'px';
-    ring.style.top = e.clientY + 'px';
-    ring.style.borderColor = rippleColor;
-    document.body.appendChild(ring);
-    var anim = ring.animate(
-      [{ transform: 'scale(0)', opacity: 1 }, { transform: 'scale(2.5)', opacity: 0 }],
-      { duration: 500, easing: 'ease-out' }
-    );
-    anim.onfinish = function(){ ring.remove(); };
-  });
-  window.addEventListener('mouseup', function(){ document.body.classList.remove('cursor-clicking'); });
-
-  function tick(now){
-    if(lastTime === null) lastTime = now;
-    var dt = Math.min((now - lastTime) / 1000, 0.032);
-    lastTime = now;
-    if(visible){
-      var targetX = mouseX, targetY = mouseY;
-      if(magnetTarget){
-        var rect = magnetTarget.getBoundingClientRect();
-        var cx = rect.left + rect.width / 2 - 16;
-        var cy = rect.top + rect.height / 2 - 16;
-        targetX = mouseX * 0.4 + cx * 0.6;
-        targetY = mouseY * 0.4 + cy * 0.6;
-      }
-      var ax = (stiffness * (targetX - x) - damping * vx) / mass;
-      var ay = (stiffness * (targetY - y) - damping * vy) / mass;
-      vx += ax * dt;
-      vy += ay * dt;
-      x += vx * dt;
-      y += vy * dt;
-
-      var transform = 'translate(' + x + 'px,' + y + 'px)';
-      if(!magnetTarget && !morphTarget){
-        var speed = Math.min(Math.hypot(vx, vy) / 1400, 0.6);
-        if(speed > 0.02){
-          var angle = Math.atan2(vy, vx) * 180 / Math.PI;
-          transform += ' rotate(' + angle + 'deg) scaleX(' + (1 + speed) + ') scaleY(' + (1 - speed * 0.5) + ') rotate(' + (-angle) + 'deg)';
-        }
-      }
-      el.style.transform = transform;
-    }
-    requestAnimationFrame(tick);
-  }
-  requestAnimationFrame(tick);
-})();
-</script>
-
 <!-- COURSE FINDER WIDGET – v4 clean -->
 <style>
 #cf-bubble{position:fixed;bottom:28px;left:18px;z-index:99999;display:flex;flex-direction:column;align-items:flex-start;gap:10px;font-family:'Montserrat',sans-serif}
 @media(max-width:767px){#cf-bubble{bottom:68px;left:10px}}
-#cf-trigger{display:flex;align-items:center;gap:9px;background:#DC1711;color:#fff;border:none;border-radius:28px;padding:0 18px 0 12px;height:50px;cursor:pointer;box-shadow:0 4px 18px rgba(220,23,17,.4);font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;white-space:nowrap;transition:transform .18s,box-shadow .18s}
-#cf-trigger:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(220,23,17,.5)}
-#cf-trigger svg{width:22px;height:22px;fill:#fff;flex-shrink:0}
-@media(max-width:767px){#cf-trigger .cf-trig-label{display:none}#cf-trigger{border-radius:50%;width:48px;height:48px;padding:0;justify-content:center}}
+#cf-trigger{position:relative;display:flex;align-items:center;background:transparent;border:none;padding:0;cursor:pointer;animation:cf-bob 2.6s ease-in-out infinite}
+#cf-trigger:hover{animation-play-state:paused}
+#cf-trig-avatar{position:relative;width:116px;height:116px;border-radius:50%;flex-shrink:0;background:#DC1711;border:5px solid #fff;box-shadow:0 10px 32px rgba(220,23,17,.4)}
+#cf-trig-avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%;display:block}
+#cf-trig-dot{position:absolute;bottom:4px;right:4px;width:24px;height:24px;border-radius:50%;background:#22c55e;border:3.5px solid #fff;animation:cf-pulse-dot 2s infinite}
+@keyframes cf-pulse-dot{0%{box-shadow:0 0 0 0 rgba(34,197,94,.55)}70%{box-shadow:0 0 0 10px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
+@keyframes cf-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.cf-trig-label{margin-left:12px;background:#111;color:#fff;font-size:13px;font-weight:700;padding:9px 14px;border-radius:10px;white-space:nowrap;opacity:0;transform:translateX(-6px);transition:opacity .18s,transform .18s;pointer-events:none}
+#cf-trigger:hover .cf-trig-label{opacity:1;transform:translateX(0)}
+@media(max-width:767px){.cf-trig-label{display:none}#cf-trig-avatar{width:96px;height:96px}#cf-trig-dot{width:20px;height:20px}}
+@media(prefers-reduced-motion:reduce){#cf-trigger{animation:none}#cf-trig-dot{animation:none}#cf-teaser.show{animation:none}}
+#cf-teaser{position:absolute;left:100%;top:50%;transform:translateY(-50%) scale(.85);margin-left:14px;background:#fff;color:#111;font-size:13px;font-weight:700;padding:11px 32px 11px 15px;border-radius:16px;white-space:nowrap;box-shadow:0 10px 28px rgba(0,0,0,.2);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;cursor:pointer;z-index:2}
+#cf-teaser.show{opacity:1;pointer-events:auto;transform:translateY(-50%) scale(1);animation:cf-teaser-pop .45s cubic-bezier(.34,1.56,.64,1)}
+#cf-teaser::before{content:'';position:absolute;left:-6px;top:50%;transform:translateY(-50%);border:7px solid transparent;border-right-color:#fff}
+#cf-teaser-x{position:absolute;top:5px;right:7px;background:none;border:none;color:#aaa;font-size:12px;line-height:1;cursor:pointer;padding:2px}
+#cf-teaser-x:hover{color:#DC1711}
+@keyframes cf-teaser-pop{0%{opacity:0;transform:translateY(-50%) scale(.6)}60%{opacity:1;transform:translateY(-50%) scale(1.08)}100%{opacity:1;transform:translateY(-50%) scale(1)}}
+@media(max-width:480px){#cf-teaser{font-size:12px;padding:10px 28px 10px 13px}}
 #cf-panel{display:none;background:#ffffff;background-color:#ffffff;border-radius:20px;box-shadow:0 12px 48px rgba(0,0,0,.22);width:340px;max-width:calc(100vw - 28px);max-height:88vh;overflow-y:auto;transform-origin:bottom left;opacity:1}
 #cf-panel.cf-show{display:block;opacity:1;animation:cf-pop .22s cubic-bezier(.34,1.56,.64,1) both}
 #cf-panel.cf-hide{animation:cf-popout .16s ease-in forwards}
@@ -3658,6 +3658,13 @@ document.addEventListener('DOMContentLoaded',function(){
 .cf-ap{background:#DC1711;color:#fff}
 .cf-rst{display:block;width:100%;text-align:center;padding:10px;border:1.8px solid #DC1711;background:#fff;color:#DC1711;border-radius:12px;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;cursor:pointer;margin-top:10px}
 .cf-rst:hover{background:#DC1711;color:#fff}
+.cf-bar-wrap{height:5px;background:#e5e7eb;border-radius:3px;margin:12px 16px 0;overflow:hidden;display:none}
+.cf-bar-fill{height:100%;background:#DC1711;width:0;transition:width .3s ease}
+.cf-bar-label{font-size:10px;color:#999;padding:5px 16px 0;display:none;font-weight:700;letter-spacing:.03em;text-transform:uppercase}
+input.cf-sel{margin-bottom:8px}
+.cf-file-label{display:block;padding:10px 13px;border:1.8px dashed #DC1711;border-radius:12px;background:#fff5f5;color:#DC1711;font-size:12px;font-weight:700;text-align:center;cursor:pointer;margin-bottom:6px;font-family:'Montserrat',sans-serif;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cf-hint{font-size:10px;color:#999;line-height:1.5;margin:0 0 10px}
+.cf-err{color:#DC1711;font-size:11px;font-weight:700;margin:-4px 0 8px}
 </style>
 
 <div id="cf-bubble">
@@ -3672,18 +3679,27 @@ document.addEventListener('DOMContentLoaded',function(){
       </div>
       <button class="cfh-x" id="cf-x" aria-label="Close">✕</button>
     </div>
-    <div class="cf-dots">
+    <div class="cf-dots" id="cf-dots">
       <div class="cf-dot on" id="d0"></div>
       <div class="cf-dot" id="d1"></div>
       <div class="cf-dot" id="d2"></div>
       <div class="cf-dot" id="d3"></div>
     </div>
+    <div class="cf-bar-wrap" id="cf-barwrap"><div class="cf-bar-fill" id="cf-bar"></div></div>
+    <div class="cf-bar-label" id="cf-bar-label"></div>
     <div class="cf-bd" id="cf-bd"></div>
   </div>
 
-  <button id="cf-trigger" aria-label="Find your course">
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-    <span class="cf-trig-label">Find My Course</span>
+  <button id="cf-trigger" aria-label="Find your course or job — chat with Priya, online now">
+    <span id="cf-trig-avatar">
+      <img src="/images/priya-advisor.webp" alt="" loading="lazy" decoding="async">
+      <span id="cf-trig-dot"></span>
+    </span>
+    <span class="cf-trig-label">Find My Course / Job</span>
+    <span id="cf-teaser">
+      Hey! I'm here to help you 👋
+      <span id="cf-teaser-x" role="button" tabindex="0" aria-label="Dismiss">✕</span>
+    </span>
   </button>
 </div>
 
@@ -3724,20 +3740,84 @@ document.addEventListener('DOMContentLoaded', function() {
     {name:'MSBTE Safety Diploma',             dur:'1-2 Years', elig:'10th Pass (Maharashtra)',  badge:'MSBTE Approved',  desc:'Maharashtra State Board approved. Ideal for Maharashtra students seeking government-recognised qualifications.',goals:['job','student'],          levels:['10th','12th'],                     states:['Maharashtra']}
   ];
 
+  var JQUAL   = ['10th Pass','Intermediate / 12th','ITI','Diploma','Graduate','B.E / B.Tech',"PG / Master's"];
+  var JEXP    = ['Fresher','0–2 Years','2–5 Years','5–10 Years','10+ Years'];
+  var JIND    = ['Manufacturing','Steel','Power','Oil & Gas','Construction','Infrastructure','Ports','Warehousing & Logistics','Pharmaceutical','Renewable Energy','Automobile','Open to Any Industry'];
+  var JROLE   = ['Safety Officer','Safety Supervisor','HSE Engineer','HSE Officer','Fire Officer','Fire Marshal','DCPO','Safety Manager','Fire Technician','Emergency Response Team','Trainer','Any Suitable Position'];
+  var JLOC    = ['Andhra Pradesh','Telangana','Karnataka','Tamil Nadu','Odisha','Maharashtra','Gujarat','Delhi NCR','PAN India'];
+  var JEMP    = ['Permanent','Project','Shutdown','Contract','Any'];
+  var JSAL    = ['Fresher','₹20,000–30,000','₹30,000–50,000','₹50,000–75,000','₹75,000+','Negotiable'];
+  var JAVAIL  = ['Immediately','Within 7 Days','Within 15 Days','Within 30 Days','Notice Period'];
+
+  var JOB_STEPS = [
+    {key:'qual',  q:'What is your highest <em>qualification</em>?', opts:JQUAL},
+    {key:'exp',   q:'How much <em>experience</em> do you have?', opts:JEXP},
+    {key:'ind',   q:'Which <em>industry</em> would you like to work in?', opts:JIND},
+    {key:'role',  q:'Select your preferred <em>job role</em>', opts:JROLE},
+    {key:'loc',   q:'Where would you like to <em>work</em>?', opts:JLOC},
+    {key:'emp',   q:'Select your <em>employment type</em> preference', opts:JEMP},
+    {key:'sal',   q:'Expected <em>monthly salary</em>?', opts:JSAL},
+    {key:'avail', q:'When can you <em>join</em>?', opts:JAVAIL}
+  ];
+  var JOB_TOTAL_STEPS = JOB_STEPS.length + 1; // + details/resume step
+
   var sel = {goal:null, level:null, state:null};
+  var jsel = {qual:null, exp:null, ind:null, role:null, loc:null, emp:null, sal:null, avail:null, name:'', phone:'', email:'', resume:null};
+  var flow = null; // 'course' | 'job' | null
+  var jIdx = 0;
   var isOpen = false;
 
   function panel()   { return document.getElementById('cf-panel'); }
   function bd()      { return document.getElementById('cf-bd'); }
   function dot(i)    { for(var k=0;k<4;k++) document.getElementById('d'+k).className='cf-dot'+(k<i?' ok':k===i?' on':''); }
 
+  function setIndicator(kind, i, total) {
+    var dots = document.getElementById('cf-dots'), barWrap = document.getElementById('cf-barwrap'), barLabel = document.getElementById('cf-bar-label');
+    if (kind === 'course') {
+      dots.style.display = 'flex'; barWrap.style.display = 'none'; barLabel.style.display = 'none';
+      dot(i);
+    } else if (kind === 'job') {
+      dots.style.display = 'none'; barWrap.style.display = 'block'; barLabel.style.display = 'block';
+      document.getElementById('cf-bar').style.width = Math.round(((i + 1) / total) * 100) + '%';
+      barLabel.textContent = 'Step ' + (i + 1) + ' of ' + total;
+    } else {
+      dots.style.display = 'none'; barWrap.style.display = 'none'; barLabel.style.display = 'none';
+    }
+  }
+
+  function showFork() {
+    flow = null;
+    setIndicator(null);
+    var h = '<div class="cf-q">What are you here for?</div><div class="cf-opts">'
+      + '<button class="cf-o" data-action="flow" data-val="course"><span class="cf-oi">🎓</span>Find My Course</button>'
+      + '<button class="cf-o" data-action="flow" data-val="job"><span class="cf-oi">💼</span>Find My Job</button>'
+      + '</div>';
+    bd().innerHTML = h;
+  }
+
+  function hideTeaser() {
+    var t = document.getElementById('cf-teaser');
+    if (t) t.classList.remove('show');
+  }
+
+  function showTeaser() {
+    if (isOpen) return;
+    var t = document.getElementById('cf-teaser');
+    if (!t) return;
+    t.classList.add('show');
+    setTimeout(function(){ t.classList.remove('show'); }, 6000);
+  }
+
   function open() {
+    hideTeaser();
     var p = panel();
     p.className = '';
     p.classList.add('cf-show');
     isOpen = true;
     sel = {goal:null, level:null, state:null};
-    step(0);
+    jsel = {qual:null, exp:null, ind:null, role:null, loc:null, emp:null, sal:null, avail:null, name:'', phone:'', email:'', resume:null};
+    jIdx = 0;
+    showFork();
   }
 
   function close() {
@@ -3746,10 +3826,12 @@ document.addEventListener('DOMContentLoaded', function() {
     p.classList.add('cf-hide');
     isOpen = false;
     setTimeout(function(){ p.className = ''; }, 200);
+    setTimeout(showTeaser, 1200);
   }
 
   function step(n) {
-    dot(n);
+    flow = 'course';
+    setIndicator('course', n, 4);
     if(n===0) s0();
     else if(n===1) s1();
     else if(n===2) s2();
@@ -3762,7 +3844,7 @@ document.addEventListener('DOMContentLoaded', function() {
     GOALS.forEach(function(g) {
       h += '<button class="cf-o" data-action="goal" data-val="'+g.id+'"><span class="cf-oi">'+g.icon+'</span>'+g.label+'</button>';
     });
-    h += '</div>';
+    h += '</div><button class="cf-bk" data-action="back" data-to="fork">← Back</button>';
     bd().innerHTML = h;
   }
 
@@ -3831,17 +3913,114 @@ document.addEventListener('DOMContentLoaded', function() {
     bd().innerHTML = h;
   }
 
+  /* ===== JOB FLOW ===== */
+  function jstep(n) {
+    flow = 'job';
+    jIdx = n;
+    if (n < JOB_STEPS.length) {
+      setIndicator('job', n, JOB_TOTAL_STEPS);
+      var cfg = JOB_STEPS[n];
+      var h = '<div class="cf-q">'+cfg.q+'</div><div class="cf-opts">';
+      cfg.opts.forEach(function(o){
+        h += '<button class="cf-o" data-action="jset" data-key="'+cfg.key+'" data-val="'+o+'">'+o+'</button>';
+      });
+      h += '</div><button class="cf-bk" data-action="jback" data-to="'+(n===0 ? 'fork' : n-1)+'">← Back</button>';
+      bd().innerHTML = h;
+    } else {
+      setIndicator('job', n, JOB_TOTAL_STEPS);
+      jDetailsStep();
+    }
+  }
+
+  function jDetailsStep() {
+    var h = '<div class="cf-q">Almost there — <em>your details</em></div>'
+      + '<input class="cf-sel" id="jf-name" placeholder="Full Name" value="'+jsel.name+'">'
+      + '<input class="cf-sel" id="jf-phone" placeholder="Phone Number" value="'+jsel.phone+'">'
+      + '<input class="cf-sel" id="jf-email" placeholder="Email (optional)" value="'+jsel.email+'">'
+      + '<label class="cf-file-label" for="jf-resume">📎 '+(jsel.resume ? jsel.resume.name : 'Attach Resume (PDF/DOC, optional, max 5MB)')+'</label>'
+      + '<input type="file" id="jf-resume" accept=".pdf,.doc,.docx" style="display:none">'
+      + '<p class="cf-hint">Your resume goes straight to our placement team by email. WhatsApp will carry all your answers plus a note that it\'s on the way — WhatsApp links can\'t carry file attachments.</p>'
+      + '<div id="jf-err"></div>'
+      + '<button class="cf-nxt" data-action="jsubmit">Send My Profile →</button>'
+      + '<button class="cf-bk" data-action="jback" data-to="'+(JOB_STEPS.length-1)+'">← Back</button>';
+    bd().innerHTML = h;
+    document.getElementById('jf-resume').addEventListener('change', function(){
+      var f = this.files[0];
+      if (f && f.size > 5*1024*1024) {
+        document.getElementById('jf-err').innerHTML = '<p class="cf-err">File too large — max 5MB.</p>';
+        this.value = '';
+        return;
+      }
+      document.getElementById('jf-err').innerHTML = '';
+      jsel.resume = f || null;
+      document.querySelector('label[for="jf-resume"]').textContent = '📎 ' + (f ? f.name : 'Attach Resume (PDF/DOC, optional, max 5MB)');
+    });
+  }
+
+  function jSubmit() {
+    jsel.name  = document.getElementById('jf-name').value.trim();
+    jsel.phone = document.getElementById('jf-phone').value.trim();
+    jsel.email = document.getElementById('jf-email').value.trim();
+    if (!jsel.name || !jsel.phone) {
+      document.getElementById('jf-err').innerHTML = '<p class="cf-err">Please enter your name and phone number.</p>';
+      return;
+    }
+
+    var msg = '*New Job Enquiry from Website*\n'
+      + '*Name:* '+jsel.name+'\n*Phone:* '+jsel.phone+'\n*Email:* '+(jsel.email||'Not provided')+'\n'
+      + '*Qualification:* '+jsel.qual+'\n*Experience:* '+jsel.exp+'\n*Industry:* '+jsel.ind+'\n*Role:* '+jsel.role+'\n'
+      + '*Location:* '+jsel.loc+'\n*Employment Type:* '+jsel.emp+'\n*Salary Expectation:* '+jsel.sal+'\n*Availability:* '+jsel.avail
+      + (jsel.resume ? '\n*Resume:* Attached — sent via email' : '');
+
+    var fd = new FormData();
+    fd.append('name', jsel.name);
+    fd.append('phone', jsel.phone);
+    fd.append('email', jsel.email || 'Not provided');
+    fd.append('qualification', jsel.qual);
+    fd.append('experience', jsel.exp);
+    fd.append('industry', jsel.ind);
+    fd.append('role', jsel.role);
+    fd.append('location', jsel.loc);
+    fd.append('employment_type', jsel.emp);
+    fd.append('salary_expectation', jsel.sal);
+    fd.append('availability', jsel.avail);
+    fd.append('_subject', 'New Job Enquiry from ' + jsel.name);
+    if (jsel.resume) fd.append('resume', jsel.resume, jsel.resume.name);
+
+    fetch('https://formsubmit.co/ajax/headoffice@nifsindia.com', {
+      method: 'POST',
+      headers: { Accept: 'application/json' },
+      body: fd
+    }).catch(function(err){ console.error('FormSubmit backup failed:', err); });
+
+    window.open('https://wa.me/918374340999?text=' + encodeURIComponent(msg), '_blank');
+    jConfirm();
+  }
+
+  function jConfirm() {
+    setIndicator(null);
+    var h = '<div class="cf-q">🎉 <em>Profile Sent!</em></div>'
+      + '<div style="text-align:center;padding:6px 0 14px;color:#444;font-size:13px;line-height:1.6">Thanks '+(jsel.name||'there')+' — our placement team has your profile'+(jsel.resume ? ' and resume' : '')+'.<br><br>We\'ll match you with live roles by qualification, industry &amp; location and reach out on WhatsApp shortly.</div>'
+      + '<a href="https://wa.me/918374340999" target="_blank" rel="noopener" class="cf-ap" style="display:block;text-align:center;padding:10px;border-radius:10px;text-decoration:none;font-weight:700;margin-bottom:8px">💬 Chat with Placement Team</a>'
+      + '<button class="cf-rst" data-action="restart">↩ Start Over</button>';
+    bd().innerHTML = h;
+  }
+
   /* SINGLE event delegation on the panel body */
   document.getElementById('cf-bd').addEventListener('click', function(e){
     var t = e.target.closest('[data-action]');
     if(!t) return;
     e.stopPropagation();
     var a = t.dataset.action, v = t.dataset.val;
-    if(a==='goal')       { sel.goal  = v; step(1); }
+    if(a==='flow')        { v==='course' ? step(0) : jstep(0); }
+    else if(a==='goal')       { sel.goal  = v; step(1); }
     else if(a==='level')   { sel.level = v; step(2); }
     else if(a==='next')    { step(3); }
-    else if(a==='back')    { step(parseInt(t.dataset.to)); }
-    else if(a==='restart') { sel={goal:null,level:null,state:null}; step(0); }
+    else if(a==='back')    { t.dataset.to==='fork' ? showFork() : step(parseInt(t.dataset.to)); }
+    else if(a==='jset')    { jsel[t.dataset.key] = v; jstep(jIdx + 1); }
+    else if(a==='jback')   { t.dataset.to==='fork' ? showFork() : jstep(parseInt(t.dataset.to)); }
+    else if(a==='jsubmit') { jSubmit(); }
+    else if(a==='restart') { sel={goal:null,level:null,state:null}; jsel={qual:null,exp:null,ind:null,role:null,loc:null,emp:null,sal:null,avail:null,name:'',phone:'',email:'',resume:null}; showFork(); }
   });
 
   document.getElementById('cf-trigger').addEventListener('click', function(e){
@@ -3854,17 +4033,17 @@ document.addEventListener('DOMContentLoaded', function() {
     close();
   });
 
+  document.getElementById('cf-teaser-x').addEventListener('click', function(e){
+    e.stopPropagation();
+    hideTeaser();
+  });
+
   document.addEventListener('click', function(e){
     if(isOpen && e.target.isConnected && !document.getElementById('cf-bubble').contains(e.target)) close();
   });
 
   /* Auto-open once per browser session, shortly after page load */
-  if (!sessionStorage.getItem('cf-auto-opened')) {
-    setTimeout(function(){
-      open();
-      sessionStorage.setItem('cf-auto-opened', '1');
-    }, 1500);
-  }
+  setTimeout(open, 1500);
 });
 </script>
 

@@ -6,6 +6,7 @@ import { Phone, Mail, MapPin } from "lucide-react";
 export const metadata: Metadata = {
   title: "Contact Us | NIFS India",
   description: "Get in touch with NIFS India — Visakhapatnam headquarters and centers nationwide.",
+  alternates: { canonical: "/contact/" },
 };
 
 export default function ContactPage() {

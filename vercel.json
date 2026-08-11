@@ -1,0 +1,24 @@
+{
+  "redirects": [
+    {
+      "source": "/nifs-visakhapatnam",
+      "destination": "/centers/visakhapatnam/",
+      "permanent": true
+    },
+    {
+      "source": "/nifs-visakhapatnam/",
+      "destination": "/centers/visakhapatnam/",
+      "permanent": true
+    },
+    {
+      "source": "/practical-training-yard",
+      "destination": "/gallery/practical-training-yard/",
+      "permanent": true
+    },
+    {
+      "source": "/practical-training-yard/",
+      "destination": "/gallery/practical-training-yard/",
+      "permanent": true
+    }
+  ]
+}

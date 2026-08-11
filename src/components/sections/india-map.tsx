@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { centers } from "@/lib/data/centers";
 
@@ -9,64 +8,22 @@ type IndiaMapProps = {
   onSelect: (city: string) => void;
 };
 
-/** india-map-v2.png (1536×1024) has ~23%/9%/20%/9% of transparent padding
- * baked in on L/T/R/B around the actual land mass. This crops the display
- * to that content box (with a small safety margin) instead of showing the
- * padding, so the map fills the panel — the land mass itself is never
- * clipped. `centers.ts`'s x/y values are already remapped into this same
- * cropped coordinate space. */
-const CROP_BOX = {
-  aspectRatio: "868 / 890",
-  imgWidthPct: 168.04,
-  imgHeightPct: 111.21,
-  leftPct: -35.99,
-  topPct: -3.33,
-};
-
 export function IndiaMap({ selectedCity, onSelect }: IndiaMapProps) {
   return (
     <div
-      className="relative mx-auto w-full max-w-none overflow-hidden"
-      style={{ aspectRatio: CROP_BOX.aspectRatio }}
+      className="relative mx-auto w-full overflow-hidden rounded-xl border border-border bg-white"
+      style={{ aspectRatio: "1536 / 1024" }}
     >
-      <Image
+      <img
         src="/images/india-map-v2.png"
         alt="Map of India"
-        width={1536}
-        height={1024}
-        className="absolute max-w-none"
-        style={{
-          width: `${CROP_BOX.imgWidthPct}%`,
-          height: `${CROP_BOX.imgHeightPct}%`,
-          left: `${CROP_BOX.leftPct}%`,
-          top: `${CROP_BOX.topPct}%`,
-        }}
-        sizes="(max-width: 1024px) 100vw, 44vw"
-      />
-
-      {/* Radar sweep — full-bleed, sits behind the dots */}
-      <div
-        aria-hidden="true"
-        className="map-radar-sweep pointer-events-none absolute inset-0 mix-blend-multiply"
-        style={{
-          background:
-            "conic-gradient(from 0deg, transparent 0deg, transparent 300deg, color-mix(in oklch, var(--primary) 18%, transparent) 340deg, transparent 360deg)",
-        }}
-      />
-      {/* Scan line — thin horizontal sweep top to bottom */}
-      <div
-        aria-hidden="true"
-        className="map-scan-line pointer-events-none absolute inset-x-0 h-[2px]"
-        style={{
-          background:
-            "linear-gradient(to right, transparent, color-mix(in oklch, var(--primary) 45%, transparent), transparent)",
-        }}
+        className="absolute inset-0 h-full w-full object-contain pointer-events-none select-none"
       />
 
       {centers.map((dot, i) => {
         const isSelected = dot.city === selectedCity;
         const labelWidth = dot.city.length * 6.5 + 16;
-        const size = dot.isHQ ? "h-4 w-4" : "h-3 w-3";
+        const size = dot.isHQ ? "h-3.5 w-3.5" : "h-2.5 w-2.5";
         return (
           <button
             key={dot.city}

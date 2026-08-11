@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Blog — Safety Insights & NIFS News | NIFS India",
   description:
     "Articles on industrial safety regulations, course guidance, certifications, and career paths in fire and industrial safety.",
+  alternates: { canonical: "/blog/" },
 };
 
 export default function BlogPage() {

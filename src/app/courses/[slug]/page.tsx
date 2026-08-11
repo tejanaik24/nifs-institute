@@ -19,8 +19,9 @@ export async function generateMetadata({
   const course = courses.find((c) => c.slug === slug);
   if (!course) return {};
   return {
-    title: `${course.name} | NIFS India`,
-    description: course.summary,
+    title: course.seoTitle ?? `${course.name} | NIFS India`,
+    description: course.seoDescription ?? course.summary,
+    alternates: { canonical: `/courses/${slug}/` },
   };
 }
 
@@ -80,9 +81,9 @@ export default async function CourseDetailPage({
             {course.tier}
           </span>
           <h1 className="font-display mt-3 max-w-3xl text-4xl italic leading-tight md:text-5xl">
-            {course.name}
+            {course.h1 ?? course.name}
           </h1>
-          <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
+          <p className="speakable-summary mt-6 max-w-2xl text-lg text-muted-foreground">
             {course.summary}
           </p>
         </div>

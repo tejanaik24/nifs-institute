@@ -9,6 +9,7 @@ export type BlogPost = {
   wordCount: number;
   coverImage: string | null;
   contentHtml: string;
+  faqs?: { question: string; answer: string }[];
 };
 
 export const blogPosts: BlogPost[] = posts;

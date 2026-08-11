@@ -8,10 +8,8 @@ import { WhatsAppButton } from "@/components/layout/whatsapp-button";
 import { SmoothScrollProvider } from "@/components/motion/smooth-scroll-provider";
 import { ScrollPathLine } from "@/components/ScrollPathLine";
 import { HeroSceneWrapper } from "@/components/three/hero-scene-wrapper";
-import {
-  OrganizationSchema,
-  WebsiteSearchActionSchema,
-} from "@/lib/seo/schema";
+import { DevAnnotations } from "@/components/DevAnnotations";
+import { CombinedGraphSchema } from "@/lib/seo/schema";
 
 const playfair = Playfair_Display({
   variable: "--font-display",
@@ -29,7 +27,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: {
     default: "NIFS India — Igniting Careers in Fire & Industrial Safety",
-    template: "%s | NIFS India",
+    template: "%s",
   },
   description:
     "National Institute of Fire and Safety (NIFS) — India's leading industrial safety and fire engineering training institute. NSDC & Skill India approved, ISO 9001:2015 certified, 45,000+ placements, placements with Adani, L&T, ITC, Amazon and more.",
@@ -83,7 +81,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://nifsindia.net",
+    canonical: "/",
   },
 };
 
@@ -95,7 +93,6 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      data-scroll-behavior="smooth"
       className={`${playfair.variable} ${inter.variable} h-full antialiased`}
     >
       <head>
@@ -103,17 +100,22 @@ export default function RootLayout({
         <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
       </head>
       <body className="min-h-full flex flex-col bg-background text-foreground font-sans">
-        <OrganizationSchema />
-        <WebsiteSearchActionSchema />
+        <a href="#main-content" className="skip-to-content">
+          Skip to main content
+        </a>
+        <CombinedGraphSchema />
         <SmoothScrollProvider>
           <HeroSceneWrapper />
           <ScrollPathLine />
           <UrgencyBar />
           <SiteHeader />
-          <main className="flex-1">{children}</main>
+          <main id="main-content" className="flex-1">
+            {children}
+          </main>
           <SiteFooter />
           <WhatsAppButton />
         </SmoothScrollProvider>
+        <DevAnnotations />
       </body>
     </html>
   );

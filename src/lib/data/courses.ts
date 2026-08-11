@@ -10,6 +10,10 @@ export type Course = {
   subjects: string[];
   careers: string[];
   image: string;
+  /** Overrides for the course detail page's <title>/H1/meta description — falls back to name/summary when unset. */
+  seoTitle?: string;
+  seoDescription?: string;
+  h1?: string;
 };
 
 export const courses: Course[] = [
@@ -82,6 +86,10 @@ export const courses: Course[] = [
     subjects: ["Industrial Safety Management", "Machine Safeguarding", "Hazardous Zone Safety (HT/LT)", "Safety Audits & Inspections"],
     careers: ["Industrial Safety Officer", "Plant Safety Coordinator"],
     image: "/images/course-card-industrial-safety.jpg",
+    seoTitle: "Advanced Diploma in Industrial Safety (ADIS) | Industrial Safety Course India | NIFS India",
+    h1: "Advanced Diploma in Industrial Safety — ADIS",
+    seoDescription:
+      "Looking for an industrial safety course India employers trust? NIFS's 12-month Advanced Diploma in Industrial Safety (ADIS) covers hazard control, machine safeguarding & safety audits. Apply now.",
   },
   {
     slug: "pg-diploma-in-fire-safety-pg-dfs",
@@ -138,6 +146,76 @@ export const courses: Course[] = [
     subjects: ["Advanced Fire Science & Engineering", "Industrial Safety & Hygiene", "Environmental Risk Management", "Safety Legislation & Audits", "Honours Research Project & Internship"],
     careers: ["Senior Safety Officer", "Industrial Safety Specialist", "EHS Consultant", "Risk Analyst"],
     image: "/images/gallery-industrial-visit.jpg",
+  },
+  {
+    slug: "diploma-in-industrial-safety-dis",
+    name: "Diploma in Industrial Safety (DIS)",
+    shortName: "DIS",
+    tier: "Diploma",
+    duration: "12 Months",
+    eligibility: "10th / SSC / HSE",
+    mode: "Online",
+    summary:
+      "An NSDC-affiliated online diploma building foundational plant-floor safety skills — hazard spotting, PPE discipline, and basic risk control for those starting an industrial safety career.",
+    subjects: ["Industrial Hazard Awareness", "PPE & Safety Equipment", "Basic Risk Control", "Workplace Safety Practices"],
+    careers: ["Safety Assistant", "Site Safety Trainee", "Industrial Safety Junior Officer"],
+    image: "/images/classroom-lecture.jpg",
+  },
+  {
+    slug: "advance-diploma-in-quality-health-safety-environment-adqhse",
+    name: "Advance Diploma in Quality Health Safety Environment (ADQHSE)",
+    shortName: "ADQHSE",
+    tier: "Advanced Diploma",
+    duration: "One Year",
+    eligibility: "Bachelor's Degree / Diploma (3 Yrs, Any Stream) / Equivalent",
+    mode: "Online",
+    summary:
+      "An ANU-NIFS online program pairing quality management with health, safety & environment practice — for graduates aiming at combined QHSE roles across manufacturing and process industries.",
+    subjects: ["Quality Management Systems", "Occupational Health & Environment", "Risk Assessment", "Regulatory Compliance"],
+    careers: ["QHSE Officer", "Compliance Coordinator", "Quality & Safety Auditor"],
+    image: "/images/control-room-risk-assessment.jpg",
+  },
+  {
+    slug: "certificate-course-in-chemical-safety",
+    name: "Certificate Course in Chemical Safety (CCCS)",
+    shortName: "CCCS",
+    tier: "Certificate",
+    duration: "1 Month",
+    eligibility: "10th / SSC / HSE",
+    mode: "Online",
+    summary:
+      "A short NSDC-affiliated online certificate covering safe handling, storage, and emergency response for hazardous chemicals in industrial settings.",
+    subjects: ["Hazardous Chemical Handling", "Chemical Storage Safety", "PPE for Chemical Exposure", "Spill & Emergency Response"],
+    careers: ["Chemical Safety Assistant", "Site Safety Trainee"],
+    image: "/images/training-ppe.png",
+  },
+  {
+    slug: "certificate-course-in-construction-safety",
+    name: "Certificate Course in Construction Safety (CCCS)",
+    shortName: "CCCS",
+    tier: "Certificate",
+    duration: "1 Month",
+    eligibility: "10th / SSC / HSE",
+    mode: "Online",
+    summary:
+      "A short NSDC-affiliated online certificate covering site hazard control, scaffolding & fall protection, and basic safety supervision on construction sites.",
+    subjects: ["Construction Site Hazards", "Scaffolding & Fall Protection", "PPE on Site", "Basic Safety Supervision"],
+    careers: ["Construction Safety Assistant", "Site Safety Trainee"],
+    image: "/images/classroom-to-site-split-plant.jpg",
+  },
+  {
+    slug: "industrial-safety-engineer-sbtet",
+    name: "Industrial Safety Engineer (SBTET)",
+    shortName: "SBTET ISE",
+    tier: "Advanced Diploma",
+    duration: "One Year",
+    eligibility: "Degree or Diploma in any branch of Engineering/Technology + 3 Years' Experience",
+    mode: "Classroom (Regular, Full-Time)",
+    summary:
+      "A regular full-time program affiliated to the State Board of Technical Education & Training, Andhra Pradesh, for practicing engineers moving into dedicated industrial safety roles.",
+    subjects: ["Industrial Safety Engineering", "Hazard Identification & Risk Assessment", "Safety Legislation", "Project & Practical Training"],
+    careers: ["Industrial Safety Engineer", "Plant Safety Officer"],
+    image: "/images/courses-classroom.png",
   },
 ];
 

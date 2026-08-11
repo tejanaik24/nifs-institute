@@ -4,6 +4,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Calendar, Clock, UserCheck, ShieldCheck, Phone, MessageSquare } from "lucide-react";
 import { blogPosts, getBlogPost } from "@/lib/data/blog";
+import { FAQSchema } from "@/lib/seo/schema";
+import { getContextualLinks } from "@/lib/seo/contextual-links";
 
 export async function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }));
@@ -20,6 +22,7 @@ export async function generateMetadata({
   return {
     title: `${post.title} | NIFS India`,
     description: post.excerpt,
+    alternates: { canonical: `/blog/${slug}/` },
   };
 }
 
@@ -46,9 +49,11 @@ export default async function BlogPostPage({
   const { slug } = await params;
   const post = getBlogPost(slug);
   if (!post) notFound();
+  const exploreLinks = getContextualLinks(post);
 
   return (
     <div className="bg-slate-50/50 min-h-screen pt-28 pb-20 lg:pt-36">
+      {post.faqs && post.faqs.length > 0 && <FAQSchema faqs={post.faqs} />}
       <article
         data-path-target="true"
         className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8"
@@ -115,6 +120,29 @@ export default async function BlogPostPage({
             className="blog-prose mt-8 border-t border-slate-100 pt-8"
             dangerouslySetInnerHTML={{ __html: post.contentHtml }}
           />
+
+          {/* Explore More — contextual internal links */}
+          {exploreLinks.length > 0 && (
+            <div className="mt-10 border-t border-slate-100 pt-8">
+              <h2 className="text-sm font-bold uppercase tracking-wider text-slate-500">
+                Explore More
+              </h2>
+              <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                {exploreLinks.map((link) => (
+                  <Link
+                    key={link.url}
+                    href={link.url}
+                    className="group rounded-xl border border-slate-200 bg-white p-4 text-sm font-semibold text-slate-800 shadow-sm transition-all hover:border-primary hover:shadow-md"
+                  >
+                    {link.title}
+                    <span className="ml-1 inline-block transition-transform group-hover:translate-x-1">
+                      →
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* Bottom Admission CTA Banner */}
           <div className="mt-12 overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-slate-900 to-[#7A0F0C] p-6 text-white shadow-xl sm:p-8">

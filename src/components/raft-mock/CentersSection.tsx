@@ -45,22 +45,18 @@ export function CentersSection() {
             Find a center near you
           </h2>
           <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-            NIFS trains and places candidates from 86 centers across India —
+            NIFS trains and places candidates from 70+ centers across India —
             tap a location on the map or a city below to see its details.
           </p>
 
           <div className="mt-6 flex gap-8 border-y border-border py-5">
             <div>
-              <div className="text-3xl font-bold text-primary">86</div>
+              <div className="text-3xl font-bold text-primary">70+</div>
               <div className="text-xs text-muted-foreground">Centers</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-primary">24</div>
+              <div className="text-3xl font-bold text-primary">21</div>
               <div className="text-xs text-muted-foreground">States</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-primary">3+</div>
-              <div className="text-xs text-muted-foreground">African Countries</div>
             </div>
           </div>
 
@@ -84,7 +80,7 @@ export function CentersSection() {
               href="/centers"
               className="px-3 py-1 text-xs font-medium text-primary underline-offset-2 hover:underline"
             >
-              +75 more
+              +{centers.length - 10} more
             </Link>
           </div>
 

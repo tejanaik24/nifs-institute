@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "Gallery & Facilities | NIFS India",
   description:
     "Practical training yards, industrial visits, graduations, guest lectures, and campus life at NIFS — 180+ real photos across 12 categories.",
+  alternates: { canonical: "/gallery/" },
 };
 
 export default function GalleryPage() {

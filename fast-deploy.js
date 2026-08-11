@@ -32,30 +32,29 @@ if (fs.existsSync(hpPath)) {
   console.log('✅ Synchronized public/homepage.html to out/index.html in fast-deploy.js');
 }
 
-const nextFiles = getAllFiles(path.join(outDir, '_next'));
-const blogFiles = getAllFiles(path.join(outDir, 'blog'));
-const courseFiles = getAllFiles(path.join(outDir, 'courses'));
+// Walk the ENTIRE out/ directory rather than a hand-picked folder list —
+// a hand-picked list (previously just _next/blog/courses) silently misses
+// every other route (about, admissions, centers, contact, gallery,
+// industrial-services, placements, ...) whenever layout-wide changes are
+// made. index.html/homepage.html at the root are excluded here because
+// they're owned by the dedicated upload-real-homepage.js script (which
+// also deletes the stale remote homepage.html and re-uploads .htaccess).
+const allOutFiles = getAllFiles(outDir).filter((f) => {
+  const rel = path.relative(outDir, f).replace(/\\/g, '/');
+  return rel !== 'index.html' && rel !== 'homepage.html';
+});
 const imageFiles = getAllFiles(path.join(__dirname, 'public', 'images'));
 
 const allUploads = [];
 
-const blogIndexPath = path.join(outDir, 'blog', 'index.html');
-if (fs.existsSync(blogIndexPath)) {
-  allUploads.push({ local: blogIndexPath, remote: `${FTP_BASE}/blog/index.html` });
-}
-
-nextFiles.forEach(f => {
-  const rel = path.relative(outDir, f).replace(/\\/g, '/');
-  allUploads.push({ local: f, remote: `${FTP_BASE}/${rel}` });
+['sitemap.xml', 'robots.txt', 'llms.txt', 'llms-full.txt', '.htaccess'].forEach((name) => {
+  const p = path.join(outDir, name);
+  if (fs.existsSync(p)) {
+    allUploads.push({ local: p, remote: `${FTP_BASE}/${name}` });
+  }
 });
 
-blogFiles.forEach(f => {
-  if (f === blogIndexPath) return;
-  const rel = path.relative(outDir, f).replace(/\\/g, '/');
-  allUploads.push({ local: f, remote: `${FTP_BASE}/${rel}` });
-});
-
-courseFiles.forEach(f => {
+allOutFiles.forEach(f => {
   const rel = path.relative(outDir, f).replace(/\\/g, '/');
   allUploads.push({ local: f, remote: `${FTP_BASE}/${rel}` });
 });

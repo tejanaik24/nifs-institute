@@ -88,9 +88,8 @@ export function CentersHighlight() {
         <div className="relative z-[3] flex items-center justify-start pl-10 pr-6">
           <div className="max-w-[400px]">
             <div className="flex flex-col items-start gap-12">
-              <CountUp target={86} label="Centers in India" />
-              <CountUp target={24} label="States Covered" />
-              <CountUp target={3} suffix="+" label="African Countries" />
+              <CountUp target={70} suffix="+" label="Centers in India" />
+              <CountUp target={21} label="States Covered" />
             </div>
 
             <div className="mt-14">
@@ -123,8 +122,7 @@ export function CentersHighlight() {
             </h2>
 
             <p className="mt-5 max-w-[480px] text-[14px] leading-[1.8] text-muted-foreground">
-              With a presence in 24 states and recently started operations in 3
-              African countries, NIFS is one of India&apos;s most accessible
+              With a presence in 21 states, NIFS is one of India&apos;s most accessible
               safety training networks.
             </p>
           </div>
@@ -143,15 +141,13 @@ export function CentersHighlight() {
         </h2>
 
         <p className="mx-auto mt-5 max-w-[480px] text-[14px] leading-[1.8] text-muted-foreground">
-          With a presence in 24 states and recently started operations in 3
-          African countries, NIFS is one of India&apos;s most accessible
+          With a presence in 21 states, NIFS is one of India&apos;s most accessible
           safety training networks.
         </p>
 
         <div className="mt-14 flex flex-col items-center justify-center gap-12 sm:flex-row sm:gap-20">
-          <CountUp target={86} label="Centers in India" />
-          <CountUp target={24} label="States Covered" />
-          <CountUp target={3} suffix="+" label="African Countries" />
+          <CountUp target={70} suffix="+" label="Centers in India" />
+          <CountUp target={21} label="States Covered" />
         </div>
 
         <div className="mt-14">

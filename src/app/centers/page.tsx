@@ -1,65 +1,29 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/sections/page-hero";
 import { centers } from "@/lib/data/centers";
-import Image from "next/image";
-import { MapPin } from "lucide-react";
-import { TiltWrapper } from "@/components/motion/tilt-wrapper";
+import { CenterDirectory } from "@/components/sections/center-directory";
 
 export const metadata: Metadata = {
-  title: "Our Centers — 15+ Locations Across India | NIFS India",
+  title: "NIFS Training Centers — 69 Locations Across 21 States | NIFS India",
   description:
-    "NIFS training centers across Visakhapatnam, Hyderabad, Chennai, Mumbai, Kolkata, Delhi and more.",
+    "Find your nearest NIFS fire and safety training center — 69 verified centers across 21 states and union territories, with phone numbers and directions for every location.",
+  alternates: { canonical: "/centers/" },
 };
 
 export default function CentersPage() {
+  const stateCount = new Set(centers.map((c) => c.state)).size;
+  const hq = centers.find((c) => c.isHQ);
+
   return (
     <>
       <PageHero
         eyebrow="Our Centers"
         title="Training centers across India"
-        description="Headquartered in Visakhapatnam, with centers nationwide and international programs available."
+        description={`Headquartered in ${hq?.city ?? "Visakhapatnam"}, with ${centers.length} verified centers across ${stateCount} states and union territories.`}
       />
 
       <section className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
-        <div
-          data-path-target="true"
-          className="relative mx-auto w-full max-w-md overflow-hidden rounded-sm"
-          style={{ aspectRatio: "1024 / 1536" }}
-        >
-          <Image
-            src="/images/nifs-center-building.jpg"
-            alt="NIFS training center building"
-            fill
-            priority
-            className="object-cover"
-          />
-        </div>
-
-        <div
-          data-path-target="true"
-          className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
-        >
-          {centers.map((c) => (
-            <TiltWrapper key={c.city} className="flex">
-              <div
-                className="flex flex-1 items-center gap-3 border border-border bg-card p-5"
-              >
-              <MapPin className="h-5 w-5 shrink-0 text-primary" />
-              <div>
-                <p className="font-medium">
-                  {c.city}
-                  {c.isHQ && (
-                    <span className="ml-2 text-xs font-semibold uppercase tracking-widest text-primary">
-                      HQ
-                    </span>
-                  )}
-                </p>
-                <p className="text-xs text-muted-foreground">{c.state}</p>
-              </div>
-            </div>
-          </TiltWrapper>
-        ))}
-        </div>
+        <CenterDirectory centers={centers} />
       </section>
     </>
   );

@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/sections/page-hero";
 import Image from "next/image";
 import { industrialServices } from "@/lib/data/industrial-services";
 
 export const metadata: Metadata = {
-  title: "Industrial Services — In-House Training, Audits & Consultancy | NIFS India",
+  title: "Industrial Services — Fire Engineering, Safety Audits & HSE Consultancy | NIFS India",
   description:
-    "NIFS Industrial Services: in-house corporate training, safety audits, and manpower consultancy for manufacturing, construction and EPC companies.",
+    "NIFS Industrial Services: fire engineering, industrial safety, HSE consultancy, safety audits, trainings, manpower deployment and more for manufacturing, construction and EPC companies.",
+  alternates: { canonical: "/industrial-services/" },
 };
 
 export default function IndustrialServicesPage() {
@@ -15,7 +18,7 @@ export default function IndustrialServicesPage() {
       <PageHero
         eyebrow="Industrial Services"
         title="Safety training and consultancy for your workforce"
-        description="Beyond student education — NIFS partners directly with companies on training, audits, and staffing."
+        description="Beyond student education — NIFS partners directly with companies across 10 service lines: training, audits, consultancy, and staffing."
       />
 
       <section className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
@@ -28,9 +31,10 @@ export default function IndustrialServicesPage() {
             }`}
           >
             <div className={i % 2 === 1 ? "md:order-2" : ""}>
-              <div
+              <Link
+                href={`/industrial-services/${s.slug}`}
+                className="relative block aspect-[4/3] w-full overflow-hidden rounded-sm"
                 data-path-target="true"
-                className="relative aspect-[4/3] w-full overflow-hidden rounded-sm"
               >
                 <Image
                   src={`/images/${s.slot}`}
@@ -38,11 +42,17 @@ export default function IndustrialServicesPage() {
                   fill
                   className="object-cover"
                 />
-              </div>
+              </Link>
             </div>
             <div className={i % 2 === 1 ? "md:order-1" : ""}>
               <h2 className="font-display text-3xl italic">{s.title}</h2>
               <p className="mt-4 max-w-md text-muted-foreground">{s.body}</p>
+              <Link
+                href={`/industrial-services/${s.slug}`}
+                className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
+              >
+                Learn more <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
           </div>
         ))}
