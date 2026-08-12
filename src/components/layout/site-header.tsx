@@ -82,15 +82,16 @@ export function SiteHeader() {
         )}
         onMouseLeave={closeMegaDelayed}
       >
-        {/* Logo */}
         <Link
           href="/"
           className="relative z-10 flex shrink-0 items-center gap-2.5 group"
           data-path-logo="true"
         >
-          <div className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 border border-primary/30 transition-transform duration-300 group-hover:scale-105">
-            <NifsCrest className="h-7 w-7" />
-          </div>
+          <img
+            src="/images/nifs-official-logo-v3.png"
+            alt="NIFS India"
+            className="h-10 w-10 object-contain drop-shadow transition-transform duration-300 group-hover:scale-105"
+          />
           <div className="flex flex-col leading-none">
             <span className="text-lg font-black tracking-tight text-white transition-colors group-hover:text-primary">
               NIFS
