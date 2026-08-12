@@ -88,7 +88,7 @@ export function BlogCatalog({ posts }: { posts: BlogPost[] }) {
       {featuredPost && currentPage === 1 && !searchQuery && selectedCategory === "All" && (
         <div className="relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-lg transition-all duration-300 hover:shadow-xl dark:border-slate-800 dark:bg-slate-900">
           <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
-            <div className="relative aspect-[16/9] w-full bg-slate-100 lg:col-span-5 lg:aspect-auto lg:h-full">
+            <div className="relative aspect-[16/9] w-full min-h-[240px] overflow-hidden bg-slate-100 lg:col-span-5 lg:min-h-[350px] lg:h-full">
               {featuredPost.coverImage ? (
                 <Image
                   src={featuredPost.coverImage}
