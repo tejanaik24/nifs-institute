@@ -7,6 +7,7 @@ RewriteEngine On
 
 RewriteRule ^homepage\.html$ / [R=301,L]
 
+RewriteRule ^safety-intelligence-predict-before-you-protect-dr-gpr-krishna/?$ /blog/safety-intelligence-predict-before-you-protect-dr-gpr-krishna/ [R=301,L]
 RewriteRule ^fire-safety-training-visakhapatnam-complete-guide/?$ /blog/fire-safety-training-visakhapatnam-complete-guide/ [R=301,L]
 RewriteRule ^government-recognized-degree-vs-private-certificate-fire-safety-institute-india/?$ /blog/government-recognized-degree-vs-private-certificate-fire-safety-institute-india/ [R=301,L]
 RewriteRule ^ai-industrial-safety-computer-vision-next-safety-officer/?$ /blog/ai-industrial-safety-computer-vision-next-safety-officer/ [R=301,L]

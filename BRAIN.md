@@ -2,7 +2,25 @@
 
 ## 🎯 NEXT SESSION PRIORITY — read this before anything else
 
-**2026-08-11 session — navbar polish, Industrial Services → IFESM diversion, Governance/Centers light-theme redesign, Find My Course/Job widget, org chart update. NOTHING COMMITTED OR DEPLOYED — see full report below before touching git/deploy.**
+**2026-08-12 session — FULL GA4 API INTEGRATION & 149-BLOG PORTFOLIO SEO OVERHAUL DEPLOYED LIVE**
+
+1. **Google Analytics (GA4) API Credentials & Connection:**
+   - **GA4 Property ID:** `properties/549697175`
+   - **GA4 Measurement Tag:** `G-7N5V22GB89` (Injected in `public/homepage.html` & `src/app/layout.tsx`)
+   - **Service Account Email:** `nifs-seo-gsc@vyzma-seo.iam.gserviceaccount.com`
+   - **Service Account Key File:** `C:\Users\user\.config\claude-seo\vyzma-seo-a209580c533b.json`
+   - **Google API Config File:** `C:\Users\user\.config\claude-seo\google-api.json`
+   - **GSC Property URL:** `https://www.nifsindia.net/`
+   - **API Status:** Standard Data API & Realtime Report API verified **HTTP 200 OK**. Any CLI agent can query reporting data via `python scratch/ga4_realtime_check.py` or `python scratch/test_ga4_rest.py`.
+
+2. **149 Blog Portfolio Optimization (100% Complete):**
+   - **Title Lengths:** 120 over-length titles (>65 chars) trimmed to 50-60 chars (0 over-length titles remaining).
+   - **FAQ Schema:** 143 posts injected with structured `faqs` arrays for Google PAA rich snippets.
+   - **Lead Capture CTAs:** 144 posts injected with interactive WhatsApp lead cards (`+91-8374-340-999`).
+   - **Internal Linking:** 146 posts injected with direct links to `/courses/` and `/centers/`.
+   - **Build & Deploy:** Next.js static export compiled 193/193 pages cleanly; deployed via `upload-real-homepage.js` & `fast-deploy.js`.
+
+3. **2026-08-11 session — navbar polish, Industrial Services → IFESM diversion, Governance/Centers light-theme redesign, Find My Course/Job widget, org chart update.**
 
 1. **Orphaned pages, unresolved:** `/industrial-services/[slug]` (10 pages, still built + in sitemap) have no nav link anymore since Industrial Services now diverts entirely to `https://ifesm.com/`. Never got a decision from Teja on delete / link elsewhere / leave as-is.
 2. **No visual QA done by Claude this session** — Puppeteer/headless browser timed out on every attempt (external Google Fonts/Tailwind CDN blocking `load`). Every change below is verified by code review + `npm run build` (187/187 clean) only. Teja needs to eyeball `/`, `/about/governance`, `/centers` before deploy.

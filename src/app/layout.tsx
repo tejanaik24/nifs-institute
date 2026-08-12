@@ -11,6 +11,8 @@ import { HeroSceneWrapper } from "@/components/three/hero-scene-wrapper";
 import { DevAnnotations } from "@/components/DevAnnotations";
 import { CombinedGraphSchema } from "@/lib/seo/schema";
 
+import Script from "next/script";
+
 const playfair = Playfair_Display({
   variable: "--font-display",
   subsets: ["latin"],
@@ -98,6 +100,19 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-7N5V22GB89"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-7N5V22GB89');
+          `}
+        </Script>
       </head>
       <body className="min-h-full flex flex-col bg-background text-foreground font-sans">
         <a href="#main-content" className="skip-to-content">
