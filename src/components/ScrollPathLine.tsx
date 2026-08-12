@@ -28,9 +28,9 @@ export function ScrollPathLine() {
   const trackPathRef = useRef<SVGPathElement>(null);
   const travelerPathRef = useRef<SVGPathElement>(null);
   const pathname = usePathname();
-  const isBlogPost = /^\/blog\/[^/]+/.test(pathname ?? "");
+  const isBlog = pathname?.startsWith("/blog") ?? false;
   const isCentersPage = pathname?.startsWith("/centers") ?? false;
-  const isHome = pathname === "/" || isBlogPost || isCentersPage;
+  const isHome = pathname === "/" || isBlog || isCentersPage;
 
   useEffect(() => {
     if (isHome) return;
