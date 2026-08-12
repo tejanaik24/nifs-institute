@@ -38,9 +38,10 @@ export function BlogCatalog({ posts }: { posts: BlogPost[] }) {
     return ["All", ...topCats];
   }, [posts]);
 
-  // Featured post: newest post or salary guide
+  // Featured post: newest post or Dr. GPR Krishna article
   const featuredPost = useMemo(() => {
     return (
+      posts.find((p) => p.slug === "safety-intelligence-predict-before-you-protect-dr-gpr-krishna") ||
       posts.find((p) => p.slug === "safety-officer-salary-in-india-2026-complete-guide") ||
       posts[0]
     );
