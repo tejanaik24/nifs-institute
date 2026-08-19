@@ -5,8 +5,15 @@
 
 RewriteEngine On
 
-RewriteRule ^homepage\.html$ / [R=301,L]
+RewriteRule ^homepage\.html(\.txt)?$ / [R=301,L,NC]
+Header always set Cache-Control "no-store" "expr=%{REQUEST_URI} =~ m#^/homepage\.html(\.txt)?$#"
 
+RewriteRule ^is-industrial-safety-diploma-worth-it-fees-vs-salary/?$ /blog/is-industrial-safety-diploma-worth-it-fees-vs-salary/ [R=301,L]
+RewriteRule ^career-paths-after-industrial-safety-diploma/?$ /blog/career-paths-after-industrial-safety-diploma/ [R=301,L]
+RewriteRule ^diploma-in-fire-and-safety-dfs-eligibility-duration-career/?$ /blog/diploma-in-fire-and-safety-dfs-eligibility-duration-career/ [R=301,L]
+RewriteRule ^dis-vs-adis-vs-dfs-vs-adfs-diploma-comparison/?$ /blog/dis-vs-adis-vs-dfs-vs-adfs-diploma-comparison/ [R=301,L]
+RewriteRule ^how-to-verify-fire-safety-institute-is-legitimate/?$ /blog/how-to-verify-fire-safety-institute-is-legitimate/ [R=301,L]
+RewriteRule ^government-recognized-fire-safety-course-india/?$ /blog/government-recognized-fire-safety-course-india/ [R=301,L]
 RewriteRule ^safety-intelligence-predict-before-you-protect-dr-gpr-krishna/?$ /blog/safety-intelligence-predict-before-you-protect-dr-gpr-krishna/ [R=301,L]
 RewriteRule ^fire-safety-training-visakhapatnam-complete-guide/?$ /blog/fire-safety-training-visakhapatnam-complete-guide/ [R=301,L]
 RewriteRule ^government-recognized-degree-vs-private-certificate-fire-safety-institute-india/?$ /blog/government-recognized-degree-vs-private-certificate-fire-safety-institute-india/ [R=301,L]
@@ -205,6 +212,8 @@ RewriteRule ^annamalai-university-courses/?$ /courses/ [R=301,L]
 RewriteRule ^acharya-nagarjuna-university-courses/?$ /courses/ [R=301,L]
 RewriteRule ^mba-in-safety-management/?$ /courses/ [R=301,L]
 RewriteRule ^b-sc-in-health-safety-environment/?$ /courses/ [R=301,L]
+RewriteRule ^about/mission-vision/?$ /about/vision-mission/ [R=301,L]
+RewriteRule ^about/benefits/?$ /about/company-profile/ [R=301,L]
 
 <IfModule mod_mime.c>
   AddType text/css .css

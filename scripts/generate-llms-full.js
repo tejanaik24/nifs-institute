@@ -92,7 +92,7 @@ lines.push("");
 lines.push("## Head Office & Admissions Contact");
 lines.push("- Address: Door No. 47-10-15, 2nd Lane, Dwarakanagar, AG Avenue Building, 3rd Floor, Visakhapatnam, Andhra Pradesh 530016");
 lines.push("- Phone / WhatsApp: +91-8374-340-999");
-lines.push("- Emails: headoffice@nifsindia.com, Counsellor@nifsindia.com");
+lines.push("- Email: headoffice@nifsindia.com");
 lines.push("- Website: https://nifsindia.net");
 lines.push("");
 

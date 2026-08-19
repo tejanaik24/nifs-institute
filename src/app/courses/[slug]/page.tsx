@@ -74,7 +74,7 @@ export default async function CourseDetailPage({
           },
         ]}
       />
-      <article className="pt-28 lg:pt-32">
+      <article className="pt-32 lg:pt-36">
       <div className="mx-auto max-w-5xl px-6 py-12 lg:px-10">
         <div data-path-target="true">
           <span className="text-xs font-semibold uppercase tracking-widest text-primary">

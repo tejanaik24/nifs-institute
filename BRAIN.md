@@ -2,7 +2,14 @@
 
 ## 🎯 NEXT SESSION PRIORITY — read this before anything else
 
-**2026-08-12 session — FULL GA4 API INTEGRATION & 149-BLOG PORTFOLIO SEO OVERHAUL DEPLOYED LIVE**
+**2026-08-17 session — ABOUT DYNAMIC ROUTE + 3D SCROLL + CHAIRMAN SECTION REMOVED, DEPLOYED LIVE**
+
+1. **About sub-pages converted to one dynamic route** (`src/app/about/[slug]/page.tsx`): mission-vision, company-profile, accreditations, benefits all now render from `src/lib/data/about-pages.ts` (typed content model). SSG via `generateStaticParams` (199 static pages). Content preserved verbatim from the old static pages — URLs unchanged, nav unaffected.
+2. **3D scroll effects added**: `src/components/about/about-3d-scroll.tsx` (GSAP ScrollTrigger — perspective rotateX + translateZ rise on `[data-3d-item]`, tilt-up on `[data-3d-head]`, scroll-scrubbed hero parallax via `[data-3d-hero]`, reduced-motion gated) + `TiltWrapper` mouse-tilt on stat/card/logo grids via shared `AboutPageRenderer`.
+3. **Chairman Spotlight section REMOVED from `public/homepage.html`** — the full Chairman's Desk content lives on `/about` (`src/app/about/page.tsx`). Removed the GSAP `chairman-photo` animation + reduced-motion CSS fallback too. Nav "Chairman's Desk" links to `/about` kept (points where content lives).
+4. **Deployed live 2026-08-17** via `node fast-deploy.js` (2137 assets — 5 image retries needed on training-yard-drill.webp + transform-before/after.png/.webp, all succeeded on second pass) + `node upload-real-homepage.js`.
+5. **Live verification PASSED**: `/` HTTP 200 / 239,836 bytes / dark nav pill true / chairman section absent; `/about/mission-vision` + company-profile + accreditations + benefits all HTTP 200 with `data-3d-item` hooks present.
+6. **Open item (deferred):** deleting unused `ScrollPathLine.tsx` + `.backup.tsx` + `.diagonal-backup.tsx` — still unanswered.
 
 1. **Google Analytics (GA4) API Credentials & Connection:**
    - **GA4 Property ID:** `properties/549697175`

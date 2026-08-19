@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState, useRef, useCallback } from "react";
+import { useEffect, useRef, useCallback, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { primaryNav } from "@/lib/data/nav";
 import { NifsCrest } from "@/components/nifs-crest";
@@ -10,32 +10,11 @@ import { cn } from "@/lib/utils";
 
 export function SiteHeader() {
   const pathname = usePathname();
-  const hasTransparentHero = pathname === "/";
 
-  const [scrolled, setScrolled] = useState(!hasTransparentHero);
   const [menuOpen, setMenuOpen] = useState(false);
   const [megaOpen, setMegaOpen] = useState<string | null>(null);
   const megaTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const navRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    if (!hasTransparentHero) {
-      setScrolled(true);
-      return;
-    }
-    const onScroll = () => setScrolled(window.scrollY > 60);
-    const onAppScroll = (e: Event) => {
-      const detail = (e as CustomEvent<{ scrollY: number }>).detail;
-      setScrolled(detail.scrollY > 60);
-    };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("app-scroll", onAppScroll);
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("app-scroll", onAppScroll);
-    };
-  }, [hasTransparentHero]);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
@@ -67,47 +46,69 @@ export function SiteHeader() {
   return (
     <header
       role="banner"
-      className={cn(
-        "fixed inset-x-0 top-9 z-50 transition-all duration-500",
-        scrolled
-          ? "mx-3 mt-2 sm:mx-6 sm:mt-3 lg:mx-auto lg:mt-3 lg:max-w-6xl"
-          : "mx-3 mt-2 sm:mx-6 sm:mt-3 lg:mx-auto lg:max-w-6xl"
-      )}
+      className="fixed inset-x-0 top-0 z-50 flex items-center justify-between gap-3 px-4 pt-1.5 sm:px-6 lg:px-10"
     >
+      {/* Logo (standalone, native a tag for clean home navigation) */}
+      <a
+        href="/"
+        className="flex shrink-0 items-center gap-2.5 group"
+        data-path-logo="true"
+      >
+        <img
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
+          src="/images/nifs-official-logo-v3.png"
+          alt="NIFS India"
+          className="h-28 w-28 object-contain drop-shadow-xl transition-transform duration-300 group-hover:scale-105 sm:h-32 sm:w-32"
+        />
+        <span className="hidden sm:flex flex-col leading-[1.1]">
+          <span className="text-nifs-red font-black text-2xl sm:text-3xl tracking-tight whitespace-nowrap drop-shadow-lg">
+            National Institute
+          </span>
+          <span className="text-nifs-red font-black text-2xl sm:text-3xl tracking-tight whitespace-nowrap drop-shadow-lg">
+            of Fire &amp; Safety
+          </span>
+        </span>
+      </a>
+
       <nav
         ref={navRef}
         aria-label="Main navigation"
-        className={cn(
-          "flex items-center justify-between rounded-full border border-white/15 bg-zinc-950/85 px-4 py-2.5 shadow-2xl shadow-black/40 backdrop-blur-2xl transition-all duration-500 sm:px-6 lg:px-7"
-        )}
+        className="flex shrink-0 items-center gap-2 rounded-full border border-white/15 bg-gray-950/85 backdrop-blur-2xl backdrop-saturate-150 pl-2.5 pr-2.5 py-2 shadow-2xl shadow-black/50 shadow-nifs-red/10 sm:pl-3 sm:pr-3"
         onMouseLeave={closeMegaDelayed}
       >
-        <Link
-          href="/"
-          className="relative z-10 flex shrink-0 items-center gap-2.5 group"
-          data-path-logo="true"
-        >
-          <img
-            src="/images/nifs-official-logo-v3.png"
-            alt="NIFS India"
-            className="h-10 w-10 object-contain drop-shadow transition-transform duration-300 group-hover:scale-105"
-          />
-          <div className="flex flex-col leading-none">
-            <span className="text-lg font-black tracking-tight text-white transition-colors group-hover:text-primary">
-              NIFS
-            </span>
-            <span className="text-[7.5px] font-bold uppercase tracking-[0.18em] text-white/50">
-              National Institute
-            </span>
-          </div>
-        </Link>
-
-        {/* Desktop Navigation Pill Capsule */}
-        <div className="hidden items-center gap-1.5 lg:flex">
+        {/* Desktop Navigation Items */}
+        <div className="hidden items-center gap-1 lg:flex">
           {primaryNav.map((item) => {
             const isActive =
               pathname === item.href ||
               (item.href !== "/" && pathname.startsWith(item.href));
+
+            if (item.href === "/") {
+              return (
+                <div key={item.label} className="relative">
+                  <a
+                    href="/"
+                    className={cn(
+                      "relative z-10 flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-semibold transition-all duration-300",
+                      isActive
+                        ? "text-white"
+                        : "text-white/80 hover:bg-white/15 hover:text-white"
+                    )}
+                  >
+                    {isActive && (
+                      <motion.div
+                        layoutId="pill-active-bg"
+                        className="absolute inset-0 z-[-1] rounded-full bg-primary shadow-lg shadow-primary/35"
+                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                      />
+                    )}
+                    <span>{item.label}</span>
+                  </a>
+                </div>
+              );
+            }
 
             return (
               <div
@@ -121,29 +122,20 @@ export function SiteHeader() {
                   target={item.external ? "_blank" : undefined}
                   rel={item.external ? "noopener noreferrer" : undefined}
                   className={cn(
-                    "relative z-10 flex items-center gap-1.5 rounded-full px-4 py-2 text-[13px] font-semibold transition-colors duration-200",
+                    "relative z-10 flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-semibold transition-all duration-300",
                     isActive
                       ? "text-white"
                       : megaOpen === item.label
-                      ? "text-white bg-white/10"
-                      : "text-white/70 hover:text-white"
+                      ? "text-white bg-white/15"
+                      : "text-white/80 hover:bg-white/15 hover:text-white"
                   )}
                   onClick={closeMega}
                 >
-                  {/* Dynamic Active Pill Background (Reference Design Bubble) */}
+                  {/* Dynamic Active Pill Background */}
                   {isActive && (
                     <motion.div
                       layoutId="pill-active-bg"
                       className="absolute inset-0 z-[-1] rounded-full bg-primary shadow-lg shadow-primary/35"
-                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                    />
-                  )}
-
-                  {/* Active Indicator Top Dot (Bubble aesthetic) */}
-                  {isActive && (
-                    <motion.span
-                      layoutId="pill-active-dot"
-                      className="absolute -top-1 left-1/2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-white shadow-sm shadow-white/80"
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -170,7 +162,10 @@ export function SiteHeader() {
                 <AnimatePresence>
                   {item.children && megaOpen === item.label && (
                     <motion.div
-                      className="absolute left-1/2 top-full z-[70] w-[500px] -translate-x-1/2 pt-3"
+                      className={cn(
+                        "absolute left-1/2 top-full z-[70] -translate-x-1/2 pt-3",
+                        item.children.length > 4 ? "w-[500px]" : "w-[280px]"
+                      )}
                       initial={{ opacity: 0, y: 8, x: "-50%" }}
                       animate={{ opacity: 1, y: 0, x: "-50%" }}
                       exit={{ opacity: 0, y: 8, x: "-50%" }}
@@ -178,7 +173,7 @@ export function SiteHeader() {
                       onMouseEnter={() => openMega(item.label)}
                       onMouseLeave={closeMegaDelayed}
                     >
-                      <div className="overflow-hidden rounded-3xl border border-white/15 bg-zinc-950/90 shadow-2xl shadow-black/60 backdrop-blur-2xl p-2">
+                      <div className="overflow-hidden rounded-3xl border border-white/15 bg-zinc-950/95 shadow-2xl shadow-black/60 backdrop-blur-2xl p-2">
                         <div
                           className={cn(
                             "grid gap-1 p-2",
@@ -219,55 +214,38 @@ export function SiteHeader() {
           })}
         </div>
 
-        {/* Right side CTA & Contact */}
-        <div className="hidden items-center gap-3 lg:flex">
-          <a
-            href="tel:+918374340999"
-            className="flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-semibold text-white/75 transition-colors hover:bg-white/10 hover:text-white"
-          >
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              className="h-3.5 w-3.5 text-primary"
-            >
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
-            </svg>
-            <span>+91-8374-340-999</span>
-          </a>
+        {/* Right: CTA + mobile trigger */}
+        <div className="flex shrink-0 items-center gap-2">
           <Link
             href="/admissions"
-            className="rounded-full bg-gradient-to-r from-primary to-red-600 px-5 py-2 text-xs font-bold uppercase tracking-wider text-white shadow-lg shadow-primary/30 transition-all duration-300 hover:scale-105 hover:shadow-primary/50"
+            className="hidden lg:inline-flex px-5 py-2 rounded-full bg-gradient-to-r from-nifs-red to-red-600 text-white text-sm font-bold uppercase tracking-wider hover:scale-105 transition-all duration-300 shadow-lg shadow-nifs-red/30"
           >
             Apply Now
           </Link>
-        </div>
 
-        {/* Mobile Hamburger */}
-        <button
-          aria-label={menuOpen ? "Close menu" : "Open menu"}
-          className="relative z-[60] flex h-9 w-9 items-center justify-center rounded-full bg-primary text-white shadow-lg transition-transform hover:scale-105 lg:hidden"
-          onClick={() => setMenuOpen((prev) => !prev)}
-        >
-          <span className="flex flex-col items-center justify-center gap-[4px]">
+          <button
+            id="nav-toggle"
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            className="flex h-9 w-9 flex-col items-center justify-center gap-1.5 rounded-full bg-white/10 border border-white/10 lg:hidden"
+            onClick={() => setMenuOpen((prev) => !prev)}
+          >
             <motion.span
-              className="block h-[2px] w-4 bg-white"
-              animate={menuOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
+              className="block w-4 h-0.5 bg-white rounded-full"
+              animate={menuOpen ? { rotate: 45, y: 4 } : { rotate: 0, y: 0 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             />
             <motion.span
-              className="block h-[2px] w-4 bg-white"
+              className="block w-4 h-0.5 bg-white rounded-full"
               animate={menuOpen ? { opacity: 0 } : { opacity: 1 }}
               transition={{ duration: 0.15 }}
             />
             <motion.span
-              className="block h-[2px] w-4 bg-white"
-              animate={menuOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
+              className="block w-4 h-0.5 bg-white rounded-full"
+              animate={menuOpen ? { rotate: -45, y: -4 } : { rotate: 0, y: 0 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             />
-          </span>
-        </button>
+          </button>
+        </div>
       </nav>
 
       {/* Mobile Overlay */}
@@ -281,14 +259,14 @@ export function SiteHeader() {
             transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
           >
             <div className="flex items-center justify-between px-6 py-5 border-b border-white/10">
-              <Link
+              <a
                 href="/"
                 className="flex items-center gap-2.5"
                 onClick={() => setMenuOpen(false)}
               >
                 <NifsCrest className="h-8 w-8 text-primary" />
                 <span className="text-xl font-black text-white">NIFS</span>
-              </Link>
+              </a>
               <button
                 aria-label="Close menu"
                 className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white"
@@ -317,17 +295,29 @@ export function SiteHeader() {
                     visible: { opacity: 1, x: 0 },
                   }}
                 >
-                  <Link
-                    href={item.href}
-                    target={item.external ? "_blank" : undefined}
-                    rel={item.external ? "noopener noreferrer" : undefined}
-                    className="group block py-2.5 text-2xl font-bold text-white transition-colors"
-                    onClick={() => setMenuOpen(false)}
-                  >
-                    <span className="inline-block transition-transform duration-200 group-hover:translate-x-2 group-hover:text-primary">
-                      {item.label}
-                    </span>
-                  </Link>
+                  {item.href === "/" ? (
+                    <a
+                      href="/"
+                      className="group block py-2.5 text-2xl font-bold text-white transition-colors"
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      <span className="inline-block transition-transform duration-200 group-hover:translate-x-2 group-hover:text-primary">
+                        {item.label}
+                      </span>
+                    </a>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      target={item.external ? "_blank" : undefined}
+                      rel={item.external ? "noopener noreferrer" : undefined}
+                      className="group block py-2.5 text-2xl font-bold text-white transition-colors"
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      <span className="inline-block transition-transform duration-200 group-hover:translate-x-2 group-hover:text-primary">
+                        {item.label}
+                      </span>
+                    </Link>
+                  )}
                   {item.children && (
                     <div className="mt-1 flex flex-wrap gap-2 pl-2">
                       {item.children.map((child) => (

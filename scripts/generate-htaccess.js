@@ -33,8 +33,13 @@ lines.push("");
 lines.push("RewriteEngine On");
 lines.push("");
 
-// Legacy homepage.html -> /
-lines.push("RewriteRule ^homepage\\.html$ / [R=301,L]");
+// Legacy homepage.html / homepage.html.txt -> / (the .txt variant is the RSC
+// payload URL the router used to follow after NEXT_REDIRECT; never send a
+// cached 301 for it — browsers heuristically cached the old /blog/ redirect)
+lines.push("RewriteRule ^homepage\\.html(\\.txt)?$ / [R=301,L,NC]");
+lines.push(
+  'Header always set Cache-Control "no-store" "expr=%{REQUEST_URI} =~ m#^/homepage\\.html(\\.txt)?$#"'
+);
 lines.push("");
 
 // Old WordPress blog URLs -> new /blog/<slug>/ pages
@@ -117,6 +122,8 @@ const utilityRedirects = {
   "acharya-nagarjuna-university-courses": "/courses/",
   "mba-in-safety-management": "/courses/",
   "b-sc-in-health-safety-environment": "/courses/",
+  "about/mission-vision": "/about/vision-mission/",
+  "about/benefits": "/about/company-profile/",
 };
 for (const [oldSlug, dest] of Object.entries(utilityRedirects)) {
   lines.push(`RewriteRule ^${oldSlug}/?$ ${dest} [R=301,L]`);

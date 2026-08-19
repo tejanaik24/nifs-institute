@@ -132,10 +132,16 @@ NIFS operates training centers across India. Only the Head Office below has a ve
 ## Head Office & Admissions Contact
 - Address: Door No. 47-10-15, 2nd Lane, Dwarakanagar, AG Avenue Building, 3rd Floor, Visakhapatnam, Andhra Pradesh 530016
 - Phone / WhatsApp: +91-8374-340-999
-- Emails: headoffice@nifsindia.com, Counsellor@nifsindia.com
+- Email: headoffice@nifsindia.com
 - Website: https://nifsindia.net
 
-## Blog Posts (150 total)
+## Blog Posts (156 total)
+- [Is an Industrial Safety Diploma Worth It? Course Fees vs. Real Salary Outcomes](https://nifsindia.net/blog/is-industrial-safety-diploma-worth-it-fees-vs-salary/) — A direct look at whether an industrial safety diploma's cost is justified by realistic salary outcomes — using real data rather than marketing promises from either side.
+- [Career Paths After an Industrial Safety Diploma: What NIFS Graduates Actually Do](https://nifsindia.net/blog/career-paths-after-industrial-safety-diploma/) — A safety diploma isn't a single job title — it opens into several different career tracks. Here's what industrial safety diploma graduates actually go on to do, and how to plan the next step.
+- [Diploma in Fire and Safety (DFS): Eligibility, Duration & Career Scope Explained](https://nifsindia.net/blog/diploma-in-fire-and-safety-dfs-eligibility-duration-career/) — A practical breakdown of NIFS's Diploma in Fire & Safety (DFS) — who's eligible, what the course actually covers, and what kind of roles it leads to after graduation.
+- [DIS vs ADIS vs DFS vs ADFS: Which NIFS Safety Diploma Should You Choose?](https://nifsindia.net/blog/dis-vs-adis-vs-dfs-vs-adfs-diploma-comparison/) — NIFS offers four core diploma-level qualifications that sound similar on paper. Here's how DIS, ADIS, DFS, and ADFS actually differ in eligibility, duration, and the career path each one leads to.
+- [How to Verify a Fire and Safety Institute Is Legitimate: 7 Things to Check](https://nifsindia.net/blog/how-to-verify-fire-safety-institute-is-legitimate/) — Fee amounts, alumni counts, and "top institute" claims are easy to print on a website. Here are 7 things you can actually verify before choosing a fire and safety training institute in India.
+- [Government-Recognized Fire & Safety Courses in India: What It Actually Means](https://nifsindia.net/blog/government-recognized-fire-safety-course-india/) — "Government recognized" gets used loosely across fire and safety institute marketing. Here's what it actually requires, how to verify a course's recognition yourself, and where NIFS's own qualificatio
 - [Safety Intelligence: Predict Before You Protect (2026)](https://nifsindia.net/blog/safety-intelligence-predict-before-you-protect-dr-gpr-krishna/) — Discover Safety Intelligence™ by Dr. GPR Krishna, Ph.D. Learn how predictive safety analytics and AI risk modeling are preventing industrial accidents before they happen.
 - [Fire Safety Training in Visakhapatnam: A Complete](https://nifsindia.net/blog/fire-safety-training-visakhapatnam-complete-guide/) — A ground-up guide to fire safety training in Visakhapatnam — which industries actually need it, what the courses cover, how long each one takes, and where graduates get hired.
 - [Government Degree vs Private Certificate in Fire Safety](https://nifsindia.net/blog/government-recognized-degree-vs-private-certificate-fire-safety-institute-india/) — Most fire & safety training in India is a private certificate with no university behind it. Here's how NIFS's UGC-recognized B.Sc degree through NAAC A+ rated Acharya Nagarjuna University is different

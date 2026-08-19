@@ -35,9 +35,6 @@ export default function ContactPage() {
               <a href="mailto:headoffice@nifsindia.com" className="hover:underline">
                 headoffice@nifsindia.com
               </a>
-              <a href="mailto:Counsellor@nifsindia.com" className="hover:underline">
-                Counsellor@nifsindia.com
-              </a>
             </div>
           </div>
         </div>

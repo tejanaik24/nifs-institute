@@ -3,10 +3,8 @@ import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
-import { UrgencyBar } from "@/components/layout/urgency-bar";
 import { WhatsAppButton } from "@/components/layout/whatsapp-button";
 import { SmoothScrollProvider } from "@/components/motion/smooth-scroll-provider";
-import { ScrollPathLine } from "@/components/ScrollPathLine";
 import { HeroSceneWrapper } from "@/components/three/hero-scene-wrapper";
 import { DevAnnotations } from "@/components/DevAnnotations";
 import { CombinedGraphSchema } from "@/lib/seo/schema";
@@ -121,8 +119,6 @@ export default function RootLayout({
         <CombinedGraphSchema />
         <SmoothScrollProvider>
           <HeroSceneWrapper />
-          <ScrollPathLine />
-          <UrgencyBar />
           <SiteHeader />
           <main id="main-content" className="flex-1">
             {children}

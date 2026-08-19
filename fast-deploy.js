@@ -15,7 +15,14 @@ function getAllFiles(dirPath, arrayOfFiles = []) {
     if (fs.statSync(fullPath).isDirectory()) {
       getAllFiles(fullPath, arrayOfFiles);
     } else {
-      if (!file.startsWith('__next') && !file.endsWith('.txt')) {
+      // At the out/ root, .txt files (robots, llms, IndexNow key) and the
+      // __next.__PAGE__.txt payload are owned by the explicit allowlists
+      // below. In subdirectories, every .txt file is an RSC payload
+      // (index.txt, __next.*.txt, __PAGE__.txt, $d$slug.txt) that embeds
+      // the buildId — they must reach production or client-side navigation
+      // falls back to stale payloads after each rebuild.
+      const isRoot = dirPath === outDir;
+      if (!isRoot || (!file.startsWith('__next') && !file.endsWith('.txt'))) {
         arrayOfFiles.push(fullPath);
       }
     }
@@ -53,6 +60,15 @@ const allUploads = [];
     allUploads.push({ local: p, remote: `${FTP_BASE}/${name}` });
   }
 });
+
+// IndexNow verification key file (see scripts/ping-indexnow.cjs) — the general
+// walk below skips .txt files by design, so the key file needs the same
+// explicit allowlist treatment or it silently never reaches production.
+fs.readdirSync(outDir)
+  .filter((f) => f.endsWith('.txt') && f !== 'robots.txt' && f !== 'llms.txt' && f !== 'llms-full.txt')
+  .forEach((name) => {
+    allUploads.push({ local: path.join(outDir, name), remote: `${FTP_BASE}/${name}` });
+  });
 
 allOutFiles.forEach(f => {
   const rel = path.relative(outDir, f).replace(/\\/g, '/');

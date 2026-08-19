@@ -6,11 +6,15 @@ export type NavItem = {
 };
 
 export const primaryNav: NavItem[] = [
+  { label: "Home", href: "/" },
   {
     label: "About",
     href: "/about",
     children: [
-      { label: "Chairman's Desk", href: "/about", description: "Our history, vision & mission" },
+      { label: "Chairman's Desk", href: "/about", description: "From the Chairman & CEO" },
+      { label: "Company Profile", href: "/about/company-profile", description: "25+ years, 70+ centers, 45,000+ alumni" },
+      { label: "Vision & Mission", href: "/about/vision-mission", description: "Why NIFS exists and where we're headed" },
+      { label: "Our Accreditations", href: "/about/accreditations", description: "NSDC, ISO 9001:2015 & university affiliations" },
       { label: "Governance & Advisors", href: "/about/governance", description: "Board of Advisors & organization hierarchy" },
     ],
   },

@@ -47,7 +47,7 @@ National Institute of Fire and Safety (NIFS) is India's premier vocational train
 ## Head Office & Admissions Contact
 - **Address:** Door No. 47-10-15, 2nd Lane, Dwarakanagar, AG Avenue Building, 3rd Floor, Visakhapatnam, Andhra Pradesh 530016
 - **Phone / WhatsApp:** +91-8374-340-999
-- **Emails:** headoffice@nifsindia.com, Counsellor@nifsindia.com
+- **Email:** headoffice@nifsindia.com
 - **Website:** https://nifsindia.net
 ```
 

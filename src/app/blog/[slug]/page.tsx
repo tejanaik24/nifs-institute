@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, Calendar, Clock, UserCheck, ShieldCheck, Phone, MessageSquare } from "lucide-react";
+import { ArrowLeft, Calendar, Clock, UserCheck, ShieldCheck, Phone, MessageSquare, HelpCircle } from "lucide-react";
 import { blogPosts, getBlogPost } from "@/lib/data/blog";
 import { FAQSchema } from "@/lib/seo/schema";
 import { getContextualLinks } from "@/lib/seo/contextual-links";
@@ -52,7 +52,7 @@ export default async function BlogPostPage({
   const exploreLinks = getContextualLinks(post);
 
   return (
-    <div className="bg-slate-50/50 min-h-screen pt-28 pb-20 lg:pt-36">
+    <div className="bg-slate-50/50 min-h-screen pt-32 pb-20 lg:pt-36">
       {post.faqs && post.faqs.length > 0 && <FAQSchema faqs={post.faqs} />}
       <article
         data-path-target="true"
@@ -139,6 +139,27 @@ export default async function BlogPostPage({
                       →
                     </span>
                   </Link>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* FAQ Section — visible counterpart to the FAQPage schema above */}
+          {post.faqs && post.faqs.length > 0 && (
+            <div className="mt-10 border-t border-slate-100 pt-8">
+              <h2 className="flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-slate-500">
+                <HelpCircle className="h-4 w-4 text-primary" />
+                Frequently Asked Questions
+              </h2>
+              <div className="mt-4 space-y-3">
+                {post.faqs.map((item, idx) => (
+                  <div
+                    key={idx}
+                    className="rounded-xl border border-slate-200 bg-slate-50/60 p-5"
+                  >
+                    <h3 className="text-sm font-bold text-slate-900">{item.question}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-slate-600">{item.answer}</p>
+                  </div>
                 ))}
               </div>
             </div>

@@ -1,8 +1,23 @@
-import { redirect } from "next/navigation";
+"use client";
 
-// On cPanel, public/.htaccess internally rewrites "/" to serve
-// homepage.html without changing the URL. This redirect only matters
-// on hosts (like Vercel) that don't read .htaccess.
+import { useEffect } from "react";
+
+// The real homepage is a standalone static HTML file (public/homepage.html).
+// When navigating to "/" on local dev server or static export, fetch and render
+// public/homepage.html cleanly so the user sees the real NIFS homepage without glitches.
 export default function HomePage() {
-  redirect("/homepage.html");
+  useEffect(() => {
+    fetch("/homepage.html")
+      .then((res) => res.text())
+      .then((html) => {
+        document.open();
+        document.write(html);
+        document.close();
+      })
+      .catch(() => {
+        window.location.href = "/homepage.html";
+      });
+  }, []);
+
+  return null;
 }
