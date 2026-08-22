@@ -4,6 +4,8 @@ export type IndustrialService = {
   title: string;
   shortTitle: string;
   body: string;
+  /** Optional shorter override for the meta description — falls back to body when unset. */
+  seoDescription?: string;
   offerings: string[];
   slot: string;
 };
@@ -12,6 +14,7 @@ export const industrialServices: IndustrialService[] = [
   {
     id: "fire-engineering",
     slug: "fire-engineering-services",
+    seoDescription: "Engineering-led fire risk evaluation and protection system review for industrial, commercial, and institutional sites.",
     title: "Fire Engineering Services",
     shortTitle: "Fire Engineering",
     body: "Engineering-led fire risk evaluation and protection system review for industrial, commercial, and institutional sites — from initial risk assessment through to emergency response planning.",
@@ -30,6 +33,7 @@ export const industrialServices: IndustrialService[] = [
   {
     id: "industrial-safety",
     slug: "industrial-safety-services",
+    seoDescription: "On-ground safety assessment and hazard control for manufacturing, construction, and process industries.",
     title: "Industrial Safety Services",
     shortTitle: "Industrial Safety",
     body: "On-ground safety assessment and hazard control for manufacturing, construction, and process industries — covering machine safety, electrical safety, and contractor safety management.",
@@ -49,6 +53,7 @@ export const industrialServices: IndustrialService[] = [
   {
     id: "occupational-health",
     slug: "occupational-health-environment",
+    seoDescription: "Workplace exposure and environmental compliance assessment, identifying health hazards before they become incidents.",
     title: "Occupational Health & Environment",
     shortTitle: "Occupational Health",
     body: "Workplace exposure and environmental compliance assessment — identifying health hazards before they become incidents, and keeping facilities aligned with environmental regulation.",
@@ -115,6 +120,7 @@ export const industrialServices: IndustrialService[] = [
   {
     id: "trainings",
     slug: "corporate-in-house-trainings",
+    seoDescription: "On-site EHS training delivered at your facility, tailored to your hazard profile — from awareness to advanced management.",
     title: "Corporate & In-House Trainings",
     shortTitle: "Trainings",
     body: "On-site and corporate EHS training delivered at your facility, tailored to your hazard profile — from induction-level safety awareness to advanced hazard management for supervisors.",
@@ -166,6 +172,7 @@ export const industrialServices: IndustrialService[] = [
   {
     id: "technical-education",
     slug: "technical-education",
+    seoDescription: "NSDC-recognized diploma and certificate programs that feed directly into NIFS placement network.",
     title: "Technical Education",
     shortTitle: "Technical Education",
     body: "NSDC-recognized diploma and certificate programs that feed directly into our placement network — the training arm behind every service NIFS delivers on-site.",

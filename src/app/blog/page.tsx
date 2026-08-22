@@ -3,6 +3,12 @@ import { PageHero } from "@/components/sections/page-hero";
 import { BlogCatalog } from "@/components/sections/blog-catalog";
 import { blogPosts } from "@/lib/data/blog";
 
+// Strip the heavy per-post fields (contentHtml, faqs) — the card grid never
+// reads them, and passing them to the client component bloats the page.
+const blogPostCards = blogPosts.map(
+  ({ contentHtml: _contentHtml, faqs: _faqs, ...card }) => card
+);
+
 export const metadata: Metadata = {
   title: "Blog — Safety Insights & NIFS News | NIFS India",
   description:
@@ -22,7 +28,7 @@ export default function BlogPage() {
         data-path-target="true"
         className="mx-auto max-w-7xl px-6 py-16 lg:px-10 lg:py-24"
       >
-        <BlogCatalog posts={blogPosts} />
+        <BlogCatalog posts={blogPostCards} />
       </section>
     </>
   );

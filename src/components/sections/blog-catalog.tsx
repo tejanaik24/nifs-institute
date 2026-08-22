@@ -6,6 +6,11 @@ import Link from "next/link";
 import { ArrowRight, Search, Calendar, Clock, BookOpen, ChevronLeft, ChevronRight, Tag } from "lucide-react";
 import type { BlogPost } from "@/lib/data/blog";
 
+// Card list only needs these fields — never pass contentHtml/faqs down to this
+// client component, or Next.js serializes every post's full HTML into the
+// page's initial payload (this caused /blog/ to ship a 2.6MB HTML document).
+export type BlogPostCard = Omit<BlogPost, "contentHtml" | "faqs">;
+
 function formatDate(iso: string) {
   if (!iso) return "";
   return new Date(iso).toLocaleDateString("en-IN", {
@@ -23,7 +28,7 @@ function estimateReadTime(wordCount: number | undefined) {
 
 const ITEMS_PER_PAGE = 12;
 
-export function BlogCatalog({ posts }: { posts: BlogPost[] }) {
+export function BlogCatalog({ posts }: { posts: BlogPostCard[] }) {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [currentPage, setCurrentPage] = useState(1);

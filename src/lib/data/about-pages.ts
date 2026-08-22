@@ -40,9 +40,9 @@ export type AboutPage = {
 export const aboutPages: AboutPage[] = [
   {
     slug: "company-profile",
-    seoTitle: "Company Profile — 25+ Years of Industrial Safety Training | NIFS India",
+    seoTitle: "Company Profile — 25+ Years in Safety Training | NIFS India",
     seoDescription:
-      "NIFS India: 25+ years, 70+ centers across 24 states, 45,000+ alumni. NSDC approved and ISO 9001:2015 certified industrial fire and safety training institute. HQ Visakhapatnam.",
+      "NIFS India: 25+ years, 70+ centers, 45,000+ alumni. NSDC approved, ISO 9001:2015 certified, HQ in Visakhapatnam.",
     hero: {
       eyebrow: "Company Profile",
       title: "25+ years of building India's industrial safety workforce",
@@ -114,7 +114,7 @@ export const aboutPages: AboutPage[] = [
     slug: "vision-mission",
     seoTitle: "Vision & Mission — Why NIFS Exists | NIFS India",
     seoDescription:
-      "NIFS vision and mission: to impart futuristic and comprehensive fire engineering and industrial safety education of global standards. A unit of SSB Institute of Higher Studies Educational Society.",
+      "NIFS vision: to impart futuristic fire engineering and industrial safety education of global standards.",
     hero: {
       eyebrow: "Vision & Mission",
       title: "Why NIFS exists, and where we're headed",
@@ -167,7 +167,7 @@ export const aboutPages: AboutPage[] = [
   },
   {
     slug: "accreditations",
-    seoTitle: "Our Accreditations — NSDC, ISO 9001:2015 & University Affiliations | NIFS India",
+    seoTitle: "Accreditations — NSDC, ISO 9001:2015 | NIFS India",
     seoDescription:
       "NIFS accreditations: NSDC, Skill India, Acharya Nagarjuna University, Annamalai University, National Safety Council, SBTET, ISO 9001:2015 certified.",
     hero: {

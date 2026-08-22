@@ -4,11 +4,11 @@ import "./globals.css";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { WhatsAppButton } from "@/components/layout/whatsapp-button";
+import { PriyaWidgetLoader } from "@/components/widgets/priya-widget-loader";
 import { SmoothScrollProvider } from "@/components/motion/smooth-scroll-provider";
 import { HeroSceneWrapper } from "@/components/three/hero-scene-wrapper";
 import { DevAnnotations } from "@/components/DevAnnotations";
 import { CombinedGraphSchema } from "@/lib/seo/schema";
-
 import Script from "next/script";
 
 const playfair = Playfair_Display({
@@ -80,9 +80,6 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  alternates: {
-    canonical: "/",
-  },
 };
 
 export default function RootLayout({
@@ -98,6 +95,14 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+        {/* LCP preload: hero image is above-the-fold — preload so browser fetches
+            it during HTML parse, before React hydrates and renders the <img> tag */}
+        <link
+          rel="preload"
+          as="image"
+          href="/images/hero/oil-gas.webp"
+          fetchPriority="high"
+        />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-7N5V22GB89"
           strategy="afterInteractive"
@@ -125,6 +130,7 @@ export default function RootLayout({
           </main>
           <SiteFooter />
           <WhatsAppButton />
+          <PriyaWidgetLoader />
         </SmoothScrollProvider>
         <DevAnnotations />
       </body>

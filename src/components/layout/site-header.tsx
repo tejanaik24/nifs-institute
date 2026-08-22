@@ -3,10 +3,12 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useCallback, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
 import { primaryNav } from "@/lib/data/nav";
 import { NifsCrest } from "@/components/nifs-crest";
 import { cn } from "@/lib/utils";
+
+// Framer Motion removed — replaced with CSS transitions/clip-path animation.
+// ~50KB removed from the initial JS bundle (layout-level, every page).
 
 export function SiteHeader() {
   const pathname = usePathname();
@@ -97,12 +99,9 @@ export function SiteHeader() {
                         : "text-white/80 hover:bg-white/15 hover:text-white"
                     )}
                   >
+                    {/* Active pill — CSS fade, replaces framer-motion layoutId spring */}
                     {isActive && (
-                      <motion.div
-                        layoutId="pill-active-bg"
-                        className="absolute inset-0 z-[-1] rounded-full bg-primary shadow-lg shadow-primary/35"
-                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                      />
+                      <span className="absolute inset-0 z-[-1] rounded-full bg-primary shadow-lg shadow-primary/35" />
                     )}
                     <span>{item.label}</span>
                   </a>
@@ -131,13 +130,9 @@ export function SiteHeader() {
                   )}
                   onClick={closeMega}
                 >
-                  {/* Dynamic Active Pill Background */}
+                  {/* Active pill background — CSS only */}
                   {isActive && (
-                    <motion.div
-                      layoutId="pill-active-bg"
-                      className="absolute inset-0 z-[-1] rounded-full bg-primary shadow-lg shadow-primary/35"
-                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                    />
+                    <span className="absolute inset-0 z-[-1] rounded-full bg-primary shadow-lg shadow-primary/35" />
                   )}
 
                   <span>{item.label}</span>
@@ -158,57 +153,53 @@ export function SiteHeader() {
                   )}
                 </Link>
 
-                {/* Mega Menu Dropdown */}
-                <AnimatePresence>
-                  {item.children && megaOpen === item.label && (
-                    <motion.div
-                      className={cn(
-                        "absolute left-1/2 top-full z-[70] -translate-x-1/2 pt-3",
-                        item.children.length > 4 ? "w-[500px]" : "w-[280px]"
-                      )}
-                      initial={{ opacity: 0, y: 8, x: "-50%" }}
-                      animate={{ opacity: 1, y: 0, x: "-50%" }}
-                      exit={{ opacity: 0, y: 8, x: "-50%" }}
-                      transition={{ duration: 0.2, ease: "easeOut" }}
-                      onMouseEnter={() => openMega(item.label)}
-                      onMouseLeave={closeMegaDelayed}
-                    >
-                      <div className="overflow-hidden rounded-3xl border border-white/15 bg-zinc-950/95 shadow-2xl shadow-black/60 backdrop-blur-2xl p-2">
-                        <div
-                          className={cn(
-                            "grid gap-1 p-2",
-                            item.children.length > 4
-                              ? "grid-cols-2"
-                              : "grid-cols-1"
-                          )}
-                        >
-                          {item.children.map((child) => (
-                            <Link
-                              key={child.label}
-                              href={child.href}
-                              target={child.external ? "_blank" : undefined}
-                              rel={child.external ? "noopener noreferrer" : undefined}
-                              className="group flex items-start gap-3 rounded-2xl px-3.5 py-3 transition-all hover:bg-white/10"
-                              onClick={closeMega}
-                            >
-                              <div className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-primary opacity-60 transition-all group-hover:scale-150 group-hover:opacity-100" />
-                              <div className="min-w-0">
-                                <div className="text-sm font-medium text-white transition-colors group-hover:text-primary">
-                                  {child.label}
-                                </div>
-                                {child.description && (
-                                  <div className="mt-0.5 text-xs text-white/40 leading-relaxed">
-                                    {child.description}
-                                  </div>
-                                )}
+                {/* Mega Menu — always mounted, CSS opacity transition (no AnimatePresence) */}
+                {item.children && (
+                  <div
+                    className={cn(
+                      "absolute left-1/2 top-full z-[70] pt-3 transition-all duration-200",
+                      item.children.length > 4 ? "w-[500px]" : "w-[280px]",
+                      megaOpen === item.label
+                        ? "opacity-100 translate-y-0 pointer-events-auto"
+                        : "opacity-0 translate-y-2 pointer-events-none"
+                    )}
+                    style={{ transform: `translateX(-50%) translateY(${megaOpen === item.label ? "0" : "8px"})` }}
+                    onMouseEnter={() => openMega(item.label)}
+                    onMouseLeave={closeMegaDelayed}
+                  >
+                    <div className="overflow-hidden rounded-3xl border border-white/15 bg-zinc-950/95 shadow-2xl shadow-black/60 backdrop-blur-2xl p-2">
+                      <div
+                        className={cn(
+                          "grid gap-1 p-2",
+                          item.children.length > 4 ? "grid-cols-2" : "grid-cols-1"
+                        )}
+                      >
+                        {item.children.map((child) => (
+                          <Link
+                            key={child.label}
+                            href={child.href}
+                            target={child.external ? "_blank" : undefined}
+                            rel={child.external ? "noopener noreferrer" : undefined}
+                            className="group flex items-start gap-3 rounded-2xl px-3.5 py-3 transition-all hover:bg-white/10"
+                            onClick={closeMega}
+                          >
+                            <div className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-primary opacity-60 transition-all group-hover:scale-150 group-hover:opacity-100" />
+                            <div className="min-w-0">
+                              <div className="text-sm font-medium text-white transition-colors group-hover:text-primary">
+                                {child.label}
                               </div>
-                            </Link>
-                          ))}
-                        </div>
+                              {child.description && (
+                                <div className="mt-0.5 text-xs text-white/40 leading-relaxed">
+                                  {child.description}
+                                </div>
+                              )}
+                            </div>
+                          </Link>
+                        ))}
                       </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                    </div>
+                  </div>
+                )}
               </div>
             );
           })}
@@ -223,133 +214,130 @@ export function SiteHeader() {
             Apply Now
           </Link>
 
+          {/* Hamburger → X — pure CSS transform, no framer-motion */}
           <button
             id="nav-toggle"
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             className="flex h-9 w-9 flex-col items-center justify-center gap-1.5 rounded-full bg-white/10 border border-white/10 lg:hidden"
             onClick={() => setMenuOpen((prev) => !prev)}
           >
-            <motion.span
-              className="block w-4 h-0.5 bg-white rounded-full"
-              animate={menuOpen ? { rotate: 45, y: 4 } : { rotate: 0, y: 0 }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            <span
+              className="block w-4 h-0.5 bg-white rounded-full transition-transform duration-300 origin-center"
+              style={{ transform: menuOpen ? "translateY(6px) rotate(45deg)" : "none" }}
             />
-            <motion.span
-              className="block w-4 h-0.5 bg-white rounded-full"
-              animate={menuOpen ? { opacity: 0 } : { opacity: 1 }}
-              transition={{ duration: 0.15 }}
+            <span
+              className="block w-4 h-0.5 bg-white rounded-full transition-opacity duration-150"
+              style={{ opacity: menuOpen ? 0 : 1 }}
             />
-            <motion.span
-              className="block w-4 h-0.5 bg-white rounded-full"
-              animate={menuOpen ? { rotate: -45, y: -4 } : { rotate: 0, y: 0 }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            <span
+              className="block w-4 h-0.5 bg-white rounded-full transition-transform duration-300 origin-center"
+              style={{ transform: menuOpen ? "translateY(-6px) rotate(-45deg)" : "none" }}
             />
           </button>
         </div>
       </nav>
 
-      {/* Mobile Overlay */}
-      <AnimatePresence>
-        {menuOpen && (
-          <motion.div
-            className="fixed inset-0 z-[100] flex flex-col bg-zinc-950"
-            initial={{ clipPath: "circle(0% at top right)" }}
-            animate={{ clipPath: "circle(150% at top right)" }}
-            exit={{ clipPath: "circle(0% at top right)" }}
-            transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
+      {/* Mobile Overlay — CSS clip-path circle animation, replaces framer-motion AnimatePresence */}
+      {/* visibility is delayed via transition so it hides after clip-path closes */}
+      <div
+        role="dialog"
+        aria-modal={menuOpen || undefined}
+        aria-hidden={!menuOpen}
+        aria-label="Navigation menu"
+        style={{
+          clipPath: menuOpen ? "circle(150% at top right)" : "circle(0% at top right)",
+          visibility: menuOpen ? "visible" : "hidden",
+          transitionProperty: menuOpen ? "clip-path" : "clip-path, visibility",
+          transitionDuration: menuOpen ? "0.5s" : "0.5s, 0s",
+          transitionDelay: menuOpen ? "0s" : "0s, 0.5s",
+          transitionTimingFunction: "cubic-bezier(0.76, 0, 0.24, 1), step-end",
+        }}
+        className="fixed inset-0 z-[100] flex flex-col bg-zinc-950"
+      >
+        <div className="flex items-center justify-between px-6 py-5 border-b border-white/10">
+          <a
+            href="/"
+            className="flex items-center gap-2.5"
+            onClick={() => setMenuOpen(false)}
           >
-            <div className="flex items-center justify-between px-6 py-5 border-b border-white/10">
-              <a
-                href="/"
-                className="flex items-center gap-2.5"
-                onClick={() => setMenuOpen(false)}
-              >
-                <NifsCrest className="h-8 w-8 text-primary" />
-                <span className="text-xl font-black text-white">NIFS</span>
-              </a>
-              <button
-                aria-label="Close menu"
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white"
-                onClick={() => setMenuOpen(false)}
-              >
-                ✕
-              </button>
-            </div>
+            <NifsCrest className="h-8 w-8 text-primary" />
+            <span className="text-xl font-black text-white">NIFS</span>
+          </a>
+          <button
+            aria-label="Close menu"
+            className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white"
+            onClick={() => setMenuOpen(false)}
+          >
+            ✕
+          </button>
+        </div>
 
-            <motion.nav
-              className="flex flex-1 flex-col gap-2 overflow-y-auto px-6 py-6"
-              initial="hidden"
-              animate="visible"
-              variants={{
-                hidden: {},
-                visible: {
-                  transition: { staggerChildren: 0.05, delayChildren: 0.1 },
-                },
+        {/* Mobile nav items — CSS opacity + translateX stagger via transition-delay */}
+        <nav className="flex flex-1 flex-col gap-2 overflow-y-auto px-6 py-6">
+          {primaryNav.map((item, i) => (
+            <div
+              key={item.label}
+              style={{
+                opacity: menuOpen ? 1 : 0,
+                transform: menuOpen ? "translateX(0)" : "translateX(-20px)",
+                transition: menuOpen
+                  ? `opacity 0.3s ease ${0.1 + i * 0.05}s, transform 0.3s ease ${0.1 + i * 0.05}s`
+                  : "none",
               }}
             >
-              {primaryNav.map((item) => (
-                <motion.div
-                  key={item.label}
-                  variants={{
-                    hidden: { opacity: 0, x: -20 },
-                    visible: { opacity: 1, x: 0 },
-                  }}
-                >
-                  {item.href === "/" ? (
-                    <a
-                      href="/"
-                      className="group block py-2.5 text-2xl font-bold text-white transition-colors"
-                      onClick={() => setMenuOpen(false)}
-                    >
-                      <span className="inline-block transition-transform duration-200 group-hover:translate-x-2 group-hover:text-primary">
-                        {item.label}
-                      </span>
-                    </a>
-                  ) : (
-                    <Link
-                      href={item.href}
-                      target={item.external ? "_blank" : undefined}
-                      rel={item.external ? "noopener noreferrer" : undefined}
-                      className="group block py-2.5 text-2xl font-bold text-white transition-colors"
-                      onClick={() => setMenuOpen(false)}
-                    >
-                      <span className="inline-block transition-transform duration-200 group-hover:translate-x-2 group-hover:text-primary">
-                        {item.label}
-                      </span>
-                    </Link>
-                  )}
-                  {item.children && (
-                    <div className="mt-1 flex flex-wrap gap-2 pl-2">
-                      {item.children.map((child) => (
-                        <Link
-                          key={child.label}
-                          href={child.href}
-                          target={child.external ? "_blank" : undefined}
-                          rel={child.external ? "noopener noreferrer" : undefined}
-                          className="rounded-full bg-white/5 px-3 py-1 text-xs text-white/60 transition-colors hover:bg-primary/20 hover:text-white"
-                          onClick={() => setMenuOpen(false)}
-                        >
-                          {child.label}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </motion.div>
-              ))}
-
-              <div className="mt-8 flex flex-col gap-3">
-                <Link
-                  href="/admissions"
-                  className="block w-full rounded-full bg-primary py-3.5 text-center text-sm font-bold uppercase tracking-wider text-white shadow-lg shadow-primary/30"
+              {item.href === "/" ? (
+                <a
+                  href="/"
+                  className="group block py-2.5 text-2xl font-bold text-white transition-colors"
                   onClick={() => setMenuOpen(false)}
                 >
-                  Apply Now →
+                  <span className="inline-block transition-transform duration-200 group-hover:translate-x-2 group-hover:text-primary">
+                    {item.label}
+                  </span>
+                </a>
+              ) : (
+                <Link
+                  href={item.href}
+                  target={item.external ? "_blank" : undefined}
+                  rel={item.external ? "noopener noreferrer" : undefined}
+                  className="group block py-2.5 text-2xl font-bold text-white transition-colors"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  <span className="inline-block transition-transform duration-200 group-hover:translate-x-2 group-hover:text-primary">
+                    {item.label}
+                  </span>
                 </Link>
-              </div>
-            </motion.nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
+              )}
+              {item.children && (
+                <div className="mt-1 flex flex-wrap gap-2 pl-2">
+                  {item.children.map((child) => (
+                    <Link
+                      key={child.label}
+                      href={child.href}
+                      target={child.external ? "_blank" : undefined}
+                      rel={child.external ? "noopener noreferrer" : undefined}
+                      className="rounded-full bg-white/5 px-3 py-1 text-xs text-white/60 transition-colors hover:bg-primary/20 hover:text-white"
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      {child.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
+
+          <div className="mt-8 flex flex-col gap-3">
+            <Link
+              href="/admissions"
+              className="block w-full rounded-full bg-primary py-3.5 text-center text-sm font-bold uppercase tracking-wider text-white shadow-lg shadow-primary/30"
+              onClick={() => setMenuOpen(false)}
+            >
+              Apply Now →
+            </Link>
+          </div>
+        </nav>
+      </div>
     </header>
   );
 }

@@ -33,6 +33,12 @@ lines.push("");
 lines.push("RewriteEngine On");
 lines.push("");
 
+// www -> apex (canonical domain is https://nifsindia.net per metadataBase in
+// src/app/layout.tsx). Must run first so it fires before any other rule.
+lines.push('RewriteCond %{HTTP_HOST} ^www\\.nifsindia\\.net$ [NC]');
+lines.push("RewriteRule ^(.*)$ https://nifsindia.net/$1 [R=301,L]");
+lines.push("");
+
 // Legacy homepage.html / homepage.html.txt -> / (the .txt variant is the RSC
 // payload URL the router used to follow after NEXT_REDIRECT; never send a
 // cached 301 for it — browsers heuristically cached the old /blog/ redirect)

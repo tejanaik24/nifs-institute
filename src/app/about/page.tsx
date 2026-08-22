@@ -30,7 +30,7 @@ const aboutSections = [
 export const metadata: Metadata = {
   title: "About NIFS — Chairman's Desk & Our Mission | NIFS India",
   description:
-    "NIFS is a unit of SSB Institute of Higher Studies Educational Society, ISO 9001:2015 certified, training India's industrial safety workforce since inception.",
+    "NIFS is a unit of SSB Institute of Higher Studies, ISO 9001:2015 certified, training India's industrial safety workforce since inception.",
   alternates: { canonical: "/about/" },
 };
 
@@ -56,17 +56,37 @@ export default function AboutPage() {
           <span className="text-xs font-semibold uppercase tracking-widest text-primary">
             From the Chairman&apos;s Desk
           </span>
-          <h2 className="font-display mt-2 text-4xl italic leading-tight">
-            &ldquo;To impart futuristic and comprehensive fire engineering and
-            industrial safety education &amp; consultancy of global standards
-            with a sense of high quality, discipline and social
-            respect.&rdquo;
-          </h2>
+          <div className="mt-4 space-y-4 text-base leading-relaxed text-muted-foreground">
+            <p>
+              India&apos;s rapid industrialization demands a strong commitment
+              to fire and industrial safety. Safety is not merely a legal
+              requirement but an essential part of sustainable growth and
+              responsible management.
+            </p>
+            <p>
+              For over 24 years, NIFS has been dedicated to developing
+              competent, proactive, and industry-ready safety professionals
+              through quality education and practical training.
+            </p>
+            <p>
+              Our academic and professional programs equip students with the
+              knowledge and skills needed to prevent accidents, manage
+              emergencies, and protect lives, property, and the environment.
+            </p>
+            <p>
+              At NIFS, we believe safety is built through discipline,
+              continuous learning, and professional excellence. Our mission
+              is to make &ldquo;Safety First&rdquo; a way of life.
+            </p>
+          </div>
           <p className="mt-6 text-sm font-semibold text-foreground">
             Sri. Suneel Mahanty
           </p>
           <p className="text-xs tracking-wide text-muted-foreground uppercase">
-            Chairman and CEO, NIFS — M Sc., M Phil. &amp; MBA (FISM)
+            M.Sc., M.Phil. &amp; MBA (FISM)
+          </p>
+          <p className="text-xs tracking-wide text-muted-foreground uppercase">
+            Chairman &amp; CEO, NIFS
           </p>
         </div>
       </section>

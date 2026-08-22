@@ -2,54 +2,94 @@
 
 import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
-import Lenis from "lenis";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
+// Type-only imports — erased at runtime, zero bundle impact
+import type Lenis from "lenis";
+import type { gsap as GsapType } from "gsap";
+import type { ScrollTrigger as ScrollTriggerType } from "gsap/ScrollTrigger";
 
 export function SmoothScrollProvider({ children }: { children: React.ReactNode }) {
   const lenisRef = useRef<Lenis | null>(null);
+  const scrollTriggerRef = useRef<typeof ScrollTriggerType | null>(null);
+  const gsapTickerRef = useRef<typeof GsapType.ticker | null>(null);
   const pathname = usePathname();
 
   useEffect(() => {
+    // Mobile has native momentum scroll — Lenis adds zero benefit there.
+    // Skipping saves the async import + initialization cost on phones.
+    const isMobile = window.innerWidth < 768;
+    if (isMobile) return;
+
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
-
     if (prefersReducedMotion) return;
 
-    const lenis = new Lenis({
-      duration: 1.1,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smoothWheel: true,
-    });
-    lenisRef.current = lenis;
+    // Flags and cleanup collectors for async init
+    let destroyed = false;
+    let tickerFn: ((time: number) => void) | undefined;
+    let resizeObserver: ResizeObserver | undefined;
 
-    lenis.on("scroll", (e: { scroll: number }) => {
-      ScrollTrigger.update();
-      window.dispatchEvent(
-        new CustomEvent("app-scroll", { detail: { scrollY: e.scroll } })
-      );
-    });
+    // Dynamically import heavy libs — keeps them out of the initial JS parse,
+    // reducing Total Blocking Time. Same singleton instance as other components
+    // that also dynamic-import GSAP (webpack deduplicates shared async chunks).
+    Promise.all([
+      import("gsap"),
+      import("gsap/ScrollTrigger"),
+      import("lenis"),
+    ]).then(([gsapMod, stMod, lenisMod]) => {
+      if (destroyed) return;
 
-    const ticker = (time: number) => {
-      lenis.raf(time * 1000);
-    };
-    gsap.ticker.add(ticker);
-    gsap.ticker.lagSmoothing(0);
+      const { gsap } = gsapMod;
+      const { ScrollTrigger } = stMod;
+      const LenisClass = lenisMod.default;
 
-    // Watch dynamic height changes on body (lazy images, dynamic DOM elements, etc.)
-    const resizeObserver = new ResizeObserver(() => {
-      lenis.resize();
-      ScrollTrigger.refresh();
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Store refs for the pathname effect and cleanup
+      scrollTriggerRef.current = ScrollTrigger;
+      gsapTickerRef.current = gsap.ticker;
+
+      const lenis = new LenisClass({
+        duration: 1.1,
+        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smoothWheel: true,
+      });
+      lenisRef.current = lenis;
+
+      lenis.on("scroll", (e: { scroll: number }) => {
+        ScrollTrigger.update();
+        window.dispatchEvent(
+          new CustomEvent("app-scroll", { detail: { scrollY: e.scroll } })
+        );
+      });
+
+      tickerFn = (time: number) => {
+        lenis.raf(time * 1000);
+      };
+      gsap.ticker.add(tickerFn);
+      gsap.ticker.lagSmoothing(0);
+
+      // Watch dynamic height changes on body (lazy images, dynamic DOM elements, etc.)
+      resizeObserver = new ResizeObserver(() => {
+        lenis.resize();
+        ScrollTrigger.refresh();
+      });
+      resizeObserver.observe(document.body);
     });
-    resizeObserver.observe(document.body);
 
     return () => {
-      gsap.ticker.remove(ticker);
-      resizeObserver.disconnect();
-      lenis.destroy();
+      destroyed = true;
+      if (tickerFn && gsapTickerRef.current) {
+        gsapTickerRef.current.remove(tickerFn);
+      }
+      if (resizeObserver) resizeObserver.disconnect();
+      if (lenisRef.current) {
+        lenisRef.current.destroy();
+        lenisRef.current = null;
+      }
+      scrollTriggerRef.current = null;
+      gsapTickerRef.current = null;
     };
   }, []);
 
@@ -60,7 +100,7 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
       lenisRef.current.scrollTo(0, { immediate: true });
       // Recalculate page height limits for the new route
       lenisRef.current.resize();
-      ScrollTrigger.refresh();
+      if (scrollTriggerRef.current) scrollTriggerRef.current.refresh();
     }
   }, [pathname]);
 

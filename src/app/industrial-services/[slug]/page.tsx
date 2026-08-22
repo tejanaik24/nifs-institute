@@ -20,7 +20,7 @@ export async function generateMetadata({
   if (!service) return {};
   return {
     title: `${service.title} | NIFS Industrial Services`,
-    description: service.body,
+    description: service.seoDescription ?? service.body,
     alternates: { canonical: `/industrial-services/${slug}/` },
   };
 }

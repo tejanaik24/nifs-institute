@@ -6,9 +6,9 @@ import Image from "next/image";
 import { industrialServices } from "@/lib/data/industrial-services";
 
 export const metadata: Metadata = {
-  title: "Industrial Services — Fire Engineering, Safety Audits & HSE Consultancy | NIFS India",
+  title: "Industrial Services — Fire & Safety Audits | NIFS India",
   description:
-    "NIFS Industrial Services: fire engineering, industrial safety, HSE consultancy, safety audits, trainings, manpower deployment and more for manufacturing, construction and EPC companies.",
+    "NIFS Industrial Services: fire engineering, safety audits, HSE consultancy, and training for manufacturing, construction & EPC companies.",
   alternates: { canonical: "/industrial-services/" },
 };
 

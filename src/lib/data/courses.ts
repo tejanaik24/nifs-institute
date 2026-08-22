@@ -19,6 +19,7 @@ export type Course = {
 export const courses: Course[] = [
   {
     slug: "certificate-course-in-fire-safety",
+    seoDescription: "A fast-track entry into industrial safety — fire prevention, PPE handling, and workplace hazard awareness for career starters.",
     name: "Certificate Course in Fire & Safety (CCFS)",
     shortName: "CCFS",
     tier: "Certificate",
@@ -33,6 +34,7 @@ export const courses: Course[] = [
   },
   {
     slug: "diploma-in-fire-safety",
+    seoDescription: "Fire engineering and site safety protocols, preparing graduates for supervisory-track roles on industrial and construction sites.",
     name: "Diploma in Fire & Safety (DFS)",
     shortName: "DFS",
     tier: "Diploma",
@@ -47,6 +49,7 @@ export const courses: Course[] = [
   },
   {
     slug: "diploma-in-health-safety-environment",
+    seoDescription: "Covers occupational health, environmental compliance, and workplace risk management for manufacturing and process industries.",
     name: "Diploma in Health, Safety & Environment (DHSE)",
     shortName: "DHSE",
     tier: "Diploma",
@@ -61,6 +64,7 @@ export const courses: Course[] = [
   },
   {
     slug: "advanced-diploma-in-fire-safety-adfs",
+    seoDescription: "Fire engineering with hands-on drills at NIFS's practical training yard, for candidates targeting mid-level safety leadership roles.",
     name: "Advanced Diploma in Fire & Safety (ADFS)",
     shortName: "ADFS",
     tier: "Advanced Diploma",
@@ -86,10 +90,10 @@ export const courses: Course[] = [
     subjects: ["Industrial Safety Management", "Machine Safeguarding", "Hazardous Zone Safety (HT/LT)", "Safety Audits & Inspections"],
     careers: ["Industrial Safety Officer", "Plant Safety Coordinator"],
     image: "/images/course-card-industrial-safety.jpg",
-    seoTitle: "Advanced Diploma in Industrial Safety (ADIS) | Industrial Safety Course India | NIFS India",
+    seoTitle: "Advanced Diploma in Industrial Safety (ADIS) | NIFS India",
     h1: "Advanced Diploma in Industrial Safety — ADIS",
     seoDescription:
-      "Looking for an industrial safety course India employers trust? NIFS's 12-month Advanced Diploma in Industrial Safety (ADIS) covers hazard control, machine safeguarding & safety audits. Apply now.",
+      "Plant-floor safety management — hazard control, machine safeguarding, and audits — for candidates aiming at safety officer roles.",
   },
   {
     slug: "pg-diploma-in-fire-safety-pg-dfs",
@@ -107,7 +111,9 @@ export const courses: Course[] = [
   },
   {
     slug: "pg-diploma-in-health-safety-environment-pg-dhse",
+    seoDescription: "Graduate-level EHS management training aligned with international standards, for professionals targeting HSE roles at MNCs and EPC contractors.",
     name: "PG Diploma in Health, Safety & Environment (PG DHSE)",
+    seoTitle: "PG Diploma in Health, Safety & Environment | NIFS India",
     shortName: "PG DHSE",
     tier: "PG Diploma",
     duration: "1 Year",
@@ -121,6 +127,7 @@ export const courses: Course[] = [
   },
   {
     slug: "b-sc-in-fire-industrial-safety",
+    seoDescription: "A 3-year degree preparing students to manage fire hazards, implement safety protocols, and lead workplace safety compliance.",
     name: "B.Sc in Fire & Industrial Safety",
     shortName: "B.Sc FIS",
     tier: "B.Sc",
@@ -135,6 +142,7 @@ export const courses: Course[] = [
   },
   {
     slug: "b-sc-honours-in-fire-industrial-safety",
+    seoDescription: "An advanced 4-year honours degree with specialization in fire engineering, industrial safety management, and environmental risk.",
     name: "B.Sc (Honours) in Fire & Industrial Safety",
     shortName: "B.Sc (Hons) FIS",
     tier: "B.Sc",
@@ -149,6 +157,7 @@ export const courses: Course[] = [
   },
   {
     slug: "diploma-in-industrial-safety-dis",
+    seoDescription: "An NSDC-affiliated online diploma building foundational plant-floor safety skills — hazard spotting, PPE, and basic risk control.",
     name: "Diploma in Industrial Safety (DIS)",
     shortName: "DIS",
     tier: "Diploma",
@@ -163,7 +172,9 @@ export const courses: Course[] = [
   },
   {
     slug: "advance-diploma-in-quality-health-safety-environment-adqhse",
+    seoDescription: "An ANU-NIFS online program pairing quality management with health, safety & environment practice for combined QHSE roles.",
     name: "Advance Diploma in Quality Health Safety Environment (ADQHSE)",
+    seoTitle: "Advance Diploma in Quality, Health & Safety | NIFS India",
     shortName: "ADQHSE",
     tier: "Advanced Diploma",
     duration: "One Year",
@@ -192,6 +203,7 @@ export const courses: Course[] = [
   {
     slug: "certificate-course-in-construction-safety",
     name: "Certificate Course in Construction Safety (CCCS)",
+    seoTitle: "Certificate Course in Construction Safety | NIFS India",
     shortName: "CCCS",
     tier: "Certificate",
     duration: "1 Month",
@@ -205,6 +217,7 @@ export const courses: Course[] = [
   },
   {
     slug: "industrial-safety-engineer-sbtet",
+    seoDescription: "A full-time SBTET Andhra Pradesh-affiliated program for practicing engineers moving into dedicated industrial safety roles.",
     name: "Industrial Safety Engineer (SBTET)",
     shortName: "SBTET ISE",
     tier: "Advanced Diploma",

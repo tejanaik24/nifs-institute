@@ -4,9 +4,9 @@ import { centers } from "@/lib/data/centers";
 import { CenterDirectory } from "@/components/sections/center-directory";
 
 export const metadata: Metadata = {
-  title: "NIFS Training Centers — 69 Locations Across 21 States | NIFS India",
+  title: "NIFS Training Centers — 69 Locations, 21 States | NIFS India",
   description:
-    "Find your nearest NIFS fire and safety training center — 69 verified centers across 21 states and union territories, with phone numbers and directions for every location.",
+    "Find your nearest NIFS training center — verified centers across India with phone numbers and directions for every location.",
   alternates: { canonical: "/centers/" },
 };
 

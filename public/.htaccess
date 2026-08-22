@@ -5,9 +5,13 @@
 
 RewriteEngine On
 
+RewriteCond %{HTTP_HOST} ^www\.nifsindia\.net$ [NC]
+RewriteRule ^(.*)$ https://nifsindia.net/$1 [R=301,L]
+
 RewriteRule ^homepage\.html(\.txt)?$ / [R=301,L,NC]
 Header always set Cache-Control "no-store" "expr=%{REQUEST_URI} =~ m#^/homepage\.html(\.txt)?$#"
 
+RewriteRule ^integrated-safety-management-system-isms/?$ /blog/integrated-safety-management-system-isms/ [R=301,L]
 RewriteRule ^is-industrial-safety-diploma-worth-it-fees-vs-salary/?$ /blog/is-industrial-safety-diploma-worth-it-fees-vs-salary/ [R=301,L]
 RewriteRule ^career-paths-after-industrial-safety-diploma/?$ /blog/career-paths-after-industrial-safety-diploma/ [R=301,L]
 RewriteRule ^diploma-in-fire-and-safety-dfs-eligibility-duration-career/?$ /blog/diploma-in-fire-and-safety-dfs-eligibility-duration-career/ [R=301,L]
@@ -164,6 +168,7 @@ RewriteRule ^fire-and-safety-courses-in-hyderabad-enhancing-workplace-safety/?$ 
 RewriteRule ^unlocking-a-fiery-career-exploring-opportunities-and-qualifications-for-aspiring-fire-and-safety-engineers-in-india/?$ /blog/unlocking-a-fiery-career-exploring-opportunities-and-qualifications-for-aspiring-fire-and-safety-engineers-in-india/ [R=301,L]
 RewriteRule ^fire-and-safety-courses-in-visakhapatnam-a-path-to-secure-careers/?$ /blog/fire-and-safety-courses-in-visakhapatnam-a-path-to-secure-careers/ [R=301,L]
 RewriteRule ^safety-first-the-imperative-of-fire-and-safety-courses-in-all-industries/?$ /blog/safety-first-the-imperative-of-fire-and-safety-courses-in-all-industries/ [R=301,L]
+RewriteRule ^safety-intelligence-5d-leadership-model/?$ /blog/safety-intelligence-5d-leadership-model/ [R=301,L]
 
 RewriteRule ^certificate-course-in-fire-safety/?$ /courses/certificate-course-in-fire-safety/ [R=301,L]
 RewriteRule ^diploma-in-fire-safety/?$ /courses/diploma-in-fire-safety/ [R=301,L]

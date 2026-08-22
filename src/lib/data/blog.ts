@@ -12,7 +12,9 @@ export type BlogPost = {
   faqs?: { question: string; answer: string }[];
 };
 
-export const blogPosts: BlogPost[] = posts;
+export const blogPosts: BlogPost[] = [...posts].sort(
+  (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+);
 
 export function getBlogPost(slug: string): BlogPost | undefined {
   return blogPosts.find((p) => p.slug === slug);

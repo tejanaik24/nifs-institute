@@ -3,9 +3,9 @@ import { PageHero } from "@/components/sections/page-hero";
 import { CourseCatalog } from "@/components/sections/course-catalog";
 
 export const metadata: Metadata = {
-  title: "Courses — Certificate to B.Sc in Fire & Industrial Safety | NIFS India",
+  title: "Courses — Certificate to B.Sc in Fire Safety | NIFS India",
   description:
-    "Explore NIFS India's full course ladder: Certificate, Diploma, Advanced Diploma, PG Diploma, and B.Sc programs in Fire & Industrial Safety and Health, Safety & Environment.",
+    "Explore NIFS's full course ladder: Certificate, Diploma, Advanced Diploma, PG Diploma, and B.Sc in Fire & Industrial Safety.",
   alternates: { canonical: "/courses/" },
 };
 
