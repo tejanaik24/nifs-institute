@@ -29,12 +29,12 @@ export function buildRedirects() {
 
   // Old WordPress blog URLs -> new /blog/<slug>/ pages
   for (const post of blogPosts as { slug: string }[]) {
-    redirects.push({ source: `/${post.slug}`, destination: `/blog/${post.slug}/`, permanent: true });
+    redirects.push({ source: `/${post.slug}/`, destination: `/blog/${post.slug}/`, permanent: true });
   }
 
   // Old WordPress course URLs -> new /courses/<slug>/ pages
   for (const course of courses) {
-    redirects.push({ source: `/${course.slug}`, destination: `/courses/${course.slug}/`, permanent: true });
+    redirects.push({ source: `/${course.slug}/`, destination: `/courses/${course.slug}/`, permanent: true });
   }
 
   // Old course URLs that used a different slug suffix
@@ -44,29 +44,29 @@ export function buildRedirects() {
     "sbtet-certificate-course-in-industrial-safety": "certificate-course-in-fire-safety",
   };
   for (const [oldSlug, newSlug] of Object.entries(courseAliases)) {
-    redirects.push({ source: `/${oldSlug}`, destination: `/courses/${newSlug}/`, permanent: true });
+    redirects.push({ source: `/${oldSlug}/`, destination: `/courses/${newSlug}/`, permanent: true });
   }
 
   // Old gallery category URLs -> filterable /gallery/ page
   for (const cat of galleryCategories as { slug: string }[]) {
     if (cat.slug === "practical-training-yard") continue;
     const oldPath = cat.slug === "recognition-gallery" ? cat.slug : `gallery/${cat.slug}`;
-    redirects.push({ source: `/${oldPath}`, destination: `/gallery/?category=${cat.slug}`, permanent: true });
+    redirects.push({ source: `/${oldPath}/`, destination: `/gallery/?category=${cat.slug}`, permanent: true });
   }
 
   // GSC-indexed root-level practical-training-yard URL -> its own real page
-  redirects.push({ source: "/practical-training-yard", destination: "/gallery/practical-training-yard/", permanent: true });
+  redirects.push({ source: "/practical-training-yard/", destination: "/gallery/practical-training-yard/", permanent: true });
 
   // Vizag has its own dedicated landing page
-  redirects.push({ source: "/nifs-visakhapatnam", destination: "/centers/visakhapatnam/", permanent: true });
-  redirects.push({ source: "/vizag", destination: "/centers/visakhapatnam/", permanent: true });
-  redirects.push({ source: "/visakhapatnam", destination: "/centers/visakhapatnam/", permanent: true });
+  redirects.push({ source: "/nifs-visakhapatnam/", destination: "/centers/visakhapatnam/", permanent: true });
+  redirects.push({ source: "/vizag/", destination: "/centers/visakhapatnam/", permanent: true });
+  redirects.push({ source: "/visakhapatnam/", destination: "/centers/visakhapatnam/", permanent: true });
 
   // Old per-city landing pages -> the single current /centers/ page
-  redirects.push({ source: "/nifs-:city", destination: "/centers/", permanent: true });
+  redirects.push({ source: "/nifs-:city/", destination: "/centers/", permanent: true });
 
   // High-demand category with no dedicated course page -> catalog
-  redirects.push({ source: "/category/safety-officer-course", destination: "/courses/", permanent: true });
+  redirects.push({ source: "/category/safety-officer-course/", destination: "/courses/", permanent: true });
 
   // Old WordPress taxonomy archives -> current blog index
   redirects.push({ source: "/tag/:path*", destination: "/blog/", permanent: true });
@@ -89,7 +89,7 @@ export function buildRedirects() {
     "about/benefits": "/about/company-profile/",
   };
   for (const [oldSlug, dest] of Object.entries(utilityRedirects)) {
-    redirects.push({ source: `/${oldSlug}`, destination: dest, permanent: true });
+    redirects.push({ source: `/${oldSlug}/`, destination: dest, permanent: true });
   }
 
   return redirects;
