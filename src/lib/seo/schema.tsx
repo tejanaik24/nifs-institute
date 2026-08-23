@@ -64,7 +64,7 @@ export function CombinedGraphSchema() {
                 "https://www.facebook.com/nifsindia",
                 "https://www.instagram.com/nifsindia",
                 "https://www.linkedin.com/company/nifs-india",
-                "https://www.youtube.com/@nifsindia",
+                "https://www.youtube.com/@nifsindia"
               ],
               makesOffer: COURSE_SERVICES,
             },
@@ -74,14 +74,6 @@ export function CombinedGraphSchema() {
               name: "NIFS India",
               url: "https://nifsindia.net",
               publisher: { "@id": ORG_ID },
-              potentialAction: {
-                "@type": "SearchAction",
-                target: {
-                  "@type": "EntryPoint",
-                  urlTemplate: "https://nifsindia.net/?q={search_term_string}",
-                },
-                "query-input": "required name=search_term_string",
-              },
               speakable: {
                 "@type": "SpeakableSpecification",
                 cssSelector: ["h1", ".speakable-summary"],
@@ -158,19 +150,47 @@ export function CourseSchema({
           name,
           description,
           url,
-          provider: {
-            "@type": "EducationalOrganization",
-            name: "NIFS India",
-            url: "https://nifsindia.net",
-          },
+          provider: { "@id": ORG_ID },
           educationalLevel: tier,
           occupationalCategory: "Fire Safety Officer",
-          timeRequired: duration,
-          offers: {
-            "@type": "Offer",
-            priceCurrency: "INR",
-            availability: "https://schema.org/InStock",
-          },
+        }),
+      }}
+    />
+  );
+}
+
+export function BlogPostingSchema({
+  headline,
+  description,
+  url,
+  image,
+  datePublished,
+  author,
+}: {
+  headline: string;
+  description: string;
+  url: string;
+  image?: string | null;
+  datePublished: string;
+  author?: { name: string; title: string };
+}) {
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          headline,
+          description,
+          url,
+          ...(image ? { image: `https://nifsindia.net${image}` } : {}),
+          datePublished,
+          author: author
+            ? { "@type": "Person", name: author.name, jobTitle: author.title }
+            : { "@id": ORG_ID },
+          publisher: { "@id": ORG_ID },
+          mainEntityOfPage: { "@type": "WebPage", "@id": url },
         }),
       }}
     />

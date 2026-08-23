@@ -10,6 +10,8 @@ export type BlogPost = {
   coverImage: string | null;
   contentHtml: string;
   faqs?: { question: string; answer: string }[];
+  /** Named author with a real, checkable credential — omit rather than invent one. */
+  author?: { name: string; title: string };
 };
 
 export const blogPosts: BlogPost[] = [...posts].sort(

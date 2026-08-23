@@ -70,7 +70,14 @@ export default async function CourseDetailPage({
           },
           {
             question: `Is ${course.name} recognized by the government?`,
-            answer: `Yes, ${course.name} from NIFS India is NSDC approved and recognized by the Government of India.`,
+            answer:
+              course.accreditedBy === "NSDC"
+                ? `Yes, ${course.name} is NSDC-affiliated. NIFS India is also ISO 9001:2015 certified.`
+                : course.accreditedBy === "ANU"
+                  ? `${course.name} is offered in association with Acharya Nagarjuna University. NIFS India is also NSDC-approved and ISO 9001:2015 certified.`
+                  : course.accreditedBy === "SBTET-AP"
+                    ? `${course.name} is affiliated to the State Board of Technical Education & Training, Andhra Pradesh (SBTET-AP). NIFS India is also NSDC-approved and ISO 9001:2015 certified.`
+                    : `NIFS India is an NSDC & Skill India approved, ISO 9001:2015 certified training institute.`,
           },
         ]}
       />

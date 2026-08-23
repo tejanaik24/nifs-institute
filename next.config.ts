@@ -1,12 +1,28 @@
 import type { NextConfig } from "next";
+import { buildRedirects } from "@/lib/seo/redirects";
 
-// Static export for cPanel hosting — redirects()/headers() aren't supported
-// in this mode, so old-URL SEO forwarding and security headers are
-// reimplemented in public/.htaccess instead (see scripts/generate-htaccess.js).
+// Hosted on Vercel as a normal Next.js app (migrated off cPanel static
+// export) — redirects()/headers() below replace public/.htaccess as the
+// source of truth for legacy-URL 301s and security headers.
 const nextConfig: NextConfig = {
-  output: "export",
   trailingSlash: true,
   images: { unoptimized: true },
+  async redirects() {
+    return buildRedirects();
+  },
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "X-Frame-Options", value: "DENY" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains; preload" },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;

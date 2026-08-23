@@ -14,6 +14,8 @@ export type Course = {
   seoTitle?: string;
   seoDescription?: string;
   h1?: string;
+  /** The specific accrediting/affiliating body for THIS course, only when its summary already states one — never inferred. */
+  accreditedBy?: "NSDC" | "ANU" | "SBTET-AP";
 };
 
 export const courses: Course[] = [
@@ -169,6 +171,7 @@ export const courses: Course[] = [
     subjects: ["Industrial Hazard Awareness", "PPE & Safety Equipment", "Basic Risk Control", "Workplace Safety Practices"],
     careers: ["Safety Assistant", "Site Safety Trainee", "Industrial Safety Junior Officer"],
     image: "/images/classroom-lecture.jpg",
+    accreditedBy: "NSDC",
   },
   {
     slug: "advance-diploma-in-quality-health-safety-environment-adqhse",
@@ -185,6 +188,7 @@ export const courses: Course[] = [
     subjects: ["Quality Management Systems", "Occupational Health & Environment", "Risk Assessment", "Regulatory Compliance"],
     careers: ["QHSE Officer", "Compliance Coordinator", "Quality & Safety Auditor"],
     image: "/images/control-room-risk-assessment.jpg",
+    accreditedBy: "ANU",
   },
   {
     slug: "certificate-course-in-chemical-safety",
@@ -199,6 +203,7 @@ export const courses: Course[] = [
     subjects: ["Hazardous Chemical Handling", "Chemical Storage Safety", "PPE for Chemical Exposure", "Spill & Emergency Response"],
     careers: ["Chemical Safety Assistant", "Site Safety Trainee"],
     image: "/images/training-ppe.png",
+    accreditedBy: "NSDC",
   },
   {
     slug: "certificate-course-in-construction-safety",
@@ -214,6 +219,7 @@ export const courses: Course[] = [
     subjects: ["Construction Site Hazards", "Scaffolding & Fall Protection", "PPE on Site", "Basic Safety Supervision"],
     careers: ["Construction Safety Assistant", "Site Safety Trainee"],
     image: "/images/classroom-to-site-split-plant.jpg",
+    accreditedBy: "NSDC",
   },
   {
     slug: "industrial-safety-engineer-sbtet",
@@ -229,6 +235,7 @@ export const courses: Course[] = [
     subjects: ["Industrial Safety Engineering", "Hazard Identification & Risk Assessment", "Safety Legislation", "Project & Practical Training"],
     careers: ["Industrial Safety Engineer", "Plant Safety Officer"],
     image: "/images/courses-classroom.png",
+    accreditedBy: "SBTET-AP",
   },
 ];
 

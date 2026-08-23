@@ -4,7 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Calendar, Clock, UserCheck, ShieldCheck, Phone, MessageSquare, HelpCircle } from "lucide-react";
 import { blogPosts, getBlogPost } from "@/lib/data/blog";
-import { FAQSchema } from "@/lib/seo/schema";
+import { FAQSchema, BlogPostingSchema, BreadcrumbSchema } from "@/lib/seo/schema";
 import { getContextualLinks } from "@/lib/seo/contextual-links";
 
 export async function generateStaticParams() {
@@ -53,6 +53,21 @@ export default async function BlogPostPage({
 
   return (
     <div className="bg-slate-50/50 min-h-screen pt-32 pb-20 lg:pt-36">
+      <BlogPostingSchema
+        headline={post.title}
+        description={post.excerpt}
+        url={`https://nifsindia.net/blog/${post.slug}/`}
+        image={post.coverImage}
+        datePublished={post.date}
+        author={post.author}
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://nifsindia.net" },
+          { name: "Blog", url: "https://nifsindia.net/blog/" },
+          { name: post.title, url: `https://nifsindia.net/blog/${post.slug}/` },
+        ]}
+      />
       {post.faqs && post.faqs.length > 0 && <FAQSchema faqs={post.faqs} />}
       <article
         data-path-target="true"
@@ -85,9 +100,11 @@ export default async function BlogPostPage({
           <div className="mt-6 flex flex-wrap items-center gap-4 border-t border-slate-100 pt-4 text-xs font-medium text-slate-500">
             <div className="flex items-center gap-2">
               <div className="flex h-7 w-7 items-center justify-center rounded-full bg-slate-100 font-bold text-slate-700">
-                N
+                {post.author ? post.author.name.charAt(0) : "N"}
               </div>
-              <span className="font-semibold text-slate-700">NIFS Safety Editorial</span>
+              <span className="font-semibold text-slate-700">
+                {post.author ? post.author.name : "NIFS Safety Editorial"}
+              </span>
             </div>
             <span>•</span>
             <span className="flex items-center gap-1">

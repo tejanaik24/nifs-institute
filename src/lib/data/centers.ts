@@ -31,7 +31,7 @@ export const centers: Center[] = [
     x: 52.45,
     y: 60.73,
     address:
-      "Door No. 47-10-15 (9), 3rd Floor, AG Avenue Building, 2nd Lane, Dwaraka Nagar, Visakhapatnam, Andhra Pradesh – 530016",
+      "Door No. 47-10-15, 2nd Lane, Dwarakanagar, AG Avenue Building, 3rd Floor, Visakhapatnam, Andhra Pradesh – 530016",
     phones: ["8374340999", "9246624868", "0891-2712722", "0891-2551699"],
   },
   {

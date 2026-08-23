@@ -98,6 +98,8 @@ lines.push("");
 // instead of the generic /centers/ directory. Must come before the
 // catch-all below (Apache stops at the first matching rule).
 lines.push("RewriteRule ^nifs-visakhapatnam/?$ /centers/visakhapatnam/ [R=301,L]");
+lines.push("RewriteRule ^vizag/?$ /centers/visakhapatnam/ [R=301,L]");
+lines.push("RewriteRule ^visakhapatnam/?$ /centers/visakhapatnam/ [R=301,L]");
 lines.push("");
 
 // Old per-city landing pages -> the single current /centers/ page
@@ -119,6 +121,7 @@ lines.push("");
 // Old utility/program pages with no 1:1 page today -> closest current section
 const utilityRedirects = {
   "how-to-apply": "/admissions/",
+  "job-openings": "/placements/",
   jobs: "/placements/",
   "online-courses": "/courses/",
   "offline-courses": "/courses/",
@@ -155,9 +158,7 @@ lines.push(
   '  Header set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"'
 );
 lines.push('  <FilesMatch "\\.(html|htm)$">');
-lines.push('    Header set Cache-Control "no-cache, no-store, must-revalidate"');
-lines.push('    Header set Pragma "no-cache"');
-lines.push('    Header set Expires "0"');
+lines.push('    Header set Cache-Control "public, max-age=300, must-revalidate"');
 lines.push("  </FilesMatch>");
 lines.push('  <FilesMatch "\\.(css|js|woff2|jpg|png|webp|svg)$">');
 lines.push('    Header set Cache-Control "public, max-age=31536000, immutable"');
