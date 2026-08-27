@@ -32,24 +32,13 @@ function getAllFiles(dirPath, arrayOfFiles = []) {
 }
 
 const outDir = path.join(__dirname, 'out');
-const hpPath = path.join(__dirname, 'public', 'homepage.html');
-if (fs.existsSync(hpPath)) {
-  fs.copyFileSync(hpPath, path.join(outDir, 'index.html'));
-  fs.copyFileSync(hpPath, path.join(outDir, 'homepage.html'));
-  console.log('✅ Synchronized public/homepage.html to out/index.html in fast-deploy.js');
-}
-
-// Walk the ENTIRE out/ directory rather than a hand-picked folder list —
-// a hand-picked list (previously just _next/blog/courses) silently misses
-// every other route (about, admissions, centers, contact, gallery,
-// industrial-services, placements, ...) whenever layout-wide changes are
-// made. index.html/homepage.html at the root are excluded here because
-// they're owned by the dedicated upload-real-homepage.js script (which
-// also deletes the stale remote homepage.html and re-uploads .htaccess).
-const allOutFiles = getAllFiles(outDir).filter((f) => {
-  const rel = path.relative(outDir, f).replace(/\\/g, '/');
-  return rel !== 'index.html' && rel !== 'homepage.html';
-});
+// The homepage used to be a standalone public/homepage.html copied into
+// out/index.html and uploaded separately (upload-real-homepage.js). It is
+// now a real Next.js route, so `next build` already emits a correct
+// out/index.html — no special-casing needed, walk the ENTIRE out/
+// directory rather than a hand-picked folder list, which previously missed
+// routes whenever layout-wide changes were made.
+const allOutFiles = getAllFiles(outDir);
 const imageFiles = getAllFiles(path.join(__dirname, 'public', 'images'));
 
 const allUploads = [];
