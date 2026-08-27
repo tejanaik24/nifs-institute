@@ -170,6 +170,7 @@ RewriteRule ^fire-and-safety-courses-in-visakhapatnam-a-path-to-secure-careers/?
 RewriteRule ^safety-first-the-imperative-of-fire-and-safety-courses-in-all-industries/?$ /blog/safety-first-the-imperative-of-fire-and-safety-courses-in-all-industries/ [R=301,L]
 RewriteRule ^safety-intelligence-5d-leadership-model/?$ /blog/safety-intelligence-5d-leadership-model/ [R=301,L]
 RewriteRule ^safety-is-not-an-expense-cheapest-insurance/?$ /blog/safety-is-not-an-expense-cheapest-insurance/ [R=301,L]
+RewriteRule ^nebosh-iosh-vs-sbtet-adis-pdis-what-safety-students-must-know/?$ /blog/nebosh-iosh-vs-sbtet-adis-pdis-what-safety-students-must-know/ [R=301,L]
 
 RewriteRule ^certificate-course-in-fire-safety/?$ /courses/certificate-course-in-fire-safety/ [R=301,L]
 RewriteRule ^diploma-in-fire-safety/?$ /courses/diploma-in-fire-safety/ [R=301,L]

@@ -135,7 +135,7 @@ NIFS operates training centers across India. Only the Head Office below has a ve
 - Email: headoffice@nifsindia.com
 - Website: https://nifsindia.net
 
-## Blog Posts (159 total)
+## Blog Posts (160 total)
 - [Integrated Safety Management System (ISMS) Explained by NIFS HSE Head Dr. Gaddeyya Gandipilli](https://nifsindia.net/blog/integrated-safety-management-system-isms/) — NIFS Head of the HSE Department Dr. Gaddeyya Gandipilli breaks down the Integrated Safety Management System (ISMS) framework — its 11 core components, technology-based safety monitoring, and how it ti
 - [Is an Industrial Safety Diploma Worth It?](https://nifsindia.net/blog/is-industrial-safety-diploma-worth-it-fees-vs-salary/) — Is an industrial safety diploma worth it? A direct look at cost versus realistic salary outcomes using real data.
 - [Career Paths After an Industrial Safety Diploma](https://nifsindia.net/blog/career-paths-after-industrial-safety-diploma/) — A safety diploma opens into several career tracks. Here's what graduates actually go on to do, and how to plan the next step.
@@ -295,4 +295,5 @@ NIFS operates training centers across India. Only the Head Office below has a ve
 - [Safety First: The Imperative of Fire and Safety](https://nifsindia.net/blog/safety-first-the-imperative-of-fire-and-safety-courses-in-all-industries/) — In a world where safety is paramount, the importance of fire and safety courses cannot be overstated. The potential for fire-related accidents and emergencies e…
 - [Safety Intelligence™: Leading Safety in the Age of Intelligence — The 5D Leadership Model](https://nifsindia.net/blog/safety-intelligence-5d-leadership-model/) — Why tomorrow's Safety Leaders need more than technical knowledge. The 5D Safety Leadership Model — Detect, Decide, Develop, Drive, Deliver — moves safety professionals from compliance enforcers to org
 - [Safety Is Not an Expense. It Is the Cheapest Insurance.](https://nifsindia.net/blog/safety-is-not-an-expense-cheapest-insurance/) — A ₹2,500 belt guard versus a ₹6,00,000 accident: a real cost breakdown from a Visakhapatnam Rural rice mill, the psychology behind why owners skip safety, and a 7-day, under-₹15,000 action plan any sm
+- [NEBOSH, IOSH vs SBTET ADIS/PDIS: What Every Safety Student in India Must Know Before They Pay](https://nifsindia.net/blog/nebosh-iosh-vs-sbtet-adis-pdis-what-safety-students-must-know/) — NIFS's Head of Projects, Dr. GPR Krishna, breaks down why an expensive NEBOSH or IOSH certificate cannot replace a statutory Indian safety qualification, and the 10 questions every student should ask 
 
