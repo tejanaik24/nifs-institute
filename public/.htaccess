@@ -169,6 +169,7 @@ RewriteRule ^unlocking-a-fiery-career-exploring-opportunities-and-qualifications
 RewriteRule ^fire-and-safety-courses-in-visakhapatnam-a-path-to-secure-careers/?$ /blog/fire-and-safety-courses-in-visakhapatnam-a-path-to-secure-careers/ [R=301,L]
 RewriteRule ^safety-first-the-imperative-of-fire-and-safety-courses-in-all-industries/?$ /blog/safety-first-the-imperative-of-fire-and-safety-courses-in-all-industries/ [R=301,L]
 RewriteRule ^safety-intelligence-5d-leadership-model/?$ /blog/safety-intelligence-5d-leadership-model/ [R=301,L]
+RewriteRule ^safety-is-not-an-expense-cheapest-insurance/?$ /blog/safety-is-not-an-expense-cheapest-insurance/ [R=301,L]
 
 RewriteRule ^certificate-course-in-fire-safety/?$ /courses/certificate-course-in-fire-safety/ [R=301,L]
 RewriteRule ^diploma-in-fire-safety/?$ /courses/diploma-in-fire-safety/ [R=301,L]
@@ -199,6 +200,8 @@ RewriteRule ^recognition-gallery/?$ /gallery/?category=recognition-gallery [R=30
 RewriteRule ^practical-training-yard/?$ /gallery/practical-training-yard/ [R=301,L]
 
 RewriteRule ^nifs-visakhapatnam/?$ /centers/visakhapatnam/ [R=301,L]
+RewriteRule ^vizag/?$ /centers/visakhapatnam/ [R=301,L]
+RewriteRule ^visakhapatnam/?$ /centers/visakhapatnam/ [R=301,L]
 
 RewriteRule ^nifs-[a-z-]+/?$ /centers/ [R=301,L]
 
@@ -208,6 +211,7 @@ RewriteRule ^tag/.*$ /blog/ [R=301,L]
 RewriteRule ^category/.*$ /blog/ [R=301,L]
 
 RewriteRule ^how-to-apply/?$ /admissions/ [R=301,L]
+RewriteRule ^job-openings/?$ /placements/ [R=301,L]
 RewriteRule ^jobs/?$ /placements/ [R=301,L]
 RewriteRule ^online-courses/?$ /courses/ [R=301,L]
 RewriteRule ^offline-courses/?$ /courses/ [R=301,L]
@@ -234,9 +238,7 @@ RewriteRule ^about/benefits/?$ /about/company-profile/ [R=301,L]
   Header set Referrer-Policy "strict-origin-when-cross-origin"
   Header set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
   <FilesMatch "\.(html|htm)$">
-    Header set Cache-Control "no-cache, no-store, must-revalidate"
-    Header set Pragma "no-cache"
-    Header set Expires "0"
+    Header set Cache-Control "public, max-age=300, must-revalidate"
   </FilesMatch>
   <FilesMatch "\.(css|js|woff2|jpg|png|webp|svg)$">
     Header set Cache-Control "public, max-age=31536000, immutable"
