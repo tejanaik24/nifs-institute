@@ -121,6 +121,20 @@ export default function HomeHero() {
 
         let loaded = 0;
 
+        // Only slide 0 has `src` in the server HTML (eager+high priority) so
+        // it doesn't compete for bandwidth with the LCP fetch. The other 4
+        // slides (~150KB webp each) get their `src` injected here, after
+        // mount, once the browser is idle — this is what was causing 5
+        // large images to load simultaneously and blow out LCP.
+        const idle =
+          window.requestIdleCallback ?? ((cb: () => void) => setTimeout(cb, 300));
+        idle(() => {
+          cineImgs.forEach((img) => {
+            const lazySrc = img.dataset.src;
+            if (lazySrc) img.src = lazySrc;
+          });
+        });
+
         const startCinematic = () => {
           const intervalId = setInterval(crossfade, 3200);
           // Push interval cleanup into the shared array so the outer return handles it
@@ -259,7 +273,8 @@ export default function HomeHero() {
           loading={i === 0 ? "eager" : "lazy"}
           fetchPriority={i === 0 ? "high" : undefined}
           decoding="async"
-          src={img.src}
+          src={i === 0 ? img.src : undefined}
+          data-src={i === 0 ? undefined : img.src}
           alt={img.alt}
           className="home-cine-img"
           data-cine={i}
