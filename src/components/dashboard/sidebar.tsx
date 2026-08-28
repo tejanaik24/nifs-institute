@@ -1,11 +1,12 @@
 import Link from "next/link";
-import { LayoutDashboard, FileText, BarChart3, Bot } from "lucide-react";
+import { LayoutDashboard, FileText, BarChart3, Bot, Hammer } from "lucide-react";
 
 const NAV_ITEMS = [
   { href: "/dashboard", label: "Overview", icon: LayoutDashboard },
   { href: "/dashboard/content", label: "Content", icon: FileText },
   { href: "/dashboard/analytics", label: "Analytics", icon: BarChart3 },
   { href: "/dashboard/agent", label: "Agent", icon: Bot },
+  { href: "/dashboard/code-fixer", label: "Code Fixer", icon: Hammer },
 ];
 
 export function Sidebar() {
