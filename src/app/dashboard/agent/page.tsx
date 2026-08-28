@@ -1,21 +1,31 @@
 "use client";
 
-import { useState } from "react";
 import { useChat } from "@ai-sdk/react";
 import { DefaultChatTransport } from "ai";
-import { Bot, Send, Wrench, User } from "lucide-react";
+import { Bot, Wrench, User } from "lucide-react";
+import { ClaudeChatInput, type FileWithPreview, type PastedContent } from "@/components/ui/claude-style-ai-input";
+
+// Only one real backend model exists (local Ollama) — showing fictional
+// model names here would just be misleading UI.
+const AGENT_MODELS = [{ id: "triv-qwen", name: "triv-qwen (local)", description: "Running locally via Ollama" }];
 
 export default function AgentPage() {
-  const [input, setInput] = useState("");
   const { messages, sendMessage, status } = useChat({
     transport: new DefaultChatTransport({ api: "/api/agent/chat" }),
   });
 
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    if (!input.trim()) return;
-    sendMessage({ text: input });
-    setInput("");
+  function handleSend(message: string, files: FileWithPreview[], pastedContent: PastedContent[]) {
+    const parts = [message.trim()];
+    for (const p of pastedContent) parts.push(p.content);
+    // The chat model is text-only — a textual file's content can be inlined,
+    // but there's no vision model behind this to actually look at images.
+    for (const f of files) {
+      if (f.textContent) parts.push(`File: ${f.file.name}\n${f.textContent}`);
+      else parts.push(`[Attached file: ${f.file.name} — this model can't read non-text files]`);
+    }
+    const text = parts.filter(Boolean).join("\n\n");
+    if (!text.trim()) return;
+    sendMessage({ text });
   }
 
   return (
@@ -77,21 +87,14 @@ export default function AgentPage() {
         {status === "submitted" && <p className="text-xs text-[var(--dash-text-muted)]">Thinking…</p>}
       </div>
 
-      <form onSubmit={handleSubmit} className="mt-4 flex gap-2">
-        <input
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          placeholder="Ask the agent…"
-          className="flex-1 rounded-lg border border-[var(--dash-border)] bg-[var(--dash-bg)] px-4 py-2.5 text-sm text-[var(--dash-text)] placeholder:text-[var(--dash-text-muted)] focus:border-[var(--dash-accent)]/50 focus:outline-none"
-        />
-        <button
-          type="submit"
+      <div className="mt-4">
+        <ClaudeChatInput
+          onSendMessage={handleSend}
           disabled={status === "submitted" || status === "streaming"}
-          className="flex items-center justify-center rounded-lg bg-[var(--dash-accent)] px-4 text-[var(--dash-bg)] transition-opacity hover:opacity-90 disabled:opacity-40"
-        >
-          <Send size={16} />
-        </button>
-      </form>
+          placeholder="Ask the agent… (paste text or attach a text file for more context)"
+          models={AGENT_MODELS}
+        />
+      </div>
     </div>
   );
 }
