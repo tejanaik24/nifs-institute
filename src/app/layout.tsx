@@ -1,12 +1,6 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
-import { SiteHeader } from "@/components/layout/site-header";
-import { SiteFooter } from "@/components/layout/site-footer";
-import { WhatsAppButton } from "@/components/layout/whatsapp-button";
-import { PriyaWidgetLoader } from "@/components/widgets/priya-widget-loader";
-import { SmoothScrollProvider } from "@/components/motion/smooth-scroll-provider";
-import { HeroSceneWrapper } from "@/components/three/hero-scene-wrapper";
 import { DevAnnotations } from "@/components/DevAnnotations";
 import { CombinedGraphSchema } from "@/lib/seo/schema";
 import Script from "next/script";
@@ -119,21 +113,12 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body className="min-h-full flex flex-col bg-background text-foreground font-sans">
+      <body className="min-h-full bg-background text-foreground font-sans">
         <a href="#main-content" className="skip-to-content">
           Skip to main content
         </a>
         <CombinedGraphSchema />
-        <SmoothScrollProvider>
-          <HeroSceneWrapper />
-          <SiteHeader />
-          <main id="main-content" className="flex-1">
-            {children}
-          </main>
-          <SiteFooter />
-          <WhatsAppButton />
-          <PriyaWidgetLoader />
-        </SmoothScrollProvider>
+        {children}
         <DevAnnotations />
       </body>
     </html>

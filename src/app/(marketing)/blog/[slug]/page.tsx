@@ -3,13 +3,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Calendar, Clock, UserCheck, ShieldCheck, Phone, MessageSquare, HelpCircle } from "lucide-react";
-import { blogPosts, getBlogPost } from "@/lib/data/blog";
+import { getPostBySlug, toBlogPostView } from "@/lib/db/posts";
 import { FAQSchema, BlogPostingSchema, BreadcrumbSchema } from "@/lib/seo/schema";
 import { getContextualLinks } from "@/lib/seo/contextual-links";
 
-export async function generateStaticParams() {
-  return blogPosts.map((post) => ({ slug: post.slug }));
-}
+// Blog posts are database-backed now (publish/unpublish takes effect
+// immediately) — no generateStaticParams here, this route renders on demand.
 
 export async function generateMetadata({
   params,
@@ -17,7 +16,8 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const post = getBlogPost(slug);
+  const row = await getPostBySlug(slug);
+  const post = row ? toBlogPostView(row) : null;
   if (!post) return {};
   return {
     title: `${post.title} | NIFS India`,
@@ -47,8 +47,9 @@ export default async function BlogPostPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const post = getBlogPost(slug);
-  if (!post) notFound();
+  const row = await getPostBySlug(slug);
+  if (!row) notFound();
+  const post = toBlogPostView(row);
   const exploreLinks = getContextualLinks(post);
 
   return (
