@@ -1,8 +1,10 @@
 import { google } from "googleapis";
+import { getGoogleCredentials } from "./google-credentials";
 
 export async function getTopQueries(rowLimit = 25) {
   const auth = new google.auth.GoogleAuth({
     scopes: ["https://www.googleapis.com/auth/webmasters.readonly"],
+    ...getGoogleCredentials(),
   });
   const searchconsole = google.searchconsole({ version: "v1", auth });
 

@@ -1,6 +1,7 @@
 import { BetaAnalyticsDataClient } from "@google-analytics/data";
+import { getGoogleCredentials } from "./google-credentials";
 
-const client = new BetaAnalyticsDataClient();
+const client = new BetaAnalyticsDataClient(getGoogleCredentials());
 
 export async function getDailySummary() {
   const propertyId = process.env.GA4_PROPERTY_ID!;
