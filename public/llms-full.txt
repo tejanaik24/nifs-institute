@@ -97,19 +97,19 @@ National Institute of Fire and Safety (NIFS) is India's premier vocational train
 - A short NSDC-affiliated online certificate covering safe handling, storage, and emergency response for hazardous chemicals in industrial settings.
 - URL: https://nifsindia.net/courses/certificate-course-in-chemical-safety/
 
-### Certificate Course in Construction Safety (CCCS)
-- Duration: 1 Month
-- Eligibility: 10th / SSC / HSE
-- Mode: Online
-- A short NSDC-affiliated online certificate covering site hazard control, scaffolding & fall protection, and basic safety supervision on construction sites.
-- URL: https://nifsindia.net/courses/certificate-course-in-construction-safety/
-
 ### Industrial Safety Engineer (SBTET)
 - Duration: One Year
 - Eligibility: Degree or Diploma in any branch of Engineering/Technology + 3 Years' Experience
 - Mode: Classroom (Regular, Full-Time)
 - A regular full-time program affiliated to the State Board of Technical Education & Training, Andhra Pradesh, for practicing engineers moving into dedicated industrial safety roles.
 - URL: https://nifsindia.net/courses/industrial-safety-engineer-sbtet/
+
+### NEBOSH International General Certificate (IGC)
+- Duration: 10–14 Days / 110 Hours
+- Eligibility: 10+2 / Any Degree / Working HSE
+- Mode: Classroom / Virtual Live
+- The gold-standard international OHS qualification recognized by global corporations and Gulf employers across UAE, Saudi Arabia, and Qatar.
+- URL: https://nifsindia.net/courses/nebosh-igc/
 
 ## Centers
 NIFS operates training centers across India. Only the Head Office below has a verified street address; other centers are listed by city only.
@@ -135,7 +135,8 @@ NIFS operates training centers across India. Only the Head Office below has a ve
 - Email: headoffice@nifsindia.com
 - Website: https://nifsindia.net
 
-## Blog Posts (160 total)
+## Blog Posts (161 total)
+- [ADIS vs. B.Sc in Fire & Industrial Safety: Which Course is Best for You in 2026? (Eligibility, Fees & Career Scope)](https://nifsindia.net/blog/adis-vs-bsc-fire-and-industrial-safety-which-is-better-2026/) — Confused between ADIS and B.Sc in Fire & Industrial Safety? Compare eligibility criteria, course duration, fees, Factories Act legal recognition, starting salaries, and top recruiter preferences in th
 - [Integrated Safety Management System (ISMS) Explained by NIFS HSE Head Dr. Gaddeyya Gandipilli](https://nifsindia.net/blog/integrated-safety-management-system-isms/) — NIFS Head of the HSE Department Dr. Gaddeyya Gandipilli breaks down the Integrated Safety Management System (ISMS) framework — its 11 core components, technology-based safety monitoring, and how it ti
 - [Is an Industrial Safety Diploma Worth It?](https://nifsindia.net/blog/is-industrial-safety-diploma-worth-it-fees-vs-salary/) — Is an industrial safety diploma worth it? A direct look at cost versus realistic salary outcomes using real data.
 - [Career Paths After an Industrial Safety Diploma](https://nifsindia.net/blog/career-paths-after-industrial-safety-diploma/) — A safety diploma opens into several career tracks. Here's what graduates actually go on to do, and how to plan the next step.

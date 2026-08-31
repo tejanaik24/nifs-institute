@@ -13,15 +13,39 @@ const HQ_ADDRESS = {
 };
 
 const COURSE_SERVICES = [
-  { name: "Certificate Course in Fire & Safety (CCFS)", slug: "certificate-course-in-fire-safety" },
+  {
+    name: "Certificate Course in Fire & Safety (CCFS)",
+    slug: "certificate-course-in-fire-safety",
+  },
   { name: "Diploma in Fire & Safety (DFS)", slug: "diploma-in-fire-safety" },
-  { name: "Diploma in Health, Safety & Environment (DHSE)", slug: "diploma-in-health-safety-environment" },
-  { name: "Advanced Diploma in Fire & Safety (ADFS)", slug: "advanced-diploma-in-fire-safety-adfs" },
-  { name: "Advanced Diploma in Industrial Safety (ADIS)", slug: "advanced-diploma-in-industrial-safety-adis" },
-  { name: "PG Diploma in Fire & Safety (PG DFS)", slug: "pg-diploma-in-fire-safety-pg-dfs" },
-  { name: "PG Diploma in Health, Safety & Environment (PG DHSE)", slug: "pg-diploma-in-health-safety-environment-pg-dhse" },
-  { name: "B.Sc in Fire & Industrial Safety", slug: "b-sc-in-fire-industrial-safety" },
-  { name: "B.Sc (Honours) in Fire & Industrial Safety", slug: "b-sc-honours-in-fire-industrial-safety" },
+  {
+    name: "Diploma in Health, Safety & Environment (DHSE)",
+    slug: "diploma-in-health-safety-environment",
+  },
+  {
+    name: "Advanced Diploma in Fire & Safety (ADFS)",
+    slug: "advanced-diploma-in-fire-safety-adfs",
+  },
+  {
+    name: "Advanced Diploma in Industrial Safety (ADIS)",
+    slug: "advanced-diploma-in-industrial-safety-adis",
+  },
+  {
+    name: "PG Diploma in Fire & Safety (PG DFS)",
+    slug: "pg-diploma-in-fire-safety-pg-dfs",
+  },
+  {
+    name: "PG Diploma in Health, Safety & Environment (PG DHSE)",
+    slug: "pg-diploma-in-health-safety-environment-pg-dhse",
+  },
+  {
+    name: "B.Sc in Fire & Industrial Safety",
+    slug: "b-sc-in-fire-industrial-safety",
+  },
+  {
+    name: "B.Sc (Honours) in Fire & Industrial Safety",
+    slug: "b-sc-honours-in-fire-industrial-safety",
+  },
 ].map((c) => ({
   "@type": "Service",
   name: c.name,
@@ -47,11 +71,16 @@ export function CombinedGraphSchema() {
               "@id": ORG_ID,
               "@type": "EducationalOrganization",
               name: "National Institute of Fire and Safety (NIFS)",
-              alternateName: "NIFS India",
+              alternateName: [
+                "NIFS India",
+                "National Institute of Fire and Safety",
+                "NIFS",
+                "NIFS Visakhapatnam",
+              ],
               url: "https://nifsindia.net",
               logo: "https://nifsindia.net/images/nifs-logo.png",
               description:
-                "India's leading fire and industrial safety training institute since 2004. NSDC & Skill India approved, ISO 9001:2015 certified.",
+                "National Institute of Fire and Safety (NIFS) is India's premier government-approved fire and industrial safety training institute established in 2004 (distinct from NIFSM). Approved by NSDC, Skill India, and ISO 9001:2015 certified with 70+ centers nationwide and 45,000+ placements.",
               foundingDate: "2004",
               address: HQ_ADDRESS,
               contactPoint: {
@@ -64,7 +93,7 @@ export function CombinedGraphSchema() {
                 "https://www.facebook.com/nifsindia",
                 "https://www.instagram.com/nifsindia",
                 "https://www.linkedin.com/company/nifs-india",
-                "https://www.youtube.com/@nifsindia"
+                "https://www.youtube.com/@nifsindia",
               ],
               makesOffer: COURSE_SERVICES,
             },
@@ -246,4 +275,3 @@ export function BreadcrumbSchema({
     />
   );
 }
-

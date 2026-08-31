@@ -1,21 +1,22 @@
-import type { Metadata } from "next";
-import { Suspense } from "react";
-import { PageHero } from "@/components/sections/page-hero";
 import { GalleryGrid } from "@/components/sections/GalleryGrid";
+import { PageHero } from "@/components/sections/page-hero";
 import { galleryCategories } from "@/lib/data/gallery";
 import { BreadcrumbSchema } from "@/lib/seo/schema";
+import type { Metadata } from "next";
+import { Suspense } from "react";
 
 const PAGE_URL = "https://nifsindia.net/gallery/practical-training-yard/";
 
 export const metadata: Metadata = {
-  title: "Practical Fire Safety Training Yard | NIFS India",
+  title:
+    "Practical Firefighting Training Yard & Hands-On Safety Drills | NIFS India",
   description:
-    "See NIFS's practical fire safety training yard in Visakhapatnam - live-fire drills, rescue gear & hands-on safety exercises. Real photos from real batches.",
+    "Explore India's premier practical firefighting training yard in Visakhapatnam. Live Class A-D fire suppression drills, SCBA smoke chambers, high-rise rope rescues & hands-on industrial safety gear.",
   alternates: { canonical: "/gallery/practical-training-yard/" },
 };
 
 const practicalTrainingYard = galleryCategories.filter(
-  (c) => c.slug === "practical-training-yard"
+  (c) => c.slug === "practical-training-yard",
 );
 
 export default function PracticalTrainingYardPage() {

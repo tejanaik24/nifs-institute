@@ -1,9 +1,9 @@
-import type { Metadata } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
-import "./globals.css";
 import { DevAnnotations } from "@/components/DevAnnotations";
 import { CombinedGraphSchema } from "@/lib/seo/schema";
+import type { Metadata } from "next";
+import { Inter, Playfair_Display } from "next/font/google";
 import Script from "next/script";
+import "./globals.css";
 
 const playfair = Playfair_Display({
   variable: "--font-display",
@@ -41,6 +41,9 @@ export const metadata: Metadata = {
   authors: [{ name: "NIFS India" }],
   creator: "NIFS India",
   metadataBase: new URL("https://nifsindia.net"),
+  alternates: {
+    canonical: "./",
+  },
   openGraph: {
     type: "website",
     locale: "en_IN",

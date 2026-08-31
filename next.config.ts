@@ -22,12 +22,16 @@ const COURSE_SLUGS = [
   "pg-diploma-in-health-safety-environment-pg-dhse",
   "b-sc-in-fire-industrial-safety",
   "b-sc-honours-in-fire-industrial-safety",
+  "nebosh-igc",
 ];
 
 const COURSE_ALIASES: Record<string, string> = {
   "diploma-in-fire-safety-dfs": "diploma-in-fire-safety",
   "certificate-course-in-fire-safety-ccfs": "certificate-course-in-fire-safety",
-  "sbtet-certificate-course-in-industrial-safety": "certificate-course-in-fire-safety",
+  "sbtet-certificate-course-in-industrial-safety":
+    "certificate-course-in-fire-safety",
+  "nebosh-course": "nebosh-igc",
+  "nebosh-training": "nebosh-igc",
 };
 
 const UTILITY_REDIRECTS: Record<string, string> = {
@@ -90,28 +94,57 @@ const nextConfig: NextConfig = {
       // ("practical-training-yard" has its own real page, so it's excluded
       // to avoid redirecting a page to itself).
       ...galleryCategories
-        .filter((cat: { slug: string }) => cat.slug !== "practical-training-yard")
+        .filter(
+          (cat: { slug: string }) => cat.slug !== "practical-training-yard",
+        )
         .map((cat: { slug: string }) => ({
-          source: cat.slug === "recognition-gallery" ? `/${cat.slug}` : `/gallery/${cat.slug}`,
+          source:
+            cat.slug === "recognition-gallery"
+              ? `/${cat.slug}`
+              : `/gallery/${cat.slug}`,
           destination: `/gallery/?category=${cat.slug}`,
           permanent: true,
         })),
 
       // GSC-indexed root-level URL for the practical training yard photos
-      { source: "/practical-training-yard", destination: "/gallery/practical-training-yard/", permanent: true },
+      {
+        source: "/practical-training-yard",
+        destination: "/gallery/practical-training-yard/",
+        permanent: true,
+      },
 
       // Visakhapatnam has its own dedicated landing page
-      { source: "/nifs-visakhapatnam", destination: "/centers/visakhapatnam/", permanent: true },
-      { source: "/vizag", destination: "/centers/visakhapatnam/", permanent: true },
-      { source: "/visakhapatnam", destination: "/centers/visakhapatnam/", permanent: true },
+      {
+        source: "/nifs-visakhapatnam",
+        destination: "/centers/visakhapatnam/",
+        permanent: true,
+      },
+      {
+        source: "/vizag",
+        destination: "/centers/visakhapatnam/",
+        permanent: true,
+      },
+      {
+        source: "/visakhapatnam",
+        destination: "/centers/visakhapatnam/",
+        permanent: true,
+      },
 
       // Old per-city landing pages -> the single current /centers/ page.
       // Bounded to the "nifs-" prefix (no real route starts with it) so
       // this can't accidentally shadow an actual page.
-      { source: "/nifs-:city([a-z-]+)", destination: "/centers/", permanent: true },
+      {
+        source: "/nifs-:city([a-z-]+)",
+        destination: "/centers/",
+        permanent: true,
+      },
 
       // High-demand category with no dedicated page -> course catalog
-      { source: "/category/safety-officer-course", destination: "/courses/", permanent: true },
+      {
+        source: "/category/safety-officer-course",
+        destination: "/courses/",
+        permanent: true,
+      },
 
       // Old WordPress taxonomy archives -> current blog index
       { source: "/tag/:path*", destination: "/blog/", permanent: true },

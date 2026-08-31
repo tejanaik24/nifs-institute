@@ -1,14 +1,18 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
+import { useEffect, useRef } from "react";
 
 // Type-only imports — erased at runtime, zero bundle impact
-import type Lenis from "lenis";
 import type { gsap as GsapType } from "gsap";
 import type { ScrollTrigger as ScrollTriggerType } from "gsap/ScrollTrigger";
+import type Lenis from "lenis";
 
-export function SmoothScrollProvider({ children }: { children: React.ReactNode }) {
+export function SmoothScrollProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const lenisRef = useRef<Lenis | null>(null);
   const scrollTriggerRef = useRef<typeof ScrollTriggerType | null>(null);
   const gsapTickerRef = useRef<typeof GsapType.ticker | null>(null);
@@ -21,7 +25,7 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
     if (isMobile) return;
 
     const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
+      "(prefers-reduced-motion: reduce)",
     ).matches;
     if (prefersReducedMotion) return;
 
@@ -60,7 +64,7 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
       lenis.on("scroll", (e: { scroll: number }) => {
         ScrollTrigger.update();
         window.dispatchEvent(
-          new CustomEvent("app-scroll", { detail: { scrollY: e.scroll } })
+          new CustomEvent("app-scroll", { detail: { scrollY: e.scroll } }),
         );
       });
 
@@ -70,10 +74,14 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
       gsap.ticker.add(tickerFn);
       gsap.ticker.lagSmoothing(0);
 
-      // Watch dynamic height changes on body (lazy images, dynamic DOM elements, etc.)
+      // Watch dynamic height changes on body with debounce (prevents desktop main-thread thrashing)
+      let debounceTimer: ReturnType<typeof setTimeout> | null = null;
       resizeObserver = new ResizeObserver(() => {
-        lenis.resize();
-        ScrollTrigger.refresh();
+        if (debounceTimer) clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(() => {
+          lenis.resize();
+          ScrollTrigger.refresh();
+        }, 150);
       });
       resizeObserver.observe(document.body);
     });

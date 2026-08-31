@@ -21,7 +21,8 @@ export type Course = {
 export const courses: Course[] = [
   {
     slug: "certificate-course-in-fire-safety",
-    seoDescription: "A fast-track entry into industrial safety — fire prevention, PPE handling, and workplace hazard awareness for career starters.",
+    seoDescription:
+      "A fast-track entry into industrial safety — fire prevention, PPE handling, and workplace hazard awareness for career starters.",
     name: "Certificate Course in Fire & Safety (CCFS)",
     shortName: "CCFS",
     tier: "Certificate",
@@ -30,13 +31,19 @@ export const courses: Course[] = [
     mode: "Classroom / Online",
     summary:
       "A fast-track entry point into industrial safety — fire prevention fundamentals, PPE handling, and workplace hazard awareness for those starting their safety career.",
-    subjects: ["Fire Prevention Basics", "PPE & Safety Equipment", "Workplace Hazard Awareness", "First Aid Fundamentals"],
+    subjects: [
+      "Fire Prevention Basics",
+      "PPE & Safety Equipment",
+      "Workplace Hazard Awareness",
+      "First Aid Fundamentals",
+    ],
     careers: ["Safety Assistant", "Fire Warden", "Site Safety Trainee"],
     image: "/images/courses/certificate-course-in-fire-safety.jpg",
   },
   {
     slug: "diploma-in-fire-safety",
-    seoDescription: "Fire engineering and site safety protocols, preparing graduates for supervisory-track roles on industrial and construction sites.",
+    seoDescription:
+      "Fire engineering and site safety protocols, preparing graduates for supervisory-track roles on industrial and construction sites.",
     name: "Diploma in Fire & Safety (DFS)",
     shortName: "DFS",
     tier: "Diploma",
@@ -45,13 +52,19 @@ export const courses: Course[] = [
     mode: "Classroom / Online",
     summary:
       "Builds working knowledge of fire engineering and site safety protocols, preparing graduates for supervisory-track roles on industrial and construction sites.",
-    subjects: ["Fire Science & Engineering", "Industrial Safety Fundamentals", "Emergency Planning", "Safety Auditing Basics"],
+    subjects: [
+      "Fire Science & Engineering",
+      "Industrial Safety Fundamentals",
+      "Emergency Planning",
+      "Safety Auditing Basics",
+    ],
     careers: ["Fire & Safety Supervisor", "Site Safety Officer"],
     image: "/images/courses/diploma-in-fire-safety.jpg",
   },
   {
     slug: "diploma-in-health-safety-environment",
-    seoDescription: "Covers occupational health, environmental compliance, and workplace risk management for manufacturing and process industries.",
+    seoDescription:
+      "Covers occupational health, environmental compliance, and workplace risk management for manufacturing and process industries.",
     name: "Diploma in Health, Safety & Environment (DHSE)",
     shortName: "DHSE",
     tier: "Diploma",
@@ -60,13 +73,19 @@ export const courses: Course[] = [
     mode: "Classroom / Online",
     summary:
       "Covers occupational health, environmental compliance, and workplace risk management — the core EHS skillset demanded across manufacturing, construction, and process industries.",
-    subjects: ["Occupational Health", "Environmental Management", "Risk Assessment", "Regulatory Compliance"],
+    subjects: [
+      "Occupational Health",
+      "Environmental Management",
+      "Risk Assessment",
+      "Regulatory Compliance",
+    ],
     careers: ["EHS Officer", "Compliance Coordinator"],
     image: "/images/courses/diploma-in-health-safety-environment.jpg",
   },
   {
     slug: "advanced-diploma-in-fire-safety-adfs",
-    seoDescription: "Fire engineering with hands-on drills at NIFS's practical training yard, for candidates targeting mid-level safety leadership roles.",
+    seoDescription:
+      "Fire engineering with hands-on drills at NIFS's practical training yard, for candidates targeting mid-level safety leadership roles.",
     name: "Advanced Diploma in Fire & Safety (ADFS)",
     shortName: "ADFS",
     tier: "Advanced Diploma",
@@ -75,7 +94,12 @@ export const courses: Course[] = [
     mode: "Classroom / Online",
     summary:
       "An in-depth program combining fire engineering with hands-on drills at NIFS's practical training yard, built for candidates targeting mid-level safety leadership roles.",
-    subjects: ["Advanced Fire Engineering", "Hazard Identification & Risk Assessment", "Fire Prevention & Control Techniques", "Emergency Response Planning"],
+    subjects: [
+      "Advanced Fire Engineering",
+      "Hazard Identification & Risk Assessment",
+      "Fire Prevention & Control Techniques",
+      "Emergency Response Planning",
+    ],
     careers: ["Fire Safety Officer", "Industrial Safety Supervisor"],
     image: "/images/training-yard-drill.jpg",
   },
@@ -89,13 +113,23 @@ export const courses: Course[] = [
     mode: "Classroom / Online",
     summary:
       "Focused on plant-floor safety management — hazard control, machine safeguarding, and safety audits — for candidates aiming at core industrial safety officer roles.",
-    subjects: ["Industrial Safety Management", "Machine Safeguarding", "Hazardous Zone Safety (HT/LT)", "Safety Audits & Inspections"],
-    careers: ["Industrial Safety Officer", "Plant Safety Coordinator"],
+    subjects: [
+      "Industrial Safety Management",
+      "Machine Safeguarding",
+      "Hazardous Zone Safety (HT/LT)",
+      "Safety Audits & Inspections",
+    ],
+    careers: [
+      "Industrial Safety Officer",
+      "Plant Safety Coordinator",
+      "EHS Engineer",
+    ],
     image: "/images/course-card-industrial-safety.jpg",
-    seoTitle: "Advanced Diploma in Industrial Safety (ADIS) | NIFS India",
+    seoTitle:
+      "Advanced Diploma in Industrial Safety (ADIS) — 1-Year Govt Approved | NIFS India",
     h1: "Advanced Diploma in Industrial Safety — ADIS",
     seoDescription:
-      "Plant-floor safety management — hazard control, machine safeguarding, and audits — for candidates aiming at safety officer roles.",
+      "Enroll in the 1-Year Advanced Diploma in Industrial Safety (ADIS) at NIFS India. Statutory qualification under Factories Act 1948, practical yard drills, 100% placement support with top MNCs.",
   },
   {
     slug: "pg-diploma-in-fire-safety-pg-dfs",
@@ -107,13 +141,19 @@ export const courses: Course[] = [
     mode: "Classroom / Online",
     summary:
       "A graduate-level program for career-changers and professionals seeking to move into fire and safety management roles across large industrial operations.",
-    subjects: ["Fire Risk Engineering", "Safety Management Systems", "Legal & Regulatory Framework", "Emergency Response Coordination"],
+    subjects: [
+      "Fire Risk Engineering",
+      "Safety Management Systems",
+      "Legal & Regulatory Framework",
+      "Emergency Response Coordination",
+    ],
     careers: ["Fire & Safety Manager", "Emergency Response Coordinator"],
     image: "/images/course-card-fire-safety.jpg",
   },
   {
     slug: "pg-diploma-in-health-safety-environment-pg-dhse",
-    seoDescription: "Graduate-level EHS management training aligned with international standards, for professionals targeting HSE roles at MNCs and EPC contractors.",
+    seoDescription:
+      "Graduate-level EHS management training aligned with international standards, for professionals targeting HSE roles at MNCs and EPC contractors.",
     name: "PG Diploma in Health, Safety & Environment (PG DHSE)",
     seoTitle: "PG Diploma in Health, Safety & Environment | NIFS India",
     shortName: "PG DHSE",
@@ -123,13 +163,19 @@ export const courses: Course[] = [
     mode: "Classroom / Online",
     summary:
       "Graduate-level EHS management training aligned with international standards — designed for professionals targeting HSE management roles at MNCs and EPC contractors.",
-    subjects: ["HSE Management Systems", "Environmental Compliance", "Behavioral Safety", "Incident Investigation"],
+    subjects: [
+      "HSE Management Systems",
+      "Environmental Compliance",
+      "Behavioral Safety",
+      "Incident Investigation",
+    ],
     careers: ["HSE Manager", "Risk Analyst"],
     image: "/images/corporate-training-onsite.jpg",
   },
   {
     slug: "b-sc-in-fire-industrial-safety",
-    seoDescription: "A 3-year degree preparing students to manage fire hazards, implement safety protocols, and lead workplace safety compliance.",
+    seoDescription:
+      "A 3-year degree preparing students to manage fire hazards, implement safety protocols, and lead workplace safety compliance.",
     name: "B.Sc in Fire & Industrial Safety",
     shortName: "B.Sc FIS",
     tier: "B.Sc",
@@ -138,13 +184,25 @@ export const courses: Course[] = [
     mode: "Classroom / Online",
     summary:
       "A full 3-year degree program preparing students to manage fire hazards, implement safety protocols, and lead workplace safety compliance from day one of their career.",
-    subjects: ["Fire Science & Engineering", "Industrial Safety Management", "Hazard Identification & Risk Assessment", "Fire Prevention & Control Techniques", "Emergency Planning & First Aid"],
-    careers: ["Fire Safety Officer", "Industrial Safety Supervisor", "Emergency Response Coordinator", "Risk Analyst"],
+    subjects: [
+      "Fire Science & Engineering",
+      "Industrial Safety Management",
+      "Hazard Identification & Risk Assessment",
+      "Fire Prevention & Control Techniques",
+      "Emergency Planning & First Aid",
+    ],
+    careers: [
+      "Fire Safety Officer",
+      "Industrial Safety Supervisor",
+      "Emergency Response Coordinator",
+      "Risk Analyst",
+    ],
     image: "/images/gallery-practical-yard.jpg",
   },
   {
     slug: "b-sc-honours-in-fire-industrial-safety",
-    seoDescription: "An advanced 4-year honours degree with specialization in fire engineering, industrial safety management, and environmental risk.",
+    seoDescription:
+      "An advanced 4-year honours degree with specialization in fire engineering, industrial safety management, and environmental risk.",
     name: "B.Sc (Honours) in Fire & Industrial Safety",
     shortName: "B.Sc (Hons) FIS",
     tier: "B.Sc",
@@ -153,13 +211,25 @@ export const courses: Course[] = [
     mode: "Classroom / Online",
     summary:
       "An advanced 4-year honours degree program providing deep specialization in fire engineering, industrial safety management, environmental risk, and practical industry research.",
-    subjects: ["Advanced Fire Science & Engineering", "Industrial Safety & Hygiene", "Environmental Risk Management", "Safety Legislation & Audits", "Honours Research Project & Internship"],
-    careers: ["Senior Safety Officer", "Industrial Safety Specialist", "EHS Consultant", "Risk Analyst"],
+    subjects: [
+      "Advanced Fire Science & Engineering",
+      "Industrial Safety & Hygiene",
+      "Environmental Risk Management",
+      "Safety Legislation & Audits",
+      "Honours Research Project & Internship",
+    ],
+    careers: [
+      "Senior Safety Officer",
+      "Industrial Safety Specialist",
+      "EHS Consultant",
+      "Risk Analyst",
+    ],
     image: "/images/gallery-industrial-visit.jpg",
   },
   {
     slug: "diploma-in-industrial-safety-dis",
-    seoDescription: "An NSDC-affiliated online diploma building foundational plant-floor safety skills — hazard spotting, PPE, and basic risk control.",
+    seoDescription:
+      "An NSDC-affiliated online diploma building foundational plant-floor safety skills — hazard spotting, PPE, and basic risk control.",
     name: "Diploma in Industrial Safety (DIS)",
     shortName: "DIS",
     tier: "Diploma",
@@ -168,14 +238,24 @@ export const courses: Course[] = [
     mode: "Online",
     summary:
       "An NSDC-affiliated online diploma building foundational plant-floor safety skills — hazard spotting, PPE discipline, and basic risk control for those starting an industrial safety career.",
-    subjects: ["Industrial Hazard Awareness", "PPE & Safety Equipment", "Basic Risk Control", "Workplace Safety Practices"],
-    careers: ["Safety Assistant", "Site Safety Trainee", "Industrial Safety Junior Officer"],
+    subjects: [
+      "Industrial Hazard Awareness",
+      "PPE & Safety Equipment",
+      "Basic Risk Control",
+      "Workplace Safety Practices",
+    ],
+    careers: [
+      "Safety Assistant",
+      "Site Safety Trainee",
+      "Industrial Safety Junior Officer",
+    ],
     image: "/images/classroom-lecture.jpg",
     accreditedBy: "NSDC",
   },
   {
     slug: "advance-diploma-in-quality-health-safety-environment-adqhse",
-    seoDescription: "An ANU-NIFS online program pairing quality management with health, safety & environment practice for combined QHSE roles.",
+    seoDescription:
+      "An ANU-NIFS online program pairing quality management with health, safety & environment practice for combined QHSE roles.",
     name: "Advance Diploma in Quality Health Safety Environment (ADQHSE)",
     seoTitle: "Advance Diploma in Quality, Health & Safety | NIFS India",
     shortName: "ADQHSE",
@@ -185,8 +265,17 @@ export const courses: Course[] = [
     mode: "Online",
     summary:
       "An ANU-NIFS online program pairing quality management with health, safety & environment practice — for graduates aiming at combined QHSE roles across manufacturing and process industries.",
-    subjects: ["Quality Management Systems", "Occupational Health & Environment", "Risk Assessment", "Regulatory Compliance"],
-    careers: ["QHSE Officer", "Compliance Coordinator", "Quality & Safety Auditor"],
+    subjects: [
+      "Quality Management Systems",
+      "Occupational Health & Environment",
+      "Risk Assessment",
+      "Regulatory Compliance",
+    ],
+    careers: [
+      "QHSE Officer",
+      "Compliance Coordinator",
+      "Quality & Safety Auditor",
+    ],
     image: "/images/control-room-risk-assessment.jpg",
     accreditedBy: "ANU",
   },
@@ -200,7 +289,12 @@ export const courses: Course[] = [
     mode: "Online",
     summary:
       "A short NSDC-affiliated online certificate covering safe handling, storage, and emergency response for hazardous chemicals in industrial settings.",
-    subjects: ["Hazardous Chemical Handling", "Chemical Storage Safety", "PPE for Chemical Exposure", "Spill & Emergency Response"],
+    subjects: [
+      "Hazardous Chemical Handling",
+      "Chemical Storage Safety",
+      "PPE for Chemical Exposure",
+      "Spill & Emergency Response",
+    ],
     careers: ["Chemical Safety Assistant", "Site Safety Trainee"],
     image: "/images/training-ppe.png",
     accreditedBy: "NSDC",
@@ -216,27 +310,74 @@ export const courses: Course[] = [
     mode: "Online",
     summary:
       "A short NSDC-affiliated online certificate covering site hazard control, scaffolding & fall protection, and basic safety supervision on construction sites.",
-    subjects: ["Construction Site Hazards", "Scaffolding & Fall Protection", "PPE on Site", "Basic Safety Supervision"],
+    subjects: [
+      "Construction Site Hazards",
+      "Scaffolding & Fall Protection",
+      "PPE on Site",
+      "Basic Safety Supervision",
+    ],
     careers: ["Construction Safety Assistant", "Site Safety Trainee"],
     image: "/images/classroom-to-site-split-plant.jpg",
     accreditedBy: "NSDC",
   },
   {
     slug: "industrial-safety-engineer-sbtet",
-    seoDescription: "A full-time SBTET Andhra Pradesh-affiliated program for practicing engineers moving into dedicated industrial safety roles.",
+    seoDescription:
+      "A full-time SBTET Andhra Pradesh-affiliated program for practicing engineers moving into dedicated industrial safety roles.",
     name: "Industrial Safety Engineer (SBTET)",
     shortName: "SBTET ISE",
     tier: "Advanced Diploma",
     duration: "One Year",
-    eligibility: "Degree or Diploma in any branch of Engineering/Technology + 3 Years' Experience",
+    eligibility:
+      "Degree or Diploma in any branch of Engineering/Technology + 3 Years' Experience",
     mode: "Classroom (Regular, Full-Time)",
     summary:
       "A regular full-time program affiliated to the State Board of Technical Education & Training, Andhra Pradesh, for practicing engineers moving into dedicated industrial safety roles.",
-    subjects: ["Industrial Safety Engineering", "Hazard Identification & Risk Assessment", "Safety Legislation", "Project & Practical Training"],
+    subjects: [
+      "Industrial Safety Engineering",
+      "Hazard Identification & Risk Assessment",
+      "Safety Legislation",
+      "Project & Practical Training",
+    ],
     careers: ["Industrial Safety Engineer", "Plant Safety Officer"],
     image: "/images/courses-classroom.png",
     accreditedBy: "SBTET-AP",
   },
+  {
+    slug: "nebosh-igc",
+    name: "NEBOSH International General Certificate (IGC)",
+    shortName: "NEBOSH IGC",
+    tier: "Certificate",
+    duration: "10–14 Days (Modular) / 110 Hours",
+    eligibility: "10+2 / Any Degree / Safety Aspirants & Working Professionals",
+    mode: "Classroom / Virtual Live Interactive",
+    summary:
+      "The globally recognized gold standard in occupational health & safety management. Essential for career opportunities across Gulf countries (UAE, Saudi Arabia, Qatar, Oman), multinational construction, oil & gas operators, and top-tier industrial corporations.",
+    subjects: [
+      "Unit IG1: Management of Health and Safety (Open Book Examination)",
+      "Unit IG2: Risk Assessment & Practical Application",
+      "Workplace Hazards Identification & Control Strategies",
+      "International Health and Safety Legal Frameworks & ISO 45001 Standards",
+    ],
+    careers: [
+      "International HSE Officer",
+      "Offshore Safety Specialist",
+      "EHS Advisor & Consultant",
+      "Corporate Safety Auditor",
+    ],
+    image: "/images/training-yard-drill.jpg",
+    seoTitle:
+      "NEBOSH IGC Course Training in India — Syllabus, Exam & Fees | NIFS India",
+    h1: "NEBOSH International General Certificate (IGC) in Occupational Health & Safety",
+    seoDescription:
+      "Enroll in NEBOSH IGC training at NIFS India. Global standard OHS qualification, expert live training, comprehensive IG1/IG2 exam prep, and 100% placement support.",
+  },
 ];
 
-export const courseTiers = ["Certificate", "Diploma", "Advanced Diploma", "PG Diploma", "B.Sc"] as const;
+export const courseTiers = [
+  "Certificate",
+  "Diploma",
+  "Advanced Diploma",
+  "PG Diploma",
+  "B.Sc",
+] as const;

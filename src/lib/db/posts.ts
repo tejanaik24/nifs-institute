@@ -29,7 +29,9 @@ export function toBlogPostView(row: typeof posts.$inferSelect): BlogPostView {
     coverImage: row.coverImage || null,
     contentHtml: row.content,
     faqs: row.faqs,
-    author: row.authorName ? { name: row.authorName, title: row.authorTitle } : undefined,
+    author: row.authorName
+      ? { name: row.authorName, title: row.authorTitle }
+      : undefined,
   };
 }
 
@@ -41,7 +43,32 @@ export function slugify(title: string): string {
     .replace(/^-+|-+$/g, "");
 }
 
-export async function getPublishedPosts() {
+export async function getPublishedPosts(): Promise<
+  (typeof posts.$inferSelect)[]
+> {
+  if (!process.env.DATABASE_URL) {
+    const fallback = require("../data/blog-posts.json");
+    return fallback.map((p: any, idx: number) => ({
+      id: idx + 1,
+      slug: p.slug,
+      title: p.title,
+      excerpt: p.excerpt ?? "",
+      content: p.contentHtml ?? "",
+      coverImage: p.coverImage ?? null,
+      category: p.categories?.[0] ?? "",
+      seoTitle: p.title,
+      metaDescription: p.excerpt ?? "",
+      ogImage: p.coverImage ?? null,
+      wordCount: p.wordCount ?? 0,
+      faqs: p.faqs ?? null,
+      authorName: p.author?.name ?? null,
+      authorTitle: p.author?.title ?? null,
+      status: "published" as const,
+      publishedAt: new Date(p.date),
+      createdAt: new Date(p.date),
+      updatedAt: new Date(p.date),
+    }));
+  }
   return db
     .select()
     .from(posts)
@@ -49,11 +76,41 @@ export async function getPublishedPosts() {
     .orderBy(desc(posts.publishedAt));
 }
 
-export async function getAllPosts() {
+export async function getAllPosts(): Promise<(typeof posts.$inferSelect)[]> {
+  if (!process.env.DATABASE_URL) {
+    return getPublishedPosts();
+  }
   return db.select().from(posts).orderBy(desc(posts.createdAt));
 }
 
-export async function getPostBySlug(slug: string) {
+export async function getPostBySlug(
+  slug: string,
+): Promise<typeof posts.$inferSelect | null> {
+  if (!process.env.DATABASE_URL) {
+    const fallback = require("../data/blog-posts.json");
+    const p = fallback.find((post: any) => post.slug === slug);
+    if (!p) return null;
+    return {
+      id: 1,
+      slug: p.slug,
+      title: p.title,
+      excerpt: p.excerpt ?? "",
+      content: p.contentHtml ?? "",
+      coverImage: p.coverImage ?? null,
+      category: p.categories?.[0] ?? "",
+      seoTitle: p.title,
+      metaDescription: p.excerpt ?? "",
+      ogImage: p.coverImage ?? null,
+      wordCount: p.wordCount ?? 0,
+      faqs: p.faqs ?? null,
+      authorName: p.author?.name ?? null,
+      authorTitle: p.author?.title ?? null,
+      status: "published" as const,
+      publishedAt: new Date(p.date),
+      createdAt: new Date(p.date),
+      updatedAt: new Date(p.date),
+    };
+  }
   const rows = await db
     .select()
     .from(posts)
@@ -96,7 +153,11 @@ export async function updatePost(id: number, data: Partial<PostInput>) {
 export async function publishPost(id: number) {
   const rows = await db
     .update(posts)
-    .set({ status: "published", publishedAt: new Date(), updatedAt: new Date() })
+    .set({
+      status: "published",
+      publishedAt: new Date(),
+      updatedAt: new Date(),
+    })
     .where(eq(posts.id, id))
     .returning();
   return rows[0];
