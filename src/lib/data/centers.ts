@@ -53,17 +53,6 @@ export const centers: Center[] = [
     phones: ["9550539202", "0891-9198150"],
   },
 
-  // ===== TELANGANA =====
-  {
-    city: "Hyderabad",
-    state: "Telangana",
-    x: 43.85,
-    y: 62.4,
-    address:
-      "H.No. 7-1-619/A, Flat No. 301, Santhi Nilayam, SAP Street, Gayathri Nagar, Ameerpet, Hyderabad, Telangana – 500016",
-    phones: ["9246616282", "8374340999"],
-  },
-
   // ===== ASSAM =====
   {
     city: "Guwahati",

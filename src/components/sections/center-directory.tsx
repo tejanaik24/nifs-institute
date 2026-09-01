@@ -5,6 +5,7 @@ import type { Center } from "@/lib/data/centers";
 import { hasVerifiedAddress, phoneHref } from "@/lib/data/centers";
 import { AnimatePresence, motion } from "framer-motion";
 import { Compass, ExternalLink, MapPin, Phone, Search } from "lucide-react";
+import Link from "next/link";
 import { useMemo, useRef, useState } from "react";
 
 export function CenterDirectory({ centers }: { centers: Center[] }) {
@@ -306,6 +307,11 @@ export function CenterDirectory({ centers }: { centers: Center[] }) {
                   <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                     {list.map((c) => {
                       const isSelected = c.city === selectedCity;
+                      const citySlug = c.city
+                        .toLowerCase()
+                        .replace(/[^a-z0-9]+/g, "-");
+                      const href = `/centers/${citySlug}`;
+
                       return (
                         <div
                           key={c.city}
@@ -319,12 +325,18 @@ export function CenterDirectory({ centers }: { centers: Center[] }) {
                           <div>
                             <div className="flex items-start justify-between">
                               <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors flex items-center gap-1.5">
-                                <span>{c.city}</span>
-                                {c.isHQ && (
-                                  <span className="rounded bg-primary/10 px-1.5 py-0.5 text-[9px] font-bold text-primary uppercase tracking-widest">
-                                    HQ
-                                  </span>
-                                )}
+                                <Link
+                                  href={href}
+                                  className="hover:underline flex items-center gap-1.5"
+                                  onClick={(e) => e.stopPropagation()}
+                                >
+                                  <span>{c.city}</span>
+                                  {c.isHQ && (
+                                    <span className="rounded bg-primary/10 px-1.5 py-0.5 text-[9px] font-bold text-primary uppercase tracking-widest">
+                                      HQ
+                                    </span>
+                                  )}
+                                </Link>
                               </h4>
                               <MapPin
                                 className={`h-4 w-4 shrink-0 transition-transform group-hover:scale-110 ${
@@ -353,19 +365,26 @@ export function CenterDirectory({ centers }: { centers: Center[] }) {
                             )}
                           </div>
 
-                          <div className="mt-6 pt-3 border-t border-border/50 flex items-center justify-between">
-                            <span className="text-[10px] font-semibold text-primary uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
-                              View Details →
-                            </span>
+                          <div className="mt-6 pt-3 border-t border-border/50 flex items-center justify-between flex-wrap gap-2">
+                            <Link
+                              href={href}
+                              onClick={(e) => e.stopPropagation()}
+                              className="inline-flex items-center gap-1 text-[11px] font-bold text-nifs-red uppercase tracking-wider hover:underline"
+                            >
+                              <span>Explore Campus Page</span>
+                              <span>→</span>
+                            </Link>
                             <div className="flex gap-1.5">
                               {(c.phones ?? []).slice(0, 1).map((phone) => (
-                                <span
+                                <a
                                   key={phone}
-                                  className="inline-flex items-center gap-1 rounded-full bg-muted px-2.5 py-1 text-[10px] font-medium text-foreground/75"
+                                  href={phoneHref(phone)}
+                                  onClick={(e) => e.stopPropagation()}
+                                  className="inline-flex items-center gap-1 rounded-full bg-muted hover:bg-muted/80 px-2.5 py-1 text-[10px] font-medium text-foreground/75 transition-colors"
                                 >
                                   <Phone className="h-2.5 w-2.5" />
                                   <span>{phone}</span>
-                                </span>
+                                </a>
                               ))}
                               {(c.phones ?? []).length > 1 && (
                                 <span className="inline-flex items-center rounded-full bg-muted px-2.5 py-1 text-[10px] font-medium text-muted-foreground">
