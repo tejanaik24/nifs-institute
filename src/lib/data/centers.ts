@@ -53,12 +53,23 @@ export const centers: Center[] = [
     phones: ["9550539202", "0891-9198150"],
   },
 
+  // ===== TELANGANA =====
+  {
+    city: "Hyderabad",
+    state: "Telangana",
+    x: 43.85,
+    y: 62.4,
+    address:
+      "H.No. 7-1-619/A, Flat No. 301, Santhi Nilayam, SAP Street, Gayathri Nagar, Ameerpet, Hyderabad, Telangana – 500016",
+    phones: ["9246616282", "8374340999"],
+  },
+
   // ===== ASSAM =====
   {
     city: "Guwahati",
     state: "Assam",
     x: 68.03,
-    y: 36.10,
+    y: 36.1,
     address:
       "H.No. 184, 2nd Floor, Chandmari Colony, Guwahati – 781003, Assam (Near HDFC Bank / Alankar Hotel, opposite XYKA Restaurant)",
     phones: ["8486331244", "9085365653", "8133937344"],
@@ -164,7 +175,7 @@ export const centers: Center[] = [
     city: "Ahmedabad",
     state: "Gujarat",
     x: 32.98,
-    y: 45.20,
+    y: 45.2,
     address:
       "425, Kalasagar Shopping Hub, Near Satadhar Cross Road, Front of Saibaba Temple, Ghatlodia, Ahmedabad – 380061, Gujarat",
     phones: ["7940036356", "9825079730"],
@@ -230,7 +241,7 @@ export const centers: Center[] = [
   {
     city: "Hamirpur",
     state: "Himachal Pradesh",
-    x: 40.20,
+    x: 40.2,
     y: 19.97,
     address:
       "3rd Floor, Roshan Complex, Gandhi Chowk, Hamirpur Main Bazar, Hamirpur, Himachal Pradesh – 177001",
@@ -343,7 +354,7 @@ export const centers: Center[] = [
   {
     city: "Nagpur",
     state: "Maharashtra",
-    x: 44.90,
+    x: 44.9,
     y: 50.66,
     address: "#152, Pardi, Post: Walni, Kalmeshwar Road, Nagpur – 441501",
     phones: ["9545559908", "9545559909", "9923855999"],
@@ -382,7 +393,8 @@ export const centers: Center[] = [
     state: "Odisha",
     x: 55.44,
     y: 47.41,
-    address: "Ex-Primary School, OSRTC, Sector-2, Rourkela – 769006, Dist. Sundargarh",
+    address:
+      "Ex-Primary School, OSRTC, Sector-2, Rourkela – 769006, Dist. Sundargarh",
     phones: ["9238150809", "9776601122"],
   },
   {
@@ -390,7 +402,8 @@ export const centers: Center[] = [
     state: "Odisha",
     x: 55.34,
     y: 55.99,
-    address: "Gajapati Nagar, 2nd Lane, Near Safal Restaurant, Berhampur – 760010 (Ganjam)",
+    address:
+      "Gajapati Nagar, 2nd Lane, Near Safal Restaurant, Berhampur – 760010 (Ganjam)",
     phones: ["8763298879", "9938232868"],
   },
 
@@ -409,7 +422,7 @@ export const centers: Center[] = [
   {
     city: "Kota",
     state: "Rajasthan",
-    x: 39.00,
+    x: 39.0,
     y: 38.81,
     address:
       "777, Shastri Nagar Main Road, Dadabari Main Road, Near PNB Bank, Kota – 324009",
@@ -428,7 +441,8 @@ export const centers: Center[] = [
     state: "Rajasthan",
     x: 36.74,
     y: 39.76,
-    address: "70 Kidwai Nagar, Behind Roadways Bus Stand, Chittorgarh, Rajasthan – 312001",
+    address:
+      "70 Kidwai Nagar, Behind Roadways Bus Stand, Chittorgarh, Rajasthan – 312001",
     phones: ["9460707101", "9782480888"],
   },
   {
@@ -447,13 +461,14 @@ export const centers: Center[] = [
     state: "Tamil Nadu",
     x: 47.06,
     y: 74.14,
-    address: "New No. 483, Old No. 283, P.H. Road, Aminjikarai, Chennai – 600029",
+    address:
+      "New No. 483, Old No. 283, P.H. Road, Aminjikarai, Chennai – 600029",
     phones: ["9283762538", "8015097231"],
   },
   {
     city: "Coimbatore",
     state: "Tamil Nadu",
-    x: 41.00,
+    x: 41.0,
     y: 80.16,
     address:
       "C/o Coimbatore Industrial FIRE HSE Safety Vocational Training College, 244, 4th Floor, Sow Ma Business Complex, Sathy Main Road, Gandhipuram (Near Signal), Coimbatore – 641012",
@@ -479,8 +494,8 @@ export const centers: Center[] = [
     city: "Tambaram",
     state: "Tamil Nadu",
     isInformationCentre: true,
-    x: 46.80,
-    y: 74.60,
+    x: 46.8,
+    y: 74.6,
     phones: ["9283762538", "8015097231"],
   },
   {
@@ -488,7 +503,8 @@ export const centers: Center[] = [
     state: "Tamil Nadu",
     x: 43.13,
     y: 83.34,
-    address: "No. 15, Chinna Chokkikulam, Vishal Mall Road, Opp. Malligai Sweets, Madurai – 625002",
+    address:
+      "No. 15, Chinna Chokkikulam, Vishal Mall Road, Opp. Malligai Sweets, Madurai – 625002",
     phones: ["9894018952", "0452-4368952", "9345987788"],
   },
   {
@@ -519,7 +535,7 @@ export const centers: Center[] = [
   {
     city: "Trichy",
     state: "Tamil Nadu",
-    x: 44.20,
+    x: 44.2,
     y: 80.82,
     address:
       "C/o School of Safety, No. 6E, Rishivanam, Near Bishop Heber College, Vayalur Road, Puthur, Trichy – 620017",
@@ -530,7 +546,7 @@ export const centers: Center[] = [
   {
     city: "Hyderabad",
     state: "Telangana",
-    x: 43.80,
+    x: 43.8,
     y: 61.61,
     address:
       "H.No. 7-1-619/A, Flat No. 301, Santhi Nilayam, SAP Street, Gayathri Nagar, Ameerpet, Hyderabad, Telangana – 500016",
@@ -543,7 +559,8 @@ export const centers: Center[] = [
     state: "Uttarakhand",
     x: 42.97,
     y: 23.95,
-    address: "IInd Floor, Shimla Bye Pass, GMS Road, Near St. Jude's School, Dehradun – 248001",
+    address:
+      "IInd Floor, Shimla Bye Pass, GMS Road, Near St. Jude's School, Dehradun – 248001",
     phones: ["0135-2645802", "9897990861", "9023033687"],
   },
   {
@@ -568,7 +585,7 @@ export const centers: Center[] = [
   {
     city: "Lucknow",
     state: "Uttar Pradesh",
-    x: 48.30,
+    x: 48.3,
     y: 34.06,
     address:
       "Basement II, Skylark Building, Newal Kishore Road, Hazratganj, Lucknow – 226001",
@@ -588,7 +605,8 @@ export const centers: Center[] = [
     state: "Uttar Pradesh",
     x: 47.17,
     y: 35.21,
-    address: "17/NM/114, 1st Floor, Dr. Jha Lane, Avon Market, Kakadev, Kanpur – 208025",
+    address:
+      "17/NM/114, 1st Floor, Dr. Jha Lane, Avon Market, Kakadev, Kanpur – 208025",
     phones: ["8881099904", "8881099924", "7234999405"],
   },
   {
@@ -604,7 +622,7 @@ export const centers: Center[] = [
     state: "Uttar Pradesh",
     isInformationCentre: true,
     x: 42.92,
-    y: 33.10,
+    y: 33.1,
     phones: ["9958032663"],
   },
   {
@@ -723,7 +741,10 @@ export const recruiterLogos: Recruiter[] = [
 
 export const accreditations = [
   { name: "NSDC", desc: "National Skill Development Corporation" },
-  { name: "Skill India", desc: "Ministry of Skill Development & Entrepreneurship" },
+  {
+    name: "Skill India",
+    desc: "Ministry of Skill Development & Entrepreneurship",
+  },
   { name: "Acharya Nagarjuna University", desc: "Academic Collaboration" },
   { name: "Annamalai University", desc: "Academic Collaboration" },
   { name: "National Safety Council", desc: "Affiliated Body" },
@@ -749,7 +770,10 @@ export const accreditationLogos: Recruiter[] = [
     logo: "/images/logos/accreditations/national-safety-council.png",
   },
   { name: "SBTET", logo: "/images/logos/accreditations/sbtet.png" },
-  { name: "DNV IAF Management", logo: "/images/logos/accreditations/dnv-iaf-mgmt.png" },
+  {
+    name: "DNV IAF Management",
+    logo: "/images/logos/accreditations/dnv-iaf-mgmt.png",
+  },
   { name: "Lincon", logo: "/images/logos/accreditations/lincon.png" },
   { name: "QCFI", logo: "/images/logos/accreditations/qcfi.png" },
 ];

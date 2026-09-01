@@ -39,7 +39,9 @@ export default function HomeWhyNifs() {
     const container = containerRef.current;
     if (!container) return;
 
-    const items = Array.from(container.querySelectorAll<HTMLElement>(".why-item"));
+    const items = Array.from(
+      container.querySelectorAll<HTMLElement>(".why-item"),
+    );
     const panelImg = container.querySelector<HTMLImageElement>("#whyPanelImg");
     if (!items.length) return;
 
@@ -56,8 +58,9 @@ export default function HomeWhyNifs() {
         container.style.backgroundColor = BG_COLORS[index % BG_COLORS.length];
         items.forEach((item) => {
           const i = Number(item.dataset.index);
-          const opacity = i === index ? "1" : "0.3";
-          item.querySelector<HTMLElement>(".why-title")!.style.opacity = opacity;
+          const opacity = i === index ? "1" : "0.75";
+          item.querySelector<HTMLElement>(".why-title")!.style.opacity =
+            opacity;
           item.querySelector<HTMLElement>(".why-desc")!.style.opacity = opacity;
         });
         panelImg!.style.opacity = "0";
@@ -75,7 +78,11 @@ export default function HomeWhyNifs() {
         const progress = scrollTop / (scrollHeight - clientHeight || 1);
         let closest = 0;
         for (let i = 0; i < items.length; i++) {
-          if (Math.abs(progress - i / items.length) < Math.abs(progress - closest / items.length)) closest = i;
+          if (
+            Math.abs(progress - i / items.length) <
+            Math.abs(progress - closest / items.length)
+          )
+            closest = i;
         }
         setActive(closest);
       }
@@ -92,7 +99,7 @@ export default function HomeWhyNifs() {
     // ─── MOBILE: IntersectionObserver crossfade (< 768px) ─────────────────
     // The container is overflow-visible on mobile, so we observe each why-item
     // entering the viewport. The most recently entered item becomes "active":
-    // its title + desc fade to opacity 1; all others dim to 0.3.
+    // its title + desc fade to opacity 1; all others dim to 0.75.
     // Background color on the section also transitions.
     const section = container.closest<HTMLElement>("section");
     let activeCard = -1;
@@ -106,7 +113,7 @@ export default function HomeWhyNifs() {
       }
       items.forEach((item) => {
         const i = Number(item.dataset.index);
-        const opacity = i === index ? "1" : "0.3";
+        const opacity = i === index ? "1" : "0.75";
         const titleEl = item.querySelector<HTMLElement>(".why-title");
         const descEl = item.querySelector<HTMLElement>(".why-desc");
         if (titleEl) titleEl.style.opacity = opacity;
@@ -134,7 +141,7 @@ export default function HomeWhyNifs() {
         // Trigger when item is at least 50% visible in the middle band of the viewport
         rootMargin: "-20% 0px -20% 0px",
         threshold: [0, 0.25, 0.5, 0.75, 1],
-      }
+      },
     );
 
     items.forEach((item) => observer.observe(item));
@@ -149,24 +156,51 @@ export default function HomeWhyNifs() {
   return (
     <section className="bg-black w-full flex justify-center items-center flex-col overflow-hidden pt-[180px] pb-[100px] max-lg:pt-[140px] max-lg:pb-[70px] max-sm:pt-[120px] max-sm:pb-[60px]">
       <div className="w-[90%] max-sm:w-[95%] flex flex-col gap-[64px] max-sm:gap-[32px] items-center">
-        <h2 className="font-sans text-white text-[10vw] max-lg:text-[12vw] font-black leading-[100%] tracking-normal break-words w-full">Why <span className="font-display italic">NIFS</span></h2>
+        <h2 className="font-sans text-white text-[10vw] max-lg:text-[12vw] font-black leading-[100%] tracking-normal break-words w-full">
+          Why <span className="font-display italic">NIFS</span>
+        </h2>
 
         <div
           ref={containerRef}
           id="whyStickyScroll"
           className="h-[36rem] max-sm:h-auto max-sm:overflow-visible max-sm:block w-full max-w-5xl overflow-y-auto flex justify-center relative space-x-10 max-sm:space-x-0 rounded-2xl p-10 max-sm:p-6 border border-white/10 max-sm:border-0 max-sm:bg-transparent shadow-[0_20px_60px_rgba(0,0,0,0.5)] max-sm:shadow-none"
-          style={{ backgroundColor: "rgb(15 23 42)", transition: "background-color 0.5s" }}
+          style={{
+            backgroundColor: "rgb(15 23 42)",
+            transition: "background-color 0.5s",
+          }}
         >
           <div className="relative flex items-start px-4">
             <div className="max-w-2xl">
               {ITEMS.map((item, i) => (
-                <div key={item.title} className="why-item my-20 max-sm:my-10" data-index={i}>
-                  <h3 className="font-sans why-title text-2xl font-bold text-slate-100" style={{ opacity: i === 0 ? 1 : 0.3, transition: "opacity 0.4s" }}>
+                <div
+                  key={item.title}
+                  className="why-item my-20 max-sm:my-10"
+                  data-index={i}
+                >
+                  <h3
+                    className="font-sans why-title text-2xl font-bold text-slate-100"
+                    style={{
+                      opacity: i === 0 ? 1 : 0.75,
+                      transition: "opacity 0.4s",
+                    }}
+                  >
                     {item.title}
                   </h3>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img loading="lazy" decoding="async" src={item.img} alt={item.title} className="hidden max-sm:block w-full h-40 object-cover object-top rounded-xl mt-4" />
-                  <p className="font-sans why-desc text-lg text-slate-300 max-w-sm mt-10 max-sm:mt-4" style={{ opacity: i === 0 ? 1 : 0.3, transition: "opacity 0.4s" }}>
+                  <img
+                    loading="lazy"
+                    decoding="async"
+                    src={item.img}
+                    alt={item.title}
+                    className="hidden max-sm:block w-full h-40 object-cover object-top rounded-xl mt-4"
+                  />
+                  <p
+                    className="font-sans why-desc text-lg text-slate-300 max-w-sm mt-10 max-sm:mt-4"
+                    style={{
+                      opacity: i === 0 ? 1 : 0.75,
+                      transition: "opacity 0.4s",
+                    }}
+                  >
                     {item.desc}
                   </p>
                 </div>

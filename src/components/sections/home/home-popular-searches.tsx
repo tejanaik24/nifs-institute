@@ -6,7 +6,11 @@ const TAGS: { label: string; href: string; active?: boolean }[] = [
   { label: "Government Fire College", href: "/courses" },
   { label: "Best Fire & Safety Institute", href: "/courses" },
   { label: "Top Institute Of Fire & Safety Management", href: "/courses" },
-  { label: "Fire And Industrial Safety Jobs", href: "/admissions", active: true },
+  {
+    label: "Fire And Industrial Safety Jobs",
+    href: "/admissions",
+    active: true,
+  },
   { label: "Top Rank College Of Fire And Safety", href: "/courses" },
   { label: "Fire And Safety College Near Me", href: "/centers" },
   { label: "Industrial Safety Course Near Me", href: "/courses" },
@@ -17,7 +21,10 @@ const TAGS: { label: string; href: string; active?: boolean }[] = [
   { label: "Government Approved Fire And Safety Course", href: "/courses" },
   { label: "No. 1 Fire And Safety College In India", href: "/courses" },
   { label: "Best Fire & Safety College In Maharashtra", href: "/courses" },
-  { label: "Best Fire And Safety Institute With Placement", href: "/placements" },
+  {
+    label: "Best Fire And Safety Institute With Placement",
+    href: "/placements",
+  },
   { label: "Institute Of Fire Engineering", href: "/courses" },
   { label: "Jobs In Fire And Safety", href: "/placements" },
   { label: "Fire And Safety Course Government Colleges", href: "/courses" },
@@ -30,7 +37,10 @@ const TAGS: { label: string; href: string; active?: boolean }[] = [
   { label: "Career In Fire And Safety", href: "/placements" },
   { label: "Job Oriented Course", href: "/courses" },
   { label: "Best Institute For Industrial Safety In India", href: "/courses" },
-  { label: "National Institute Of Fire And Safety Engineering", href: "/courses" },
+  {
+    label: "National Institute Of Fire And Safety Engineering",
+    href: "/courses",
+  },
   { label: "100% Placement Fire And Safety Course", href: "/placements" },
   { label: "Fire And Safety Course With Job Guarantee", href: "/admissions" },
   { label: "Best Safety Officer Course In India", href: "/courses" },
@@ -62,9 +72,14 @@ export default function HomePopularSearches() {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <section id="popular-searches" className="w-full bg-white py-[60px] max-sm:py-[40px] px-[5%]">
+    <section
+      id="popular-searches"
+      className="w-full bg-white py-[60px] max-sm:py-[40px] px-[5%]"
+    >
       <div className="max-w-[1200px] mx-auto">
-        <h2 className="font-sans text-[14px] font-black uppercase tracking-[0.25em] text-nifs-red mb-6">Popular Searches</h2>
+        <h2 className="font-sans text-[14px] font-black uppercase tracking-[0.25em] text-nifs-red mb-6">
+          Popular Searches
+        </h2>
 
         {/*
           All 54 tags stay in the DOM at all times — SEO crawlability preserved.
@@ -83,7 +98,11 @@ export default function HomePopularSearches() {
           ].join(" ")}
         >
           {TAGS.map((tag) => (
-            <a key={tag.label} href={tag.href} className={tag.active ? "pop-tag pop-tag--active" : "pop-tag"}>
+            <a
+              key={tag.label}
+              href={tag.href}
+              className={tag.active ? "pop-tag pop-tag--active" : "pop-tag"}
+            >
               {tag.label}
             </a>
           ))}
@@ -93,7 +112,7 @@ export default function HomePopularSearches() {
         <button
           type="button"
           onClick={() => setExpanded((v) => !v)}
-          className="sm:hidden mt-4 text-[13px] font-sans font-semibold text-nifs-red underline underline-offset-2 cursor-pointer bg-transparent border-none p-0"
+          className="sm:hidden mt-4 text-[14px] font-sans font-semibold text-nifs-red underline underline-offset-2 cursor-pointer bg-transparent border-none py-3 px-4 min-h-[48px] inline-flex items-center justify-center"
           aria-expanded={expanded}
         >
           {expanded ? "Show less" : "Show all searches"}

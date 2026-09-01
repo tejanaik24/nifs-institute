@@ -47,13 +47,23 @@ export default function HomeTestimonials() {
               style={{ zIndex: i + 1 }}
             >
               <div className="flex flex-col justify-between h-full p-8 py-10 max-sm:p-5">
-                <p className="font-sans text-[17px] max-md:text-[14px] max-sm:text-[13px] leading-[130%] font-medium text-black line-clamp-4">&ldquo;{t.quote}&rdquo;</p>
+                <p className="font-sans text-[17px] max-md:text-[14px] max-sm:text-[13px] leading-[130%] font-medium text-black line-clamp-4">
+                  &ldquo;{t.quote}&rdquo;
+                </p>
                 <div className="flex max-sm:flex-col justify-between items-center mt-4">
                   <div className="flex gap-4 max-sm:flex-col max-sm:w-full items-center">
-                    <div className={`w-[52px] h-[52px] max-sm:w-[40px] max-sm:h-[40px] rounded-xl ${t.color} flex items-center justify-center text-white font-sans font-black text-[22px] max-sm:text-[18px]`}>{t.initial}</div>
-                    <h3 className="font-sans font-bold text-[18px] max-sm:text-[15px]">{t.name}</h3>
+                    <div
+                      className={`w-[52px] h-[52px] max-sm:w-[40px] max-sm:h-[40px] rounded-xl ${t.color} flex items-center justify-center text-white font-sans font-black text-[22px] max-sm:text-[18px]`}
+                    >
+                      {t.initial}
+                    </div>
+                    <h3 className="font-sans font-bold text-[18px] max-sm:text-[15px]">
+                      {t.name}
+                    </h3>
                   </div>
-                  <p className="font-sans font-normal text-[18px] max-sm:text-[13px] max-sm:justify-start max-sm:w-full text-gray-400">{t.role}</p>
+                  <p className="font-sans font-normal text-[18px] max-sm:text-[13px] max-sm:justify-start max-sm:w-full text-gray-600">
+                    {t.role}
+                  </p>
                 </div>
               </div>
             </div>

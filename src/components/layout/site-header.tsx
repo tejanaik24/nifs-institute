@@ -48,12 +48,12 @@ export function SiteHeader() {
   return (
     <header
       role="banner"
-      className="fixed inset-x-0 top-0 z-50 flex items-center justify-between gap-3 px-4 pt-1.5 sm:px-6 lg:px-10"
+      className="fixed inset-x-0 top-0 z-50 flex items-center justify-between gap-2 px-3 pt-2 sm:px-6 lg:px-8 xl:px-10 max-w-[100vw]"
     >
-      {/* Logo (standalone, native a tag for clean home navigation) */}
+      {/* Logo (Refined responsive proportions fitting all laptop screens) */}
       <a
         href="/"
-        className="flex shrink-0 items-center gap-2.5 group"
+        className="flex shrink-0 items-center gap-2 2xl:gap-2.5 group"
         data-path-logo="true"
       >
         <img
@@ -62,26 +62,27 @@ export function SiteHeader() {
           decoding="async"
           src="/images/nifs-official-logo-v3.png"
           alt="NIFS India"
-          className="h-28 w-28 object-contain drop-shadow-xl transition-transform duration-300 group-hover:scale-105 sm:h-32 sm:w-32"
+          className="h-20 w-20 sm:h-24 sm:w-24 2xl:h-28 2xl:w-28 object-contain drop-shadow-xl transition-transform duration-300 group-hover:scale-105"
         />
         <span className="hidden sm:flex flex-col leading-[1.1]">
-          <span className="text-nifs-red font-black text-2xl sm:text-3xl tracking-tight whitespace-nowrap drop-shadow-lg">
+          <span className="text-nifs-red font-black text-lg sm:text-xl 2xl:text-2xl tracking-tight whitespace-nowrap drop-shadow-sm">
             National Institute
           </span>
-          <span className="text-nifs-red font-black text-2xl sm:text-3xl tracking-tight whitespace-nowrap drop-shadow-lg">
+          <span className="text-nifs-red font-black text-lg sm:text-xl 2xl:text-2xl tracking-tight whitespace-nowrap drop-shadow-sm">
             of Fire &amp; Safety
           </span>
         </span>
       </a>
 
+      {/* Navigation Bar Pill */}
       <nav
         ref={navRef}
         aria-label="Main navigation"
-        className="flex shrink-0 items-center gap-2 rounded-full border border-white/15 bg-gray-950/85 backdrop-blur-2xl backdrop-saturate-150 pl-2.5 pr-2.5 py-2 shadow-2xl shadow-black/50 shadow-nifs-red/10 sm:pl-3 sm:pr-3"
+        className="flex shrink-0 items-center gap-1 2xl:gap-1.5 rounded-full border border-white/15 bg-gray-950/90 backdrop-blur-2xl backdrop-saturate-150 px-2 py-1.5 2xl:px-3 2xl:py-2 shadow-2xl shadow-black/60 shadow-nifs-red/10 mr-2 sm:mr-4 lg:mr-6"
         onMouseLeave={closeMegaDelayed}
       >
         {/* Desktop Navigation Items */}
-        <div className="hidden items-center gap-1 lg:flex">
+        <div className="hidden items-center gap-0.5 lg:flex">
           {primaryNav.map((item) => {
             const isActive =
               pathname === item.href ||
@@ -93,13 +94,12 @@ export function SiteHeader() {
                   <a
                     href="/"
                     className={cn(
-                      "relative z-10 flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-semibold transition-all duration-300",
+                      "relative z-10 flex items-center gap-1 rounded-full px-2.5 py-1.5 2xl:px-3.5 2xl:py-2 text-[13px] 2xl:text-sm font-semibold transition-all duration-200",
                       isActive
                         ? "text-white"
                         : "text-white/80 hover:bg-white/15 hover:text-white",
                     )}
                   >
-                    {/* Active pill — CSS fade, replaces framer-motion layoutId spring */}
                     {isActive && (
                       <span className="absolute inset-0 z-[-1] rounded-full bg-primary shadow-lg shadow-primary/35" />
                     )}
@@ -121,7 +121,7 @@ export function SiteHeader() {
                   target={item.external ? "_blank" : undefined}
                   rel={item.external ? "noopener noreferrer" : undefined}
                   className={cn(
-                    "relative z-10 flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-semibold transition-all duration-300",
+                    "relative z-10 flex items-center gap-1 rounded-full px-2.5 py-1.5 2xl:px-3.5 2xl:py-2 text-[13px] 2xl:text-sm font-semibold transition-all duration-200",
                     isActive
                       ? "text-white"
                       : megaOpen === item.label
@@ -130,7 +130,6 @@ export function SiteHeader() {
                   )}
                   onClick={closeMega}
                 >
-                  {/* Active pill background — CSS only */}
                   {isActive && (
                     <span className="absolute inset-0 z-[-1] rounded-full bg-primary shadow-lg shadow-primary/35" />
                   )}
@@ -140,7 +139,7 @@ export function SiteHeader() {
                   {item.children && (
                     <svg
                       className={cn(
-                        "h-3 w-3 transition-transform duration-200",
+                        "h-3 w-3 transition-transform duration-200 opacity-75",
                         megaOpen === item.label && "rotate-180",
                       )}
                       viewBox="0 0 24 24"
@@ -153,12 +152,12 @@ export function SiteHeader() {
                   )}
                 </Link>
 
-                {/* Mega Menu — always mounted, CSS opacity transition (no AnimatePresence) */}
+                {/* Mega Menu */}
                 {item.children && (
                   <div
                     className={cn(
                       "absolute left-1/2 top-full z-[70] pt-3 transition-all duration-200",
-                      item.children.length > 4 ? "w-[500px]" : "w-[280px]",
+                      item.children.length > 4 ? "w-[480px]" : "w-[280px]",
                       megaOpen === item.label
                         ? "opacity-100 translate-y-0 pointer-events-auto"
                         : "opacity-0 translate-y-2 pointer-events-none",
@@ -212,14 +211,14 @@ export function SiteHeader() {
         </div>
 
         {/* Right: CTA + mobile trigger */}
-        <div className="flex shrink-0 items-center gap-2">
+        <div className="flex shrink-0 items-center gap-1.5">
           <a
             href="https://wa.me/918374340999?text=Hi%20NIFS%2C%20I%20want%20to%20know%20about%20Fire%20%26%20Industrial%20Safety%20courses."
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs sm:text-sm font-bold transition-all duration-200 shadow-md shadow-[#25D366]/25"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 2xl:px-3.5 2xl:py-2 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs 2xl:text-sm font-bold transition-all duration-200 shadow-md shadow-[#25D366]/25"
           >
-            <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
+            <svg className="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24">
               <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.173.086.275.072.376-.043.101-.116.433-.506.549-.68.116-.173.231-.144.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.112.551 4.095 1.517 5.823l-1.61 5.877 6.04-1.584c1.664.908 3.567 1.424 5.592 1.424 6.627 0 12-5.373 12-12s-5.373-12-12-12z" />
             </svg>
             <span className="hidden sm:inline">WhatsApp</span>
@@ -227,16 +226,16 @@ export function SiteHeader() {
 
           <Link
             href="/admissions"
-            className="hidden lg:inline-flex px-5 py-2 rounded-full bg-gradient-to-r from-nifs-red to-red-600 text-white text-sm font-bold uppercase tracking-wider hover:scale-105 transition-all duration-300 shadow-lg shadow-nifs-red/30"
+            className="hidden lg:inline-flex px-3.5 py-1.5 2xl:px-5 2xl:py-2 rounded-full bg-gradient-to-r from-nifs-red to-red-600 text-white text-xs 2xl:text-sm font-bold uppercase tracking-wider hover:scale-105 transition-all duration-200 shadow-lg shadow-nifs-red/30"
           >
             Apply Now
           </Link>
 
-          {/* Hamburger → X — pure CSS transform, no framer-motion */}
+          {/* Hamburger → X */}
           <button
             id="nav-toggle"
             aria-label={menuOpen ? "Close menu" : "Open menu"}
-            className="flex h-9 w-9 flex-col items-center justify-center gap-1.5 rounded-full bg-white/10 border border-white/10 lg:hidden"
+            className="flex h-8 w-8 sm:h-9 sm:w-9 flex-col items-center justify-center gap-1.5 rounded-full bg-white/10 border border-white/10 lg:hidden"
             onClick={() => setMenuOpen((prev) => !prev)}
           >
             <span
@@ -261,8 +260,7 @@ export function SiteHeader() {
         </div>
       </nav>
 
-      {/* Mobile Overlay — CSS clip-path circle animation, replaces framer-motion AnimatePresence */}
-      {/* visibility is delayed via transition so it hides after clip-path closes */}
+      {/* Mobile Overlay */}
       <div
         role="dialog"
         aria-modal={menuOpen || undefined}
@@ -298,7 +296,6 @@ export function SiteHeader() {
           </button>
         </div>
 
-        {/* Mobile nav items — CSS opacity + translateX stagger via transition-delay */}
         <nav className="flex flex-1 flex-col gap-2 overflow-y-auto px-6 py-6">
           {primaryNav.map((item, i) => (
             <div

@@ -547,13 +547,27 @@
 
 @keyframes homeMapScan {
   0% {
-    top: 0;
+    transform: translateY(0);
   }
   50% {
-    top: calc(100% - 2px);
+    transform: translateY(580px);
   }
   100% {
-    top: 0;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  @keyframes homeMapScan {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(350px);
+    }
+    100% {
+      transform: translateY(0);
+    }
   }
 }
 
@@ -563,7 +577,9 @@
 }
 
 .home-map-scan {
-  animation: homeMapScan 5s linear infinite;
+  top: 0;
+  animation: homeMapScan 5s ease-in-out infinite;
+  will-change: transform;
 }
 
 @keyframes homeBlogMarquee {
@@ -673,8 +689,11 @@
 }
 
 .pop-tag {
-  display: inline-block;
-  padding: 7px 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 8px 18px;
   border-radius: 999px;
   border: 1.5px solid #d1d5db;
   background: #fff;
@@ -721,4 +740,3 @@
     transform: none !important;
   }
 }
-

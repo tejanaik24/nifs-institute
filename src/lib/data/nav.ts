@@ -2,7 +2,12 @@ export type NavItem = {
   label: string;
   href: string;
   external?: boolean;
-  children?: { label: string; href: string; description?: string; external?: boolean }[];
+  children?: {
+    label: string;
+    href: string;
+    description?: string;
+    external?: boolean;
+  }[];
 };
 
 export const primaryNav: NavItem[] = [
@@ -11,27 +16,78 @@ export const primaryNav: NavItem[] = [
     label: "About",
     href: "/about",
     children: [
-      { label: "Chairman's Desk", href: "/about", description: "From the Chairman & CEO" },
-      { label: "Company Profile", href: "/about/company-profile", description: "25+ years, 70+ centers, 45,000+ alumni" },
-      { label: "Vision & Mission", href: "/about/vision-mission", description: "Why NIFS exists and where we're headed" },
-      { label: "Our Accreditations", href: "/about/accreditations", description: "NSDC, ISO 9001:2015 & university affiliations" },
-      { label: "Governance & Advisors", href: "/about/governance", description: "Board of Advisors & organization hierarchy" },
+      {
+        label: "Chairman's Desk",
+        href: "/about",
+        description: "From the Chairman & CEO",
+      },
+      {
+        label: "Company Profile",
+        href: "/about/company-profile",
+        description: "25+ years, 70+ centers, 45,000+ alumni",
+      },
+      {
+        label: "Vision & Mission",
+        href: "/about/vision-mission",
+        description: "Why NIFS exists and where we're headed",
+      },
+      {
+        label: "Our Accreditations",
+        href: "/about/accreditations",
+        description: "NSDC, ISO 9001:2015 & university affiliations",
+      },
+      {
+        label: "Governance & Advisors",
+        href: "/about/governance",
+        description: "Board of Advisors & organization hierarchy",
+      },
     ],
   },
   {
     label: "Courses",
     href: "/courses",
     children: [
-      { label: "Certificate Course (CCFS)", href: "/courses/certificate-course-in-fire-safety" },
-      { label: "Diploma in Fire & Safety", href: "/courses/diploma-in-fire-safety" },
-      { label: "Diploma in HSE", href: "/courses/diploma-in-health-safety-environment" },
-      { label: "Advanced Diploma (ADFS)", href: "/courses/advanced-diploma-in-fire-safety-adfs" },
-      { label: "Advanced Diploma (ADIS)", href: "/courses/advanced-diploma-in-industrial-safety-adis" },
-      { label: "PG Diploma in Fire & Safety", href: "/courses/pg-diploma-in-fire-safety-pg-dfs" },
-      { label: "PG Diploma in HSE", href: "/courses/pg-diploma-in-health-safety-environment-pg-dhse" },
-      { label: "B.Sc Fire & Industrial Safety", href: "/courses/b-sc-in-fire-industrial-safety" },
-      { label: "B.Sc (Honours) in Fire & Industrial Safety", href: "/courses/b-sc-honours-in-fire-industrial-safety" },
-      { label: "Online Courses", href: "/courses/online", description: "All online-mode programs in one place" },
+      {
+        label: "Certificate Course (CCFS)",
+        href: "/courses/certificate-course-in-fire-safety",
+      },
+      {
+        label: "Diploma in Fire & Safety",
+        href: "/courses/diploma-in-fire-safety",
+      },
+      {
+        label: "Diploma in HSE",
+        href: "/courses/diploma-in-health-safety-environment",
+      },
+      {
+        label: "Advanced Diploma (ADFS)",
+        href: "/courses/advanced-diploma-in-fire-safety-adfs",
+      },
+      {
+        label: "Advanced Diploma (ADIS)",
+        href: "/courses/advanced-diploma-in-industrial-safety-adis",
+      },
+      {
+        label: "PG Diploma in Fire & Safety",
+        href: "/courses/pg-diploma-in-fire-safety-pg-dfs",
+      },
+      {
+        label: "PG Diploma in HSE",
+        href: "/courses/pg-diploma-in-health-safety-environment-pg-dhse",
+      },
+      {
+        label: "B.Sc Fire & Industrial Safety",
+        href: "/courses/b-sc-in-fire-industrial-safety",
+      },
+      {
+        label: "B.Sc (Honours) in Fire & Industrial Safety",
+        href: "/courses/b-sc-honours-in-fire-industrial-safety",
+      },
+      {
+        label: "Online Courses",
+        href: "/courses/online",
+        description: "All online-mode programs in one place",
+      },
     ],
   },
   { label: "Placements", href: "/placements" },
@@ -40,19 +96,79 @@ export const primaryNav: NavItem[] = [
     href: "https://ifesm.com/",
     external: true,
     children: [
-      { label: "Fire Engineering Services", href: "https://ifesm.com/", external: true },
-      { label: "Industrial Safety Services", href: "https://ifesm.com/", external: true },
-      { label: "Occupational Health & Environment", href: "https://ifesm.com/", external: true },
-      { label: "HSE Consultancy & Compliance", href: "https://ifesm.com/", external: true },
-      { label: "Safety Audits & Inspections", href: "https://ifesm.com/", external: true },
-      { label: "Emergency Preparedness", href: "https://ifesm.com/", external: true },
-      { label: "Corporate & In-House Trainings", href: "https://ifesm.com/", external: true },
-      { label: "Manpower Deployment", href: "https://ifesm.com/", external: true },
-      { label: "AI-Enabled Digital Safety", href: "https://ifesm.com/", external: true },
-      { label: "Technical Education", href: "https://ifesm.com/", external: true },
+      {
+        label: "Fire Engineering Services",
+        href: "https://ifesm.com/",
+        external: true,
+      },
+      {
+        label: "Industrial Safety Services",
+        href: "https://ifesm.com/",
+        external: true,
+      },
+      {
+        label: "Occupational Health & Environment",
+        href: "https://ifesm.com/",
+        external: true,
+      },
+      {
+        label: "HSE Consultancy & Compliance",
+        href: "https://ifesm.com/",
+        external: true,
+      },
+      {
+        label: "Safety Audits & Inspections",
+        href: "https://ifesm.com/",
+        external: true,
+      },
+      {
+        label: "Emergency Preparedness",
+        href: "https://ifesm.com/",
+        external: true,
+      },
+      {
+        label: "Corporate & In-House Trainings",
+        href: "https://ifesm.com/",
+        external: true,
+      },
+      {
+        label: "Manpower Deployment",
+        href: "https://ifesm.com/",
+        external: true,
+      },
+      {
+        label: "AI-Enabled Digital Safety",
+        href: "https://ifesm.com/",
+        external: true,
+      },
+      {
+        label: "Technical Education",
+        href: "https://ifesm.com/",
+        external: true,
+      },
     ],
   },
-  { label: "Centers", href: "/centers" },
+  {
+    label: "Centers",
+    href: "/centers",
+    children: [
+      {
+        label: "All 70+ Centers",
+        href: "/centers",
+        description: "Pan-India Training Centers Directory",
+      },
+      {
+        label: "Hyderabad Command",
+        href: "/centers/hyderabad",
+        description: "Ameerpet Metro, Telangana",
+      },
+      {
+        label: "Visakhapatnam (HQ)",
+        href: "/centers/visakhapatnam",
+        description: "National Headquarters & Yard",
+      },
+    ],
+  },
   { label: "Gallery", href: "/gallery" },
   { label: "Blog", href: "/blog" },
 ];

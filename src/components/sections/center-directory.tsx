@@ -1,11 +1,11 @@
 "use client";
 
-import { useMemo, useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { MapPin, Phone, Search, Compass, ExternalLink } from "lucide-react";
+import { IndiaMap } from "@/components/sections/india-map";
 import type { Center } from "@/lib/data/centers";
 import { hasVerifiedAddress, phoneHref } from "@/lib/data/centers";
-import { IndiaMap } from "@/components/sections/india-map";
+import { AnimatePresence, motion } from "framer-motion";
+import { Compass, ExternalLink, MapPin, Phone, Search } from "lucide-react";
+import { useMemo, useRef, useState } from "react";
 
 export function CenterDirectory({ centers }: { centers: Center[] }) {
   const [query, setQuery] = useState("");
@@ -15,7 +15,7 @@ export function CenterDirectory({ centers }: { centers: Center[] }) {
 
   const states = useMemo(
     () => Array.from(new Set(centers.map((c) => c.state))).sort(),
-    [centers]
+    [centers],
   );
 
   // Group and filter centers
@@ -78,10 +78,12 @@ export function CenterDirectory({ centers }: { centers: Center[] }) {
               className="h-12 w-full rounded-xl border border-border bg-white pr-4 pl-12 text-sm outline-none transition-all placeholder:text-muted-foreground focus-visible:border-primary/50 focus-visible:ring-2 focus-visible:ring-primary/20"
             />
           </div>
-          
+
           <div className="flex items-center gap-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider">
             <Compass className="h-4 w-4 animate-spin-slow text-primary" />
-            <span>Showing {total} of {centers.length} Centers</span>
+            <span>
+              Showing {total} of {centers.length} Centers
+            </span>
           </div>
         </div>
 
@@ -96,7 +98,10 @@ export function CenterDirectory({ centers }: { centers: Center[] }) {
           >
             <button
               type="button"
-              onClick={() => { setStateFilter(null); setSelectedCity(null); }}
+              onClick={() => {
+                setStateFilter(null);
+                setSelectedCity(null);
+              }}
               aria-pressed={stateFilter === null}
               className={`rounded-full border px-4 py-1.5 text-xs font-medium transition-all ${
                 stateFilter === null
@@ -133,7 +138,6 @@ export function CenterDirectory({ centers }: { centers: Center[] }) {
 
       {/* ── 2-COLUMN GEOGRAPHIC CONSOLE ── */}
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1.3fr_1fr] lg:items-start">
-        
         {/* LEFT COLUMN: Sticky Map & Center Detail */}
         <div className="order-1 lg:order-2 lg:sticky lg:top-28">
           <div className="rounded-3xl border border-zinc-200/80 bg-white p-6 shadow-md">
@@ -149,11 +153,17 @@ export function CenterDirectory({ centers }: { centers: Center[] }) {
 
             {/* Render Map */}
             <div className="relative overflow-hidden rounded-2xl border border-zinc-100">
-              <IndiaMap selectedCity={selectedCity} onSelect={handleSelectCenter} />
+              <IndiaMap
+                selectedCity={selectedCity}
+                onSelect={handleSelectCenter}
+              />
             </div>
 
             {/* Selected Center Detail Panel */}
-            <div ref={detailCardRef} className="mt-6 rounded-2xl border border-zinc-100 bg-zinc-50/60 p-5">
+            <div
+              ref={detailCardRef}
+              className="mt-6 rounded-2xl border border-zinc-100 bg-zinc-50/60 p-5"
+            >
               <AnimatePresence mode="wait">
                 {selectedCenter ? (
                   <motion.div
@@ -191,23 +201,33 @@ export function CenterDirectory({ centers }: { centers: Center[] }) {
                     <div className="h-px bg-zinc-100" />
 
                     <div className="space-y-2 text-sm">
-                      <span className="block text-[10px] font-semibold text-zinc-400 uppercase tracking-wider">Address</span>
+                      <span className="block text-[10px] font-semibold text-zinc-400 uppercase tracking-wider">
+                        Address
+                      </span>
                       {hasVerifiedAddress(selectedCenter) ? (
                         <p className="text-zinc-600 leading-relaxed text-xs">
                           {selectedCenter.address}
                         </p>
                       ) : (
                         <p className="text-zinc-400 leading-relaxed text-xs italic">
-                          Official address registration pending. Contact HQ for complete details.
+                          Official address registration pending. Contact HQ for
+                          complete details.
                         </p>
                       )}
                     </div>
 
                     <div className="flex flex-wrap gap-2 pt-2">
+                      <a
+                        href={`/centers/${selectedCenter.city.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
+                        className="inline-flex items-center gap-1.5 rounded-full bg-nifs-red hover:bg-red-700 px-3.5 py-1.5 text-xs font-bold text-white transition-colors shadow-sm"
+                      >
+                        <span>Explore {selectedCenter.city} Page →</span>
+                      </a>
+
                       {hasVerifiedAddress(selectedCenter) && (
                         <a
                           href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-                            selectedCenter.address ?? selectedCenter.city
+                            selectedCenter.address ?? selectedCenter.city,
                           )}`}
                           target="_blank"
                           rel="noopener noreferrer"
@@ -222,7 +242,7 @@ export function CenterDirectory({ centers }: { centers: Center[] }) {
                         <a
                           key={phone}
                           href={phoneHref(phone)}
-                          className="inline-flex items-center gap-1 rounded-full bg-primary hover:bg-primary/90 px-3 py-1.5 text-xs font-semibold text-primary-foreground transition-colors"
+                          className="inline-flex items-center gap-1 rounded-full bg-zinc-900 hover:bg-zinc-800 px-3 py-1.5 text-xs font-semibold text-white transition-colors"
                         >
                           <Phone className="h-3.5 w-3.5" />
                           <span>Call: {phone}</span>
@@ -243,7 +263,8 @@ export function CenterDirectory({ centers }: { centers: Center[] }) {
                       No center selected
                     </span>
                     <p className="mt-2 max-w-[240px] text-xs text-zinc-400 leading-normal">
-                      Click any center card or a pin on the map to view its full details.
+                      Click any center card or a pin on the map to view its full
+                      details.
                     </p>
                   </motion.div>
                 )}
@@ -307,7 +328,9 @@ export function CenterDirectory({ centers }: { centers: Center[] }) {
                               </h4>
                               <MapPin
                                 className={`h-4 w-4 shrink-0 transition-transform group-hover:scale-110 ${
-                                  isSelected ? "text-primary animate-pulse" : "text-muted-foreground"
+                                  isSelected
+                                    ? "text-primary animate-pulse"
+                                    : "text-muted-foreground"
                                 }`}
                               />
                             </div>
@@ -324,7 +347,8 @@ export function CenterDirectory({ centers }: { centers: Center[] }) {
                               </p>
                             ) : (
                               <p className="mt-3 text-xs leading-relaxed text-muted-foreground italic">
-                                Click card to reveal official registration details.
+                                Click card to reveal official registration
+                                details.
                               </p>
                             )}
                           </div>
@@ -359,7 +383,6 @@ export function CenterDirectory({ centers }: { centers: Center[] }) {
             </div>
           )}
         </div>
-
       </div>
     </div>
   );
