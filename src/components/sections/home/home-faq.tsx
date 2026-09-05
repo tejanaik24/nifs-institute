@@ -81,31 +81,30 @@ export default function HomeFaq() {
             - Mobile: hidden until showAll is true.
             All items remain in the DOM, just visually toggled.
           */}
-          <div className={showAll ? "" : "max-sm:hidden"}>
-            <div className="flex flex-col gap-[20px] max-sm:gap-[16px]">
-              {FAQS.slice(MOBILE_INITIAL).map((item, idx) => {
-                const i = MOBILE_INITIAL + idx;
-                return (
-                  <div key={item.q} className="border-b-2 pb-[20px] faq-hidden">
-                    <dt>
-                      <button
-                        type="button"
-                        onClick={() => setOpen(open === i ? null : i)}
-                        aria-expanded={open === i}
-                        className="w-full text-left font-sans text-[22px] max-md:text-[18px] max-sm:text-[16px] font-bold pb-[8px] cursor-pointer flex justify-between items-start gap-4"
-                      >
-                        {item.q}
-                        <span className={`text-nifs-red transition-transform duration-200 ${open === i ? "rotate-45" : ""}`}>+</span>
-                      </button>
-                    </dt>
-                    {open === i && (
-                      <dd className="font-sans text-black font-medium leading-[150%] text-[15px] max-sm:text-[14px]">{item.a}</dd>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
+          {FAQS.slice(MOBILE_INITIAL).map((item, idx) => {
+            const i = MOBILE_INITIAL + idx;
+            return (
+              <div
+                key={item.q}
+                className={`border-b-2 pb-[20px] faq-hidden ${showAll ? "" : "max-sm:hidden"}`}
+              >
+                <dt>
+                  <button
+                    type="button"
+                    onClick={() => setOpen(open === i ? null : i)}
+                    aria-expanded={open === i}
+                    className="w-full text-left font-sans text-[22px] max-md:text-[18px] max-sm:text-[16px] font-bold pb-[8px] cursor-pointer flex justify-between items-start gap-4"
+                  >
+                    {item.q}
+                    <span className={`text-nifs-red transition-transform duration-200 ${open === i ? "rotate-45" : ""}`}>+</span>
+                  </button>
+                </dt>
+                {open === i && (
+                  <dd className="font-sans text-black font-medium leading-[150%] text-[15px] max-sm:text-[14px]">{item.a}</dd>
+                )}
+              </div>
+            );
+          })}
         </dl>
 
         {/* Show more / less toggle — only visible on mobile */}

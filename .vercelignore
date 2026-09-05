@@ -1,3 +1,6 @@
 nifs-static-deploy.tar.gz
 nifs-static-deploy.zip
 out/
+work/
+backups/
+.next-cpanel/

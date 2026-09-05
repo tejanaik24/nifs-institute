@@ -24,10 +24,10 @@ const POSTS = [
     img: "/images/blog/what-you-can-learn-in-6-to-12-months-of-safety-officer-course-training-2.jpg",
     alt: "Safety Officer Training",
     date: "July 26",
-    badge: "bg-nifs-orange",
+    badge: "bg-[#9a3412]",
     title: "What You Can Learn in 6 to 12 Months of Safety Officer Course Training",
     desc: "Skills, certifications, and career outcomes from short-term safety programs.",
-    read: "text-nifs-orange",
+    read: "text-[#9a3412]",
   },
   {
     href: "/blog/how-to-choose-a-credible-industrial-safety-online-course-with-practical-training",
