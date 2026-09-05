@@ -14,10 +14,10 @@ const POSTS = [
     img: "/images/blog/pdis-course-eligibility-criteria-based-on-academic-and-work-background-1.jpg",
     alt: "PDIS Eligibility",
     date: "July 28",
-    badge: "bg-nifs-green",
+    badge: "bg-[#157a17]",
     title: "PDIS Course Eligibility Criteria Based on Academic and Work Background",
     desc: "Detailed eligibility requirements for the Post Diploma in Industrial Safety.",
-    read: "text-nifs-green",
+    read: "text-[#157a17]",
   },
   {
     href: "/blog/what-you-can-learn-in-6-to-12-months-of-safety-officer-course-training",
@@ -44,10 +44,10 @@ const POSTS = [
     img: "/images/blog/advantages-of-studying-industrial-safety-from-a-government-recognized-institute-4.jpg",
     alt: "Govt Recognized",
     date: "July 26",
-    badge: "bg-nifs-green",
+    badge: "bg-[#157a17]",
     title: "Advantages of Studying Industrial Safety from a Government-Recognized Institute",
     desc: "Why govt-approved certifications matter for India, Gulf, and global markets.",
-    read: "text-nifs-green",
+    read: "text-[#157a17]",
   },
 ];
 
@@ -64,7 +64,7 @@ export default function HomeBlogMarquee() {
             <br />
             <span className="font-display italic">At NIFS</span>
           </h2>
-          <p className="font-sans text-gray-400 text-[14px] mt-3">Latest blogs, stories, and updates — hover to pause</p>
+          <p className="font-sans text-gray-600 text-[14px] mt-3">Latest blogs, stories, and updates — hover to pause</p>
         </div>
 
         <div className="home-blog-wrap w-full overflow-hidden relative">
@@ -86,7 +86,7 @@ export default function HomeBlogMarquee() {
                 </div>
                 <div className="p-5 flex flex-col flex-grow">
                   <h3 className="font-sans text-[14px] font-bold text-gray-900 leading-snug line-clamp-2">{post.title}</h3>
-                  <p className="font-sans text-gray-400 text-[12px] mt-2 line-clamp-2 leading-relaxed">{post.desc}</p>
+                  <p className="font-sans text-gray-600 text-[12px] mt-2 line-clamp-2 leading-relaxed">{post.desc}</p>
                   <span className={`font-sans ${post.read} font-bold text-[12px] mt-auto pt-3 block group-hover:translate-x-1 transition-transform`}>Read More →</span>
                 </div>
               </a>

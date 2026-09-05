@@ -17,6 +17,8 @@ export default function HomeTrained() {
               loading="lazy"
               decoding="async"
               src="/collaboration_bg.webp"
+              srcSet="/collaboration_bg-mobile.webp 800w, /collaboration_bg.webp 1024w"
+              sizes="(min-width: 1024px) 33vw, 100vw"
               alt="Acharya Nagarjuna University Collaboration"
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
@@ -93,6 +95,8 @@ export default function HomeTrained() {
               loading="lazy"
               decoding="async"
               src="/collaboration_bg.webp"
+              srcSet="/collaboration_bg-mobile.webp 800w, /collaboration_bg.webp 1024w"
+              sizes="(min-width: 1024px) 33vw, 100vw"
               alt="University Collaboration"
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             />

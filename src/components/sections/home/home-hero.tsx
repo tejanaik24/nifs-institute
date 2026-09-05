@@ -14,6 +14,7 @@ const INDUSTRIES = [
 const IMAGES = [
   {
     src: "/images/hero/oil-gas.webp",
+    mobileSrc: "/images/hero/oil-gas-mobile.webp",
     alt: "Safety officer at an oil and gas refinery",
   },
   {
@@ -331,21 +332,35 @@ export default function HomeHero() {
         aria-hidden="true"
       />
 
-      {IMAGES.map((img, i) => (
-        /* eslint-disable-next-line @next/next/no-img-element */
-        <img
-          key={img.src}
-          loading={i === 0 ? "eager" : "lazy"}
-          fetchPriority={i === 0 ? "high" : undefined}
-          decoding="async"
-          src={i === 0 ? img.src : undefined}
-          data-src={i === 0 ? undefined : img.src}
-          alt={img.alt}
-          className="home-cine-img"
-          data-cine={i}
-          data-active={i === 0 ? "true" : undefined}
-        />
-      ))}
+      {IMAGES.map((img, i) =>
+        i === 0 ? (
+          /* eslint-disable-next-line @next/next/no-img-element */
+          <img
+            key={img.src}
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
+            src={img.src}
+            srcSet={`${img.mobileSrc} 900w, ${img.src} 1536w`}
+            sizes="100vw"
+            alt={img.alt}
+            className="home-cine-img"
+            data-cine={i}
+            data-active="true"
+          />
+        ) : (
+          /* eslint-disable-next-line @next/next/no-img-element */
+          <img
+            key={img.src}
+            loading="lazy"
+            decoding="async"
+            data-src={img.src}
+            alt={img.alt}
+            className="home-cine-img"
+            data-cine={i}
+          />
+        ),
+      )}
 
       <canvas
         ref={canvasRef}
@@ -385,7 +400,7 @@ export default function HomeHero() {
               href="https://wa.me/918374340999?text=Hi%20NIFS%2C%20I%20want%20to%20know%20more%20about%20Fire%20%26%20Industrial%20Safety%20courses%2C%20eligibility%20and%20admissions."
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2.5 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white px-6 py-3.5 text-sm sm:text-base font-bold shadow-lg shadow-[#25D366]/30 hover:scale-[1.03] active:scale-[0.98] transition-all duration-200"
+              className="inline-flex items-center justify-center gap-2.5 rounded-full bg-[#075E54] hover:bg-[#054239] text-white px-6 py-3.5 text-sm sm:text-base font-bold shadow-lg shadow-[#075E54]/30 hover:scale-[1.03] active:scale-[0.98] transition-all duration-200"
             >
               <svg className="h-5 w-5 fill-current" viewBox="0 0 24 24">
                 <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.173.086.275.072.376-.043.101-.116.433-.506.549-.68.116-.173.231-.144.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.112.551 4.095 1.517 5.823l-1.61 5.877 6.04-1.584c1.664.908 3.567 1.424 5.592 1.424 6.627 0 12-5.373 12-12s-5.373-12-12-12z" />
@@ -433,9 +448,11 @@ export default function HomeHero() {
                 <img
                   loading="lazy"
                   decoding="async"
+                  width={150}
+                  height={150}
                   src={r.src}
                   alt={r.alt}
-                  className="h-9 max-sm:h-6 object-contain hover:scale-105 transition-transform duration-300"
+                  className="h-9 max-sm:h-6 w-9 max-sm:w-6 object-contain hover:scale-105 transition-transform duration-300"
                   style={{ clipPath: "inset(4px)" }}
                 />
               </span>

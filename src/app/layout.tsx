@@ -92,14 +92,15 @@ export default function RootLayout({
       className={`${playfair.variable} ${inter.variable} h-full antialiased`}
     >
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
-        {/* LCP preload: hero image is above-the-fold — preload so browser fetches
-            it during HTML parse, before React hydrates and renders the <img> tag */}
+        {/* LCP preload: hero image is above-the-fold — responsive srcset so
+            mobile fetches the 900w variant, not the full 1536w desktop file */}
         <link
           rel="preload"
           as="image"
           href="/images/hero/oil-gas.webp"
+          imageSrcSet="/images/hero/oil-gas-mobile.webp 900w, /images/hero/oil-gas.webp 1536w"
+          imageSizes="100vw"
           fetchPriority="high"
         />
         <Script

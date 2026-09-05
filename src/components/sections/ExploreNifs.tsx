@@ -405,7 +405,7 @@ function MobileCard({
   return (
     <div className="relative -mt-24 z-10 px-5 pb-10">
       <div className="beat-spine-text relative mx-auto max-w-[400px] bg-[#0A0A0A] p-6 text-left">
-        <span className="text-[10px] tracking-[0.3em] text-white/40 uppercase">
+        <span className="text-[10px] tracking-[0.3em] text-white/60 uppercase">
           {eyebrow}
         </span>
         <h3 className="font-display mt-2 text-[1.75rem] leading-[1.0] italic text-primary">

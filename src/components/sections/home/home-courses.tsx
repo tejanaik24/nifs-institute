@@ -246,7 +246,7 @@ export default function HomeCourses() {
                 href={waHref(c.title)}
                 target="_blank"
                 rel="noopener"
-                aria-label={`Chat on WhatsApp about ${c.title}`}
+                aria-label={`Chat about this course — ${c.title}`}
                 className="text-emerald-400 text-[13px] font-semibold relative z-10 mt-3 inline-block hover:underline"
               >
                 Chat about this course →
@@ -314,7 +314,7 @@ export default function HomeCourses() {
                   href={waHref(course.title)}
                   target="_blank"
                   rel="noopener"
-                  aria-label={`Chat on WhatsApp about ${course.title}`}
+                  aria-label={`Chat about this course — ${course.title}`}
                   className="inline-flex items-center gap-2 mt-6 text-emerald-400 font-sans font-semibold text-[15px] hover:underline"
                 >
                   <svg
