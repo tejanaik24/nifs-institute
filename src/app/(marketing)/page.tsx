@@ -1,13 +1,18 @@
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 import HomeHero from "@/components/sections/home/home-hero";
 import HomeRecruiterMarquee from "@/components/sections/home/home-recruiter-marquee";
-import HomeIfesm from "@/components/sections/home/home-ifesm";
 import HomeTrained from "@/components/sections/home/home-trained";
 import HomeWhyNifs from "@/components/sections/home/home-why-nifs";
 import HomeCourses from "@/components/sections/home/home-courses";
 import HomeFacilities from "@/components/sections/home/home-facilities";
 import HomeOutcomes from "@/components/sections/home/home-outcomes";
-import HomePlacements from "@/components/sections/home/home-placements";
+
+// These two use gsap/ScrollTrigger — dynamic-import so the library loads in
+// its own chunk instead of blocking the initial page JS (was causing slow
+// tap response / high INP on load).
+const HomeIfesm = dynamic(() => import("@/components/sections/home/home-ifesm"));
+const HomePlacements = dynamic(() => import("@/components/sections/home/home-placements"));
 import HomeProcess from "@/components/sections/home/home-process";
 import HomeCentersMap from "@/components/sections/home/home-centers-map";
 import HomeFeaturedNews from "@/components/sections/home/home-featured-news";
