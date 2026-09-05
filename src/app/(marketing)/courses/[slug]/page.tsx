@@ -34,6 +34,38 @@ export default async function CourseDetailPage({
   const course = courses.find((c) => c.slug === slug);
   if (!course) notFound();
 
+  const faqs =
+    course.faqs ??
+    [
+      {
+        question: `What is ${course.name}?`,
+        answer: course.summary,
+      },
+      {
+        question: `What is the eligibility for ${course.name}?`,
+        answer: `${course.name} requires ${course.eligibility}. The course duration is ${course.duration} and is available in ${course.mode} mode.`,
+      },
+      {
+        question: `What is the duration of ${course.name}?`,
+        answer: `${course.name} has a duration of ${course.duration}.`,
+      },
+      {
+        question: `What are the career opportunities after ${course.name}?`,
+        answer: `After completing ${course.name}, graduates can pursue careers as ${course.careers.join(", ")}.`,
+      },
+      {
+        question: `Is ${course.name} recognized by the government?`,
+        answer:
+          course.accreditedBy === "NSDC"
+            ? `Yes, ${course.name} is NSDC-affiliated. NIFS India is also ISO 9001:2015 certified.`
+            : course.accreditedBy === "ANU"
+              ? `${course.name} is offered in association with Acharya Nagarjuna University. NIFS India is also NSDC-approved and ISO 9001:2015 certified.`
+              : course.accreditedBy === "SBTET-AP"
+                ? `${course.name} is affiliated to the State Board of Technical Education & Training, Andhra Pradesh (SBTET-AP). NIFS India is also NSDC-approved and ISO 9001:2015 certified.`
+                : `NIFS India is an NSDC & Skill India approved, ISO 9001:2015 certified training institute.`,
+      },
+    ];
+
   return (
     <>
       <CourseSchema
@@ -53,37 +85,7 @@ export default async function CourseDetailPage({
           },
         ]}
       />
-      <FAQSchema
-        faqs={[
-          {
-            question: `What is ${course.name}?`,
-            answer: course.summary,
-          },
-          {
-            question: `What is the eligibility for ${course.name}?`,
-            answer: `${course.name} requires ${course.eligibility}. The course duration is ${course.duration} and is available in ${course.mode} mode.`,
-          },
-          {
-            question: `What is the duration of ${course.name}?`,
-            answer: `${course.name} has a duration of ${course.duration}.`,
-          },
-          {
-            question: `What are the career opportunities after ${course.name}?`,
-            answer: `After completing ${course.name}, graduates can pursue careers as ${course.careers.join(", ")}.`,
-          },
-          {
-            question: `Is ${course.name} recognized by the government?`,
-            answer:
-              course.accreditedBy === "NSDC"
-                ? `Yes, ${course.name} is NSDC-affiliated. NIFS India is also ISO 9001:2015 certified.`
-                : course.accreditedBy === "ANU"
-                  ? `${course.name} is offered in association with Acharya Nagarjuna University. NIFS India is also NSDC-approved and ISO 9001:2015 certified.`
-                  : course.accreditedBy === "SBTET-AP"
-                    ? `${course.name} is affiliated to the State Board of Technical Education & Training, Andhra Pradesh (SBTET-AP). NIFS India is also NSDC-approved and ISO 9001:2015 certified.`
-                    : `NIFS India is an NSDC & Skill India approved, ISO 9001:2015 certified training institute.`,
-          },
-        ]}
-      />
+      <FAQSchema faqs={faqs} />
       <article className="pt-32 lg:pt-36">
         <div className="mx-auto max-w-5xl px-6 py-12 lg:px-10">
           <div data-path-target="true">
@@ -318,6 +320,23 @@ export default async function CourseDetailPage({
                 >
                   {comp}
                 </span>
+              ))}
+            </div>
+          </div>
+
+          {/* FAQ */}
+          <div className="mt-12 space-y-4">
+            <h2 className="font-display text-2xl italic text-foreground">
+              Frequently Asked Questions
+            </h2>
+            <div className="space-y-6 pt-2">
+              {faqs.map((f) => (
+                <div key={f.question} className="border-b border-border pb-6">
+                  <h3 className="font-medium">{f.question}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">
+                    {f.answer}
+                  </p>
+                </div>
               ))}
             </div>
           </div>
