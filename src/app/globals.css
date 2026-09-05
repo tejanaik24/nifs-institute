@@ -603,8 +603,18 @@
   animation-play-state: paused;
 }
 
+.home-placements-track {
+  animation: homeBlogMarquee 34s linear infinite;
+}
+
+.home-placements-wrap:hover .home-placements-track,
+.home-placements-wrap.paused .home-placements-track {
+  animation-play-state: paused;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .home-blog-track,
+  .home-placements-track,
   .home-map-sweep,
   .home-map-scan {
     animation: none;

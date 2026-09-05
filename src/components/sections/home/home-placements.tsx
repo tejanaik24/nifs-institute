@@ -1,8 +1,5 @@
 "use client";
 
-import gsap from "gsap";
-import { useEffect, useRef } from "react";
-
 const PLACEMENTS = [
   {
     img: "/images/placements/1.png",
@@ -54,49 +51,9 @@ const PLACEMENTS = [
   },
 ];
 
-const TRACK = [...PLACEMENTS, ...PLACEMENTS.slice(0, 3)];
+const TRACK = [...PLACEMENTS, ...PLACEMENTS];
 
 export default function HomePlacements() {
-  const trackRef = useRef<HTMLDivElement>(null);
-  const wrapRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const track = trackRef.current;
-    const wrap = wrapRef.current;
-    if (!track || track.children.length < 2) return;
-
-    const half = Math.ceil(track.children.length / 2);
-    const cardW = (track.children[0] as HTMLElement).offsetWidth + 32;
-    const scrollDist = cardW * half;
-
-    gsap.set(track, { x: 0 });
-    const tl = gsap.timeline({ repeat: -1 });
-    tl.to(track, { x: -scrollDist, duration: 25, ease: "none" });
-
-    let paused = false;
-    const pause = () => {
-      paused = true;
-      tl.pause();
-    };
-    const resume = () => {
-      if (!paused) return;
-      paused = false;
-      tl.resume();
-    };
-    wrap?.addEventListener("mouseenter", pause);
-    wrap?.addEventListener("mouseleave", resume);
-    wrap?.addEventListener("touchstart", pause, { passive: true });
-    wrap?.addEventListener("touchend", resume, { passive: true });
-
-    return () => {
-      tl.kill();
-      wrap?.removeEventListener("mouseenter", pause);
-      wrap?.removeEventListener("mouseleave", resume);
-      wrap?.removeEventListener("touchstart", pause);
-      wrap?.removeEventListener("touchend", resume);
-    };
-  }, []);
-
   return (
     <section className="w-full py-[80px] max-lg:py-[50px] bg-[#101010] flex justify-center items-center flex-col overflow-hidden">
       <div className="w-[90%] max-sm:w-[95%] flex flex-col gap-8 items-center">
@@ -104,12 +61,12 @@ export default function HomePlacements() {
           Our Students <span className="font-display italic">Placed In</span>
         </h2>
 
-        <div ref={wrapRef} className="overflow-hidden w-full relative">
-          <div
-            ref={trackRef}
-            className="flex gap-8"
-            style={{ width: "max-content" }}
-          >
+        <div
+          className="home-placements-wrap overflow-hidden w-full relative"
+          onTouchStart={(e) => e.currentTarget.classList.add("paused")}
+          onTouchEnd={(e) => e.currentTarget.classList.remove("paused")}
+        >
+          <div className="home-placements-track flex gap-8" style={{ width: "max-content" }}>
             {TRACK.map((p, i) => (
               <div
                 key={`${p.name}-${i}`}

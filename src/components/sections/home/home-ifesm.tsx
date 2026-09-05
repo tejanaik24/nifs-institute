@@ -1,53 +1,55 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect, useRef, useState } from "react";
 
 export default function HomeIfesm() {
   const statRef = useRef<HTMLSpanElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     const stat = statRef.current;
     const section = sectionRef.current;
     if (!stat || !section) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion) {
       stat.textContent = "500+";
+      setVisible(true);
       return;
     }
 
-    gsap.registerPlugin(ScrollTrigger);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        setVisible(true);
 
-    const st = ScrollTrigger.create({
-      trigger: stat,
-      start: "top 90%",
-      once: true,
-      onEnter: () => {
         const target = 500;
-        const counter = { val: 0 };
-        gsap.to(counter, {
-          val: target,
-          duration: 2,
-          ease: "power2.out",
-          onUpdate: () => {
-            stat.textContent = `${Math.round(counter.val)}+`;
-          },
-        });
+        const duration = 2000;
+        const start = performance.now();
+        const easeOut = (t: number) => 1 - Math.pow(1 - t, 3);
+
+        const tick = (now: number) => {
+          const progress = Math.min((now - start) / duration, 1);
+          stat.textContent = `${Math.round(easeOut(progress) * target)}+`;
+          if (progress < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+
+        observer.disconnect();
       },
-    });
+      { threshold: 0.1 },
+    );
+    observer.observe(section);
 
-    const fade = gsap.from(section, { opacity: 0, y: 20, duration: 0.6, scrollTrigger: { trigger: section, start: "top 90%", once: true } });
-
-    return () => {
-      st.kill();
-      fade.scrollTrigger?.kill();
-      fade.kill();
-    };
+    return () => observer.disconnect();
   }, []);
 
   return (
-    <section ref={sectionRef} className="w-full py-[64px] max-lg:py-[40px] flex justify-center items-center px-4">
+    <section
+      ref={sectionRef}
+      className={`w-full py-[64px] max-lg:py-[40px] flex justify-center items-center px-4 transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}
+    >
       <div
         className="relative w-[92%] max-w-6xl rounded-[32px] shadow-2xl ring-1 ring-white/15 overflow-hidden"
         style={{
