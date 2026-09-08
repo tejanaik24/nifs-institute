@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const POSTS = [
   {
     href: "/blog/nifs-india-achieves-milestone-collaboration-with-acharya-nagarjuna-university",
@@ -80,8 +82,14 @@ export default function HomeBlogMarquee() {
                 className="w-[320px] flex-shrink-0 bg-white rounded-[20px] overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.08)] border border-gray-100 flex flex-col hover:shadow-[0_8px_40px_rgba(0,0,0,0.14)] hover:-translate-y-1 transition-all duration-300 group"
               >
                 <div className="w-full h-[180px] overflow-hidden relative">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img loading="lazy" decoding="async" src={post.img} alt={post.alt} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <Image
+                    src={post.img}
+                    alt={post.alt}
+                    fill
+                    loading="lazy"
+                    sizes="320px"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
                   <div className={`absolute top-3 left-3 ${post.badge} text-white font-sans text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full`}>{post.date}</div>
                 </div>
                 <div className="p-5 flex flex-col flex-grow">

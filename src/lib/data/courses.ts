@@ -90,8 +90,9 @@ export const courses: Course[] = [
           "DFS stands for Diploma in Fire & Safety — a 1-year NIFS India program covering fire science & engineering, industrial safety fundamentals, emergency planning, and safety auditing, leading to roles such as Fire & Safety Supervisor or Site Safety Officer.",
       },
     ],
+    seoTitle: "Diploma in Fire and Safety (DFS) — Eligibility & Fees 2026 | NIFS",
     seoDescription:
-      "Fire engineering and site safety protocols, preparing graduates for supervisory-track roles on industrial and construction sites.",
+      "Diploma in Fire and Safety (DFS): 1-year NSDC-approved course, eligibility 10+2/ITI/any stream. Fire engineering, industrial safety, supervisory-track careers. Apply at NIFS India.",
     name: "Diploma in Fire & Safety (DFS)",
     shortName: "DFS",
     tier: "Diploma",
@@ -626,57 +627,6 @@ export const courses: Course[] = [
     careers: ["Industrial Safety Engineer", "Plant Safety Officer"],
     image: "/images/courses-classroom.png",
     accreditedBy: "SBTET-AP",
-  },
-  {
-    slug: "nebosh-igc",
-    faqs: [
-      {
-        question: "What is NEBOSH IGC and is it recognized internationally?",
-        answer:
-          "NEBOSH IGC (International General Certificate) is a globally recognized occupational health & safety qualification. At NIFS India it's delivered in classroom or virtual live interactive mode over 10-14 days (modular) / 110 hours, essential for opportunities across Gulf countries (UAE, Saudi Arabia, Qatar, Oman), multinational construction, oil & gas operators, and top-tier industrial corporations.",
-      },
-      {
-        question: "What is the eligibility for NEBOSH IGC?",
-        answer:
-          "NIFS India's NEBOSH IGC accepts 10+2, any degree, or working safety professionals/aspirants as eligible.",
-      },
-      {
-        question: "What is covered in NEBOSH IGC (IG1, IG2)?",
-        answer:
-          "The course covers Unit IG1 (Management of Health and Safety, open book exam), Unit IG2 (Risk Assessment & Practical Application), workplace hazards identification & control strategies, and international health & safety legal frameworks including ISO 45001 standards.",
-      },
-      {
-        question: "What jobs can you get with NEBOSH IGC certification?",
-        answer:
-          "NEBOSH IGC opens roles such as International HSE Officer, Offshore Safety Specialist, EHS Advisor & Consultant, and Corporate Safety Auditor.",
-      },
-    ],
-    name: "NEBOSH International General Certificate (IGC)",
-    shortName: "NEBOSH IGC",
-    tier: "Certificate",
-    duration: "10–14 Days (Modular) / 110 Hours",
-    eligibility: "10+2 / Any Degree / Safety Aspirants & Working Professionals",
-    mode: "Classroom / Virtual Live Interactive",
-    summary:
-      "The globally recognized gold standard in occupational health & safety management. Essential for career opportunities across Gulf countries (UAE, Saudi Arabia, Qatar, Oman), multinational construction, oil & gas operators, and top-tier industrial corporations.",
-    subjects: [
-      "Unit IG1: Management of Health and Safety (Open Book Examination)",
-      "Unit IG2: Risk Assessment & Practical Application",
-      "Workplace Hazards Identification & Control Strategies",
-      "International Health and Safety Legal Frameworks & ISO 45001 Standards",
-    ],
-    careers: [
-      "International HSE Officer",
-      "Offshore Safety Specialist",
-      "EHS Advisor & Consultant",
-      "Corporate Safety Auditor",
-    ],
-    image: "/images/training-yard-drill.jpg",
-    seoTitle:
-      "NEBOSH IGC Course Training in India — Syllabus, Exam & Fees | NIFS India",
-    h1: "NEBOSH International General Certificate (IGC) in Occupational Health & Safety",
-    seoDescription:
-      "Enroll in NEBOSH IGC training at NIFS India. Global standard OHS qualification, expert live training, comprehensive IG1/IG2 exam prep, and 100% placement support.",
   },
 ];
 

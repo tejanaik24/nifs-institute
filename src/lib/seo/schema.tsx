@@ -78,7 +78,12 @@ export function CombinedGraphSchema() {
                 "NIFS Visakhapatnam",
               ],
               url: "https://nifsindia.net",
-              logo: "https://nifsindia.net/images/nifs-logo.png",
+              logo: {
+                "@type": "ImageObject",
+                url: "https://nifsindia.net/images/nifs-logo.png",
+                width: "512",
+                height: "512",
+              },
               description:
                 "National Institute of Fire and Safety (NIFS) is India's premier government-approved fire and industrial safety training institute established in 2004 (distinct from NIFSM). Approved by NSDC, Skill India, and ISO 9001:2015 certified with 70+ centers nationwide and 45,000+ placements.",
               foundingDate: "2004",
@@ -133,9 +138,22 @@ export function CombinedGraphSchema() {
 export function LocalBusinessSchema({
   url,
   name = "National Institute of Fire and Safety (NIFS) — Visakhapatnam HQ",
+  telephone = "+918374340999",
+  address = HQ_ADDRESS,
 }: {
   url: string;
   name?: string;
+  telephone?: string;
+  address?:
+    | {
+        "@type": string;
+        streetAddress: string;
+        addressLocality: string;
+        addressRegion: string;
+        postalCode?: string;
+        addressCountry: string;
+      }
+    | typeof HQ_ADDRESS;
 }) {
   return (
     <script
@@ -147,8 +165,8 @@ export function LocalBusinessSchema({
           "@type": ["LocalBusiness", "EducationalOrganization"],
           name,
           url,
-          telephone: "+918374340999",
-          address: HQ_ADDRESS,
+          telephone,
+          address,
           parentOrganization: { "@id": ORG_ID },
         }),
       }}

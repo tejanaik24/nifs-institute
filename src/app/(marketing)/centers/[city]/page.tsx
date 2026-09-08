@@ -230,7 +230,7 @@ const CITY_DATA: Record<
       {
         question: "Are NIFS diplomas eligible for Gulf jobs from Chennai?",
         answer:
-          "Yes, NIFS diplomas paired with NEBOSH IGC are widely accepted by Gulf employers hiring through Chennai recruitment channels.",
+          "Yes, NIFS diplomas — including the UGC-recognized degree issued through Acharya Nagarjuna University — are widely accepted by Gulf employers hiring through Chennai recruitment channels.",
       },
     ],
   },
@@ -431,7 +431,30 @@ export default async function DynamicCenterPage({
           { name: cityName, url: pageUrl },
         ]}
       />
-      <LocalBusinessSchema url={pageUrl} />
+      <LocalBusinessSchema
+        url={pageUrl}
+        name={`National Institute of Fire and Safety (NIFS) — ${cityName} Center`}
+        telephone={
+          phone ? `+91${phone.replace(/[^0-9]/g, "")}` : "+918374340999"
+        }
+        address={
+          matchedCenter?.address
+            ? {
+                "@type": "PostalAddress",
+                streetAddress: matchedCenter.address,
+                addressLocality: cityName,
+                addressRegion: stateName,
+                addressCountry: "IN",
+              }
+            : {
+                "@type": "PostalAddress",
+                streetAddress: `NIFS Information & Admissions Desk, ${cityName}`,
+                addressLocality: cityName,
+                addressRegion: stateName,
+                addressCountry: "IN",
+              }
+        }
+      />
       {topCourses.map((c) => (
         <CourseSchema
           key={c.slug}

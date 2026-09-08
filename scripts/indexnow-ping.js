@@ -4,11 +4,11 @@
  * Pings Bing, Yandex with new/updated URLs for instant indexing
  * Run: node scripts/indexnow-ping.js
  */
-const https = require('https');
-const http = require('http');
+const https = require("https");
+const http = require("http");
 
-const KEY = 'nifsindia2026indexnow';
-const HOST = 'www.nifsindia.net';
+const KEY = "nifsindia2026indexnow";
+const HOST = "nifsindia.net";
 const KEY_LOCATION = `https://${HOST}/indexnow-key.txt`;
 
 // All site URLs to ping
@@ -41,18 +41,18 @@ function postJson(hostname, path, data) {
     const options = {
       hostname,
       path,
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json; charset=utf-8',
-        'Content-Length': Buffer.byteLength(body),
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": Buffer.byteLength(body),
       },
     };
     const req = https.request(options, (res) => {
-      let d = '';
-      res.on('data', chunk => d += chunk);
-      res.on('end', () => resolve({ status: res.statusCode, body: d }));
+      let d = "";
+      res.on("data", (chunk) => (d += chunk));
+      res.on("end", () => resolve({ status: res.statusCode, body: d }));
     });
-    req.on('error', reject);
+    req.on("error", reject);
     req.write(body);
     req.end();
   });
@@ -67,12 +67,19 @@ async function pingIndexNow() {
   };
 
   const engines = [
-    { name: 'Bing', hostname: 'www.bing.com', path: '/indexnow' },
-    { name: 'Yandex', hostname: 'yandex.com', path: '/indexnow' },
+    {
+      name: "IndexNow Direct",
+      hostname: "api.indexnow.org",
+      path: "/indexnow",
+    },
+    { name: "Bing", hostname: "www.bing.com", path: "/indexnow" },
+    { name: "Yandex", hostname: "yandex.com", path: "/indexnow" },
   ];
 
   console.log(`IndexNow Ping — ${new Date().toISOString()}`);
-  console.log(`Pinging ${URLS.length} URLs to ${engines.length} search engines...\n`);
+  console.log(
+    `Pinging ${URLS.length} URLs to ${engines.length} search engines...\n`,
+  );
 
   for (const engine of engines) {
     try {
@@ -86,7 +93,7 @@ async function pingIndexNow() {
       console.log(`❌ ${engine.name}: Error — ${e.message}`);
     }
   }
-  console.log('\nDone.');
+  console.log("\nDone.");
 }
 
 pingIndexNow();

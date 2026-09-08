@@ -3,7 +3,6 @@ import HomeHero from "@/components/sections/home/home-hero";
 import HomeRecruiterMarquee from "@/components/sections/home/home-recruiter-marquee";
 import HomeIfesm from "@/components/sections/home/home-ifesm";
 import HomeTrained from "@/components/sections/home/home-trained";
-import HomeWhyNifs from "@/components/sections/home/home-why-nifs";
 import HomeCourses from "@/components/sections/home/home-courses";
 import HomeFacilities from "@/components/sections/home/home-facilities";
 import HomeOutcomes from "@/components/sections/home/home-outcomes";
@@ -20,9 +19,9 @@ import HomeApplyCta from "@/components/sections/home/home-apply-cta";
 import HomeAnimations from "@/components/sections/home/home-animations";
 
 export const metadata: Metadata = {
-  title: "Fire & Industrial Safety Training Institute in India",
+  title: "National Institute of Fire and Safety (NIFS) — India",
   description:
-    "India's leading fire and industrial safety training institute — 70+ centers, NSDC approved, ISO certified, 45,000+ alumni placed.",
+    "National Institute of Fire and Safety (NIFS) — India's leading fire and industrial safety training institute. 70+ centers, NSDC approved, ISO certified, 45,000+ alumni placed.",
   alternates: { canonical: "/" },
 };
 
@@ -33,7 +32,6 @@ export default function HomePage() {
       <HomeRecruiterMarquee />
       <HomeIfesm />
       <HomeTrained />
-      <HomeWhyNifs />
       <HomeCourses />
       <HomeFacilities />
       <HomeOutcomes />

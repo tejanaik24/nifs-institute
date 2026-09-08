@@ -26,7 +26,7 @@ export default function AdmissionsPage() {
       />
 
       <section className="mx-auto grid max-w-6xl grid-cols-1 gap-16 px-6 py-16 lg:grid-cols-2 lg:px-10">
-        <div>
+        <div className="order-2 lg:order-1">
           <h2 className="font-display text-2xl italic">The Process</h2>
           <ol className="mt-6 space-y-8">
             {steps.map((s, i) => (
@@ -43,7 +43,7 @@ export default function AdmissionsPage() {
           </ol>
         </div>
 
-        <div>
+        <div className="order-1 lg:order-2">
           <h2 className="font-display text-2xl italic">Enquire Now</h2>
           <div className="mt-6">
             <EnquiryForm />

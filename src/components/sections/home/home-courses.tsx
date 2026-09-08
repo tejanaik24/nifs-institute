@@ -1,6 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useInView } from "@/hooks/use-in-view";
 
 const COURSES = [
   {
@@ -89,6 +91,7 @@ function calculateGap(width: number) {
 }
 
 export default function HomeCourses() {
+  const { ref: sectionRef, inView } = useInView<HTMLElement>();
   const [active, setActive] = useState(0);
   const stackRef = useRef<HTMLDivElement>(null);
   const autoplayRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -139,10 +142,12 @@ export default function HomeCourses() {
   }, []);
 
   useEffect(() => {
+    if (!inView) return;
     layout(active);
-  }, [active, layout]);
+  }, [inView, active, layout]);
 
   useEffect(() => {
+    if (!inView) return;
     layout(0);
     resetAutoplay();
     const onResize = () => layout(active);
@@ -152,10 +157,11 @@ export default function HomeCourses() {
       if (autoplayRef.current) clearInterval(autoplayRef.current);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [inView]);
 
   // ─── Mobile snap-scroll autoplay ──────────────────────────────────────
   useEffect(() => {
+    if (!inView) return;
     const row = mobileRowRef.current;
     if (!row) return;
 
@@ -205,6 +211,7 @@ export default function HomeCourses() {
 
   return (
     <section
+      ref={sectionRef}
       id="courses"
       className="w-full min-h-screen py-[200px] max-lg:py-[70px] max-md:py-[60px] max-sm:py-[80px] bg-[#101010] flex justify-center items-center flex-col overflow-hidden"
     >
@@ -224,13 +231,13 @@ export default function HomeCourses() {
               className="relative overflow-hidden rounded-[32px] p-6 flex flex-col min-h-[320px] justify-end group cursor-pointer shadow-xl border border-white/10 shrink-0 snap-start"
               style={{ width: "85vw" }}
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                loading="lazy"
-                decoding="async"
+              <Image
                 src={c.img}
                 alt={c.title}
-                className="absolute inset-0 w-full h-full object-cover"
+                fill
+                loading="lazy"
+                sizes="85vw"
+                className="object-cover"
               />
               <div className="absolute inset-x-0 bottom-0 h-[60%] bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
               <h3 className="font-sans text-white text-[20px] font-bold relative z-10">
@@ -264,15 +271,15 @@ export default function HomeCourses() {
           <div className="grid grid-cols-2 gap-[5rem] items-center">
             <div ref={stackRef} className="relative w-full h-[24rem]">
               {COURSES.map((c, i) => (
-                /* eslint-disable-next-line @next/next/no-img-element */
-                <img
+                <Image
                   key={c.tag}
                   src={c.img}
                   alt={c.title}
+                  fill
                   data-index={i}
                   loading="lazy"
-                  decoding="async"
-                  className="absolute inset-0 w-full h-full object-cover rounded-[1.5rem]"
+                  sizes="(max-width: 1024px) 0px, 28rem"
+                  className="object-cover rounded-[1.5rem]"
                   style={{
                     boxShadow: "0 10px 30px rgba(0,0,0,0.4)",
                     transition: "all 0.8s cubic-bezier(.4,2,.3,1)",

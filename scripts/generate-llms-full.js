@@ -127,15 +127,6 @@ const courses = [
     summary:
       "A regular full-time program affiliated to the State Board of Technical Education & Training, Andhra Pradesh, for practicing engineers moving into dedicated industrial safety roles.",
   },
-  {
-    slug: "nebosh-igc",
-    name: "NEBOSH International General Certificate (IGC)",
-    duration: "10–14 Days / 110 Hours",
-    eligibility: "10+2 / Any Degree / Working HSE",
-    mode: "Classroom / Virtual Live",
-    summary:
-      "The gold-standard international OHS qualification recognized by global corporations and Gulf employers across UAE, Saudi Arabia, and Qatar.",
-  },
 ];
 
 const centers = [

@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title:
     "How to Become a Safety Officer in India (2026 Step-by-Step Career Guide) | NIFS India",
   description:
-    "Complete 2026 step-by-step guide on how to become a certified Safety Officer in India. Eligibility after 10th/12th/Graduation, top courses (ADIS, DFS, NEBOSH), training duration, salary (₹3L–₹25L/yr), and 100% placement roadmap.",
+    "Complete 2026 step-by-step guide on how to become a certified Safety Officer in India. Eligibility after 10th/12th/Graduation, top courses (ADIS, DFS), training duration, salary (₹3L–₹25L/yr), and 100% placement roadmap.",
   alternates: { canonical: "/how-to-become-a-safety-officer-in-india/" },
   openGraph: {
     title: "How to Become a Safety Officer in India (2026 Guide) — NIFS India",
@@ -36,18 +36,13 @@ const faqs = [
     question:
       "How many months does it take to become a certified Safety Officer?",
     answer:
-      "A baseline Diploma in Fire & Safety (DFS) or Advanced Diploma in Industrial Safety (ADIS) takes 12 months (1 year). Short-term international certifications like NEBOSH IGC require 10 to 14 days of modular study, while degree programs like B.Sc in Fire & Industrial Safety take 3 years.",
+      "A baseline Diploma in Fire & Safety (DFS) or Advanced Diploma in Industrial Safety (ADIS) takes 12 months (1 year), while degree programs like B.Sc in Fire & Industrial Safety take 3 years.",
   },
   {
     question:
       "What is the average starting salary of a Safety Officer in India in 2026?",
     answer:
-      "A fresher safety officer in India earns between ₹2,50,000 and ₹4,20,000 per annum (₹20,000 to ₹35,000 per month). With 3 to 5 years of industrial experience and international certifications like NEBOSH IGC, salaries rise to ₹6,00,000 – ₹10,00,000 per annum in India and ₹18,00,000 – ₹35,00,000 per annum in Gulf countries (UAE, Saudi Arabia, Qatar).",
-  },
-  {
-    question: "Is NEBOSH compulsory to become a Safety Officer in India?",
-    answer:
-      "No, NEBOSH is not legally compulsory for Indian domestic factory jobs where state-approved diplomas (like SBTET ADIS or NSDC-approved DFS) are the statutory requirement. However, NEBOSH IGC is mandatory for lucrative Gulf/Middle East jobs, offshore oil rigs, and Fortune 500 multinationals operating in India.",
+      "A fresher safety officer in India earns between ₹2,50,000 and ₹4,20,000 per annum (₹20,000 to ₹35,000 per month). With 3 to 5 years of industrial experience, salaries rise to ₹6,00,000 – ₹10,00,000 per annum in India and ₹18,00,000 – ₹35,00,000 per annum in Gulf countries (UAE, Saudi Arabia, Qatar) for candidates holding NIFS's UGC-recognized degree via Acharya Nagarjuna University.",
   },
   {
     question: "Can Arts and Commerce students become Safety Officers?",
@@ -294,7 +289,14 @@ export default function HowToBecomeSafetyOfficerPage() {
                   board (State Board of Technical Education like SBTET-AP, NSDC
                   / Skill India, or UGC-recognized Universities like Acharya
                   Nagarjuna University). Unrecognized online certificates will
-                  NOT be accepted by State Factory Inspectorates.
+                  NOT be accepted by State Factory Inspectorates. See our{" "}
+                  <Link
+                    href="/blog/how-to-verify-fire-safety-institute-is-legitimate/"
+                    className="text-primary underline font-medium"
+                  >
+                    full checklist for verifying any institute&apos;s legitimacy
+                  </Link>{" "}
+                  before enrolling anywhere.
                 </p>
                 <div className="overflow-x-auto pt-2">
                   <table className="w-full text-left text-sm border-collapse border border-border">
@@ -341,16 +343,6 @@ export default function HowToBecomeSafetyOfficerPage() {
                         <td className="p-3">10+2 (Science / MPC / BiPC)</td>
                         <td className="p-3">
                           Senior Safety Engineer, EHS Executive
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="p-3 font-medium text-foreground">
-                          NEBOSH IGC (International General Certificate)
-                        </td>
-                        <td className="p-3">10–14 Days</td>
-                        <td className="p-3">10+2 / Degree / HSE Working</td>
-                        <td className="p-3">
-                          Gulf Safety Officer, Offshore HSE Specialist
                         </td>
                       </tr>
                     </tbody>
@@ -408,35 +400,7 @@ export default function HowToBecomeSafetyOfficerPage() {
                     4
                   </span>
                   <h3 className="text-xl font-bold text-foreground">
-                    Step 4: Acquire International Certifications (NEBOSH / IOSH)
-                  </h3>
-                </div>
-                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-                  If your goal is to secure high-paying employment in Dubai,
-                  Saudi Arabia (Aramco projects), Qatar, Kuwait, or
-                  multinational oil rigs, pairing your Indian statutory diploma
-                  with{" "}
-                  <Link
-                    href="/courses/nebosh-igc/"
-                    className="text-primary underline font-medium"
-                  >
-                    NEBOSH IGC
-                  </Link>{" "}
-                  multiplies your earning potential. NEBOSH certifies your
-                  mastery of UK/international risk assessment standards and is
-                  the mandatory recruitment benchmark for global engineering
-                  firms.
-                </p>
-              </div>
-
-              {/* Step 5 */}
-              <div className="border-l-4 border-primary pl-6 space-y-2">
-                <div className="flex items-center gap-2">
-                  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-primary text-white text-xs font-bold">
-                    5
-                  </span>
-                  <h3 className="text-xl font-bold text-foreground">
-                    Step 5: Campus Placement &amp; Industry Internships
+                    Step 4: Campus Placement &amp; Industry Internships
                   </h3>
                 </div>
                 <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
@@ -504,7 +468,7 @@ export default function HowToBecomeSafetyOfficerPage() {
                   Per Annum (AED 8,000 – 16,000/mo Tax-Free)
                 </p>
                 <p className="text-xs text-muted-foreground pt-2">
-                  Roles: HSE Engineer, Offshore Safety Specialist (NEBOSH)
+                  Roles: HSE Engineer, Offshore Safety Specialist
                 </p>
               </div>
             </div>

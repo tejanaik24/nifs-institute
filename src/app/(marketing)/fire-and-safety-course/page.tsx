@@ -35,8 +35,16 @@ const faqs = [
     answer: "Graduates work as Fire Safety Officer, Industrial Safety Officer, EHS Officer, Safety Supervisor, Emergency Response Coordinator, Safety Auditor, and in Gulf-based safety roles. Employers include Adani, L&T, ITC, GMR, Amazon, MEIL, and government PSUs.",
   },
   {
+    question: "Which companies hire fire and safety diploma holders in India?",
+    answer: "NIFS diploma holders have been placed with Adani, L&T, ITC, GMR, Amazon, and MEIL. Beyond NIFS's own placement record, fire and safety diploma holders across India are in demand at construction, manufacturing, oil & gas, power, aviation, and infrastructure companies, plus government PSUs, Indian Railways, airport authorities, and municipal fire services — sectors with a chronic shortage of trained safety officers.",
+  },
+  {
     question: "Are fire and safety courses from NIFS recognized by the government?",
     answer: "Yes. NIFS courses are NSDC-approved and Skill India certified. Programs are affiliated with Acharya Nagarjuna University (ANU), a government-recognized institution. NIFS is ISO 9001:2015 certified.",
+  },
+  {
+    question: "Diploma, B.Voc, or B.Sc — which fire and safety course should I choose?",
+    answer: "If budget and time are tight, a 1-year Diploma (DFS/DIS) is the fastest, most affordable entry point and is enough for entry-level Safety Officer roles — many candidates start here and upgrade to an Advanced Diploma later. B.Voc adds vocational/practical depth over 2-3 years for those wanting a stronger hands-on base. B.Sc in Fire & Industrial Safety (3 years) suits candidates aiming for supervisory or managerial roles from day one and gives more weight for government/PSU postings. A short diploma plus an internship is often a smarter budget move than jumping straight into a 3-year degree — it gets you working and earning sooner, with the option to upgrade qualifications later.",
   },
 ];
 

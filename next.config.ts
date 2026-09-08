@@ -51,6 +51,8 @@ const UTILITY_REDIRECTS: Record<string, string> = {
 };
 
 const nextConfig: NextConfig = {
+  // Isolate the cPanel release build from an interrupted local build.
+  distDir: process.env.CPANEL_BUILD === "1" ? ".next-cpanel" : ".next",
   trailingSlash: true,
   images: {
     remotePatterns: [
@@ -142,6 +144,13 @@ const nextConfig: NextConfig = {
       // High-demand category with no dedicated page -> course catalog
       {
         source: "/category/safety-officer-course",
+        destination: "/courses/",
+        permanent: true,
+      },
+
+      // NEBOSH IGC course removed 2026-09-07 (NIFS doesn't offer/promote it) -> course catalog
+      {
+        source: "/courses/nebosh-igc",
         destination: "/courses/",
         permanent: true,
       },

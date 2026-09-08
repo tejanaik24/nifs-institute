@@ -3,19 +3,16 @@
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useState } from "react";
+import { useId, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-const schema = z.object({
-  name: z.string().min(2, "Enter your full name"),
-  phone: z.string().min(10, "Enter a valid 10-digit mobile number"),
-  course: z.string().optional(),
-});
-
-type FormValues = z.infer<typeof schema>;
+import { enquirySchema, submitEnquiry, trackEnquiry, type EnquiryValues } from "@/lib/enquiry";
 
 export function EnquiryForm() {
+  const id = useId();
+  const started = useRef(false);
+  const pending = useRef(false);
   const [status, setStatus] = useState<
     "idle" | "submitting" | "success" | "error"
   >("idle");
@@ -24,35 +21,24 @@ export function EnquiryForm() {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<FormValues>({ resolver: zodResolver(schema) });
+  } = useForm<z.input<typeof enquirySchema>, unknown, EnquiryValues>({ resolver: zodResolver(enquirySchema) });
 
-  const onSubmit = async (values: FormValues) => {
+  const onSubmit = async (values: EnquiryValues) => {
+    if (pending.current) return;
+    pending.current = true;
     setStatus("submitting");
-
-    const messageText = `*New Admission Enquiry*\n*Name:* ${values.name}\n*Phone:* ${values.phone}\n*Course:* ${values.course || "General Fire & Safety Enquiry"}`;
-    const whatsappUrl = `https://wa.me/918374340999?text=${encodeURIComponent(messageText)}`;
-
+    trackEnquiry("enquiry_attempt");
     try {
-      fetch("https://formsubmit.co/ajax/headoffice@nifsindia.com", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          name: values.name,
-          phone: values.phone,
-          course: values.course || "General Enquiry",
-          _subject: `New quick enquiry from ${values.name} (${values.phone})`,
-        }),
-      }).catch((err) => console.error("FormSubmit backup failed:", err));
-    } catch (e) {
-      console.error(e);
+      await submitEnquiry(values);
+      setStatus("success");
+      reset();
+      trackEnquiry("enquiry_accepted");
+    } catch {
+      setStatus("error");
+      trackEnquiry("enquiry_error", "delivery");
+    } finally {
+      pending.current = false;
     }
-
-    setStatus("success");
-    reset();
-    window.location.href = whatsappUrl;
   };
 
   return (
@@ -67,10 +53,10 @@ export function EnquiryForm() {
           </div>
           <div>
             <h3 className="text-base font-bold text-foreground">
-              Instant Admission Helpline
+              Admissions on WhatsApp
             </h3>
             <p className="text-xs text-muted-foreground">
-              Direct chat with senior counselors (0 wait time)
+              Ask our admissions team about courses, fees and eligibility.
             </p>
           </div>
         </div>
@@ -79,6 +65,7 @@ export function EnquiryForm() {
           href="https://wa.me/918374340999?text=Hi%20NIFS%2C%20I%20want%20to%20know%20about%20Fire%20%26%20Industrial%20Safety%20courses%2C%20course%20fees%2C%20eligibility%20and%20job%20placements."
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => trackEnquiry("enquiry_whatsapp_click")}
           className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-[#075E54] py-3.5 text-sm font-bold text-white shadow-md shadow-[#075E54]/25 hover:bg-[#054239] transition-all"
         >
           <svg className="h-5 w-5 fill-current" viewBox="0 0 24 24">
@@ -96,60 +83,88 @@ export function EnquiryForm() {
       </div>
 
       {status === "success" ? (
-        <div className="border border-primary/30 bg-primary/5 p-6 text-center rounded-xl">
+        <div role="status" className="border border-primary/30 bg-primary/5 p-6 text-center rounded-xl">
           <p className="font-display text-lg italic text-foreground">
-            Thank you — connecting to counselor on WhatsApp...
+            Thank you — your callback request has been accepted.
           </p>
+          <p className="mt-2 text-sm text-muted-foreground">Our admissions team will contact you on the number you provided. You can stay on this page.</p>
         </div>
       ) : (
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 text-left">
+        <form id={`${id}-enquiry`} noValidate aria-busy={status === "submitting"}
+          onChange={() => { if (!started.current) { started.current = true; trackEnquiry("enquiry_start"); } }}
+          onSubmit={handleSubmit(onSubmit, () => trackEnquiry("enquiry_error", "validation"))} className="space-y-4 text-left">
+          <p className="text-sm text-muted-foreground">Only your name and mobile number are required. No WhatsApp account needed.</p>
+          <fieldset disabled={status === "submitting"} className="space-y-4">
           <div>
-            <Label htmlFor="name">Your Name</Label>
+            <Label htmlFor={`${id}-name`}>Your Name</Label>
             <Input
-              id="name"
+              id={`${id}-name`}
+              autoComplete="name"
+              maxLength={100}
+              aria-required="true"
+              aria-invalid={!!errors.name}
+              aria-describedby={errors.name ? `${id}-name-error` : undefined}
               {...register("name")}
               placeholder="Enter your full name"
-              className="mt-1"
+              className="mt-1 h-12"
             />
             {errors.name && (
-              <p className="mt-1 text-xs text-destructive">
+              <p id={`${id}-name-error`} role="alert" className="mt-1 text-xs text-destructive">
                 {errors.name.message}
               </p>
             )}
           </div>
 
           <div>
-            <Label htmlFor="phone">Mobile Number</Label>
+            <Label htmlFor={`${id}-phone`}>Mobile Number</Label>
             <Input
-              id="phone"
+              id={`${id}-phone`}
+              autoComplete="tel"
+              inputMode="tel"
+              maxLength={25}
+              aria-required="true"
+              aria-invalid={!!errors.phone}
+              aria-describedby={errors.phone ? `${id}-phone-error` : undefined}
               type="tel"
               {...register("phone")}
-              placeholder="10-digit mobile number"
-              className="mt-1"
+              placeholder="10-digit mobile number or +91"
+              className="mt-1 h-12"
             />
             {errors.phone && (
-              <p className="mt-1 text-xs text-destructive">
+              <p id={`${id}-phone-error`} role="alert" className="mt-1 text-xs text-destructive">
                 {errors.phone.message}
               </p>
             )}
           </div>
 
           <div>
-            <Label htmlFor="course">Course Interested In (Optional)</Label>
+            <Label htmlFor={`${id}-course`}>Course Interested In (Optional)</Label>
             <Input
-              id="course"
+              id={`${id}-course`}
+              maxLength={200}
+              aria-invalid={!!errors.course}
+              aria-describedby={errors.course ? `${id}-course-error` : undefined}
               {...register("course")}
-              placeholder="e.g. ADIS, Fire Safety Diploma, NEBOSH"
-              className="mt-1"
+              placeholder="e.g. ADIS, Fire Safety Diploma, DFS"
+              className="mt-1 h-12"
             />
+            {errors.course && <p id={`${id}-course-error`} role="alert" className="mt-1 text-xs text-destructive">{errors.course.message}</p>}
           </div>
+          </fieldset>
+
+          <p className="text-xs text-muted-foreground">By requesting a callback, you agree that NIFS may contact you about this enquiry.</p>
+          {status === "error" && (
+            <div role="alert" className="rounded-lg border border-destructive/40 p-4 text-sm">
+              <p>We couldn’t confirm your request. Your details are still here. Please try again, use WhatsApp above, or <a className="underline" href="tel:+918374340999">call +91 8374 340 999</a>.</p>
+            </div>
+          )}
 
           <button
             type="submit"
             disabled={status === "submitting"}
             className="w-full bg-primary py-3 text-sm font-semibold text-primary-foreground rounded-lg hover:bg-primary/90 disabled:opacity-60 transition-colors"
           >
-            {status === "submitting" ? "Connecting..." : "Request Call Back →"}
+            {status === "submitting" ? "Sending your request..." : "Request Call Back →"}
           </button>
         </form>
       )}

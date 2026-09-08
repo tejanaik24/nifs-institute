@@ -1,6 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef } from "react";
+import { useInView } from "@/hooks/use-in-view";
 
 const FACILITIES = [
   { title: "Smart Classrooms", desc: "AC classrooms with digital displays and safety training posters", img: "/images/nifs-hero-classroom.webp", hover: "hover:border-nifs-red/50 hover:shadow-[0_0_40px_rgba(220,23,17,0.25)]" },
@@ -24,6 +26,7 @@ const LEN = FACILITIES.length;
 const MOBILE_AUTOPLAY_MS = 3500;
 
 export default function HomeFacilities() {
+  const { ref: sectionRef, inView } = useInView<HTMLElement>();
   const mobileRowRef = useRef<HTMLDivElement>(null);
   const mobileTouchingRef = useRef(false);
   const mobileAutoplayRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -31,6 +34,7 @@ export default function HomeFacilities() {
 
   // ─── Mobile snap-scroll autoplay ──────────────────────────────────────
   useEffect(() => {
+    if (!inView) return;
     const row = mobileRowRef.current;
     if (!row) return;
 
@@ -72,10 +76,13 @@ export default function HomeFacilities() {
       row.removeEventListener("touchend", handleTouchEnd);
       if (mobileAutoplayRef.current) clearInterval(mobileAutoplayRef.current);
     };
-  }, []);
+  }, [inView]);
 
   return (
-    <section className="w-full py-[200px] max-lg:py-[70px] bg-[#101010] flex justify-center items-center flex-col overflow-hidden">
+    <section
+      ref={sectionRef}
+      className="w-full py-[200px] max-lg:py-[70px] bg-[#101010] flex justify-center items-center flex-col overflow-hidden"
+    >
       <div className="w-[90%] max-sm:w-[95%] flex flex-col gap-16 items-center">
         <div className="text-center w-full">
           <h2 className="font-sans text-white text-[6vw] max-lg:text-[8vw] font-black leading-none break-words">
@@ -93,8 +100,14 @@ export default function HomeFacilities() {
               key={f.title}
               className={`relative overflow-hidden rounded-[32px] p-8 max-sm:p-6 flex flex-col min-h-[280px] justify-end group cursor-pointer shadow-xl border border-white/10 hover:-translate-y-2 transition-all duration-300 ${f.hover}`}
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img loading="lazy" decoding="async" src={f.img} alt={f.title} className="infra-parallax absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <Image
+                src={f.img}
+                alt={f.title}
+                fill
+                loading="lazy"
+                sizes="(max-width: 1024px) 50vw, 33vw"
+                className="infra-parallax object-cover transition-transform duration-500 group-hover:scale-105"
+              />
               <div className="absolute inset-x-0 bottom-0 h-[60%] bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
               <h3 className="font-sans text-white text-[24px] font-bold relative z-10">{f.title}</h3>
               <p className="text-white/80 text-[15px] relative z-10 mt-1 leading-normal">{f.desc}</p>
@@ -113,8 +126,14 @@ export default function HomeFacilities() {
               className="relative overflow-hidden rounded-[32px] p-6 flex flex-col min-h-[320px] justify-end group cursor-pointer shadow-xl border border-white/10 shrink-0 snap-start"
               style={{ width: "85vw" }}
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img loading="lazy" decoding="async" src={f.img} alt={f.title} className="absolute inset-0 w-full h-full object-cover" />
+              <Image
+                src={f.img}
+                alt={f.title}
+                fill
+                loading="lazy"
+                sizes="85vw"
+                className="object-cover"
+              />
               <div className="absolute inset-x-0 bottom-0 h-[60%] bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
               <h3 className="font-sans text-white text-[20px] font-bold relative z-10">{f.title}</h3>
               <p className="text-white/80 text-[14px] relative z-10 mt-1">{MOBILE_DESC[f.title]}</p>

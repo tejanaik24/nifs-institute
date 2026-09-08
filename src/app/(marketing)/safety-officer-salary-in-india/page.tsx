@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title:
     "Safety Officer Salary in India (2026 Complete Guide: Fresher to EHS Manager) | NIFS India",
   description:
-    "Comprehensive 2026 guide to Safety Officer salary in India & Gulf countries. Monthly & annual pay scales for freshers (₹25k–₹35k/mo), experienced EHS managers (₹10L–₹25L/yr), sector-wise pay (Oil & Gas, Construction, Tech), and NEBOSH salary boost.",
+    "Comprehensive 2026 guide to Safety Officer salary in India & Gulf countries. Monthly & annual pay scales for freshers (₹25k–₹35k/mo), experienced EHS managers (₹10L–₹25L/yr), and sector-wise pay (Oil & Gas, Construction, Tech).",
   alternates: { canonical: "/safety-officer-salary-in-india/" },
   openGraph: {
     title: "Safety Officer Salary in India (2026 Complete Guide) — NIFS India",
@@ -29,18 +29,13 @@ const faqs = [
     question:
       "How much does a Safety Officer earn in Gulf countries (Dubai, Saudi Arabia)?",
     answer:
-      "In Gulf countries (UAE, Saudi Arabia, Qatar, Kuwait), certified Safety Officers with NEBOSH IGC earn between AED 8,000 and AED 18,000 per month (approx. ₹1,80,000 to ₹4,00,000 per month tax-free), usually accompanied by company-provided accommodation, food allowance, and annual flight tickets.",
+      "In Gulf countries (UAE, Saudi Arabia, Qatar, Kuwait), certified Safety Officers earn between AED 8,000 and AED 18,000 per month (approx. ₹1,80,000 to ₹4,00,000 per month tax-free), usually accompanied by company-provided accommodation, food allowance, and annual flight tickets.",
   },
   {
     question:
       "Which industry pays the highest salary to Safety Officers in India?",
     answer:
       "The Oil & Gas and Petrochemical sector (Reliance, IOCL, ONGC, BPCL) pays the highest salaries in India, followed closely by Offshore Marine, Renewable Energy, and Hyperscale Data Centers. Senior EHS Managers in these sectors routinely draw ₹18,00,000 to ₹30,00,000+ per annum.",
-  },
-  {
-    question: "Does NEBOSH certification increase a Safety Officer's salary?",
-    answer:
-      "Yes. Candidates holding a recognized Indian diploma along with NEBOSH IGC command 40% to 70% higher compensation in multinational corporations and are eligible for international roles where packages start above ₹15,00,000 per annum.",
   },
   {
     question:
@@ -134,13 +129,6 @@ export default function SafetyOfficerSalaryInIndiaPage() {
                 className="text-primary underline font-medium"
               >
                 Advanced Diploma in Industrial Safety (ADIS)
-              </Link>{" "}
-              or{" "}
-              <Link
-                href="/courses/nebosh-igc/"
-                className="text-primary underline font-medium"
-              >
-                NEBOSH IGC
               </Link>
               , professionals command ₹6,00,000 to ₹12,00,000 per year
               domestically, while Gulf oil &amp; gas positions reach ₹25,00,000+
@@ -397,18 +385,6 @@ export default function SafetyOfficerSalaryInIndiaPage() {
                     <td className="p-3">₹3.2L – ₹4.8L</td>
                     <td className="p-3">₹8.0L – ₹14.0L</td>
                     <td className="p-3">UGC Recognized Degree</td>
-                  </tr>
-                  <tr>
-                    <td className="p-3 font-medium text-foreground">
-                      Diploma + NEBOSH IGC
-                    </td>
-                    <td className="p-3 font-black text-primary">
-                      ₹6.0L – ₹12.0L (India) / ₹20L+ (Gulf)
-                    </td>
-                    <td className="p-3 font-black text-primary">
-                      ₹15.0L – ₹35.0L+
-                    </td>
-                    <td className="p-3">Global International Benchmark</td>
                   </tr>
                 </tbody>
               </table>

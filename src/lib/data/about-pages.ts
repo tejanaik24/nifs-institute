@@ -172,9 +172,9 @@ export const aboutPages: AboutPage[] = [
       "NIFS accreditations: NSDC, Skill India, Acharya Nagarjuna University, Annamalai University, National Safety Council, SBTET, ISO 9001:2015 certified.",
     hero: {
       eyebrow: "Accreditations",
-      title: "Government recognized. University affiliated. ISO certified.",
+      title: "Government recognized. UGC-recognized degree. ISO certified.",
       description:
-        "Every NIFS program is backed by real government, university, and quality-system recognition — valid across India, the Gulf, and international markets.",
+        "NIFS's B.Sc programs are issued through Acharya Nagarjuna University, a UGC-recognized university — not a private certificate. Every NIFS program is backed by real government, university, and quality-system recognition, valid across India, the Gulf, and international markets.",
     },
     sections: [
       { type: "logos" },
@@ -182,7 +182,7 @@ export const aboutPages: AboutPage[] = [
         type: "list",
         eyebrow: "What it means for you",
         title: "Recognition that travels with your career",
-        note: "Certification from a government-approved institute means your qualification is valid for safety officer and EHS roles in India, the Gulf, and international markets.",
+        note: "Certification from a UGC-recognized, government-approved institute means your qualification is valid for safety officer and EHS roles in India, the Gulf, and international markets.",
       },
     ],
   },
