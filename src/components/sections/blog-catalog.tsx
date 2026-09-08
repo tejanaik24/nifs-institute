@@ -1,10 +1,18 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import type { BlogPost } from "@/lib/data/blog";
+import {
+  ArrowRight,
+  BookOpen,
+  Calendar,
+  ChevronLeft,
+  ChevronRight,
+  Clock,
+  Search,
+} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Search, Calendar, Clock, BookOpen, ChevronLeft, ChevronRight, Tag } from "lucide-react";
-import type { BlogPost } from "@/lib/data/blog";
+import { useMemo, useState } from "react";
 
 // Card list only needs these fields — never pass contentHtml/faqs down to this
 // client component, or Next.js serializes every post's full HTML into the
@@ -43,19 +51,18 @@ export function BlogCatalog({ posts }: { posts: BlogPostCard[] }) {
     return ["All", ...topCats];
   }, [posts]);
 
-  // Featured post: newest post or Dr. GPR Krishna article
+  // Featured post: newest post
   const featuredPost = useMemo(() => {
-    return (
-      posts.find((p) => p.slug === "safety-intelligence-predict-before-you-protect-dr-gpr-krishna") ||
-      posts.find((p) => p.slug === "safety-officer-salary-in-india-2026-complete-guide") ||
-      posts[0]
-    );
+    return posts[0] || null;
   }, [posts]);
 
   // Filter posts
   const filteredPosts = useMemo(() => {
     return posts.filter((p) => {
-      const isFeatured = p.slug === featuredPost?.slug && !searchQuery && selectedCategory === "All";
+      const isFeatured =
+        p.slug === featuredPost?.slug &&
+        !searchQuery &&
+        selectedCategory === "All";
       if (isFeatured) return false;
 
       const matchesSearch =
@@ -64,8 +71,7 @@ export function BlogCatalog({ posts }: { posts: BlogPostCard[] }) {
         p.excerpt.toLowerCase().includes(searchQuery.toLowerCase());
 
       const matchesCategory =
-        selectedCategory === "All" ||
-        p.categories?.includes(selectedCategory);
+        selectedCategory === "All" || p.categories?.includes(selectedCategory);
 
       return matchesSearch && matchesCategory;
     });
@@ -91,70 +97,73 @@ export function BlogCatalog({ posts }: { posts: BlogPostCard[] }) {
   return (
     <div className="space-y-12">
       {/* ── FEATURED HERO CARD (Page 1) ── */}
-      {featuredPost && currentPage === 1 && !searchQuery && selectedCategory === "All" && (
-        <div className="relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-lg transition-all duration-300 hover:shadow-xl dark:border-slate-800 dark:bg-slate-900">
-          <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
-            <div className="relative aspect-[16/9] w-full min-h-[240px] overflow-hidden bg-slate-100 lg:col-span-5 lg:min-h-[350px] lg:h-full">
-              {featuredPost.coverImage ? (
-                <Image
-                  src={featuredPost.coverImage}
-                  alt={featuredPost.title}
-                  fill
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 45vw"
-                  className="object-cover"
-                />
-              ) : (
-                <div className="flex h-full w-full items-center justify-center bg-slate-100">
-                  <BookOpen className="h-16 w-16 text-slate-300" />
+      {featuredPost &&
+        currentPage === 1 &&
+        !searchQuery &&
+        selectedCategory === "All" && (
+          <div className="relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-lg transition-all duration-300 hover:shadow-xl dark:border-slate-800 dark:bg-slate-900">
+            <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
+              <div className="relative aspect-[16/9] w-full min-h-[240px] overflow-hidden bg-slate-100 lg:col-span-5 lg:min-h-[350px] lg:h-full">
+                {featuredPost.coverImage ? (
+                  <Image
+                    src={featuredPost.coverImage}
+                    alt={featuredPost.title}
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 45vw"
+                    className="object-cover"
+                  />
+                ) : (
+                  <div className="flex h-full w-full items-center justify-center bg-slate-100">
+                    <BookOpen className="h-16 w-16 text-slate-300" />
+                  </div>
+                )}
+                <div className="absolute left-4 top-4 z-10 rounded-md bg-nifs-red px-3 py-1 text-xs font-bold uppercase tracking-wider text-white shadow-md">
+                  Featured Article
                 </div>
-              )}
-              <div className="absolute left-4 top-4 z-10 rounded-md bg-nifs-red px-3 py-1 text-xs font-bold uppercase tracking-wider text-white shadow-md">
-                Featured Article
               </div>
-            </div>
 
-            <div className="flex flex-col justify-between p-6 sm:p-8 lg:col-span-7">
-              <div>
-                <div className="flex items-center gap-3 text-xs font-semibold text-slate-500">
-                  <span className="flex items-center gap-1 text-nifs-red font-bold">
-                    <Calendar className="h-3.5 w-3.5" />
-                    {formatDate(featuredPost.date)}
-                  </span>
-                  <span>•</span>
-                  <span className="flex items-center gap-1">
-                    <Clock className="h-3.5 w-3.5" />
-                    {estimateReadTime(featuredPost.wordCount)}
-                  </span>
+              <div className="flex flex-col justify-between p-6 sm:p-8 lg:col-span-7">
+                <div>
+                  <div className="flex items-center gap-3 text-xs font-semibold text-slate-500">
+                    <span className="flex items-center gap-1 text-nifs-red font-bold">
+                      <Calendar className="h-3.5 w-3.5" />
+                      {formatDate(featuredPost.date)}
+                    </span>
+                    <span>•</span>
+                    <span className="flex items-center gap-1">
+                      <Clock className="h-3.5 w-3.5" />
+                      {estimateReadTime(featuredPost.wordCount)}
+                    </span>
+                  </div>
+
+                  <h2 className="mt-3 text-xl font-extrabold leading-snug text-slate-900 sm:text-2xl dark:text-white">
+                    <Link
+                      href={`/blog/${featuredPost.slug}`}
+                      className="transition-colors hover:text-nifs-red"
+                    >
+                      {featuredPost.title}
+                    </Link>
+                  </h2>
+
+                  <p className="mt-3 line-clamp-3 text-xs leading-relaxed text-slate-600 sm:text-sm dark:text-slate-300">
+                    {featuredPost.excerpt}
+                  </p>
                 </div>
 
-                <h2 className="mt-3 text-xl font-extrabold leading-snug text-slate-900 sm:text-2xl dark:text-white">
+                <div className="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800">
                   <Link
                     href={`/blog/${featuredPost.slug}`}
-                    className="transition-colors hover:text-nifs-red"
+                    className="group inline-flex items-center gap-2 rounded-lg bg-nifs-red px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white transition-all duration-300 hover:bg-red-700 shadow-md"
                   >
-                    {featuredPost.title}
+                    Read Full Story
+                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </Link>
-                </h2>
-
-                <p className="mt-3 line-clamp-3 text-xs leading-relaxed text-slate-600 sm:text-sm dark:text-slate-300">
-                  {featuredPost.excerpt}
-                </p>
-              </div>
-
-              <div className="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800">
-                <Link
-                  href={`/blog/${featuredPost.slug}`}
-                  className="group inline-flex items-center gap-2 rounded-lg bg-nifs-red px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white transition-all duration-300 hover:bg-red-700 shadow-md"
-                >
-                  Read Full Story
-                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </Link>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
 
       {/* ── SEARCH & FILTER CONTROLS ── */}
       <div className="flex flex-col gap-4 rounded-xl border border-slate-200 bg-slate-50/80 p-4 sm:flex-row sm:items-center sm:justify-between dark:border-slate-800 dark:bg-slate-900/50">
@@ -281,7 +290,11 @@ export function BlogCatalog({ posts }: { posts: BlogPostCard[] }) {
           </button>
 
           <span className="text-xs font-semibold text-slate-600 dark:text-slate-400">
-            Page <strong className="text-slate-900 dark:text-white">{currentPage}</strong> of {totalPages}
+            Page{" "}
+            <strong className="text-slate-900 dark:text-white">
+              {currentPage}
+            </strong>{" "}
+            of {totalPages}
           </span>
 
           <button

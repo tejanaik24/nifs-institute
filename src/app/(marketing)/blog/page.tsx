@@ -1,7 +1,9 @@
-import type { Metadata } from "next";
-import { PageHero } from "@/components/sections/page-hero";
 import { BlogCatalog } from "@/components/sections/blog-catalog";
+import { PageHero } from "@/components/sections/page-hero";
 import { getPublishedPosts, toBlogPostView } from "@/lib/db/posts";
+import type { Metadata } from "next";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Blog — Safety Insights & NIFS News | NIFS India",
@@ -15,7 +17,11 @@ export default async function BlogPage() {
   // Strip the heavy per-post fields (contentHtml, faqs) — the card grid never
   // reads them, and passing them to the client component bloats the page.
   const blogPostCards = posts.map((row) => {
-    const { contentHtml: _contentHtml, faqs: _faqs, ...card } = toBlogPostView(row);
+    const {
+      contentHtml: _contentHtml,
+      faqs: _faqs,
+      ...card
+    } = toBlogPostView(row);
     return card;
   });
 
