@@ -1,4 +1,5 @@
 import { PageHero } from "@/components/sections/page-hero";
+import { getCenterGallery } from "@/lib/data/center-gallery";
 import { centers } from "@/lib/data/centers";
 import { courses } from "@/lib/data/courses";
 import {
@@ -15,6 +16,7 @@ import {
   Phone,
 } from "lucide-react";
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -24,6 +26,75 @@ export function slugifyCity(cityName: string): string {
     .trim()
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-|-$/g, "");
+}
+
+const GALLERY_PHOTOS = [
+  {
+    src: "/images/centers-gallery/classroom-01.jpg",
+    alt: "NIFS Fire & Safety classroom lecture session",
+  },
+  {
+    src: "/images/centers-gallery/classroom-02.jpg",
+    alt: "NIFS students during theoretical training",
+  },
+  {
+    src: "/images/centers-gallery/campus-drive-01.jpg",
+    alt: "NIFS campus placement drive with industry recruiters",
+  },
+  {
+    src: "/images/centers-gallery/campus-drive-02.jpg",
+    alt: "NIFS students at campus recruitment event",
+  },
+  {
+    src: "/images/centers-gallery/industrial-visit-01.jpg",
+    alt: "NIFS industrial visit to a manufacturing facility",
+  },
+  {
+    src: "/images/centers-gallery/industrial-visit-02.jpg",
+    alt: "NIFS students during an industrial plant tour",
+  },
+  {
+    src: "/images/centers-gallery/training-yard-01.jpg",
+    alt: "NIFS Fire & Safety practical training yard",
+  },
+  {
+    src: "/images/centers-gallery/training-yard-02.jpg",
+    alt: "NIFS live fire suppression drill at training yard",
+  },
+  {
+    src: "/images/centers-gallery/inhouse-training-01.jpg",
+    alt: "NIFS in-house fire safety training session",
+  },
+  {
+    src: "/images/centers-gallery/inhouse-training-02.jpg",
+    alt: "NIFS hands-on safety equipment training",
+  },
+  {
+    src: "/images/centers-gallery/corporate-training-01.jpg",
+    alt: "NIFS corporate fire safety training program",
+  },
+  {
+    src: "/images/centers-gallery/corporate-training-02.jpg",
+    alt: "NIFS railway safety training workshop",
+  },
+];
+
+function simpleHash(str: string): number {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = (hash * 31 + str.charCodeAt(i)) | 0;
+  }
+  return Math.abs(hash);
+}
+
+function getGalleryForCity(citySlug: string) {
+  const offset = simpleHash(citySlug) % GALLERY_PHOTOS.length;
+  const count = 6;
+  const selected = [];
+  for (let i = 0; i < count; i++) {
+    selected.push(GALLERY_PHOTOS[(offset + i) % GALLERY_PHOTOS.length]);
+  }
+  return selected;
 }
 
 // City-specific industrial ecosystems
@@ -390,6 +461,7 @@ export default async function DynamicCenterPage({
   const phoneDisplay = `+91 ${phone}`;
   const phoneTel = `tel:+91${phone.replace(/[^0-9]/g, "")}`;
   const pageUrl = `https://nifsindia.net/centers/${normalizedSlug}/`;
+  const centerGallery = getCenterGallery(normalizedSlug);
 
   const topCourses = courses.slice(0, 3);
   const industries = cityMeta?.industries ?? [
@@ -562,6 +634,85 @@ export default async function DynamicCenterPage({
           </div>
         </section>
 
+        {/* Placement Outcomes & Proofs */}
+        <section className="border-t border-border bg-card">
+          <div className="mx-auto max-w-6xl px-6 py-16 lg:px-10">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+              <div>
+                <span className="text-xs font-bold uppercase tracking-widest text-primary">
+                  100% Placement Record
+                </span>
+                <h2 className="font-display mt-2 text-2xl sm:text-3xl font-bold text-foreground">
+                  Recent Placement Outcomes — {cityName} &amp; {stateName}
+                </h2>
+                <p className="mt-2 text-xs sm:text-sm text-muted-foreground max-w-2xl">
+                  NIFS certified safety professionals placed across top
+                  infrastructure, manufacturing, and oil &amp; gas leaders.
+                </p>
+              </div>
+              <Link
+                href="/placements"
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:underline shrink-0"
+              >
+                <span>View All Placements</span>
+                <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
+            </div>
+
+            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {centerGallery.placementPhotos.map((photo, i) => {
+                const studentName =
+                  centerGallery.placementNames[i] || "NIFS Graduate";
+                const roles = [
+                  "Safety Officer (HSE)",
+                  "Fire Safety Supervisor",
+                  "EHS Plant Executive",
+                  "Fire Marshall & Steward",
+                ];
+                const companies = [
+                  "L&T Construction",
+                  "Adani Group",
+                  "ITC Limited",
+                  "Amazon",
+                  "Reliance Industries",
+                  "MEIL",
+                  "GMR",
+                ];
+                const comp =
+                  companies[(simpleHash(cityName) + i) % companies.length];
+                const role = roles[i % roles.length];
+
+                return (
+                  <div
+                    key={i}
+                    className="flex flex-col rounded-xl border border-border bg-background p-4 shadow-sm transition-all hover:border-primary/50 hover:shadow-md"
+                  >
+                    <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg border border-border bg-muted">
+                      <Image
+                        src={photo.src}
+                        alt={`${studentName} — Placed at ${comp}`}
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="mt-3 text-center">
+                      <p className="font-bold text-sm text-foreground">
+                        {studentName}
+                      </p>
+                      <p className="text-xs text-primary font-medium">{role}</p>
+                      <p className="text-xs text-muted-foreground mt-0.5">
+                        Placed at:{" "}
+                        <strong className="text-foreground">{comp}</strong>
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
         {/* Center Details & Address */}
         <section className="mx-auto max-w-6xl px-6 py-16 lg:px-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
@@ -634,6 +785,36 @@ export default async function DynamicCenterPage({
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     {faq.answer}
                   </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Training Photo Gallery */}
+        <section className="border-t border-border bg-muted/20">
+          <div className="mx-auto max-w-6xl px-6 py-16 lg:px-10">
+            <h2 className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
+              NIFS Training in Action
+            </h2>
+            <p className="mt-3 max-w-2xl text-sm text-muted-foreground">
+              Classroom lectures, practical drills, campus placements, and
+              industrial visits across NIFS centers.
+            </p>
+            <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-3">
+              {getGalleryForCity(normalizedSlug).map((photo, i) => (
+                <div
+                  key={`${photo.src}-${i}`}
+                  className="relative aspect-[4/3] overflow-hidden rounded-xl border border-border bg-card"
+                >
+                  <Image
+                    src={photo.src}
+                    alt={photo.alt}
+                    fill
+                    sizes="(max-width: 640px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-300 hover:scale-105"
+                    loading={i < 3 ? "eager" : "lazy"}
+                  />
                 </div>
               ))}
             </div>

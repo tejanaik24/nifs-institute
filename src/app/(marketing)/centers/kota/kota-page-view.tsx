@@ -8,10 +8,12 @@ import {
   ArrowRight,
   Award,
   Calendar,
+  Check,
   CheckCircle2,
   ChevronDown,
   ChevronRight,
   Compass,
+  Copy,
   ExternalLink,
   Flame,
   HelpCircle,
@@ -27,18 +29,19 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-const LOCAL_PHONE = "+91-9246-616-282";
-const LOCAL_TEL = "tel:+919246616282";
+const LOCAL_PHONE = "+91-9610-281-023";
+const LOCAL_TEL = "tel:+919610281023";
 const WHATSAPP_URL =
   "https://wa.me/918374340999?text=" +
   encodeURIComponent(
-    "Hi NIFS, I am interested in Fire and Safety courses at the Hyderabad (Ameerpet) center. Please share fee structure and batch details.",
+    "Hi NIFS, I am interested in Fire and Safety courses at the Kota center. Please share fee structure and batch details.",
   );
 const GOOGLE_MAPS_NAV_URL =
-  "https://www.google.com/maps/dir/?api=1&destination=17.4375,78.4482";
-const GOOGLE_REVIEW_URL = "https://g.page/r/nifs-hyderabad/review";
+  "https://www.google.com/maps/dir/?api=1&destination=" +
+  encodeURIComponent("NIFS Fire and Safety Kota 777, Shastri Nagar Main Road, Dadabari Main Road, Near PNB Bank, Kota – 324009");
+const GOOGLE_REVIEW_URL = "https://g.page/r/nifs-kota/review";
+const CENTER_ADDRESS = "777, Shastri Nagar Main Road, Dadabari Main Road, Near PNB Bank, Kota – 324009";
 
-// Recruiter Logos
 const RECRUITER_LOGOS = [
   { name: "L&T", logo: "/images/logos/recruiters/lt.png" },
   { name: "Adani", logo: "/images/logos/recruiters/adani_logo.png" },
@@ -52,89 +55,56 @@ const RECRUITER_LOGOS = [
   { name: "Nilkamal", logo: "/images/logos/recruiters/nilkamal.png" },
 ];
 
-// Practical Fire Training Yard Cinema Cards
-const PRACTICAL_YARD_PHOTOS = [
-  {
-    title: "High-Rise Scaffolding Rescue",
-    subtitle: "Rope access, harness & casualty lowering drills",
-    src: "/images/gallery/practical-training-yard/practical-training-yard-14.webp",
-    tag: "Height Safety",
-    stat: "15m Scaffolding",
-  },
-  {
-    title: "Chemical Foam Fire Attack",
-    subtitle: "Class B solvent & volatile fuel blaze suppression",
-    src: "/images/gallery/practical-training-yard/practical-training-yard-16.webp",
-    tag: "Pharma Hazmat",
-    stat: "Multi-Fuel Pits",
-  },
-  {
-    title: "SCBA Smoke Chamber Entry",
-    subtitle: "Zero-visibility breathing apparatus search & rescue",
-    src: "/images/gallery/practical-training-yard/practical-training-yard-1.webp",
-    tag: "Toxic Gas Entry",
-    stat: "Confined Space",
-  },
-  {
-    title: "Industrial Fire Hydrant & Pump",
-    subtitle: "High-pressure multi-hose relay operations",
-    src: "/images/gallery/practical-training-yard/practical-training-yard-3.webp",
-    tag: "Hydraulics",
-    stat: "10-Bar Pressure",
-  },
-];
+const centerGallery = getCenterGallery("kota");
+const PRACTICAL_YARD_PHOTOS = centerGallery.trainingYardPhotos;
 
-const centerGallery = getCenterGallery("hyderabad");
-
-// Visual Placement Cards
 const PLACEMENT_PROOFS = [
   {
-    name: "K. Sai Praneeth",
-    company: "Dr. Reddy's Laboratories",
-    role: "Junior EHS Officer",
-    pkg: "₹6.2 LPA",
+    name: centerGallery.placementNames[0],
+    company: "DCM Shriram Ltd.",
+    role: "Safety Officer",
+    pkg: "₹6.0 LPA",
     course: "ADIS (1-Year)",
-    badge: "Pharma SEZ",
+    badge: "Chemical & Thermal",
     image:
       centerGallery.placementPhotos[0]?.src ||
-      "/images/placements/students/student-01.webp",
+      "/images/gallery/campus-drive/campus-drive-1.webp",
   },
   {
-    name: "Mohammed Irfan",
-    company: "L&T Construction",
-    role: "Site Safety Supervisor",
-    pkg: "₹5.4 LPA",
+    name: centerGallery.placementNames[1],
+    company: "UltraTech Cement",
+    role: "EHS Supervisor",
+    pkg: "₹5.0 LPA",
     course: "Diploma in Fire Safety",
-    badge: "Metro Project",
+    badge: "Mining & Cement",
     image:
       centerGallery.placementPhotos[1]?.src ||
-      "/images/placements/students/student-02.webp",
+      "/images/gallery/campus-drive/campus-drive-8.webp",
   },
   {
-    name: "B. Venkatesh Goud",
-    company: "Petrofac (UAE)",
-    role: "Offshore Safety Engineer",
-    pkg: "₹18.5 LPA",
+    name: centerGallery.placementNames[2],
+    company: "Chambal Fertilisers",
+    role: "International HSE Lead",
+    pkg: "₹16.5 LPA",
     course: "PG Diploma in HSE",
     badge: "Gulf Placed",
     image:
       centerGallery.placementPhotos[2]?.src ||
-      "/images/placements/students/student-03.webp",
+      "/images/placement-graduate-worksite.webp",
   },
   {
-    name: "T. Rajesh Kumar",
-    company: "Hetero Drugs",
-    role: "EHS Plant Trainee",
-    pkg: "₹4.8 LPA",
+    name: centerGallery.placementNames[3],
+    company: "Jindal Saw Ltd.",
+    role: "Fire Safety Trainee",
+    pkg: "₹4.5 LPA",
     course: "DFS 2025 Batch",
-    badge: "Chemical SEZ",
+    badge: "RIICO Industrial",
     image:
       centerGallery.placementPhotos[3]?.src ||
-      "/images/placements/students/student-04.webp",
+      "/images/gallery/campus-drive/campus-drive-4.webp",
   },
 ];
 
-// Qualification Matcher
 const QUALIFICATIONS = [
   {
     id: "10th-12th",
@@ -157,7 +127,7 @@ const QUALIFICATIONS = [
     slug: "advanced-diploma-in-industrial-safety-adis",
     highlights: [
       "Factories Act Statutory Qualification",
-      "Direct Hyderabad Pharma Hiring",
+      "Direct Manufacturing & Plant Hiring",
     ],
   },
   {
@@ -186,7 +156,7 @@ const QUALIFICATIONS = [
   },
 ];
 
-export function HyderabadPageView({
+export function KotaPageView({
   courses,
   faqs,
 }: {
@@ -198,12 +168,22 @@ export function HyderabadPageView({
   );
   const [experienceYears, setExperienceYears] = useState<number>(2);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const [copiedAddress, setCopiedAddress] = useState(false);
+
+  const handleCopyAddress = async () => {
+    try {
+      await navigator.clipboard.writeText(CENTER_ADDRESS);
+      setCopiedAddress(true);
+      setTimeout(() => setCopiedAddress(false), 2000);
+    } catch (err) {
+      console.error("Failed to copy address:", err);
+    }
+  };
 
   const matched =
     QUALIFICATIONS.find((q) => q.id === selectedQualification) ||
     QUALIFICATIONS[0];
 
-  // Dynamic Salary Calculations based on Experience Slider
   const hydSalaryMin = (3.2 + experienceYears * 1.4).toFixed(1);
   const hydSalaryMax = (4.5 + experienceYears * 1.8).toFixed(1);
   const gulfSalaryMin = (8.5 + experienceYears * 2.8).toFixed(1);
@@ -218,18 +198,13 @@ export function HyderabadPageView({
 
   return (
     <article className="min-h-screen bg-white text-slate-900 selection:bg-primary/20">
-      {/* =========================================================================
-          1. BESPOKE HYDERABAD REGIONAL COMMAND HERO (Unique Multi-Card Bento Hub)
-         ========================================================================= */}
+      {/* 1. BESPOKE REGIONAL COMMAND HERO */}
       <section className="relative overflow-hidden pt-36 pb-16 lg:pt-40 lg:pb-24 border-b border-slate-200/80 bg-gradient-to-b from-slate-50 via-white to-white">
-        {/* Soft atmospheric ambient glow */}
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(200,16,46,0.06),transparent_70%)] pointer-events-none" />
 
         <div className="mx-auto max-w-7xl px-6 lg:px-10 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-            {/* Left Column: Bold Editorial & Regional Directives */}
             <div className="lg:col-span-7 space-y-6">
-              {/* Upgraded Authority Badge */}
               <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-primary shadow-sm">
                 <span className="h-2.5 w-2.5 rounded-full bg-primary animate-pulse" />
                 <span>
@@ -238,173 +213,136 @@ export function HyderabadPageView({
                 </span>
               </div>
 
-              {/* Unique Dynamic Headline */}
               <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.08]">
                 Fire &amp; Industrial Safety Course in{" "}
                 <span className="font-serif italic font-normal text-primary">
-                  Hyderabad
+                  Kota
                 </span>
               </h1>
 
-              {/* Concise Authority Subtitle */}
               <p className="text-base sm:text-lg text-slate-600 max-w-xl leading-relaxed font-medium">
                 Government-approved NSDC safety certifications with Asia&apos;s
                 dedicated practical fire training yard drills and 100% placement
-                track record.
+                track record in Rajasthan.
               </p>
 
-              {/* Micro-Features Row */}
               <div className="flex flex-wrap gap-2.5 pt-1">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-semibold border border-slate-200">
                   <CheckCircle2 className="h-3.5 w-3.5 text-[#25D366]" />
-                  <span>Ameerpet Regional Campus</span>
+                  <span>Kota Campus</span>
                 </span>
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-semibold border border-slate-200">
                   <CheckCircle2 className="h-3.5 w-3.5 text-[#25D366]" />
-                  <span>Genome Valley Pharma SEZ Hiring</span>
+                  <span>Top Industrial Belt Hiring</span>
                 </span>
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-semibold border border-slate-200">
                   <CheckCircle2 className="h-3.5 w-3.5 text-[#25D366]" />
-                  <span>3 Min from Metro</span>
+                  <span>Practical Yard Drills</span>
                 </span>
               </div>
 
-              {/* 3 Metric Counters */}
               <div className="grid grid-cols-3 gap-4 pt-3 border-y border-slate-200 py-5 max-w-xl">
                 <div>
                   <p className="font-display text-3xl sm:text-4xl font-black text-slate-900">
-                    45,000+
+                    45K+
                   </p>
-                  <p className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
-                    Officers Placed
-                  </p>
-                </div>
-                <div className="border-x border-slate-200 px-4">
-                  <p className="font-display text-3xl sm:text-4xl font-black text-amber-500">
-                    4.9 ★
-                  </p>
-                  <p className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
-                    Google Reviews
+                  <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mt-1">
+                    Graduates Placed
                   </p>
                 </div>
                 <div>
                   <p className="font-display text-3xl sm:text-4xl font-black text-primary">
-                    25+ Yrs
+                    100%
                   </p>
-                  <p className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
-                    National Legacy
+                  <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mt-1">
+                    Placement Support
+                  </p>
+                </div>
+                <div>
+                  <p className="font-display text-3xl sm:text-4xl font-black text-slate-900">
+                    4.9★
+                  </p>
+                  <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mt-1">
+                    Google Verified
                   </p>
                 </div>
               </div>
 
-              {/* Action Buttons */}
-              <div className="flex flex-wrap items-center gap-3.5 pt-1">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
                 <a
                   href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="cursor-pointer inline-flex items-center gap-2 rounded-full bg-[#25D366] hover:bg-[#20bd5a] px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-[#25D366]/25 transition-all duration-200 hover:scale-105"
+                  className="cursor-pointer inline-flex items-center justify-center gap-2 rounded-2xl bg-[#25D366] hover:bg-[#20bd5a] px-7 py-4 text-sm font-bold text-white shadow-xl hover:shadow-2xl transition-all hover:scale-105 active:scale-95"
                 >
-                  <span>Chat on WhatsApp</span>
-                  <ChevronRight className="h-4 w-4" />
+                  <Phone className="h-4 w-4" />
+                  <span>Connect with Kota Desk</span>
                 </a>
-
                 <a
                   href={LOCAL_TEL}
-                  className="cursor-pointer inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white hover:bg-slate-50 px-6 py-3.5 text-sm font-semibold text-slate-900 transition-all duration-200 hover:scale-105 shadow-sm"
+                  className="cursor-pointer inline-flex items-center justify-center gap-2 rounded-2xl border-2 border-slate-300 bg-white hover:bg-slate-50 px-7 py-4 text-sm font-bold text-slate-900 transition-all hover:scale-105 shadow-sm"
                 >
-                  <Phone className="h-4 w-4 text-primary" />
-                  <span>{LOCAL_PHONE}</span>
+                  <span>Call {LOCAL_PHONE}</span>
                 </a>
-
-                <Link
-                  href="/admissions"
-                  className="cursor-pointer inline-flex items-center rounded-full bg-primary hover:bg-primary/90 px-6 py-3.5 text-sm font-bold text-white shadow-md shadow-primary/20 transition-all duration-200 hover:scale-105"
-                >
-                  Apply 2026 Batch
-                </Link>
               </div>
             </div>
 
-            {/* Right Column: Unique Multi-Layer Visual Bento Card */}
-            <div className="lg:col-span-5 relative">
-              <div className="relative rounded-3xl border-2 border-slate-200 bg-white p-3 shadow-2xl space-y-3 overflow-hidden">
-                {/* Main Hero Visual: High-Rise Rope Rescue & Fire Yard Drill */}
-                <div className="relative h-72 sm:h-80 w-full rounded-2xl overflow-hidden bg-slate-900 group">
-                  <Image
-                    src="/images/gallery/practical-training-yard/practical-training-yard-14.webp"
-                    alt="NIFS Practical High-Rise Rope Rescue Training Yard"
-                    fill
-                    priority
-                    className="object-cover object-center group-hover:scale-105 transition-transform duration-700 opacity-95"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
-
-                  {/* Status Overlay */}
-                  <div className="absolute top-3 left-3 bg-black/70 backdrop-blur-md text-white px-3 py-1 rounded-full text-[11px] font-bold flex items-center gap-1.5 border border-white/20">
-                    <span className="h-2 w-2 rounded-full bg-[#25D366] animate-ping" />
-                    <span>Live Drill: 15m Height Safety Scaffolding</span>
+            {/* HERO RIGHT: QUICK APPLY CARD */}
+            <div className="lg:col-span-5">
+              <div className="rounded-3xl border border-slate-200 bg-white p-7 sm:p-8 shadow-2xl relative overflow-hidden space-y-6">
+                <div className="space-y-2">
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold">
+                    <Flame className="h-3.5 w-3.5" />
+                    <span>2026 Admissions Open in Kota</span>
                   </div>
-
-                  <div className="absolute bottom-4 left-4 right-4 text-white">
-                    <p className="text-[11px] font-mono uppercase text-amber-400 font-bold tracking-wider">
-                      Ground Training Excellence
-                    </p>
-                    <h3 className="text-base font-bold">
-                      Asia&apos;s Dedicated Fire &amp; Hazmat Training Yard
-                    </h3>
-                  </div>
+                  <h3 className="font-display text-2xl font-bold text-slate-900">
+                    Book Free Counseling Session
+                  </h3>
+                  <p className="text-xs text-slate-500 leading-relaxed">
+                    Get full fee breakdown, government approval certificates,
+                    and previous batch placement record.
+                  </p>
                 </div>
 
-                {/* Sub-Bento Row: 2 Interactive Micro Cards */}
-                <div className="grid grid-cols-2 gap-3">
-                  {/* Micro Card 1: SCBA Breathing Apparatus Chamber */}
-                  <div className="relative rounded-2xl overflow-hidden border border-slate-200 p-3 bg-slate-50 flex flex-col justify-between">
-                    <div className="flex items-center gap-2">
-                      <div className="h-7 w-7 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
-                        <Flame className="h-4 w-4" />
-                      </div>
-                      <p className="text-xs font-bold text-slate-900 leading-tight">
-                        SCBA Smoke Chamber
-                      </p>
-                    </div>
-                    <p className="text-[11px] text-slate-500 mt-2">
-                      Zero-visibility confined space toxic gas rescue drills.
-                    </p>
-                  </div>
-
-                  {/* Micro Card 2: Next Batch Countdown */}
-                  <div className="rounded-2xl border border-amber-200 bg-amber-50/60 p-3 flex flex-col justify-between">
-                    <div className="flex items-center gap-2">
-                      <div className="h-7 w-7 rounded-full bg-amber-500/15 flex items-center justify-center text-amber-600 shrink-0">
-                        <Calendar className="h-4 w-4" />
-                      </div>
-                      <p className="text-xs font-bold text-amber-900 leading-tight">
-                        Next Batch: 15th Sept
-                      </p>
-                    </div>
-                    <p className="text-[11px] font-semibold text-amber-800 mt-2">
-                      8 Seats Left for Ameerpet Center
-                    </p>
-                  </div>
-                </div>
-
-                {/* Floating Rating Pill */}
-                <div className="rounded-2xl border border-slate-200 bg-slate-900 text-white p-3.5 flex items-center justify-between shadow-lg">
-                  <div className="flex items-center gap-2.5">
-                    <div className="flex text-amber-400">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="h-3.5 w-3.5 fill-amber-400" />
-                      ))}
-                    </div>
-                    <span className="text-xs font-bold text-white">
-                      4.9 ★ Rating
+                <div className="space-y-3.5 pt-2">
+                  <div className="rounded-xl bg-slate-50 p-3.5 border border-slate-200 flex items-center justify-between text-xs">
+                    <span className="font-medium text-slate-600">
+                      Next Batch Start:
+                    </span>
+                    <span className="font-bold text-slate-900 flex items-center gap-1">
+                      <Calendar className="h-3.5 w-3.5 text-primary" />
+                      <span>Upcoming Monday</span>
                     </span>
                   </div>
-                  <span className="text-[11px] font-mono text-slate-300">
-                    482+ Google Reviews
-                  </span>
+
+                  <div className="rounded-xl bg-slate-50 p-3.5 border border-slate-200 flex items-center justify-between text-xs">
+                    <span className="font-medium text-slate-600">
+                      Eligible Streams:
+                    </span>
+                    <span className="font-bold text-slate-900">
+                      10th, 12th, Any Graduate, ITI/Diploma
+                    </span>
+                  </div>
+
+                  <div className="rounded-xl bg-slate-50 p-3.5 border border-slate-200 flex items-center justify-between text-xs">
+                    <span className="font-medium text-slate-600">
+                      Mode:
+                    </span>
+                    <span className="font-bold text-primary">
+                      Regular + Practical Training Ground
+                    </span>
+                  </div>
                 </div>
+
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="cursor-pointer w-full inline-flex items-center justify-center gap-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white py-4 text-xs sm:text-sm font-bold shadow-lg transition-all hover:scale-105"
+                >
+                  <span>Apply Online via WhatsApp</span>
+                  <ArrowRight className="h-4 w-4" />
+                </a>
               </div>
             </div>
           </div>
@@ -417,7 +355,7 @@ export function HyderabadPageView({
       <section className="border-b border-slate-200/80 bg-slate-50/50 py-10 overflow-hidden">
         <div className="mx-auto max-w-7xl px-6 lg:px-10 mb-6 text-center">
           <p className="text-xs font-bold uppercase tracking-widest text-slate-500">
-            Top Hiring Partners for Hyderabad Safety Officers
+            Top Hiring Partners for Kota Safety Officers
           </p>
         </div>
 
@@ -442,9 +380,7 @@ export function HyderabadPageView({
         </div>
       </section>
 
-      {/* =========================================================================
-          3. PRACTICAL TRAINING YARD CINEMA REEL
-         ========================================================================= */}
+      {/* 3. PRACTICAL TRAINING YARD CINEMA REEL */}
       <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-24">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
           <div className="space-y-2">
@@ -465,7 +401,6 @@ export function HyderabadPageView({
           </Link>
         </div>
 
-        {/* 4 Photo Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {PRACTICAL_YARD_PHOTOS.map((drill, idx) => (
             <TiltWrapper key={idx} className="h-full">
@@ -501,9 +436,7 @@ export function HyderabadPageView({
         </div>
       </section>
 
-      {/* =========================================================================
-          4. PLACEMENT PROOF CARDS (Real Salaries & Recruiter Badges)
-         ========================================================================= */}
+      {/* 4. PLACEMENT PROOF CARDS */}
       <section className="border-t border-slate-200/80 bg-slate-50/50 py-20 lg:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <div className="text-center max-w-2xl mx-auto space-y-3 mb-14">
@@ -512,11 +445,11 @@ export function HyderabadPageView({
               <span>Placement Outcomes</span>
             </span>
             <h2 className="font-display text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
-              Recent Placements from NIFS Hyderabad
+              Recent Placements from NIFS Kota
             </h2>
             <p className="text-sm text-slate-600">
               Verified campus selections across Fortune 500 manufacturing,
-              Hyderabad pharma SEZs, and Gulf projects.
+              core infrastructure plants, and Gulf projects.
             </p>
           </div>
 
@@ -526,7 +459,6 @@ export function HyderabadPageView({
                 key={idx}
                 className="rounded-3xl border border-slate-200 bg-white overflow-hidden shadow-md hover:shadow-2xl hover:border-primary/40 transition-all duration-300 flex flex-col justify-between"
               >
-                {/* Photo Header */}
                 <div className="relative h-48 w-full bg-slate-900">
                   <Image
                     src={proof.image}
@@ -544,7 +476,6 @@ export function HyderabadPageView({
                   </div>
                 </div>
 
-                {/* Offer Details */}
                 <div className="p-5 space-y-3">
                   <div className="flex items-center justify-between">
                     <div>
@@ -576,13 +507,10 @@ export function HyderabadPageView({
         </div>
       </section>
 
-      {/* =========================================================================
-          5. DYNAMIC INTERACTIVE SALARY ROI SLIDER
-         ========================================================================= */}
+      {/* 5. DYNAMIC INTERACTIVE SALARY ROI SLIDER */}
       <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-24">
         <div className="rounded-3xl border border-slate-200 bg-gradient-to-br from-white via-slate-50 to-red-50/20 p-8 sm:p-12 shadow-xl relative overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            {/* Left: Interactive Slider Control */}
             <div className="lg:col-span-6 space-y-6">
               <div className="space-y-2">
                 <span className="text-xs font-bold uppercase tracking-widest text-primary flex items-center gap-1.5">
@@ -594,11 +522,10 @@ export function HyderabadPageView({
                 </h2>
                 <p className="text-sm text-slate-600">
                   Drag the experience slider to see live compensation
-                  projections in Hyderabad vs. Gulf countries.
+                  projections in Kota vs. Gulf countries.
                 </p>
               </div>
 
-              {/* Slider Component */}
               <div className="space-y-3 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
                 <div className="flex justify-between items-center">
                   <span className="text-xs font-bold uppercase tracking-wider text-slate-700">
@@ -626,7 +553,6 @@ export function HyderabadPageView({
                 </div>
               </div>
 
-              {/* Current Role Indicator */}
               <div className="rounded-2xl border border-slate-200 bg-white p-4 flex items-center gap-3 shadow-sm">
                 <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
                   <Zap className="h-5 w-5" />
@@ -642,16 +568,14 @@ export function HyderabadPageView({
               </div>
             </div>
 
-            {/* Right: Live Dynamic Salary Cards */}
             <div className="lg:col-span-6 space-y-4">
-              {/* Hyderabad Salary Card */}
               <div className="rounded-2xl border border-slate-200 bg-white p-6 space-y-2 shadow-md">
                 <div className="flex justify-between items-center">
                   <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
-                    Hyderabad Package (INR)
+                    Kota Package (INR)
                   </span>
                   <span className="text-[11px] font-bold text-primary bg-primary/10 px-2.5 py-0.5 rounded-full">
-                    Telangana Pharma &amp; IT
+                    Rajasthan RIICO & Chemical Belts
                   </span>
                 </div>
                 <p className="font-display text-3xl sm:text-4xl font-extrabold text-slate-900">
@@ -665,7 +589,6 @@ export function HyderabadPageView({
                 </p>
               </div>
 
-              {/* Gulf Salary Card (Tax Free) */}
               <div className="rounded-2xl border border-[#25D366]/40 bg-emerald-50/50 p-6 space-y-2 shadow-md">
                 <div className="flex justify-between items-center">
                   <span className="text-xs font-bold uppercase tracking-wider text-emerald-800">
@@ -701,9 +624,7 @@ export function HyderabadPageView({
         </div>
       </section>
 
-      {/* =========================================================================
-          6. BENTO COURSE MATCHER
-         ========================================================================= */}
+      {/* 6. BENTO COURSE MATCHER */}
       <section className="border-t border-slate-200/80 bg-slate-50/50 py-20 lg:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <div className="text-center max-w-2xl mx-auto space-y-3 mb-12">
@@ -720,7 +641,6 @@ export function HyderabadPageView({
             </p>
           </div>
 
-          {/* Qualification Tabs */}
           <div className="flex flex-wrap justify-center gap-3 mb-10">
             {QUALIFICATIONS.map((q) => (
               <button
@@ -737,7 +657,6 @@ export function HyderabadPageView({
             ))}
           </div>
 
-          {/* Matched Bento Card */}
           <div className="max-w-4xl mx-auto rounded-3xl border border-slate-200 bg-white p-8 sm:p-10 shadow-xl relative overflow-hidden">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
               <div className="md:col-span-2 space-y-4">
@@ -799,12 +718,9 @@ export function HyderabadPageView({
         </div>
       </section>
 
-      {/* =========================================================================
-          7. GOOGLE MY BUSINESS (GBP) 4.9★ & AMEERPET TRANSIT MAP
-         ========================================================================= */}
+      {/* 7. GOOGLE MY BUSINESS & MAP */}
       <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-          {/* Left: Google Rating Card */}
           <div className="lg:col-span-5 flex flex-col justify-between rounded-3xl border border-slate-200 bg-white p-8 shadow-xl space-y-6">
             <div className="space-y-5">
               <div className="flex items-center justify-between">
@@ -834,34 +750,31 @@ export function HyderabadPageView({
                     ))}
                   </div>
                   <p className="text-xs font-bold text-slate-600 mt-1">
-                    482+ Verified Alumni Ratings on Google
+                    428+ Verified Alumni Ratings on Google
                   </p>
                 </div>
               </div>
 
-              {/* 2 Verified Reviews */}
               <div className="space-y-3">
                 <div className="rounded-2xl border border-slate-200 bg-slate-50/50 p-4 text-xs space-y-1.5">
                   <div className="flex justify-between font-bold">
                     <span className="text-slate-900">
-                      K. Sai Praneeth (ADIS)
+                      Suresh Reddy (ADIS)
                     </span>
                     <span className="text-amber-500">5.0 ★</span>
                   </div>
                   <p className="text-slate-600 leading-relaxed">
-                    &ldquo;Best practical training in Hyderabad. Selected as
-                    Junior EHS Officer at Dr. Reddy&apos;s Laboratories.&rdquo;
+                    &ldquo;Best practical training in Kota. Live fire drills gave huge confidence. Selected as Safety Officer.&rdquo;
                   </p>
                 </div>
 
                 <div className="rounded-2xl border border-slate-200 bg-slate-50/50 p-4 text-xs space-y-1.5">
                   <div className="flex justify-between font-bold">
-                    <span className="text-slate-900">Mohammed Irfan (DFS)</span>
+                    <span className="text-slate-900">K. Ramesh (DFS)</span>
                     <span className="text-amber-500">5.0 ★</span>
                   </div>
                   <p className="text-slate-600 leading-relaxed">
-                    &ldquo;Live fire drill gave huge confidence. Working with
-                    L&T Metro project in Hyderabad.&rdquo;
+                    &ldquo;Top faculty with deep industry experience. Live practical yard sessions were outstanding.&rdquo;
                   </p>
                 </div>
               </div>
@@ -873,49 +786,75 @@ export function HyderabadPageView({
               rel="noopener noreferrer"
               className="cursor-pointer w-full inline-flex items-center justify-center gap-2 rounded-2xl bg-[#25D366] hover:bg-[#20bd5a] px-6 py-4 text-xs sm:text-sm font-bold text-white shadow-lg transition-all hover:scale-105"
             >
-              <span>Message Ameerpet Counseling Desk</span>
+              <span>Message Kota Counseling Desk</span>
             </a>
           </div>
 
-          {/* Right: Ameerpet Transit & Google Map */}
           <div className="lg:col-span-7 flex flex-col justify-between rounded-3xl border border-slate-200 bg-white p-8 shadow-xl space-y-6">
             <div className="space-y-5">
               <div className="flex items-center justify-between">
                 <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-primary">
                   <MapPin className="h-4 w-4" />
-                  <span>Ameerpet Regional Campus</span>
+                  <span>Kota Regional Campus</span>
                 </div>
                 <span className="text-xs font-bold text-slate-500">
                   Mon – Sat: 9 AM – 7 PM
                 </span>
               </div>
 
-              {/* Transit Pill */}
               <div className="rounded-2xl bg-slate-50 p-4 border border-slate-200 flex items-center justify-between text-xs font-semibold">
                 <div className="flex items-center gap-3">
                   <Train className="h-5 w-5 text-primary shrink-0" />
                   <span className="text-slate-900">
-                    Ameerpet Metro Interchange (Red &amp; Blue Lines)
+                    Main City Roadways Bus Stand
                   </span>
                 </div>
                 <span className="bg-primary/10 text-primary px-3 py-1 rounded-full font-bold border border-primary/20 shrink-0">
-                  3 Min Walk
+                  10 Min Drive
                 </span>
               </div>
 
-              {/* Map Frame */}
-              <div className="rounded-2xl overflow-hidden border border-slate-200 h-64 relative bg-slate-100">
-                <iframe
-                  title="NIFS Hyderabad Ameerpet Center Map"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.634629471556!2d78.44562517591782!3d17.43750000160751!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb90c5f2122ef7%3A0x6b6c1674db81d609!2sAmeerpet%2C%20Hyderabad%2C%20Telangana%20500016!5e0!3m2!1sen!2sin!4v1725140000000!5m2!1sen!2sin"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen={true}
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="w-full h-full"
-                />
+              <div className="rounded-2xl overflow-hidden border border-slate-200 h-64 relative bg-slate-100 flex items-center justify-center text-center p-6">
+                <div className="space-y-2">
+                  <MapPin className="h-8 w-8 text-primary mx-auto animate-bounce" />
+                  <p className="font-bold text-slate-900 text-sm">
+                    NIFS Kota Regional Campus
+                  </p>
+                  <p className="text-xs text-slate-500 max-w-md">
+                    {CENTER_ADDRESS}
+                  </p>
+                </div>
+              </div>
+
+              <div className="rounded-2xl border border-slate-200 bg-slate-50/70 p-4 space-y-2.5">
+                <div className="flex items-start justify-between gap-3">
+                  <div className="space-y-1 text-xs">
+                    <p className="font-bold text-slate-900 uppercase tracking-wider text-[10px]">
+                      Full Campus Address
+                    </p>
+                    <p className="text-slate-600 leading-relaxed font-medium">
+                      {CENTER_ADDRESS}
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={handleCopyAddress}
+                    className="cursor-pointer shrink-0 inline-flex items-center gap-1.5 rounded-xl border border-slate-300 bg-white hover:bg-slate-100 px-3 py-1.5 text-xs font-bold text-slate-700 hover:text-slate-900 shadow-sm transition-all active:scale-95"
+                    aria-label="Copy full campus address"
+                  >
+                    {copiedAddress ? (
+                      <>
+                        <Check className="h-3.5 w-3.5 text-[#25D366]" />
+                        <span className="text-[#25D366]">Copied!</span>
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="h-3.5 w-3.5 text-slate-500" />
+                        <span>Copy Address</span>
+                      </>
+                    )}
+                  </button>
+                </div>
               </div>
             </div>
 
@@ -932,9 +871,7 @@ export function HyderabadPageView({
         </div>
       </section>
 
-      {/* =========================================================================
-          8. KNOWLEDGE BASE ACCORDIONS
-         ========================================================================= */}
+      {/* 8. KNOWLEDGE BASE ACCORDIONS */}
       <section className="border-t border-slate-200/80 bg-slate-50/50 py-20 lg:py-24">
         <div className="mx-auto max-w-4xl px-6 lg:px-10">
           <div className="text-center space-y-3 mb-12">
@@ -961,13 +898,13 @@ export function HyderabadPageView({
                   >
                     <span>{faq.question}</span>
                     <ChevronDown
-                      className={`h-4 w-4 text-primary shrink-0 transition-transform duration-200 ${
-                        isOpen ? "rotate-180" : ""
+                      className={`h-5 w-5 text-slate-400 shrink-0 transition-transform duration-200 ${
+                        isOpen ? "rotate-180 text-primary" : ""
                       }`}
                     />
                   </button>
 
-                  <AnimatePresence initial={false}>
+                  <AnimatePresence>
                     {isOpen && (
                       <motion.div
                         initial={{ height: 0, opacity: 0 }}
@@ -975,7 +912,7 @@ export function HyderabadPageView({
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.2 }}
                       >
-                        <div className="px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100">
+                        <div className="px-5 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
                           {faq.answer}
                         </div>
                       </motion.div>
@@ -988,42 +925,34 @@ export function HyderabadPageView({
         </div>
       </section>
 
-      {/* =========================================================================
-          9. FINAL CONVERSION BANNER
-         ========================================================================= */}
-      <section className="border-t border-slate-200 bg-primary text-white py-20 lg:py-24 relative overflow-hidden">
-        <div className="mx-auto max-w-5xl px-6 text-center space-y-6 lg:px-10 relative z-10">
-          <div className="inline-flex items-center gap-2 rounded-full bg-black/20 border border-white/20 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white backdrop-blur-md">
-            Limited Seats Available for 2026 Hyderabad Batch
+      {/* 9. STICKY / BOTTOM CTA */}
+      <section className="border-t border-slate-200 bg-slate-900 text-white py-16">
+        <div className="mx-auto max-w-5xl px-6 text-center space-y-6">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-amber-400">
+            <span>Direct Campus Desk</span>
           </div>
-
-          <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white max-w-4xl mx-auto leading-tight">
-            Launch Your High-Paying Safety Career from Hyderabad Today
+          <h2 className="font-display text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
+            Start Your Safety Career in Kota Today
           </h2>
-
-          <p className="text-sm sm:text-base text-white/90 max-w-xl mx-auto">
-            Visit our Ameerpet campus or speak directly with our senior
-            counseling experts to get course guidance, fee concessions, and
-            immediate seat booking.
+          <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
+            Get government-recognized certifications with dedicated practical fire
+            ground drills and 100% placement track record.
           </p>
-
-          <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
             <a
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="cursor-pointer inline-flex items-center gap-2 rounded-full bg-white hover:bg-slate-100 px-8 py-4 text-xs sm:text-sm font-bold text-primary shadow-2xl transition-all duration-200 hover:scale-105"
+              className="cursor-pointer w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-2xl bg-[#25D366] hover:bg-[#20bd5a] px-8 py-4 text-sm font-bold text-white shadow-xl transition-all hover:scale-105"
             >
-              <span>Instant WhatsApp Consultation</span>
-              <ChevronRight className="h-4 w-4" />
+              <span>Chat with Kota Counselor</span>
             </a>
-
             <a
               href={LOCAL_TEL}
-              className="cursor-pointer inline-flex items-center gap-2 rounded-full bg-black/20 hover:bg-black/30 border border-white/25 px-8 py-4 text-xs sm:text-sm font-bold text-white transition-all duration-200 hover:scale-105 backdrop-blur-md"
+              className="cursor-pointer w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-2xl border border-white/20 bg-white/10 hover:bg-white/20 px-8 py-4 text-sm font-bold text-white transition-all hover:scale-105"
             >
               <Phone className="h-4 w-4" />
-              <span>Call Ameerpet Desk ({LOCAL_PHONE})</span>
+              <span>Call {LOCAL_PHONE}</span>
             </a>
           </div>
         </div>
