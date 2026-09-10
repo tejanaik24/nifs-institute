@@ -1,0 +1,142 @@
+1:"$Sreact.fragment"
+2:I[22016,["/_next/static/chunks/2o5z6qadvq8_m.js","/_next/static/chunks/3swbm78-n7d9n.js","/_next/static/chunks/1kmzfrn9ymvcu.js","/_next/static/chunks/14mrh2-p_w84d.js"],""]
+3:I[5014,["/_next/static/chunks/2o5z6qadvq8_m.js","/_next/static/chunks/3swbm78-n7d9n.js","/_next/static/chunks/1kmzfrn9ymvcu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"default"]
+b:I[85437,["/_next/static/chunks/2o5z6qadvq8_m.js","/_next/static/chunks/3swbm78-n7d9n.js","/_next/static/chunks/1kmzfrn9ymvcu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"Image"]
+d:I[97367,["/_next/static/chunks/2o5z6qadvq8_m.js","/_next/static/chunks/3swbm78-n7d9n.js","/_next/static/chunks/1kmzfrn9ymvcu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"OutletBoundary"]
+e:"$Sreact.suspense"
+0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"bg-slate-50/50 min-h-screen pt-32 pb-20 lg:pt-36","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"headline\":\"Advance Your Career with an Advanced Diploma in\",\"description\":\"Modern industrial workplaces require safety to be a fundamental organizational priority. The escalating industry complexity demands organizations to employ staf…\",\"url\":\"https://nifsindia.net/blog/advance-your-career-with-an-advanced-diploma-in-industrial-safety-adis-at-nifs/\",\"image\":\"https://nifsindia.net/images/blog/the-key-difference-between-preventive-action-and-corrective-action-explained-18.jpg\",\"datePublished\":\"2025-03-05\",\"author\":{\"@id\":\"https://nifsindia.net/#organization\"},\"publisher\":{\"@id\":\"https://nifsindia.net/#organization\"},\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://nifsindia.net/blog/advance-your-career-with-an-advanced-diploma-in-industrial-safety-adis-at-nifs/\"}}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://nifsindia.net\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog\",\"item\":\"https://nifsindia.net/blog/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Advance Your Career with an Advanced Diploma in\",\"item\":\"https://nifsindia.net/blog/advance-your-career-with-an-advanced-diploma-in-industrial-safety-adis-at-nifs/\"}]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"What are the eligibility requirements for Advance Your Career with an Advanced Diploma in Industrial Safety (ADIS) at NIFS at NIFS?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Eligibility ranges from 10th pass for certificate courses to 12th science or ITI/Diploma/Degree for advanced safety diplomas. Counselors verify certificates during admission.\"}},{\"@type\":\"Question\",\"name\":\"Are NIFS Fire and Safety programs NSDC and university recognized?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Yes, NIFS courses are NSDC-approved and university-affiliated, recognized by PSU, private industrial employers, and overseas firms in Gulf countries.\"}},{\"@type\":\"Question\",\"name\":\"Does NIFS provide placement assistance after course completion?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Yes, NIFS has a dedicated placement cell with 45,000+ alumni placed across top industrial firms including Adani, L&T, ITC, GMR, and Amazon.\"}}]}"}}],["$","article",null,{"data-path-target":"true","className":"mx-auto max-w-4xl px-4 sm:px-6 lg:px-8","children":[["$","div",null,{"className":"mb-6","children":["$","$L2",null,{"href":"/blog","className":"inline-flex items-center gap-1.5 text-xs font-bold text-primary transition-transform hover:-translate-x-1","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}],"Back to Articles"]}]}],["$","div",null,{"className":"rounded-2xl border border-slate-200 bg-white p-6 sm:p-10 shadow-sm","children":[["$","div",null,{"className":"mb-4 inline-flex items-center gap-1.5 rounded-md bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-white","children":[["$","$L3",null,{"iconNode":[["path",{"d":"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z","key":"oel41y"}],["path",{"d":"m9 12 2 2 4-4","key":"dzmm74"}]],"className":"lucide-shield-check h-3.5 w-3.5"}],"Advanced Diploma in Fire and Safety"]}],"$L4","$L5","$L6","$L7",false,"$L8","$L9"]}]]}]]}],null,"$La"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"B7_mJOMLsRpOj-azxdfRt"}
+4:["$","h1",null,{"className":"text-2xl font-extrabold leading-tight text-slate-900 sm:text-4xl","children":"Advance Your Career with an Advanced Diploma in"}]
+5:["$","div",null,{"className":"mt-6 flex flex-wrap items-center gap-4 border-t border-slate-100 pt-4 text-xs font-medium text-slate-500","children":[["$","div",null,{"className":"flex items-center gap-2","children":[["$","div",null,{"className":"flex h-7 w-7 items-center justify-center rounded-full bg-slate-100 font-bold text-slate-700","children":"N"}],["$","span",null,{"className":"font-semibold text-slate-700","children":"NIFS Safety Editorial"}]]}],["$","span",null,{"children":"•"}],["$","span",null,{"className":"flex items-center gap-1","children":[["$","$L3",null,{"iconNode":[["path",{"d":"M8 2v4","key":"1cmpym"}],["path",{"d":"M16 2v4","key":"4m81vk"}],["rect",{"width":"18","height":"18","x":"3","y":"4","rx":"2","key":"1hopcy"}],["path",{"d":"M3 10h18","key":"8toen8"}]],"className":"lucide-calendar h-3.5 w-3.5 text-slate-400"}],"5 March 2025"]}],["$","span",null,{"children":"•"}],["$","span",null,{"className":"flex items-center gap-1","children":[["$","$L3",null,{"iconNode":[["circle",{"cx":"12","cy":"12","r":"10","key":"1mglay"}],["path",{"d":"M12 6v6l4 2","key":"mmk7yg"}]],"className":"lucide-clock h-3.5 w-3.5 text-slate-400"}],"4 min read"]}]]}]
+6:["$","div",null,{"className":"relative mt-8 aspect-[16/9] w-full overflow-hidden rounded-xl border border-slate-200 shadow-sm bg-slate-100","children":["$","$Lb",null,{"src":"/images/blog/the-key-difference-between-preventive-action-and-corrective-action-explained-18.jpg","alt":"Advance Your Career with an Advanced Diploma in","fill":true,"sizes":"(max-width: 1024px) 100vw, 896px","className":"object-cover","priority":true}]}]
+c:T2e2a,<section class="wpb-content-wrapper"><p><span style="font-weight: 400;">Modern industrial workplaces require safety to be a fundamental organizational priority. The escalating industry complexity demands organizations to employ staff who possess training in health safety and environmental risk management. Professional career seekers interested in working in industrial safety will benefit from obtaining the </span><b>Advanced Diploma in Industrial Safety (ADIS)</b><span style="font-weight: 400;"> through </span><a href="https://www.nifsindia.net/"><b>NIFS (National Institute of Fire and Safety Management)</b> </a><span style="font-weight: 400;">to learn specialized field knowledge along with practical abilities.</span></p>
+<p><b>Why Choose ADIS?</b></p>
+<p><span style="font-weight: 400;">The purpose of the ADIS program is to teach students core expertise in hazard identification along with safety methods implementation and legal and environmental standard compliance. The course serves professionals who seek careers as HSE managers or industrial safety specialists or as safety officers within manufacturing industries along with construction and petrochemical fields and others.</span></p>
+<p><b><img loading="lazy" decoding="async" class="alignleft wp-image-6758" src="/images/blog/the-key-difference-between-preventive-action-and-corrective-action-explained-18.jpg" alt="Advanced Diploma in Industrial Safety " width="510" height="340" srcset="https://www.nifsindia.net/wp-content/uploads/2025/03/22232653-300x200.jpg 300w, https://www.nifsindia.net/wp-content/uploads/2025/03/22232653-1024x682.jpg 1024w, https://www.nifsindia.net/wp-content/uploads/2025/03/22232653-768x512.jpg 768w, https://www.nifsindia.net/wp-content/uploads/2025/03/22232653-1536x1024.jpg 1536w" sizes="auto, (max-width: 510px) 100vw, 510px" />Course Structure and Curriculum</b></p>
+<p><span style="font-weight: 400;">Select institutions offer the Advanced Diploma in Industrial Safety (ADIS) which delivers its complete curriculum throughout a 12-month educational period. The educational program consists of eight papers which examine separate aspects of industrial safety administration.</span></p>
+<ol>
+<li><b> Health Safety and Environmental (HSE) Management</b></li>
+</ol>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Principles of occupational health and safety</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Risk assessment and hazard management</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Environmental safety policies and sustainability practices</span></li>
+</ul>
+<ol start="2">
+<li><b> Safety Engineering &#8211; 1</b></li>
+</ol>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Fundamentals of safety engineering</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Workplace ergonomics</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Accident prevention techniques</span></li>
+</ul>
+<ol start="3">
+<li><b> Safety Engineering &#8211; 2</b></li>
+</ol>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Fire safety and emergency response planning</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Electrical and mechanical safety</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Risk analysis and safety audits</span></li>
+</ul>
+<ol start="4">
+<li><b> Quality Control in Occupational Health and Safety</b></li>
+</ol>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Quality assurance techniques</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Safety performance measurement</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Incident reporting and analysis</span></li>
+</ul>
+<ol start="5">
+<li><b> Safety, Health, and Environmental Legislation</b></li>
+</ol>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">National and international safety regulations</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Compliance and legal responsibilities</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Industrial safety standards</span></li>
+</ul>
+<ol start="6">
+<li><b> Industrial Hygiene &amp; Occupational Health</b></li>
+</ol>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Air quality and noise pollution control</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Workplace hazards and exposure limits</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Personal protective equipment (PPE) usage</span></li>
+</ul>
+<ol start="7">
+<li><b> Safety in Chemical and Petrochemical Industry</b></li>
+</ol>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Handling hazardous chemicals</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Process safety management</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Disaster management and emergency preparedness</span></li>
+</ul>
+<ol start="8">
+<li><b> Safety in Construction Industry</b></li>
+</ol>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Site safety and scaffolding regulations</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Fall protection measures</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Heavy equipment and material handling safety</span></li>
+</ul>
+<p><b>Who Can Apply?</b></p>
+<p><span style="font-weight: 400;">The ADIS course welcomes participants who hold undergraduate qualifications in any field and students with 3-year Diplomas. The ADIS course serves as a fitting program that helps both new entrants to the workforce and established professionals gain better industrial safety expertise.</span></p>
+<p><b><img loading="lazy" decoding="async" class="wp-image-6759 alignleft" src="/images/blog/advance-your-career-with-an-advanced-diploma-in-industrial-safety-adis-at-nifs-57.jpg" alt="Advanced Diploma in Industrial Safety" width="573" height="382" srcset="https://www.nifsindia.net/wp-content/uploads/2025/03/18077894-300x200.jpg 300w, https://www.nifsindia.net/wp-content/uploads/2025/03/18077894-1024x682.jpg 1024w, https://www.nifsindia.net/wp-content/uploads/2025/03/18077894-768x512.jpg 768w, https://www.nifsindia.net/wp-content/uploads/2025/03/18077894-1536x1024.jpg 1536w" sizes="auto, (max-width: 573px) 100vw, 573px" />Career Opportunities After ADIS</b></p>
+<p><span style="font-weight: 400;">The ADIS program completion allows graduates to pursue different safety-related positions in sectors where workplace safety represents a top priority. Multiple possibilities exist for students interested in ADIS career development which include: Safety Officer, HSE Manager, Risk Assessment Consultant, Fire Safety Inspector, Environmental Health &amp; Safety (EHS) Specialist, Industrial Hygienist and Compliance and Audit Officer paths.</span></p>
+<ul>
+<li aria-level="1"><b>Safety Officer</b></li>
+</ul>
+<ul>
+<li aria-level="1"><b>HSE Manager</b></li>
+</ul>
+<ul>
+<li aria-level="1"><b>Risk Assessment Consultant</b></li>
+</ul>
+<ul>
+<li aria-level="1"><b>Fire Safety Inspector</b></li>
+</ul>
+<ul>
+<li aria-level="1"><b>Environmental Health &amp; Safety (EHS) Specialist</b></li>
+</ul>
+<ul>
+<li aria-level="1"><b>Industrial Hygienist</b></li>
+</ul>
+<ul>
+<li aria-level="1"><b>Compliance and Audit Officer</b></li>
+</ul>
+<p><span style="font-weight: 400;">Organizations in the construction and manufacturing sectors along with oil &amp; gas and pharmaceuticals corporations and logistics networks recruit certified safety professionals to maintain safe productive establishments.</span></p>
+<p><b>Why Choose NIFS for ADIS?</b></p>
+<p><span style="font-weight: 400;">As an India-wide leader in fire and safety education NIFS provides industrial training to students through practice-based programs. Here’s why NIFS stands out:</span></p>
+<p><span style="font-weight: 400;">✅ </span><b>Comprehensive Curriculum: </b><span style="font-weight: 400;">Covers all aspects of industrial safety. </span></p>
+<p><span style="font-weight: 400;">✅ </span><b>Experienced Faculty:</b><span style="font-weight: 400;"> Learn from industry experts and professionals. </span></p>
+<p><span style="font-weight: 400;">✅</span><b> Practical Training: </b><span style="font-weight: 400;">Hands-on experience in safety equipment and emergency drills. </span></p>
+<p><span style="font-weight: 400;">Students gain 100 percent placement help through the institute&#8217;s solid industry contacts. </span></p>
+<p><span style="font-weight: 400;">The recognized certification enables you to strengthen your career profile by adding authority to your qualifications.</span></p>
+<p><b>Conclusion:</b></p>
+<p><span style="font-weight: 400;">Students seeking industrial safety training for professional growth as well as safety environment development should enroll at NIFS for its</span><b> Advanced Diploma in Industrial Safety (ADIS)</b><span style="font-weight: 400;"> program. The program equips students through its industry-oriented program structure alongside strong placement strategies which enables them to pursue safety positions across different industrial domains.</span></p>
+<p><span style="font-weight: 400;">Your future safety starts today so make your first enrolment choice for ADIS right now.</span></p>
+</section>
+<div class="my-8 p-6 bg-emerald-950/80 border border-emerald-500/30 rounded-2xl shadow-lg">
+  <div class="flex items-center gap-3 mb-2">
+    <span class="text-2xl">💬</span>
+    <h4 class="text-lg font-bold text-emerald-400">Have Questions About Admissions, Eligibility, or Fees?</h4>
+  </div>
+  <p class="text-emerald-200/80 text-sm mb-4">Chat directly with NIFS Official Career Advisors on WhatsApp for free counseling and course guidance.</p>
+  <a href="https://wa.me/918374340999" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-bold rounded-full transition-all shadow-lg shadow-emerald-900/50">
+    <span>Chat on WhatsApp (+91-8374-340-999)</span>
+  </a>
+</div>
+
+<div class="my-8 p-6 bg-slate-900 text-white rounded-2xl border border-slate-800 shadow-xl">
+  <h4 class="text-xl font-bold text-white mb-2">Ready to Start Your Career in Fire & Industrial Safety?</h4>
+  <p class="text-slate-300 text-sm mb-4">Explore NIFS government-recognized and NSDC-approved diploma programs with 100% placement assistance in top industrial safety sectors.</p>
+  <div class="flex flex-wrap gap-3">
+    <a href="/courses/diploma-in-fire-safety" class="px-4 py-2 bg-red-600 hover:bg-red-700 text-white text-xs font-bold rounded-full transition-all">Diploma in Fire & Safety →</a>
+    <a href="/courses/advanced-diploma-in-industrial-safety-adis" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold rounded-full transition-all">ADIS Course →</a>
+    <a href="/courses/diploma-in-health-safety-environment" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold rounded-full transition-all">Diploma in HSE →</a>
+    <a href="/centers" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold rounded-full transition-all">Find 70+ Centers →</a>
+  </div>
+</div>
+7:["$","div",null,{"className":"blog-prose mt-8 border-t border-slate-100 pt-8","dangerouslySetInnerHTML":{"__html":"$c"}}]
+8:["$","div",null,{"className":"mt-10 border-t border-slate-100 pt-8","children":[["$","h2",null,{"className":"flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-slate-500","children":[["$","$L3",null,{"iconNode":[["circle",{"cx":"12","cy":"12","r":"10","key":"1mglay"}],["path",{"d":"M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3","key":"1u773s"}],["path",{"d":"M12 17h.01","key":"p32p05"}]],"className":"lucide-circle-question-mark h-4 w-4 text-primary"}],"Frequently Asked Questions"]}],["$","div",null,{"className":"mt-4 space-y-3","children":[["$","div","0",{"className":"rounded-xl border border-slate-200 bg-slate-50/60 p-5","children":[["$","h3",null,{"className":"text-sm font-bold text-slate-900","children":"What are the eligibility requirements for Advance Your Career with an Advanced Diploma in Industrial Safety (ADIS) at NIFS at NIFS?"}],["$","p",null,{"className":"mt-2 text-sm leading-relaxed text-slate-600","children":"Eligibility ranges from 10th pass for certificate courses to 12th science or ITI/Diploma/Degree for advanced safety diplomas. Counselors verify certificates during admission."}]]}],["$","div","1",{"className":"rounded-xl border border-slate-200 bg-slate-50/60 p-5","children":[["$","h3",null,{"className":"text-sm font-bold text-slate-900","children":"Are NIFS Fire and Safety programs NSDC and university recognized?"}],["$","p",null,{"className":"mt-2 text-sm leading-relaxed text-slate-600","children":"Yes, NIFS courses are NSDC-approved and university-affiliated, recognized by PSU, private industrial employers, and overseas firms in Gulf countries."}]]}],["$","div","2",{"className":"rounded-xl border border-slate-200 bg-slate-50/60 p-5","children":[["$","h3",null,{"className":"text-sm font-bold text-slate-900","children":"Does NIFS provide placement assistance after course completion?"}],["$","p",null,{"className":"mt-2 text-sm leading-relaxed text-slate-600","children":"Yes, NIFS has a dedicated placement cell with 45,000+ alumni placed across top industrial firms including Adani, L&T, ITC, GMR, and Amazon."}]]}]]}]]}]
+9:["$","div",null,{"className":"mt-12 overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-slate-900 to-[#7A0F0C] p-6 text-white shadow-xl sm:p-8","children":["$","div",null,{"className":"flex flex-col gap-6 md:flex-row md:items-center md:justify-between","children":[["$","div",null,{"children":[["$","span",null,{"className":"text-xs font-bold uppercase tracking-wider text-primary bg-white/10 px-2.5 py-1 rounded","children":"NIFS Admissions Open"}],["$","h3",null,{"className":"mt-3 text-xl font-extrabold text-white sm:text-2xl","children":"Start Your Career in Industrial Safety Today"}],["$","p",null,{"className":"mt-2 text-xs text-slate-300 sm:text-sm max-w-xl","children":"NSDC-approved Diploma, Advanced Diploma, and Degree programs with 100% placement assistance at top companies like L&T, Adani, and Reliance."}]]}],["$","div",null,{"className":"flex flex-wrap items-center gap-3 shrink-0","children":[["$","$L2",null,{"href":"/admissions","className":"inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-xs font-bold uppercase tracking-wider text-white shadow-lg transition-transform hover:scale-105","children":"Apply Now →"}],["$","a",null,{"href":"https://wa.me/918374340999","target":"_blank","rel":"noopener noreferrer","className":"inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-4 py-3 text-xs font-bold uppercase tracking-wider text-white shadow-lg transition-transform hover:scale-105","children":[["$","$L3",null,{"iconNode":[["path",{"d":"M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z","key":"18887p"}]],"className":"lucide-message-square h-4 w-4"}],"WhatsApp"]}]]}]]}]}]
+a:["$","$Ld",null,{"children":["$","$e",null,{"name":"Next.MetadataOutlet","children":"$@f"}]}]
+f:null

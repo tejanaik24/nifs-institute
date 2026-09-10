@@ -47,7 +47,7 @@ export default function AgentPage() {
           <div key={message.id} className="flex gap-3">
             <span
               className={`mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full ${
-                message.role === "user" ? "bg-white/10 text-[var(--dash-text)]" : "bg-[var(--dash-accent)]/15 text-[var(--dash-accent)]"
+                message.role === "user" ? "bg-black/5 text-[var(--dash-text)]" : "bg-[var(--dash-accent-soft)] text-[var(--dash-accent)]"
               }`}
             >
               {message.role === "user" ? <User size={14} /> : <Bot size={14} />}
@@ -65,7 +65,7 @@ export default function AgentPage() {
                   const toolPart = part as { type: string; state?: string; input?: unknown; output?: unknown };
                   const toolName = part.type === "dynamic-tool" ? (part as { toolName: string }).toolName : part.type.slice(5);
                   return (
-                    <div key={i} className="flex items-start gap-2 rounded-lg bg-black/20 px-3 py-2 text-xs">
+                    <div key={i} className="flex items-start gap-2 rounded-lg bg-black/5 px-3 py-2 text-xs ring-1 ring-[var(--dash-border)]">
                       <Wrench size={12} className="mt-0.5 shrink-0 text-[var(--dash-accent)]" />
                       <div className="min-w-0 font-mono text-[var(--dash-text-muted)]">
                         <span className="text-[var(--dash-text)]">{toolName}</span>

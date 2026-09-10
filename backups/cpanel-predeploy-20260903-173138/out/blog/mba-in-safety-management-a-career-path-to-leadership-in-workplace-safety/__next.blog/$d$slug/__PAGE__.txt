@@ -1,0 +1,140 @@
+1:"$Sreact.fragment"
+2:I[22016,["/_next/static/chunks/2o5z6qadvq8_m.js","/_next/static/chunks/3swbm78-n7d9n.js","/_next/static/chunks/1kmzfrn9ymvcu.js","/_next/static/chunks/14mrh2-p_w84d.js"],""]
+3:I[5014,["/_next/static/chunks/2o5z6qadvq8_m.js","/_next/static/chunks/3swbm78-n7d9n.js","/_next/static/chunks/1kmzfrn9ymvcu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"default"]
+b:I[85437,["/_next/static/chunks/2o5z6qadvq8_m.js","/_next/static/chunks/3swbm78-n7d9n.js","/_next/static/chunks/1kmzfrn9ymvcu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"Image"]
+d:I[97367,["/_next/static/chunks/2o5z6qadvq8_m.js","/_next/static/chunks/3swbm78-n7d9n.js","/_next/static/chunks/1kmzfrn9ymvcu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"OutletBoundary"]
+e:"$Sreact.suspense"
+0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"bg-slate-50/50 min-h-screen pt-32 pb-20 lg:pt-36","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"headline\":\"MBA in Safety Management: A Career Path to Leadership\",\"description\":\"The contemporary industrial marketplace demands safety to become an essential business success factor beyond its regulatory purposes. Companies throughout multi…\",\"url\":\"https://nifsindia.net/blog/mba-in-safety-management-a-career-path-to-leadership-in-workplace-safety/\",\"image\":\"https://nifsindia.net/images/blog/key-modules-covered-in-a-post-graduate-diploma-in-industrial-safety-program-8.jpg\",\"datePublished\":\"2025-04-04\",\"author\":{\"@id\":\"https://nifsindia.net/#organization\"},\"publisher\":{\"@id\":\"https://nifsindia.net/#organization\"},\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://nifsindia.net/blog/mba-in-safety-management-a-career-path-to-leadership-in-workplace-safety/\"}}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://nifsindia.net\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog\",\"item\":\"https://nifsindia.net/blog/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"MBA in Safety Management: A Career Path to Leadership\",\"item\":\"https://nifsindia.net/blog/mba-in-safety-management-a-career-path-to-leadership-in-workplace-safety/\"}]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"What are the eligibility requirements for MBA in Safety Management: A Career Path to Leadership in Workplace Safety at NIFS?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Eligibility ranges from 10th pass for certificate courses to 12th science or ITI/Diploma/Degree for advanced safety diplomas. Counselors verify certificates during admission.\"}},{\"@type\":\"Question\",\"name\":\"Are NIFS Fire and Safety programs NSDC and university recognized?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Yes, NIFS courses are NSDC-approved and university-affiliated, recognized by PSU, private industrial employers, and overseas firms in Gulf countries.\"}},{\"@type\":\"Question\",\"name\":\"Does NIFS provide placement assistance after course completion?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Yes, NIFS has a dedicated placement cell with 45,000+ alumni placed across top industrial firms including Adani, L&T, ITC, GMR, and Amazon.\"}}]}"}}],["$","article",null,{"data-path-target":"true","className":"mx-auto max-w-4xl px-4 sm:px-6 lg:px-8","children":[["$","div",null,{"className":"mb-6","children":["$","$L2",null,{"href":"/blog","className":"inline-flex items-center gap-1.5 text-xs font-bold text-primary transition-transform hover:-translate-x-1","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}],"Back to Articles"]}]}],["$","div",null,{"className":"rounded-2xl border border-slate-200 bg-white p-6 sm:p-10 shadow-sm","children":[["$","div",null,{"className":"mb-4 inline-flex items-center gap-1.5 rounded-md bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-white","children":[["$","$L3",null,{"iconNode":[["path",{"d":"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z","key":"oel41y"}],["path",{"d":"m9 12 2 2 4-4","key":"dzmm74"}]],"className":"lucide-shield-check h-3.5 w-3.5"}],"MBA"]}],"$L4","$L5","$L6","$L7",false,"$L8","$L9"]}]]}]]}],null,"$La"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"B7_mJOMLsRpOj-azxdfRt"}
+4:["$","h1",null,{"className":"text-2xl font-extrabold leading-tight text-slate-900 sm:text-4xl","children":"MBA in Safety Management: A Career Path to Leadership"}]
+5:["$","div",null,{"className":"mt-6 flex flex-wrap items-center gap-4 border-t border-slate-100 pt-4 text-xs font-medium text-slate-500","children":[["$","div",null,{"className":"flex items-center gap-2","children":[["$","div",null,{"className":"flex h-7 w-7 items-center justify-center rounded-full bg-slate-100 font-bold text-slate-700","children":"N"}],["$","span",null,{"className":"font-semibold text-slate-700","children":"NIFS Safety Editorial"}]]}],["$","span",null,{"children":"•"}],["$","span",null,{"className":"flex items-center gap-1","children":[["$","$L3",null,{"iconNode":[["path",{"d":"M8 2v4","key":"1cmpym"}],["path",{"d":"M16 2v4","key":"4m81vk"}],["rect",{"width":"18","height":"18","x":"3","y":"4","rx":"2","key":"1hopcy"}],["path",{"d":"M3 10h18","key":"8toen8"}]],"className":"lucide-calendar h-3.5 w-3.5 text-slate-400"}],"4 April 2025"]}],["$","span",null,{"children":"•"}],["$","span",null,{"className":"flex items-center gap-1","children":[["$","$L3",null,{"iconNode":[["circle",{"cx":"12","cy":"12","r":"10","key":"1mglay"}],["path",{"d":"M12 6v6l4 2","key":"mmk7yg"}]],"className":"lucide-clock h-3.5 w-3.5 text-slate-400"}],"5 min read"]}]]}]
+6:["$","div",null,{"className":"relative mt-8 aspect-[16/9] w-full overflow-hidden rounded-xl border border-slate-200 shadow-sm bg-slate-100","children":["$","$Lb",null,{"src":"/images/blog/key-modules-covered-in-a-post-graduate-diploma-in-industrial-safety-program-8.jpg","alt":"MBA in Safety Management: A Career Path to Leadership","fill":true,"sizes":"(max-width: 1024px) 100vw, 896px","className":"object-cover","priority":true}]}]
+c:T356b,<section class="wpb-content-wrapper"><p><span style="font-weight: 400;">The contemporary industrial marketplace demands safety to become an essential business success factor beyond its regulatory purposes. Companies throughout multiple fields actively search for experts who create effective safety programs and bring down work-related risks while developing completely safe work areas for their staff members. Specialized training through the MBA in Safety Management program was developed to create future safety leaders because of rising industry demand. People aiming to progress their careers in safety and risk management should consider the NIFS (National Institute of Fire and Safety Management) superior MBA program.</span></p>
+<p><b><img loading="lazy" decoding="async" class="wp-image-6898 alignleft" src="/images/blog/key-modules-covered-in-a-post-graduate-diploma-in-industrial-safety-program-8.jpg" alt="MBA in Safety Managemen" width="447" height="298" srcset="https://www.nifsindia.net/wp-content/uploads/2025/04/2149184978-300x200.jpg 300w, https://www.nifsindia.net/wp-content/uploads/2025/04/2149184978-1024x683.jpg 1024w, https://www.nifsindia.net/wp-content/uploads/2025/04/2149184978-768x512.jpg 768w, https://www.nifsindia.net/wp-content/uploads/2025/04/2149184978.jpg 1500w" sizes="auto, (max-width: 447px) 100vw, 447px" />What is an MBA in Safety Management?</b></p>
+<p><span style="font-weight: 400;">Specialized postgraduate education through an MBA in Safety Management combines business administration and knowledge of workplace safety and health management and occupational safety programs. Through this program, students acquire leadership capabilities and analytical abilities, and managerial competencies, allowing them to establish and execute safety frameworks inside multiple business sectors, including construction, oil and gas production, manufacturing, health services, among others.</span></p>
+<p><span style="font-weight: 400;">Graduates from this program deliver extensive organizational value because they acquire an extensive understanding of workplace safety standards and risk assessment, together with emergency planning and disaster management systems.</span></p>
+<h3><b>Why Choose an MBA in Safety Management?</b></h3>
+<ul>
+<li aria-level="1"><b>High Industry Demand:</b></li>
+</ul>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">With industries focusing more on workplace safety, the demand for skilled safety managers is increasing.</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Compliance with government regulations and international safety standards has made safety management a crucial aspect of business operations.</span></li>
+</ul>
+<ul>
+<li aria-level="1"><b>Diverse Career Opportunities:</b></li>
+</ul>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Graduates can work in various sectors, including oil &amp; gas, construction, aviation, logistics, and pharmaceuticals.</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Roles such as Safety Manager, Risk Assessor, Compliance Officer, and Environmental Health &amp; Safety (EHS) Specialist are open for professionals with this qualification.</span></li>
+</ul>
+<ul>
+<li aria-level="1"><b>Leadership and Growth Potential:</b></li>
+</ul>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">An MBA in Safety Management provides technical knowledge and develops leadership and decision-making skills, making candidates eligible for higher managerial positions.</span></li>
+</ul>
+<ul>
+<li aria-level="1"><b>Global Recognition:</b></li>
+</ul>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Safety standards are globally recognized, allowing professionals to explore job opportunities internationally.</span></li>
+</ul>
+<h3><b>Course Curriculum</b></h3>
+<p><span style="font-weight: 400;">The </span><b>MBA in Safety Management</b><span style="font-weight: 400;"> program at </span><b>NIFS</b><span style="font-weight: 400;"> is structured to provide a comprehensive understanding of safety protocols, business administration, and regulatory compliance. The curriculum typically includes:</span></p>
+<h4><b>Core Subjects:</b></h4>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Principles of Safety Management</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Industrial Safety &amp; Hygiene</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Occupational Health &amp; Environmental Safety</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Risk Assessment and Hazard Control</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Fire Prevention and Protection Systems</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Disaster Management &amp; Emergency Response</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Business Strategy &amp; Organizational Behavior</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Legal Framework &amp; Safety Regulations</span></li>
+</ul>
+<p><span style="font-weight: 400;">The course also involves practical training, case studies, and industry exposure to help students understand real-world safety challenges.</span></p>
+<p><img loading="lazy" decoding="async" class=" wp-image-6900" src="/images/blog/mba-in-safety-management-a-career-path-to-leadership-in-workplace-safety-44.jpg" alt="MBA in Safety Managemen" width="566" height="377" srcset="https://www.nifsindia.net/wp-content/uploads/2025/04/2149124289-1-300x200.jpg 300w, https://www.nifsindia.net/wp-content/uploads/2025/04/2149124289-1-1024x683.jpg 1024w, https://www.nifsindia.net/wp-content/uploads/2025/04/2149124289-1-768x512.jpg 768w, https://www.nifsindia.net/wp-content/uploads/2025/04/2149124289-1.jpg 1500w" sizes="auto, (max-width: 566px) 100vw, 566px" /></p>
+<h3><b>Eligibility Criteria</b></h3>
+<p><span style="font-weight: 400;">To enroll in the </span><b>MBA in Safety Management</b><span style="font-weight: 400;"> program at NIFS, candidates must fulfill the following criteria:</span></p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">A </span><b>bachelor’s degree</b><span style="font-weight: 400;"> in any discipline from a recognized university.</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Some institutes may prefer candidates with a background in engineering, science, or management.</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Work experience in safety-related fields can be an added advantage, though not mandatory.</span></li>
+</ul>
+<h3><b>Career Opportunities After MBA in Safety Management</b></h3>
+<p><span style="font-weight: 400;">Students who finish this program obtain the freedom to select from various occupational options in various business sectors. The major job functions of this program include:</span></p>
+<ol>
+<li><b> Safety Manager:</b></li>
+</ol>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Organizations rely on this professional to create safety policies for their operations.</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">The professional conducts risk assessments as part of their duty to maintain safety regulations compliance.</span></li>
+</ul>
+<ol start="2">
+<li><b> Risk Management Consultant:</b></li>
+</ol>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">The program assesses organizational risks to provide essential preventive advice for business needs.</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">The consultant assists insurance providers in designing methods for reducing risks that impact their clients.</span></li>
+</ul>
+<ol start="3">
+<li><b> Environmental Health &amp; Safety (EHS) Officer:</b></li>
+</ol>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">An organization uses this role for maintaining safety levels in workplaces and protecting the environment from harm.</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">The department investigates all accidents followed by corrective action deployments.</span></li>
+</ul>
+<ol start="4">
+<li><b> Fire Safety Manager:</b></li>
+</ol>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">He creates fire safety procedures as well as emergency response operations for organizations.</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">The organization provides essential fire safety instruction to its personnel.</span></li>
+</ul>
+<ol start="5">
+<li><b> Compliance Officer:</b></li>
+</ol>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Operations management at the company must meet all local laws together with safety regulations.</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">The officer performs audits and then provides reports about compliance failures to executive management.</span></li>
+</ul>
+<h3><b>Why Choose NIFS for an MBA in Safety Management?</b></h3>
+<p><b>NIFS</b><span style="font-weight: 400;"> is a leading institute in fire and safety education, offering industry-relevant programs that prepare students for successful careers in safety management. Here’s why NIFS stands out:</span></p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><b>Expert Faculty:</b><span style="font-weight: 400;"> Learn from experienced professionals with industry exposure. </span></li>
+<li style="font-weight: 400;" aria-level="1"><b>Industry-Oriented Curriculum:</b><span style="font-weight: 400;"> Courses designed as per global safety standards. </span></li>
+<li style="font-weight: 400;" aria-level="1"><b>Practical Training:</b><span style="font-weight: 400;"> Hands-on experience through workshops, case studies, and internships.</span></li>
+<li style="font-weight: 400;" aria-level="1"><b>Placement Assistance:</b><span style="font-weight: 400;"> Strong industry connections ensure excellent job opportunities. </span></li>
+<li style="font-weight: 400;" aria-level="1"><b>Recognized Certifications:</b><span style="font-weight: 400;"> Accredited and valued by top organizations worldwide.</span></li>
+</ul>
+<h3><b>Final Thoughts</b></h3>
+<p><span style="font-weight: 400;">Professionals who want to establish their career in workplace safety and risk management, and compliance should consider the MBA in Safety Management program. Organizations become increasingly safety-oriented so they continue hiring qualified safety managers. Studying at NIFS offers students a perfect learning space to start their safety management career through its top-rated curriculum and hands-on training, and its extensive placement assistance program.</span></p>
+<p><span style="font-weight: 400;">Join the MBA in Safety Management program at NIFS, which will lead you toward a leadership position where you can establish secure workplace environments. Safety and risk management professionals can start their rewarding career by taking their initial steps.</span></p>
+<p><span style="font-weight: 400;">For more details, visit:</span> <span style="font-weight: 400;">NIFS MBA in Safety Management</span></p>
+</section>
+<div class="my-8 p-6 bg-emerald-950/80 border border-emerald-500/30 rounded-2xl shadow-lg">
+  <div class="flex items-center gap-3 mb-2">
+    <span class="text-2xl">💬</span>
+    <h4 class="text-lg font-bold text-emerald-400">Have Questions About Admissions, Eligibility, or Fees?</h4>
+  </div>
+  <p class="text-emerald-200/80 text-sm mb-4">Chat directly with NIFS Official Career Advisors on WhatsApp for free counseling and course guidance.</p>
+  <a href="https://wa.me/918374340999" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-bold rounded-full transition-all shadow-lg shadow-emerald-900/50">
+    <span>Chat on WhatsApp (+91-8374-340-999)</span>
+  </a>
+</div>
+
+<div class="my-8 p-6 bg-slate-900 text-white rounded-2xl border border-slate-800 shadow-xl">
+  <h4 class="text-xl font-bold text-white mb-2">Ready to Start Your Career in Fire & Industrial Safety?</h4>
+  <p class="text-slate-300 text-sm mb-4">Explore NIFS government-recognized and NSDC-approved diploma programs with 100% placement assistance in top industrial safety sectors.</p>
+  <div class="flex flex-wrap gap-3">
+    <a href="/courses/diploma-in-fire-safety" class="px-4 py-2 bg-red-600 hover:bg-red-700 text-white text-xs font-bold rounded-full transition-all">Diploma in Fire & Safety →</a>
+    <a href="/courses/advanced-diploma-in-industrial-safety-adis" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold rounded-full transition-all">ADIS Course →</a>
+    <a href="/courses/diploma-in-health-safety-environment" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold rounded-full transition-all">Diploma in HSE →</a>
+    <a href="/centers" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold rounded-full transition-all">Find 70+ Centers →</a>
+  </div>
+</div>
+7:["$","div",null,{"className":"blog-prose mt-8 border-t border-slate-100 pt-8","dangerouslySetInnerHTML":{"__html":"$c"}}]
+8:["$","div",null,{"className":"mt-10 border-t border-slate-100 pt-8","children":[["$","h2",null,{"className":"flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-slate-500","children":[["$","$L3",null,{"iconNode":[["circle",{"cx":"12","cy":"12","r":"10","key":"1mglay"}],["path",{"d":"M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3","key":"1u773s"}],["path",{"d":"M12 17h.01","key":"p32p05"}]],"className":"lucide-circle-question-mark h-4 w-4 text-primary"}],"Frequently Asked Questions"]}],["$","div",null,{"className":"mt-4 space-y-3","children":[["$","div","0",{"className":"rounded-xl border border-slate-200 bg-slate-50/60 p-5","children":[["$","h3",null,{"className":"text-sm font-bold text-slate-900","children":"What are the eligibility requirements for MBA in Safety Management: A Career Path to Leadership in Workplace Safety at NIFS?"}],["$","p",null,{"className":"mt-2 text-sm leading-relaxed text-slate-600","children":"Eligibility ranges from 10th pass for certificate courses to 12th science or ITI/Diploma/Degree for advanced safety diplomas. Counselors verify certificates during admission."}]]}],["$","div","1",{"className":"rounded-xl border border-slate-200 bg-slate-50/60 p-5","children":[["$","h3",null,{"className":"text-sm font-bold text-slate-900","children":"Are NIFS Fire and Safety programs NSDC and university recognized?"}],["$","p",null,{"className":"mt-2 text-sm leading-relaxed text-slate-600","children":"Yes, NIFS courses are NSDC-approved and university-affiliated, recognized by PSU, private industrial employers, and overseas firms in Gulf countries."}]]}],["$","div","2",{"className":"rounded-xl border border-slate-200 bg-slate-50/60 p-5","children":[["$","h3",null,{"className":"text-sm font-bold text-slate-900","children":"Does NIFS provide placement assistance after course completion?"}],["$","p",null,{"className":"mt-2 text-sm leading-relaxed text-slate-600","children":"Yes, NIFS has a dedicated placement cell with 45,000+ alumni placed across top industrial firms including Adani, L&T, ITC, GMR, and Amazon."}]]}]]}]]}]
+9:["$","div",null,{"className":"mt-12 overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-slate-900 to-[#7A0F0C] p-6 text-white shadow-xl sm:p-8","children":["$","div",null,{"className":"flex flex-col gap-6 md:flex-row md:items-center md:justify-between","children":[["$","div",null,{"children":[["$","span",null,{"className":"text-xs font-bold uppercase tracking-wider text-primary bg-white/10 px-2.5 py-1 rounded","children":"NIFS Admissions Open"}],["$","h3",null,{"className":"mt-3 text-xl font-extrabold text-white sm:text-2xl","children":"Start Your Career in Industrial Safety Today"}],["$","p",null,{"className":"mt-2 text-xs text-slate-300 sm:text-sm max-w-xl","children":"NSDC-approved Diploma, Advanced Diploma, and Degree programs with 100% placement assistance at top companies like L&T, Adani, and Reliance."}]]}],["$","div",null,{"className":"flex flex-wrap items-center gap-3 shrink-0","children":[["$","$L2",null,{"href":"/admissions","className":"inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-xs font-bold uppercase tracking-wider text-white shadow-lg transition-transform hover:scale-105","children":"Apply Now →"}],["$","a",null,{"href":"https://wa.me/918374340999","target":"_blank","rel":"noopener noreferrer","className":"inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-4 py-3 text-xs font-bold uppercase tracking-wider text-white shadow-lg transition-transform hover:scale-105","children":[["$","$L3",null,{"iconNode":[["path",{"d":"M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z","key":"18887p"}]],"className":"lucide-message-square h-4 w-4"}],"WhatsApp"]}]]}]]}]}]
+a:["$","$Ld",null,{"children":["$","$e",null,{"name":"Next.MetadataOutlet","children":"$@f"}]}]
+f:null

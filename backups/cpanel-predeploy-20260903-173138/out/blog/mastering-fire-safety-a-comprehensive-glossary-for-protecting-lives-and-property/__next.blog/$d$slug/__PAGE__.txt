@@ -1,0 +1,155 @@
+1:"$Sreact.fragment"
+2:I[22016,["/_next/static/chunks/2o5z6qadvq8_m.js","/_next/static/chunks/3swbm78-n7d9n.js","/_next/static/chunks/1kmzfrn9ymvcu.js","/_next/static/chunks/14mrh2-p_w84d.js"],""]
+3:I[5014,["/_next/static/chunks/2o5z6qadvq8_m.js","/_next/static/chunks/3swbm78-n7d9n.js","/_next/static/chunks/1kmzfrn9ymvcu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"default"]
+c:I[85437,["/_next/static/chunks/2o5z6qadvq8_m.js","/_next/static/chunks/3swbm78-n7d9n.js","/_next/static/chunks/1kmzfrn9ymvcu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"Image"]
+e:I[97367,["/_next/static/chunks/2o5z6qadvq8_m.js","/_next/static/chunks/3swbm78-n7d9n.js","/_next/static/chunks/1kmzfrn9ymvcu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"OutletBoundary"]
+f:"$Sreact.suspense"
+0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"bg-slate-50/50 min-h-screen pt-32 pb-20 lg:pt-36","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"headline\":\"Mastering Fire Safety: A Comprehensive Glossary for\",\"description\":\"This area of concern involves safety from fire both at home and at the workplace. The confusion between the different terms and concepts of fire and safety can…\",\"url\":\"https://nifsindia.net/blog/mastering-fire-safety-a-comprehensive-glossary-for-protecting-lives-and-property/\",\"image\":\"https://nifsindia.net/images/blog/mastering-fire-safety-a-comprehensive-glossary-for-protecting-lives-and-property-112.jpg\",\"datePublished\":\"2024-09-27\",\"author\":{\"@id\":\"https://nifsindia.net/#organization\"},\"publisher\":{\"@id\":\"https://nifsindia.net/#organization\"},\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://nifsindia.net/blog/mastering-fire-safety-a-comprehensive-glossary-for-protecting-lives-and-property/\"}}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://nifsindia.net\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog\",\"item\":\"https://nifsindia.net/blog/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Mastering Fire Safety: A Comprehensive Glossary for\",\"item\":\"https://nifsindia.net/blog/mastering-fire-safety-a-comprehensive-glossary-for-protecting-lives-and-property/\"}]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"What are the eligibility requirements for Mastering Fire Safety: A Comprehensive Glossary for Protecting Lives and Property at NIFS?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Eligibility ranges from 10th pass for certificate courses to 12th science or ITI/Diploma/Degree for advanced safety diplomas. Counselors verify certificates during admission.\"}},{\"@type\":\"Question\",\"name\":\"Are NIFS Fire and Safety programs NSDC and university recognized?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Yes, NIFS courses are NSDC-approved and university-affiliated, recognized by PSU, private industrial employers, and overseas firms in Gulf countries.\"}},{\"@type\":\"Question\",\"name\":\"Does NIFS provide placement assistance after course completion?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Yes, NIFS has a dedicated placement cell with 45,000+ alumni placed across top industrial firms including Adani, L&T, ITC, GMR, and Amazon.\"}}]}"}}],["$","article",null,{"data-path-target":"true","className":"mx-auto max-w-4xl px-4 sm:px-6 lg:px-8","children":[["$","div",null,{"className":"mb-6","children":["$","$L2",null,{"href":"/blog","className":"inline-flex items-center gap-1.5 text-xs font-bold text-primary transition-transform hover:-translate-x-1","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}],"Back to Articles"]}]}],["$","div",null,{"className":"rounded-2xl border border-slate-200 bg-white p-6 sm:p-10 shadow-sm","children":[["$","div",null,{"className":"mb-4 inline-flex items-center gap-1.5 rounded-md bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-white","children":["$L4","Blog"]}],"$L5","$L6","$L7","$L8",false,"$L9","$La"]}]]}]]}],null,"$Lb"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"B7_mJOMLsRpOj-azxdfRt"}
+4:["$","$L3",null,{"iconNode":[["path",{"d":"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z","key":"oel41y"}],["path",{"d":"m9 12 2 2 4-4","key":"dzmm74"}]],"className":"lucide-shield-check h-3.5 w-3.5"}]
+5:["$","h1",null,{"className":"text-2xl font-extrabold leading-tight text-slate-900 sm:text-4xl","children":"Mastering Fire Safety: A Comprehensive Glossary for"}]
+6:["$","div",null,{"className":"mt-6 flex flex-wrap items-center gap-4 border-t border-slate-100 pt-4 text-xs font-medium text-slate-500","children":[["$","div",null,{"className":"flex items-center gap-2","children":[["$","div",null,{"className":"flex h-7 w-7 items-center justify-center rounded-full bg-slate-100 font-bold text-slate-700","children":"N"}],["$","span",null,{"className":"font-semibold text-slate-700","children":"NIFS Safety Editorial"}]]}],["$","span",null,{"children":"•"}],["$","span",null,{"className":"flex items-center gap-1","children":[["$","$L3",null,{"iconNode":[["path",{"d":"M8 2v4","key":"1cmpym"}],["path",{"d":"M16 2v4","key":"4m81vk"}],["rect",{"width":"18","height":"18","x":"3","y":"4","rx":"2","key":"1hopcy"}],["path",{"d":"M3 10h18","key":"8toen8"}]],"className":"lucide-calendar h-3.5 w-3.5 text-slate-400"}],"27 September 2024"]}],["$","span",null,{"children":"•"}],["$","span",null,{"className":"flex items-center gap-1","children":[["$","$L3",null,{"iconNode":[["circle",{"cx":"12","cy":"12","r":"10","key":"1mglay"}],["path",{"d":"M12 6v6l4 2","key":"mmk7yg"}]],"className":"lucide-clock h-3.5 w-3.5 text-slate-400"}],"8 min read"]}]]}]
+7:["$","div",null,{"className":"relative mt-8 aspect-[16/9] w-full overflow-hidden rounded-xl border border-slate-200 shadow-sm bg-slate-100","children":["$","$Lc",null,{"src":"/images/blog/mastering-fire-safety-a-comprehensive-glossary-for-protecting-lives-and-property-112.jpg","alt":"Mastering Fire Safety: A Comprehensive Glossary for","fill":true,"sizes":"(max-width: 1024px) 100vw, 896px","className":"object-cover","priority":true}]}]
+d:T3808,<section class="wpb-content-wrapper"><p><img loading="lazy" decoding="async" class="alignleft size-medium wp-image-6243" src="/images/blog/mastering-fire-safety-a-comprehensive-glossary-for-protecting-lives-and-property-112.jpg" alt="" width="300" height="200" srcset="https://www.nifsindia.net/wp-content/uploads/2024/09/red-fire-extinguisher-blue-floor-with-paper-300x200.jpg 300w, https://www.nifsindia.net/wp-content/uploads/2024/09/red-fire-extinguisher-blue-floor-with-paper-768x512.jpg 768w, https://www.nifsindia.net/wp-content/uploads/2024/09/red-fire-extinguisher-blue-floor-with-paper.jpg 1000w" sizes="auto, (max-width: 300px) 100vw, 300px" />This area of concern involves safety from fire both at home and at the workplace. The confusion between the different terms and concepts of fire and safety can greatly decrease the chances of having fires and also increase response to fires in case they occur. This piece is therefore a comprehensive fire safety glossary, which clearly explains practices, equipment, and laws associated with fire safety.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<ol>
+<li><strong> Alarm System</strong></li>
+</ol>
+<p>Alarm system is one of the basic fire fighting equipment which is used to identify smoke, heat or fire and notify occupants of a building. It may contain sound signals, flashing lights or other forms of signals, other types of systems that will send out alerts to relevant emergency services.</p>
+<p>There are two types of fire alarm systems:There are two types of fire alarm systems:</p>
+<ul>
+<li><strong>Manual Alarm Systems: </strong>Must be activated by somebody mostly through a pull station.</li>
+<li><strong>Automatic Alarm Systems:</strong> Self them in case of heat or smoke are detected and an alert is generated.</li>
+</ul>
+<ol start="2">
+<li><strong> Assembly Point</strong></li>
+</ol>
+<p>An assembly point is a location or a building where people convene after evacuating or being evacuated from a burning building or during an emergency. Accounting for all the individuals especially where evacuation is concerned is usually an important aspect of evacuation plans.</p>
+<ol start="3">
+<li><strong> Automatic Fire Sprinkler System</strong></li>
+</ol>
+<p>A sprinkler system that operates in case it perceives a certain level of heat is present in the area. Sprinklers discharge water to put out or help control a fire until firefighters can put it off. Sprinklers are the most important type of fire extinguishing equipment used in fire fighting especially in commercial and industrial buildings.</p>
+<ol start="4">
+<li><strong> Carbon Dioxide (CO2) Extinguisher</strong></li>
+</ol>
+<p>A form of fire fighting equipment that puts out fire through covering it with a layer of carbon dioxide thus starving the fire of oxygen. It is usually applied on electric fires and fires that have been occasioned by the use of flammable materials such as liquid fuels. The carbon dioxide type of extinguisher has no residue which makes it ideal for locations with electronics control units.</p>
+<ol start="5">
+<li><strong> Class of Fire</strong></li>
+</ol>
+<p>Fire based on the materials is often categorized in various types of the fire. It also assist in choosing the right way to douse the fire.</p>
+<ul>
+<li><strong>Class A: </strong>Classes A and since they can be detailed as ordinary combustibles such as wood, paper, and cloth among others.</li>
+<li><strong>Class B:</strong> Accidents involving the use of flammable liquids such as gasoline, oil and paints, some of which have been brandished during the demonstrations.</li>
+<li><strong>Class C:</strong> Electric and wiring appliances and installations fire.</li>
+<li><strong>Class D:</strong> Flammable metals’ fires such as magnesium and aluminum fire.</li>
+<li><strong>Class K: </strong>Fire which is normally associated with cooking oils and fats that is most common in commercial kitchens.</li>
+</ul>
+<ol start="6">
+<li><strong> Compartmentation</strong></li>
+</ol>
+<p>Fire safety planning approach whereby a building is parted into sections by barriers that are fire resistant. Compartmentation in buildings must be understood as the separation of spaces to stop fire from moving from one area to another so that occupants are given more time to escape and total loss is minimized.</p>
+<ol start="7">
+<li><strong> Detection Device</strong></li>
+</ol>
+<p>A detection device is an apparatus which is designed to identify presence of fire, heat, smoke or carbon monoxide. Some of the common are smoke detectors and heat detectors. These devices are important in early identification of fire outbreak and assist in preventing the spread of the same.</p>
+<ol start="8">
+<li><strong> Dry Chemical Extinguisher</strong></li>
+</ol>
+<p>A type of fire extinguisher that suppresses fire through the use of dry chemical powder that will interrupt the chemical reaction of the fire. These extinguishers are multipurpose and used for all classes of fires; class A, B, and C and therefore regarded as one of the most common extinguisher.</p>
+<ol start="9">
+<li><strong> Evacuation Plan</strong></li>
+</ol>
+<p>An evacuation plan is a route map and procedure that the general public during an emergency must understand so that they can leave a building safely. Within that plan, vital components are escape routes, assembly points and roles of people during emergency drill or an actual emergency.</p>
+<ol start="10">
+<li><strong> Fire Door</strong></li>
+</ol>
+<p>A fire door is a door that has been constructed from special materials with special capabilities of halting fire and smokes within the section of a building. It shuts on its own if it notices the presence of fire and offers a necessary barrier that will help to at least hold fire for sometime.</p>
+<ol start="11">
+<li><strong> Fire Extinguisher</strong></li>
+</ol>
+<p>A wheeled fire extinguisher is a vehicle mounted appliance used to suppress Limited fires by applying materials such as water, foam, dry chemicals and/or Carbon dioxide. Portion of a fire extinguisher is assigned with the class of fire it is designed to put out namely Class A, B, C, D or K.</p>
+<ol start="12">
+<li><strong> Fire Hazard</strong></li>
+</ol>
+<p>Anything that accelerates the possibility of a fire ignition in say a building or any other structure. Some of the causes of fire included are fire causing substances, overloading of circuits and wrong storage of commodities like chemicals.</p>
+<ol start="13">
+<li><strong> Fire Load</strong></li>
+</ol>
+<p>Fire load is defined as total available fuel in a building in the form of material that can burn. It is considered as one of the three important parameters that hint at the severity of a fire that might occur in the building. The fire load density implies that the higher the fire load the greater the fire chance to spread rapidly.</p>
+<ol start="14">
+<li><strong> Fire Marshal</strong></li>
+</ol>
+<p>A Fire Marshal is a governmental or an authoritative personnel whose duty is to implement laws concerning fire safety and also to inspect hazard related to fires. They also may be employed to determine the reason of fires and implement fire prevention campaigns.</p>
+<ol start="15">
+<li><strong> Fire Prevention</strong></li>
+</ol>
+<p>Fire prevention means the actions, which are taken to prevent the fire from happening. This includes storing of flammable substances in the right manner, checking of electrical installations frequently and giving the employees the necessary training on fire prevention measures.</p>
+<ol start="16">
+<li><strong> Fireproofing</strong></li>
+</ol>
+<p>The procedure of installing fire resistant material or coatings that do not allow the members of a structure to fail during a fire. Some of the most popular types of fireproofing materials include spray applied fire resistant clear coatings and also the fire rated insulations.</p>
+<ol start="17">
+<li><strong> Flame Spread Rating</strong></li>
+</ol>
+<p>Flame spread rating denotes to the ability of flamer in as far as spreading along the surface of the material. The lower the flame spread of the used materials the higher safety level is provided because these materials yield less to fire spreading.</p>
+<ol start="18">
+<li><strong> Flashover</strong></li>
+</ol>
+<p>Flashover is a condition whereby the heat in a room or an enclosed space rises to the level which ignites all the combustible contents at once. This is one of the most risky phases in fire since there is an extraordinary quick advancement of flares.</p>
+<ol start="19">
+<li><strong> Heat Detector</strong></li>
+</ol>
+<p>A heat detector is a Fire Detection appliance that works on the basis of specific heat or rate of increase of heat. They are ideal for installation in places where smoke detectors may go off frequently such as the kitchen or industries.</p>
+<ol start="20">
+<li><strong> Incident Commander</strong></li>
+</ol>
+<p>Incident commander is the term used to the person in charge of a firescene or emergency response. What’s more, they have full control over all the organizational activities, and this ranges from fire fighting practices, evacuation measures, and interaction with other emergency services.</p>
+<ol start="21">
+<li><strong> Means of Egress</strong></li>
+</ol>
+<p>An egress is a way to provide a protected passage from any part of a given building down to the exterior. This include doors, corridors and stair ways which take the occupants to safer areas in case of fire.</p>
+<ol start="22">
+<li><strong> Smoke Detector</strong></li>
+</ol>
+<p>A smoke detector refers to a device whose role is to detect the presence of smoke in a given area and produce a signal that indicates the presence of smoke. Nonetheless, smoke detectors are one of the most significant installations of fire safety systems since they give early alerts to the occupants and enhance the likelihood of efficient evacuation.</p>
+<ol start="23">
+<li><strong> Suppression System</strong></li>
+</ol>
+<p>A fire suppression system is defined as an assembly of fire fighting apparatus meant for minimizing or putting out fire. Some of the conventional suppression systems are; sprinkler systems, gas suppression systems, chemical suppression systems. Such systems may be fully automated, or comprise manual components and they are frequently interfaced with alarm systems.</p>
+<ol start="24">
+<li><strong> Thermal Imaging Camera</strong></li>
+</ol>
+<p>A thermal imaging camera is an equipment that can see heat in the form of an image as it has the capability of displaying the variation in temperatures. Firemen and women may use these cameras when they are looking for hot spots, people trapped in a fire or other threats that cannot be seen without it.</p>
+<ol start="25">
+<li><strong> Ventilation</strong></li>
+</ol>
+<p>Exhaustion in fire safety is the planned process of expelling or drawing out of smoke, heat and toxic gases from a structure during a fire. The provision of sufficient quantity of fresh air increases the visibility of the fire scene to the firefighters, decreases the chance of occurrence of flashover and preserves the structural integrity of the building.</p>
+<p><strong>Conclusion</strong></p>
+<p>In this piece, we capture some of the must-know terminology employed in matters relating to fire safety in homes, workplaces, as well as social<img loading="lazy" decoding="async" class="size-medium wp-image-6244 alignright" src="/images/blog/how-to-use-a-fire-extinguisher-your-complete-guide-to-fire-safety-110.jpg" alt="" width="300" height="200" srcset="https://www.nifsindia.net/wp-content/uploads/2024/09/male-firefighter-station-equipped-with-suit-safety-helmet-2-300x200.jpg 300w, https://www.nifsindia.net/wp-content/uploads/2024/09/male-firefighter-station-equipped-with-suit-safety-helmet-2-768x512.jpg 768w, https://www.nifsindia.net/wp-content/uploads/2024/09/male-firefighter-station-equipped-with-suit-safety-helmet-2.jpg 1000w" sizes="auto, (max-width: 300px) 100vw, 300px" /> places. This enables you to participate in improvement of the concepts of fire prevention, preparedness, and response which can lead to comprehensive decrease of loss of lives and property during fire disasters. With training and courses from <strong>NIFS (National Institute of Fire and Safety)</strong>, you can deepen your knowledge and skills, equipping yourself to be more effective in ensuring safety across various environments.</p>
+</section>
+<div class="my-8 p-6 bg-emerald-950/80 border border-emerald-500/30 rounded-2xl shadow-lg">
+  <div class="flex items-center gap-3 mb-2">
+    <span class="text-2xl">💬</span>
+    <h4 class="text-lg font-bold text-emerald-400">Have Questions About Admissions, Eligibility, or Fees?</h4>
+  </div>
+  <p class="text-emerald-200/80 text-sm mb-4">Chat directly with NIFS Official Career Advisors on WhatsApp for free counseling and course guidance.</p>
+  <a href="https://wa.me/918374340999" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-bold rounded-full transition-all shadow-lg shadow-emerald-900/50">
+    <span>Chat on WhatsApp (+91-8374-340-999)</span>
+  </a>
+</div>
+
+<div class="my-8 p-6 bg-slate-900 text-white rounded-2xl border border-slate-800 shadow-xl">
+  <h4 class="text-xl font-bold text-white mb-2">Ready to Start Your Career in Fire & Industrial Safety?</h4>
+  <p class="text-slate-300 text-sm mb-4">Explore NIFS government-recognized and NSDC-approved diploma programs with 100% placement assistance in top industrial safety sectors.</p>
+  <div class="flex flex-wrap gap-3">
+    <a href="/courses/diploma-in-fire-safety" class="px-4 py-2 bg-red-600 hover:bg-red-700 text-white text-xs font-bold rounded-full transition-all">Diploma in Fire & Safety →</a>
+    <a href="/courses/advanced-diploma-in-industrial-safety-adis" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold rounded-full transition-all">ADIS Course →</a>
+    <a href="/courses/diploma-in-health-safety-environment" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold rounded-full transition-all">Diploma in HSE →</a>
+    <a href="/centers" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold rounded-full transition-all">Find 70+ Centers →</a>
+  </div>
+</div>
+8:["$","div",null,{"className":"blog-prose mt-8 border-t border-slate-100 pt-8","dangerouslySetInnerHTML":{"__html":"$d"}}]
+9:["$","div",null,{"className":"mt-10 border-t border-slate-100 pt-8","children":[["$","h2",null,{"className":"flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-slate-500","children":[["$","$L3",null,{"iconNode":[["circle",{"cx":"12","cy":"12","r":"10","key":"1mglay"}],["path",{"d":"M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3","key":"1u773s"}],["path",{"d":"M12 17h.01","key":"p32p05"}]],"className":"lucide-circle-question-mark h-4 w-4 text-primary"}],"Frequently Asked Questions"]}],["$","div",null,{"className":"mt-4 space-y-3","children":[["$","div","0",{"className":"rounded-xl border border-slate-200 bg-slate-50/60 p-5","children":[["$","h3",null,{"className":"text-sm font-bold text-slate-900","children":"What are the eligibility requirements for Mastering Fire Safety: A Comprehensive Glossary for Protecting Lives and Property at NIFS?"}],["$","p",null,{"className":"mt-2 text-sm leading-relaxed text-slate-600","children":"Eligibility ranges from 10th pass for certificate courses to 12th science or ITI/Diploma/Degree for advanced safety diplomas. Counselors verify certificates during admission."}]]}],["$","div","1",{"className":"rounded-xl border border-slate-200 bg-slate-50/60 p-5","children":[["$","h3",null,{"className":"text-sm font-bold text-slate-900","children":"Are NIFS Fire and Safety programs NSDC and university recognized?"}],["$","p",null,{"className":"mt-2 text-sm leading-relaxed text-slate-600","children":"Yes, NIFS courses are NSDC-approved and university-affiliated, recognized by PSU, private industrial employers, and overseas firms in Gulf countries."}]]}],["$","div","2",{"className":"rounded-xl border border-slate-200 bg-slate-50/60 p-5","children":[["$","h3",null,{"className":"text-sm font-bold text-slate-900","children":"Does NIFS provide placement assistance after course completion?"}],["$","p",null,{"className":"mt-2 text-sm leading-relaxed text-slate-600","children":"Yes, NIFS has a dedicated placement cell with 45,000+ alumni placed across top industrial firms including Adani, L&T, ITC, GMR, and Amazon."}]]}]]}]]}]
+a:["$","div",null,{"className":"mt-12 overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-slate-900 to-[#7A0F0C] p-6 text-white shadow-xl sm:p-8","children":["$","div",null,{"className":"flex flex-col gap-6 md:flex-row md:items-center md:justify-between","children":[["$","div",null,{"children":[["$","span",null,{"className":"text-xs font-bold uppercase tracking-wider text-primary bg-white/10 px-2.5 py-1 rounded","children":"NIFS Admissions Open"}],["$","h3",null,{"className":"mt-3 text-xl font-extrabold text-white sm:text-2xl","children":"Start Your Career in Industrial Safety Today"}],["$","p",null,{"className":"mt-2 text-xs text-slate-300 sm:text-sm max-w-xl","children":"NSDC-approved Diploma, Advanced Diploma, and Degree programs with 100% placement assistance at top companies like L&T, Adani, and Reliance."}]]}],["$","div",null,{"className":"flex flex-wrap items-center gap-3 shrink-0","children":[["$","$L2",null,{"href":"/admissions","className":"inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-xs font-bold uppercase tracking-wider text-white shadow-lg transition-transform hover:scale-105","children":"Apply Now →"}],["$","a",null,{"href":"https://wa.me/918374340999","target":"_blank","rel":"noopener noreferrer","className":"inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-4 py-3 text-xs font-bold uppercase tracking-wider text-white shadow-lg transition-transform hover:scale-105","children":[["$","$L3",null,{"iconNode":[["path",{"d":"M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z","key":"18887p"}]],"className":"lucide-message-square h-4 w-4"}],"WhatsApp"]}]]}]]}]}]
+b:["$","$Le",null,{"children":["$","$f",null,{"name":"Next.MetadataOutlet","children":"$@10"}]}]
+10:null

@@ -1,0 +1,183 @@
+1:"$Sreact.fragment"
+3:I[22016,["/_next/static/chunks/2o5z6qadvq8_m.js","/_next/static/chunks/3swbm78-n7d9n.js","/_next/static/chunks/1kmzfrn9ymvcu.js","/_next/static/chunks/14mrh2-p_w84d.js"],""]
+4:I[5014,["/_next/static/chunks/2o5z6qadvq8_m.js","/_next/static/chunks/3swbm78-n7d9n.js","/_next/static/chunks/1kmzfrn9ymvcu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"default"]
+d:I[85437,["/_next/static/chunks/2o5z6qadvq8_m.js","/_next/static/chunks/3swbm78-n7d9n.js","/_next/static/chunks/1kmzfrn9ymvcu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"Image"]
+f:I[97367,["/_next/static/chunks/2o5z6qadvq8_m.js","/_next/static/chunks/3swbm78-n7d9n.js","/_next/static/chunks/1kmzfrn9ymvcu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"OutletBoundary"]
+10:"$Sreact.suspense"
+2:T40f,{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What are the eligibility requirements for Exploring Career Opportunities in Fire Safety Jobs: Roles, Skills, Responsibilities and Certification at NIFS?","acceptedAnswer":{"@type":"Answer","text":"Eligibility ranges from 10th pass for certificate courses to 12th science or ITI/Diploma/Degree for advanced safety diplomas. Counselors verify certificates during admission."}},{"@type":"Question","name":"Are NIFS Fire and Safety programs NSDC and university recognized?","acceptedAnswer":{"@type":"Answer","text":"Yes, NIFS courses are NSDC-approved and university-affiliated, recognized by PSU, private industrial employers, and overseas firms in Gulf countries."}},{"@type":"Question","name":"Does NIFS provide placement assistance after course completion?","acceptedAnswer":{"@type":"Answer","text":"Yes, NIFS has a dedicated placement cell with 45,000+ alumni placed across top industrial firms including Adani, L&T, ITC, GMR, and Amazon."}}]}0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"bg-slate-50/50 min-h-screen pt-32 pb-20 lg:pt-36","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"headline\":\"Exploring Career Opportunities in Fire Safety Jobs:\",\"description\":\"Fire safety Jobs as a field is large and provides several avenues of employment to enthusiasts interested in saving lives, properties and the environment. For e…\",\"url\":\"https://nifsindia.net/blog/exploring-career-opportunities-in-fire-safety-jobs-roles-skills-responsibilities-and-certification/\",\"image\":\"https://nifsindia.net/images/blog/essential-skills-you-gain-from-a-certified-fire-safety-training-program-31.jpg\",\"datePublished\":\"2024-11-29\",\"author\":{\"@id\":\"https://nifsindia.net/#organization\"},\"publisher\":{\"@id\":\"https://nifsindia.net/#organization\"},\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://nifsindia.net/blog/exploring-career-opportunities-in-fire-safety-jobs-roles-skills-responsibilities-and-certification/\"}}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://nifsindia.net\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog\",\"item\":\"https://nifsindia.net/blog/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Exploring Career Opportunities in Fire Safety Jobs:\",\"item\":\"https://nifsindia.net/blog/exploring-career-opportunities-in-fire-safety-jobs-roles-skills-responsibilities-and-certification/\"}]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","article",null,{"data-path-target":"true","className":"mx-auto max-w-4xl px-4 sm:px-6 lg:px-8","children":[["$","div",null,{"className":"mb-6","children":["$","$L3",null,{"href":"/blog","className":"inline-flex items-center gap-1.5 text-xs font-bold text-primary transition-transform hover:-translate-x-1","children":[["$","$L4",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}],"Back to Articles"]}]}],["$","div",null,{"className":"rounded-2xl border border-slate-200 bg-white p-6 sm:p-10 shadow-sm","children":[["$","div",null,{"className":"mb-4 inline-flex items-center gap-1.5 rounded-md bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-white","children":["$L5","Blog"]}],"$L6","$L7","$L8","$L9",false,"$La","$Lb"]}]]}]]}],null,"$Lc"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"B7_mJOMLsRpOj-azxdfRt"}
+5:["$","$L4",null,{"iconNode":[["path",{"d":"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z","key":"oel41y"}],["path",{"d":"m9 12 2 2 4-4","key":"dzmm74"}]],"className":"lucide-shield-check h-3.5 w-3.5"}]
+6:["$","h1",null,{"className":"text-2xl font-extrabold leading-tight text-slate-900 sm:text-4xl","children":"Exploring Career Opportunities in Fire Safety Jobs:"}]
+7:["$","div",null,{"className":"mt-6 flex flex-wrap items-center gap-4 border-t border-slate-100 pt-4 text-xs font-medium text-slate-500","children":[["$","div",null,{"className":"flex items-center gap-2","children":[["$","div",null,{"className":"flex h-7 w-7 items-center justify-center rounded-full bg-slate-100 font-bold text-slate-700","children":"N"}],["$","span",null,{"className":"font-semibold text-slate-700","children":"NIFS Safety Editorial"}]]}],["$","span",null,{"children":"•"}],["$","span",null,{"className":"flex items-center gap-1","children":[["$","$L4",null,{"iconNode":[["path",{"d":"M8 2v4","key":"1cmpym"}],["path",{"d":"M16 2v4","key":"4m81vk"}],["rect",{"width":"18","height":"18","x":"3","y":"4","rx":"2","key":"1hopcy"}],["path",{"d":"M3 10h18","key":"8toen8"}]],"className":"lucide-calendar h-3.5 w-3.5 text-slate-400"}],"29 November 2024"]}],["$","span",null,{"children":"•"}],["$","span",null,{"className":"flex items-center gap-1","children":[["$","$L4",null,{"iconNode":[["circle",{"cx":"12","cy":"12","r":"10","key":"1mglay"}],["path",{"d":"M12 6v6l4 2","key":"mmk7yg"}]],"className":"lucide-clock h-3.5 w-3.5 text-slate-400"}],"5 min read"]}]]}]
+8:["$","div",null,{"className":"relative mt-8 aspect-[16/9] w-full overflow-hidden rounded-xl border border-slate-200 shadow-sm bg-slate-100","children":["$","$Ld",null,{"src":"/images/blog/essential-skills-you-gain-from-a-certified-fire-safety-training-program-31.jpg","alt":"Exploring Career Opportunities in Fire Safety Jobs:","fill":true,"sizes":"(max-width: 1024px) 100vw, 896px","className":"object-cover","priority":true}]}]
+e:T2e03,<section class="wpb-content-wrapper"><p><u><a href="https://www.nifsindia.net/"><img loading="lazy" decoding="async" class="alignleft size-medium wp-image-6310" src="/images/blog/essential-skills-you-gain-from-a-certified-fire-safety-training-program-31.jpg" alt="Fire safety jobs - diverse career opportunities in fire protection." width="300" height="200" srcset="https://www.nifsindia.net/wp-content/uploads/2024/11/portrait-four-male-female-firefighters-background-fire-truck-300x200.jpg 300w, https://www.nifsindia.net/wp-content/uploads/2024/11/portrait-four-male-female-firefighters-background-fire-truck-768x512.jpg 768w, https://www.nifsindia.net/wp-content/uploads/2024/11/portrait-four-male-female-firefighters-background-fire-truck.jpg 1000w" sizes="auto, (max-width: 300px) 100vw, 300px" />Fire safety Jobs</a></u> as a field is large and provides several avenues of employment to enthusiasts interested in saving lives, properties and the environment. For example, compliance with fire safety standards, consultation and specification of sophisticated fire protection measures are key activities undertaken by fire safety specialists in enhancing workplace and public safety. This blog gives an overview of the various positions available in the fire safety industry, the skills needed, the relevant certifications for advancement, and potential of this fulfilling line of work.</p>
+<p><strong>Employment Sectors with Referee to Fire Safety</strong></p>
+<p>&nbsp;</p>
+<ol>
+<li><strong> Fire Safety Inspection and Enforcement</strong></li>
+</ol>
+<ul>
+<li><strong>Fire Inspector:</strong> This agency carries out assessments with a view of ascertaining levels of compliance with norms and regulations under the docket of Fire Safety.</li>
+<li><strong>Fire Marshal:</strong> Is responsible for implementing and the prevention of fire laws and delves into fire related cases.</li>
+<li><strong>Code Enforcement Officer:</strong> Performs the task of checking that everyone follows the fire safety standards.</li>
+</ul>
+<ol start="2">
+<li><strong> Fire Protection Engineering</strong></li>
+</ol>
+<ul>
+<li><strong>Fire Protection Engineer: </strong>Develops fire fighting systems such as sprinkler system and fire alarm system.</li>
+<li><strong>Fire Safety Engineer:</strong> Performs risk analyses and develops plans of fire protection.</li>
+<li><strong>Fire System Designer:</strong> Specialises in the design and installation of fire fighting and alarm systems.</li>
+</ul>
+<ol start="3">
+<li><strong> Fire Safety Consulting</strong></li>
+</ol>
+<ul>
+<li><strong>Fire Safety Consultant: </strong>Offers professional guidance to various measures of preventing fire incidences.</li>
+<li><strong>Fire Risk Assessor:</strong> In other words, risk assessments are used to identify the fire hazards.</li>
+<li><strong>Fire Safety Auditor:</strong> Inspects premises to check compliance with provisions of the fire safety law.</li>
+</ul>
+<ol start="4">
+<li><strong> Fire Service and Operations</strong></li>
+</ol>
+<ul>
+<li><strong>Firefighter:</strong> Avails itself in times of disasters and puts out fire.</li>
+<li><strong>Fire Officer:</strong> Supervises firefighters during the operations in emergency incidences.</li>
+<li><strong>Emergency Medical Technician (EMT): </strong>Offers medical support in case of an emergency.</li>
+</ul>
+<ol start="5">
+<li><strong> Fire Safety Training and Education</strong></li>
+</ol>
+<ul>
+<li><strong>Fire Safety Trainer:</strong> Provides training regarding fire safety.</li>
+<li><strong>Fire Safety Educator: </strong>Promote the information about how to avoid fire and prevent it from happening.</li>
+<li><strong>Fire Safety Instructor:</strong> Currently, the author has been teaching courses in fire safety measures.</li>
+</ul>
+<ol start="6">
+<li><strong> Fire Safety, Research and Development</strong></li>
+</ol>
+<ul>
+<li><strong>Fire Safety Researcher: </strong>Designs unique fire safety products and services.</li>
+<li><strong>Fire Safety Scientist: </strong>Develops high-end fire protection systems solutions.</li>
+<li><strong>R&amp;D Fire Safety Engineer: </strong>Develops new fire protection schemes and experiments new fire fighting methods.</li>
+</ul>
+<ol start="7">
+<li><strong> Other Fire Safety Roles</strong></li>
+</ol>
+<ul>
+<li><strong>Fire Safety Manager: </strong>Responsible for fire safety in organizations or institutions.</li>
+<li><strong>Fire Safety Coordinator: Supervises fire safety work and obligation.</strong></li>
+<li><strong>Fire Safety Specialist:</strong> Responsible for bringing the knowledge about the fire regulations and safety measures.</li>
+</ul>
+<p><strong>Education and Qualification Needed for Fire Safety Positions</strong></p>
+<p><strong>Technical Skills</strong></p>
+<ul>
+<li>Knowledge of the fire safety code states and other regulations.</li>
+<li>Comprehension of the fire behavior and fire dynamics.</li>
+<li>Information about fire protection systems and the handling of dangerous materials.</li>
+</ul>
+<p><strong>Soft Skills</strong></p>
+<ul>
+<li>Inter personal communication and interpersonal skills.</li>
+<li>Solving skills and the ability to analyze.</li>
+<li>Let us look into more aspects of the traits that are most important for this job: attention to detail, and organizational skills.</li>
+</ul>
+<p><strong>Physical Skills</strong></p>
+<ul>
+<li>The physical fitness levels were high among the respondents.</li>
+<li>Adaptability to work in small spaces and acts in risky situations.</li>
+<li>Ability in wearing personal protective gears during the period of the outbreak.</li>
+</ul>
+<p><strong>Essentials of Fire Certificates and Qualifications</strong></p>
+<p><strong>Educational Qualifications</strong></p>
+<ul>
+<li>Diploma holders in Fire Safety Engineering from National Institute of Fire and Safety (NIFS), Visakhapatnam etc.</li>
+<li>National Diploma in Fire Science (e.g., from NFSC or IIFE) or equivalent Bachelor’s Degree in Fire Engineering.</li>
+<li>Acoountants with Bachelor’s Degree in Safety and Fire Engineering (For example, from JNTU).</li>
+</ul>
+<p><strong>Professional Certifications</strong></p>
+<ul>
+<li>Certified Fire Safety Professional (CFSP) by FSFI as of February 26, 2009.</li>
+<li>Certified Fire Protection Specialist (CFPS) by National Fire Protection Association Indian Section.</li>
+<li>Listed Certified Fire Inspector (CFI) by the International Code Council (ICC) India.</li>
+</ul>
+<p><strong>Specialized Training Programs</strong></p>
+<ul>
+<li>Fire Safety Training by NFSC.</li>
+<li>Emergency Response and Disaster Management Training by NIDM.</li>
+</ul>
+<p><strong>Government Certifications</strong></p>
+<ul>
+<li>The local fire departments that convey the Fire Safety Certificate.</li>
+<li>NOC for compliance to fire safety measures</li>
+</ul>
+<p><strong>Possible ocupations in the Field of Fire Safety</strong></p>
+<p><strong>Entry-Level Roles</strong></p>
+<ul>
+<li>Fire Safety Inspector.</li>
+<li>Fire Protection Technician.</li>
+</ul>
+<p><strong>Mid-Level Roles</strong></p>
+<ul>
+<li>Senior Fire Safety Inspector.</li>
+<li>Fire Protection Engineer.</li>
+</ul>
+<p><strong>Senior-Level Roles</strong></p>
+<ul>
+<li>Fire Safety Director.</li>
+<li>Fire Protection Consultant.</li>
+</ul>
+<p><strong>Emerging Roles</strong></p>
+<ul>
+<li>Fire Safety Data Analyst.</li>
+<li>Fire Safety Sustainability Specialist.</li>
+</ul>
+<p><strong>Why are Fire Safety roles Important in the Workplace?</strong></p>
+<ol>
+<li><strong> Prevention of Fires</strong></li>
+</ol>
+<p>Fire safety workers then ensure that the fire risks are minimized through preventing fires and lastly constantly service the fire protective systems.</p>
+<ol start="2">
+<li><strong> Coverage of individuals and property</strong></li>
+</ol>
+<p>They formulate disaster response strategies and make sure that all of them are complied with to prevent loss of lives and property.</p>
+<ol start="3">
+<li><strong> Compliance with Regulations</strong></li>
+</ol>
+<p>From following the regulatory codes and performing the fire safety inspection, people assist an organization in avoiding legal repercussions.</p>
+<ol start="4">
+<li><strong> Risk Mitigation</strong></li>
+</ol>
+<p>In hazard identification and risk management fire safety experts reduce the possibility of loss in case of fire outbreaks.</p>
+<ol start="5">
+<li><strong> Promoting a Safety Culture</strong></li>
+</ol>
+<p>They inform the employees on fire safety practices, and encourage the top-down safety culture approach.</p>
+<p><strong>Conclusion</strong></p>
+<p>The fire safety sector is one of the most promising fields with broad numbers of exposures for everyone who really loves safety and wants to create<img loading="lazy" decoding="async" class="size-medium wp-image-6311 alignright" src="/images/blog/exploring-career-opportunities-in-fire-safety-jobs-roles-skills-responsibilities-and-certification-92.jpg" alt="Explore fire safety roles with essential skills and certifications." width="300" height="200" srcset="https://www.nifsindia.net/wp-content/uploads/2024/11/with-notepad-group-firefighters-protective-uniform-that-is-station-300x200.jpg 300w, https://www.nifsindia.net/wp-content/uploads/2024/11/with-notepad-group-firefighters-protective-uniform-that-is-station-768x512.jpg 768w, https://www.nifsindia.net/wp-content/uploads/2024/11/with-notepad-group-firefighters-protective-uniform-that-is-station.jpg 1000w" sizes="auto, (max-width: 300px) 100vw, 300px" /> something new. Skills, qualifications, certificates, and experience will open up great opportunities to start a successful career as well as contributing to increasing the safety of communities and citizens. You can also do this by the enrollment in certain courses and attainment of reputed certifications to open up opportunities to these glorious and valuable careers and endeavors in this sector.</p>
+</section>
+<div class="my-8 p-6 bg-emerald-950/80 border border-emerald-500/30 rounded-2xl shadow-lg">
+  <div class="flex items-center gap-3 mb-2">
+    <span class="text-2xl">💬</span>
+    <h4 class="text-lg font-bold text-emerald-400">Have Questions About Admissions, Eligibility, or Fees?</h4>
+  </div>
+  <p class="text-emerald-200/80 text-sm mb-4">Chat directly with NIFS Official Career Advisors on WhatsApp for free counseling and course guidance.</p>
+  <a href="https://wa.me/918374340999" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-bold rounded-full transition-all shadow-lg shadow-emerald-900/50">
+    <span>Chat on WhatsApp (+91-8374-340-999)</span>
+  </a>
+</div>
+
+<div class="my-8 p-6 bg-slate-900 text-white rounded-2xl border border-slate-800 shadow-xl">
+  <h4 class="text-xl font-bold text-white mb-2">Ready to Start Your Career in Fire & Industrial Safety?</h4>
+  <p class="text-slate-300 text-sm mb-4">Explore NIFS government-recognized and NSDC-approved diploma programs with 100% placement assistance in top industrial safety sectors.</p>
+  <div class="flex flex-wrap gap-3">
+    <a href="/courses/diploma-in-fire-safety" class="px-4 py-2 bg-red-600 hover:bg-red-700 text-white text-xs font-bold rounded-full transition-all">Diploma in Fire & Safety →</a>
+    <a href="/courses/advanced-diploma-in-industrial-safety-adis" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold rounded-full transition-all">ADIS Course →</a>
+    <a href="/courses/diploma-in-health-safety-environment" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold rounded-full transition-all">Diploma in HSE →</a>
+    <a href="/centers" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold rounded-full transition-all">Find 70+ Centers →</a>
+  </div>
+</div>
+9:["$","div",null,{"className":"blog-prose mt-8 border-t border-slate-100 pt-8","dangerouslySetInnerHTML":{"__html":"$e"}}]
+a:["$","div",null,{"className":"mt-10 border-t border-slate-100 pt-8","children":[["$","h2",null,{"className":"flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-slate-500","children":[["$","$L4",null,{"iconNode":[["circle",{"cx":"12","cy":"12","r":"10","key":"1mglay"}],["path",{"d":"M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3","key":"1u773s"}],["path",{"d":"M12 17h.01","key":"p32p05"}]],"className":"lucide-circle-question-mark h-4 w-4 text-primary"}],"Frequently Asked Questions"]}],["$","div",null,{"className":"mt-4 space-y-3","children":[["$","div","0",{"className":"rounded-xl border border-slate-200 bg-slate-50/60 p-5","children":[["$","h3",null,{"className":"text-sm font-bold text-slate-900","children":"What are the eligibility requirements for Exploring Career Opportunities in Fire Safety Jobs: Roles, Skills, Responsibilities and Certification at NIFS?"}],["$","p",null,{"className":"mt-2 text-sm leading-relaxed text-slate-600","children":"Eligibility ranges from 10th pass for certificate courses to 12th science or ITI/Diploma/Degree for advanced safety diplomas. Counselors verify certificates during admission."}]]}],["$","div","1",{"className":"rounded-xl border border-slate-200 bg-slate-50/60 p-5","children":[["$","h3",null,{"className":"text-sm font-bold text-slate-900","children":"Are NIFS Fire and Safety programs NSDC and university recognized?"}],["$","p",null,{"className":"mt-2 text-sm leading-relaxed text-slate-600","children":"Yes, NIFS courses are NSDC-approved and university-affiliated, recognized by PSU, private industrial employers, and overseas firms in Gulf countries."}]]}],["$","div","2",{"className":"rounded-xl border border-slate-200 bg-slate-50/60 p-5","children":[["$","h3",null,{"className":"text-sm font-bold text-slate-900","children":"Does NIFS provide placement assistance after course completion?"}],["$","p",null,{"className":"mt-2 text-sm leading-relaxed text-slate-600","children":"Yes, NIFS has a dedicated placement cell with 45,000+ alumni placed across top industrial firms including Adani, L&T, ITC, GMR, and Amazon."}]]}]]}]]}]
+b:["$","div",null,{"className":"mt-12 overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-slate-900 to-[#7A0F0C] p-6 text-white shadow-xl sm:p-8","children":["$","div",null,{"className":"flex flex-col gap-6 md:flex-row md:items-center md:justify-between","children":[["$","div",null,{"children":[["$","span",null,{"className":"text-xs font-bold uppercase tracking-wider text-primary bg-white/10 px-2.5 py-1 rounded","children":"NIFS Admissions Open"}],["$","h3",null,{"className":"mt-3 text-xl font-extrabold text-white sm:text-2xl","children":"Start Your Career in Industrial Safety Today"}],["$","p",null,{"className":"mt-2 text-xs text-slate-300 sm:text-sm max-w-xl","children":"NSDC-approved Diploma, Advanced Diploma, and Degree programs with 100% placement assistance at top companies like L&T, Adani, and Reliance."}]]}],["$","div",null,{"className":"flex flex-wrap items-center gap-3 shrink-0","children":[["$","$L3",null,{"href":"/admissions","className":"inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-xs font-bold uppercase tracking-wider text-white shadow-lg transition-transform hover:scale-105","children":"Apply Now →"}],["$","a",null,{"href":"https://wa.me/918374340999","target":"_blank","rel":"noopener noreferrer","className":"inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-4 py-3 text-xs font-bold uppercase tracking-wider text-white shadow-lg transition-transform hover:scale-105","children":[["$","$L4",null,{"iconNode":[["path",{"d":"M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z","key":"18887p"}]],"className":"lucide-message-square h-4 w-4"}],"WhatsApp"]}]]}]]}]}]
+c:["$","$Lf",null,{"children":["$","$10",null,{"name":"Next.MetadataOutlet","children":"$@11"}]}]
+11:null

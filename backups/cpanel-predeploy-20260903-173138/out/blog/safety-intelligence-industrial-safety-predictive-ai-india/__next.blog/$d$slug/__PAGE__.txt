@@ -1,0 +1,184 @@
+1:"$Sreact.fragment"
+3:I[22016,["/_next/static/chunks/2o5z6qadvq8_m.js","/_next/static/chunks/3swbm78-n7d9n.js","/_next/static/chunks/1kmzfrn9ymvcu.js","/_next/static/chunks/14mrh2-p_w84d.js"],""]
+4:I[5014,["/_next/static/chunks/2o5z6qadvq8_m.js","/_next/static/chunks/3swbm78-n7d9n.js","/_next/static/chunks/1kmzfrn9ymvcu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"default"]
+c:I[85437,["/_next/static/chunks/2o5z6qadvq8_m.js","/_next/static/chunks/3swbm78-n7d9n.js","/_next/static/chunks/1kmzfrn9ymvcu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"Image"]
+e:I[97367,["/_next/static/chunks/2o5z6qadvq8_m.js","/_next/static/chunks/3swbm78-n7d9n.js","/_next/static/chunks/1kmzfrn9ymvcu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"OutletBoundary"]
+f:"$Sreact.suspense"
+2:T41d,{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What are the eligibility requirements for Safety Intelligence®: Industrial Safety for a New India (From Reactive to Proactive Intelligence in the Age of AI) at NIFS?","acceptedAnswer":{"@type":"Answer","text":"Eligibility ranges from 10th pass for certificate courses to 12th science or ITI/Diploma/Degree for advanced safety diplomas. Counselors verify certificates during admission."}},{"@type":"Question","name":"Are NIFS Fire and Safety programs NSDC and university recognized?","acceptedAnswer":{"@type":"Answer","text":"Yes, NIFS courses are NSDC-approved and university-affiliated, recognized by PSU, private industrial employers, and overseas firms in Gulf countries."}},{"@type":"Question","name":"Does NIFS provide placement assistance after course completion?","acceptedAnswer":{"@type":"Answer","text":"Yes, NIFS has a dedicated placement cell with 45,000+ alumni placed across top industrial firms including Adani, L&T, ITC, GMR, and Amazon."}}]}0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"bg-slate-50/50 min-h-screen pt-32 pb-20 lg:pt-36","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"headline\":\"Safety Intelligence: AI for Industrial Safety\",\"description\":\"Safety Intelligence® moves risk management from reactive compliance to predictive, AI-driven intelligence — the full framework by Dr. GPR Krishna.\",\"url\":\"https://nifsindia.net/blog/safety-intelligence-industrial-safety-predictive-ai-india/\",\"image\":\"https://nifsindia.net/images/blog/dr-gpr-krishna/image1.png\",\"datePublished\":\"2026-07-29\",\"author\":{\"@id\":\"https://nifsindia.net/#organization\"},\"publisher\":{\"@id\":\"https://nifsindia.net/#organization\"},\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://nifsindia.net/blog/safety-intelligence-industrial-safety-predictive-ai-india/\"}}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://nifsindia.net\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog\",\"item\":\"https://nifsindia.net/blog/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Safety Intelligence: AI for Industrial Safety\",\"item\":\"https://nifsindia.net/blog/safety-intelligence-industrial-safety-predictive-ai-india/\"}]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","article",null,{"data-path-target":"true","className":"mx-auto max-w-4xl px-4 sm:px-6 lg:px-8","children":[["$","div",null,{"className":"mb-6","children":["$","$L3",null,{"href":"/blog","className":"inline-flex items-center gap-1.5 text-xs font-bold text-primary transition-transform hover:-translate-x-1","children":[["$","$L4",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}],"Back to Articles"]}]}],["$","div",null,{"className":"rounded-2xl border border-slate-200 bg-white p-6 sm:p-10 shadow-sm","children":[["$","div",null,{"className":"mb-4 inline-flex items-center gap-1.5 rounded-md bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-white","children":[["$","$L4",null,{"iconNode":[["path",{"d":"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z","key":"oel41y"}],["path",{"d":"m9 12 2 2 4-4","key":"dzmm74"}]],"className":"lucide-shield-check h-3.5 w-3.5"}],"Safety Intelligence"]}],"$L5","$L6","$L7","$L8",false,"$L9","$La"]}]]}]]}],null,"$Lb"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"B7_mJOMLsRpOj-azxdfRt"}
+5:["$","h1",null,{"className":"text-2xl font-extrabold leading-tight text-slate-900 sm:text-4xl","children":"Safety Intelligence: AI for Industrial Safety"}]
+6:["$","div",null,{"className":"mt-6 flex flex-wrap items-center gap-4 border-t border-slate-100 pt-4 text-xs font-medium text-slate-500","children":[["$","div",null,{"className":"flex items-center gap-2","children":[["$","div",null,{"className":"flex h-7 w-7 items-center justify-center rounded-full bg-slate-100 font-bold text-slate-700","children":"N"}],["$","span",null,{"className":"font-semibold text-slate-700","children":"NIFS Safety Editorial"}]]}],["$","span",null,{"children":"•"}],["$","span",null,{"className":"flex items-center gap-1","children":[["$","$L4",null,{"iconNode":[["path",{"d":"M8 2v4","key":"1cmpym"}],["path",{"d":"M16 2v4","key":"4m81vk"}],["rect",{"width":"18","height":"18","x":"3","y":"4","rx":"2","key":"1hopcy"}],["path",{"d":"M3 10h18","key":"8toen8"}]],"className":"lucide-calendar h-3.5 w-3.5 text-slate-400"}],"29 July 2026"]}],["$","span",null,{"children":"•"}],["$","span",null,{"className":"flex items-center gap-1","children":[["$","$L4",null,{"iconNode":[["circle",{"cx":"12","cy":"12","r":"10","key":"1mglay"}],["path",{"d":"M12 6v6l4 2","key":"mmk7yg"}]],"className":"lucide-clock h-3.5 w-3.5 text-slate-400"}],"8 min read"]}]]}]
+7:["$","div",null,{"className":"relative mt-8 aspect-[16/9] w-full overflow-hidden rounded-xl border border-slate-200 shadow-sm bg-slate-100","children":["$","$Lc",null,{"src":"/images/blog/dr-gpr-krishna/image1.png","alt":"Safety Intelligence: AI for Industrial Safety","fill":true,"sizes":"(max-width: 1024px) 100vw, 896px","className":"object-cover","priority":true}]}]
+d:T36fb,<p class="lead text-lg font-medium text-slate-700 leading-relaxed mb-6">Industrial safety has always been regarded as the backbone of sustainable industrial growth. Every machine that operates safely, every employee who returns home unharmed, every fire that is prevented, and every hazard that is identified before it causes harm contributes directly to the success of an organization. Yet, despite remarkable technological advancements, industries worldwide continue to experience workplace accidents, occupational illnesses, fires, explosions, and catastrophic failures.</p>
+
+<blockquote class="my-8 border-l-4 border-[#DC1711] bg-red-50/50 p-6 rounded-r-xl text-slate-800 font-semibold italic text-base sm:text-lg shadow-sm">“Every accident is preceded by hundreds of unnoticed signals. Most organisations investigate the accident. Few investigate the signals. Safety Intelligence® begins where traditional safety ends.”<footer class="mt-2 text-sm font-bold not-italic text-[#7A0F0C]">— Dr. GPR Krishna, Ph.D., Country Head — NIFS</footer></blockquote>
+
+<h2>1. What is Safety Intelligence®?</h2>
+<p>During my interactions with large-scale industries across India, I have observed one common reality: <strong>every company has safety data; very few have safety intelligence.</strong></p>
+<p>Safety Intelligence® is more than technology. It is not merely Artificial Intelligence, software, or another management framework. It is a comprehensive philosophy that combines human expertise, engineering excellence, leadership commitment, behavioural science, data analytics, and intelligent technologies to create workplaces capable of anticipating risks before they become incidents. Instead of measuring success solely by the number of accidents that have already occurred, Safety Intelligence® focuses on understanding the conditions that could lead to future accidents and eliminating them proactively.</p>
+<p>India is standing at the threshold of a historic industrial revolution. From semiconductor manufacturing plants to mega data centres, unprecedented growth is exploding across the country. But industrial growth without an evolution in safety management is a dangerous combination. Industry cannot afford to ignore this.</p>
+
+<div class="my-6 rounded-xl bg-slate-900 p-6 text-white shadow-md">
+<h4 class="text-lg font-bold text-red-400 mb-2">The Medical Analogy: Data vs. Intelligence</h4>
+<p class="text-sm text-slate-300">Imagine a doctor who looks at your blood test but cannot see your ECG or medical history. Each report looks normal individually. Together, they reveal an impending health crisis. This is exactly how most factories operate today: they possess enormous amounts of safety data in silos, but almost zero integrated safety intelligence.</p>
+</div>
+
+<figure class="my-8">
+  <img src="/images/blog/safety-intelligence-predictive-models.png" width="1024" height="559" alt="Safety Intelligence Concept - From Reactive to Proactive Risk Management by Dr. GPR Krishna" class="w-full h-auto rounded-xl border border-slate-200 shadow-md" loading="lazy" />
+  <figcaption class="mt-2 text-center text-xs text-slate-500 font-medium">Figure 1: Shifting from reactive compliance to proactive predictive safety models (Safety Intelligence® Framework).</figcaption>
+</figure>
+
+<h2>2. Why Companies Are Shifting to Predictive Safety Models</h2>
+<p>Traditional safety programs rely primarily on lagging indicators such as Lost Time Injury Frequency Rate (LTIFR) and post-incident reports. Managing safety by looking only at past accidents is exactly like driving a car while staring into the rear-view mirror: you know where you have been, but you cannot see the crash ahead.</p>
+<p>Today, leading enterprises across manufacturing, energy, and infrastructure are shifting to predictive safety models. Because production targets change daily and supply chains require immediate responses, waiting for a monthly safety report is no longer viable. Decision-makers require real-time visibility into workplace risks.</p>
+
+<blockquote class="my-6 border-l-4 border-slate-800 bg-slate-100 p-5 rounded-r-lg font-medium text-slate-800 italic">"Safety can no longer remain a department that responds after an incident has occurred. It must become an intelligent organisational capability that continuously predicts, analyses, and prevents risks before they materialise."</blockquote>
+
+<figure class="my-8">
+  <img src="/images/blog/safety-intelligence-7-pillars.png" width="1024" height="559" alt="7 Pillars of Safety Intelligence - Dr. GPR Krishna NIFS" class="w-full h-auto rounded-xl border border-slate-200 shadow-md" loading="lazy" />
+  <figcaption class="mt-2 text-center text-xs text-slate-500 font-medium">Figure 2: The 7 Interconnected Pillars of Safety Intelligence®.</figcaption>
+</figure>
+
+<h2>3. The 7 Pillars of the Safety Intelligence® Framework</h2>
+<p>Safety Intelligence® is built on seven interconnected pillars that integrate human leadership with predictive technology:</p>
+
+<table>
+<thead>
+<tr>
+<th>Pillar</th>
+<th>Focus Area</th>
+<th>Core Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1. Leadership Intelligence</strong></td>
+<td>Culture &amp; Strategy</td>
+<td>Make safety a strategic executive priority, not just a legal obligation.</td>
+</tr>
+<tr>
+<td><strong>2. Risk Intelligence</strong></td>
+<td>Continuous Monitoring</td>
+<td>Evaluate emerging hazards dynamically instead of during annual reviews.</td>
+</tr>
+<tr>
+<td><strong>3. Human Intelligence</strong></td>
+<td>Behavioural Science</td>
+<td>Understand why workers take shortcuts rather than blaming them post-incident.</td>
+</tr>
+<tr>
+<td><strong>4. Operational Intelligence</strong></td>
+<td>Cross-Department Data</td>
+<td>Connect maintenance, HR, and operations data to spot early warning signals.</td>
+</tr>
+<tr>
+<td><strong>5. Technology Intelligence</strong></td>
+<td>AI &amp; IoT Integration</td>
+<td>Deploy smart cameras and sensors for real-time hazard and PPE detection.</td>
+</tr>
+<tr>
+<td><strong>6. Learning Intelligence</strong></td>
+<td>Blame-Free Reporting</td>
+<td>Encourage near-miss reporting without fear of punishment to promote learning.</td>
+</tr>
+<tr>
+<td><strong>7. Predictive Intelligence</strong></td>
+<td>Forecasting Risk</td>
+<td>Analyse multi-source data patterns to intervene before a disaster strikes.</td>
+</tr>
+</tbody>
+</table>
+
+<figure class="my-8">
+  <img src="/images/blog/safety-intelligence-case-study.png" width="1024" height="559" alt="Real World Case Study - Connecting Safety Data Dots" class="w-full h-auto rounded-xl border border-slate-200 shadow-md" loading="lazy" />
+  <figcaption class="mt-2 text-center text-xs text-slate-500 font-medium">Figure 3: Case Study — Connecting environmental, maintenance, and HR data to prevent workplace fatigue accidents.</figcaption>
+</figure>
+
+<h2>4. Real-World Case Study: Connecting the Dots</h2>
+<p>Consider a modern manufacturing plant. Routine safety inspections repeatedly catch workers removing their protective helmets after working for 3-4 hours.</p>
+<p>Independently, safety officers view this as a simple behavioural violation. But when Safety Intelligence® connects disparate data sources:</p>
+<ul>
+<li><strong>Maintenance records</strong> show increased equipment vibration and noise.</li>
+<li><strong>Environmental sensors</strong> detect rising heat levels in that zone.</li>
+<li><strong>HR data</strong> highlights massive overtime schedules during the previous month.</li>
+<li><strong>Operations data</strong> reveals aggressive production deadlines.</li>
+</ul>
+<p><strong>The Intelligence Breakthrough:</strong> Workers are fatigued, overheating, and under immense pressure. Removing helmets is a symptom of extreme thermal stress and fatigue. Management improves ventilation and adjusts shift rotations immediately—proactively preventing a severe heat stroke or traumatic head injury before an accident happens.</p>
+
+<figure class="my-8">
+  <img src="/images/blog/safety-intelligence-future-ai.png" width="1024" height="559" alt="Future of Safety Intelligence and AI Technology in Industrial Safety" class="w-full h-auto rounded-xl border border-slate-200 shadow-md" loading="lazy" />
+  <figcaption class="mt-2 text-center text-xs text-slate-500 font-medium">Figure 4: Emerging Industrial Safety Technologies — AI Surveillance, Wearables, and Drone Inspections.</figcaption>
+</figure>
+
+<h2>5. Future of Safety Intelligence® &amp; AI Integration</h2>
+<p>What is coming next in industrial safety technology?</p>
+<ul>
+<li><strong>AI-Assisted Surveillance:</strong> Computer vision algorithms detecting missing PPE, spill hazards, fire risks, and unauthorised zone access in real time.</li>
+<li><strong>Wearable Tech:</strong> Smart vests and bands monitoring worker fatigue, heart rate variability, and environmental heat index.</li>
+<li><strong>Drone Inspections:</strong> Autonomous drones inspecting confined spaces, boilers, and high-voltage transmission lines, keeping humans out of high-risk zones.</li>
+<li><strong>Digital Resilience:</strong> Protecting cloud-connected safety technology and industrial control systems from cyber threats.</li>
+</ul>
+
+<div class="my-6 rounded-xl bg-red-50 border border-red-100 p-6 text-slate-900 shadow-sm">
+<h4 class="text-base font-bold text-[#DC1711] mb-1">Will AI Replace Safety Professionals?</h4>
+<p class="text-sm text-slate-700">No. Artificial Intelligence will never replace human empathy, leadership, ethics, and moral decision-making. AI is an assistant that automates data monitoring—freeing safety leaders to focus on mentorship, culture, and strategic risk reduction.</p>
+</div>
+
+<figure class="my-8">
+  <img src="/images/blog/safety-intelligence-conclusion.png" width="1024" height="572" alt="Safety Intelligence Conclusion - Dr. GPR Krishna" class="w-full h-auto rounded-xl border border-slate-200 shadow-md" loading="lazy" />
+  <figcaption class="mt-2 text-center text-xs text-slate-500 font-medium">Figure 5: Building a Culture of Safety Intelligence for Sustainable Business Growth.</figcaption>
+</figure>
+
+<h2>6. Key Takeaways &amp; Summary</h2>
+<ol>
+<li>Safety must evolve from passive legal compliance to active, continuous intelligence.</li>
+<li>Leadership commitment establishes the true baseline of safety culture.</li>
+<li>Data becomes valuable only when transformed into actionable risk insights.</li>
+<li>Predictive thinking prevents incidents before they occur.</li>
+<li>Safety excellence directly drives operational and business performance.</li>
+</ol>
+
+<h2>Frequently Asked Questions (FAQ)</h2>
+<div class="space-y-4 my-6">
+<div>
+<h4 class="font-bold text-slate-900 text-base">1. What is Safety Intelligence®?</h4>
+<p class="text-sm text-slate-600 mt-1">Safety Intelligence® is a proactive management philosophy that integrates leadership, human expertise, engineering controls, digital technologies, behavioural science, and predictive analytics to assess and prevent workplace risks before incidents happen.</p>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 text-base">2. How does it differ from traditional safety management?</h4>
+<p class="text-sm text-slate-600 mt-1">Traditional safety relies heavily on lagging indicators (past accidents, Lost Time Injury rates). Safety Intelligence® focuses on leading indicators and predictive analytics to eliminate hazards before harm occurs.</p>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 text-base">3. Can Small &amp; Medium Enterprises (SMEs) implement Safety Intelligence®?</h4>
+<p class="text-sm text-slate-600 mt-1">Yes. Safety Intelligence® is a management mindset, not an expensive software requirement. SMEs can start by breaking down data silos, encouraging transparent near-miss reporting, and strengthening leadership engagement.</p>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 text-base">4. Which industrial sectors benefit the most?</h4>
+<p class="text-sm text-slate-600 mt-1">Manufacturing, construction, oil &amp; gas, mining, power generation, chemical processing, pharmaceuticals, logistics, ports, and heavy infrastructure projects benefit significantly.</p>
+</div>
+</div>
+<div class="my-8 p-6 bg-emerald-950/80 border border-emerald-500/30 rounded-2xl shadow-lg">
+  <div class="flex items-center gap-3 mb-2">
+    <span class="text-2xl">💬</span>
+    <h4 class="text-lg font-bold text-emerald-400">Have Questions About Admissions, Eligibility, or Fees?</h4>
+  </div>
+  <p class="text-emerald-200/80 text-sm mb-4">Chat directly with NIFS Official Career Advisors on WhatsApp for free counseling and course guidance.</p>
+  <a href="https://wa.me/918374340999" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-bold rounded-full transition-all shadow-lg shadow-emerald-900/50">
+    <span>Chat on WhatsApp (+91-8374-340-999)</span>
+  </a>
+</div>
+
+<div class="my-8 p-6 bg-slate-900 text-white rounded-2xl border border-slate-800 shadow-xl">
+  <h4 class="text-xl font-bold text-white mb-2">Ready to Start Your Career in Fire & Industrial Safety?</h4>
+  <p class="text-slate-300 text-sm mb-4">Explore NIFS government-recognized and NSDC-approved diploma programs with 100% placement assistance in top industrial safety sectors.</p>
+  <div class="flex flex-wrap gap-3">
+    <a href="/courses/diploma-in-fire-safety" class="px-4 py-2 bg-red-600 hover:bg-red-700 text-white text-xs font-bold rounded-full transition-all">Diploma in Fire & Safety →</a>
+    <a href="/courses/advanced-diploma-in-industrial-safety-adis" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold rounded-full transition-all">ADIS Course →</a>
+    <a href="/courses/diploma-in-health-safety-environment" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold rounded-full transition-all">Diploma in HSE →</a>
+    <a href="/centers" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold rounded-full transition-all">Find 70+ Centers →</a>
+  </div>
+</div>
+8:["$","div",null,{"className":"blog-prose mt-8 border-t border-slate-100 pt-8","dangerouslySetInnerHTML":{"__html":"$d"}}]
+9:["$","div",null,{"className":"mt-10 border-t border-slate-100 pt-8","children":[["$","h2",null,{"className":"flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-slate-500","children":[["$","$L4",null,{"iconNode":[["circle",{"cx":"12","cy":"12","r":"10","key":"1mglay"}],["path",{"d":"M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3","key":"1u773s"}],["path",{"d":"M12 17h.01","key":"p32p05"}]],"className":"lucide-circle-question-mark h-4 w-4 text-primary"}],"Frequently Asked Questions"]}],["$","div",null,{"className":"mt-4 space-y-3","children":[["$","div","0",{"className":"rounded-xl border border-slate-200 bg-slate-50/60 p-5","children":[["$","h3",null,{"className":"text-sm font-bold text-slate-900","children":"What are the eligibility requirements for Safety Intelligence®: Industrial Safety for a New India (From Reactive to Proactive Intelligence in the Age of AI) at NIFS?"}],["$","p",null,{"className":"mt-2 text-sm leading-relaxed text-slate-600","children":"Eligibility ranges from 10th pass for certificate courses to 12th science or ITI/Diploma/Degree for advanced safety diplomas. Counselors verify certificates during admission."}]]}],["$","div","1",{"className":"rounded-xl border border-slate-200 bg-slate-50/60 p-5","children":[["$","h3",null,{"className":"text-sm font-bold text-slate-900","children":"Are NIFS Fire and Safety programs NSDC and university recognized?"}],["$","p",null,{"className":"mt-2 text-sm leading-relaxed text-slate-600","children":"Yes, NIFS courses are NSDC-approved and university-affiliated, recognized by PSU, private industrial employers, and overseas firms in Gulf countries."}]]}],["$","div","2",{"className":"rounded-xl border border-slate-200 bg-slate-50/60 p-5","children":[["$","h3",null,{"className":"text-sm font-bold text-slate-900","children":"Does NIFS provide placement assistance after course completion?"}],["$","p",null,{"className":"mt-2 text-sm leading-relaxed text-slate-600","children":"Yes, NIFS has a dedicated placement cell with 45,000+ alumni placed across top industrial firms including Adani, L&T, ITC, GMR, and Amazon."}]]}]]}]]}]
+a:["$","div",null,{"className":"mt-12 overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-slate-900 to-[#7A0F0C] p-6 text-white shadow-xl sm:p-8","children":["$","div",null,{"className":"flex flex-col gap-6 md:flex-row md:items-center md:justify-between","children":[["$","div",null,{"children":[["$","span",null,{"className":"text-xs font-bold uppercase tracking-wider text-primary bg-white/10 px-2.5 py-1 rounded","children":"NIFS Admissions Open"}],["$","h3",null,{"className":"mt-3 text-xl font-extrabold text-white sm:text-2xl","children":"Start Your Career in Industrial Safety Today"}],["$","p",null,{"className":"mt-2 text-xs text-slate-300 sm:text-sm max-w-xl","children":"NSDC-approved Diploma, Advanced Diploma, and Degree programs with 100% placement assistance at top companies like L&T, Adani, and Reliance."}]]}],["$","div",null,{"className":"flex flex-wrap items-center gap-3 shrink-0","children":[["$","$L3",null,{"href":"/admissions","className":"inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-xs font-bold uppercase tracking-wider text-white shadow-lg transition-transform hover:scale-105","children":"Apply Now →"}],["$","a",null,{"href":"https://wa.me/918374340999","target":"_blank","rel":"noopener noreferrer","className":"inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-4 py-3 text-xs font-bold uppercase tracking-wider text-white shadow-lg transition-transform hover:scale-105","children":[["$","$L4",null,{"iconNode":[["path",{"d":"M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z","key":"18887p"}]],"className":"lucide-message-square h-4 w-4"}],"WhatsApp"]}]]}]]}]}]
+b:["$","$Le",null,{"children":["$","$f",null,{"name":"Next.MetadataOutlet","children":"$@10"}]}]
+10:null

@@ -58,12 +58,15 @@
 :root {
   /* Dashboard-only tokens (src/app/dashboard, src/app/login) — additive,
      do not affect the public site's own --background/--foreground tokens. */
-  --dash-bg: #1c1917;
-  --dash-surface: #231f1b;
-  --dash-border: rgba(255, 255, 255, 0.1);
-  --dash-text: #f5f0e6;
-  --dash-text-muted: rgba(245, 240, 230, 0.6);
+  --dash-bg: #f4f0e8;
+  --dash-surface: #fffdf8;
+  --dash-border: #e4ded2;
+  --dash-text: #1c1917;
+  --dash-text-muted: #716b60;
   --dash-accent: #a16207;
+  --dash-accent-hover: #854d0e;
+  --dash-accent-soft: rgba(161, 98, 7, 0.12);
+  --dash-gold-glow: 0 0 24px -12px rgba(161, 98, 7, 0.5);
 
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);

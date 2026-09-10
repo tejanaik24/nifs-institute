@@ -16,7 +16,7 @@ type PostFormValues = {
 };
 
 const FIELD =
-  "mb-4 w-full rounded-md border border-[var(--dash-border)] bg-black/20 px-3 py-2 text-[var(--dash-text)] outline-none focus:border-[var(--dash-accent)]";
+  "mb-4 w-full rounded-md border border-[var(--dash-border)] bg-white px-3 py-2 text-[var(--dash-text)] outline-none transition-colors placeholder:text-[var(--dash-text-muted)]/50 focus:border-[var(--dash-accent)] focus:ring-2 focus:ring-[var(--dash-accent-soft)]";
 const LABEL = "mb-1 block text-sm text-[var(--dash-text-muted)]";
 
 function ImageUploadField({
@@ -53,7 +53,7 @@ function ImageUploadField({
       <input type="hidden" name={name} value={url} />
       <div className="flex items-center gap-3">
         {url && (
-          <div className="relative h-16 w-24 overflow-hidden rounded-md border border-[var(--dash-border)] bg-black/20">
+          <div className="relative h-16 w-24 overflow-hidden rounded-md border border-[var(--dash-border)] bg-white">
             <Image src={url} alt="" fill sizes="96px" className="object-cover" unoptimized />
           </div>
         )}
@@ -73,7 +73,7 @@ function ImageUploadField({
           onChange={(e) => handleFile(e.target.files?.[0])}
         />
       </div>
-      {error && <p className="mt-1 text-xs text-red-400">{error}</p>}
+      {error && <p className="mt-1 text-xs text-red-600">{error}</p>}
     </div>
   );
 }
@@ -117,7 +117,7 @@ export function PostEditorForm({
 
       <button
         type="submit"
-        className="mt-2 rounded-md bg-[var(--dash-accent)] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#8a5406]"
+        className="mt-2 rounded-md bg-[var(--dash-accent)] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[var(--dash-accent-hover)]"
       >
         {submitLabel}
       </button>

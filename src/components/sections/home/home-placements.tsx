@@ -1,55 +1,18 @@
 "use client";
 
-const PLACEMENTS = [
-  {
-    img: "/images/placements/1.png",
-    name: "CH Sridhar",
-    role: "Safety Supervisor",
-    company: "Kotac Automotives",
-    color: "border-nifs-red",
-    text: "text-red-400",
-  },
-  {
-    img: "/images/placements/2.png",
-    name: "G Lokesh",
-    role: "Safety Supervisor",
-    company: "Kotac Automotives",
-    color: "border-nifs-green",
-    text: "text-emerald-400",
-  },
-  {
-    img: "/images/placements/3.png",
-    name: "V Prudhiv Raj",
-    role: "Safety Inspector",
-    company: "L&T",
-    color: "border-nifs-orange",
-    text: "text-amber-400",
-  },
-  {
-    img: "/images/placements/4.png",
-    name: "Bhanu Kumar",
-    role: "Safety Inspector",
-    company: "L&T",
-    color: "border-nifs-red",
-    text: "text-red-400",
-  },
-  {
-    img: "/images/placements/5.png",
-    name: "Yadagiri Babu",
-    role: "Safety Inspector",
-    company: "L&T",
-    color: "border-nifs-green",
-    text: "text-emerald-400",
-  },
-  {
-    img: "/images/placements/6.png",
-    name: "Sai Teja",
-    role: "Fire Safety Steward",
-    company: "Lansum Group",
-    color: "border-nifs-orange",
-    text: "text-amber-400",
-  },
-];
+import { recentPlacements } from "@/lib/data/recent-placements";
+
+const BORDER_COLORS = ["border-nifs-red", "border-nifs-green", "border-nifs-orange"];
+const TEXT_COLORS = ["text-red-400", "text-emerald-400", "text-amber-400"];
+
+const PLACEMENTS = recentPlacements.map((p, i) => ({
+  img: p.photo,
+  name: p.name,
+  role: p.designation,
+  company: p.company,
+  color: BORDER_COLORS[i % BORDER_COLORS.length],
+  text: TEXT_COLORS[i % TEXT_COLORS.length],
+}));
 
 const TRACK = [...PLACEMENTS, ...PLACEMENTS];
 
@@ -82,10 +45,6 @@ export default function HomePlacements() {
                     src={p.img}
                     alt={p.name}
                     className="w-full h-full object-cover"
-                    style={{
-                      transform: "scale(1.6)",
-                      transformOrigin: "50% 20%",
-                    }}
                   />
                 </div>
                 <h3 className="font-sans text-white text-[16px] font-bold mt-3 leading-tight">

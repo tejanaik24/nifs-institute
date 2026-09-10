@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeAll } from "vitest";
+import { beforeAll, describe, expect, it } from "vitest";
 import { createSessionToken, verifySessionToken } from "./session";
 
 beforeAll(() => {
@@ -10,6 +10,20 @@ describe("session tokens", () => {
     const token = await createSessionToken(42);
     const result = await verifySessionToken(token);
     expect(result?.userId).toBe(42);
+  });
+
+  it("round-trips user payload with name, role and email", async () => {
+    const token = await createSessionToken({
+      userId: 1,
+      name: "Kusuma",
+      email: "vyzmaai@nifsindia.net",
+      role: "admin",
+    });
+    const result = await verifySessionToken(token);
+    expect(result?.userId).toBe(1);
+    expect(result?.name).toBe("Kusuma");
+    expect(result?.email).toBe("vyzmaai@nifsindia.net");
+    expect(result?.role).toBe("admin");
   });
 
   it("rejects a tampered token", async () => {

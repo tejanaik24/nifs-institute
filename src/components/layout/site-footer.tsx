@@ -1,10 +1,10 @@
 "use client";
 
-import { useState } from "react";
-import Link from "next/link";
 import { NifsCrest } from "@/components/nifs-crest";
-import { primaryNav } from "@/lib/data/nav";
 import { accreditations } from "@/lib/data/centers";
+import { primaryNav } from "@/lib/data/nav";
+import Link from "next/link";
+import { useState } from "react";
 
 /**
  * Accordion wrapper — mobile only.
@@ -66,10 +66,10 @@ export function SiteFooter() {
               <span className="font-sans text-xl font-bold">NIFS</span>
             </div>
             <p className="mt-4 max-w-xs text-sm text-background/70">
-              National Institute of Fire and Safety — igniting careers in
-              fire engineering and industrial safety since 2004. An ISO
-              9001:2015 certified unit of SSB Institute of Higher Studies
-              Educational Society.
+              National Institute of Fire and Safety — igniting careers in fire
+              engineering and industrial safety since 2004. An ISO 9001:2015
+              certified unit of SSB Institute of Higher Studies Educational
+              Society.
             </p>
           </div>
 
@@ -116,12 +116,10 @@ export function SiteFooter() {
           <div>
             <h3 className="font-display italic text-lg">Contact</h3>
             <p className="mt-4 text-sm text-background/70">
-              Door No. 47-10-15, 2nd Lane, Dwarakanagar, AG Avenue Building,
-              3rd Floor, Visakhapatnam (A.P.) – 530016
+              Door No. 47-10-15, 2nd Lane, Dwarakanagar, AG Avenue Building, 3rd
+              Floor, Visakhapatnam (A.P.) – 530016
             </p>
-            <p className="mt-2 text-sm text-background/70">
-              +91-8374-340-999
-            </p>
+            <p className="mt-2 text-sm text-background/70">+91-8374-340-999</p>
             <Link
               href="/admissions"
               className="mt-4 inline-block rounded-sm bg-primary px-4 py-2 text-sm font-medium text-primary-foreground"
@@ -132,11 +130,27 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-background/20 pt-6 text-xs text-background/50 md:flex-row">
-          <span>© {new Date().getFullYear()} NIFS India. All rights reserved.</span>
-          <span>Igniting Careers in Fire and Industrial Safety</span>
+          <span>
+            © {new Date().getFullYear()} NIFS India. All rights reserved.
+          </span>
+          <div className="flex items-center gap-3">
+            <span>Igniting Careers in Fire and Industrial Safety</span>
+            <span>•</span>
+            <Link
+              href="/login"
+              className="hover:text-background transition-colors"
+            >
+              Login
+            </Link>
+          </div>
           <span>
             Crafted by{" "}
-            <a href="https://vyzma.in" target="_blank" rel="noopener" className="hover:text-background">
+            <a
+              href="https://vyzma.in"
+              target="_blank"
+              rel="noopener"
+              className="hover:text-background"
+            >
               Vyzma.in
             </a>
           </span>

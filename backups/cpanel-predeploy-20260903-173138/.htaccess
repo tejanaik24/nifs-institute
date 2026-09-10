@@ -1,0 +1,6 @@
+
+PassengerAppRoot "/home7/nifsindi/public_html/nifs-app"
+PassengerBaseURI "/"
+PassengerNodejs "/home7/nifsindi/nodevenv/public_html/nifs-app/20/bin/node"
+PassengerAppType node
+PassengerStartupFile app.js

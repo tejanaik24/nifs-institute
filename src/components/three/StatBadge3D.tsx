@@ -10,7 +10,7 @@ import * as THREE from "three";
 // ────────────────────────────────────────────────────────────────────────
 export function StatBadge3DFallback({ value, label }: { value: string; label: string }) {
   return (
-    <div className="flex flex-col items-center justify-center p-6 rounded-xl border border-white/10 bg-[#0a0a0a]/40 backdrop-blur-md text-center max-w-[340px] mx-auto w-full aspect-square relative select-none">
+    <div className="flex flex-col items-center justify-center p-6 rounded-xl border border-[#2a2620] bg-[#141210] backdrop-blur-md text-center max-w-[340px] mx-auto w-full aspect-square relative select-none">
       {/* Decorative industrial border inside */}
       <div className="relative border border-dashed border-white/20 p-6 w-full h-full flex flex-col items-center justify-center rounded-lg bg-gradient-to-br from-white/5 to-white/0">
         

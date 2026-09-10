@@ -1,0 +1,138 @@
+1:"$Sreact.fragment"
+3:I[22016,["/_next/static/chunks/2o5z6qadvq8_m.js","/_next/static/chunks/3swbm78-n7d9n.js","/_next/static/chunks/1kmzfrn9ymvcu.js","/_next/static/chunks/14mrh2-p_w84d.js"],""]
+4:I[5014,["/_next/static/chunks/2o5z6qadvq8_m.js","/_next/static/chunks/3swbm78-n7d9n.js","/_next/static/chunks/1kmzfrn9ymvcu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"default"]
+e:I[85437,["/_next/static/chunks/2o5z6qadvq8_m.js","/_next/static/chunks/3swbm78-n7d9n.js","/_next/static/chunks/1kmzfrn9ymvcu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"Image"]
+10:I[97367,["/_next/static/chunks/2o5z6qadvq8_m.js","/_next/static/chunks/3swbm78-n7d9n.js","/_next/static/chunks/1kmzfrn9ymvcu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"OutletBoundary"]
+11:"$Sreact.suspense"
+2:T401,{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What are the eligibility requirements for Job Oriented Safety Courses in Visakhapatnam at NIFS: Build your future with confidence at NIFS?","acceptedAnswer":{"@type":"Answer","text":"Eligibility ranges from 10th pass for certificate courses to 12th science or ITI/Diploma/Degree for advanced safety diplomas. Counselors verify certificates during admission."}},{"@type":"Question","name":"Are NIFS Fire and Safety programs NSDC and university recognized?","acceptedAnswer":{"@type":"Answer","text":"Yes, NIFS courses are NSDC-approved and university-affiliated, recognized by PSU, private industrial employers, and overseas firms in Gulf countries."}},{"@type":"Question","name":"Does NIFS provide placement assistance after course completion?","acceptedAnswer":{"@type":"Answer","text":"Yes, NIFS has a dedicated placement cell with 45,000+ alumni placed across top industrial firms including Adani, L&T, ITC, GMR, and Amazon."}}]}0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"bg-slate-50/50 min-h-screen pt-32 pb-20 lg:pt-36","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"headline\":\"Job Oriented Safety Courses in Visakhapatnam at NIFS:\",\"description\":\"Looking for a perfect job in today’s competitive world does not only demand books’ knowledge alone. Employers require such stylish variables as relevant experie…\",\"url\":\"https://nifsindia.net/blog/job-oriented-safety-courses-in-visakhapatnam-at-nifs-build-your-future-with-confidence/\",\"image\":\"https://nifsindia.net/images/blog/why-fire-safety-education-is-crucial-for-high-risk-urban-areas-30.jpg\",\"datePublished\":\"2025-01-02\",\"author\":{\"@id\":\"https://nifsindia.net/#organization\"},\"publisher\":{\"@id\":\"https://nifsindia.net/#organization\"},\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://nifsindia.net/blog/job-oriented-safety-courses-in-visakhapatnam-at-nifs-build-your-future-with-confidence/\"}}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://nifsindia.net\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog\",\"item\":\"https://nifsindia.net/blog/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Job Oriented Safety Courses in Visakhapatnam at NIFS:\",\"item\":\"https://nifsindia.net/blog/job-oriented-safety-courses-in-visakhapatnam-at-nifs-build-your-future-with-confidence/\"}]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$2"}}],["$","article",null,{"data-path-target":"true","className":"mx-auto max-w-4xl px-4 sm:px-6 lg:px-8","children":[["$","div",null,{"className":"mb-6","children":["$","$L3",null,{"href":"/blog","className":"inline-flex items-center gap-1.5 text-xs font-bold text-primary transition-transform hover:-translate-x-1","children":[["$","$L4",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}],"Back to Articles"]}]}],["$","div",null,{"className":"rounded-2xl border border-slate-200 bg-white p-6 sm:p-10 shadow-sm","children":[["$","div",null,{"className":"mb-4 inline-flex items-center gap-1.5 rounded-md bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-white","children":["$L5","Blog"]}],"$L6","$L7","$L8","$L9","$La","$Lb","$Lc"]}]]}]]}],null,"$Ld"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"B7_mJOMLsRpOj-azxdfRt"}
+5:["$","$L4",null,{"iconNode":[["path",{"d":"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z","key":"oel41y"}],["path",{"d":"m9 12 2 2 4-4","key":"dzmm74"}]],"className":"lucide-shield-check h-3.5 w-3.5"}]
+6:["$","h1",null,{"className":"text-2xl font-extrabold leading-tight text-slate-900 sm:text-4xl","children":"Job Oriented Safety Courses in Visakhapatnam at NIFS:"}]
+7:["$","div",null,{"className":"mt-6 flex flex-wrap items-center gap-4 border-t border-slate-100 pt-4 text-xs font-medium text-slate-500","children":[["$","div",null,{"className":"flex items-center gap-2","children":[["$","div",null,{"className":"flex h-7 w-7 items-center justify-center rounded-full bg-slate-100 font-bold text-slate-700","children":"N"}],["$","span",null,{"className":"font-semibold text-slate-700","children":"NIFS Safety Editorial"}]]}],["$","span",null,{"children":"•"}],["$","span",null,{"className":"flex items-center gap-1","children":[["$","$L4",null,{"iconNode":[["path",{"d":"M8 2v4","key":"1cmpym"}],["path",{"d":"M16 2v4","key":"4m81vk"}],["rect",{"width":"18","height":"18","x":"3","y":"4","rx":"2","key":"1hopcy"}],["path",{"d":"M3 10h18","key":"8toen8"}]],"className":"lucide-calendar h-3.5 w-3.5 text-slate-400"}],"2 January 2025"]}],["$","span",null,{"children":"•"}],["$","span",null,{"className":"flex items-center gap-1","children":[["$","$L4",null,{"iconNode":[["circle",{"cx":"12","cy":"12","r":"10","key":"1mglay"}],["path",{"d":"M12 6v6l4 2","key":"mmk7yg"}]],"className":"lucide-clock h-3.5 w-3.5 text-slate-400"}],"5 min read"]}]]}]
+8:["$","div",null,{"className":"relative mt-8 aspect-[16/9] w-full overflow-hidden rounded-xl border border-slate-200 shadow-sm bg-slate-100","children":["$","$Le",null,{"src":"/images/blog/why-fire-safety-education-is-crucial-for-high-risk-urban-areas-30.jpg","alt":"Job Oriented Safety Courses in Visakhapatnam at NIFS:","fill":true,"sizes":"(max-width: 1024px) 100vw, 896px","className":"object-cover","priority":true}]}]
+f:T3421,<section class="wpb-content-wrapper"><p><span style="font-weight: 400;">Looking for a perfect job in today’s competitive world does not only demand books’ knowledge alone. Employers require such stylish variables as relevant experience, certain business understanding, and relevant flexibility. Having job oriented safety courses in Visakhapatnam has made </span><a href="https://www.nifsindia.net/"><span style="font-weight: 400;">NIFS (National Institute of Fire and Safety Management)</span></a><span style="font-weight: 400;"> ideal for anyone in Visakhapatnam seeking to start up or enhance his/her career.</span></p>
+<p><span style="font-weight: 400;">Now, let us discuss why such courses are the bridge to a better future job and how NIFS provides the best experience in learning.</span></p>
+<p><b>Why to Choose Job Oriented Safety Courses?</b></p>
+<p><span style="font-weight: 400;">I can recall when people could get a job with any degree that they had earned. In today’s world the professions require people with certain skill sets that are required of them in the industries. Here’s why job oriented safety courses are essential:</span></p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><b>Practical Learning:</b><span style="font-weight: 400;"> These courses are more technical, ensuring that you have the makings of a real world performer.</span></li>
+<li style="font-weight: 400;" aria-level="1"><b>Industry Relevance:</b><span style="font-weight: 400;"> They are developed according to the trend of industries that could help you become the expert in the area you work in.</span></li>
+<li style="font-weight: 400;" aria-level="1"><b>Increased Employability:</b><span style="font-weight: 400;"> Simply the fact of passing a certain course shows the employer that you are a dedicated professional, who is constantly improving their skill set.</span></li>
+<li style="font-weight: 400;" aria-level="1"><b>Career Growth:</b><span style="font-weight: 400;"> These programs create opportunities for being promoted to better paid jobs or a career in the field of your choice.</span></li>
+</ul>
+<p><b>NIFS: Your Gateway to Career Success In Visakhapatnam</b></p>
+<p><span style="font-weight: 400;">NIFS is one of the premier institutes of India which offers a variety of professional courses with special reference to fire safety, industrial safety, health &amp; environment. As a private institution located in Visakhapatnam, NIFS gives students from all backgrounds practical skills that prepare them for the job market.</span></p>
+<p><b><img loading="lazy" decoding="async" class="alignright wp-image-6539" src="/images/blog/why-fire-safety-education-is-crucial-for-high-risk-urban-areas-30.jpg" alt="Job Oriented Safety Courses in Visakhapatnam" width="505" height="336" srcset="https://www.nifsindia.net/wp-content/uploads/2025/01/1346-300x200.jpg 300w, https://www.nifsindia.net/wp-content/uploads/2025/01/1346-1024x684.jpg 1024w, https://www.nifsindia.net/wp-content/uploads/2025/01/1346-768x513.jpg 768w, https://www.nifsindia.net/wp-content/uploads/2025/01/1346-1536x1025.jpg 1536w" sizes="auto, (max-width: 505px) 100vw, 505px" /></b></p>
+<p><b>What Makes NIFS Unique?</b></p>
+<ul>
+<li aria-level="1"><b>Comprehensive Curriculum</b></li>
+</ul>
+<p><span style="font-weight: 400;">The courses offered at NIFS are well selected to comprise theoretical information, skill-based information, and examples. From the general fire safety to industrial advanced complex management strategies, the students get to undergo it all.</span></p>
+<ul>
+<li aria-level="1"><b>Certified Programs</b></li>
+</ul>
+<p><span style="font-weight: 400;">NIFS courses are approved by The Central and State Government and various University boards, making your certification more valuable at national as well as international level.</span></p>
+<ul>
+<li aria-level="1"><b>Experienced Faculty</b></li>
+</ul>
+<p><span style="font-weight: 400;">Get knowledge from great experience of professionals, who work in the sphere of fire safety, risk management or industrial safety.</span></p>
+<ul>
+<li aria-level="1"><b>Advanced Infrastructure</b></li>
+</ul>
+<p><span style="font-weight: 400;">Equipped with modern classrooms, training facilities, and state of the art equipment, NIFS assures the learner an effective academic learning process.</span></p>
+<ul>
+<li aria-level="1"><b>Placement Assistance</b></li>
+</ul>
+<p><span style="font-weight: 400;">NIFS offers a great placement service that enables students to land job opportunities with key employers in sectors such as oil and gas, manufacturing companies and construction, etc.</span></p>
+<p><b>Common Vocational Courses Offered in NIFS</b></p>
+<p><span style="font-weight: 400;">If you’re considering job oriented safety courses in Visakhapatnam, here are some of the top programs offered by NIFS:</span></p>
+<ol>
+<li><b> Diploma in Fire and Safety</b></li>
+</ol>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Recommended for learners who would like to be employed within the safety sector.</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Include Health &amp; Safety, fire prevention, and risk management, and emergency planning.</span></li>
+</ul>
+<ol start="2">
+<li><b> Advanced Diploma in Industrial Safety and Health.</b></li>
+</ol>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Being suitable for a number of highly organized profession seekers, it is intended for practicing workers who are interested to forge forward their career paths.</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Covers workplace safety, assessment of hazards and the safety standards supported in the workplaces.</span></li>
+</ul>
+<ol start="3">
+<li><b> Post Graduate Diploma in Health, Safety and Environment (HSE)</b></li>
+</ol>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Intended for participants who want to be promoted to higher levels of safety leadership.</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Underlines environmental conservation, workforce welfare and protective measures pertaining to legislation.</span></li>
+</ul>
+<ol start="4">
+<li><b> MBA Fire and Industrial Safety Management</b></li>
+</ol>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">It interrelates safety information with management concepts.</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Develops the students for career positions in safety organizations.</span></li>
+</ul>
+<ol start="5">
+<li><b> Certificate Courses That Take Less Than A Year</b></li>
+</ol>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Very suitable for practicing professionals who would like to spend a short time to gain new competencies.</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Offers programs that deal with disaster, first aid, and the investigation of fire incidents.</span></li>
+</ul>
+<p><b>Facilities and Opportunities of Education at NIFS Visakhapatnam<img loading="lazy" decoding="async" class="alignleft wp-image-6545" src="/images/blog/job-oriented-safety-courses-in-visakhapatnam-at-nifs-build-your-future-with-confidence-73.jpg" alt="Job Oriented Safety Courses in Visakhapatnam" width="617" height="411" srcset="https://www.nifsindia.net/wp-content/uploads/2025/01/11746437-300x200.jpg 300w, https://www.nifsindia.net/wp-content/uploads/2025/01/11746437-1024x682.jpg 1024w, https://www.nifsindia.net/wp-content/uploads/2025/01/11746437-768x512.jpg 768w, https://www.nifsindia.net/wp-content/uploads/2025/01/11746437-1536x1024.jpg 1536w" sizes="auto, (max-width: 617px) 100vw, 617px" /></b></p>
+<p><b>Real-World Training</b></p>
+<p><span style="font-weight: 400;">NIFS makes sure that students are able to access other forms of learning apart from the conventional classroom learning. To equip the students with experiences, regular workshops, mock drills and internships form part of the course.</span></p>
+<p><b>Career Opportunities</b></p>
+<p><span style="font-weight: 400;">After completing a course at NIFS, you can explore career opportunities in various industries, including:</span></p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Oil and gas</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Construction</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Hospitality</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Manufacturing</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Aviation</span></li>
+</ul>
+<p><b>Networking Opportunities</b></p>
+<p><span style="font-weight: 400;">This means that studying at NIFS offers one opportunity to interact with other individuals in the safety industry to build networks for the profession.</span></p>
+<p><b>Success Stories: Hear from Our Alumni</b></p>
+<p><span style="font-weight: 400;">Most volume students from the NIFS Visakhapatnam have been placed in the best companies of the country. Here’s what one of our alumni has to say:</span></p>
+<p><span style="font-weight: 400;">“</span><i><span style="font-weight: 400;">I had the best decision of my life to join NIFS. The distance education and practical training along with training for placements made me get a job at one of the top construction companies. I especially encourage anyone seeking job centered courses to attend NIFS.</span></i><span style="font-weight: 400;">” – Rajesh Kumar, Safety Officer.</span></p>
+<p><b>How to Enroll?</b></p>
+<p><span style="font-weight: 400;">It is equally easy to begin with a job oriented safety course in Visakhapatnam at NIFS. Follow these steps:</span></p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Go to the NIFS Visakhapatnam campus or check our website.</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Discover the available courses and select that course which you think will assist you to achieve your career dream.</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Don’t forget to attach copies of your documents with the submitted application.</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Go for a counselling session to seek advice.</span></li>
+</ul>
+<p><b>Building Our Future through NIFS</b></p>
+<p><span style="font-weight: 400;">Deciding to take a job oriented safety  course is not just a decision but an investment. The decision to take a job oriented safety course is one of the most significant ones one has to make. Being among </span><a href="https://www.nifsindia.net/"><span style="font-weight: 400;">NIFS</span></a><span style="font-weight: 400;"> Visakhapatnam you will be professionally built, equipped with sufficient confidence and certifications to launch a successful career.</span></p>
+<p><span style="font-weight: 400;">So, why wait? Hurry up and join NIFS and Explore and enrich yourself with Job Oriented, Professional Courses in Visakhapatnam</span></p>
+</section>
+<div class="my-8 p-6 bg-emerald-950/80 border border-emerald-500/30 rounded-2xl shadow-lg">
+  <div class="flex items-center gap-3 mb-2">
+    <span class="text-2xl">💬</span>
+    <h4 class="text-lg font-bold text-emerald-400">Have Questions About Admissions, Eligibility, or Fees?</h4>
+  </div>
+  <p class="text-emerald-200/80 text-sm mb-4">Chat directly with NIFS Official Career Advisors on WhatsApp for free counseling and course guidance.</p>
+  <a href="https://wa.me/918374340999" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-bold rounded-full transition-all shadow-lg shadow-emerald-900/50">
+    <span>Chat on WhatsApp (+91-8374-340-999)</span>
+  </a>
+</div>
+
+<div class="my-8 p-6 bg-slate-900 text-white rounded-2xl border border-slate-800 shadow-xl">
+  <h4 class="text-xl font-bold text-white mb-2">Ready to Start Your Career in Fire & Industrial Safety?</h4>
+  <p class="text-slate-300 text-sm mb-4">Explore NIFS government-recognized and NSDC-approved diploma programs with 100% placement assistance in top industrial safety sectors.</p>
+  <div class="flex flex-wrap gap-3">
+    <a href="/courses/diploma-in-fire-safety" class="px-4 py-2 bg-red-600 hover:bg-red-700 text-white text-xs font-bold rounded-full transition-all">Diploma in Fire & Safety →</a>
+    <a href="/courses/advanced-diploma-in-industrial-safety-adis" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold rounded-full transition-all">ADIS Course →</a>
+    <a href="/courses/diploma-in-health-safety-environment" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold rounded-full transition-all">Diploma in HSE →</a>
+    <a href="/centers" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold rounded-full transition-all">Find 70+ Centers →</a>
+  </div>
+</div>
+9:["$","div",null,{"className":"blog-prose mt-8 border-t border-slate-100 pt-8","dangerouslySetInnerHTML":{"__html":"$f"}}]
+a:["$","div",null,{"className":"mt-10 border-t border-slate-100 pt-8","children":[["$","h2",null,{"className":"text-sm font-bold uppercase tracking-wider text-slate-500","children":"Explore More"}],["$","div",null,{"className":"mt-4 grid gap-3 sm:grid-cols-2","children":[["$","$L3","/centers/",{"href":"/centers/","className":"group rounded-xl border border-slate-200 bg-white p-4 text-sm font-semibold text-slate-800 shadow-sm transition-all hover:border-primary hover:shadow-md","children":["Find a Center Near You",["$","span",null,{"className":"ml-1 inline-block transition-transform group-hover:translate-x-1","children":"→"}]]}]]}]]}]
+b:["$","div",null,{"className":"mt-10 border-t border-slate-100 pt-8","children":[["$","h2",null,{"className":"flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-slate-500","children":[["$","$L4",null,{"iconNode":[["circle",{"cx":"12","cy":"12","r":"10","key":"1mglay"}],["path",{"d":"M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3","key":"1u773s"}],["path",{"d":"M12 17h.01","key":"p32p05"}]],"className":"lucide-circle-question-mark h-4 w-4 text-primary"}],"Frequently Asked Questions"]}],["$","div",null,{"className":"mt-4 space-y-3","children":[["$","div","0",{"className":"rounded-xl border border-slate-200 bg-slate-50/60 p-5","children":[["$","h3",null,{"className":"text-sm font-bold text-slate-900","children":"What are the eligibility requirements for Job Oriented Safety Courses in Visakhapatnam at NIFS: Build your future with confidence at NIFS?"}],["$","p",null,{"className":"mt-2 text-sm leading-relaxed text-slate-600","children":"Eligibility ranges from 10th pass for certificate courses to 12th science or ITI/Diploma/Degree for advanced safety diplomas. Counselors verify certificates during admission."}]]}],["$","div","1",{"className":"rounded-xl border border-slate-200 bg-slate-50/60 p-5","children":[["$","h3",null,{"className":"text-sm font-bold text-slate-900","children":"Are NIFS Fire and Safety programs NSDC and university recognized?"}],["$","p",null,{"className":"mt-2 text-sm leading-relaxed text-slate-600","children":"Yes, NIFS courses are NSDC-approved and university-affiliated, recognized by PSU, private industrial employers, and overseas firms in Gulf countries."}]]}],["$","div","2",{"className":"rounded-xl border border-slate-200 bg-slate-50/60 p-5","children":[["$","h3",null,{"className":"text-sm font-bold text-slate-900","children":"Does NIFS provide placement assistance after course completion?"}],["$","p",null,{"className":"mt-2 text-sm leading-relaxed text-slate-600","children":"Yes, NIFS has a dedicated placement cell with 45,000+ alumni placed across top industrial firms including Adani, L&T, ITC, GMR, and Amazon."}]]}]]}]]}]
+c:["$","div",null,{"className":"mt-12 overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-slate-900 to-[#7A0F0C] p-6 text-white shadow-xl sm:p-8","children":["$","div",null,{"className":"flex flex-col gap-6 md:flex-row md:items-center md:justify-between","children":[["$","div",null,{"children":[["$","span",null,{"className":"text-xs font-bold uppercase tracking-wider text-primary bg-white/10 px-2.5 py-1 rounded","children":"NIFS Admissions Open"}],["$","h3",null,{"className":"mt-3 text-xl font-extrabold text-white sm:text-2xl","children":"Start Your Career in Industrial Safety Today"}],["$","p",null,{"className":"mt-2 text-xs text-slate-300 sm:text-sm max-w-xl","children":"NSDC-approved Diploma, Advanced Diploma, and Degree programs with 100% placement assistance at top companies like L&T, Adani, and Reliance."}]]}],["$","div",null,{"className":"flex flex-wrap items-center gap-3 shrink-0","children":[["$","$L3",null,{"href":"/admissions","className":"inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-xs font-bold uppercase tracking-wider text-white shadow-lg transition-transform hover:scale-105","children":"Apply Now →"}],["$","a",null,{"href":"https://wa.me/918374340999","target":"_blank","rel":"noopener noreferrer","className":"inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-4 py-3 text-xs font-bold uppercase tracking-wider text-white shadow-lg transition-transform hover:scale-105","children":[["$","$L4",null,{"iconNode":[["path",{"d":"M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z","key":"18887p"}]],"className":"lucide-message-square h-4 w-4"}],"WhatsApp"]}]]}]]}]}]
+d:["$","$L10",null,{"children":["$","$11",null,{"name":"Next.MetadataOutlet","children":"$@12"}]}]
+12:null

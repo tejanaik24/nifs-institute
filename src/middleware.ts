@@ -1,6 +1,6 @@
-import { NextRequest, NextResponse } from "next/server";
 import { verifySessionToken } from "@/lib/auth/session";
 import { AI_BOTS, INTERNAL_HEADER } from "@/lib/internal-secret";
+import { NextRequest, NextResponse } from "next/server";
 
 // GA4 never sees AI-crawler hits (bots don't run JS), so /api/bot-hit is the
 // only real record of AI-crawler traffic anywhere in the stack.
@@ -16,6 +16,12 @@ export async function middleware(request: NextRequest) {
     if (!session) {
       return NextResponse.redirect(new URL("/login", request.url));
     }
+    if (
+      request.nextUrl.pathname.startsWith("/dashboard/admin") &&
+      session.role !== "admin"
+    ) {
+      return NextResponse.redirect(new URL("/dashboard", request.url));
+    }
     return NextResponse.next();
   }
 
@@ -29,7 +35,10 @@ export async function middleware(request: NextRequest) {
         "Content-Type": "application/json",
         [INTERNAL_HEADER]: process.env.INTERNAL_API_SECRET ?? "",
       },
-      body: JSON.stringify({ botName: matchedBot, path: request.nextUrl.pathname }),
+      body: JSON.stringify({
+        botName: matchedBot,
+        path: request.nextUrl.pathname,
+      }),
     }).catch(() => {});
   }
 

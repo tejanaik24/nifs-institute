@@ -1,0 +1,123 @@
+1:"$Sreact.fragment"
+2:I[22016,["/_next/static/chunks/2o5z6qadvq8_m.js","/_next/static/chunks/3swbm78-n7d9n.js","/_next/static/chunks/1kmzfrn9ymvcu.js","/_next/static/chunks/14mrh2-p_w84d.js"],""]
+3:I[5014,["/_next/static/chunks/2o5z6qadvq8_m.js","/_next/static/chunks/3swbm78-n7d9n.js","/_next/static/chunks/1kmzfrn9ymvcu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"default"]
+b:I[85437,["/_next/static/chunks/2o5z6qadvq8_m.js","/_next/static/chunks/3swbm78-n7d9n.js","/_next/static/chunks/1kmzfrn9ymvcu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"Image"]
+d:I[97367,["/_next/static/chunks/2o5z6qadvq8_m.js","/_next/static/chunks/3swbm78-n7d9n.js","/_next/static/chunks/1kmzfrn9ymvcu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"OutletBoundary"]
+e:"$Sreact.suspense"
+0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"bg-slate-50/50 min-h-screen pt-32 pb-20 lg:pt-36","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"headline\":\"Everything You Need to Know About Pursuing a Safety\",\"description\":\"Today's world has not only made safety at work a legal requirement but also an important part of the culture of any organization. With increased and diversified…\",\"url\":\"https://nifsindia.net/blog/everything-you-need-to-know-about-pursuing-a-safety-officer-course/\",\"image\":\"https://nifsindia.net/images/blog/pdis-course-fees-in-india-and-what-they-include-at-top-institutes-7.jpg\",\"datePublished\":\"2025-02-28\",\"author\":{\"@id\":\"https://nifsindia.net/#organization\"},\"publisher\":{\"@id\":\"https://nifsindia.net/#organization\"},\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://nifsindia.net/blog/everything-you-need-to-know-about-pursuing-a-safety-officer-course/\"}}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://nifsindia.net\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog\",\"item\":\"https://nifsindia.net/blog/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Everything You Need to Know About Pursuing a Safety\",\"item\":\"https://nifsindia.net/blog/everything-you-need-to-know-about-pursuing-a-safety-officer-course/\"}]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"What are the eligibility requirements for Everything You Need to Know About Pursuing a Safety Officer Course at NIFS?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Eligibility ranges from 10th pass for certificate courses to 12th science or ITI/Diploma/Degree for advanced safety diplomas. Counselors verify certificates during admission.\"}},{\"@type\":\"Question\",\"name\":\"Are NIFS Fire and Safety programs NSDC and university recognized?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Yes, NIFS courses are NSDC-approved and university-affiliated, recognized by PSU, private industrial employers, and overseas firms in Gulf countries.\"}},{\"@type\":\"Question\",\"name\":\"Does NIFS provide placement assistance after course completion?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Yes, NIFS has a dedicated placement cell with 45,000+ alumni placed across top industrial firms including Adani, L&T, ITC, GMR, and Amazon.\"}}]}"}}],["$","article",null,{"data-path-target":"true","className":"mx-auto max-w-4xl px-4 sm:px-6 lg:px-8","children":[["$","div",null,{"className":"mb-6","children":["$","$L2",null,{"href":"/blog","className":"inline-flex items-center gap-1.5 text-xs font-bold text-primary transition-transform hover:-translate-x-1","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}],"Back to Articles"]}]}],["$","div",null,{"className":"rounded-2xl border border-slate-200 bg-white p-6 sm:p-10 shadow-sm","children":[["$","div",null,{"className":"mb-4 inline-flex items-center gap-1.5 rounded-md bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-white","children":[["$","$L3",null,{"iconNode":[["path",{"d":"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z","key":"oel41y"}],["path",{"d":"m9 12 2 2 4-4","key":"dzmm74"}]],"className":"lucide-shield-check h-3.5 w-3.5"}],"Job Oriented Safety Courses"]}],"$L4","$L5","$L6","$L7",false,"$L8","$L9"]}]]}]]}],null,"$La"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"B7_mJOMLsRpOj-azxdfRt"}
+4:["$","h1",null,{"className":"text-2xl font-extrabold leading-tight text-slate-900 sm:text-4xl","children":"Everything You Need to Know About Pursuing a Safety"}]
+5:["$","div",null,{"className":"mt-6 flex flex-wrap items-center gap-4 border-t border-slate-100 pt-4 text-xs font-medium text-slate-500","children":[["$","div",null,{"className":"flex items-center gap-2","children":[["$","div",null,{"className":"flex h-7 w-7 items-center justify-center rounded-full bg-slate-100 font-bold text-slate-700","children":"N"}],["$","span",null,{"className":"font-semibold text-slate-700","children":"NIFS Safety Editorial"}]]}],["$","span",null,{"children":"•"}],["$","span",null,{"className":"flex items-center gap-1","children":[["$","$L3",null,{"iconNode":[["path",{"d":"M8 2v4","key":"1cmpym"}],["path",{"d":"M16 2v4","key":"4m81vk"}],["rect",{"width":"18","height":"18","x":"3","y":"4","rx":"2","key":"1hopcy"}],["path",{"d":"M3 10h18","key":"8toen8"}]],"className":"lucide-calendar h-3.5 w-3.5 text-slate-400"}],"28 February 2025"]}],["$","span",null,{"children":"•"}],["$","span",null,{"className":"flex items-center gap-1","children":[["$","$L3",null,{"iconNode":[["circle",{"cx":"12","cy":"12","r":"10","key":"1mglay"}],["path",{"d":"M12 6v6l4 2","key":"mmk7yg"}]],"className":"lucide-clock h-3.5 w-3.5 text-slate-400"}],"5 min read"]}]]}]
+6:["$","div",null,{"className":"relative mt-8 aspect-[16/9] w-full overflow-hidden rounded-xl border border-slate-200 shadow-sm bg-slate-100","children":["$","$Lb",null,{"src":"/images/blog/pdis-course-fees-in-india-and-what-they-include-at-top-institutes-7.jpg","alt":"Everything You Need to Know About Pursuing a Safety","fill":true,"sizes":"(max-width: 1024px) 100vw, 896px","className":"object-cover","priority":true}]}]
+c:T3607,<section class="wpb-content-wrapper"><p><span style="font-weight: 400;">Today&#8217;s world has not only made safety at work a legal requirement but also an important part of the culture of any organization. With increased and diversified industries there is greater demand for trained safety officers. A safety officer takes on an essential part in providing a safe and secure working environment, a risk free workplace and protection for employees. For those thinking of entering this field, taking a </span><a href="https://www.nifsindia.net/"><span style="font-weight: 400;">Safety Officer Course </span></a><span style="font-weight: 400;">will help make workplaces safer and more compliant. This article will therefore discuss all there is to know about this course, its benefits and the career opportunities it can unlock for you.</span></p>
+<h3><b>What Is a Safety Officer Course?</b></h3>
+<p><span style="font-weight: 400;">A safety officer course is one of the specialized training that can provide aspiring safety officers with the necessary knowledge and skills to identify, control, and prevent workplace hazards. Such programs are generally composed of training sessions on occupational health and safety regulations, risk assessment, accident prevention, emergency response, and compliance standards. After taking this course, you&#8217;ll be able to develop and implement safety policies in a wide range of sectors including construction, manufacturing, healthcare, and more.</span></p>
+<h3><b>Why Pursue a Safety Officer Course?</b></h3>
+<ol>
+<li style="font-weight: 400;" aria-level="1"><b><img loading="lazy" decoding="async" class="wp-image-6732 alignleft" src="/images/blog/pdis-course-fees-in-india-and-what-they-include-at-top-institutes-7.jpg" alt="Safety Officer Course in Visakhapatnam" width="468" height="312" srcset="https://www.nifsindia.net/wp-content/uploads/2025/02/2149478503-300x200.jpg 300w, https://www.nifsindia.net/wp-content/uploads/2025/02/2149478503-1024x682.jpg 1024w, https://www.nifsindia.net/wp-content/uploads/2025/02/2149478503-768x512.jpg 768w, https://www.nifsindia.net/wp-content/uploads/2025/02/2149478503-1536x1024.jpg 1536w" sizes="auto, (max-width: 468px) 100vw, 468px" />High Demand for Safety Professionals:</b><b><br />
+</b> <span style="font-weight: 400;">Industries have come to prioritize safety to meet regulations and improve employee welfare. This has led to increased demand for qualified safety officers in all sectors.</span></li>
+<li style="font-weight: 400;" aria-level="1"><b>Lucrative Career Opportunities:</b><b><br />
+</b> <span style="font-weight: 400;">Organizations regard the role of a safety officer as very critical, and their expertise is needed. Therefore, certified practitioners often find themselves earning above-average salaries and experiencing upward mobility opportunities.</span></li>
+<li style="font-weight: 400;" aria-level="1"><b>Making a Difference:</b><b><br />
+</b> <span style="font-weight: 400;">As a safety officer, you’ll help make safer workplaces, which means saving lives and promoting a safety culture.</span></li>
+<li style="font-weight: 400;" aria-level="1"><b>Global Opportunities:</b><b><br />
+</b><span style="font-weight: 400;"> I</span><span style="font-weight: 400;">n many countries, there is a demand for safety officers in various industries. Hence, this is a career that can see you journey around the world.</span></li>
+</ol>
+<p><b>What Will You Learn in This Course?</b></p>
+<p><span style="font-weight: 400;">The syllabus of safety officer training may differ from one educational establishment to another; however, most will generally include the following subjects:</span><b></b></p>
+<ul>
+<li aria-level="1"><b>Occupational Health and Safety (OHS):</b></li>
+</ul>
+<p><span style="font-weight: 400;">This covers an overview of general safety legislation and regulations governing workplaces, including international standards such as OSHA &#8211; Occupationa͏l Safety and Health Administration.</span><b></b></p>
+<ul>
+<li aria-level="1"><b>Risk Assessment and Management:</b></li>
+</ul>
+<p><span style="font-weight: 400;"> This involves training on the identification of possible dangers, how to assess the risks associated with them, and measures to control these hazards from occurring.</span><b></b></p>
+<ul>
+<li aria-level="1"><b>Accident Prevention:</b></li>
+</ul>
+<p><span style="font-weight: 400;">Components of a good safety program and training to reduce accidents at the job site.</span></p>
+<p><span style="font-weight: 400;">Emergency Response: Fire Safety, First Aid, and Evacuation Training Preparedness for Emergencies.</span></p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;"> </span><b>Safety Audits and Inspections:</b></li>
+</ul>
+<p><span style="font-weight: 400;">Demonstrating Effective Safety Audits for Compliance and Recommendations.</span><b></b></p>
+<ul>
+<li aria-level="1"><b>Workplace Ergonomics:</b></li>
+</ul>
+<p><span style="font-weight: 400;"> Knowing How to Prepare a Comfortable and Injury-Free Work Environment.</span></p>
+<h3><b>Who Is Eligible for a Safety Officer Course?</b></h3>
+<p><span style="font-weight: 400;"><img loading="lazy" decoding="async" class="wp-image-6733 alignleft" src="/images/blog/everything-you-need-to-know-about-pursuing-a-safety-officer-course-58.jpg" alt="Safety Officer Course in Visakhapatnam" width="500" height="333" srcset="https://www.nifsindia.net/wp-content/uploads/2025/02/2149426484-300x200.jpg 300w, https://www.nifsindia.net/wp-content/uploads/2025/02/2149426484-1024x682.jpg 1024w, https://www.nifsindia.net/wp-content/uploads/2025/02/2149426484-768x512.jpg 768w, https://www.nifsindia.net/wp-content/uploads/2025/02/2149426484-1536x1024.jpg 1536w" sizes="auto, (max-width: 500px) 100vw, 500px" />The majority of safety officer courses have very simple eligibility requirements thus making them attainable by a large section of society. The common eligibility criteria are: </span></p>
+<ul>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">A high school diploma or equivalent.</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Basic understanding of workplace practices.</span></li>
+<li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">In some cases, prior work experience in a related field or a bachelor’s degree in engineering, science, or management may be preferred.</span></li>
+</ul>
+<h3><b>Types of Safety Officer Courses</b></h3>
+<ol>
+<li style="font-weight: 400;" aria-level="1"><b>Certificate Courses:</b><b><br />
+</b><span style="font-weight: 400;"> Short-term programs that provide foundational knowledge in workplace safety. These are ideal for beginners or those looking for an introduction to the field.</span></li>
+<li style="font-weight: 400;" aria-level="1"><b>Diploma Courses:</b><b><br />
+</b><span style="font-weight: 400;"> Comprehensive programs that delve deeper into safety protocols and management. Diplomas are suitable for individuals seeking a long-term career in safety management.</span></li>
+<li style="font-weight: 400;" aria-level="1"><b>Advanced Certification Programs:</b><b><br />
+</b><span style="font-weight: 400;"> Courses like NEBOSH (National Examination Board in Occupational Safety and Health) or IOSH (Institution of Occupational Safety and Health) are internationally recognized and open doors to global opportunities.</span></li>
+<li style="font-weight: 400;" aria-level="1"><b>Online Courses:</b><b><br />
+</b><span style="font-weight: 400;"> Flexible programs that allow individuals to learn at their own pace. Online courses are particularly useful for working professionals.</span></li>
+</ol>
+<h3><b>How to Choose the Right Safety Officer Course</b></h3>
+<p><span style="font-weight: 400;">When you are choosing a safety officer course, consider it for the following reasons: </span></p>
+<ol>
+<li style="font-weight: 400;" aria-level="1"><b>Accreditation:</b><b><br />
+</b><span style="font-weight: 400;">Check whether the course is accredited by the relevant authority in the line of safety and health practices, for example, NEBOSH, IOSH, or OSHA.</span></li>
+<li style="font-weight: 400;" aria-level="1"><b>Curriculum:</b><b><br />
+</b><span style="font-weight: 400;">Select the course that encompasses all the subjects you consider important and which relates to your career objectives</span></li>
+<li style="font-weight: 400;" aria-level="1"><b>Mode of Delivery:</b><b><br />
+</b><span style="font-weight: 400;">Based on the information provided, you can choose in-person, online, or hybrid courses depending on your schedule and learning preferences</span></li>
+<li style="font-weight: 400;" aria-level="1"><b>Cost and Duration:</b><b><br />
+</b><span style="font-weight: 400;">Compare the course fees and duration to see if it fits your budget and how much time you can allocate</span></li>
+<li style="font-weight: 400;" aria-level="1"><b>Job Placement Support:</b><b><br />
+</b> <span style="font-weight: 400;">Some institutions provide job placement support which can be an added advantage to kick-start your career</span></li>
+</ol>
+<p><b><img loading="lazy" decoding="async" class="wp-image-6734 alignleft" src="/images/blog/everything-you-need-to-know-about-pursuing-a-safety-officer-course-59.jpg" alt="Safety Officer Course in Visakhapatnam" width="339" height="509" srcset="https://www.nifsindia.net/wp-content/uploads/2025/02/15814-200x300.jpg 200w, https://www.nifsindia.net/wp-content/uploads/2025/02/15814-682x1024.jpg 682w, https://www.nifsindia.net/wp-content/uploads/2025/02/15814-768x1152.jpg 768w, https://www.nifsindia.net/wp-content/uploads/2025/02/15814-1024x1536.jpg 1024w, https://www.nifsindia.net/wp-content/uploads/2025/02/15814.jpg 1333w" sizes="auto, (max-width: 339px) 100vw, 339px" /></b></p>
+<h3><b>Career Opportunities After Completing a Safety Officer Course</b></h3>
+<ol>
+<li style="font-weight: 400;" aria-level="1"><b>Safety Officer:</b><b><br />
+</b><span style="font-weight: 400;">A person who will execute and supervise safety measures at the workplace.</span></li>
+<li style="font-weight: 400;" aria-level="1"><b>Health and Safety Manager:</b><b><br />
+</b><span style="font-weight: 400;">Deals with land dangers and green care ways.</span></li>
+<li style="font-weight: 400;" aria-level="1"><b>Environmental Health Specialist:</b><b><br />
+</b><span style="font-weight: 400;">D</span><span style="font-weight: 400;">eals with land dangers and green care ways.</span></li>
+<li style="font-weight: 400;" aria-level="1"><b>Fire Safety Officer:</b><b><br />
+</b> <span style="font-weight: 400;">Works on fire stop and urgent help plans.</span></li>
+<li style="font-weight: 400;" aria-level="1"><b>Consultant or Trainer:</b><b><br />
+</b> <span style="font-weight: 400;">Gives expert tips or lessons on work safety.</span></li>
+</ol>
+<p><b>Conclusion</b></p>
+<p><span style="font-weight: 400;">A safety officer course is more than just a stepping stone to a career; it’s a pathway to making a meaningful impact in the workplace.Whether you’re starting fresh or looking to advance in your current role, investing in a safety officer course can open up a world of opportunities and pave the way for a rewarding career. Start today by taking the first step toward a career that combines purpose with professional growth.</span><a href="https://www.nifsindia.net/"><span style="font-weight: 400;"> NIFS</span></a><span style="font-weight: 400;"> Visakhapatnam you will be professionally built, equipped with sufficient confidence and certifications to launch a successful career.</span></p>
+<p><span style="font-weight: 400;">So, why wait? Hurry up and join NIFS and Explore and enrich yourself with Job-Oriented, Professional Courses in Visakhapatnam.</span></p>
+</section>
+<div class="my-8 p-6 bg-emerald-950/80 border border-emerald-500/30 rounded-2xl shadow-lg">
+  <div class="flex items-center gap-3 mb-2">
+    <span class="text-2xl">💬</span>
+    <h4 class="text-lg font-bold text-emerald-400">Have Questions About Admissions, Eligibility, or Fees?</h4>
+  </div>
+  <p class="text-emerald-200/80 text-sm mb-4">Chat directly with NIFS Official Career Advisors on WhatsApp for free counseling and course guidance.</p>
+  <a href="https://wa.me/918374340999" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-bold rounded-full transition-all shadow-lg shadow-emerald-900/50">
+    <span>Chat on WhatsApp (+91-8374-340-999)</span>
+  </a>
+</div>
+
+<div class="my-8 p-6 bg-slate-900 text-white rounded-2xl border border-slate-800 shadow-xl">
+  <h4 class="text-xl font-bold text-white mb-2">Ready to Start Your Career in Fire & Industrial Safety?</h4>
+  <p class="text-slate-300 text-sm mb-4">Explore NIFS government-recognized and NSDC-approved diploma programs with 100% placement assistance in top industrial safety sectors.</p>
+  <div class="flex flex-wrap gap-3">
+    <a href="/courses/diploma-in-fire-safety" class="px-4 py-2 bg-red-600 hover:bg-red-700 text-white text-xs font-bold rounded-full transition-all">Diploma in Fire & Safety →</a>
+    <a href="/courses/advanced-diploma-in-industrial-safety-adis" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold rounded-full transition-all">ADIS Course →</a>
+    <a href="/courses/diploma-in-health-safety-environment" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold rounded-full transition-all">Diploma in HSE →</a>
+    <a href="/centers" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold rounded-full transition-all">Find 70+ Centers →</a>
+  </div>
+</div>
+7:["$","div",null,{"className":"blog-prose mt-8 border-t border-slate-100 pt-8","dangerouslySetInnerHTML":{"__html":"$c"}}]
+8:["$","div",null,{"className":"mt-10 border-t border-slate-100 pt-8","children":[["$","h2",null,{"className":"flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-slate-500","children":[["$","$L3",null,{"iconNode":[["circle",{"cx":"12","cy":"12","r":"10","key":"1mglay"}],["path",{"d":"M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3","key":"1u773s"}],["path",{"d":"M12 17h.01","key":"p32p05"}]],"className":"lucide-circle-question-mark h-4 w-4 text-primary"}],"Frequently Asked Questions"]}],["$","div",null,{"className":"mt-4 space-y-3","children":[["$","div","0",{"className":"rounded-xl border border-slate-200 bg-slate-50/60 p-5","children":[["$","h3",null,{"className":"text-sm font-bold text-slate-900","children":"What are the eligibility requirements for Everything You Need to Know About Pursuing a Safety Officer Course at NIFS?"}],["$","p",null,{"className":"mt-2 text-sm leading-relaxed text-slate-600","children":"Eligibility ranges from 10th pass for certificate courses to 12th science or ITI/Diploma/Degree for advanced safety diplomas. Counselors verify certificates during admission."}]]}],["$","div","1",{"className":"rounded-xl border border-slate-200 bg-slate-50/60 p-5","children":[["$","h3",null,{"className":"text-sm font-bold text-slate-900","children":"Are NIFS Fire and Safety programs NSDC and university recognized?"}],["$","p",null,{"className":"mt-2 text-sm leading-relaxed text-slate-600","children":"Yes, NIFS courses are NSDC-approved and university-affiliated, recognized by PSU, private industrial employers, and overseas firms in Gulf countries."}]]}],["$","div","2",{"className":"rounded-xl border border-slate-200 bg-slate-50/60 p-5","children":[["$","h3",null,{"className":"text-sm font-bold text-slate-900","children":"Does NIFS provide placement assistance after course completion?"}],["$","p",null,{"className":"mt-2 text-sm leading-relaxed text-slate-600","children":"Yes, NIFS has a dedicated placement cell with 45,000+ alumni placed across top industrial firms including Adani, L&T, ITC, GMR, and Amazon."}]]}]]}]]}]
+9:["$","div",null,{"className":"mt-12 overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-slate-900 to-[#7A0F0C] p-6 text-white shadow-xl sm:p-8","children":["$","div",null,{"className":"flex flex-col gap-6 md:flex-row md:items-center md:justify-between","children":[["$","div",null,{"children":[["$","span",null,{"className":"text-xs font-bold uppercase tracking-wider text-primary bg-white/10 px-2.5 py-1 rounded","children":"NIFS Admissions Open"}],["$","h3",null,{"className":"mt-3 text-xl font-extrabold text-white sm:text-2xl","children":"Start Your Career in Industrial Safety Today"}],["$","p",null,{"className":"mt-2 text-xs text-slate-300 sm:text-sm max-w-xl","children":"NSDC-approved Diploma, Advanced Diploma, and Degree programs with 100% placement assistance at top companies like L&T, Adani, and Reliance."}]]}],["$","div",null,{"className":"flex flex-wrap items-center gap-3 shrink-0","children":[["$","$L2",null,{"href":"/admissions","className":"inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-xs font-bold uppercase tracking-wider text-white shadow-lg transition-transform hover:scale-105","children":"Apply Now →"}],["$","a",null,{"href":"https://wa.me/918374340999","target":"_blank","rel":"noopener noreferrer","className":"inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-4 py-3 text-xs font-bold uppercase tracking-wider text-white shadow-lg transition-transform hover:scale-105","children":[["$","$L3",null,{"iconNode":[["path",{"d":"M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z","key":"18887p"}]],"className":"lucide-message-square h-4 w-4"}],"WhatsApp"]}]]}]]}]}]
+a:["$","$Ld",null,{"children":["$","$e",null,{"name":"Next.MetadataOutlet","children":"$@f"}]}]
+f:null

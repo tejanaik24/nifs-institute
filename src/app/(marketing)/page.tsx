@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import HomeHero from "@/components/sections/home/home-hero";
+import HomeJobsTicker from "@/components/sections/home/home-jobs-ticker";
 import HomeRecruiterMarquee from "@/components/sections/home/home-recruiter-marquee";
 import HomeIfesm from "@/components/sections/home/home-ifesm";
 import HomeTrained from "@/components/sections/home/home-trained";
@@ -29,6 +30,7 @@ export default function HomePage() {
   return (
     <>
       <HomeHero />
+      <HomeJobsTicker />
       <HomeRecruiterMarquee />
       <HomeIfesm />
       <HomeTrained />

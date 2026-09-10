@@ -1,4 +1,7 @@
+import { withCache, withTimeout, FIVE_MINUTES } from "./cache";
+
 const API_BASE = "https://ssl.bing.com/webmaster/api.svc/json";
+const BING_TIMEOUT_MS = 10_000;
 
 type BingTrafficDay = {
   Date: string;
@@ -6,12 +9,12 @@ type BingTrafficDay = {
   Impressions: number;
 };
 
-export async function getBingTrafficSummary() {
+export async function getBingTrafficSummaryRaw() {
   const apiKey = process.env.BING_API_KEY!;
   const siteUrl = process.env.BING_SITE_URL!;
   const url = `${API_BASE}/GetRankAndTrafficStats?siteUrl=${encodeURIComponent(siteUrl)}&apikey=${apiKey}`;
 
-  const res = await fetch(url);
+  const res = await withTimeout(fetch(url), BING_TIMEOUT_MS);
   if (!res.ok) {
     throw new Error(`Bing Webmaster API error: ${res.status}`);
   }
@@ -25,3 +28,5 @@ export async function getBingTrafficSummary() {
 
   return { totalClicks, totalImpressions, days: last28 };
 }
+
+export const getBingTrafficSummary = withCache(getBingTrafficSummaryRaw, FIVE_MINUTES);

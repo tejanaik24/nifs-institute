@@ -1,0 +1,218 @@
+1:"$Sreact.fragment"
+2:I[22016,["/_next/static/chunks/2o5z6qadvq8_m.js","/_next/static/chunks/3swbm78-n7d9n.js","/_next/static/chunks/1kmzfrn9ymvcu.js","/_next/static/chunks/14mrh2-p_w84d.js"],""]
+3:I[5014,["/_next/static/chunks/2o5z6qadvq8_m.js","/_next/static/chunks/3swbm78-n7d9n.js","/_next/static/chunks/1kmzfrn9ymvcu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"default"]
+c:I[85437,["/_next/static/chunks/2o5z6qadvq8_m.js","/_next/static/chunks/3swbm78-n7d9n.js","/_next/static/chunks/1kmzfrn9ymvcu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"Image"]
+e:I[97367,["/_next/static/chunks/2o5z6qadvq8_m.js","/_next/static/chunks/3swbm78-n7d9n.js","/_next/static/chunks/1kmzfrn9ymvcu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"OutletBoundary"]
+f:"$Sreact.suspense"
+0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"bg-slate-50/50 min-h-screen pt-32 pb-20 lg:pt-36","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"headline\":\"Top 10 Fire & Safety Courses 2026: Fees, Eligibility & Jobs | NIFS\",\"description\":\"Best fire and safety courses in India 2026 — DFS, ADFS, DIS, ADIS, BSc, PG Diploma. Course fees, eligibility criteria, career scope, and 100% placement support by NIFS.\",\"url\":\"https://nifsindia.net/blog/top-fire-and-safety-courses-after-10th-12th-graduation-2026/\",\"image\":\"https://nifsindia.net/images/blog/safety-officer-salary-hero.png\",\"datePublished\":\"2026-08-03\",\"author\":{\"@id\":\"https://nifsindia.net/#organization\"},\"publisher\":{\"@id\":\"https://nifsindia.net/#organization\"},\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://nifsindia.net/blog/top-fire-and-safety-courses-after-10th-12th-graduation-2026/\"}}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://nifsindia.net\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog\",\"item\":\"https://nifsindia.net/blog/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Top 10 Fire & Safety Courses 2026: Fees, Eligibility & Jobs | NIFS\",\"item\":\"https://nifsindia.net/blog/top-fire-and-safety-courses-after-10th-12th-graduation-2026/\"}]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"Which fire and safety course is best after 10th class?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"The 6-month Certificate Course in Fire Safety (CCFS) is ideal after 10th for fast entry into industrial safety roles.\"}},{\"@type\":\"Question\",\"name\":\"Which fire and safety course is best after 12th science or arts?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"The 12-month Diploma in Fire & Safety (DFS) or B.Sc in Fire & Industrial Safety are top choices after 12th.\"}},{\"@type\":\"Question\",\"name\":\"What are the fees for NIFS Fire and Safety courses in 2026?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Course fees range from ₹25,000 for certificate courses to ₹65,000 for advanced university diplomas, including practical training yard fees.\"}}]}"}}],["$","article",null,{"data-path-target":"true","className":"mx-auto max-w-4xl px-4 sm:px-6 lg:px-8","children":[["$","div",null,{"className":"mb-6","children":["$","$L2",null,{"href":"/blog","className":"inline-flex items-center gap-1.5 text-xs font-bold text-primary transition-transform hover:-translate-x-1","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}],"Back to Articles"]}]}],["$","div",null,{"className":"rounded-2xl border border-slate-200 bg-white p-6 sm:p-10 shadow-sm","children":[["$","div",null,{"className":"mb-4 inline-flex items-center gap-1.5 rounded-md bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-white","children":[["$","$L3",null,{"iconNode":[["path",{"d":"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z","key":"oel41y"}],["path",{"d":"m9 12 2 2 4-4","key":"dzmm74"}]],"className":"lucide-shield-check h-3.5 w-3.5"}],"Career Guidance"]}],"$L4","$L5","$L6","$L7","$L8","$L9","$La"]}]]}]]}],null,"$Lb"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"B7_mJOMLsRpOj-azxdfRt"}
+4:["$","h1",null,{"className":"text-2xl font-extrabold leading-tight text-slate-900 sm:text-4xl","children":"Top 10 Fire & Safety Courses 2026: Fees, Eligibility & Jobs | NIFS"}]
+5:["$","div",null,{"className":"mt-6 flex flex-wrap items-center gap-4 border-t border-slate-100 pt-4 text-xs font-medium text-slate-500","children":[["$","div",null,{"className":"flex items-center gap-2","children":[["$","div",null,{"className":"flex h-7 w-7 items-center justify-center rounded-full bg-slate-100 font-bold text-slate-700","children":"N"}],["$","span",null,{"className":"font-semibold text-slate-700","children":"NIFS Safety Editorial"}]]}],["$","span",null,{"children":"•"}],["$","span",null,{"className":"flex items-center gap-1","children":[["$","$L3",null,{"iconNode":[["path",{"d":"M8 2v4","key":"1cmpym"}],["path",{"d":"M16 2v4","key":"4m81vk"}],["rect",{"width":"18","height":"18","x":"3","y":"4","rx":"2","key":"1hopcy"}],["path",{"d":"M3 10h18","key":"8toen8"}]],"className":"lucide-calendar h-3.5 w-3.5 text-slate-400"}],"3 August 2026"]}],["$","span",null,{"children":"•"}],["$","span",null,{"className":"flex items-center gap-1","children":[["$","$L3",null,{"iconNode":[["circle",{"cx":"12","cy":"12","r":"10","key":"1mglay"}],["path",{"d":"M12 6v6l4 2","key":"mmk7yg"}]],"className":"lucide-clock h-3.5 w-3.5 text-slate-400"}],"13 min read"]}]]}]
+6:["$","div",null,{"className":"relative mt-8 aspect-[16/9] w-full overflow-hidden rounded-xl border border-slate-200 shadow-sm bg-slate-100","children":["$","$Lc",null,{"src":"/images/blog/safety-officer-salary-hero.png","alt":"Top 10 Fire & Safety Courses 2026: Fees, Eligibility & Jobs | NIFS","fill":true,"sizes":"(max-width: 1024px) 100vw, 896px","className":"object-cover","priority":true}]}]
+d:T2d56,
+<p class="lead text-lg font-medium text-slate-700 leading-relaxed mb-6">
+Fire and Industrial Safety has emerged as one of India's fastest-growing and highest-paying career fields in 2026. Driven by strict Government safety regulations (under the Factories Act 1948), booming infrastructure projects, mega semiconductor plants, and massive oil & gas expansions across India and the Middle East, certified safety professionals are in record demand.
+</p>
+
+<div class="my-6 rounded-xl bg-red-50 border-l-4 border-[#DC1711] p-6 text-slate-800 shadow-sm">
+<h4 class="text-lg font-bold text-[#7A0F0C] mb-1">🔥 Why Fire & Safety Education is Explosively Growing in 2026</h4>
+<p class="text-sm text-slate-700">Every factory, high-rise construction, airport, chemical refinery, and IT park is legally mandated to employ certified Safety Officers. At NIFS India, over <strong>45,000+ alumni</strong> have been placed at industry leaders like Adani, L&T, ITC, Amazon, and Tata with starting monthly packages ranging from ₹25,000 up to $4,500/month in Gulf countries.</p>
+</div>
+
+<h2>Quick Guide: Top Fire & Safety Courses Comparison (2026)</h2>
+<p>Whether you have completed 10th, 12th Science/Arts/Commerce, or a B.Sc/Diploma degree, there is a dedicated safety program tailored for your qualification level:</p>
+
+<table>
+<thead>
+<tr>
+<th>Course Name</th>
+<th>Eligibility</th>
+<th>Duration</th>
+<th>Average Fee</th>
+<th>Target Job Roles</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1. Certificate Course in Fire & Safety (CCFS)</strong></td>
+<td>10th Pass</td>
+<td>3 to 6 Months</td>
+<td>₹15,000 – ₹25,000</td>
+<td>Fireman, Safety Supervisor</td>
+</tr>
+<tr>
+<td><strong>2. Diploma in Fire & Safety (DFS)</strong></td>
+<td>12th Pass (Any Stream)</td>
+<td>1 Year</td>
+<td>₹30,000 – ₹45,000</td>
+<td>Safety Officer, Fire Inspector</td>
+</tr>
+<tr>
+<td><strong>3. Diploma in Health, Safety & Environment (DHSE)</strong></td>
+<td>12th / Science Pass</td>
+<td>1 Year</td>
+<td>₹35,000 – ₹50,000</td>
+<td>HSE Officer, Environment Assistant</td>
+</tr>
+<tr>
+<td><strong>4. Advanced Diploma in Fire & Safety (ADFS)</strong></td>
+<td>Diploma / Any Graduate</td>
+<td>1 Year</td>
+<td>₹40,000 – ₹55,000</td>
+<td>Senior Safety Officer, Safety Engineer</td>
+</tr>
+<tr>
+<td><strong>5. Advanced Diploma in Industrial Safety (ADIS)</strong></td>
+<td>B.Sc / B.E. / B.Tech</td>
+<td>1 Year</td>
+<td>₹45,000 – ₹65,000</td>
+<td>Statutory Safety Officer (Section 40-B)</td>
+</tr>
+<tr>
+<td><strong>6. PG Diploma in Fire & Safety (PG DFS)</strong></td>
+<td>Any Graduate (BA/B.Sc/B.Com)</td>
+<td>1 Year</td>
+<td>₹42,000 – ₹60,000</td>
+<td>HSE Manager, Safety Consultant</td>
+</tr>
+<tr>
+<td><strong>7. PG Diploma in HSE (PG DHSE)</strong></td>
+<td>Science / Engineering Grad</td>
+<td>1 Year</td>
+<td>₹45,000 – ₹65,000</td>
+<td>Environment & Safety Auditor</td>
+</tr>
+<tr>
+<td><strong>8. B.Sc in Fire & Industrial Safety</strong></td>
+<td>12th Science Pass</td>
+<td>3 Years</td>
+<td>₹60,000 – ₹90,000/yr</td>
+<td>Safety Manager, EHS Engineer</td>
+</tr>
+<tr>
+<td><strong>9. B.Sc (Honours) Fire & Safety</strong></td>
+<td>12th Science Pass</td>
+<td>4 Years</td>
+<td>₹65,000 – ₹95,000/yr</td>
+<td>Safety Lead, R&D Safety Specialist</td>
+</tr>
+<tr>
+<td><strong>10. International Certifications (NEBOSH / IOSH)</strong></td>
+<td>Safety Diploma Holder</td>
+<td>1 to 3 Months</td>
+<td>₹40,000 – ₹80,000</td>
+<td>Gulf HSE Inspector (ARAMCO/ADNOC)</td>
+</tr>
+</tbody>
+</table>
+
+<figure class="my-8">
+  <img src="/images/blog/safety-certifications-guide.png" width="1024" height="1024" alt="Top recognized fire and safety course certifications guide" class="w-full h-auto rounded-xl border border-slate-200 shadow-md" loading="lazy" />
+  <figcaption class="mt-2 text-center text-xs text-slate-500 font-medium">Figure 1: Certified Safety Training and Inspection Training at NIFS India.</figcaption>
+</figure>
+
+<h2>Detailed Breakdown of Top 10 Fire and Safety Courses</h2>
+
+<h3>1. Diploma in Fire & Safety (DFS) — Most Popular After 12th</h3>
+<p>The <strong>Diploma in Fire & Safety (DFS)</strong> is a 1-year comprehensive course designed for students who have passed 12th standard. It covers fire prevention science, fire-fighting hydraulics, hazard identification, and industrial rescue operations.</p>
+<ul>
+<li><strong>Eligibility:</strong> 10+2 Pass in any stream (Science, Commerce, or Arts).</li>
+<li><strong>Career Outcome:</strong> Safety Officer, Fire Safety Assistant, Site Safety Supervisor.</li>
+<li><strong>Starting Salary:</strong> ₹22,000 – ₹35,000 per month in India.</li>
+</ul>
+
+<h3>2. Advanced Diploma in Industrial Safety (ADIS) — High Industry Demand</h3>
+<p>ADIS is the gold standard for statutory safety officer appointments under the Factories Act 1948. It focuses heavily on hazard risk assessment, chemical safety, machine guarding, and occupational health.</p>
+<ul>
+<li><strong>Eligibility:</strong> B.Sc (Physics/Chemistry), B.E., B.Tech, or 3-year Polytechnic Diploma.</li>
+<li><strong>Career Outcome:</strong> Statutory Safety Officer, HSE Manager, Safety Consultant.</li>
+<li><strong>Starting Salary:</strong> ₹35,000 – ₹60,000 per month.</li>
+</ul>
+
+<h3>3. PG Diploma in Health, Safety & Environment (PG DHSE)</h3>
+<p>Post Graduate Diploma in HSE bridges industrial safety management with environmental sustainability. Graduates are trained in ISO 14001, OHSAS 18001/ISO 45001 auditing, and waste management.</p>
+<ul>
+<li><strong>Eligibility:</strong> Graduation in Science or Engineering stream.</li>
+<li><strong>Career Outcome:</strong> EHS Specialist, Environmental Compliance Auditor.</li>
+<li><strong>Starting Salary:</strong> ₹38,000 – ₹65,000 per month.</li>
+</ul>
+
+<h3>4. B.Sc in Fire & Industrial Safety — 3-Year Degree Program</h3>
+<p>For students seeking a formal university degree after 12th Science, the B.Sc in Fire & Industrial Safety offers an in-depth academic foundation combined with practical industrial visits and live fire drill simulations.</p>
+<ul>
+<li><strong>Eligibility:</strong> 12th Science (Physics, Chemistry, Math/Biology).</li>
+<li><strong>Career Outcome:</strong> Safety Engineer, Assistant Safety Director, PSU Safety Cadre.</li>
+<li><strong>Starting Salary:</strong> ₹30,000 – ₹50,000 per month.</li>
+</ul>
+
+<figure class="my-8">
+  <img src="/images/blog/safety-officer-city-breakdown.png" width="1024" height="1024" alt="Fire & Safety Officer Salary by City and Industry 2026" class="w-full h-auto rounded-xl border border-slate-200 shadow-md" loading="lazy" />
+  <figcaption class="mt-2 text-center text-xs text-slate-500 font-medium">Figure 2: Average monthly compensation across metro cities and industrial hubs in India.</figcaption>
+</figure>
+
+<h2>Salary Outlook & Gulf Job Opportunities (2026)</h2>
+<p>One of the biggest reasons students choose NIFS India is the high salary growth potential. Indian safety professionals are in huge demand across Gulf nations like Saudi Arabia, UAE, Qatar, and Kuwait:</p>
+
+<ul>
+<li><strong>Fresher in India:</strong> ₹20,000 to ₹35,000 / month</li>
+<li><strong>3-5 Years Experience in India:</strong> ₹45,000 to ₹75,000 / month</li>
+<li><strong>Gulf Entry Level (Dubai / Qatar):</strong> $1,200 to $1,800 / month (approx. ₹1,00,000 to ₹1,50,000 / month)</li>
+<li><strong>Experienced Gulf HSE Manager (ARAMCO / ADNOC):</strong> $3,000 to $5,000+ / month (approx. ₹2,50,000 to ₹4,00,000 / month)</li>
+</ul>
+
+<figure class="my-8">
+  <img src="/images/blog/safety-gulf-career.png" width="1024" height="1024" alt="Senior Gulf HSE Officer overseeing oil refinery safety operations" class="w-full h-auto rounded-xl border border-slate-200 shadow-md" loading="lazy" />
+  <figcaption class="mt-2 text-center text-xs text-slate-500 font-medium">Figure 3: NIFS Alumni placed in high-paying Gulf oil & gas safety roles.</figcaption>
+</figure>
+
+<h2>How to Enroll at NIFS India (NSDC Approved)</h2>
+<p>NIFS India is India's leading industrial safety institute with 25+ years of excellence, 70+ centers nationwide, NSDC & Skill India recognition, and ISO 9001:2015 certification.</p>
+
+<div class="my-8 rounded-xl bg-slate-900 p-8 text-white shadow-xl text-center">
+<h3 class="text-2xl font-bold text-red-500 mb-2">Admissions Open for August 2026 Batch!</h3>
+<p class="text-slate-300 mb-6 max-w-xl mx-auto">Get 100% placement assistance, official NSDC certificates, and hands-on practical training at NIFS India.</p>
+<div class="flex flex-wrap justify-center gap-4">
+<a href="/admissions" class="inline-block bg-[#DC1711] hover:bg-red-700 text-white font-bold px-6 py-3 rounded-lg transition-colors">Apply Online Now →</a>
+<a href="tel:+918374340999" class="inline-block bg-white text-slate-900 hover:bg-slate-100 font-bold px-6 py-3 rounded-lg transition-colors">Call Admissions: +91-8374-340-999</a>
+</div>
+</div>
+
+<h2>Frequently Asked Questions (FAQ)</h2>
+<div class="space-y-4 my-6">
+<div>
+<h4 class="font-bold text-slate-900 text-base">1. Which fire and safety course is best after 12th?</h4>
+<p class="text-sm text-slate-600 mt-1">The 1-year Diploma in Fire & Safety (DFS) or Diploma in HSE (DHSE) is best after 12th. If you have 12th Science, you can also opt for the 3-year B.Sc in Fire & Industrial Safety.</p>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 text-base">2. Are NIFS Fire Safety certificates government-recognized?</h4>
+<p class="text-sm text-slate-600 mt-1">Yes, NIFS India is NSDC & Skill India approved, ISO 9001:2015 certified, and has academic collaborations with Acharya Nagarjuna University (ANU).</p>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 text-base">3. Does NIFS provide placement assistance?</h4>
+<p class="text-sm text-slate-600 mt-1">Yes! NIFS India provides 100% placement assistance. Over 45,000+ candidates have been placed in leading MNCs like Adani, L&T, ITC, Amazon, and top Gulf firms.</p>
+</div>
+</div>
+
+<div class="my-8 p-6 bg-amber-50 border-l-4 border-amber-600 rounded-r-lg">
+  <h4 class="text-lg font-bold text-amber-900 mb-2">Have Questions About Course Eligibility or Fees?</h4>
+  <p class="text-amber-800 mb-4">Speak directly with NIFS Official Admissions Counselors on WhatsApp for free career guidance.</p>
+  <a href="https://wa.me/918374340999" target="_blank" class="inline-flex items-center px-4 py-2 bg-green-600 text-white font-semibold rounded-md hover:bg-green-700">
+    💬 Chat on WhatsApp (+91-8374-340-999)
+  </a>
+</div>
+
+<div class="my-8 p-6 bg-slate-900 text-white rounded-2xl border border-slate-800 shadow-xl">
+  <h4 class="text-xl font-bold text-white mb-2">Ready to Start Your Career in Fire & Industrial Safety?</h4>
+  <p class="text-slate-300 text-sm mb-4">Explore NIFS government-recognized and NSDC-approved diploma programs with 100% placement assistance in top industrial safety sectors.</p>
+  <div class="flex flex-wrap gap-3">
+    <a href="/courses/diploma-in-fire-safety" class="px-4 py-2 bg-red-600 hover:bg-red-700 text-white text-xs font-bold rounded-full transition-all">Diploma in Fire & Safety →</a>
+    <a href="/courses/advanced-diploma-in-industrial-safety-adis" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold rounded-full transition-all">ADIS Course →</a>
+    <a href="/courses/diploma-in-health-safety-environment" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold rounded-full transition-all">Diploma in HSE →</a>
+    <a href="/centers" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold rounded-full transition-all">Find 70+ Centers →</a>
+  </div>
+</div>
+7:["$","div",null,{"className":"blog-prose mt-8 border-t border-slate-100 pt-8","dangerouslySetInnerHTML":{"__html":"$d"}}]
+8:["$","div",null,{"className":"mt-10 border-t border-slate-100 pt-8","children":[["$","h2",null,{"className":"text-sm font-bold uppercase tracking-wider text-slate-500","children":"Explore More"}],["$","div",null,{"className":"mt-4 grid gap-3 sm:grid-cols-2","children":[["$","$L2","/admissions/",{"href":"/admissions/","className":"group rounded-xl border border-slate-200 bg-white p-4 text-sm font-semibold text-slate-800 shadow-sm transition-all hover:border-primary hover:shadow-md","children":["Admissions Open — Apply Now",["$","span",null,{"className":"ml-1 inline-block transition-transform group-hover:translate-x-1","children":"→"}]]}]]}]]}]
+9:["$","div",null,{"className":"mt-10 border-t border-slate-100 pt-8","children":[["$","h2",null,{"className":"flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-slate-500","children":[["$","$L3",null,{"iconNode":[["circle",{"cx":"12","cy":"12","r":"10","key":"1mglay"}],["path",{"d":"M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3","key":"1u773s"}],["path",{"d":"M12 17h.01","key":"p32p05"}]],"className":"lucide-circle-question-mark h-4 w-4 text-primary"}],"Frequently Asked Questions"]}],["$","div",null,{"className":"mt-4 space-y-3","children":[["$","div","0",{"className":"rounded-xl border border-slate-200 bg-slate-50/60 p-5","children":[["$","h3",null,{"className":"text-sm font-bold text-slate-900","children":"Which fire and safety course is best after 10th class?"}],["$","p",null,{"className":"mt-2 text-sm leading-relaxed text-slate-600","children":"The 6-month Certificate Course in Fire Safety (CCFS) is ideal after 10th for fast entry into industrial safety roles."}]]}],["$","div","1",{"className":"rounded-xl border border-slate-200 bg-slate-50/60 p-5","children":[["$","h3",null,{"className":"text-sm font-bold text-slate-900","children":"Which fire and safety course is best after 12th science or arts?"}],["$","p",null,{"className":"mt-2 text-sm leading-relaxed text-slate-600","children":"The 12-month Diploma in Fire & Safety (DFS) or B.Sc in Fire & Industrial Safety are top choices after 12th."}]]}],["$","div","2",{"className":"rounded-xl border border-slate-200 bg-slate-50/60 p-5","children":[["$","h3",null,{"className":"text-sm font-bold text-slate-900","children":"What are the fees for NIFS Fire and Safety courses in 2026?"}],["$","p",null,{"className":"mt-2 text-sm leading-relaxed text-slate-600","children":"Course fees range from ₹25,000 for certificate courses to ₹65,000 for advanced university diplomas, including practical training yard fees."}]]}]]}]]}]
+a:["$","div",null,{"className":"mt-12 overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-slate-900 to-[#7A0F0C] p-6 text-white shadow-xl sm:p-8","children":["$","div",null,{"className":"flex flex-col gap-6 md:flex-row md:items-center md:justify-between","children":[["$","div",null,{"children":[["$","span",null,{"className":"text-xs font-bold uppercase tracking-wider text-primary bg-white/10 px-2.5 py-1 rounded","children":"NIFS Admissions Open"}],["$","h3",null,{"className":"mt-3 text-xl font-extrabold text-white sm:text-2xl","children":"Start Your Career in Industrial Safety Today"}],["$","p",null,{"className":"mt-2 text-xs text-slate-300 sm:text-sm max-w-xl","children":"NSDC-approved Diploma, Advanced Diploma, and Degree programs with 100% placement assistance at top companies like L&T, Adani, and Reliance."}]]}],["$","div",null,{"className":"flex flex-wrap items-center gap-3 shrink-0","children":[["$","$L2",null,{"href":"/admissions","className":"inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-xs font-bold uppercase tracking-wider text-white shadow-lg transition-transform hover:scale-105","children":"Apply Now →"}],["$","a",null,{"href":"https://wa.me/918374340999","target":"_blank","rel":"noopener noreferrer","className":"inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-4 py-3 text-xs font-bold uppercase tracking-wider text-white shadow-lg transition-transform hover:scale-105","children":[["$","$L3",null,{"iconNode":[["path",{"d":"M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z","key":"18887p"}]],"className":"lucide-message-square h-4 w-4"}],"WhatsApp"]}]]}]]}]}]
+b:["$","$Le",null,{"children":["$","$f",null,{"name":"Next.MetadataOutlet","children":"$@10"}]}]
+10:null

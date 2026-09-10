@@ -49,8 +49,8 @@ export function PostList({
               <span
                 className={
                   post.status === "published"
-                    ? "rounded-full bg-[var(--dash-accent)]/20 px-2 py-0.5 font-mono text-xs text-[var(--dash-accent)]"
-                    : "rounded-full bg-white/10 px-2 py-0.5 font-mono text-xs text-[var(--dash-text-muted)]"
+                    ? "rounded-full bg-[var(--dash-accent-soft)] px-2 py-0.5 font-mono text-xs text-[var(--dash-accent)]"
+                    : "rounded-full bg-black/5 px-2 py-0.5 font-mono text-xs text-[var(--dash-text-muted)]"
                 }
               >
                 {post.status}
@@ -73,7 +73,7 @@ export function PostList({
               ) : (
                 <button
                   onClick={() => publishPostAction(post.id, post.slug)}
-                  className="mr-3 text-xs text-[var(--dash-accent)]"
+                  className="mr-3 text-xs text-[var(--dash-accent)] hover:underline"
                 >
                   Publish
                 </button>
@@ -84,7 +84,7 @@ export function PostList({
                     deletePostAction(post.id, post.slug);
                   }
                 }}
-                className="text-xs text-red-400"
+                className="text-xs text-red-600"
               >
                 Delete
               </button>

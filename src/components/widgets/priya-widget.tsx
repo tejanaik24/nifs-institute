@@ -11,7 +11,6 @@ import { useEffect } from "react";
 // site's font-sans (Inter) instead of introducing a third typeface.
 export function PriyaWidget() {
   useEffect(() => {
-
     type Course = {
       name: string;
       dur: string;
@@ -427,7 +426,8 @@ export function PriyaWidget() {
         return;
       }
       setTimeout(() => {
-        if (document.visibilityState !== "hidden") window.open(webUrl, "_blank");
+        if (document.visibilityState !== "hidden")
+          window.open(webUrl, "_blank");
       }, 1500);
       window.location.href = `whatsapp://send?phone=918374340999&text=${encoded}`;
     }
@@ -488,11 +488,16 @@ export function PriyaWidget() {
         showFork();
       }
     }
-    bd().addEventListener("click", onDelegatedClick);
+    const bdEl = $("cf-bd");
+    if (bdEl) bdEl.addEventListener("click", onDelegatedClick);
 
     // Draggable floating widget — position remembered per browser
-    const bubble = $("cf-bubble")!;
-    const handle = $("cf-trigger")!;
+    const bubble = $("cf-bubble");
+    const handle = $("cf-trigger");
+    const xBtn = $("cf-x");
+    const teaserXBtn = $("cf-teaser-x");
+    if (!bubble || !handle) return;
+
     const POS_KEY = "nifsCfBubblePos";
     let dragging = false,
       wasDrag = false,
@@ -505,6 +510,7 @@ export function PriyaWidget() {
       Math.max(min, Math.min(max, v));
 
     function place(left: number, top: number) {
+      if (!bubble) return;
       const r = bubble.getBoundingClientRect();
       left = clamp(left, 4, Math.max(4, window.innerWidth - r.width - 4));
       top = clamp(top, 4, Math.max(4, window.innerHeight - r.height - 4));
@@ -533,25 +539,25 @@ export function PriyaWidget() {
       if (e.button !== undefined && e.button !== 0) return;
       dragging = true;
       wasDrag = false;
-      const r = bubble.getBoundingClientRect();
+      const r = bubble!.getBoundingClientRect();
       startX = e.clientX;
       startY = e.clientY;
       startLeft = r.left;
       startTop = r.top;
       try {
-        handle.setPointerCapture(e.pointerId);
+        handle!.setPointerCapture(e.pointerId);
       } catch {}
-      bubble.classList.add("cf-dragging");
+      bubble!.classList.add("cf-dragging");
     }
     function onPointerMove(e: PointerEvent) {
-      if (!dragging) return;
+      if (!dragging || !bubble) return;
       const dx = e.clientX - startX,
         dy = e.clientY - startY;
       if (!wasDrag && (Math.abs(dx) > 6 || Math.abs(dy) > 6)) wasDrag = true;
       if (wasDrag) place(startLeft + dx, startTop + dy);
     }
     function onPointerUp() {
-      if (!dragging) return;
+      if (!dragging || !bubble) return;
       dragging = false;
       bubble.classList.remove("cf-dragging");
       if (wasDrag) {
@@ -565,7 +571,7 @@ export function PriyaWidget() {
       }
     }
     function onResize() {
-      if (bubble.style.left) {
+      if (bubble && bubble.style.left) {
         const r = bubble.getBoundingClientRect();
         place(r.left, r.top);
       }
@@ -596,6 +602,7 @@ export function PriyaWidget() {
     function onDocumentClick(e: MouseEvent) {
       if (
         isOpen &&
+        bubble &&
         (e.target as Node).isConnected &&
         !bubble.contains(e.target as Node)
       )
@@ -603,17 +610,19 @@ export function PriyaWidget() {
     }
 
     handle.addEventListener("click", onTriggerClick);
-    $("cf-x")?.addEventListener("click", onCloseClick);
-    $("cf-teaser-x")?.addEventListener("click", onTeaserXClick);
+    xBtn?.addEventListener("click", onCloseClick);
+    teaserXBtn?.addEventListener("click", onTeaserXClick);
     document.addEventListener("click", onDocumentClick);
 
     return () => {
-      bd().removeEventListener("click", onDelegatedClick);
+      bdEl?.removeEventListener("click", onDelegatedClick);
       handle.removeEventListener("pointerdown", onPointerDown);
       window.removeEventListener("pointermove", onPointerMove);
       window.removeEventListener("pointerup", onPointerUp);
       window.removeEventListener("resize", onResize);
       handle.removeEventListener("click", onTriggerClick);
+      xBtn?.removeEventListener("click", onCloseClick);
+      teaserXBtn?.removeEventListener("click", onTeaserXClick);
       document.removeEventListener("click", onDocumentClick);
     };
   }, []);

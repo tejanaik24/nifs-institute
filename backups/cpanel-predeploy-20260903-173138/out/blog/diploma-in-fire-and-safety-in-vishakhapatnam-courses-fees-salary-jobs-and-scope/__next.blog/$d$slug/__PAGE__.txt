@@ -1,0 +1,133 @@
+1:"$Sreact.fragment"
+2:I[22016,["/_next/static/chunks/2o5z6qadvq8_m.js","/_next/static/chunks/3swbm78-n7d9n.js","/_next/static/chunks/1kmzfrn9ymvcu.js","/_next/static/chunks/14mrh2-p_w84d.js"],""]
+3:I[5014,["/_next/static/chunks/2o5z6qadvq8_m.js","/_next/static/chunks/3swbm78-n7d9n.js","/_next/static/chunks/1kmzfrn9ymvcu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"default"]
+c:I[85437,["/_next/static/chunks/2o5z6qadvq8_m.js","/_next/static/chunks/3swbm78-n7d9n.js","/_next/static/chunks/1kmzfrn9ymvcu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"Image"]
+e:I[97367,["/_next/static/chunks/2o5z6qadvq8_m.js","/_next/static/chunks/3swbm78-n7d9n.js","/_next/static/chunks/1kmzfrn9ymvcu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"OutletBoundary"]
+f:"$Sreact.suspense"
+0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"bg-slate-50/50 min-h-screen pt-32 pb-20 lg:pt-36","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"headline\":\"Diploma in Fire & Safety Visakhapatnam: Fees, Jobs 2026 | NIFS\",\"description\":\"Following the Great Fire of London in 1066, fire safety has evolved to the current state. The significance of obtaining a Diploma in Fire and Safety has grown s…\",\"url\":\"https://nifsindia.net/blog/diploma-in-fire-and-safety-in-vishakhapatnam-courses-fees-salary-jobs-and-scope/\",\"image\":\"https://nifsindia.net/images/blog/fire-safety-training-nifs.jpg\",\"datePublished\":\"2024-07-23\",\"author\":{\"@id\":\"https://nifsindia.net/#organization\"},\"publisher\":{\"@id\":\"https://nifsindia.net/#organization\"},\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://nifsindia.net/blog/diploma-in-fire-and-safety-in-vishakhapatnam-courses-fees-salary-jobs-and-scope/\"}}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://nifsindia.net\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog\",\"item\":\"https://nifsindia.net/blog/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Diploma in Fire & Safety Visakhapatnam: Fees, Jobs 2026 | NIFS\",\"item\":\"https://nifsindia.net/blog/diploma-in-fire-and-safety-in-vishakhapatnam-courses-fees-salary-jobs-and-scope/\"}]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"What are the eligibility requirements for Diploma in fire and safety in Vishakhapatnam: Courses, Fees, Salary, Jobs and Scope at NIFS?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Eligibility ranges from 10th pass for certificate courses to 12th science or ITI/Diploma/Degree for advanced safety diplomas. Counselors verify certificates during admission.\"}},{\"@type\":\"Question\",\"name\":\"Are NIFS Fire and Safety programs NSDC and university recognized?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Yes, NIFS courses are NSDC-approved and university-affiliated, recognized by PSU, private industrial employers, and overseas firms in Gulf countries.\"}},{\"@type\":\"Question\",\"name\":\"Does NIFS provide placement assistance after course completion?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Yes, NIFS has a dedicated placement cell with 45,000+ alumni placed across top industrial firms including Adani, L&T, ITC, GMR, and Amazon.\"}}]}"}}],["$","article",null,{"data-path-target":"true","className":"mx-auto max-w-4xl px-4 sm:px-6 lg:px-8","children":[["$","div",null,{"className":"mb-6","children":["$","$L2",null,{"href":"/blog","className":"inline-flex items-center gap-1.5 text-xs font-bold text-primary transition-transform hover:-translate-x-1","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}],"Back to Articles"]}]}],["$","div",null,{"className":"rounded-2xl border border-slate-200 bg-white p-6 sm:p-10 shadow-sm","children":[["$","div",null,{"className":"mb-4 inline-flex items-center gap-1.5 rounded-md bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-white","children":[["$","$L3",null,{"iconNode":[["path",{"d":"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z","key":"oel41y"}],["path",{"d":"m9 12 2 2 4-4","key":"dzmm74"}]],"className":"lucide-shield-check h-3.5 w-3.5"}],"Blog"]}],"$L4","$L5","$L6","$L7","$L8","$L9","$La"]}]]}]]}],null,"$Lb"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"B7_mJOMLsRpOj-azxdfRt"}
+4:["$","h1",null,{"className":"text-2xl font-extrabold leading-tight text-slate-900 sm:text-4xl","children":"Diploma in Fire & Safety Visakhapatnam: Fees, Jobs 2026 | NIFS"}]
+5:["$","div",null,{"className":"mt-6 flex flex-wrap items-center gap-4 border-t border-slate-100 pt-4 text-xs font-medium text-slate-500","children":[["$","div",null,{"className":"flex items-center gap-2","children":[["$","div",null,{"className":"flex h-7 w-7 items-center justify-center rounded-full bg-slate-100 font-bold text-slate-700","children":"N"}],["$","span",null,{"className":"font-semibold text-slate-700","children":"NIFS Safety Editorial"}]]}],["$","span",null,{"children":"•"}],["$","span",null,{"className":"flex items-center gap-1","children":[["$","$L3",null,{"iconNode":[["path",{"d":"M8 2v4","key":"1cmpym"}],["path",{"d":"M16 2v4","key":"4m81vk"}],["rect",{"width":"18","height":"18","x":"3","y":"4","rx":"2","key":"1hopcy"}],["path",{"d":"M3 10h18","key":"8toen8"}]],"className":"lucide-calendar h-3.5 w-3.5 text-slate-400"}],"23 July 2024"]}],["$","span",null,{"children":"•"}],["$","span",null,{"className":"flex items-center gap-1","children":[["$","$L3",null,{"iconNode":[["circle",{"cx":"12","cy":"12","r":"10","key":"1mglay"}],["path",{"d":"M12 6v6l4 2","key":"mmk7yg"}]],"className":"lucide-clock h-3.5 w-3.5 text-slate-400"}],"7 min read"]}]]}]
+6:["$","div",null,{"className":"relative mt-8 aspect-[16/9] w-full overflow-hidden rounded-xl border border-slate-200 shadow-sm bg-slate-100","children":["$","$Lc",null,{"src":"/images/blog/fire-safety-training-nifs.jpg","alt":"Diploma in Fire & Safety Visakhapatnam: Fees, Jobs 2026 | NIFS","fill":true,"sizes":"(max-width: 1024px) 100vw, 896px","className":"object-cover","priority":true}]}]
+d:T2ace,<section class="wpb-content-wrapper"><p>Following the Great Fire of London in 1066, fire safety has evolved to the current state. The significance of obtaining a Diploma in Fire and Safety has grown significantly as high-rise buildings and contemporary infrastructure proliferate in all cities. This group of procedures, which is often referred to as a subcompound of building safety, fire, and safety, is meant to lessen the harm that fire can do. People hold this perilous career, which deals with fire prevention, in equal respect because it is one of the hardest and most demanding fields in the field. It also demands a strong sense of devotion to public services. This makes one of the newest academic specialties for students to pursue the Fire and Safety Department.</p>
+<p><strong>What is a Fire and Safety Diploma?</strong></p>
+<p>The one-year Diploma in Fire Safety program fulfills the legal requirements for addressing the duties and responsibilities of a firefighter or fire supervisor, enabling them to limit, manage, and put out a fire at the support level. A fireman is required by Indian law to work in any industry, factory, mall, power sector, oil and gas refinery, or other establishment that needs to be protected against fire threats. Students who complete this specific fire and safety diploma program are eligible to work in any industry in India or overseas as firefighters, fire safety assistants, or safety supervisors.</p>
+<p><strong>What Makes a Fire and Safety Diploma Study Worth Studying?</strong></p>
+<ul>
+<li>The curriculum helps candidates become competent safety personnel through rigorous and demanding study and training sessions. Alongside the growth in risk factors, there has been a sharp increase in the need for additional safety personnel.</li>
+<li>For those who choose to pursue engineering in this field, a diploma in fire and safety management may be helpful. The majority of job prospects in this field are related to security and crisis management, but they will nevertheless increase dramatically over time. This is because safety precautions become more and more necessary as the industry expands.</li>
+<li>A significant danger of this kind of accident is associated with organizations like the Oil and Natural Gas Corporation (ONGC), the Central Industrial Security Force (CNSC), or the mining sector, for example, because of mistakes made by people or broken equipment. A lot of damage happens Due to the typical high worker and staff density in these areas, even a minor mishap could result in numerous fatalities. very careful to deal with The firefighter is therefore required to take the appropriate safety measures.</li>
+</ul>
+<p><strong>    An overview of the Fire Safety Diploma program</strong></p>
+<p>Students who enroll in a diploma program in fire and safety are primarily trained in fire prevention techniques. During a fire hazard, this one-year course teaches students how to adhere to and uphold safety standards. Students are permitted to study this course for a diploma after finishing the 10+2 requirements. A wide range of career opportunities, including promotions to manager, in charge manager, health and safety manager, and fire and safety officer, are available to students who complete the open-ended Diploma in Fire and Safety course. For this course, there is no entrance exam required, but the applicant must have received at least 40% or comparable from an accredited statutory board.</p>
+<p>Because the diploma program offers academic credit in addition to bespoke operational development, it is especially appealing to industrial and civil fire departments. It is offered in different subsets based on the needs of applicants.</p>
+<p><strong>   Admission Procedure for the Fire and Safety Diploma</strong></p>
+<ul>
+<li>The sole criterion for admission to the Diploma in Fire and Safety Management program is merit.</li>
+<li>The basis for admission to the program is the 12th grade grades obtained.</li>
+<li>However, each university may have a different merit list cut-off grade based on its selection criteria.</li>
+<li>Candidates can submit an online or offline application for the course by going to the official website of their preferred college and downloading a brochure. One must pay close attention to all of the requirements listed on the college&#8217;s website in order to prevent any issues and ensure that admission is completed without incident.</li>
+</ul>
+<p><strong>The eligibility criteria for the Diploma in Fire and Safety</strong></p>
+<p>For consideration for admission, candidates must have passed their 10+2 exams in any relevant field (Commerce, Science, or Arts) with a minimum aggregate set by an accredited board.</p>
+<p>Exams for admission, group discussions, and in-person interviews are not mandatory for candidates.</p>
+<p><strong>The syllabus for the Diploma in Fire and Safety</strong></p>
+<p>A combination of theoretical and practical components make up the curriculum for the Diploma in Fire and Safety programme. The primary components of this curriculum are simulated drills and training sessions based on actual incidents and scenarios. The science of fire and firefighting is the program&#8217;s primary area of focus.The course encompasses a wide range of subjects, including fire safety engineering, communication systems, first aid protocols, and fire prevention. Students who successfully complete this course will be equipped to begin their professional careers in fire and safety management.</p>
+<p><strong>Careers in Fire and Safety Management</strong></p>
+<table width="0">
+<tbody>
+<tr>
+<td width="304">Unique Fire Risks</td>
+<td width="298">Systems of Fire Protection</td>
+</tr>
+<tr>
+<td width="304">Firefighting Supplies</td>
+<td width="298">Methods for Search and Rescue</td>
+</tr>
+<tr>
+<td width="304">Examining Accidents</td>
+<td width="298">Evaluation of Fire Safety Risk</td>
+</tr>
+<tr>
+<td width="304">Environment of Health and Safety</td>
+<td width="298">Industrial Safety and Health</td>
+</tr>
+<tr>
+<td width="304">Both Pumps and Hydraulics</td>
+<td width="298">Dynamics of Explosion and Flame</td>
+</tr>
+<tr>
+<td width="304">Practical Training: Applying First Aid and Firefighting Techniques</td>
+<td width="298">comprehensive analysis of the fire safety measures implemented</td>
+</tr>
+<tr>
+<td width="304">Analyzing different firefighting equipment tools</p>
+<p>&nbsp;</td>
+<td width="298">Procedures to follow in case of emergencies</p>
+<p>&nbsp;</td>
+</tr>
+<tr>
+<td width="304">Procedures to follow in case of emergencies</p>
+<p>&nbsp;</td>
+<td width="298">Examine the origin and cause of the fire and any security lapses.</td>
+</tr>
+<tr>
+<td width="304">comprehensive analysis of risks and solutions</td>
+<td width="298">Monitoring safety and preventive measures to avoid accidents</td>
+</tr>
+<tr>
+<td width="304">Methods to apply in industries for safety</td>
+<td width="298">Use of hydraulics and pumps, methods to use them</td>
+</tr>
+<tr>
+<td width="304">Theory</td>
+<td width="298">Training</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Pay after receiving a fire and safety diploma</strong></p>
+<ul>
+<li>Professionals working in the safety and fire sector can expect to receive competitive pay packages. The type of level or designation a fire safety engineer holds determines their pay. A list of the fields and their corresponding packages is provided below.</li>
+<li>Fire Engineer Job Profile Salary</li>
+<li>₹15,000–₹20,000 in the public sector and ₹25,000–₹30,000 in the private sector each month.</li>
+<li>₹4,50,000 annually for a fire protection engineer</li>
+<li>₹3,00,000 per year for a Fire Safety Officer</li>
+<li>As a trainee, Fire and Safety Consultant/Advisor: ₹4,00,000 per year</li>
+</ul>
+<p><strong>The future range of the Fire and Safety Diploma</strong></p>
+<p>Every industry is expected to implement fire safety protocols in order to safeguard everyone and avoid major financial losses for the sector in the event of such tragedies. As a result, there is a constant need for people in this field on the job market. Put another way, there will eventually be a greater need for this industry.</p>
+<p>A small number of students who express interest in this subject even go on to study more, work in the technology sector improving security systems for people&#8217;s safety and well-being, or create better plans to avert disasters.</p>
+<p><strong>Q&amp;As</strong></p>
+<ol>
+<li>Is a diploma in fire safety and management an accepted credential?The Indian government has indeed approved the course.</li>
+<li>Can students pursuing a Fire and Safety Management Diploma live in dorms?Sure, but the price differs depending on the college. Applicants should visit both the campus and the hostel to obtain additional information.</li>
+<li>What is the alternative Fire and Safety Management Diploma program?The alternate Fire and Safety Management Diploma program is a Bachelor of Science in Fire and Safety Management.</li>
+</ol>
+<p></p>
+</section>
+<div class="my-8 p-6 bg-emerald-950/80 border border-emerald-500/30 rounded-2xl shadow-lg">
+  <div class="flex items-center gap-3 mb-2">
+    <span class="text-2xl">💬</span>
+    <h4 class="text-lg font-bold text-emerald-400">Have Questions About Admissions, Eligibility, or Fees?</h4>
+  </div>
+  <p class="text-emerald-200/80 text-sm mb-4">Chat directly with NIFS Official Career Advisors on WhatsApp for free counseling and course guidance.</p>
+  <a href="https://wa.me/918374340999" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-bold rounded-full transition-all shadow-lg shadow-emerald-900/50">
+    <span>Chat on WhatsApp (+91-8374-340-999)</span>
+  </a>
+</div>
+
+<div class="my-8 p-6 bg-slate-900 text-white rounded-2xl border border-slate-800 shadow-xl">
+  <h4 class="text-xl font-bold text-white mb-2">Ready to Start Your Career in Fire & Industrial Safety?</h4>
+  <p class="text-slate-300 text-sm mb-4">Explore NIFS government-recognized and NSDC-approved diploma programs with 100% placement assistance in top industrial safety sectors.</p>
+  <div class="flex flex-wrap gap-3">
+    <a href="/courses/diploma-in-fire-safety" class="px-4 py-2 bg-red-600 hover:bg-red-700 text-white text-xs font-bold rounded-full transition-all">Diploma in Fire & Safety →</a>
+    <a href="/courses/advanced-diploma-in-industrial-safety-adis" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold rounded-full transition-all">ADIS Course →</a>
+    <a href="/courses/diploma-in-health-safety-environment" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold rounded-full transition-all">Diploma in HSE →</a>
+    <a href="/centers" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold rounded-full transition-all">Find 70+ Centers →</a>
+  </div>
+</div>
+7:["$","div",null,{"className":"blog-prose mt-8 border-t border-slate-100 pt-8","dangerouslySetInnerHTML":{"__html":"$d"}}]
+8:["$","div",null,{"className":"mt-10 border-t border-slate-100 pt-8","children":[["$","h2",null,{"className":"text-sm font-bold uppercase tracking-wider text-slate-500","children":"Explore More"}],["$","div",null,{"className":"mt-4 grid gap-3 sm:grid-cols-2","children":[["$","$L2","/centers/",{"href":"/centers/","className":"group rounded-xl border border-slate-200 bg-white p-4 text-sm font-semibold text-slate-800 shadow-sm transition-all hover:border-primary hover:shadow-md","children":["Find a Center Near You",["$","span",null,{"className":"ml-1 inline-block transition-transform group-hover:translate-x-1","children":"→"}]]}]]}]]}]
+9:["$","div",null,{"className":"mt-10 border-t border-slate-100 pt-8","children":[["$","h2",null,{"className":"flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-slate-500","children":[["$","$L3",null,{"iconNode":[["circle",{"cx":"12","cy":"12","r":"10","key":"1mglay"}],["path",{"d":"M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3","key":"1u773s"}],["path",{"d":"M12 17h.01","key":"p32p05"}]],"className":"lucide-circle-question-mark h-4 w-4 text-primary"}],"Frequently Asked Questions"]}],["$","div",null,{"className":"mt-4 space-y-3","children":[["$","div","0",{"className":"rounded-xl border border-slate-200 bg-slate-50/60 p-5","children":[["$","h3",null,{"className":"text-sm font-bold text-slate-900","children":"What are the eligibility requirements for Diploma in fire and safety in Vishakhapatnam: Courses, Fees, Salary, Jobs and Scope at NIFS?"}],["$","p",null,{"className":"mt-2 text-sm leading-relaxed text-slate-600","children":"Eligibility ranges from 10th pass for certificate courses to 12th science or ITI/Diploma/Degree for advanced safety diplomas. Counselors verify certificates during admission."}]]}],["$","div","1",{"className":"rounded-xl border border-slate-200 bg-slate-50/60 p-5","children":[["$","h3",null,{"className":"text-sm font-bold text-slate-900","children":"Are NIFS Fire and Safety programs NSDC and university recognized?"}],["$","p",null,{"className":"mt-2 text-sm leading-relaxed text-slate-600","children":"Yes, NIFS courses are NSDC-approved and university-affiliated, recognized by PSU, private industrial employers, and overseas firms in Gulf countries."}]]}],["$","div","2",{"className":"rounded-xl border border-slate-200 bg-slate-50/60 p-5","children":[["$","h3",null,{"className":"text-sm font-bold text-slate-900","children":"Does NIFS provide placement assistance after course completion?"}],["$","p",null,{"className":"mt-2 text-sm leading-relaxed text-slate-600","children":"Yes, NIFS has a dedicated placement cell with 45,000+ alumni placed across top industrial firms including Adani, L&T, ITC, GMR, and Amazon."}]]}]]}]]}]
+a:["$","div",null,{"className":"mt-12 overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-slate-900 to-[#7A0F0C] p-6 text-white shadow-xl sm:p-8","children":["$","div",null,{"className":"flex flex-col gap-6 md:flex-row md:items-center md:justify-between","children":[["$","div",null,{"children":[["$","span",null,{"className":"text-xs font-bold uppercase tracking-wider text-primary bg-white/10 px-2.5 py-1 rounded","children":"NIFS Admissions Open"}],["$","h3",null,{"className":"mt-3 text-xl font-extrabold text-white sm:text-2xl","children":"Start Your Career in Industrial Safety Today"}],["$","p",null,{"className":"mt-2 text-xs text-slate-300 sm:text-sm max-w-xl","children":"NSDC-approved Diploma, Advanced Diploma, and Degree programs with 100% placement assistance at top companies like L&T, Adani, and Reliance."}]]}],["$","div",null,{"className":"flex flex-wrap items-center gap-3 shrink-0","children":[["$","$L2",null,{"href":"/admissions","className":"inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-xs font-bold uppercase tracking-wider text-white shadow-lg transition-transform hover:scale-105","children":"Apply Now →"}],["$","a",null,{"href":"https://wa.me/918374340999","target":"_blank","rel":"noopener noreferrer","className":"inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-4 py-3 text-xs font-bold uppercase tracking-wider text-white shadow-lg transition-transform hover:scale-105","children":[["$","$L3",null,{"iconNode":[["path",{"d":"M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z","key":"18887p"}]],"className":"lucide-message-square h-4 w-4"}],"WhatsApp"]}]]}]]}]}]
+b:["$","$Le",null,{"children":["$","$f",null,{"name":"Next.MetadataOutlet","children":"$@10"}]}]
+10:null

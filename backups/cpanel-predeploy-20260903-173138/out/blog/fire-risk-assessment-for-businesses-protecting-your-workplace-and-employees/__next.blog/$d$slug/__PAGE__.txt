@@ -1,0 +1,315 @@
+1:"$Sreact.fragment"
+2:I[22016,["/_next/static/chunks/2o5z6qadvq8_m.js","/_next/static/chunks/3swbm78-n7d9n.js","/_next/static/chunks/1kmzfrn9ymvcu.js","/_next/static/chunks/14mrh2-p_w84d.js"],""]
+3:I[5014,["/_next/static/chunks/2o5z6qadvq8_m.js","/_next/static/chunks/3swbm78-n7d9n.js","/_next/static/chunks/1kmzfrn9ymvcu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"default"]
+b:I[85437,["/_next/static/chunks/2o5z6qadvq8_m.js","/_next/static/chunks/3swbm78-n7d9n.js","/_next/static/chunks/1kmzfrn9ymvcu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"Image"]
+d:I[97367,["/_next/static/chunks/2o5z6qadvq8_m.js","/_next/static/chunks/3swbm78-n7d9n.js","/_next/static/chunks/1kmzfrn9ymvcu.js","/_next/static/chunks/14mrh2-p_w84d.js"],"OutletBoundary"]
+e:"$Sreact.suspense"
+0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"bg-slate-50/50 min-h-screen pt-32 pb-20 lg:pt-36","children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"headline\":\"Fire Risk Assessment for Businesses: Protecting Your\",\"description\":\"Safety should be a paramount consideration for any business in today’s highly charged business environments. A fire risk assessment for business is one of the e…\",\"url\":\"https://nifsindia.net/blog/fire-risk-assessment-for-businesses-protecting-your-workplace-and-employees/\",\"image\":\"https://nifsindia.net/images/blog/fire-risk-assessment-for-businesses-protecting-your-workplace-and-employees-83.jpg\",\"datePublished\":\"2024-12-26\",\"author\":{\"@id\":\"https://nifsindia.net/#organization\"},\"publisher\":{\"@id\":\"https://nifsindia.net/#organization\"},\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https://nifsindia.net/blog/fire-risk-assessment-for-businesses-protecting-your-workplace-and-employees/\"}}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://nifsindia.net\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog\",\"item\":\"https://nifsindia.net/blog/\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"Fire Risk Assessment for Businesses: Protecting Your\",\"item\":\"https://nifsindia.net/blog/fire-risk-assessment-for-businesses-protecting-your-workplace-and-employees/\"}]}"}}],["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"What are the eligibility requirements for Fire Risk Assessment for Businesses: Protecting Your Workplace and Employees at NIFS?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Eligibility ranges from 10th pass for certificate courses to 12th science or ITI/Diploma/Degree for advanced safety diplomas. Counselors verify certificates during admission.\"}},{\"@type\":\"Question\",\"name\":\"Are NIFS Fire and Safety programs NSDC and university recognized?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Yes, NIFS courses are NSDC-approved and university-affiliated, recognized by PSU, private industrial employers, and overseas firms in Gulf countries.\"}},{\"@type\":\"Question\",\"name\":\"Does NIFS provide placement assistance after course completion?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Yes, NIFS has a dedicated placement cell with 45,000+ alumni placed across top industrial firms including Adani, L&T, ITC, GMR, and Amazon.\"}}]}"}}],["$","article",null,{"data-path-target":"true","className":"mx-auto max-w-4xl px-4 sm:px-6 lg:px-8","children":[["$","div",null,{"className":"mb-6","children":["$","$L2",null,{"href":"/blog","className":"inline-flex items-center gap-1.5 text-xs font-bold text-primary transition-transform hover:-translate-x-1","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left h-4 w-4"}],"Back to Articles"]}]}],["$","div",null,{"className":"rounded-2xl border border-slate-200 bg-white p-6 sm:p-10 shadow-sm","children":[["$","div",null,{"className":"mb-4 inline-flex items-center gap-1.5 rounded-md bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-white","children":[["$","$L3",null,{"iconNode":[["path",{"d":"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z","key":"oel41y"}],["path",{"d":"m9 12 2 2 4-4","key":"dzmm74"}]],"className":"lucide-shield-check h-3.5 w-3.5"}],"Fire Risk Assessment for Businesses"]}],"$L4","$L5","$L6","$L7",false,"$L8","$L9"]}]]}]]}],null,"$La"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"B7_mJOMLsRpOj-azxdfRt"}
+4:["$","h1",null,{"className":"text-2xl font-extrabold leading-tight text-slate-900 sm:text-4xl","children":"Fire Risk Assessment for Businesses: Protecting Your"}]
+5:["$","div",null,{"className":"mt-6 flex flex-wrap items-center gap-4 border-t border-slate-100 pt-4 text-xs font-medium text-slate-500","children":[["$","div",null,{"className":"flex items-center gap-2","children":[["$","div",null,{"className":"flex h-7 w-7 items-center justify-center rounded-full bg-slate-100 font-bold text-slate-700","children":"N"}],["$","span",null,{"className":"font-semibold text-slate-700","children":"NIFS Safety Editorial"}]]}],["$","span",null,{"children":"•"}],["$","span",null,{"className":"flex items-center gap-1","children":[["$","$L3",null,{"iconNode":[["path",{"d":"M8 2v4","key":"1cmpym"}],["path",{"d":"M16 2v4","key":"4m81vk"}],["rect",{"width":"18","height":"18","x":"3","y":"4","rx":"2","key":"1hopcy"}],["path",{"d":"M3 10h18","key":"8toen8"}]],"className":"lucide-calendar h-3.5 w-3.5 text-slate-400"}],"26 December 2024"]}],["$","span",null,{"children":"•"}],["$","span",null,{"className":"flex items-center gap-1","children":[["$","$L3",null,{"iconNode":[["circle",{"cx":"12","cy":"12","r":"10","key":"1mglay"}],["path",{"d":"M12 6v6l4 2","key":"mmk7yg"}]],"className":"lucide-clock h-3.5 w-3.5 text-slate-400"}],"5 min read"]}]]}]
+6:["$","div",null,{"className":"relative mt-8 aspect-[16/9] w-full overflow-hidden rounded-xl border border-slate-200 shadow-sm bg-slate-100","children":["$","$Lb",null,{"src":"/images/blog/fire-risk-assessment-for-businesses-protecting-your-workplace-and-employees-83.jpg","alt":"Fire Risk Assessment for Businesses: Protecting Your","fill":true,"sizes":"(max-width: 1024px) 100vw, 896px","className":"object-cover","priority":true}]}]
+c:T2f5a,<p class="wp-block-paragraph">Safety should be a paramount consideration for any business in today’s highly charged business environments. A fire risk assessment for business is one of the essential rules, if safety is to be guaranteed. Whether you own a small shop or are a manager of a big company a professional fire risk assessment will be useful to prevent possible dangers in your working place for your and your workers’ safety.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>What Do You Mean By Fire Risk Assessment?</strong></p>
+
+
+
+<p class="wp-block-paragraph">A fire risk assessment is therefore a step by step appraisal of your business premises with a view to establishing fire risks, likely risks and preventive measures. It becomes a preventive measure to the likelihood of fire occurrence and at the same time a measure of guaranteeing compliance with the legal requirements on fire.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>What makes fire risk assessment relevant for businesses?</strong></p>
+
+
+
+<ol class="wp-block-list">
+<li><strong>Protected Lives:</strong> The basic aim of a fire risk assessment exercise is to prevent loss of lives of employees, customers and visitors.</li>
+
+
+
+<li><strong>Prevents Property Damage:</strong> Thus, businesses can avoid the losses to the property and assets before it turns into devastating disasters.</li>
+
+
+
+<li><strong>Ensures Legal Compliance:</strong> For instance, most local laws and safety standard do provide that businesses need to conduct periodic fire risk assessments. There are penalties for non-compliance.</li>
+
+
+
+<li><strong>Builds Employee Confidence: </strong>The employees are secure and more comfortable working in an organization that takes time to observe the fire safety measures.</li>
+
+
+
+<li><strong>Reduces Insurance Premiums:</strong> An efficient documentation of the possibility of fire ignition is beneficial in policy bargaining with insurance companies.</li>
+</ol>
+
+
+<div class="wp-block-image">
+<figure class="alignleft size-large"><img loading="lazy" decoding="async" width="1024" height="683" src="/images/blog/fire-risk-assessment-for-businesses-protecting-your-workplace-and-employees-83.jpg" alt="Fire Risk Assessment for Businesses" class="wp-image-6476" srcset="https://www.nifsindia.net/wp-content/uploads/2024/12/18077894-1024x683.jpg 1024w, https://www.nifsindia.net/wp-content/uploads/2024/12/18077894-300x200.jpg 300w, https://www.nifsindia.net/wp-content/uploads/2024/12/18077894-768x512.jpg 768w, https://www.nifsindia.net/wp-content/uploads/2024/12/18077894.jpg 1500w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure>
+</div>
+
+
+<p class="wp-block-paragraph"><strong>Preparation of Fire Risk Assessment</strong></p>
+
+
+
+<p class="wp-block-paragraph">A fire risk assessment involves five key steps:</p>
+
+
+
+<p class="wp-block-paragraph"><strong>1. Identify Fire Hazards</strong></p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Sources of Ignition:</strong> Look for open flames, electrical appliances and other devices which provide heat and can cause a fire, and for appliances which are hot to the touch.</li>
+
+
+
+<li><strong>Fuel Sources: </strong>Describe what are inflammable products such as papers, woods, chemicals, textile etc.</li>
+
+
+
+<li><strong>Oxygen Sources: </strong>Control the oxygen flow by guaranteeing that the house has proper ventilation.</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph"><strong>2. Identify People at Risk</strong></p>
+
+
+
+<ul class="wp-block-list">
+<li>Some employees who may be on their own or in a high-risk spare environment.</li>
+
+
+
+<li>Firstly, First, second, third, fourth, fifth; secondly, New employees, other workers or guests, guests, contractors, or customers with no prior knowledge of the building layout.</li>
+
+
+
+<li>Susceptible workers – employees who are old or have physical disabilities.</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph"><strong>3. Evaluation or Minimisation, Elimination or Reduction of Risks</strong></p>
+
+
+
+<ul class="wp-block-list">
+<li>Outright change of existing electrical wiring and equipment.</li>
+
+
+
+<li>Keep combustible articles in secured areas and at a safe distance from fire promoting elements.</li>
+
+
+
+<li>Utilize resistant doors and windows to the building.</li>
+
+
+
+<li>Waste should be disposed properly to prevent it from undergoing explosive changes in case there is an outbreak of fire.</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph"><strong>4. Record, Plan, and Train</strong></p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Documentation: </strong>Document all the witnessed risks and associated plans in the course of the undertake processes.</li>
+
+
+
+<li><strong>Emergency Plan:</strong> Ensure you have an emergency plan of how to evacuate and place the plan where everyone can see it easily.</li>
+
+
+
+<li><strong>Training:</strong> Educate the employees inaken use of fire extinguishers and evacuation drills.</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph"><strong>5. Review and Update Regularly</strong></p>
+
+
+
+<ul class="wp-block-list">
+<li>Fire hazards can evolve over time depending with alterations in structure, installations, or other activities of occupants or owners. To ensure that the assessment is as up to date as possible the periodic reviews are critical.</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph"><strong>Essential Stages of Fire Protection Plan</strong></p>
+
+
+
+<p class="wp-block-paragraph">A comprehensive fire safety plan should include:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Fire Detection Systems:</strong> Intal smoke detectors, heat sensors, and alarm system.</li>
+
+
+
+<li><strong>Firefighting Equipment:</strong> Make certain that fire extinguishers, hoses, and blankets are easily accessible and well checked.</li>
+
+
+
+<li><strong>Emergency Exits:</strong> Sign all exit points and always ensure that they are not blocked.</li>
+
+
+
+<li><strong>Evacuation Drills: </strong>This is a good time to perform drills to ensure that everyone knows how to evacuate in case of an emergency.</li>
+
+
+
+<li><strong>Contact Information:</strong> Provide contact details of emergency, consisting of fire fighting and medical centres.</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph"><strong>Types of Fire Risks Existed in Organizations</strong></p>
+
+
+
+<p class="wp-block-paragraph">Understanding common fire hazards can help businesses take preventive measures:</p>
+
+
+
+<p class="wp-block-paragraph"><strong>Electrical Equipment: </strong>Overloaded sockets, bad wiring, and ruined appliances.</p>
+
+
+<div class="wp-block-image">
+<figure class="alignleft size-large"><img loading="lazy" decoding="async" width="1024" height="683" src="/images/blog/fire-risk-assessment-for-businesses-protecting-your-workplace-and-employees-84.jpg" alt="Fire Risk Assessment for Businesses" class="wp-image-6479" srcset="https://www.nifsindia.net/wp-content/uploads/2024/12/23902-1-1024x683.jpg 1024w, https://www.nifsindia.net/wp-content/uploads/2024/12/23902-1-300x200.jpg 300w, https://www.nifsindia.net/wp-content/uploads/2024/12/23902-1-768x512.jpg 768w, https://www.nifsindia.net/wp-content/uploads/2024/12/23902-1.jpg 1500w" sizes="auto, (max-width: 1024px) 100vw, 1024px" /></figure>
+</div>
+
+
+<ul class="wp-block-list">
+<li><strong>Flammable Materials:</strong> Chemicals that are stored in incompatible manner and conditions and / or unas.</li>
+
+
+
+<li><strong>Cooking Areas:</strong> Preparation of foods in kitchen inside offices sometimes may lead to fire disasters if well addressed.</li>
+
+
+
+<li><strong>Heating Systems:</strong> Old and unattended heaters boilers.</li>
+
+
+
+<li><strong>Human Error:</strong> Carelessness like taking a smoke in prohibited places and handling equipment improperly.</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph"><strong>Advantages Of Undertaking A Fire Risk Assessment</strong></p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Cost Savings: </strong>Since fire disasters minimize business interruptions and repair bills, it is possible to decrease the number of fire-related occurrences.</li>
+
+
+
+<li><strong>Reputation Management:</strong> Implementing a fire-safe workplace increases your business’s standing with your employees and customers.</li>
+
+
+
+<li><strong>Peace of Mind:</strong> It is thus freeing to know that in case of fire, your workplace is ready to protect its employees and assets which then frees you up for business expansion.</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph"><strong>How NIFS Can Help</strong></p>
+
+
+
+<p class="wp-block-paragraph">Fire Risk Assessment and safety services at NIFS, the leading Institute in fire and safety industry offers expert consultancy and training. Our team of professionals provides:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Fire risk management services that are appropriate to your business establishments.</li>
+
+
+
+<li>Organization of fire safety training for employees and managers.</li>
+
+
+
+<li>Help with regard to the fire safety laws.</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph"><strong>How To Upgrade Fire Safety Allocate</strong></p>
+
+
+
+<ol class="wp-block-list">
+<li>Inspect and test fire equipment routinely.</li>
+
+
+
+<li>To promote safeness, one has to make sure employees understand what safety culture is all about.</li>
+
+
+
+<li>It is required to conduct the fire drills on and off frequently periodically.</li>
+
+
+
+<li>The list of fire safety should be updated and readily available.</li>
+
+
+
+<li>Collaborate with fire experts in order to always learn the recent evolution in this domain.</li>
+</ol>
+
+
+
+<p class="wp-block-paragraph"><strong>Conclusion</strong></p>
+
+
+
+<p class="wp-block-paragraph">Fire risk assessment is not about checking the legalities, it is a prudent way of safeguarding lives and properties. When practices are evaluated for possible threats, protective steps put in place and safety awareness increased, organizations can provide safeguards for everyone.</p>
+
+
+
+<p class="wp-block-paragraph">Do not wait for some disaster to happen so that you can be able to learn the importance of safety.&nbsp;</p>
+
+
+
+<p class="wp-block-paragraph">Take action today! Arrange professional fire risk assessment at your business from NIFS and protect your business from life-threatening mishaps.</p>
+<div class="my-8 p-6 bg-emerald-950/80 border border-emerald-500/30 rounded-2xl shadow-lg">
+  <div class="flex items-center gap-3 mb-2">
+    <span class="text-2xl">💬</span>
+    <h4 class="text-lg font-bold text-emerald-400">Have Questions About Admissions, Eligibility, or Fees?</h4>
+  </div>
+  <p class="text-emerald-200/80 text-sm mb-4">Chat directly with NIFS Official Career Advisors on WhatsApp for free counseling and course guidance.</p>
+  <a href="https://wa.me/918374340999" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-bold rounded-full transition-all shadow-lg shadow-emerald-900/50">
+    <span>Chat on WhatsApp (+91-8374-340-999)</span>
+  </a>
+</div>
+
+<div class="my-8 p-6 bg-slate-900 text-white rounded-2xl border border-slate-800 shadow-xl">
+  <h4 class="text-xl font-bold text-white mb-2">Ready to Start Your Career in Fire & Industrial Safety?</h4>
+  <p class="text-slate-300 text-sm mb-4">Explore NIFS government-recognized and NSDC-approved diploma programs with 100% placement assistance in top industrial safety sectors.</p>
+  <div class="flex flex-wrap gap-3">
+    <a href="/courses/diploma-in-fire-safety" class="px-4 py-2 bg-red-600 hover:bg-red-700 text-white text-xs font-bold rounded-full transition-all">Diploma in Fire & Safety →</a>
+    <a href="/courses/advanced-diploma-in-industrial-safety-adis" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold rounded-full transition-all">ADIS Course →</a>
+    <a href="/courses/diploma-in-health-safety-environment" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold rounded-full transition-all">Diploma in HSE →</a>
+    <a href="/centers" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold rounded-full transition-all">Find 70+ Centers →</a>
+  </div>
+</div>
+7:["$","div",null,{"className":"blog-prose mt-8 border-t border-slate-100 pt-8","dangerouslySetInnerHTML":{"__html":"$c"}}]
+8:["$","div",null,{"className":"mt-10 border-t border-slate-100 pt-8","children":[["$","h2",null,{"className":"flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-slate-500","children":[["$","$L3",null,{"iconNode":[["circle",{"cx":"12","cy":"12","r":"10","key":"1mglay"}],["path",{"d":"M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3","key":"1u773s"}],["path",{"d":"M12 17h.01","key":"p32p05"}]],"className":"lucide-circle-question-mark h-4 w-4 text-primary"}],"Frequently Asked Questions"]}],["$","div",null,{"className":"mt-4 space-y-3","children":[["$","div","0",{"className":"rounded-xl border border-slate-200 bg-slate-50/60 p-5","children":[["$","h3",null,{"className":"text-sm font-bold text-slate-900","children":"What are the eligibility requirements for Fire Risk Assessment for Businesses: Protecting Your Workplace and Employees at NIFS?"}],["$","p",null,{"className":"mt-2 text-sm leading-relaxed text-slate-600","children":"Eligibility ranges from 10th pass for certificate courses to 12th science or ITI/Diploma/Degree for advanced safety diplomas. Counselors verify certificates during admission."}]]}],["$","div","1",{"className":"rounded-xl border border-slate-200 bg-slate-50/60 p-5","children":[["$","h3",null,{"className":"text-sm font-bold text-slate-900","children":"Are NIFS Fire and Safety programs NSDC and university recognized?"}],["$","p",null,{"className":"mt-2 text-sm leading-relaxed text-slate-600","children":"Yes, NIFS courses are NSDC-approved and university-affiliated, recognized by PSU, private industrial employers, and overseas firms in Gulf countries."}]]}],["$","div","2",{"className":"rounded-xl border border-slate-200 bg-slate-50/60 p-5","children":[["$","h3",null,{"className":"text-sm font-bold text-slate-900","children":"Does NIFS provide placement assistance after course completion?"}],["$","p",null,{"className":"mt-2 text-sm leading-relaxed text-slate-600","children":"Yes, NIFS has a dedicated placement cell with 45,000+ alumni placed across top industrial firms including Adani, L&T, ITC, GMR, and Amazon."}]]}]]}]]}]
+9:["$","div",null,{"className":"mt-12 overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-slate-900 to-[#7A0F0C] p-6 text-white shadow-xl sm:p-8","children":["$","div",null,{"className":"flex flex-col gap-6 md:flex-row md:items-center md:justify-between","children":[["$","div",null,{"children":[["$","span",null,{"className":"text-xs font-bold uppercase tracking-wider text-primary bg-white/10 px-2.5 py-1 rounded","children":"NIFS Admissions Open"}],["$","h3",null,{"className":"mt-3 text-xl font-extrabold text-white sm:text-2xl","children":"Start Your Career in Industrial Safety Today"}],["$","p",null,{"className":"mt-2 text-xs text-slate-300 sm:text-sm max-w-xl","children":"NSDC-approved Diploma, Advanced Diploma, and Degree programs with 100% placement assistance at top companies like L&T, Adani, and Reliance."}]]}],["$","div",null,{"className":"flex flex-wrap items-center gap-3 shrink-0","children":[["$","$L2",null,{"href":"/admissions","className":"inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-xs font-bold uppercase tracking-wider text-white shadow-lg transition-transform hover:scale-105","children":"Apply Now →"}],["$","a",null,{"href":"https://wa.me/918374340999","target":"_blank","rel":"noopener noreferrer","className":"inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-4 py-3 text-xs font-bold uppercase tracking-wider text-white shadow-lg transition-transform hover:scale-105","children":[["$","$L3",null,{"iconNode":[["path",{"d":"M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z","key":"18887p"}]],"className":"lucide-message-square h-4 w-4"}],"WhatsApp"]}]]}]]}]}]
+a:["$","$Ld",null,{"children":["$","$e",null,{"name":"Next.MetadataOutlet","children":"$@f"}]}]
+f:null

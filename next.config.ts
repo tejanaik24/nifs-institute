@@ -54,6 +54,11 @@ const nextConfig: NextConfig = {
   // Isolate the cPanel release build from an interrupted local build.
   distDir: process.env.CPANEL_BUILD === "1" ? ".next-cpanel" : ".next",
   trailingSlash: true,
+  experimental: {
+    // Default 1MB caps out server actions carrying file uploads (poster
+    // flyers, resumes) well before their own type/size checks even run.
+    serverActions: { bodySizeLimit: "10mb" },
+  },
   images: {
     remotePatterns: [
       // New blog cover/OG images uploaded via the dashboard land here.

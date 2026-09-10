@@ -155,7 +155,7 @@ export function EnquiryForm() {
           <p className="text-xs text-muted-foreground">By requesting a callback, you agree that NIFS may contact you about this enquiry.</p>
           {status === "error" && (
             <div role="alert" className="rounded-lg border border-destructive/40 p-4 text-sm">
-              <p>We couldn’t confirm your request. Your details are still here. Please try again, use WhatsApp above, or <a className="underline" href="tel:+918374340999">call +91 8374 340 999</a>.</p>
+              <p>We couldn’t confirm your request. Your details are still here. Please try again, use WhatsApp above, or <a className="underline" href="tel:+918374340999" onClick={() => trackEnquiry("enquiry_phone_click")}>call +91 8374 340 999</a>.</p>
             </div>
           )}
 

@@ -226,6 +226,13 @@ export function SiteHeader() {
           </a>
 
           <Link
+            href="/placements#current-openings"
+            className="hidden lg:inline-flex px-3.5 py-1.5 2xl:px-5 2xl:py-2 rounded-full border border-nifs-red/40 text-nifs-red text-xs 2xl:text-sm font-bold uppercase tracking-wider hover:bg-nifs-red/10 transition-all duration-200"
+          >
+            Apply for Job
+          </Link>
+
+          <Link
             href="/admissions"
             className="hidden lg:inline-flex px-3.5 py-1.5 2xl:px-5 2xl:py-2 rounded-full bg-gradient-to-r from-nifs-red to-red-600 text-white text-xs 2xl:text-sm font-bold uppercase tracking-wider hover:scale-105 transition-all duration-200 shadow-lg shadow-nifs-red/30"
           >
@@ -364,6 +371,13 @@ export function SiteHeader() {
               </svg>
               <span>Chat on WhatsApp →</span>
             </a>
+            <Link
+              href="/placements#current-openings"
+              className="block w-full rounded-full border border-nifs-red/40 py-3.5 text-center text-sm font-bold uppercase tracking-wider text-nifs-red"
+              onClick={() => setMenuOpen(false)}
+            >
+              Apply for Job →
+            </Link>
             <Link
               href="/admissions"
               className="block w-full rounded-full bg-primary py-3.5 text-center text-sm font-bold uppercase tracking-wider text-white shadow-lg shadow-primary/30"

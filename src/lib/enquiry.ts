@@ -22,19 +22,26 @@ export async function submitEnquiry(values: EnquiryValues): Promise<void> {
       body: JSON.stringify(values),
     });
     if (!response.ok) throw new Error("Enquiry was not accepted");
+    const ack = (await response.json().catch(() => null)) as { ok?: unknown } | null;
+    if (!ack || ack.ok !== true) throw new Error("Enquiry was not accepted");
   } finally {
     clearTimeout(timeout);
   }
 }
 
-type EnquiryEvent = "enquiry_start" | "enquiry_attempt" | "enquiry_error" | "enquiry_accepted" | "enquiry_whatsapp_click";
+type EnquiryEvent = "enquiry_start" | "enquiry_attempt" | "enquiry_error" | "enquiry_accepted" | "enquiry_whatsapp_click" | "enquiry_phone_click";
 
 // Only fixed labels go to analytics. Never send names, numbers or free-text fields.
 export function trackEnquiry(event: EnquiryEvent, reason?: "validation" | "delivery") {
+  trackEvent(event, { form_id: "nifs_enquiry", ...(reason ? { error_type: reason } : {}) });
+}
+
+/** Pushes a GA4 event into the dataLayer. Fixed labels only — callers must
+ * never pass user-entered free text (names, numbers, resumes). */
+export function trackEvent(event: string, params: Record<string, unknown> = {}) {
   try {
     const analytics = window as Window & { dataLayer?: unknown[] };
     analytics.dataLayer = analytics.dataLayer || [];
-    const params = { form_id: "nifs_enquiry", ...(reason ? { error_type: reason } : {}) };
     // gtag consumes an arguments object; queue safely even before its lazy script loads.
     function enqueue(...args: unknown[]) {
       void args;
@@ -44,6 +51,6 @@ export function trackEnquiry(event: EnquiryEvent, reason?: "validation" | "deliv
     }
     enqueue("event", event, params);
   } catch {
-    // Analytics must never interrupt a callback request.
+    // Analytics must never interrupt the real action.
   }
 }

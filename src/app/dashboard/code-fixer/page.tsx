@@ -92,7 +92,7 @@ export default function CodeFixerPage() {
         <button
           type="submit"
           disabled={loading || !description.trim()}
-          className="flex items-center gap-2 rounded-lg bg-[var(--dash-accent)] px-4 py-2 text-sm font-medium text-[var(--dash-bg)] transition-opacity hover:opacity-90 disabled:opacity-40"
+          className="flex items-center gap-2 rounded-lg bg-[var(--dash-accent)] px-4 py-2 text-sm font-medium text-white transition-opacity hover:opacity-90 disabled:opacity-40"
         >
           {loading && !proposal ? <Loader2 size={14} className="animate-spin" /> : <Hammer size={14} />}
           Find a fix
@@ -100,20 +100,20 @@ export default function CodeFixerPage() {
       </form>
 
       {error && (
-        <div className="rounded-xl border border-red-500/30 bg-red-500/5 p-4 text-sm text-red-400">{error}</div>
+        <div className="rounded-xl border border-red-500/30 bg-red-500/5 p-4 text-sm text-red-600">{error}</div>
       )}
 
       {proposal && (
         <div className="space-y-3 rounded-xl border border-[var(--dash-border)] bg-[var(--dash-surface)] p-5">
           <p className="text-sm text-[var(--dash-text)]">{proposal.summary}</p>
-          <pre className="max-h-96 overflow-auto rounded-lg bg-black/30 p-4 font-mono text-xs text-[var(--dash-text-muted)]">
+          <pre className="max-h-96 overflow-auto rounded-lg bg-[#26211b] p-4 font-mono text-xs text-[#c9c2b6]">
             {proposal.diff || "(no file changes detected)"}
           </pre>
           <div className="flex gap-2">
             <button
               onClick={handleApply}
               disabled={loading}
-              className="flex items-center gap-2 rounded-lg bg-[var(--dash-accent)] px-4 py-2 text-sm font-medium text-[var(--dash-bg)] hover:opacity-90 disabled:opacity-40"
+              className="flex items-center gap-2 rounded-lg bg-[var(--dash-accent)] px-4 py-2 text-sm font-medium text-white hover:opacity-90 disabled:opacity-40"
             >
               <Check size={14} /> Apply
             </button>

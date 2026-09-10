@@ -18,15 +18,22 @@ describe("enquiry validation", () => {
 });
 
 describe("delivery acknowledgement", () => {
-  it.each([true, "true"])("accepts only explicit success %s", async (success) => {
-    const fetchMock = vi.fn().mockResolvedValue(new Response(JSON.stringify({ success }), { status: 200 }));
+  it.each([true])("accepts only explicit boolean acknowledgement %s", async (responseData) => {
+    const fetchMock = vi.fn().mockResolvedValue(new Response(JSON.stringify({ ok: responseData }), { status: 200 }));
     vi.stubGlobal("fetch", fetchMock);
     await expect(submitEnquiry(values)).resolves.toBeUndefined();
     expect(JSON.parse(fetchMock.mock.calls[0][1].body)).toMatchObject(values);
   });
-  it.each([false, "false", undefined, "yes"])("rejects HTTP 200 without valid acknowledgement: %s", async (success) => {
-    vi.stubGlobal("fetch", vi.fn().mockResolvedValue(new Response(JSON.stringify({ success }), { status: 200 })));
+  it.each(["true", false, "false", undefined, "yes"])("rejects HTTP 200 without a true boolean acknowledgement: %s", async (responseData) => {
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue(new Response(JSON.stringify({ ok: responseData }), { status: 200 })));
     await expect(submitEnquiry(values)).rejects.toThrow();
+  });
+  it("rejects HTTP 200 with a malformed or missing body", async () => {
+    const mock = vi.fn()
+      .mockResolvedValueOnce(new Response("<html>error</html>"))
+      .mockResolvedValueOnce(new Response("unavailable", { status: 200 }));
+    vi.stubGlobal("fetch", mock);
+    for (let i = 0; i < 2; i++) await expect(submitEnquiry(values)).rejects.toThrow();
   });
   it("rejects server errors, invalid JSON and network failures", async () => {
     const mock = vi.fn()
@@ -43,7 +50,7 @@ describe("delivery acknowledgement", () => {
     const request = submitEnquiry(values).then(() => { accepted = true; });
     await Promise.resolve();
     expect(accepted).toBe(false);
-    finish(new Response('{"success":true}'));
+    finish(new Response('{"ok":true}'));
     await request;
     expect(accepted).toBe(true);
   });

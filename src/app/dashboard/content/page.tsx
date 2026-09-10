@@ -16,7 +16,7 @@ export default async function ContentPage() {
         <h1 className="text-lg font-semibold">Content</h1>
         <Link
           href="/dashboard/content/new"
-          className="rounded-md bg-[var(--dash-accent)] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#8a5406]"
+          className="rounded-md bg-[var(--dash-accent)] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[var(--dash-accent-hover)]"
         >
           New post
         </Link>
