@@ -232,7 +232,7 @@ export default async function DashboardIndexPage() {
         >
           <div className="flex items-center justify-between">
             <span className="text-xs font-medium text-[var(--dash-text-muted)]">
-              Prospective Students (28d)
+              Course + Job Page Visitors (28d)
             </span>
             <div className="rounded-lg bg-emerald-500/10 p-2 text-emerald-600 dark:text-emerald-400 transition-transform group-hover:scale-110">
               <GraduationCap size={16} />
@@ -246,7 +246,7 @@ export default async function DashboardIndexPage() {
           <div className="mt-1 flex items-center justify-between text-[11px] text-[var(--dash-text-muted)]">
             <span>
               {coursePct !== null
-                ? `${coursePct}% Course Seekers`
+                ? `${coursePct}% Course Seekers · may include overlap`
                 : "GA4 data unavailable"}
             </span>
             <span className="flex items-center gap-0.5 font-semibold text-[var(--dash-accent)] group-hover:underline">

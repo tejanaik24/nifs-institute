@@ -99,6 +99,9 @@ export async function saveJobAction(
   }));
 
   if (publish) {
+    if (session.role !== "admin") {
+      return { error: "Unauthorized: Only administrators can publish job postings." };
+    }
     if (cleanPositions.length === 0) {
       return { error: "At least one position is required to publish a job posting." };
     }
@@ -164,6 +167,9 @@ export async function closeJobAction(id: number) {
   if (!session) {
     redirect("/login");
   }
+  if (session.role !== "admin") {
+    throw new Error("Unauthorized: Only administrators can close job postings.");
+  }
   await closeJob(id);
   revalidatePath("/placements");
   revalidatePath("/dashboard/jobs");
@@ -174,6 +180,9 @@ export async function publishJobByIdAction(id: number) {
   const session = await getSession();
   if (!session) {
     redirect("/login");
+  }
+  if (session.role !== "admin") {
+    throw new Error("Unauthorized: Only administrators can publish job postings.");
   }
   await publishJob(id);
   revalidatePath("/placements");

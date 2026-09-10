@@ -7,6 +7,7 @@ import type {
   IntentBreakdown,
   TimeSeriesPoint,
 } from "@/lib/analytics/ga4";
+import { classifyFreshness, unavailableFreshness } from "@/lib/analytics/freshness";
 import {
   Activity,
   Bot,
@@ -51,13 +52,57 @@ type DimensionRow = { label: string; users: number };
 type BotHit = { botName: string; count: number };
 type HealthCheck = { label: string; pass: boolean; detail: string };
 
+/** Small truth-status label under a KPI — reuses the freshness classifier
+ * that already existed in the codebase but was never wired to any screen. */
+function FreshnessLabel({
+  ok,
+  error,
+  fetchedAt,
+  source,
+}: {
+  ok: boolean;
+  error?: string;
+  fetchedAt: string;
+  source: string;
+}) {
+  const freshness = ok
+    ? classifyFreshness("delayed", new Date(fetchedAt), {
+        source,
+        metricPeriod: "28d",
+      })
+    : unavailableFreshness(source, "28d", error ?? "Unavailable");
+
+  const text =
+    freshness.state === "unavailable"
+      ? "Unavailable"
+      : freshness.state === "delayed"
+        ? `Delayed data — updated ${new Date(fetchedAt).toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit" })}`
+        : freshness.state === "live"
+          ? "Live now"
+          : `Updated ${new Date(fetchedAt).toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit" })}`;
+
+  return (
+    <span
+      className={`text-[10px] ${freshness.state === "unavailable" ? "text-red-500 dark:text-red-400" : "text-[var(--dash-text-muted)]"}`}
+    >
+      {text}
+    </span>
+  );
+}
+
 interface AnalyticsViewProps {
+  fetchedAt: string;
   summary: {
     ok: boolean;
     data?: { visitors: number; topPages: TopPage[] };
     error?: string;
   };
   queries: { ok: boolean; data?: Query[]; error?: string };
+  siteTotals: {
+    ok: boolean;
+    data?: { totalClicks: number; totalImpressions: number; avgPosition: number };
+    error?: string;
+  };
   keywordGaps: { ok: boolean; data?: KeywordGap[]; error?: string };
   bing: {
     ok: boolean;
@@ -82,8 +127,10 @@ interface AnalyticsViewProps {
 type TabKey = "overview" | "intent" | "seo" | "audience" | "ai-health";
 
 export function AnalyticsDashboardView({
+  fetchedAt,
   summary,
   queries,
+  siteTotals,
   keywordGaps,
   bing,
   botHits,
@@ -105,12 +152,11 @@ export function AnalyticsDashboardView({
   const [targetQuery, setTargetQuery] = useState("");
   const [showOpportunityOnly, setShowOpportunityOnly] = useState(false);
 
-  const totalGoogleClicks = queries.ok
-    ? (queries.data?.reduce((acc, q) => acc + q.clicks, 0) ?? 0)
-    : 0;
-  const totalGoogleImp = queries.ok
-    ? (queries.data?.reduce((acc, q) => acc + q.impressions, 0) ?? 0)
-    : 0;
+  // Real site-wide totals (not a sum of only the top keyword rows, which
+  // understates the true number whenever the site ranks for more queries
+  // than the top-N pull covers).
+  const totalGoogleClicks = siteTotals.ok ? (siteTotals.data?.totalClicks ?? 0) : 0;
+  const totalGoogleImp = siteTotals.ok ? (siteTotals.data?.totalImpressions ?? 0) : 0;
   const totalBotHits = botHits.ok
     ? (botHits.data?.reduce((acc, b) => acc + b.count, 0) ?? 0)
     : 0;
@@ -216,8 +262,8 @@ export function AnalyticsDashboardView({
             courseIntentPercent: coursePct ?? undefined,
             jobIntentPercent: jobPct ?? undefined,
             topCourse: topCourseFromData?.name,
-            totalSearchClicks:
-              totalGoogleClicks + (bing.ok ? (bing.data?.totalClicks ?? 0) : 0),
+            googleSearchClicks: siteTotals.ok ? totalGoogleClicks : undefined,
+            bingSearchClicks: bing.ok ? (bing.data?.totalClicks ?? 0) : undefined,
             totalBotHits: totalBotHits || undefined,
             topCity:
               centerCities?.ok && centerCities.data?.length
@@ -275,7 +321,7 @@ export function AnalyticsDashboardView({
       </div>
 
       {/* Top KPI Bento Grid */}
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
         {/* Visitors */}
         <div className="rounded-xl border border-[var(--dash-border)] bg-[var(--dash-card)] p-5 shadow-xs transition-all hover:border-[var(--dash-accent)]/40">
           <div className="flex items-center justify-between">
@@ -292,6 +338,9 @@ export function AnalyticsDashboardView({
           <p className="mt-1 text-[11px] text-[var(--dash-text-muted)]">
             Verified GA4 daily users
           </p>
+          <div className="mt-1">
+            <FreshnessLabel ok={summary.ok} error={summary.error} fetchedAt={fetchedAt} source="GA4" />
+          </div>
         </div>
 
         {/* Realtime Live */}
@@ -312,25 +361,46 @@ export function AnalyticsDashboardView({
           </p>
         </div>
 
-        {/* Google & Bing Search Clicks */}
+        {/* Google Search Clicks */}
         <div className="rounded-xl border border-[var(--dash-border)] bg-[var(--dash-card)] p-5 shadow-xs transition-all hover:border-[var(--dash-accent)]/40">
           <div className="flex items-center justify-between">
             <span className="text-xs font-medium text-[var(--dash-text-muted)]">
-              Search Clicks (28d)
+              Google Search Clicks (28d)
             </span>
             <div className="rounded-lg bg-blue-500/10 p-2 text-blue-600 dark:text-blue-400">
               <Search size={16} />
             </div>
           </div>
           <div className="mt-3 font-mono text-2xl font-bold text-[var(--dash-text)]">
-            {(
-              totalGoogleClicks + (bing.ok ? (bing.data?.totalClicks ?? 0) : 0)
-            ).toLocaleString()}
+            {siteTotals.ok ? totalGoogleClicks.toLocaleString() : "Unavailable"}
           </div>
           <p className="mt-1 text-[11px] text-[var(--dash-text-muted)]">
-            Google: {totalGoogleClicks} • Bing:{" "}
-            {bing.ok ? bing.data?.totalClicks : 0}
+            Site-wide total, not just top keywords
           </p>
+          <div className="mt-1">
+            <FreshnessLabel ok={siteTotals.ok} error={siteTotals.error} fetchedAt={fetchedAt} source="Search Console" />
+          </div>
+        </div>
+
+        {/* Bing Search Clicks */}
+        <div className="rounded-xl border border-[var(--dash-border)] bg-[var(--dash-card)] p-5 shadow-xs transition-all hover:border-[var(--dash-accent)]/40">
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-medium text-[var(--dash-text-muted)]">
+              Bing Search Clicks (28d)
+            </span>
+            <div className="rounded-lg bg-blue-500/10 p-2 text-blue-600 dark:text-blue-400">
+              <Search size={16} />
+            </div>
+          </div>
+          <div className="mt-3 font-mono text-2xl font-bold text-[var(--dash-text)]">
+            {bing.ok ? (bing.data?.totalClicks ?? 0).toLocaleString() : "Unavailable"}
+          </div>
+          <p className="mt-1 text-[11px] text-[var(--dash-text-muted)]">
+            {bing.ok ? "Bing Webmaster Tools" : bing.error ?? "Bing data could not be fetched"}
+          </p>
+          <div className="mt-1">
+            <FreshnessLabel ok={bing.ok} error={bing.error} fetchedAt={fetchedAt} source="Bing" />
+          </div>
         </div>
 
         {/* AI Crawler Visits */}
@@ -439,7 +509,7 @@ export function AnalyticsDashboardView({
                       <th className="pb-3 font-medium">Page URL</th>
                       <th className="pb-3 text-right font-medium">Views</th>
                       <th className="pb-3 text-right font-medium">
-                        Avg Reading Time
+                        Avg Session Duration
                       </th>
                     </tr>
                   </thead>

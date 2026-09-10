@@ -9,7 +9,8 @@ interface ReportExportButtonProps {
     courseIntentPercent?: number;
     jobIntentPercent?: number;
     topCourse?: string;
-    totalSearchClicks?: number;
+    googleSearchClicks?: number;
+    bingSearchClicks?: number;
     totalBotHits?: number;
     topCity?: string;
   };
@@ -32,7 +33,7 @@ export function ReportExportButton({ stats }: ReportExportButtonProps) {
       "*📊 NIFS INDIA — DASHBOARD SNAPSHOT*",
       `📅 *Date:* ${today}`,
       "━━━━━━━━━━━━━━━━━━━━",
-      `👥 *Active Visitors (28 Days):* ${fmt(stats.activeVisitors28d)}`,
+      `👥 *Course + Job Page Visitors (28 Days, may include overlap):* ${fmt(stats.activeVisitors28d)}`,
     ];
 
     if (
@@ -47,7 +48,8 @@ export function ReportExportButton({ stats }: ReportExportButtonProps) {
     if (stats.topCourse) lines.push(`🔥 *Top Course:* ${stats.topCourse}`);
     if (stats.topCity) lines.push(`🏛️ *Top City:* ${stats.topCity}`);
     lines.push(
-      `🔍 *Google Search Clicks:* ${fmt(stats.totalSearchClicks)}`,
+      `🔍 *Google Search Clicks:* ${fmt(stats.googleSearchClicks)}`,
+      `🔍 *Bing Search Clicks:* ${fmt(stats.bingSearchClicks)}`,
       `🤖 *AI Bot Visits (28d):* ${fmt(stats.totalBotHits)}`,
       "━━━━━━━━━━━━━━━━━━━━",
       "_Generated automatically from the NIFS dashboard._",

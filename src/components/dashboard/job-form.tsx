@@ -20,9 +20,11 @@ const LABEL = "mb-1 block text-xs font-medium text-[var(--dash-text-muted)]";
 export function JobForm({
   initialJob,
   companyLogos = [],
+  isAdmin = false,
 }: {
   initialJob?: JobWithPositions | null;
   companyLogos?: CompanyLogo[];
+  isAdmin?: boolean;
 }) {
   const router = useRouter();
   const isEditing = Boolean(initialJob);
@@ -454,17 +456,23 @@ export function JobForm({
             {submitting ? "Saving..." : isEditing ? "Save as Draft" : "Save Draft"}
           </button>
 
-          <button
-            type="button"
-            disabled={submitting}
-            onClick={() => handleSubmit(true)}
-            className="rounded-md bg-[var(--dash-accent)] px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-[var(--dash-accent-hover)] disabled:opacity-50"
-          >
-            {submitting ? "Publishing..." : isEditing ? "Publish Changes" : "Publish Posting"}
-          </button>
+          {isAdmin ? (
+            <button
+              type="button"
+              disabled={submitting}
+              onClick={() => handleSubmit(true)}
+              className="rounded-md bg-[var(--dash-accent)] px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-[var(--dash-accent-hover)] disabled:opacity-50"
+            >
+              {submitting ? "Publishing..." : isEditing ? "Publish Changes" : "Publish Posting"}
+            </button>
+          ) : (
+            <span className="rounded-md border border-dashed border-[var(--dash-border)] px-4 py-2 text-xs text-[var(--dash-text-muted)]">
+              Only an admin can publish — save as draft for an admin to review.
+            </span>
+          )}
         </div>
 
-        {isEditing && initialJob?.status !== "closed" && (
+        {isEditing && initialJob?.status !== "closed" && isAdmin && (
           <form action={closeJobAction.bind(null, initialJob!.id)}>
             <button
               type="submit"

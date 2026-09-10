@@ -1,8 +1,9 @@
 import { JobForm } from "@/components/dashboard/job-form";
 import { getAllCompanyLogos } from "@/lib/db/company-logos";
+import { getSession } from "@/lib/auth/session";
 
 export default async function NewJobPage() {
-  const logos = await getAllCompanyLogos();
+  const [logos, session] = await Promise.all([getAllCompanyLogos(), getSession()]);
 
   return (
     <div>
@@ -13,7 +14,7 @@ export default async function NewJobPage() {
         </p>
       </div>
 
-      <JobForm companyLogos={logos} />
+      <JobForm companyLogos={logos} isAdmin={session?.role === "admin"} />
     </div>
   );
 }

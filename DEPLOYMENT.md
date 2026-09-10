@@ -9,7 +9,7 @@ This document provides exact server credentials and automated scripts for deploy
 - **Domain / Site:** `https://www.nifsindia.net`
 - **FTP Server / Host:** `ftp://nifsindia.net`
 - **FTP Username:** `nifsindi`
-- **FTP Password:** `0xyg3N@751023`
+- **FTP Password:** `[REDACTED - see password manager, stale pre-Vercel cPanel/FTP flow]`
 - **Remote Root Path:** `/home7/nifsindi/public_html` (FTP root starts directly in `public_html`)
 
 ---
@@ -33,7 +33,7 @@ This outputs compiled static HTML and JS/CSS assets to `C:\claude code\nifs-indi
 Run the following script in PowerShell to deploy compiled `_next` chunks and `blog` pages directly:
 
 ```powershell
-$pw = '0xyg3N@751023'
+$pw = '[REDACTED - see password manager, stale pre-Vercel cPanel/FTP flow]'
 $user = 'nifsindi'
 $localBase = 'C:\claude code\nifs-india\out'
 $ftpBase = 'ftp://nifsindia.net/public_html'

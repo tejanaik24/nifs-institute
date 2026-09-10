@@ -14,7 +14,7 @@ import {
   getRegions,
   getTrafficSources,
 } from "@/lib/analytics/ga4";
-import { getKeywordGaps, getTopQueries } from "@/lib/analytics/gsc";
+import { getKeywordGaps, getSiteTotals, getTopQueries } from "@/lib/analytics/gsc";
 import { getAeoGeoHealth } from "@/lib/analytics/health";
 import { NIFS_TARGET_KEYWORDS } from "@/lib/analytics/target-keywords";
 import { getBotHitSummary } from "@/lib/db/bot-hits";
@@ -35,6 +35,7 @@ export default async function AnalyticsPage() {
   const [
     summary,
     queries,
+    siteTotals,
     keywordGaps,
     bing,
     botHits,
@@ -53,6 +54,7 @@ export default async function AnalyticsPage() {
   ] = await Promise.all([
     safe(getDailySummary()),
     safe(getTopQueries()),
+    safe(getSiteTotals()),
     safe(getKeywordGaps(NIFS_TARGET_KEYWORDS)),
     safe(getBingTrafficSummary()),
     safe(getBotHitSummary()),
@@ -69,11 +71,14 @@ export default async function AnalyticsPage() {
     safe(getCourseDemandMatrix()),
     safe(getHourlyTraffic()),
   ]);
+  const fetchedAt = new Date().toISOString();
 
   return (
     <AnalyticsDashboardView
+      fetchedAt={fetchedAt}
       summary={summary}
       queries={queries}
+      siteTotals={siteTotals}
       keywordGaps={keywordGaps}
       bing={bing}
       botHits={botHits}

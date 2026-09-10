@@ -2,13 +2,14 @@ import { notFound } from "next/navigation";
 import { getJobById } from "@/lib/db/jobs";
 import { JobForm } from "@/components/dashboard/job-form";
 import { getAllCompanyLogos } from "@/lib/db/company-logos";
+import { getSession } from "@/lib/auth/session";
 
 export default async function EditJobPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const job = await getJobById(Number(id));
   if (!job) notFound();
 
-  const logos = await getAllCompanyLogos();
+  const [logos, session] = await Promise.all([getAllCompanyLogos(), getSession()]);
 
   return (
     <div>
@@ -21,7 +22,7 @@ export default async function EditJobPage({ params }: { params: Promise<{ id: st
         </p>
       </div>
 
-      <JobForm initialJob={job} companyLogos={logos} />
+      <JobForm initialJob={job} companyLogos={logos} isAdmin={session?.role === "admin"} />
     </div>
   );
 }

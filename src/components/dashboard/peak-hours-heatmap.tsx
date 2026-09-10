@@ -11,14 +11,15 @@ export function PeakHoursHeatmap({ hours }: PeakHoursHeatmapProps) {
   const maxViews = Math.max(...hours.map((h) => h.views), 1);
   const totalDayViews = hours.reduce((acc, h) => acc + h.views, 0);
 
-  // Calculate views in the prime window (11:00 - 17:00)
-  const primeWindowViews = hours
-    .filter((h) => h.isPeakWindow)
-    .reduce((acc, h) => acc + h.views, 0);
-  const primePercent =
-    totalDayViews > 0
-      ? Math.round((primeWindowViews / totalDayViews) * 100)
-      : 0;
+  // Busiest hours = actual top 3 traffic hours from the data (isPeakWindow is
+  // computed from real numbers, not a fixed assumption). This describes
+  // website traffic only — it is not calling advice, since there's no lead
+  // outcome data yet to say which hours convert best.
+  const peakHours = hours.filter((h) => h.isPeakWindow).sort((a, b) => a.hour - b.hour);
+  const peakWindowViews = peakHours.reduce((acc, h) => acc + h.views, 0);
+  const peakPercent =
+    totalDayViews > 0 ? Math.round((peakWindowViews / totalDayViews) * 100) : 0;
+  const peakLabel = peakHours.map((h) => h.label).join(", ");
 
   return (
     <div className="rounded-xl border border-[var(--dash-border)] bg-[var(--dash-card)] p-5 shadow-xs">
@@ -26,22 +27,22 @@ export function PeakHoursHeatmap({ hours }: PeakHoursHeatmapProps) {
         <div>
           <div className="flex items-center gap-2">
             <h3 className="font-semibold text-[var(--dash-text)]">
-              Peak Student Inflow & Counselor Golden Hours
+              Website Traffic by Hour
             </h3>
             <span className="rounded-full bg-amber-500/10 px-2 py-0.5 text-xs font-semibold text-amber-600 dark:text-amber-400">
               Live Hourly Traffic
             </span>
           </div>
           <p className="text-xs text-[var(--dash-text-muted)]">
-            Hourly distribution of prospective student visits & admission
-            inquiries across 24 hours.
+            Hourly distribution of site visits over the last 28 days. Traffic
+            pattern only — not calling advice.
           </p>
         </div>
 
         <div className="flex items-center gap-2 rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-3 py-1.5 text-xs font-semibold text-emerald-600 dark:text-emerald-400">
           <PhoneCall size={13} />
           <span>
-            Prime Calling Window: 11:00 AM – 5:30 PM ({primePercent}% traffic)
+            Busiest hours: {peakLabel || "—"} ({peakPercent}% of traffic)
           </span>
         </div>
       </div>
@@ -97,13 +98,13 @@ export function PeakHoursHeatmap({ hours }: PeakHoursHeatmapProps) {
             <div className="flex items-center gap-1.5">
               <span className="h-3 w-3 rounded-xs bg-amber-500" />
               <span className="text-[var(--dash-text-muted)]">
-                Prime Student Inquiry Window (11 AM – 5 PM)
+                Top 3 Busiest Hours ({peakLabel || "—"})
               </span>
             </div>
             <div className="flex items-center gap-1.5">
               <span className="h-3 w-3 rounded-xs bg-purple-500" />
               <span className="text-[var(--dash-text-muted)]">
-                Working Professional Evening Research (8 PM – 10 PM)
+                Evening Traffic (8 PM – 10 PM)
               </span>
             </div>
           </div>
@@ -111,8 +112,7 @@ export function PeakHoursHeatmap({ hours }: PeakHoursHeatmapProps) {
           <div className="flex items-center gap-1 text-[11px] text-[var(--dash-text-muted)]">
             <Zap size={12} className="text-amber-500" />
             <span>
-              Highest conversion: Call callbacks within 15 mins during prime
-              window.
+              Not yet linked to call outcomes — traffic pattern only.
             </span>
           </div>
         </div>

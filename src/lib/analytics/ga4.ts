@@ -143,6 +143,33 @@ export type IntentBreakdown = {
   topJobPages: { path: string; views: number; users: number }[];
 };
 
+const COURSE_PATH_PREFIXES = ["/course", "/admission", "/centers"];
+const JOB_PATH_MATCHERS = [
+  { fieldName: "pagePath", stringFilter: { matchType: "BEGINS_WITH" as const, value: "/placement" } },
+  { fieldName: "pagePath", stringFilter: { matchType: "BEGINS_WITH" as const, value: "/jobs" } },
+  { fieldName: "pagePath", stringFilter: { matchType: "CONTAINS" as const, value: "hiring" } },
+  { fieldName: "pagePath", stringFilter: { matchType: "CONTAINS" as const, value: "career" } },
+];
+
+/** True distinct-user count for a group of pages, via a single GA4 query
+ * with an OR filter across all matching paths — GA4's `activeUsers` is not
+ * additive across per-page dimension rows (a user who viewed 2 pages in the
+ * group would be double-counted if summed row by row). */
+async function getGroupActiveUsers(
+  propertyId: string,
+  expressions: { fieldName: string; stringFilter: { matchType: "BEGINS_WITH" | "CONTAINS"; value: string } }[],
+): Promise<number> {
+  const [response] = await runReportSafe({
+    property: propertyId,
+    dateRanges: [{ startDate: "28daysAgo", endDate: "yesterday" }],
+    metrics: [{ name: "activeUsers" }],
+    dimensionFilter: {
+      orGroup: { expressions: expressions.map((filter) => ({ filter })) },
+    },
+  });
+  return Number(response.rows?.[0]?.metricValues?.[0]?.value ?? 0);
+}
+
 export async function getIntentBreakdownRaw(): Promise<IntentBreakdown> {
   const propertyId = process.env.GA4_PROPERTY_ID!;
   const [response] = await runReportSafe({
@@ -155,9 +182,7 @@ export async function getIntentBreakdownRaw(): Promise<IntentBreakdown> {
   });
 
   let courseViews = 0;
-  let courseUsers = 0;
   let jobViews = 0;
-  let jobUsers = 0;
   let generalViews = 0;
   let generalUsers = 0;
 
@@ -169,13 +194,8 @@ export async function getIntentBreakdownRaw(): Promise<IntentBreakdown> {
     const views = Number(row.metricValues?.[0]?.value ?? 0);
     const users = Number(row.metricValues?.[1]?.value ?? 0);
 
-    if (
-      path.startsWith("/course") ||
-      path.startsWith("/admission") ||
-      path.startsWith("/centers")
-    ) {
+    if (COURSE_PATH_PREFIXES.some((prefix) => path.startsWith(prefix))) {
       courseViews += views;
-      courseUsers += users;
       if (topCoursePages.length < 5)
         topCoursePages.push({ path, views, users });
     } else if (
@@ -185,13 +205,25 @@ export async function getIntentBreakdownRaw(): Promise<IntentBreakdown> {
       path.includes("career")
     ) {
       jobViews += views;
-      jobUsers += users;
       if (topJobPages.length < 5) topJobPages.push({ path, views, users });
     } else {
+      // Views are additive (each pageview is independent); activeUsers is
+      // not, so "generalUsers" here is per-page, kept only for that display.
       generalViews += views;
       generalUsers += users;
     }
   }
+
+  const [courseUsers, jobUsers] = await Promise.all([
+    getGroupActiveUsers(
+      propertyId,
+      COURSE_PATH_PREFIXES.map((value) => ({
+        fieldName: "pagePath",
+        stringFilter: { matchType: "BEGINS_WITH" as const, value },
+      })),
+    ),
+    getGroupActiveUsers(propertyId, JOB_PATH_MATCHERS),
+  ]);
 
   return {
     courseViews,
@@ -488,21 +520,28 @@ export async function getHourlyTrafficRaw(): Promise<HourlyTrafficMetric[]> {
     }
   }
 
+  // "Peak" = the 3 hours with the most measured traffic in the actual data,
+  // not a fixed assumption — this describes website traffic only, and says
+  // nothing about when calls convert best (no lead-outcome data backs that).
+  const topHours = [...hourMap.entries()]
+    .sort((a, b) => b[1].users - a[1].users)
+    .slice(0, 3)
+    .map(([h]) => h);
+  const peakHourSet = new Set(topHours);
+
   const result: HourlyTrafficMetric[] = [];
   for (let h = 0; h < 24; h++) {
     const data = hourMap.get(h) ?? { users: 0, views: 0 };
     const period = h < 12 ? "AM" : "PM";
     const displayHour = h === 0 ? 12 : h > 12 ? h - 12 : h;
     const label = `${displayHour} ${period}`;
-    // Prime counseling call window: 11:00 AM - 5:59 PM (11 to 17)
-    const isPeakWindow = h >= 11 && h <= 17;
 
     result.push({
       hour: h,
       label,
       users: data.users,
       views: data.views,
-      isPeakWindow,
+      isPeakWindow: peakHourSet.has(h),
     });
   }
 

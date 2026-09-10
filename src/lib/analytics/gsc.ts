@@ -38,6 +38,42 @@ export async function getTopQueriesRaw(rowLimit = 25) {
 
 export const getTopQueries = withCache(getTopQueriesRaw, FIVE_MINUTES);
 
+/** Real site-wide totals — no `query` dimension, so this is the actual total
+ * across every keyword, not a sum of only the top N rows (which understates
+ * the true number whenever the site ranks for more than `rowLimit` queries). */
+export async function getSiteTotalsRaw() {
+  const auth = new google.auth.GoogleAuth({
+    scopes: ["https://www.googleapis.com/auth/webmasters.readonly"],
+    ...getGoogleCredentials(),
+  });
+  const searchconsole = google.searchconsole({ version: "v1", auth });
+
+  const end = new Date();
+  const start = new Date();
+  start.setDate(start.getDate() - 28);
+
+  const response = await withTimeout(
+    searchconsole.searchanalytics.query({
+      siteUrl: process.env.GSC_SITE_URL!,
+      requestBody: {
+        startDate: start.toISOString().slice(0, 10),
+        endDate: end.toISOString().slice(0, 10),
+        dimensions: [],
+      },
+    }),
+    GSC_TIMEOUT_MS,
+  );
+
+  const row = response.data.rows?.[0];
+  return {
+    totalClicks: row?.clicks ?? 0,
+    totalImpressions: row?.impressions ?? 0,
+    avgPosition: row?.position ?? 0,
+  };
+}
+
+export const getSiteTotals = withCache(getSiteTotalsRaw, FIVE_MINUTES);
+
 /** Cross-checks a list of target keywords (from NIFS-CHEAT-SHEET.md's active
  * keyword table) against real GSC data — flags any with zero impressions as
  * genuinely not-ranking. GSC never exposes a "not ranking" list directly; this
