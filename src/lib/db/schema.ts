@@ -45,6 +45,18 @@ export const botHits = pgTable("bot_hits", {
   createdAt: timestamp("created_at").notNull().defaultNow(),
 });
 
+// Callback requests from the admissions form. formsubmit.co (the previous
+// delivery path) silently rejects every submission until someone clicks an
+// activation link buried in an inbox — storing leads here instead means a
+// broken third-party mail service can never eat a real enquiry again.
+export const enquiries = pgTable("enquiries", {
+  id: serial("id").primaryKey(),
+  name: text("name").notNull(),
+  phone: varchar("phone", { length: 15 }).notNull(),
+  course: text("course").notNull().default(""),
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+});
+
 // Activity log for the AI agent — not a confirmation gate (the agent runs
 // autonomously), just an after-the-fact record so Teja can see what it did.
 export const agentActions = pgTable("agent_actions", {

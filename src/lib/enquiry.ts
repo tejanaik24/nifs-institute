@@ -15,23 +15,13 @@ export async function submitEnquiry(values: EnquiryValues): Promise<void> {
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 15000);
   try {
-    const response = await fetch("https://formsubmit.co/ajax/headoffice@nifsindia.com", {
+    const response = await fetch("/api/enquiry", {
       method: "POST",
-      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      headers: { "Content-Type": "application/json" },
       signal: controller.signal,
-      body: JSON.stringify({
-        name: values.name,
-        phone: values.phone,
-        course: values.course || "General Enquiry",
-        _subject: "NIFS admission callback request",
-      }),
+      body: JSON.stringify(values),
     });
-    if (!response.ok) throw new Error("Enquiry service unavailable");
-    const result: unknown = await response.json();
-    if (!result || typeof result !== "object" || !("success" in result) ||
-      (result.success !== true && result.success !== "true")) {
-      throw new Error("Enquiry was not accepted");
-    }
+    if (!response.ok) throw new Error("Enquiry was not accepted");
   } finally {
     clearTimeout(timeout);
   }
@@ -48,6 +38,8 @@ export function trackEnquiry(event: EnquiryEvent, reason?: "validation" | "deliv
     // gtag consumes an arguments object; queue safely even before its lazy script loads.
     function enqueue(...args: unknown[]) {
       void args;
+      // gtag requires this array-like command format, not a normal array.
+      // eslint-disable-next-line prefer-rest-params
       analytics.dataLayer!.push(arguments);
     }
     enqueue("event", event, params);

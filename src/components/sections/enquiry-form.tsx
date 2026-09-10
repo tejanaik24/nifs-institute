@@ -92,7 +92,7 @@ export function EnquiryForm() {
       ) : (
         <form id={`${id}-enquiry`} noValidate aria-busy={status === "submitting"}
           onChange={() => { if (!started.current) { started.current = true; trackEnquiry("enquiry_start"); } }}
-          onSubmit={handleSubmit(onSubmit, () => trackEnquiry("enquiry_error", "validation"))} className="space-y-4 text-left">
+          onSubmit={(event) => { void handleSubmit(onSubmit, () => trackEnquiry("enquiry_error", "validation"))(event); }} className="space-y-4 text-left">
           <p className="text-sm text-muted-foreground">Only your name and mobile number are required. No WhatsApp account needed.</p>
           <fieldset disabled={status === "submitting"} className="space-y-4">
           <div>
