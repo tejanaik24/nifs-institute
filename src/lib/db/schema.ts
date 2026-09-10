@@ -1,4 +1,3 @@
-import { sql } from "drizzle-orm";
 import {
   integer,
   jsonb,
@@ -6,7 +5,6 @@ import {
   serial,
   text,
   timestamp,
-  uniqueIndex,
   varchar,
 } from "drizzle-orm/pg-core";
 
@@ -118,32 +116,23 @@ export const jobPositions = pgTable("job_positions", {
   sortOrder: integer("sort_order").default(0),
 });
 
-export const jobApplications = pgTable(
-  "job_applications",
-  {
-    id: serial("id").primaryKey(),
-    jobId: integer("job_id")
-      .notNull()
-      .references(() => jobs.id, { onDelete: "cascade" }),
-    positionId: integer("position_id").references(() => jobPositions.id),
-    applicantName: text("applicant_name").notNull(),
-    applicantPhone: varchar("applicant_phone", { length: 20 }).notNull(),
-    resumeUrl: text("resume_url").default(""),
-    openedByUserId: integer("opened_by_user_id").references(() => users.id),
-    openedAt: timestamp("opened_at"),
-    createdAt: timestamp("created_at").notNull().defaultNow(),
-  },
-  (table) => [
-    // DB-level backstop for the app-level duplicate check (which allows
-    // reapplying after a 30-day cooldown) — this only blocks a same-day
-    // double-submit race, not a legitimate later reapplication.
-    uniqueIndex("job_applications_job_phone_day_idx").on(
-      table.jobId,
-      table.applicantPhone,
-      sql`(${table.createdAt}::date)`,
-    ),
-  ],
-);
+// Duplicate-application limit (max 2 per job/phone/day — allows one
+// network-retry resubmit, blocks a 3rd+ same-day attempt) is enforced by a
+// Postgres trigger (see migrations/job-application-limit-trigger.sql), not a
+// unique index — Drizzle's schema builder can't express a counting rule.
+export const jobApplications = pgTable("job_applications", {
+  id: serial("id").primaryKey(),
+  jobId: integer("job_id")
+    .notNull()
+    .references(() => jobs.id, { onDelete: "cascade" }),
+  positionId: integer("position_id").references(() => jobPositions.id),
+  applicantName: text("applicant_name").notNull(),
+  applicantPhone: varchar("applicant_phone", { length: 20 }).notNull(),
+  resumeUrl: text("resume_url").default(""),
+  openedByUserId: integer("opened_by_user_id").references(() => users.id),
+  openedAt: timestamp("opened_at"),
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+});
 
 // Activity log for the AI agent — not a confirmation gate (the agent runs
 // autonomously), just an after-the-fact record so Teja can see what it did.
