@@ -207,23 +207,21 @@ export function GurgaonPageView({
             <div className="lg:col-span-7 space-y-6">
               <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-primary shadow-sm">
                 <span className="h-2.5 w-2.5 rounded-full bg-primary animate-pulse" />
-                <span>
-                  India&apos;s Leader in Fire &amp; Industrial Safety
-                  Organization
-                </span>
+                <span>45,000+ Safety Officers Placed Since 2004</span>
               </div>
 
               <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.08]">
-                Fire &amp; Industrial Safety Course in{" "}
+                Gurgaon&apos;s Most Trusted{" "}
                 <span className="font-serif italic font-normal text-primary">
-                  Gurgaon
-                </span>
+                  Fire &amp; Industrial Safety
+                </span>{" "}
+                Course
               </h1>
 
               <p className="text-base sm:text-lg text-slate-600 max-w-xl leading-relaxed font-medium">
                 Government-approved NSDC safety certifications with Asia&apos;s
                 dedicated practical fire training yard drills and 100% placement
-                track record.
+                track record in Haryana.
               </p>
 
               <div className="flex flex-wrap gap-2.5 pt-1">
@@ -986,6 +984,20 @@ export function GurgaonPageView({
               <span>Call Ashok Vihar Desk ({LOCAL_PHONE})</span>
             </a>
           </div>
+        </div>
+      </section>
+      {/* ALSO SERVING NEARBY CITIES (LOCAL SEO) */}
+      <section className="mx-auto max-w-7xl px-6 pb-16 lg:px-10">
+        <div className="rounded-2xl border border-slate-200 bg-slate-50/50 px-6 py-5 text-center">
+          <p className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-1.5">
+            Also Serving Nearby Cities
+          </p>
+          <p className="text-sm text-slate-600">
+            We also welcome and support students from{" "}
+            <span className="font-semibold text-slate-900">Agra</span> and{" "}
+            <span className="font-semibold text-slate-900">Noida</span> at
+            our Gurgaon center.
+          </p>
         </div>
       </section>
     </article>
