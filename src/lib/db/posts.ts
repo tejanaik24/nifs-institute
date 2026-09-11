@@ -46,77 +46,97 @@ export function slugify(title: string): string {
 export async function getPublishedPosts(): Promise<
   (typeof posts.$inferSelect)[]
 > {
+  const fallback = require("../data/blog-posts.json");
+  const fallbackRows = fallback.map((p: any, idx: number) => ({
+    id: idx + 1,
+    slug: p.slug,
+    title: p.title,
+    excerpt: p.excerpt ?? "",
+    content: p.contentHtml ?? "",
+    coverImage: p.coverImage ?? null,
+    category: p.categories?.[0] ?? "",
+    seoTitle: p.title,
+    metaDescription: p.excerpt ?? "",
+    ogImage: p.coverImage ?? null,
+    wordCount: p.wordCount ?? 0,
+    faqs: p.faqs ?? null,
+    authorName: p.author?.name ?? null,
+    authorTitle: p.author?.title ?? null,
+    status: "published" as const,
+    publishedAt: new Date(p.date),
+    createdAt: new Date(p.date),
+    updatedAt: new Date(p.date),
+  }));
+
   if (!process.env.DATABASE_URL) {
-    const fallback = require("../data/blog-posts.json");
-    return fallback.map((p: any, idx: number) => ({
-      id: idx + 1,
-      slug: p.slug,
-      title: p.title,
-      excerpt: p.excerpt ?? "",
-      content: p.contentHtml ?? "",
-      coverImage: p.coverImage ?? null,
-      category: p.categories?.[0] ?? "",
-      seoTitle: p.title,
-      metaDescription: p.excerpt ?? "",
-      ogImage: p.coverImage ?? null,
-      wordCount: p.wordCount ?? 0,
-      faqs: p.faqs ?? null,
-      authorName: p.author?.name ?? null,
-      authorTitle: p.author?.title ?? null,
-      status: "published" as const,
-      publishedAt: new Date(p.date),
-      createdAt: new Date(p.date),
-      updatedAt: new Date(p.date),
-    }));
+    return fallbackRows;
   }
-  return db
-    .select()
-    .from(posts)
-    .where(eq(posts.status, "published"))
-    .orderBy(desc(posts.publishedAt));
+  try {
+    const dbRows = await db
+      .select()
+      .from(posts)
+      .where(eq(posts.status, "published"))
+      .orderBy(desc(posts.publishedAt));
+
+    const dbSlugs = new Set(dbRows.map((r) => r.slug));
+    const missingFallback = fallbackRows.filter(
+      (f: any) => !dbSlugs.has(f.slug),
+    );
+    return [...dbRows, ...missingFallback];
+  } catch {
+    return fallbackRows;
+  }
 }
 
 export async function getAllPosts(): Promise<(typeof posts.$inferSelect)[]> {
   if (!process.env.DATABASE_URL) {
     return getPublishedPosts();
   }
-  return db.select().from(posts).orderBy(desc(posts.createdAt));
+  try {
+    return await db.select().from(posts).orderBy(desc(posts.createdAt));
+  } catch {
+    return getPublishedPosts();
+  }
 }
 
 export async function getPostBySlug(
   slug: string,
 ): Promise<typeof posts.$inferSelect | null> {
-  if (!process.env.DATABASE_URL) {
-    const fallback = require("../data/blog-posts.json");
-    const p = fallback.find((post: any) => post.slug === slug);
-    if (!p) return null;
-    return {
-      id: 1,
-      slug: p.slug,
-      title: p.title,
-      excerpt: p.excerpt ?? "",
-      content: p.contentHtml ?? "",
-      coverImage: p.coverImage ?? null,
-      category: p.categories?.[0] ?? "",
-      seoTitle: p.title,
-      metaDescription: p.excerpt ?? "",
-      ogImage: p.coverImage ?? null,
-      wordCount: p.wordCount ?? 0,
-      faqs: p.faqs ?? null,
-      authorName: p.author?.name ?? null,
-      authorTitle: p.author?.title ?? null,
-      status: "published" as const,
-      publishedAt: new Date(p.date),
-      createdAt: new Date(p.date),
-      updatedAt: new Date(p.date),
-    };
+  if (process.env.DATABASE_URL) {
+    try {
+      const rows = await db
+        .select()
+        .from(posts)
+        .where(and(eq(posts.slug, slug), eq(posts.status, "published")))
+        .limit(1);
+      if (rows[0]) return rows[0];
+    } catch (err) {
+      console.warn("DB getPostBySlug failed, checking JSON fallback:", err);
+    }
   }
-  const rows = await db
-    .select()
-    .from(posts)
-    .where(and(eq(posts.slug, slug), eq(posts.status, "published")))
-    .limit(1);
-  return rows[0] ?? null;
+  const fallback = require("../data/blog-posts.json");
+  const p = fallback.find((post: any) => post.slug === slug);
+  if (!p) return null;
+  return {
+    id: 1,
+    slug: p.slug,
+    title: p.title,
+    excerpt: p.excerpt ?? "",
+    content: p.contentHtml ?? "",
+    coverImage: p.coverImage ?? null,
+    category: p.categories?.[0] ?? "",
+    seoTitle: p.title,
+    metaDescription: p.excerpt ?? "",
+    ogImage: p.coverImage ?? null,
+    wordCount: p.wordCount ?? 0,
+    faqs: p.faqs ?? null,
+    authorName: p.author?.name ?? null,
+    authorTitle: p.author?.title ?? null,
+    status: "published" as const,
+    publishedAt: new Date(p.date),
+    createdAt: new Date(p.date),
+    updatedAt: new Date(p.date),
+  };
 }
 
 export async function getPostById(id: number) {

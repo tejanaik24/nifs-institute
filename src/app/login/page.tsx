@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useActionState } from "react";
 import { login } from "./actions";
 
@@ -14,12 +13,13 @@ export default function LoginPage() {
         className="w-full max-w-sm rounded-xl border border-[var(--dash-border)] bg-[var(--dash-surface)] p-8 shadow-[var(--dash-gold-glow)]"
       >
         <div className="mb-6 flex items-center gap-3">
-          <Image
-            src="/images/nifs-logo-dashboard.png"
-            alt="NIFS"
-            width={40}
-            height={40}
-            className="h-10 w-10 object-contain"
+          <img
+            src="/images/nifs-official-logo-v3.png"
+            alt="NIFS India"
+            width={44}
+            height={44}
+            className="h-11 w-11 object-contain drop-shadow-sm"
+            loading="eager"
           />
           <div>
             <h1 className="font-bold text-lg leading-tight text-[var(--dash-text)]">

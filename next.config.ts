@@ -60,6 +60,7 @@ const nextConfig: NextConfig = {
     serverActions: { bodySizeLimit: "10mb" },
   },
   images: {
+    unoptimized: true,
     remotePatterns: [
       // New blog cover/OG images uploaded via the dashboard land here.
       { protocol: "https", hostname: "cirwtkrwzqipuhmqxbwp.supabase.co" },

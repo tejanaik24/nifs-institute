@@ -11,6 +11,8 @@ RewriteRule ^(.*)$ https://nifsindia.net/$1 [R=301,L]
 RewriteRule ^homepage\.html(\.txt)?$ / [R=301,L,NC]
 Header always set Cache-Control "no-store" "expr=%{REQUEST_URI} =~ m#^/homepage\.html(\.txt)?$#"
 
+RewriteRule ^top-10-fire-and-safety-institutes-in-india-2026-ranking/?$ /blog/top-10-fire-and-safety-institutes-in-india-2026-ranking/ [R=301,L]
+RewriteRule ^which-fire-and-safety-course-is-best-2026-guide/?$ /blog/which-fire-and-safety-course-is-best-2026-guide/ [R=301,L]
 RewriteRule ^fire-safety-courses-after-12th/?$ /blog/fire-safety-courses-after-12th/ [R=301,L]
 RewriteRule ^adis-vs-bsc-fire-and-industrial-safety-which-is-better-2026/?$ /blog/adis-vs-bsc-fire-and-industrial-safety-which-is-better-2026/ [R=301,L]
 RewriteRule ^integrated-safety-management-system-isms/?$ /blog/integrated-safety-management-system-isms/ [R=301,L]

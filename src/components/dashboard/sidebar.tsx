@@ -12,7 +12,6 @@ import {
   ShieldCheck,
   Users,
 } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -38,17 +37,23 @@ export function Sidebar({ user }: { user?: SessionPayload | null }) {
 
   return (
     <nav className="flex h-full w-56 flex-col border-r border-[var(--dash-border)] bg-[var(--dash-surface)] p-4">
-      <div className="mb-8 flex items-center gap-2 px-2">
-        <Image
-          src="/images/nifs-logo-dashboard.png"
-          alt="NIFS"
-          width={32}
-          height={32}
-          className="h-8 w-8 object-contain"
+      <div className="mb-8 flex items-center gap-2.5 px-2">
+        <img
+          src="/images/nifs-official-logo-v3.png"
+          alt="NIFS India"
+          width={36}
+          height={36}
+          className="h-9 w-9 object-contain drop-shadow-sm"
+          loading="eager"
         />
-        <span className="text-sm font-bold tracking-wide text-[var(--dash-text-muted)]">
-          Dashboard
-        </span>
+        <div className="flex flex-col leading-tight">
+          <span className="text-sm font-bold tracking-tight text-[var(--dash-text)]">
+            NIFS India
+          </span>
+          <span className="text-[10px] font-medium tracking-wider uppercase text-[var(--dash-text-muted)]">
+            Dashboard
+          </span>
+        </div>
       </div>
 
       <div className="flex-1">

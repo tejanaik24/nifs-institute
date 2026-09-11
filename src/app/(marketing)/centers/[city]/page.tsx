@@ -402,6 +402,98 @@ const CITY_DATA: Record<
       },
     ],
   },
+  gorakhpur: {
+    tagline: "Eastern UP Industrial & Safety Hub",
+    heroDesc:
+      "Govt-recognized Fire & Industrial Safety training for Eastern Uttar Pradesh — GIDA industrial area, chemical plants, fertilizer complexes, and infrastructure projects.",
+    industries: [
+      {
+        name: "Gorakhpur Industrial Development Authority (GIDA)",
+        detail:
+          "Over 300 manufacturing, textile, plastic, and food processing plants with mandatory industrial safety officer requirements.",
+      },
+      {
+        name: "Hindustan Urvarak & Rasayan Limited (HURL)",
+        detail:
+          "Mega gas-based mega fertilizer complex requiring high-precision chemical hazard and plant safety supervision.",
+      },
+      {
+        name: "AIIMS Gorakhpur & Healthcare Infrastructure",
+        detail:
+          "Hospital fire alarm systems, ICU evacuation safety, and biomedical waste hazard compliance.",
+      },
+      {
+        name: "North Eastern Railway Mechanical Workshops",
+        detail:
+          "Locomotive maintenance, welding safety, heavy machinery safeguarding, and electrical fire prevention.",
+      },
+    ],
+    localFaqs: [
+      {
+        question: "Where is the NIFS center located in Gorakhpur?",
+        answer:
+          "NIFS operates an active admissions and student assistance desk in Gorakhpur. Connect with our counselors at +91 83743 40999 for local batch timings and seat availability.",
+      },
+      {
+        question:
+          "Which safety course is best for jobs in GIDA and UP factories?",
+        answer:
+          "The 1-Year Diploma in Fire & Safety (DFS) and Advanced Diploma in Industrial Safety (ADIS) are the most demanded statutory credentials across Uttar Pradesh factories.",
+      },
+      {
+        question:
+          "Can 10th and 12th pass students from UP apply for NIFS courses?",
+        answer:
+          "Yes, students with 10th or 12th pass from UP Board, CBSE, or ICSE can apply directly for Government-approved Certificate and Diploma courses with 100% placement support.",
+      },
+    ],
+  },
+  delhi: {
+    tagline: "National Capital Region (NCR) Hub",
+    heroDesc:
+      "Premier Fire Safety Officer and EHS certification for Delhi NCR — commercial skyscrapers, DMRC metro rail projects, Okhla/Noida manufacturing, and hyperscale logistics.",
+    industries: [
+      {
+        name: "Delhi Metro Rail Corporation (DMRC) & Mega Civil Projects",
+        detail:
+          "Underground tunneling, station fire safety, elevated corridor construction, and passenger safety management.",
+      },
+      {
+        name: "Noida & Greater Noida Data Centers & IT Corridors",
+        detail:
+          "Hyperscale server farms, clean-agent suppression systems (FM-200/Novec 1230), and continuous electrical EHS monitoring.",
+      },
+      {
+        name: "Okhla, Mayapuri & Bawana Industrial Belts",
+        detail:
+          "Manufacturing, fabrication, chemical processing, and export warehousing requiring certified factory safety officers.",
+      },
+      {
+        name: "High-Rise Commercial Towers & Hospitality",
+        detail:
+          "Delhi Fire Service (DFS) compliance, automatic sprinkler networks, smoke evacuation systems, and fire warden protocols.",
+      },
+    ],
+    localFaqs: [
+      {
+        question: "How can students from Delhi NCR enroll in NIFS courses?",
+        answer:
+          "Students across Delhi, Noida, Gurugram, and Ghaziabad can enroll for regular classroom, weekend hybrid, or live online batches with practical yard drills. Helpline: +91 83743 40999.",
+      },
+      {
+        question:
+          "Are NIFS certifications recognized for Delhi Fire Service and NCR jobs?",
+        answer:
+          "Yes, NIFS courses are NSDC and Skill India accredited, ISO 9001:2015 certified, and widely accepted across top construction and industrial employers in Delhi NCR and multinational GCC projects.",
+      },
+      {
+        question:
+          "What is the average salary of a Safety Officer in Delhi NCR?",
+        answer:
+          "Starting salaries for freshers in Delhi NCR range from ₹25,000 to ₹38,000 per month, with experienced EHS Managers earning ₹12 Lakh to ₹25 Lakh+ per annum.",
+      },
+    ],
+  },
 };
 
 export function generateStaticParams() {

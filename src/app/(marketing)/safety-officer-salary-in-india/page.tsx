@@ -1,21 +1,86 @@
 import { BreadcrumbSchema, FAQSchema } from "@/lib/seo/schema";
-import { ArrowRight, Award, Globe, HelpCircle, TrendingUp } from "lucide-react";
+import {
+  ArrowRight,
+  Award,
+  Globe,
+  HelpCircle,
+  MapPin,
+  TrendingUp,
+} from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
   title:
-    "Safety Officer Salary in India (2026 Complete Guide: Fresher to EHS Manager) | NIFS India",
+    "Safety Officer Salary in India 2026: Fresher to Manager Pay Scale | NIFS",
   description:
-    "Comprehensive 2026 guide to Safety Officer salary in India & Gulf countries. Monthly & annual pay scales for freshers (₹25k–₹35k/mo), experienced EHS managers (₹10L–₹25L/yr), and sector-wise pay (Oil & Gas, Construction, Tech).",
+    "2026 Safety Officer salary guide in India & Gulf. Starting fresher salary (₹25k–₹35k/mo), experienced EHS manager CTC (₹10L–₹25L/yr), city-wise & sector-wise pay scales.",
   alternates: { canonical: "/safety-officer-salary-in-india/" },
   openGraph: {
-    title: "Safety Officer Salary in India (2026 Complete Guide) — NIFS India",
+    title: "Safety Officer Salary in India 2026: Fresher to Manager Pay Scale",
     description:
-      "Detailed salary benchmark for Fire & Safety Officers in India. Experience-wise, sector-wise, and qualification-wise pay scales.",
+      "2026 verified salary benchmarks for Fire & Safety Officers in India & Gulf. Experience, qualification, city, and industry pay scales.",
     url: "https://nifsindia.net/safety-officer-salary-in-india/",
     type: "article",
   },
+};
+
+const occupationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Occupation",
+  name: "Safety Officer",
+  occupationalCategory: "17-2111.00 - Health and Safety Engineers",
+  description:
+    "Safety Officers (HSE/EHS) are statutory compliance officers responsible for inspecting workplace hazards, preventing industrial accidents, and enforcing fire, chemical, and operational safety standards.",
+  estimatedSalary: [
+    {
+      "@type": "MonetaryAmountDistribution",
+      name: "Fresher Safety Officer Salary (India)",
+      currency: "INR",
+      duration: "P1Y",
+      percentile10: "240000",
+      median: "360000",
+      percentile90: "450000",
+    },
+    {
+      "@type": "MonetaryAmountDistribution",
+      name: "Mid-Level Safety Officer Salary (India)",
+      currency: "INR",
+      duration: "P1Y",
+      percentile10: "550000",
+      median: "850000",
+      percentile90: "1200000",
+    },
+    {
+      "@type": "MonetaryAmountDistribution",
+      name: "EHS Safety Manager Salary (India)",
+      currency: "INR",
+      duration: "P1Y",
+      percentile10: "1200000",
+      median: "1800000",
+      percentile90: "3000000",
+    },
+    {
+      "@type": "MonetaryAmountDistribution",
+      name: "Gulf & Middle East Safety Officer Salary",
+      currency: "AED",
+      duration: "P1M",
+      percentile10: "7500",
+      median: "11000",
+      percentile90: "18000",
+    },
+  ],
+  responsibilities: [
+    "Workplace safety compliance & statutory inspection",
+    "Hazard Identification and Risk Assessment (HIRA)",
+    "Fire prevention and emergency response management",
+    "Safety audits, accident investigation, and employee training",
+  ],
+  qualifications: [
+    "Diploma in Fire & Safety (DFS)",
+    "Advanced Diploma in Industrial Safety (ADIS)",
+    "B.Sc in Fire & Industrial Safety",
+  ],
 };
 
 const faqs = [
@@ -59,6 +124,12 @@ export default function SafetyOfficerSalaryInIndiaPage() {
         ]}
       />
       <FAQSchema faqs={faqs} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(occupationSchema),
+        }}
+      />
 
       <article className="pt-32 lg:pt-36 bg-background text-foreground">
         {/* Header / Hero */}
@@ -67,10 +138,11 @@ export default function SafetyOfficerSalaryInIndiaPage() {
             <TrendingUp className="h-4 w-4" /> 2026 Industry Compensation Report
           </div>
           <h1 className="font-display mt-4 text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground leading-tight">
-            Safety Officer Salary in India (2026):{" "}
+            Safety Officer Salary in India 2026:{" "}
             <span className="text-primary italic">Fresher to EHS Manager</span>{" "}
             Pay Scale
           </h1>
+
           <p className="mt-4 text-base sm:text-lg text-muted-foreground leading-relaxed">
             By{" "}
             <strong className="text-foreground">
@@ -320,6 +392,157 @@ export default function SafetyOfficerSalaryInIndiaPage() {
                   suppression, and battery energy storage system safety.
                 </p>
               </div>
+            </div>
+          </section>
+
+          {/* Section 2.5: City & State-Wise Salary Matrix */}
+          <section className="space-y-4">
+            <h2 className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-foreground flex items-center gap-2">
+              <MapPin className="h-6 w-6 text-primary" /> City &amp; State-Wise
+              Safety Officer Salary in India (2026)
+            </h2>
+            <p className="text-base text-muted-foreground leading-relaxed">
+              Industrial density and cost-of-living indices create significant
+              geographical variations in safety compensation across India&apos;s
+              key economic hubs:
+            </p>
+
+            <div className="overflow-x-auto pt-2">
+              <table className="w-full text-left text-sm border-collapse border border-border">
+                <thead className="bg-muted text-foreground">
+                  <tr>
+                    <th className="p-3 border border-border">
+                      Region / City Hub
+                    </th>
+                    <th className="p-3 border border-border">
+                      Primary Industrial Sector
+                    </th>
+                    <th className="p-3 border border-border">
+                      Fresher (0–2 Yrs)
+                    </th>
+                    <th className="p-3 border border-border">
+                      Experienced (3–6 Yrs)
+                    </th>
+                    <th className="p-3 border border-border">
+                      EHS Lead (7+ Yrs)
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="text-muted-foreground divide-y divide-border">
+                  <tr>
+                    <td className="p-3 font-medium text-foreground">
+                      <Link
+                        href="/centers/visakhapatnam"
+                        className="text-primary hover:underline font-bold"
+                      >
+                        Visakhapatnam (AP)
+                      </Link>
+                    </td>
+                    <td className="p-3">
+                      Steel, Ports, Pharma &amp; Petrochemicals
+                    </td>
+                    <td className="p-3">₹2.4L – ₹3.8L</td>
+                    <td className="p-3">₹5.2L – ₹9.5L</td>
+                    <td className="p-3">₹12.0L – ₹22.0L</td>
+                  </tr>
+                  <tr>
+                    <td className="p-3 font-medium text-foreground">
+                      <Link
+                        href="/centers/hyderabad"
+                        className="text-primary hover:underline font-bold"
+                      >
+                        Hyderabad (Telangana)
+                      </Link>
+                    </td>
+                    <td className="p-3">
+                      Pharma SEZs, Data Centers &amp; Aerospace
+                    </td>
+                    <td className="p-3">₹2.6L – ₹4.0L</td>
+                    <td className="p-3">₹5.5L – ₹10.2L</td>
+                    <td className="p-3">₹13.0L – ₹25.0L</td>
+                  </tr>
+                  <tr>
+                    <td className="p-3 font-medium text-foreground">
+                      <Link
+                        href="/centers/mumbai"
+                        className="text-primary hover:underline font-bold"
+                      >
+                        Mumbai &amp; Pune (MH)
+                      </Link>
+                    </td>
+                    <td className="p-3">
+                      Chemicals, Auto Manufacturing &amp; Marine
+                    </td>
+                    <td className="p-3">₹2.8L – ₹4.2L</td>
+                    <td className="p-3">₹6.0L – ₹11.5L</td>
+                    <td className="p-3">₹14.0L – ₹28.0L</td>
+                  </tr>
+                  <tr>
+                    <td className="p-3 font-medium text-foreground">
+                      <Link
+                        href="/centers/delhi"
+                        className="text-primary hover:underline font-bold"
+                      >
+                        Delhi NCR &amp; Noida
+                      </Link>
+                    </td>
+                    <td className="p-3">
+                      Infrastructure, Commercial &amp; Logistics
+                    </td>
+                    <td className="p-3">₹2.5L – ₹4.0L</td>
+                    <td className="p-3">₹5.4L – ₹10.0L</td>
+                    <td className="p-3">₹12.5L – ₹24.0L</td>
+                  </tr>
+                  <tr>
+                    <td className="p-3 font-medium text-foreground">
+                      <Link
+                        href="/centers/chennai"
+                        className="text-primary hover:underline font-bold"
+                      >
+                        Chennai &amp; Tamil Nadu
+                      </Link>
+                    </td>
+                    <td className="p-3">
+                      Automotive, Hardware SEZs &amp; Ports
+                    </td>
+                    <td className="p-3">₹2.5L – ₹3.9L</td>
+                    <td className="p-3">₹5.2L – ₹9.8L</td>
+                    <td className="p-3">₹12.0L – ₹23.0L</td>
+                  </tr>
+                  <tr>
+                    <td className="p-3 font-medium text-foreground">
+                      <Link
+                        href="/centers/bangalore"
+                        className="text-primary hover:underline font-bold"
+                      >
+                        Bangalore (Karnataka)
+                      </Link>
+                    </td>
+                    <td className="p-3">
+                      Defense, Aerospace &amp; Hyperscale Centers
+                    </td>
+                    <td className="p-3">₹2.8L – ₹4.2L</td>
+                    <td className="p-3">₹5.8L – ₹10.8L</td>
+                    <td className="p-3">₹13.5L – ₹26.0L</td>
+                  </tr>
+                  <tr>
+                    <td className="p-3 font-medium text-foreground">
+                      <Link
+                        href="/centers/kolkata"
+                        className="text-primary hover:underline font-bold"
+                      >
+                        Kolkata &amp; Eastern Hub
+                      </Link>
+                    </td>
+                    <td className="p-3">
+                      Mining, Heavy Steel Mills &amp; Petrochemicals
+                    </td>
+                    <td className="p-3">₹2.2L – ₹3.6L</td>
+                    <td className="p-3">₹4.8L – ₹9.0L</td>
+                    <td className="p-3">₹11.0L – ₹20.0L</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </section>
 

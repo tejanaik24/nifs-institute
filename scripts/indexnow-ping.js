@@ -11,12 +11,20 @@ const KEY = "nifsindia2026indexnow";
 const HOST = "nifsindia.net";
 const KEY_LOCATION = `https://${HOST}/indexnow-key.txt`;
 
-// All site URLs to ping
-const URLS = [
+const fs = require("fs");
+const path = require("path");
+
+// Core URLs
+const CORE_URLS = [
   `https://${HOST}/`,
+  `https://${HOST}/about/`,
+  `https://${HOST}/admissions/`,
   `https://${HOST}/courses/`,
   `https://${HOST}/courses/safety-officer-course/`,
   `https://${HOST}/fire-and-safety-course/`,
+  `https://${HOST}/how-to-become-a-safety-officer-in-india/`,
+  `https://${HOST}/safety-officer-course-after-12th/`,
+  `https://${HOST}/safety-officer-salary-in-india/`,
   `https://${HOST}/courses/diploma-in-fire-safety/`,
   `https://${HOST}/courses/advanced-diploma-in-fire-safety-adfs/`,
   `https://${HOST}/courses/diploma-in-industrial-safety-dis/`,
@@ -24,15 +32,85 @@ const URLS = [
   `https://${HOST}/courses/b-sc-in-fire-industrial-safety/`,
   `https://${HOST}/courses/pg-diploma-in-fire-safety-pg-dfs/`,
   `https://${HOST}/courses/diploma-in-health-safety-environment/`,
+  `https://${HOST}/courses/certificate-course-in-fire-safety/`,
+  `https://${HOST}/courses/online/`,
   `https://${HOST}/centers/`,
+  `https://${HOST}/placements/`,
+  `https://${HOST}/industrial-services/`,
+  `https://${HOST}/gallery/`,
+  `https://${HOST}/contact/`,
   `https://${HOST}/blog/`,
-  `https://${HOST}/admissions/`,
+  `https://${HOST}/blog/top-10-fire-and-safety-institutes-in-india-2026-ranking/`,
+  `https://${HOST}/blog/which-fire-and-safety-course-is-best-2026-guide/`,
+  `https://${HOST}/blog/fire-safety-courses-after-12th/`,
+  `https://${HOST}/blog/adis-vs-bsc-fire-and-industrial-safety-which-is-better-2026/`,
   `https://${HOST}/blog/safety-officer-salary-in-india-2026-complete-guide/`,
   `https://${HOST}/blog/mba-in-safety-management-a-career-path-to-leadership-in-workplace-safety/`,
   `https://${HOST}/blog/top-fire-and-safety-courses-after-10th-12th-graduation-2026/`,
   `https://${HOST}/blog/complete-fee-structure-of-pdis-course-from-top-safety-institutes-in-india/`,
   `https://${HOST}/blog/pdis-course-fees-in-india-and-what-they-include-at-top-institutes/`,
   `https://${HOST}/blog/industrial-safety-course-in-bhubaneswar-best-institute-certifications-and-career-opportunities/`,
+];
+
+// Major 54 Regional Center Slugs
+const CENTER_SLUGS = [
+  "visakhapatnam",
+  "guntur",
+  "vijayawada",
+  "guwahati",
+  "patna",
+  "siban",
+  "raipur",
+  "badarpur-delhi-south",
+  "lakshminagar-delhi-east",
+  "ahmedabad",
+  "surat",
+  "gurgaon",
+  "hamirpur",
+  "bokaro",
+  "ranchi",
+  "tata-jamshedpur",
+  "bangalore",
+  "mangalore",
+  "calicut",
+  "thrissur",
+  "nagpur",
+  "borivali-w-mumbai",
+  "thane",
+  "vashi-navi-mumbai",
+  "berhampur",
+  "bhubaneswar",
+  "rourkela",
+  "pondicherry",
+  "amritsar",
+  "chandigarh",
+  "hoshiarpur",
+  "jalandhar",
+  "nangal",
+  "chittorgarh",
+  "jhalawar",
+  "kota",
+  "chennai",
+  "coimbatore",
+  "cuddalore",
+  "madurai",
+  "trichy",
+  "hyderabad",
+  "allahabad",
+  "ballia",
+  "gorakhpur",
+  "kanpur",
+  "lucknow",
+  "dehradun",
+  "barrackpur-kolkata",
+  "haldia",
+  "hazra-kolkata",
+  "kolkata",
+];
+
+const URLS = [
+  ...CORE_URLS,
+  ...CENTER_SLUGS.map((slug) => `https://${HOST}/centers/${slug}/`),
 ];
 
 function postJson(hostname, path, data) {
