@@ -94,6 +94,10 @@ export function getBrowserBreakdown() {
   return cachedDimensionReport("browser");
 }
 
+export function getSourceBreakdown() {
+  return cachedDimensionReport("sessionSource", 25);
+}
+
 /** Age brackets — requires Google Signals/demographics enabled on the GA4
  * property. If it isn't, GA4 returns an empty row set rather than an error,
  * so an empty array here means "not enabled," not "zero users of any age" —
@@ -145,10 +149,22 @@ export type IntentBreakdown = {
 
 const COURSE_PATH_PREFIXES = ["/course", "/admission", "/centers"];
 const JOB_PATH_MATCHERS = [
-  { fieldName: "pagePath", stringFilter: { matchType: "BEGINS_WITH" as const, value: "/placement" } },
-  { fieldName: "pagePath", stringFilter: { matchType: "BEGINS_WITH" as const, value: "/jobs" } },
-  { fieldName: "pagePath", stringFilter: { matchType: "CONTAINS" as const, value: "hiring" } },
-  { fieldName: "pagePath", stringFilter: { matchType: "CONTAINS" as const, value: "career" } },
+  {
+    fieldName: "pagePath",
+    stringFilter: { matchType: "BEGINS_WITH" as const, value: "/placement" },
+  },
+  {
+    fieldName: "pagePath",
+    stringFilter: { matchType: "BEGINS_WITH" as const, value: "/jobs" },
+  },
+  {
+    fieldName: "pagePath",
+    stringFilter: { matchType: "CONTAINS" as const, value: "hiring" },
+  },
+  {
+    fieldName: "pagePath",
+    stringFilter: { matchType: "CONTAINS" as const, value: "career" },
+  },
 ];
 
 /** True distinct-user count for a group of pages, via a single GA4 query
@@ -157,7 +173,10 @@ const JOB_PATH_MATCHERS = [
  * group would be double-counted if summed row by row). */
 async function getGroupActiveUsers(
   propertyId: string,
-  expressions: { fieldName: string; stringFilter: { matchType: "BEGINS_WITH" | "CONTAINS"; value: string } }[],
+  expressions: {
+    fieldName: string;
+    stringFilter: { matchType: "BEGINS_WITH" | "CONTAINS"; value: string };
+  }[],
 ): Promise<number> {
   const [response] = await runReportSafe({
     property: propertyId,

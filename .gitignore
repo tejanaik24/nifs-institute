@@ -44,3 +44,13 @@ next-env.d.ts
 
 # git worktrees (created by /use-worktrees, not part of the site)
 /.claude/worktrees/
+
+# scratch and temporary scripts
+/scratch/
+/work/
+/.next-cpanel/
+*.pptx
+temp_*.json
+test_*.js
+insert_master_blog.py
+

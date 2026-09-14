@@ -1,27 +1,44 @@
 "use client";
 
+import {
+  ClaudeChatInput,
+  type FileWithPreview,
+  type PastedContent,
+} from "@/components/ui/claude-style-ai-input";
 import { useChat } from "@ai-sdk/react";
 import { DefaultChatTransport } from "ai";
-import { Bot, Wrench, User } from "lucide-react";
-import { ClaudeChatInput, type FileWithPreview, type PastedContent } from "@/components/ui/claude-style-ai-input";
+import { Bot, User, Wrench } from "lucide-react";
 
 // Only one real backend model exists (local Ollama) — showing fictional
 // model names here would just be misleading UI.
-const AGENT_MODELS = [{ id: "triv-qwen", name: "triv-qwen (local)", description: "Running locally via Ollama" }];
+const AGENT_MODELS = [
+  {
+    id: "triv-qwen",
+    name: "triv-qwen (local)",
+    description: "Running locally via Ollama",
+  },
+];
 
 export default function AgentPage() {
   const { messages, sendMessage, status } = useChat({
     transport: new DefaultChatTransport({ api: "/api/agent/chat" }),
   });
 
-  function handleSend(message: string, files: FileWithPreview[], pastedContent: PastedContent[]) {
+  function handleSend(
+    message: string,
+    files: FileWithPreview[],
+    pastedContent: PastedContent[],
+  ) {
     const parts = [message.trim()];
     for (const p of pastedContent) parts.push(p.content);
     // The chat model is text-only — a textual file's content can be inlined,
     // but there's no vision model behind this to actually look at images.
     for (const f of files) {
       if (f.textContent) parts.push(`File: ${f.file.name}\n${f.textContent}`);
-      else parts.push(`[Attached file: ${f.file.name} — this model can't read non-text files]`);
+      else
+        parts.push(
+          `[Attached file: ${f.file.name} — this model can't read non-text files]`,
+        );
     }
     const text = parts.filter(Boolean).join("\n\n");
     if (!text.trim()) return;
@@ -31,23 +48,30 @@ export default function AgentPage() {
   return (
     <div className="flex h-[calc(100vh-4rem)] flex-col">
       <div>
-        <h1 className="font-mono text-lg text-[var(--dash-text)]">Agent</h1>
+        <h1 className="font-mono text-lg text-[var(--dash-text)]">
+          SEO & Analytics Agent
+        </h1>
         <p className="mt-1 text-sm text-[var(--dash-text-muted)]">
-          Chat with your local assistant — it can read posts, flags, analytics, and publish/edit/create posts.
+          Ask questions about website traffic, SEO risk flags, search rankings,
+          visitor trends, and blog optimization.
         </p>
       </div>
 
       <div className="mt-6 flex-1 space-y-4 overflow-y-auto rounded-xl border border-[var(--dash-border)] bg-[var(--dash-surface)] p-5">
         {messages.length === 0 && (
           <p className="text-sm text-[var(--dash-text-muted)]">
-            Ask it something, e.g. &ldquo;what&apos;s flagged right now?&rdquo; or &ldquo;publish the draft about fire safety.&rdquo;
+            Ask for insights, e.g. &ldquo;How is traffic trending this
+            week?&rdquo;, &ldquo;Which pages have SEO risk flags?&rdquo;, or
+            &ldquo;Optimize meta description for the fire safety post.&rdquo;
           </p>
         )}
         {messages.map((message) => (
           <div key={message.id} className="flex gap-3">
             <span
               className={`mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full ${
-                message.role === "user" ? "bg-black/5 text-[var(--dash-text)]" : "bg-[var(--dash-accent-soft)] text-[var(--dash-accent)]"
+                message.role === "user"
+                  ? "bg-black/5 text-[var(--dash-text)]"
+                  : "bg-[var(--dash-accent-soft)] text-[var(--dash-accent)]"
               }`}
             >
               {message.role === "user" ? <User size={14} /> : <Bot size={14} />}
@@ -56,19 +80,41 @@ export default function AgentPage() {
               {message.parts.map((part, i) => {
                 if (part.type === "text") {
                   return (
-                    <p key={i} className="whitespace-pre-wrap text-sm text-[var(--dash-text)]">
+                    <p
+                      key={i}
+                      className="whitespace-pre-wrap text-sm text-[var(--dash-text)]"
+                    >
                       {part.text}
                     </p>
                   );
                 }
-                if (part.type.startsWith("tool-") || part.type === "dynamic-tool") {
-                  const toolPart = part as { type: string; state?: string; input?: unknown; output?: unknown };
-                  const toolName = part.type === "dynamic-tool" ? (part as { toolName: string }).toolName : part.type.slice(5);
+                if (
+                  part.type.startsWith("tool-") ||
+                  part.type === "dynamic-tool"
+                ) {
+                  const toolPart = part as {
+                    type: string;
+                    state?: string;
+                    input?: unknown;
+                    output?: unknown;
+                  };
+                  const toolName =
+                    part.type === "dynamic-tool"
+                      ? (part as { toolName: string }).toolName
+                      : part.type.slice(5);
                   return (
-                    <div key={i} className="flex items-start gap-2 rounded-lg bg-black/5 px-3 py-2 text-xs ring-1 ring-[var(--dash-border)]">
-                      <Wrench size={12} className="mt-0.5 shrink-0 text-[var(--dash-accent)]" />
+                    <div
+                      key={i}
+                      className="flex items-start gap-2 rounded-lg bg-black/5 px-3 py-2 text-xs ring-1 ring-[var(--dash-border)]"
+                    >
+                      <Wrench
+                        size={12}
+                        className="mt-0.5 shrink-0 text-[var(--dash-accent)]"
+                      />
                       <div className="min-w-0 font-mono text-[var(--dash-text-muted)]">
-                        <span className="text-[var(--dash-text)]">{toolName}</span>
+                        <span className="text-[var(--dash-text)]">
+                          {toolName}
+                        </span>
                         {toolPart.state && <span> — {toolPart.state}</span>}
                         {toolPart.output != null && (
                           <pre className="mt-1 max-w-full overflow-x-auto whitespace-pre-wrap break-words">
@@ -84,7 +130,9 @@ export default function AgentPage() {
             </div>
           </div>
         ))}
-        {status === "submitted" && <p className="text-xs text-[var(--dash-text-muted)]">Thinking…</p>}
+        {status === "submitted" && (
+          <p className="text-xs text-[var(--dash-text-muted)]">Thinking…</p>
+        )}
       </div>
 
       <div className="mt-4">
