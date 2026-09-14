@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     siteName: "NIFS India",
     title: "NIFS India — Fire & Industrial Safety Training Institute",
     description:
-      "25+ years of excellence. 70+ centers. 45,000+ alumni. NSDC approved fire and safety courses with 100% placement assistance.",
+      "Established 2004 (22+ years). 69 verified training centers across 21 states. 45,000+ alumni. NSDC approved and university-collaborated fire and industrial safety courses.",
     images: [
       {
         url: "/images/og-default.jpg",
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "NIFS India — Fire & Industrial Safety Training",
     description:
-      "India's leading fire safety institute. 25+ years, 70+ centers, 45,000+ alumni placed at Adani, L&T, Amazon.",
+      "India's leading fire safety institute. Est. 2004, 69 centers across 21 states, 45,000+ alumni placed at Adani, L&T, Amazon.",
     images: ["/images/og-default.jpg"],
   },
   robots: {

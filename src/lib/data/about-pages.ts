@@ -40,12 +40,12 @@ export type AboutPage = {
 export const aboutPages: AboutPage[] = [
   {
     slug: "company-profile",
-    seoTitle: "Company Profile — 25+ Years in Safety Training | NIFS India",
+    seoTitle: "Company Profile — 22+ Years in Safety Training | NIFS India",
     seoDescription:
-      "NIFS India: 25+ years, 70+ centers, 45,000+ alumni. NSDC approved, ISO 9001:2015 certified, HQ in Visakhapatnam.",
+      "NIFS India: Founded 2004, 69 centers across 21 states, 45,000+ alumni. NSDC approved, ISO 9001:2015 certified, HQ in Visakhapatnam.",
     hero: {
       eyebrow: "Company Profile",
-      title: "25+ years of building India's industrial safety workforce",
+      title: "22+ years of building India's industrial safety workforce",
       description:
         "NIFS is a unit of SSB Institute of Higher Studies Educational Society — NSDC approved, ISO 9001:2015 certified, and headquartered in Visakhapatnam.",
     },
@@ -53,9 +53,9 @@ export const aboutPages: AboutPage[] = [
       {
         type: "stats",
         stats: [
-          { value: "25+", label: "Years of Excellence" },
-          { value: "70+", label: "Centers Nationwide" },
-          { value: "24", label: "States Covered" },
+          { value: "22+", label: "Years of Excellence (Est. 2004)" },
+          { value: "69", label: "Centers Nationwide" },
+          { value: "21", label: "States & UTs Covered" },
           { value: "45,000+", label: "Alumni Placed" },
         ],
       },
@@ -167,22 +167,50 @@ export const aboutPages: AboutPage[] = [
   },
   {
     slug: "accreditations",
-    seoTitle: "Accreditations — NSDC, ISO 9001:2015 | NIFS India",
+    seoTitle: "Accreditations & University Affiliations | NIFS India Official",
     seoDescription:
-      "NIFS accreditations: NSDC, Skill India, Acharya Nagarjuna University, Annamalai University, National Safety Council, SBTET, ISO 9001:2015 certified.",
+      "NIFS official accreditations: Acharya Nagarjuna University (UGC-recognized), SBTET Andhra Pradesh, NSDC, Skill India, and ISO 9001:2015 certified.",
     hero: {
-      eyebrow: "Accreditations",
-      title: "Government recognized. UGC-recognized degree. ISO certified.",
+      eyebrow: "Statutory Accreditations & University Collaborations",
+      title: "UGC University Degree & State Technical Board Validated",
       description:
-        "NIFS's B.Sc programs are issued through Acharya Nagarjuna University, a UGC-recognized university — not a private certificate. Every NIFS program is backed by real government, university, and quality-system recognition, valid across India, the Gulf, and international markets.",
+        "NIFS academic programs are awarded in collaboration with recognized state universities and technical education boards. The B.Sc in Fire & Industrial Safety is awarded through Acharya Nagarjuna University (UGC-recognized), and diploma pathways meet statutory Safety Officer qualifications under Section 40B of the Factories Act, 1948.",
     },
     sections: [
       { type: "logos" },
       {
+        type: "cards",
+        eyebrow: "Primary-Source Recognition",
+        title: "Exact Awarding Bodies & Regulatory Alignment",
+        cols: 2,
+        cards: [
+          {
+            meta: "University Degree Partner",
+            title: "Acharya Nagarjuna University (ANU, Guntur)",
+            body: "NIFS conducts B.Sc in Fire & Industrial Safety in academic collaboration with ANU (UGC & NAAC 'A' grade state university). Practical training yard drills are supervised directly in Visakhapatnam.",
+          },
+          {
+            meta: "Statutory Legal Compliance",
+            title: "Factories Act 1948 (Section 40B)",
+            body: "ADIS (Advanced Diploma in Industrial Safety) curriculum satisfies mandatory state factory inspectorate norms for manufacturing plants, refineries, and chemical units employing 250+ workers.",
+          },
+          {
+            meta: "National Vocational Partner",
+            title: "NSDC & Skill India Approved",
+            body: "Recognized vocational training partner under the National Skill Development Corporation (MSDE, Government of India), providing standardized occupational safety certifications.",
+          },
+          {
+            meta: "State Technical Board",
+            title: "SBTET Alignment & Quality Management",
+            body: "Diploma course structures align with State Board of Technical Education norms, certified under international ISO 9001:2015 Quality Management Systems.",
+          },
+        ],
+      },
+      {
         type: "list",
         eyebrow: "What it means for you",
         title: "Recognition that travels with your career",
-        note: "Certification from a UGC-recognized, government-approved institute means your qualification is valid for safety officer and EHS roles in India, the Gulf, and international markets.",
+        note: "Statutory recognition under university charters and state technical boards ensures NIFS diplomas and degrees are formally accepted for PSU recruitments (ONGC, IOCL, SAIL), private MNC plants (L&T, Adani, Reliance), and Gulf HSE visas.",
       },
     ],
   },

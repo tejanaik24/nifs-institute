@@ -85,7 +85,7 @@ export function CombinedGraphSchema() {
                 height: "512",
               },
               description:
-                "National Institute of Fire and Safety (NIFS) is India's premier government-approved fire and industrial safety training institute established in 2004 (distinct from NIFSM). Approved by NSDC, Skill India, and ISO 9001:2015 certified with 70+ centers nationwide and 45,000+ placements.",
+                "National Institute of Fire and Safety (NIFS India) is India's leading industrial safety and fire engineering training institution established in 2004, headquartered in Visakhapatnam, Andhra Pradesh. Operating 69 verified training centers across 21 states and union territories with 45,000+ placed alumni, NIFS conducts professional diplomas and university-collaborated degree programs in partnership with Acharya Nagarjuna University and approved by NSDC & Skill India.",
               foundingDate: "2004",
               address: HQ_ADDRESS,
               contactPoint: {
@@ -95,9 +95,10 @@ export function CombinedGraphSchema() {
                 availableLanguage: ["English", "Hindi", "Telugu"],
               },
               sameAs: [
+                "https://en.wikipedia.org/wiki/Draft:National_Institute_of_Fire_and_Safety",
+                "https://www.linkedin.com/company/nifs-india",
                 "https://www.facebook.com/nifsindia",
                 "https://www.instagram.com/nifsindia",
-                "https://www.linkedin.com/company/nifs-india",
                 "https://www.youtube.com/@nifsindia",
               ],
               makesOffer: COURSE_SERVICES,

@@ -1,8 +1,8 @@
-import type { Metadata } from "next";
-import Link from "next/link";
 import { PageHero } from "@/components/sections/page-hero";
 import { StoryBlock } from "@/components/sections/story-block";
+import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 
 const aboutSections = [
   {
@@ -43,8 +43,14 @@ export default function AboutPage() {
         description="A unit of SSB Institute of Higher Studies Educational Society — ISO 9001:2015 certified, NSDC and Skill India approved."
       />
 
-      <section id="chairman" className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-6 py-20 md:grid-cols-2 lg:px-10">
-        <div data-path-target="true" className="relative aspect-[4/5] w-full overflow-hidden rounded-sm">
+      <section
+        id="chairman"
+        className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-6 py-20 md:grid-cols-2 lg:px-10"
+      >
+        <div
+          data-path-target="true"
+          className="relative aspect-[4/5] w-full overflow-hidden rounded-sm"
+        >
           <Image
             src="/images/nifs-chairman-portrait.jpg"
             alt="From the Chairman's Desk"
@@ -64,9 +70,9 @@ export default function AboutPage() {
               responsible management.
             </p>
             <p>
-              For over 24 years, NIFS has been dedicated to developing
-              competent, proactive, and industry-ready safety professionals
-              through quality education and practical training.
+              Since 2004 (for over 22 years), NIFS has been dedicated to
+              developing competent, proactive, and industry-ready safety
+              professionals through quality education and practical training.
             </p>
             <p>
               Our academic and professional programs equip students with the
@@ -74,9 +80,9 @@ export default function AboutPage() {
               emergencies, and protect lives, property, and the environment.
             </p>
             <p>
-              At NIFS, we believe safety is built through discipline,
-              continuous learning, and professional excellence. Our mission
-              is to make &ldquo;Safety First&rdquo; a way of life.
+              At NIFS, we believe safety is built through discipline, continuous
+              learning, and professional excellence. Our mission is to make
+              &ldquo;Safety First&rdquo; a way of life.
             </p>
           </div>
           <p className="mt-6 text-sm font-semibold text-foreground">
@@ -96,7 +102,9 @@ export default function AboutPage() {
           <span className="text-xs font-semibold uppercase tracking-widest text-primary">
             Explore NIFS
           </span>
-          <h2 className="font-display mt-2 text-4xl italic">About us, in depth</h2>
+          <h2 className="font-display mt-2 text-4xl italic">
+            About us, in depth
+          </h2>
           <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {aboutSections.map((s) => (
               <Link

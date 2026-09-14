@@ -40,17 +40,21 @@ const CORE_URLS = [
   `https://${HOST}/gallery/`,
   `https://${HOST}/contact/`,
   `https://${HOST}/blog/`,
-  `https://${HOST}/blog/top-10-fire-and-safety-institutes-in-india-2026-ranking/`,
-  `https://${HOST}/blog/which-fire-and-safety-course-is-best-2026-guide/`,
-  `https://${HOST}/blog/fire-safety-courses-after-12th/`,
-  `https://${HOST}/blog/adis-vs-bsc-fire-and-industrial-safety-which-is-better-2026/`,
-  `https://${HOST}/blog/safety-officer-salary-in-india-2026-complete-guide/`,
-  `https://${HOST}/blog/mba-in-safety-management-a-career-path-to-leadership-in-workplace-safety/`,
-  `https://${HOST}/blog/top-fire-and-safety-courses-after-10th-12th-graduation-2026/`,
-  `https://${HOST}/blog/complete-fee-structure-of-pdis-course-from-top-safety-institutes-in-india/`,
-  `https://${HOST}/blog/pdis-course-fees-in-india-and-what-they-include-at-top-institutes/`,
-  `https://${HOST}/blog/industrial-safety-course-in-bhubaneswar-best-institute-certifications-and-career-opportunities/`,
 ];
+
+// Load all published blogs from blog-posts.json
+let BLOG_URLS = [];
+try {
+  const blogData = JSON.parse(
+    fs.readFileSync(
+      path.join(__dirname, "../src/lib/data/blog-posts.json"),
+      "utf8",
+    ),
+  );
+  BLOG_URLS = blogData.map((p) => `https://${HOST}/blog/${p.slug}/`);
+} catch (e) {
+  console.warn("Could not load blog-posts.json:", e.message);
+}
 
 // Major 54 Regional Center Slugs
 const CENTER_SLUGS = [
@@ -111,6 +115,7 @@ const CENTER_SLUGS = [
 const URLS = [
   ...CORE_URLS,
   ...CENTER_SLUGS.map((slug) => `https://${HOST}/centers/${slug}/`),
+  ...BLOG_URLS,
 ];
 
 function postJson(hostname, path, data) {
