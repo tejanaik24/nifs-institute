@@ -15,11 +15,12 @@ National Institute of Fire and Safety (NIFS India) is India's premier vocational
 
 ## Core Course Offerings
 - [Diploma in Fire & Safety (DFS)](https://nifsindia.net/courses/diploma-in-fire-safety/): 1-Year NSDC-approved job-ready program for 10th and 12th pass students.
-- [Advanced Diploma in Industrial Safety (ADIS)](https://nifsindia.net/courses/advanced-diploma-industrial-safety/): 1-Year statutory factory safety officer qualification under Factories Act 1948.
+- [Advanced Diploma in Industrial Safety (ADIS)](https://nifsindia.net/courses/advanced-diploma-in-industrial-safety-adis/): 1-Year statutory factory safety officer qualification under Factories Act 1948.
 - [Diploma in Health, Safety & Environment (DHSE)](https://nifsindia.net/courses/diploma-in-health-safety-environment/): 1-Year comprehensive environmental health and plant safety program.
-- [B.Sc in Fire & Industrial Safety](https://nifsindia.net/courses/bsc-fire-industrial-safety/): 3-Year university-affiliated degree with live industrial internships.
-- [B.Sc (Honours) in Fire & Industrial Safety](https://nifsindia.net/courses/bsc-honours-fire-industrial-safety/): 4-Year advanced honours degree with specialized industrial research.
-- [PG Diploma in Industrial Safety](https://nifsindia.net/courses/pg-diploma-industrial-safety/): 1-Year postgraduate program for engineering and science graduates.
+- [B.Sc in Fire & Industrial Safety](https://nifsindia.net/courses/b-sc-in-fire-industrial-safety/): 3-Year university-affiliated degree with live industrial internships.
+- [B.Sc (Honours) in Fire & Industrial Safety](https://nifsindia.net/courses/b-sc-honours-in-fire-industrial-safety/): 4-Year advanced honours degree with specialized industrial research.
+- [PG Diploma in Fire & Safety (PG DFS)](https://nifsindia.net/courses/pg-diploma-in-fire-safety-pg-dfs/): 1-Year postgraduate program for engineering and science graduates.
+- [PG Diploma in HSE (PG DHSE)](https://nifsindia.net/courses/pg-diploma-in-health-safety-environment-pg-dhse/): 1-Year postgraduate program in environmental health and safety.
 - [NEBOSH International General Certificate (IGC)](https://nifsindia.net/courses/nebosh-igc/): Global gold-standard certification for Gulf and MNC safety careers.
 - [Certificate Course in Fire & Safety (CCFS)](https://nifsindia.net/courses/certificate-course-in-fire-safety/): 3 to 6 months fast-track certification for quick employment.
 
@@ -30,6 +31,7 @@ National Institute of Fire and Safety (NIFS India) is India's premier vocational
 - [NIFS All Centers Directory](https://nifsindia.net/centers/): Pan-India network across 70+ locations and 24 states.
 
 ## Career Guides & Research
+- [Fire & Safety Course Master Guide (2026)](https://nifsindia.net/fire-and-safety-course/): Comprehensive guide on course types, eligibility, fees, syllabus, and 100% placement scope.
 - [How to Become a Safety Officer in India (2026 Step-by-Step Guide)](https://nifsindia.net/how-to-become-a-safety-officer-in-india/): Eligibility, qualifications, state license requirements, and step-by-step career path.
 - [Safety Officer Course After 12th (Eligibility, Fees & Scope)](https://nifsindia.net/safety-officer-course-after-12th/): Complete guide for 12th science, arts, and commerce students.
 - [Safety Officer Salary in India 2026 (Pay Scale & Gulf Comparison)](https://nifsindia.net/safety-officer-salary-in-india/): Detailed salary matrix from fresher to HSE Director in India and Gulf.

@@ -1,44 +1,45 @@
-import { notFound } from "next/navigation";
-import type { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
-import { PageHero } from "@/components/sections/page-hero";
-import { getJobBySlug, getOpenJobs } from "@/lib/db/jobs";
-import { JobApplyForm } from "@/components/sections/job-apply-form";
 import { DeadlineCountdown } from "@/components/sections/deadline-countdown";
+import { JobApplyForm } from "@/components/sections/job-apply-form";
+import { PageHero } from "@/components/sections/page-hero";
+import { getAllJobs, getJobBySlug, getOpenJobs } from "@/lib/db/jobs";
 import {
+  AlertCircle,
   Building2,
-  MapPin,
   Calendar,
-  Users,
-  Briefcase,
-  GraduationCap,
-  Clock,
-  IndianRupee,
-  Globe2,
-  Gift,
   ChevronLeft,
   ChevronRight,
+  Gift,
+  Globe2,
   Hash,
   Mail,
+  MapPin,
   Phone,
   ShieldCheck,
 } from "lucide-react";
+import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import { notFound } from "next/navigation";
 
 type Props = { params: Promise<{ slug: string }> };
 
 export async function generateStaticParams() {
-  const jobs = await getOpenJobs().catch(() => []);
-  return jobs.map((j) => ({ slug: j.slug }));
+  const jobs = await getAllJobs().catch(() => []);
+  return jobs
+    .filter((j) => j.status !== "draft")
+    .map((j) => ({ slug: j.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const job = await getJobBySlug(slug);
-  if (!job || job.status !== "open") return {};
+  if (!job || job.status === "draft") return {};
 
-  const title = `${job.companyName}${job.clientCompany ? ` (${job.clientCompany})` : ""} — Recruitment Drive | NIFS India`;
-  const desc = `Recruitment drive by ${job.companyName} in ${job.location}. ${job.positions.length} position(s) open. Total vacancies: ${job.totalVacancies || 1}. Apply now.`;
+  const isClosed = job.status === "closed";
+  const title = `${job.companyName}${job.clientCompany ? ` (${job.clientCompany})` : ""} — ${isClosed ? "Drive Completed" : "Recruitment Drive"} | NIFS India`;
+  const desc = isClosed
+    ? `Recruitment drive by ${job.companyName} in ${job.location} is completed. View eligibility criteria, salary benchmarks, and upcoming campus drives at NIFS India.`
+    : `Recruitment drive by ${job.companyName} in ${job.location}. ${job.positions.length} position(s) open. Total vacancies: ${job.totalVacancies || 1}. Apply now.`;
 
   return {
     title,
@@ -55,7 +56,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function JobDetailPage({ params }: Props) {
   const { slug } = await params;
   const job = await getJobBySlug(slug);
-  if (!job || job.status !== "open") notFound();
+  if (!job || job.status === "draft") notFound();
+
+  const isClosed = job.status === "closed";
 
   const formattedApplyDate = job.applyByDate
     ? new Date(job.applyByDate).toLocaleString("en-IN", {
@@ -81,8 +84,59 @@ export default async function JobDetailPage({ params }: Props) {
     .filter((j) => j.id !== job.id)
     .slice(0, 3);
 
+  const jobPostingSchemas = (
+    job.positions.length > 0
+      ? job.positions
+      : [
+          {
+            designation: `${job.companyName} Safety Opening`,
+            vacancies: job.totalVacancies || 1,
+            qualification: "Diploma in Fire & Safety / ADIS",
+            salary: undefined,
+          },
+        ]
+  ).map((pos) => ({
+    "@context": "https://schema.org",
+    "@type": "JobPosting",
+    title: `${pos.designation} — ${job.companyName}`,
+    description: `Immediate recruitment drive for ${pos.designation} at ${job.companyName} in ${job.location}. ${pos.qualification ? `Required Qualification: ${pos.qualification}. ` : ""}${pos.vacancies ? `Total Vacancies: ${pos.vacancies}. ` : ""}Apply online with resume at NIFS India Official Placement Portal.`,
+    datePosted: (job.publishedAt ?? job.createdAt).toISOString(),
+    validThrough: job.applyByDate
+      ? new Date(job.applyByDate).toISOString()
+      : new Date(
+          new Date(job.publishedAt ?? job.createdAt).getTime() + 60 * 86400000,
+        ).toISOString(),
+    employmentType: "FULL_TIME",
+    hiringOrganization: {
+      "@type": "Organization",
+      name: job.clientCompany || job.companyName,
+      sameAs: "https://nifsindia.net",
+      logo: job.clientLogoUrl || "https://nifsindia.net/images/nifs-crest.png",
+    },
+    jobLocation: {
+      "@type": "Place",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: job.location,
+        addressCountry: "IN",
+      },
+    },
+    directApply: true,
+    url: `https://nifsindia.net/placements/jobs/${job.slug}/`,
+  }));
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            jobPostingSchemas.length === 1
+              ? jobPostingSchemas[0]
+              : jobPostingSchemas,
+          ),
+        }}
+      />
       <PageHero
         eyebrow="Placement Drive"
         title={job.companyName}
@@ -103,6 +157,26 @@ export default async function JobDetailPage({ params }: Props) {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
           {/* Main Content (Left 7 cols) */}
           <div className="space-y-10 lg:col-span-7">
+            {isClosed && (
+              <div className="flex items-start gap-3 rounded-2xl border border-amber-500/40 bg-amber-500/10 p-5 text-amber-900 dark:text-amber-200">
+                <AlertCircle
+                  className="mt-0.5 shrink-0 text-amber-600 dark:text-amber-400"
+                  size={20}
+                />
+                <div>
+                  <h4 className="text-sm font-bold">
+                    This Campus Recruitment Drive Is Completed
+                  </h4>
+                  <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+                    Applications for {job.companyName} ({job.location}) are
+                    currently closed. NIFS students and alumni receive priority
+                    access to ongoing and upcoming corporate campus placement
+                    drives.
+                  </p>
+                </div>
+              </div>
+            )}
+
             {/* Prominent Poster Flyer Image (if uploaded) */}
             {job.posterImageUrl && (
               <div className="relative overflow-hidden rounded-2xl border border-border bg-black/5 shadow-sm">
@@ -251,7 +325,8 @@ export default async function JobDetailPage({ params }: Props) {
                         </h4>
                       </div>
                       <div className="rounded-full bg-primary/10 px-3 py-1 font-mono text-xs font-semibold text-primary">
-                        {pos.vacancies} {pos.vacancies === 1 ? "Vacancy" : "Vacancies"}
+                        {pos.vacancies}{" "}
+                        {pos.vacancies === 1 ? "Vacancy" : "Vacancies"}
                       </div>
                     </div>
 
@@ -293,12 +368,15 @@ export default async function JobDetailPage({ params }: Props) {
             </div>
 
             {/* Contact & Signature */}
-            {(job.contactEmail || job.contactPhone || job.placementOfficerName) && (
+            {(job.contactEmail ||
+              job.contactPhone ||
+              job.placementOfficerName) && (
               <div className="rounded-2xl border border-border bg-card p-6 sm:p-8">
                 {(job.contactEmail || job.contactPhone) && (
                   <div className="mb-6 space-y-2 border-b border-border pb-6">
                     <p className="text-sm text-foreground">
-                      Interested and eligible candidates may also reach out directly:
+                      Interested and eligible candidates may also reach out
+                      directly:
                     </p>
                     {job.contactPhone && (
                       <div className="flex items-center gap-2 text-sm font-medium text-foreground">
@@ -356,10 +434,15 @@ export default async function JobDetailPage({ params }: Props) {
                           <p className="text-sm font-medium text-foreground">
                             {oj.clientCompany || oj.companyName}
                           </p>
-                          <p className="text-xs text-muted-foreground">{oj.location}</p>
+                          <p className="text-xs text-muted-foreground">
+                            {oj.location}
+                          </p>
                         </div>
                       </div>
-                      <ChevronRight size={16} className="shrink-0 text-primary" />
+                      <ChevronRight
+                        size={16}
+                        className="shrink-0 text-primary"
+                      />
                     </Link>
                   ))}
                 </div>
@@ -367,10 +450,48 @@ export default async function JobDetailPage({ params }: Props) {
             )}
           </div>
 
-          {/* Sticky Sidebar: Apply Form (Right 5 cols) */}
+          {/* Sticky Sidebar: Apply Form or Evergreen Drive Completed Card (Right 5 cols) */}
           <div className="lg:col-span-5">
             <div className="sticky top-24">
-              <JobApplyForm job={job} />
+              {isClosed ? (
+                <div className="rounded-2xl border border-primary/30 bg-card p-6 sm:p-8 shadow-sm">
+                  <span className="text-xs font-semibold uppercase tracking-widest text-primary">
+                    Drive Completed
+                  </span>
+                  <h3 className="font-display mt-2 text-2xl italic text-foreground">
+                    Qualify for Next Hiring Drive
+                  </h3>
+                  <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+                    Recruiters like {job.companyName}, L&amp;T, and Adani
+                    require government-recognized safety certifications (ADIS,
+                    DFS, or DHSE). NIFS provides 100% placement assistance to
+                    all certified graduates.
+                  </p>
+                  <div className="mt-6 space-y-3">
+                    <a
+                      href={`https://wa.me/918374340999?text=${encodeURIComponent(`Hi NIFS, I saw the ${job.companyName} placement drive in ${job.location}. I want to know about course admissions and how to qualify for upcoming campus placement drives.`)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3.5 text-center text-sm font-semibold text-primary-foreground shadow-sm transition hover:bg-primary/90"
+                    >
+                      Chat on WhatsApp — Next Drive Alert
+                    </a>
+                    <Link
+                      href="/courses"
+                      className="flex w-full items-center justify-center gap-2 rounded-xl border border-border bg-background px-5 py-3.5 text-center text-sm font-semibold text-foreground transition hover:border-primary/50"
+                    >
+                      Explore Safety Diploma Courses
+                    </Link>
+                  </div>
+                  <div className="mt-6 border-t border-border pt-4">
+                    <p className="text-center text-xs text-muted-foreground">
+                      Over 45,000+ Alumni Placed Across 70+ Centers Nationwide
+                    </p>
+                  </div>
+                </div>
+              ) : (
+                <JobApplyForm job={job} />
+              )}
             </div>
           </div>
         </div>

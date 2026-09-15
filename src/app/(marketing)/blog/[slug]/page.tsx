@@ -1,11 +1,23 @@
+import { LiveJobsBanner } from "@/components/sections/live-jobs-banner";
+import { getPostBySlug, toBlogPostView } from "@/lib/db/posts";
+import { getContextualLinks } from "@/lib/seo/contextual-links";
+import {
+  BlogPostingSchema,
+  BreadcrumbSchema,
+  FAQSchema,
+} from "@/lib/seo/schema";
+import {
+  ArrowLeft,
+  Calendar,
+  Clock,
+  HelpCircle,
+  MessageSquare,
+  ShieldCheck,
+} from "lucide-react";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, Calendar, Clock, UserCheck, ShieldCheck, Phone, MessageSquare, HelpCircle } from "lucide-react";
-import { getPostBySlug, toBlogPostView } from "@/lib/db/posts";
-import { FAQSchema, BlogPostingSchema, BreadcrumbSchema } from "@/lib/seo/schema";
-import { getContextualLinks } from "@/lib/seo/contextual-links";
 
 // Blog posts are database-backed now (publish/unpublish takes effect
 // immediately) — no generateStaticParams here, this route renders on demand.
@@ -162,6 +174,9 @@ export default async function BlogPostPage({
             </div>
           )}
 
+          {/* Live Placement Drives Banner */}
+          <LiveJobsBanner />
+
           {/* FAQ Section — visible counterpart to the FAQPage schema above */}
           {post.faqs && post.faqs.length > 0 && (
             <div className="mt-10 border-t border-slate-100 pt-8">
@@ -175,8 +190,12 @@ export default async function BlogPostPage({
                     key={idx}
                     className="rounded-xl border border-slate-200 bg-slate-50/60 p-5"
                   >
-                    <h3 className="text-sm font-bold text-slate-900">{item.question}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-slate-600">{item.answer}</p>
+                    <h3 className="text-sm font-bold text-slate-900">
+                      {item.question}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                      {item.answer}
+                    </p>
                   </div>
                 ))}
               </div>
@@ -194,7 +213,9 @@ export default async function BlogPostPage({
                   Start Your Career in Industrial Safety Today
                 </h3>
                 <p className="mt-2 text-xs text-slate-300 sm:text-sm max-w-xl">
-                  NSDC-approved Diploma, Advanced Diploma, and Degree programs with 100% placement assistance at top companies like L&T, Adani, and Reliance.
+                  NSDC-approved Diploma, Advanced Diploma, and Degree programs
+                  with 100% placement assistance at top companies like L&T,
+                  Adani, and Reliance.
                 </p>
               </div>
 

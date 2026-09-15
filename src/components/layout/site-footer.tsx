@@ -58,7 +58,7 @@ export function SiteFooter() {
       className="border-t border-border bg-foreground text-background"
     >
       <div className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-4">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-5">
           {/* Brand — always visible on mobile, no accordion */}
           <div>
             <div className="flex items-center gap-2">
@@ -83,6 +83,49 @@ export function SiteFooter() {
                   </Link>
                 </li>
               ))}
+            </ul>
+          </FooterAccordion>
+
+          {/* Career Guides — accordion on mobile, always-expanded on desktop */}
+          <FooterAccordion title="Career Guides">
+            <ul className="space-y-2 text-sm text-background/70">
+              <li>
+                <Link
+                  href="/safety-officer-salary-in-india/"
+                  className="hover:text-background"
+                >
+                  Safety Officer Salary 2026
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/fire-and-safety-course/"
+                  className="hover:text-background"
+                >
+                  Fire &amp; Safety Course Guide
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/safety-officer-course-after-12th/"
+                  className="hover:text-background"
+                >
+                  Safety Courses After 12th
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/how-to-become-a-safety-officer-in-india/"
+                  className="hover:text-background"
+                >
+                  How to Become a Safety Officer
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog/" className="hover:text-background">
+                  Safety Career Insights &amp; Blog
+                </Link>
+              </li>
             </ul>
           </FooterAccordion>
 

@@ -1,3 +1,4 @@
+import { LiveJobsBanner } from "@/components/sections/live-jobs-banner";
 import { BreadcrumbSchema, FAQSchema } from "@/lib/seo/schema";
 import {
   ArrowRight,
@@ -208,6 +209,11 @@ export default function SafetyOfficerSalaryInIndiaPage() {
             </p>
           </div>
         </header>
+
+        {/* Live Placement Drives Banner */}
+        <div className="mx-auto max-w-5xl px-6 lg:px-10">
+          <LiveJobsBanner />
+        </div>
 
         {/* Content Body */}
         <div className="mx-auto max-w-5xl px-6 py-8 lg:px-10 space-y-12">
