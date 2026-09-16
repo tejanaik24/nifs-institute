@@ -430,9 +430,18 @@ export default function HomeHero() {
         </div>
 
         <div className="flex flex-col gap-5 items-start">
-          <p className="font-sans text-[15px] font-semibold uppercase tracking-wider text-left text-white/70 md:text-gray-500">
-            25+ Years of Excellence
-          </p>
+          <div className="flex items-center gap-2.5 flex-wrap">
+            <span className="font-sans text-[12px] sm:text-[13px] font-semibold uppercase tracking-wider text-white/80 md:text-gray-600 bg-white/10 md:bg-gray-100 px-3 py-1 rounded-full backdrop-blur-sm">
+              25+ Years Legacy
+            </span>
+            <Link
+              href="/blog/nifs-india-achieves-milestone-collaboration-with-acharya-nagarjuna-university/"
+              className="font-sans text-[12px] sm:text-[13px] font-semibold text-white/90 md:text-gray-800 bg-white/15 md:bg-gray-100/90 hover:bg-white/25 md:hover:bg-gray-200/90 px-3 py-1 rounded-full border border-white/20 md:border-gray-300 flex items-center gap-1.5 transition-colors"
+            >
+              <span className="h-2 w-2 rounded-full bg-nifs-red inline-block" />
+              <span>Academic Partner: Acharya Nagarjuna University</span>
+            </Link>
+          </div>
 
           <h2 className="font-sans text-[22px] max-md:text-[20px] max-sm:text-[15px] font-bold text-left text-white md:text-black">
             Our Graduates Work At

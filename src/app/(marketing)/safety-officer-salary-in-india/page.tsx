@@ -618,6 +618,29 @@ export default function SafetyOfficerSalaryInIndiaPage() {
                 </tbody>
               </table>
             </div>
+
+            {/* University Degree PSU & Gulf Compensation Advantage */}
+            <div className="mt-4 rounded-xl border border-primary/30 bg-primary/5 p-4.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div className="space-y-1">
+                <p className="text-sm font-bold text-foreground">
+                  Statutory Moat: Central PSU Pay-Scales &amp; Gulf MEA
+                  Attestation
+                </p>
+                <p className="text-xs text-muted-foreground leading-relaxed">
+                  To qualify for Grade-A PSU officer pay scales (IOCL, ONGC,
+                  NTPC, SAIL) and direct Saudi Aramco / ADNOC approvals,
+                  candidates must hold a UGC-approved State University degree.
+                  NIFS India confers 3-Year B.Sc and 4-Year B.Sc (Honours) under
+                  its academic collaboration with Acharya Nagarjuna University.
+                </p>
+              </div>
+              <Link
+                href="/blog/nifs-india-achieves-milestone-collaboration-with-acharya-nagarjuna-university/"
+                className="inline-flex shrink-0 items-center justify-center rounded-lg bg-primary px-4 py-2 text-xs font-bold text-primary-foreground hover:bg-primary/90 transition-colors"
+              >
+                Read ANU Degree Guide &rarr;
+              </Link>
+            </div>
           </section>
 
           {/* Section 4: Gulf Jobs & Overseas Remuneration */}

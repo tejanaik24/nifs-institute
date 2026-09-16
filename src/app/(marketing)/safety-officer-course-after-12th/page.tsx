@@ -348,6 +348,20 @@ export default function SafetyOfficerCourseAfter12thPage() {
                     <strong>Affiliation:</strong> Acharya Nagarjuna University
                   </div>
                 </div>
+
+                <div className="rounded-lg border border-primary/20 bg-primary/5 p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                  <span className="text-xs text-muted-foreground">
+                    Conferred by <strong>Acharya Nagarjuna University</strong>{" "}
+                    (UGC Approved, NAAC &apos;A+&apos;). 100% statutory legal
+                    compliance under Factories Act 1948 Section 40B.
+                  </span>
+                  <Link
+                    href="/blog/nifs-india-achieves-milestone-collaboration-with-acharya-nagarjuna-university/"
+                    className="shrink-0 text-xs font-bold text-primary hover:underline"
+                  >
+                    View University MoU &rarr;
+                  </Link>
+                </div>
               </div>
             </div>
           </section>

@@ -1,6 +1,12 @@
+import WhatsAppSeatChecker from "@/components/ui/whatsapp-seat-checker";
 import { courses } from "@/lib/data/courses";
 import { BreadcrumbSchema, CourseSchema, FAQSchema } from "@/lib/seo/schema";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import {
+  ArrowRight,
+  CheckCircle2,
+  GraduationCap,
+  ShieldCheck,
+} from "lucide-react";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -34,37 +40,35 @@ export default async function CourseDetailPage({
   const course = courses.find((c) => c.slug === slug);
   if (!course) notFound();
 
-  const faqs =
-    course.faqs ??
-    [
-      {
-        question: `What is ${course.name}?`,
-        answer: course.summary,
-      },
-      {
-        question: `What is the eligibility for ${course.name}?`,
-        answer: `${course.name} requires ${course.eligibility}. The course duration is ${course.duration} and is available in ${course.mode} mode.`,
-      },
-      {
-        question: `What is the duration of ${course.name}?`,
-        answer: `${course.name} has a duration of ${course.duration}.`,
-      },
-      {
-        question: `What are the career opportunities after ${course.name}?`,
-        answer: `After completing ${course.name}, graduates can pursue careers as ${course.careers.join(", ")}.`,
-      },
-      {
-        question: `Is ${course.name} recognized by the government?`,
-        answer:
-          course.accreditedBy === "NSDC"
-            ? `Yes, ${course.name} is NSDC-affiliated. NIFS India is also ISO 9001:2015 certified.`
-            : course.accreditedBy === "ANU"
-              ? `${course.name} is offered in association with Acharya Nagarjuna University. NIFS India is also NSDC-approved and ISO 9001:2015 certified.`
-              : course.accreditedBy === "SBTET-AP"
-                ? `${course.name} is affiliated to the State Board of Technical Education & Training, Andhra Pradesh (SBTET-AP). NIFS India is also NSDC-approved and ISO 9001:2015 certified.`
-                : `NIFS India is an NSDC & Skill India approved, ISO 9001:2015 certified training institute.`,
-      },
-    ];
+  const faqs = course.faqs ?? [
+    {
+      question: `What is ${course.name}?`,
+      answer: course.summary,
+    },
+    {
+      question: `What is the eligibility for ${course.name}?`,
+      answer: `${course.name} requires ${course.eligibility}. The course duration is ${course.duration} and is available in ${course.mode} mode.`,
+    },
+    {
+      question: `What is the duration of ${course.name}?`,
+      answer: `${course.name} has a duration of ${course.duration}.`,
+    },
+    {
+      question: `What are the career opportunities after ${course.name}?`,
+      answer: `After completing ${course.name}, graduates can pursue careers as ${course.careers.join(", ")}.`,
+    },
+    {
+      question: `Is ${course.name} recognized by the government?`,
+      answer:
+        course.accreditedBy === "NSDC"
+          ? `Yes, ${course.name} is NSDC-affiliated. NIFS India is also ISO 9001:2015 certified.`
+          : course.accreditedBy === "ANU"
+            ? `${course.name} is offered in association with Acharya Nagarjuna University. NIFS India is also NSDC-approved and ISO 9001:2015 certified.`
+            : course.accreditedBy === "SBTET-AP"
+              ? `${course.name} is affiliated to the State Board of Technical Education & Training, Andhra Pradesh (SBTET-AP). NIFS India is also NSDC-approved and ISO 9001:2015 certified.`
+              : `NIFS India is an NSDC & Skill India approved, ISO 9001:2015 certified training institute.`,
+    },
+  ];
 
   return (
     <>
@@ -149,6 +153,59 @@ export default async function CourseDetailPage({
               <span>Practical Training Yard</span>
             </div>
           </div>
+
+          {/* University Collaboration Moat Card */}
+          {course.accreditedBy === "ANU" && (
+            <div className="mt-8 rounded-2xl border-2 border-primary/40 bg-primary/5 p-6 sm:p-8 shadow-sm">
+              <div className="flex items-start gap-4">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary text-white shadow-md">
+                  <GraduationCap className="h-6 w-6" />
+                </div>
+                <div className="space-y-2">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="rounded-full bg-primary/10 px-3 py-0.5 text-xs font-bold uppercase tracking-wider text-primary">
+                      State Government University Degree
+                    </span>
+                    <span className="rounded-full bg-background px-3 py-0.5 text-xs font-bold text-muted-foreground border border-border">
+                      NAAC &apos;A+&apos; Accredited
+                    </span>
+                  </div>
+                  <h3 className="font-display text-xl sm:text-2xl font-bold text-foreground">
+                    Awarded in Academic Collaboration with Acharya Nagarjuna
+                    University
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    This degree program is directly conferred by{" "}
+                    <strong>Acharya Nagarjuna University (ANU)</strong>, a
+                    premier Andhra Pradesh State Government University
+                    established under the UGC Act, 1956. Unlike autonomous
+                    private certificates, ANU degree qualifications provide 100%
+                    legal eligibility under{" "}
+                    <strong>Section 40B of The Factories Act, 1948</strong>,
+                    qualify for Central/State PSU recruitment drives (IOCL,
+                    ONGC, NTPC, SAIL), and are fully eligible for{" "}
+                    <strong>
+                      Ministry of External Affairs (MEA) attestation
+                    </strong>{" "}
+                    for overseas employment across Gulf countries (UAE, Saudi
+                    Arabia, Qatar).
+                  </p>
+                  <div className="pt-2">
+                    <Link
+                      href="/blog/nifs-india-achieves-milestone-collaboration-with-acharya-nagarjuna-university/"
+                      className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-primary hover:underline"
+                    >
+                      <ShieldCheck className="h-4 w-4" />
+                      <span>
+                        Read Full Statutory Degree Recognition &amp; Legal MoU
+                        Details &rarr;
+                      </span>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
 
           <div
             data-path-target="true"
@@ -339,6 +396,14 @@ export default async function CourseDetailPage({
                 </div>
               ))}
             </div>
+          </div>
+
+          {/* WhatsApp Seat Checker */}
+          <div className="mt-14">
+            <WhatsAppSeatChecker
+              courseName={course.name}
+              isUniversityDegree={course.accreditedBy === "ANU"}
+            />
           </div>
 
           {/* Action Bar */}

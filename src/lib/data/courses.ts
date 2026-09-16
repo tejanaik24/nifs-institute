@@ -90,7 +90,8 @@ export const courses: Course[] = [
           "DFS stands for Diploma in Fire & Safety — a 1-year NIFS India program covering fire science & engineering, industrial safety fundamentals, emergency planning, and safety auditing, leading to roles such as Fire & Safety Supervisor or Site Safety Officer.",
       },
     ],
-    seoTitle: "Diploma in Fire and Safety (DFS) — Eligibility & Fees 2026 | NIFS",
+    seoTitle:
+      "Diploma in Fire and Safety (DFS) — Eligibility & Fees 2026 | NIFS",
     seoDescription:
       "Diploma in Fire and Safety (DFS): 1-year NSDC-approved course, eligibility 10+2/ITI/any stream. Fire engineering, industrial safety, supervisory-track careers. Apply at NIFS India.",
     name: "Diploma in Fire & Safety (DFS)",
@@ -351,7 +352,7 @@ export const courses: Course[] = [
       },
     ],
     seoDescription:
-      "A 3-year degree preparing students to manage fire hazards, implement safety protocols, and lead workplace safety compliance.",
+      "A 3-year UGC-recognized degree via Acharya Nagarjuna University preparing students to manage fire hazards, statutory compliance, and leadership in workplace safety.",
     name: "B.Sc in Fire & Industrial Safety",
     shortName: "B.Sc FIS",
     tier: "B.Sc",
@@ -359,7 +360,7 @@ export const courses: Course[] = [
     eligibility: "10+2 / ITI (2 Yrs) / Diploma (3 Yrs, Any Stream)",
     mode: "Classroom / Online",
     summary:
-      "A full 3-year degree program preparing students to manage fire hazards, implement safety protocols, and lead workplace safety compliance from day one of their career.",
+      "A full 3-year UGC-recognized degree program conferred in academic collaboration with Acharya Nagarjuna University (ANU), preparing students to manage fire hazards, implement statutory safety protocols under the Factories Act, and lead workplace safety compliance.",
     subjects: [
       "Fire Science & Engineering",
       "Industrial Safety Management",
@@ -374,6 +375,7 @@ export const courses: Course[] = [
       "Risk Analyst",
     ],
     image: "/images/gallery-practical-yard.jpg",
+    accreditedBy: "ANU",
   },
   {
     slug: "b-sc-honours-in-fire-industrial-safety",
@@ -382,7 +384,7 @@ export const courses: Course[] = [
         question:
           "What is a B.Sc (Honours) in Fire and Industrial Safety and how is it different from the regular B.Sc?",
         answer:
-          "The B.Sc (Honours) in Fire & Industrial Safety at NIFS India is a 4-year (8 semester) advanced degree, one year longer than the standard 3-year B.Sc, adding deeper specialization: advanced fire science & engineering, industrial safety & hygiene, environmental risk management, safety legislation & audits, plus an honours research project & internship.",
+          "The B.Sc (Honours) in Fire & Industrial Safety at NIFS India is a 4-year (8 semester) advanced degree conferred via Acharya Nagarjuna University (ANU), one year longer than the standard 3-year B.Sc, adding deeper specialization: advanced fire science & engineering, industrial safety & hygiene, environmental risk management, safety legislation & audits, plus an honours research project & internship.",
       },
       {
         question:
@@ -392,13 +394,19 @@ export const courses: Course[] = [
       },
       {
         question:
+          "Is the B.Sc Honours in Fire Safety degree recognized by UGC and the government?",
+        answer:
+          "Yes. The degree is awarded in academic collaboration with Acharya Nagarjuna University (ANU), a NAAC 'A+' accredited, UGC-recognized State University established by the Government of Andhra Pradesh. It is valid for PSU recruitments, Central/State Government safety officer posts, and Gulf visa MEA attestation.",
+      },
+      {
+        question:
           "What careers can you pursue after a Fire & Industrial Safety honours degree?",
         answer:
           "NIFS India lists Senior Safety Officer, Industrial Safety Specialist, EHS Consultant, and Risk Analyst as career paths after the B.Sc (Honours).",
       },
     ],
     seoDescription:
-      "An advanced 4-year honours degree with specialization in fire engineering, industrial safety management, and environmental risk.",
+      "An advanced 4-year honours degree via Acharya Nagarjuna University with specialization in fire engineering, industrial safety management, and environmental risk.",
     name: "B.Sc (Honours) in Fire & Industrial Safety",
     shortName: "B.Sc (Hons) FIS",
     tier: "B.Sc",
@@ -406,7 +414,7 @@ export const courses: Course[] = [
     eligibility: "10+2 / ITI (2 Yrs) / Diploma (3 Yrs, Any Stream)",
     mode: "Classroom / Online",
     summary:
-      "An advanced 4-year honours degree program providing deep specialization in fire engineering, industrial safety management, environmental risk, and practical industry research.",
+      "An advanced 4-year honours degree program conferred in academic collaboration with Acharya Nagarjuna University (ANU), providing deep specialization in fire engineering, industrial safety management, environmental risk, and practical industry research.",
     subjects: [
       "Advanced Fire Science & Engineering",
       "Industrial Safety & Hygiene",
@@ -421,6 +429,7 @@ export const courses: Course[] = [
       "Risk Analyst",
     ],
     image: "/images/gallery-industrial-visit.jpg",
+    accreditedBy: "ANU",
   },
   {
     slug: "diploma-in-industrial-safety-dis",

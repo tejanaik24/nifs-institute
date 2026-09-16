@@ -298,6 +298,47 @@ export default function HowToBecomeSafetyOfficerPage() {
                   </Link>{" "}
                   before enrolling anywhere.
                 </p>
+
+                {/* University Degree Statutory Moat Callout */}
+                <div className="my-5 rounded-xl border border-primary/30 bg-primary/5 p-5">
+                  <div className="flex items-start gap-3.5">
+                    <Award className="h-6 w-6 text-primary shrink-0 mt-0.5" />
+                    <div className="space-y-1.5">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className="rounded-full bg-primary/10 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider text-primary">
+                          Highest Statutory Credential
+                        </span>
+                        <span className="text-xs font-semibold text-muted-foreground">
+                          NAAC &apos;A+&apos; UGC State University
+                        </span>
+                      </div>
+                      <h4 className="text-base font-bold text-foreground">
+                        Acharya Nagarjuna University (ANU) Degree Collaboration
+                      </h4>
+                      <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                        For senior PSU Safety Officer recruitments (IOCL, ONGC,
+                        NTPC, BHEL) and Gulf MEA embassy attestation, holding a
+                        UGC-approved State University degree is legally
+                        required. NIFS India conducts regular 3-Year B.Sc and
+                        4-Year B.Sc (Honours) in Fire &amp; Industrial Safety in
+                        academic collaboration with Acharya Nagarjuna
+                        University.
+                      </p>
+                      <div className="pt-1">
+                        <Link
+                          href="/blog/nifs-india-achieves-milestone-collaboration-with-acharya-nagarjuna-university/"
+                          className="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:underline"
+                        >
+                          <span>
+                            Read Complete University Collaboration Guide &amp;
+                            Legal MoU &rarr;
+                          </span>
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
                 <div className="overflow-x-auto pt-2">
                   <table className="w-full text-left text-sm border-collapse border border-border">
                     <thead className="bg-muted text-foreground">
