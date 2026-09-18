@@ -67,6 +67,18 @@ export const enquiries = pgTable("enquiries", {
   name: text("name").notNull(),
   phone: varchar("phone", { length: 15 }).notNull(),
   course: text("course").notNull().default(""),
+  status: varchar("status", { length: 20 }).notNull().default("submitted"), // "draft" | "submitted"
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+});
+
+// Logged by /api/track/whatsapp-click — every wa.me link on the site is
+// wired through WhatsAppClickTracker (see
+// src/components/analytics/whatsapp-click-tracker.tsx), so this counts
+// real click volume even though we never see what gets typed in WhatsApp.
+export const whatsappClicks = pgTable("whatsapp_clicks", {
+  id: serial("id").primaryKey(),
+  pagePath: text("page_path").notNull(),
+  linkLabel: text("link_label").notNull().default(""),
   createdAt: timestamp("created_at").notNull().defaultNow(),
 });
 
