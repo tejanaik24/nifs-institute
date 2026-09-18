@@ -1,4 +1,4 @@
-import { eq } from "drizzle-orm";
+import { and, eq } from "drizzle-orm";
 import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/lib/db/client";
 import { enquiries } from "@/lib/db/schema";
@@ -18,14 +18,21 @@ export async function POST(request: NextRequest) {
   }
   const { name, phone, course } = parsed.data;
   const draftId = typeof raw?.draftId === "number" ? raw.draftId : null;
+  let updated: { id: number }[] = [];
   if (draftId !== null) {
     // Visitor already had a draft saved from auto-save — update that row
-    // to "submitted" instead of inserting a second one.
-    await db
+    // to "submitted" instead of inserting a second one. Scoped to
+    // status='draft' so a guessed/stale id can never overwrite an
+    // already-submitted (or someone else's) row.
+    updated = await db
       .update(enquiries)
       .set({ name, phone, course: course || "General Enquiry", status: "submitted" })
-      .where(eq(enquiries.id, draftId));
-  } else {
+      .where(and(eq(enquiries.id, draftId), eq(enquiries.status, "draft")))
+      .returning({ id: enquiries.id });
+  }
+  if (updated.length === 0) {
+    // No draftId given, or it didn't match a real draft row — insert fresh
+    // rather than lose the submission.
     await db.insert(enquiries).values({ name, phone, course: course || "General Enquiry" });
   }
   return NextResponse.json({ ok: true });
