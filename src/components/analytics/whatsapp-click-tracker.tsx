@@ -13,6 +13,9 @@ export function WhatsAppClickTracker() {
     function handleClick(event: MouseEvent) {
       const anchor = (event.target as HTMLElement)?.closest("a");
       if (!anchor || !isWhatsAppLink(anchor.href)) return;
+      // Staff messaging leads from inside the dashboard isn't visitor
+      // interest — don't let it inflate the same click count.
+      if (window.location.pathname.startsWith("/dashboard")) return;
       const payload = JSON.stringify({
         pagePath: window.location.pathname,
         linkLabel: anchor.textContent?.trim().slice(0, 200) ?? "",

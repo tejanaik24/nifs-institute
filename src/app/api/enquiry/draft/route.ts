@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/lib/db/client";
 import { enquiries } from "@/lib/db/schema";
 import { isDraftWorthy } from "@/lib/enquiry-draft";
+import { enquirySchema } from "@/lib/enquiry";
 
 // Called a couple seconds after the visitor stops typing in the callback
 // form, before they submit — see enquiry-form.tsx. Saves a real, callable
@@ -18,12 +19,18 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "not enough to save yet" }, { status: 400 });
   }
   const course = typeof body?.course === "string" ? body.course : "";
-  if (name.trim().length > 100 || phone.trim().length > 15 || course.length > 200) {
+  // Normalize like the real submit path so a formatted number (e.g.
+  // "+91 (98765) 43210") doesn't trip the length cap or break tel: links
+  // later. Loose on purpose: an unparseable draft phone still falls back
+  // to the raw trimmed value instead of being rejected.
+  const phoneParsed = enquirySchema.shape.phone.safeParse(phone);
+  const normalizedPhone = phoneParsed.success ? phoneParsed.data : phone.trim();
+  if (name.trim().length > 100 || normalizedPhone.length > 15 || course.length > 200) {
     return NextResponse.json({ error: "input too long" }, { status: 400 });
   }
   const [row] = await db
     .insert(enquiries)
-    .values({ name: name.trim(), phone: phone.trim(), course, status: "draft" })
+    .values({ name: name.trim(), phone: normalizedPhone, course, status: "draft" })
     .returning({ id: enquiries.id });
   return NextResponse.json({ ok: true, id: row.id });
 }
