@@ -17,8 +17,12 @@ export async function PATCH(
     return NextResponse.json({ error: "invalid id" }, { status: 400 });
   }
   const body = (await request.json().catch(() => null)) as
-    | { name?: unknown; phone?: unknown; course?: unknown }
+    | { name?: unknown; phone?: unknown; course?: unknown; token?: unknown }
     | null;
+  const token = body?.token;
+  if (typeof token !== "string") {
+    return NextResponse.json({ error: "missing token" }, { status: 400 });
+  }
   const name = typeof body?.name === "string" ? body.name : "";
   const phone = typeof body?.phone === "string" ? body.phone : "";
   if (!isDraftWorthy(name, phone)) {
@@ -37,7 +41,7 @@ export async function PATCH(
   const result = await db
     .update(enquiries)
     .set({ name: name.trim(), phone: normalizedPhone, course })
-    .where(and(eq(enquiries.id, draftId), eq(enquiries.status, "draft")))
+    .where(and(eq(enquiries.id, draftId), eq(enquiries.status, "draft"), eq(enquiries.draftToken, token)))
     .returning({ id: enquiries.id });
   if (result.length === 0) {
     return NextResponse.json({ error: "draft not found" }, { status: 404 });

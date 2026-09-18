@@ -47,6 +47,7 @@ export function EnquiryForm() {
     "idle" | "submitting" | "success" | "error"
   >("idle");
   const draftId = useRef<number | null>(null);
+  const draftToken = useRef<string | null>(null);
   const draftRequestInFlight = useRef(false);
   const [fastTrackCourse, setFastTrackCourse] = useState(ADMISSION_COURSES[0]);
   const [fastTrackCenter, setFastTrackCenter] = useState(ADMISSION_CENTERS[0]);
@@ -74,15 +75,22 @@ export function EnquiryForm() {
     const timer = setTimeout(() => {
       if (draftRequestInFlight.current) return;
       draftRequestInFlight.current = true;
-      const body = JSON.stringify({ name, phone, course: watch("course") || "" });
+      const fields = { name, phone, course: watch("course") || "" };
       if (draftId.current === null) {
-        fetch("/api/enquiry/draft", { method: "POST", headers: { "Content-Type": "application/json" }, body })
+        fetch("/api/enquiry/draft", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(fields) })
           .then((res) => res.json())
-          .then((data: { id?: number }) => { if (typeof data.id === "number") draftId.current = data.id; })
+          .then((data: { id?: number; token?: string }) => {
+            if (typeof data.id === "number") draftId.current = data.id;
+            if (typeof data.token === "string") draftToken.current = data.token;
+          })
           .catch(() => {})
           .finally(() => { draftRequestInFlight.current = false; });
       } else {
-        fetch(`/api/enquiry/draft/${draftId.current}`, { method: "PATCH", headers: { "Content-Type": "application/json" }, body })
+        fetch(`/api/enquiry/draft/${draftId.current}`, {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ ...fields, token: draftToken.current }),
+        })
           .catch(() => {})
           .finally(() => { draftRequestInFlight.current = false; });
       }
@@ -96,8 +104,9 @@ export function EnquiryForm() {
     setStatus("submitting");
     trackEnquiry("enquiry_attempt");
     try {
-      await submitEnquiry(values, draftId.current ?? undefined);
+      await submitEnquiry(values, draftId.current ?? undefined, draftToken.current ?? undefined);
       draftId.current = null;
+      draftToken.current = null;
       setStatus("success");
       reset();
       trackEnquiry("enquiry_accepted");

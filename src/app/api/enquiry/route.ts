@@ -10,7 +10,7 @@ import { enquirySchema } from "@/lib/enquiry";
 // clicks an "Activate Form" email — a failure mode invisible from the site.
 export async function POST(request: NextRequest) {
   const raw = (await request.json().catch(() => null)) as
-    | (Record<string, unknown> & { draftId?: unknown })
+    | (Record<string, unknown> & { draftId?: unknown; draftToken?: unknown })
     | null;
   const parsed = enquirySchema.safeParse(raw);
   if (!parsed.success) {
@@ -18,16 +18,18 @@ export async function POST(request: NextRequest) {
   }
   const { name, phone, course } = parsed.data;
   const draftId = typeof raw?.draftId === "number" ? raw.draftId : null;
+  const draftToken = typeof raw?.draftToken === "string" ? raw.draftToken : null;
   let updated: { id: number }[] = [];
-  if (draftId !== null) {
+  if (draftId !== null && draftToken !== null) {
     // Visitor already had a draft saved from auto-save — update that row
     // to "submitted" instead of inserting a second one. Scoped to
-    // status='draft' so a guessed/stale id can never overwrite an
-    // already-submitted (or someone else's) row.
+    // status='draft' and the ownership token (see
+    // migrations/lead-capture-draft-token.sql) so a guessed/stale id can
+    // never overwrite an already-submitted (or someone else's) row.
     updated = await db
       .update(enquiries)
       .set({ name, phone, course: course || "General Enquiry", status: "submitted" })
-      .where(and(eq(enquiries.id, draftId), eq(enquiries.status, "draft")))
+      .where(and(eq(enquiries.id, draftId), eq(enquiries.status, "draft"), eq(enquiries.draftToken, draftToken)))
       .returning({ id: enquiries.id });
   }
   if (updated.length === 0) {

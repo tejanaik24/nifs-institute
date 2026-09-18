@@ -28,11 +28,15 @@ export async function POST(request: NextRequest) {
   if (name.trim().length > 100 || normalizedPhone.length > 15 || course.length > 200) {
     return NextResponse.json({ error: "input too long" }, { status: 400 });
   }
+  // Ownership token (see migrations/lead-capture-draft-token.sql) — returned
+  // once here and required on every later PATCH/submit for this row, so a
+  // guessed sequential id can't be used to hijack someone else's draft.
+  const draftToken = crypto.randomUUID();
   let row: { id: number };
   try {
     [row] = await db
       .insert(enquiries)
-      .values({ name: name.trim(), phone: normalizedPhone, course, status: "draft" })
+      .values({ name: name.trim(), phone: normalizedPhone, course, status: "draft", draftToken })
       .returning({ id: enquiries.id });
   } catch {
     // Trigger-enforced per-phone daily draft cap tripped (see
@@ -40,5 +44,5 @@ export async function POST(request: NextRequest) {
     // unhandled 500.
     return NextResponse.json({ error: "rate limit reached" }, { status: 429 });
   }
-  return NextResponse.json({ ok: true, id: row.id });
+  return NextResponse.json({ ok: true, id: row.id, token: draftToken });
 }
