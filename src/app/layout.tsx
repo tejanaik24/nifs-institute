@@ -1,4 +1,5 @@
 import { DevAnnotations } from "@/components/DevAnnotations";
+import { WhatsAppClickTracker } from "@/components/analytics/whatsapp-click-tracker";
 import { CombinedGraphSchema } from "@/lib/seo/schema";
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
@@ -124,6 +125,7 @@ export default function RootLayout({
         <CombinedGraphSchema />
         {children}
         <DevAnnotations />
+        <WhatsAppClickTracker />
       </body>
     </html>
   );
