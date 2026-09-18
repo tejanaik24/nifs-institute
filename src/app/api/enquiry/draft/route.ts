@@ -18,6 +18,9 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "not enough to save yet" }, { status: 400 });
   }
   const course = typeof body?.course === "string" ? body.course : "";
+  if (name.trim().length > 100 || phone.trim().length > 15 || course.length > 200) {
+    return NextResponse.json({ error: "input too long" }, { status: 400 });
+  }
   const [row] = await db
     .insert(enquiries)
     .values({ name: name.trim(), phone: phone.trim(), course, status: "draft" })
