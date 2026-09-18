@@ -1,7 +1,9 @@
--- Anti-spam guard: caps automated draft creation per phone per day, so a
--- script hitting POST /api/enquiry/draft directly can't flood the leads
--- table. Submitted (status='submitted') rows are never limited by this —
--- only repeated draft inserts for the same phone.
+-- Anti-spam guard: caps automated draft creation per phone per day. This
+-- catches a script that repeatedly hammers the SAME phone number, not a
+-- determined attacker who varies the phone on every request (this is a
+-- basic guard against casual abuse, not full IP/session-level throttling).
+-- Submitted (status='submitted') rows are never limited by this — only
+-- repeated draft inserts for the same phone.
 CREATE OR REPLACE FUNCTION nifs.check_enquiry_draft_limit()
 RETURNS trigger AS $$
 BEGIN
@@ -22,11 +24,13 @@ CREATE TRIGGER enquiry_draft_limit_trigger
 BEFORE INSERT ON nifs.enquiries
 FOR EACH ROW EXECUTE FUNCTION nifs.check_enquiry_draft_limit();
 
--- Anti-spam guard: caps WhatsApp click logging per page per short window,
--- blunting a scripted flood against POST /api/track/whatsapp-click while
--- still comfortably covering real traffic spikes (a genuinely viral page
--- getting >100 real WhatsApp clicks in one minute is not realistic for
--- this site's traffic volume).
+-- Anti-spam guard: caps WhatsApp click logging per page per short window.
+-- pagePath is caller-supplied and unvalidated, so a script that varies the
+-- path on every request bypasses this cap — it stops a script hammering
+-- the SAME reported page, not a determined attacker (basic guard against
+-- casual abuse, not full IP/session-level throttling). Still comfortably
+-- covers real traffic spikes (a genuinely viral page getting >100 real
+-- WhatsApp clicks in one minute is not realistic for this site's volume).
 CREATE OR REPLACE FUNCTION nifs.check_whatsapp_click_limit()
 RETURNS trigger AS $$
 BEGIN
