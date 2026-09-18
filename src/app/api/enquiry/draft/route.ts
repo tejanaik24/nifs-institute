@@ -28,9 +28,17 @@ export async function POST(request: NextRequest) {
   if (name.trim().length > 100 || normalizedPhone.length > 15 || course.length > 200) {
     return NextResponse.json({ error: "input too long" }, { status: 400 });
   }
-  const [row] = await db
-    .insert(enquiries)
-    .values({ name: name.trim(), phone: normalizedPhone, course, status: "draft" })
-    .returning({ id: enquiries.id });
+  let row: { id: number };
+  try {
+    [row] = await db
+      .insert(enquiries)
+      .values({ name: name.trim(), phone: normalizedPhone, course, status: "draft" })
+      .returning({ id: enquiries.id });
+  } catch {
+    // Trigger-enforced per-phone daily draft cap tripped (see
+    // migrations/lead-capture-spam-guard.sql) — a clean 429 instead of an
+    // unhandled 500.
+    return NextResponse.json({ error: "rate limit reached" }, { status: 429 });
+  }
   return NextResponse.json({ ok: true, id: row.id });
 }
