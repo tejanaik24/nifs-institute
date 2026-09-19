@@ -3,6 +3,7 @@ import { db } from "@/lib/db/client";
 import { enquiries } from "@/lib/db/schema";
 import { isDraftWorthy } from "@/lib/enquiry-draft";
 import { enquirySchema } from "@/lib/enquiry";
+import { getRequestLocation } from "@/lib/geo";
 
 // Called a couple seconds after the visitor stops typing in the callback
 // form, before they submit — see enquiry-form.tsx. Saves a real, callable
@@ -32,11 +33,12 @@ export async function POST(request: NextRequest) {
   // once here and required on every later PATCH/submit for this row, so a
   // guessed sequential id can't be used to hijack someone else's draft.
   const draftToken = crypto.randomUUID();
+  const { city, state } = getRequestLocation(request);
   let row: { id: number };
   try {
     [row] = await db
       .insert(enquiries)
-      .values({ name: name.trim(), phone: normalizedPhone, course, status: "draft", draftToken })
+      .values({ name: name.trim(), phone: normalizedPhone, course, city, state, status: "draft", draftToken })
       .returning({ id: enquiries.id });
   } catch {
     // Trigger-enforced per-phone daily draft cap tripped (see

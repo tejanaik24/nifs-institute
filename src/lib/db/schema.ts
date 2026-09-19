@@ -67,6 +67,11 @@ export const enquiries = pgTable("enquiries", {
   name: text("name").notNull(),
   phone: varchar("phone", { length: 15 }).notNull(),
   course: text("course").notNull().default(""),
+  // Visitor's city/state, read from Vercel's edge geolocation headers at
+  // submit/draft-create time (see src/lib/geo.ts) — empty outside Vercel
+  // (e.g. local dev) or for rows created before this column existed.
+  city: text("city").notNull().default(""),
+  state: text("state").notNull().default(""),
   status: varchar("status", { length: 20 }).notNull().default("submitted"), // "draft" | "submitted"
   // Random per-draft ownership token (see
   // migrations/lead-capture-draft-token.sql) — returned once when a draft is
