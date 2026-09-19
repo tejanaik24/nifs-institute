@@ -5,7 +5,14 @@ import { NextRequest } from "next/server";
 // (e.g. local dev), which callers must treat as "unknown", not an error.
 export function getRequestLocation(request: NextRequest): { city: string; state: string } {
   const rawCity = request.headers.get("x-vercel-ip-city") ?? "";
-  const city = rawCity ? decodeURIComponent(rawCity) : "";
+  let city = rawCity;
+  if (rawCity) {
+    try {
+      city = decodeURIComponent(rawCity);
+    } catch {
+      // Malformed header value — keep the raw string rather than losing the submission.
+    }
+  }
   const state = request.headers.get("x-vercel-ip-country-region") ?? "";
   return { city, state };
 }
