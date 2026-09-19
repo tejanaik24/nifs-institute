@@ -50,6 +50,36 @@ const UTILITY_REDIRECTS: Record<string, string> = {
   "about/benefits": "/about/company-profile/",
 };
 
+// 2026-09-19: duplicate-topic city blog posts merged into one strong page
+// per real search intent (fixing a Google scaled-content spam flag).
+// oldSlug -> the surviving slug's redirect target.
+const MERGED_BLOG_REDIRECTS: Record<string, string> = {
+  "everything-you-need-to-know-about-nsdc-fire-and-safety-courses-in-vizag":
+    "build-a-safer-tomorrow-with-nsdc-certified-fire-and-safety-courses-in-vizag",
+  "nsdc-fire-safety-courses-in-vizag-your-gateway-to-a-secure-career":
+    "build-a-safer-tomorrow-with-nsdc-certified-fire-and-safety-courses-in-vizag",
+  "become-a-certified-safety-executive-in-vizag-with-job-ready-training-programs":
+    "fire-safety-training-visakhapatnam-complete-guide",
+  "industrial-safety-training-in-vizag-that-meets-national-and-global-standards":
+    "fire-safety-training-visakhapatnam-complete-guide",
+  "how-trained-safety-technicians-in-vizag-are-transforming-workplace-safety-standards":
+    "fire-safety-training-visakhapatnam-complete-guide",
+  "hands-on-fire-and-safety-training-in-vizag-for-real-world-emergency-skills":
+    "fire-safety-training-visakhapatnam-complete-guide",
+  "job-oriented-safety-courses-in-visakhapatnam-at-nifs-build-your-future-with-confidence":
+    "fire-safety-training-visakhapatnam-complete-guide",
+  "diploma-in-fire-and-safety-in-vishakhapatnam-courses-fees-salary-jobs-and-scope":
+    "fire-safety-training-visakhapatnam-complete-guide",
+  "fire-and-safety-courses-in-visakhapatnam-a-path-to-secure-careers":
+    "fire-safety-training-visakhapatnam-complete-guide",
+  "start-a-rewarding-career-by-joining-the-fire-and-safety-course-in-tambaram-by-nifs-india":
+    "unleashing-your-potential-how-a-fire-and-safety-course-in-chennai-can-boost-your-career",
+  "fire-and-safety-courses-in-chennai-essential-training-for-a-safe-and-secure-future":
+    "unleashing-your-potential-how-a-fire-and-safety-course-in-chennai-can-boost-your-career",
+  "kickstart-your-career-with-government-recognized-fireman-safety-course-in-hyderabad":
+    "fire-and-safety-courses-in-hyderabad-enhancing-workplace-safety",
+};
+
 const nextConfig: NextConfig = {
   // Isolate the cPanel release build from an interrupted local build.
   distDir: process.env.CPANEL_BUILD === "1" ? ".next-cpanel" : ".next",
@@ -77,22 +107,14 @@ const nextConfig: NextConfig = {
       },
       { source: "/homepage.html", destination: "/", permanent: true },
 
-      // 2026-09-19: merged 2 duplicate-topic Vizag NSDC blog posts into the
-      // strongest one (part of fixing a Google scaled-content spam flag).
-      {
-        source:
-          "/blog/everything-you-need-to-know-about-nsdc-fire-and-safety-courses-in-vizag/",
-        destination:
-          "/blog/build-a-safer-tomorrow-with-nsdc-certified-fire-and-safety-courses-in-vizag/",
+      // 2026-09-19: merged duplicate-topic city blog posts (Vizag/Chennai/
+      // Hyderabad) into one strong page per real search intent, fixing a
+      // Google scaled-content spam flag that crashed organic traffic.
+      ...Object.entries(MERGED_BLOG_REDIRECTS).map(([oldSlug, newSlug]) => ({
+        source: `/blog/${oldSlug}/`,
+        destination: `/blog/${newSlug}/`,
         permanent: true,
-      },
-      {
-        source:
-          "/blog/nsdc-fire-safety-courses-in-vizag-your-gateway-to-a-secure-career/",
-        destination:
-          "/blog/build-a-safer-tomorrow-with-nsdc-certified-fire-and-safety-courses-in-vizag/",
-        permanent: true,
-      },
+      })),
 
       // Old WordPress blog URLs -> new /blog/<slug>/ pages
       ...blogPosts.map((post: { slug: string }) => ({
