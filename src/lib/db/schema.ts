@@ -67,6 +67,29 @@ export const enquiries = pgTable("enquiries", {
   name: text("name").notNull(),
   phone: varchar("phone", { length: 15 }).notNull(),
   course: text("course").notNull().default(""),
+  // Visitor's city/state, read from Vercel's edge geolocation headers at
+  // submit/draft-create time (see src/lib/geo.ts) — empty outside Vercel
+  // (e.g. local dev) or for rows created before this column existed.
+  city: text("city").notNull().default(""),
+  state: text("state").notNull().default(""),
+  status: varchar("status", { length: 20 }).notNull().default("submitted"), // "draft" | "submitted"
+  // Random per-draft ownership token (see
+  // migrations/lead-capture-draft-token.sql) — returned once when a draft is
+  // created and required on every later PATCH/submit for that row, so a
+  // guessed sequential id can't be used to hijack someone else's draft.
+  // Nullable: only draft rows ever get one.
+  draftToken: text("draft_token"),
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+});
+
+// Logged by /api/track/whatsapp-click — every wa.me link on the site is
+// wired through WhatsAppClickTracker (see
+// src/components/analytics/whatsapp-click-tracker.tsx), so this counts
+// real click volume even though we never see what gets typed in WhatsApp.
+export const whatsappClicks = pgTable("whatsapp_clicks", {
+  id: serial("id").primaryKey(),
+  pagePath: text("page_path").notNull(),
+  linkLabel: text("link_label").notNull().default(""),
   createdAt: timestamp("created_at").notNull().defaultNow(),
 });
 

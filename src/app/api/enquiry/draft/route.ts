@@ -1,0 +1,50 @@
+import { NextRequest, NextResponse } from "next/server";
+import { db } from "@/lib/db/client";
+import { enquiries } from "@/lib/db/schema";
+import { isDraftWorthy } from "@/lib/enquiry-draft";
+import { enquirySchema } from "@/lib/enquiry";
+import { getRequestLocation } from "@/lib/geo";
+
+// Called a couple seconds after the visitor stops typing in the callback
+// form, before they submit — see enquiry-form.tsx. Saves a real, callable
+// lead even if they abandon the form for WhatsApp instead of hitting
+// Submit. Never validates as strictly as the real submit endpoint
+// (/api/enquiry) — a draft is allowed to be rough.
+export async function POST(request: NextRequest) {
+  const body = (await request.json().catch(() => null)) as
+    | { name?: unknown; phone?: unknown; course?: unknown }
+    | null;
+  const name = typeof body?.name === "string" ? body.name : "";
+  const phone = typeof body?.phone === "string" ? body.phone : "";
+  if (!isDraftWorthy(name, phone)) {
+    return NextResponse.json({ error: "not enough to save yet" }, { status: 400 });
+  }
+  const course = typeof body?.course === "string" ? body.course : "";
+  // Normalize like the real submit path so a formatted number (e.g.
+  // "+91 (98765) 43210") doesn't trip the length cap or break tel: links
+  // later. Loose on purpose: an unparseable draft phone still falls back
+  // to the raw trimmed value instead of being rejected.
+  const phoneParsed = enquirySchema.shape.phone.safeParse(phone);
+  const normalizedPhone = phoneParsed.success ? phoneParsed.data : phone.trim();
+  if (name.trim().length > 100 || normalizedPhone.length > 15 || course.length > 200) {
+    return NextResponse.json({ error: "input too long" }, { status: 400 });
+  }
+  // Ownership token (see migrations/lead-capture-draft-token.sql) — returned
+  // once here and required on every later PATCH/submit for this row, so a
+  // guessed sequential id can't be used to hijack someone else's draft.
+  const draftToken = crypto.randomUUID();
+  const { city, state } = getRequestLocation(request);
+  let row: { id: number };
+  try {
+    [row] = await db
+      .insert(enquiries)
+      .values({ name: name.trim(), phone: normalizedPhone, course, city, state, status: "draft", draftToken })
+      .returning({ id: enquiries.id });
+  } catch {
+    // Trigger-enforced per-phone daily draft cap tripped (see
+    // migrations/lead-capture-spam-guard.sql) — a clean 429 instead of an
+    // unhandled 500.
+    return NextResponse.json({ error: "rate limit reached" }, { status: 429 });
+  }
+  return NextResponse.json({ ok: true, id: row.id, token: draftToken });
+}

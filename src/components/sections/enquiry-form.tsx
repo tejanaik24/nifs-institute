@@ -3,7 +3,7 @@
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useId, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
@@ -13,6 +13,7 @@ import {
   trackEnquiry,
   type EnquiryValues,
 } from "@/lib/enquiry";
+import { isDraftWorthy } from "@/lib/enquiry-draft";
 
 const ADMISSION_COURSES = [
   "B.Sc in Fire & Industrial Safety (ANU Degree)",
@@ -45,6 +46,9 @@ export function EnquiryForm() {
   const [status, setStatus] = useState<
     "idle" | "submitting" | "success" | "error"
   >("idle");
+  const draftId = useRef<number | null>(null);
+  const draftToken = useRef<string | null>(null);
+  const draftRequestInFlight = useRef(false);
   const [fastTrackCourse, setFastTrackCourse] = useState(ADMISSION_COURSES[0]);
   const [fastTrackCenter, setFastTrackCenter] = useState(ADMISSION_CENTERS[0]);
 
@@ -55,10 +59,44 @@ export function EnquiryForm() {
     register,
     handleSubmit,
     reset,
+    watch,
     formState: { errors },
   } = useForm<z.input<typeof enquirySchema>, unknown, EnquiryValues>({
     resolver: zodResolver(enquirySchema),
   });
+
+  const watchedName = watch("name");
+  const watchedPhone = watch("phone");
+
+  useEffect(() => {
+    const name = watchedName ?? "";
+    const phone = watchedPhone ?? "";
+    if (!isDraftWorthy(name, phone)) return;
+    const timer = setTimeout(() => {
+      if (draftRequestInFlight.current) return;
+      draftRequestInFlight.current = true;
+      const fields = { name, phone, course: watch("course") || "" };
+      if (draftId.current === null) {
+        fetch("/api/enquiry/draft", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(fields) })
+          .then((res) => res.json())
+          .then((data: { id?: number; token?: string }) => {
+            if (typeof data.id === "number") draftId.current = data.id;
+            if (typeof data.token === "string") draftToken.current = data.token;
+          })
+          .catch(() => {})
+          .finally(() => { draftRequestInFlight.current = false; });
+      } else {
+        fetch(`/api/enquiry/draft/${draftId.current}`, {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ ...fields, token: draftToken.current }),
+        })
+          .catch(() => {})
+          .finally(() => { draftRequestInFlight.current = false; });
+      }
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, [watchedName, watchedPhone, watch]);
 
   const onSubmit = async (values: EnquiryValues) => {
     if (pending.current) return;
@@ -66,7 +104,9 @@ export function EnquiryForm() {
     setStatus("submitting");
     trackEnquiry("enquiry_attempt");
     try {
-      await submitEnquiry(values);
+      await submitEnquiry(values, draftId.current ?? undefined, draftToken.current ?? undefined);
+      draftId.current = null;
+      draftToken.current = null;
       setStatus("success");
       reset();
       trackEnquiry("enquiry_accepted");

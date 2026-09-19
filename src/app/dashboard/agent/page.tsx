@@ -13,8 +13,8 @@ import { Bot, User, Wrench } from "lucide-react";
 // model names here would just be misleading UI.
 const AGENT_MODELS = [
   {
-    id: "triv-qwen",
-    name: "triv-qwen (local)",
+    id: "qwen2.5-coder:7b",
+    name: "qwen2.5-coder:7b (local)",
     description: "Running locally via Ollama",
   },
 ];

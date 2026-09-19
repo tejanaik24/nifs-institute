@@ -32,7 +32,7 @@ export async function POST(request: Request) {
   const { messages }: { messages: UIMessage[] } = await request.json();
 
   const result = streamText({
-    model: ollama(process.env.OLLAMA_MODEL ?? "triv-qwen:latest"),
+    model: ollama(process.env.OLLAMA_MODEL ?? "qwen2.5-coder:7b"),
     system: SYSTEM_PROMPT,
     messages: await convertToModelMessages(messages),
     tools: agentTools,

@@ -18,7 +18,10 @@ export default async function EnquiriesPage() {
                 <th className="px-4 py-2 font-medium">Name</th>
                 <th className="px-4 py-2 font-medium">Phone</th>
                 <th className="px-4 py-2 font-medium">Course</th>
+                <th className="px-4 py-2 font-medium">City</th>
+                <th className="px-4 py-2 font-medium">State</th>
                 <th className="px-4 py-2 font-medium">Received</th>
+                <th className="px-4 py-2 font-medium"></th>
               </tr>
             </thead>
             <tbody>
@@ -29,8 +32,17 @@ export default async function EnquiriesPage() {
                     <a className="underline" href={`tel:+91${row.phone}`}>{row.phone}</a>
                   </td>
                   <td className="px-4 py-2">{row.course}</td>
+                  <td className="px-4 py-2">{row.city || "—"}</td>
+                  <td className="px-4 py-2">{row.state || "—"}</td>
                   <td className="px-4 py-2 text-[var(--dash-text-muted)]">
                     {row.createdAt.toLocaleString("en-IN", { dateStyle: "medium", timeStyle: "short" })}
+                  </td>
+                  <td className="px-4 py-2">
+                    {row.status === "draft" && (
+                      <span className="rounded-full bg-amber-500/15 px-2 py-0.5 text-[11px] font-semibold text-amber-700 dark:text-amber-400">
+                        Draft
+                      </span>
+                    )}
                   </td>
                 </tr>
               ))}

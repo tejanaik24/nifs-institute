@@ -4,8 +4,8 @@ import { ArrowRight, FileText, Mail, MessageSquare, PhoneCall, Share2 } from "lu
 import Link from "next/link";
 
 interface InboundChannelsCardProps {
-  whatsappCount?: number;
-  instagramCount?: number;
+  whatsappCount: number;
+  instagramCount: number;
   websiteEnquiriesCount: number;
   emailApplicationsCount: number;
 }
@@ -31,8 +31,8 @@ function InstagramIcon({ size = 16, className = "" }: { size?: number; className
 }
 
 export function InboundChannelsCard({
-  whatsappCount = 500,
-  instagramCount = 185,
+  whatsappCount,
+  instagramCount,
   websiteEnquiriesCount,
   emailApplicationsCount,
 }: InboundChannelsCardProps) {
@@ -86,7 +86,7 @@ export function InboundChannelsCard({
 
             <div className="mt-3">
               <div className="font-mono text-2xl sm:text-3xl font-black text-emerald-600 dark:text-emerald-400">
-                {whatsappCount.toLocaleString()}+
+                {whatsappCount.toLocaleString()}
               </div>
               <div className="text-[11px] font-semibold text-[var(--dash-text)] mt-0.5">
                 Direct Student Chats

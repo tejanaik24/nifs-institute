@@ -12,13 +12,14 @@ import {
   getCourseDemandMatrix,
   getDailySummary,
   getDailyTimeSeries,
+  getHourlyTraffic,
   getIntentBreakdown,
   getSourceBreakdown,
 } from "@/lib/analytics/ga4";
 import { getSession } from "@/lib/auth/session";
 import { getBotHitSummary } from "@/lib/db/bot-hits";
 import { db } from "@/lib/db/client";
-import { enquiries, jobApplications, jobs, posts } from "@/lib/db/schema";
+import { enquiries, jobApplications, jobs, posts, whatsappClicks } from "@/lib/db/schema";
 import { getRiskFlags } from "@/lib/risk-flags";
 import { desc, eq, sql } from "drizzle-orm";
 import {
@@ -55,6 +56,8 @@ export default async function DashboardIndexPage() {
     courseMatrixRes,
     botHitsRes,
     sourcesRes,
+    whatsappClicksRes,
+    hourlyTrafficRes,
   ] = await Promise.all([
     getRiskFlags().catch(() => []),
     db
@@ -93,12 +96,18 @@ export default async function DashboardIndexPage() {
     getCourseDemandMatrix().catch(() => []),
     getBotHitSummary().catch(() => []),
     getSourceBreakdown().catch(() => []),
+    db
+      .select({ count: sql<number>`count(*)::int` })
+      .from(whatsappClicks)
+      .catch(() => [{ count: 0 }]),
+    getHourlyTraffic().catch(() => []),
   ]);
 
   const totalEnquiries = enquiriesCountRes[0]?.count ?? 0;
   const activeJobs = jobsCountRes[0]?.count ?? 0;
   const totalApplications = applicationsCountRes[0]?.count ?? 0;
   const totalPosts = postsCountRes[0]?.count ?? 0;
+  const totalWhatsappClicks = whatsappClicksRes[0]?.count ?? 0;
 
   const totalCourseUsers = intentRes?.courseUsers ?? null;
   const totalJobUsers = intentRes?.jobUsers ?? null;
@@ -109,7 +118,7 @@ export default async function DashboardIndexPage() {
   const coursePct =
     totalCourseUsers !== null && totalJobUsers !== null && totalUsers28d! > 0
       ? Math.round((totalCourseUsers / totalUsers28d!) * 100)
-      : 90;
+      : null;
 
   // Social / Instagram traffic
   const instagramSources = sourcesRes.filter((s) => {
@@ -121,16 +130,14 @@ export default async function DashboardIndexPage() {
       src.includes("facebook")
     );
   });
-  const dynamicInstagramCount = instagramSources.reduce(
+  const instagramTraffic = instagramSources.reduce(
     (acc, s) => acc + s.users,
     0
   );
-  const instagramTraffic =
-    dynamicInstagramCount > 0 ? dynamicInstagramCount : 185;
 
   const validCourses = courseMatrixRes.filter((c) => c.category !== "General");
-  const topCourse = validCourses[0] || { name: "ADIS", views: 611 };
-  const topCity = centerCitiesRes[0]?.city || "Visakhapatnam";
+  const topCourse = validCourses[0] ?? null;
+  const topCity = centerCitiesRes[0]?.city ?? null;
 
   const now = new Date();
   const refreshTimestamp = `${now.toISOString().slice(0, 10)} ${now.toTimeString().slice(0, 8)} IST`;
@@ -142,6 +149,18 @@ export default async function DashboardIndexPage() {
     subtitle: `${c.users} students · ${c.avgTimeSeconds}s avg reading time`,
     sharePercent: c.sharePercent,
   }));
+
+  // Real peak traffic window from actual GA4 hourly data (28 days) — no
+  // fixed assumption. Contiguous run of peak hours, e.g. "11 AM - 2 PM".
+  const peakHours = hourlyTrafficRes.filter((h) => h.isPeakWindow);
+  const totalHourlyUsers = hourlyTrafficRes.reduce((acc, h) => acc + h.users, 0);
+  const peakUsers = peakHours.reduce((acc, h) => acc + h.users, 0);
+  const peakWindowLabel =
+    peakHours.length > 0
+      ? `${peakHours[0].label} - ${peakHours[peakHours.length - 1].label}`
+      : null;
+  const peakSharePct =
+    totalHourlyUsers > 0 ? Math.round((peakUsers / totalHourlyUsers) * 100) : null;
 
   // Top 5 cities for visual podium bars
   const rankedCities = centerCitiesRes.slice(0, 5).map((c) => ({
@@ -180,7 +199,7 @@ export default async function DashboardIndexPage() {
 
       {/* 4 Inbound Channels Tracker (WhatsApp, Instagram, Website, Email) */}
       <InboundChannelsCard
-        whatsappCount={500}
+        whatsappCount={totalWhatsappClicks}
         instagramCount={instagramTraffic}
         websiteEnquiriesCount={totalEnquiries}
         emailApplicationsCount={totalApplications}
@@ -262,10 +281,12 @@ export default async function DashboardIndexPage() {
             </div>
           </div>
           <div className="mt-3 font-mono text-3xl font-black text-[var(--dash-text)]">
-            {totalUsers28d !== null ? totalUsers28d.toLocaleString() : "6,570"}
+            {totalUsers28d !== null ? totalUsers28d.toLocaleString() : "—"}
           </div>
           <div className="mt-1 flex items-center justify-between text-xs text-[var(--dash-text-muted)]">
-            <span>9 out of 10 seek courses</span>
+            <span>
+              {coursePct !== null ? `${coursePct}% seek courses` : "No data yet"}
+            </span>
             <span className="font-bold text-[var(--dash-accent)] flex items-center gap-0.5 group-hover:underline">
               Split <ArrowRight size={12} />
             </span>
@@ -321,7 +342,7 @@ export default async function DashboardIndexPage() {
       {/* Pan-India 54-Center Regional Radar */}
       <CenterRadarWidget analyticsCities={centerCitiesRes} />
 
-      {/* Counselor Prime Time Window */}
+      {/* Counselor Prime Time Window — from real GA4 hourly traffic, not a fixed assumption */}
       <div className="rounded-2xl border border-amber-500/30 bg-amber-500/5 p-5 shadow-xs flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div className="flex items-center gap-3">
           <div className="rounded-xl bg-amber-500/20 p-2.5 text-amber-600 dark:text-amber-400 shrink-0">
@@ -329,10 +350,14 @@ export default async function DashboardIndexPage() {
           </div>
           <div>
             <div className="text-sm font-bold text-[var(--dash-text)]">
-              Prime Counselor Callback Window: 11:00 AM – 5:30 PM
+              {peakWindowLabel
+                ? `Peak Website Traffic Window: ${peakWindowLabel}`
+                : "Peak Website Traffic Window: not enough data yet"}
             </div>
             <p className="text-xs text-[var(--dash-text-muted)] mt-0.5">
-              Over 60% of admissions queries happen during these hours. Faster callbacks yield 3x higher conversion.
+              {peakSharePct !== null
+                ? `${peakSharePct}% of website visits (last 28 days) happen during these hours. This measures traffic only, not call conversion.`
+                : "GA4 hasn't returned enough hourly data yet to calculate this."}
             </p>
           </div>
         </div>

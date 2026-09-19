@@ -11,7 +11,7 @@ export const enquirySchema = z.object({
 
 export type EnquiryValues = z.output<typeof enquirySchema>;
 
-export async function submitEnquiry(values: EnquiryValues): Promise<void> {
+export async function submitEnquiry(values: EnquiryValues, draftId?: number, draftToken?: string): Promise<void> {
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 15000);
   try {
@@ -19,7 +19,7 @@ export async function submitEnquiry(values: EnquiryValues): Promise<void> {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       signal: controller.signal,
-      body: JSON.stringify(values),
+      body: JSON.stringify(draftId && draftToken ? { ...values, draftId, draftToken } : values),
     });
     if (!response.ok) throw new Error("Enquiry was not accepted");
     const ack = (await response.json().catch(() => null)) as { ok?: unknown } | null;
