@@ -18,7 +18,7 @@ import {
 import { getSession } from "@/lib/auth/session";
 import { getBotHitSummary } from "@/lib/db/bot-hits";
 import { db } from "@/lib/db/client";
-import { enquiries, jobApplications, jobs, posts } from "@/lib/db/schema";
+import { enquiries, jobApplications, jobs, posts, whatsappClicks } from "@/lib/db/schema";
 import { getRiskFlags } from "@/lib/risk-flags";
 import { desc, eq, sql } from "drizzle-orm";
 import {
@@ -55,6 +55,7 @@ export default async function DashboardIndexPage() {
     courseMatrixRes,
     botHitsRes,
     sourcesRes,
+    whatsappClicksRes,
   ] = await Promise.all([
     getRiskFlags().catch(() => []),
     db
@@ -93,12 +94,17 @@ export default async function DashboardIndexPage() {
     getCourseDemandMatrix().catch(() => []),
     getBotHitSummary().catch(() => []),
     getSourceBreakdown().catch(() => []),
+    db
+      .select({ count: sql<number>`count(*)::int` })
+      .from(whatsappClicks)
+      .catch(() => [{ count: 0 }]),
   ]);
 
   const totalEnquiries = enquiriesCountRes[0]?.count ?? 0;
   const activeJobs = jobsCountRes[0]?.count ?? 0;
   const totalApplications = applicationsCountRes[0]?.count ?? 0;
   const totalPosts = postsCountRes[0]?.count ?? 0;
+  const totalWhatsappClicks = whatsappClicksRes[0]?.count ?? 0;
 
   const totalCourseUsers = intentRes?.courseUsers ?? null;
   const totalJobUsers = intentRes?.jobUsers ?? null;
@@ -180,7 +186,7 @@ export default async function DashboardIndexPage() {
 
       {/* 4 Inbound Channels Tracker (WhatsApp, Instagram, Website, Email) */}
       <InboundChannelsCard
-        whatsappCount={500}
+        whatsappCount={totalWhatsappClicks}
         instagramCount={instagramTraffic}
         websiteEnquiriesCount={totalEnquiries}
         emailApplicationsCount={totalApplications}
