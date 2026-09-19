@@ -81,14 +81,14 @@ const nextConfig: NextConfig = {
       // strongest one (part of fixing a Google scaled-content spam flag).
       {
         source:
-          "/blog/everything-you-need-to-know-about-nsdc-fire-and-safety-courses-in-vizag",
+          "/blog/everything-you-need-to-know-about-nsdc-fire-and-safety-courses-in-vizag/",
         destination:
           "/blog/build-a-safer-tomorrow-with-nsdc-certified-fire-and-safety-courses-in-vizag/",
         permanent: true,
       },
       {
         source:
-          "/blog/nsdc-fire-safety-courses-in-vizag-your-gateway-to-a-secure-career",
+          "/blog/nsdc-fire-safety-courses-in-vizag-your-gateway-to-a-secure-career/",
         destination:
           "/blog/build-a-safer-tomorrow-with-nsdc-certified-fire-and-safety-courses-in-vizag/",
         permanent: true,
