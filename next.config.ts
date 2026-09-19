@@ -77,6 +77,23 @@ const nextConfig: NextConfig = {
       },
       { source: "/homepage.html", destination: "/", permanent: true },
 
+      // 2026-09-19: merged 2 duplicate-topic Vizag NSDC blog posts into the
+      // strongest one (part of fixing a Google scaled-content spam flag).
+      {
+        source:
+          "/blog/everything-you-need-to-know-about-nsdc-fire-and-safety-courses-in-vizag",
+        destination:
+          "/blog/build-a-safer-tomorrow-with-nsdc-certified-fire-and-safety-courses-in-vizag/",
+        permanent: true,
+      },
+      {
+        source:
+          "/blog/nsdc-fire-safety-courses-in-vizag-your-gateway-to-a-secure-career",
+        destination:
+          "/blog/build-a-safer-tomorrow-with-nsdc-certified-fire-and-safety-courses-in-vizag/",
+        permanent: true,
+      },
+
       // Old WordPress blog URLs -> new /blog/<slug>/ pages
       ...blogPosts.map((post: { slug: string }) => ({
         source: `/${post.slug}`,
