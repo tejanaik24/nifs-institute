@@ -92,7 +92,6 @@ RewriteRule ^pg-diploma-in-health-safety-environment-pg-dhse-at-nifs-your-gatewa
 RewriteRule ^dhse-diploma-in-health-safety-and-environment-at-nifs-your-gateway-to-a-safer-tomorrow/?$ /blog/dhse-diploma-in-health-safety-and-environment-at-nifs-your-gateway-to-a-safer-tomorrow/ [R=301,L]
 RewriteRule ^become-a-safety-hero-join-the-safety-coordinator-course-at-nifs/?$ /blog/become-a-safety-hero-join-the-safety-coordinator-course-at-nifs/ [R=301,L]
 RewriteRule ^build-your-future-with-nsqf-courses-at-nifs/?$ /blog/build-your-future-with-nsqf-courses-at-nifs/ [R=301,L]
-RewriteRule ^how-to-use-a-fire-extinguisher-your-complete-guide-to-fire-safety-2/?$ /blog/how-to-use-a-fire-extinguisher-your-complete-guide-to-fire-safety-2/ [R=301,L]
 RewriteRule ^advance-your-career-with-an-advanced-diploma-in-industrial-safety-adis-at-nifs/?$ /blog/advance-your-career-with-an-advanced-diploma-in-industrial-safety-adis-at-nifs/ [R=301,L]
 RewriteRule ^everything-you-need-to-know-about-pursuing-a-safety-officer-course/?$ /blog/everything-you-need-to-know-about-pursuing-a-safety-officer-course/ [R=301,L]
 RewriteRule ^adfs-advanced-diploma-in-fire-and-safety-you-can-start-a-solid-career-while-protecting-safety/?$ /blog/adfs-advanced-diploma-in-fire-and-safety-you-can-start-a-solid-career-while-protecting-safety/ [R=301,L]

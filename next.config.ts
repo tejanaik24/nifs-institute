@@ -78,6 +78,9 @@ const MERGED_BLOG_REDIRECTS: Record<string, string> = {
     "unleashing-your-potential-how-a-fire-and-safety-course-in-chennai-can-boost-your-career",
   "kickstart-your-career-with-government-recognized-fireman-safety-course-in-hyderabad":
     "fire-and-safety-courses-in-hyderabad-enhancing-workplace-safety",
+  // Exact same article republished under a "-2" slug.
+  "how-to-use-a-fire-extinguisher-your-complete-guide-to-fire-safety-2":
+    "how-to-use-a-fire-extinguisher-your-complete-guide-to-fire-safety",
 };
 
 const nextConfig: NextConfig = {
