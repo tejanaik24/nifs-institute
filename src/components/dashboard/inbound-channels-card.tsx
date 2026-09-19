@@ -5,7 +5,7 @@ import Link from "next/link";
 
 interface InboundChannelsCardProps {
   whatsappCount: number;
-  instagramCount?: number;
+  instagramCount: number;
   websiteEnquiriesCount: number;
   emailApplicationsCount: number;
 }
@@ -32,7 +32,7 @@ function InstagramIcon({ size = 16, className = "" }: { size?: number; className
 
 export function InboundChannelsCard({
   whatsappCount,
-  instagramCount = 185,
+  instagramCount,
   websiteEnquiriesCount,
   emailApplicationsCount,
 }: InboundChannelsCardProps) {

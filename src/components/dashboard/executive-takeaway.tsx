@@ -4,30 +4,33 @@ import { Check, Lightbulb, Share2 } from "lucide-react";
 import { useState } from "react";
 
 interface ExecutiveTakeawayProps {
-  topCourseName?: string;
-  topCourseViews?: number;
-  coursePercent?: number;
-  topCity?: string;
+  topCourseName?: string | null;
+  topCourseViews?: number | null;
+  coursePercent?: number | null;
+  topCity?: string | null;
   totalVisitors28d?: number;
   totalCallbacks?: number;
 }
 
 export function ExecutiveTakeaway({
-  topCourseName = "ADIS",
-  topCourseViews = 611,
-  coursePercent = 90,
-  topCity = "Visakhapatnam",
+  topCourseName,
+  topCourseViews,
+  coursePercent,
+  topCity,
   totalVisitors28d,
   totalCallbacks = 0,
 }: ExecutiveTakeawayProps) {
   const [copied, setCopied] = useState(false);
+  const hasData = topCourseName != null && topCity != null;
 
   const plainCourseRatio =
-    coursePercent >= 85
-      ? "9 out of 10"
-      : coursePercent >= 75
-        ? "8 out of 10"
-        : `${coursePercent}% of`;
+    coursePercent == null
+      ? "an unknown share of"
+      : coursePercent >= 85
+        ? "9 out of 10"
+        : coursePercent >= 75
+          ? "8 out of 10"
+          : `${coursePercent}% of`;
 
   const copyDailyBriefing = async () => {
     const today = new Date().toLocaleDateString("en-IN", {
@@ -41,9 +44,11 @@ export function ExecutiveTakeaway({
       `📅 *Date:* ${today}`,
       `━━━━━━━━━━━━━━━━━━━━`,
       `💡 *Key Takeaway:*`,
-      `• *${topCourseName}* is currently your #1 popular course with ${topCourseViews.toLocaleString()} student views.`,
+      hasData
+        ? `• *${topCourseName}* is currently your #1 popular course with ${topCourseViews!.toLocaleString()} student views.`
+        : "",
       `• *${plainCourseRatio} visitors* are looking for courses and admissions rather than job openings.`,
-      `• *${topCity}* is your top student feeder hub.`,
+      hasData ? `• *${topCity}* is your top student feeder hub.` : "",
       `• *${totalCallbacks} student callbacks* are awaiting counselor follow-up.`,
       totalVisitors28d
         ? `• *Total 28-Day Reach:* ${totalVisitors28d.toLocaleString()} student visitors.`
@@ -82,20 +87,26 @@ export function ExecutiveTakeaway({
               </span>
             </div>
             <p className="text-sm sm:text-base font-medium text-[var(--dash-text)] leading-relaxed">
-              <strong className="text-amber-600 dark:text-amber-400 font-bold">
-                {topCourseName}
-              </strong>{" "}
-              is your #1 in-demand course with{" "}
-              <strong className="text-[var(--dash-text)]">
-                {topCourseViews.toLocaleString()} student reads
-              </strong>
-              .{" "}
-              <span className="font-semibold text-emerald-600 dark:text-emerald-400">
-                {plainCourseRatio} visitors
-              </span>{" "}
-              are looking for courses, and{" "}
-              <strong className="text-[var(--dash-text)]">{topCity}</strong> is
-              your top feeder hub.
+              {hasData ? (
+                <>
+                  <strong className="text-amber-600 dark:text-amber-400 font-bold">
+                    {topCourseName}
+                  </strong>{" "}
+                  is your #1 in-demand course with{" "}
+                  <strong className="text-[var(--dash-text)]">
+                    {topCourseViews!.toLocaleString()} student reads
+                  </strong>
+                  .{" "}
+                  <span className="font-semibold text-emerald-600 dark:text-emerald-400">
+                    {plainCourseRatio} visitors
+                  </span>{" "}
+                  are looking for courses, and{" "}
+                  <strong className="text-[var(--dash-text)]">{topCity}</strong>{" "}
+                  is your top feeder hub.
+                </>
+              ) : (
+                "Not enough analytics data yet to name a #1 course or top feeder city."
+              )}
             </p>
           </div>
         </div>
