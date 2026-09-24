@@ -72,17 +72,14 @@ export async function getPublishedPosts(): Promise<
     return fallbackRows;
   }
   try {
-    const dbRows = await db
+    // DB is the source of truth now (167 posts vs. this JSON's 157) — no
+    // fallback merge on success, or retired slugs still in the JSON leak
+    // back into the blog list and sitemap as phantom entries.
+    return await db
       .select()
       .from(posts)
       .where(eq(posts.status, "published"))
       .orderBy(desc(posts.publishedAt));
-
-    const dbSlugs = new Set(dbRows.map((r) => r.slug));
-    const missingFallback = fallbackRows.filter(
-      (f: any) => !dbSlugs.has(f.slug),
-    );
-    return [...dbRows, ...missingFallback];
   } catch {
     return fallbackRows;
   }

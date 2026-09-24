@@ -57,14 +57,14 @@ export const BADARPUR_FAQS = [
 ];
 
 export const metadata: Metadata = {
-  title: "Fire and Safety Course in Badarpur Delhi South | Govt Approved NIFS (4.9★)",
+  title: "Fire and Safety Course in Badarpur Delhi South | Govt Approved NIFS",
   description:
-    "Join Badarpur's premier Fire & Safety Officer training institute near Metro Station. 4.9★ on Google with 410+ reviews. NSDC approved 1-Year Diploma (DFS, ADIS), live practical yard drills, and 100% placement support.",
+    "Join Badarpur's premier Fire & Safety Officer training institute near Metro Station. NSDC approved 1-Year Diploma (DFS, ADIS), live practical yard drills, and 100% placement support.",
   alternates: { canonical: "/centers/badarpur-delhi-south/" },
   openGraph: {
     title: "Fire & Safety Officer Course in Badarpur Delhi South | NIFS Institute",
     description:
-      "Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Badarpur, South Delhi. 4.9★ Google Rating, 45,000+ placements with L&T, Adani, and Gulf employers.",
+      "Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Badarpur, South Delhi. 45,000+ placements with L&T, Adani, and Gulf employers.",
     url: PAGE_URL,
     siteName: "NIFS India",
     locale: "en_IN",
@@ -116,39 +116,6 @@ export default function BadarpurCenterPage() {
                   latitude: 28.4848,
                   longitude: 77.2996,
                 },
-                aggregateRating: {
-                  "@type": "AggregateRating",
-                  ratingValue: "4.9",
-                  bestRating: "5",
-                  worstRating: "1",
-                  reviewCount: "412",
-                },
-                review: [
-                  {
-                    "@type": "Review",
-                    author: { "@type": "Person", name: "Suresh Yadav" },
-                    datePublished: "2026-06-05",
-                    reviewBody:
-                      "Completed my DFS from NIFS Badarpur. Excellent faculty with real practical fire yard experience. Got placed in BTPS as Fire Safety Officer.",
-                    reviewRating: {
-                      "@type": "Rating",
-                      ratingValue: "5",
-                      bestRating: "5",
-                    },
-                  },
-                  {
-                    "@type": "Review",
-                    author: { "@type": "Person", name: "Vikram Singh" },
-                    datePublished: "2026-05-20",
-                    reviewBody:
-                      "Best fire safety institute in South Delhi. The live training yard drill at Vizag was world-class. Currently working with L&T as Site Safety Supervisor.",
-                    reviewRating: {
-                      "@type": "Rating",
-                      ratingValue: "5",
-                      bestRating: "5",
-                    },
-                  },
-                ],
                 openingHoursSpecification: [
                   {
                     "@type": "OpeningHoursSpecification",

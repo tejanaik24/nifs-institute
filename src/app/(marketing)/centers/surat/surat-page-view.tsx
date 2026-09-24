@@ -250,10 +250,10 @@ export function SuratPageView({
                 </div>
                 <div className="border-x border-slate-200 px-4">
                   <p className="font-display text-3xl sm:text-4xl font-black text-amber-500">
-                    4.9 ★
+                    22+
                   </p>
                   <p className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
-                    Google Reviews
+                    Years Established
                   </p>
                 </div>
                 <div>
@@ -359,11 +359,11 @@ export function SuratPageView({
                       ))}
                     </div>
                     <span className="text-xs font-bold text-white">
-                      4.9 ★ Rating
+                      NSDC Approved
                     </span>
                   </div>
                   <span className="text-[11px] font-mono text-slate-300">
-                    423+ Google Reviews
+                    45,000+ Alumni Placed
                   </span>
                 </div>
               </div>
@@ -761,43 +761,13 @@ export function SuratPageView({
               </div>
 
               <div className="flex items-center gap-4 bg-slate-50 p-5 rounded-2xl border border-slate-200">
-                <p className="font-display text-4xl sm:text-5xl font-black text-slate-900">
-                  4.9
-                </p>
+                <Star className="h-8 w-8 fill-amber-500 text-amber-500 shrink-0" />
                 <div>
-                  <div className="flex text-amber-500">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-amber-500" />
-                    ))}
-                  </div>
-                  <p className="text-xs font-bold text-slate-600 mt-1">
-                    423+ Verified Alumni Ratings on Google
+                  <p className="text-sm font-bold text-slate-900">
+                    NSDC &amp; Skill India Approved
                   </p>
-                </div>
-              </div>
-
-              <div className="space-y-3">
-                <div className="rounded-2xl border border-slate-200 bg-slate-50/50 p-4 text-xs space-y-1.5">
-                  <div className="flex justify-between font-bold">
-                    <span className="text-slate-900">
-                      Dharmesh Patel (ADIS)
-                    </span>
-                    <span className="text-amber-500">5.0 ★</span>
-                  </div>
-                  <p className="text-slate-600 leading-relaxed">
-                    &ldquo;Best practical training in Gujarat. Selected as
-                    Safety Officer at Reliance Industries Hazira.&rdquo;
-                  </p>
-                </div>
-
-                <div className="rounded-2xl border border-slate-200 bg-slate-50/50 p-4 text-xs space-y-1.5">
-                  <div className="flex justify-between font-bold">
-                    <span className="text-slate-900">Priya Mehta (DFS)</span>
-                    <span className="text-amber-500">5.0 ★</span>
-                  </div>
-                  <p className="text-slate-600 leading-relaxed">
-                    &ldquo;Live fire drill gave huge confidence. Working with
-                    Adani Hazira Port as EHS Coordinator.&rdquo;
+                  <p className="text-xs font-semibold text-slate-600 mt-1">
+                    ISO 9001:2015 Certified &middot; 45,000+ Alumni Placed Nationwide
                   </p>
                 </div>
               </div>

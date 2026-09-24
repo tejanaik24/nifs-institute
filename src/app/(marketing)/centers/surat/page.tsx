@@ -55,14 +55,14 @@ export const SURAT_FAQS = [
 ];
 
 export const metadata: Metadata = {
-  title: "Fire and Safety Course in Surat | Govt Approved NIFS Gauravpath (4.9★)",
+  title: "Fire and Safety Course in Surat | Govt Approved NIFS Gauravpath",
   description:
-    "Join Surat's premier Fire & Safety Officer training institute in Gauravpath. 4.9★ on Google with 420+ reviews. NSDC approved 1-Year Diploma (DFS, ADIS), live practical yard drills, and 100% placement support in Textile & Petrochemical.",
+    "Join Surat's premier Fire & Safety Officer training institute in Gauravpath. NSDC approved 1-Year Diploma (DFS, ADIS), live practical yard drills, and 100% placement support in Textile & Petrochemical.",
   alternates: { canonical: "/centers/surat/" },
   openGraph: {
     title: "Fire & Safety Officer Course in Surat | NIFS Institute Gauravpath",
     description:
-      "Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Surat. 4.9★ Google Rating, 45,000+ placements with Reliance, L&T, and Gulf employers.",
+      "Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Surat. 45,000+ placements with Reliance, L&T, and Gulf employers.",
     url: PAGE_URL,
     siteName: "NIFS India",
     locale: "en_IN",
@@ -114,39 +114,6 @@ export default function SuratCenterPage() {
                   latitude: 21.1702,
                   longitude: 72.8311,
                 },
-                aggregateRating: {
-                  "@type": "AggregateRating",
-                  ratingValue: "4.9",
-                  bestRating: "5",
-                  worstRating: "1",
-                  reviewCount: "423",
-                },
-                review: [
-                  {
-                    "@type": "Review",
-                    author: { "@type": "Person", name: "Dharmesh Patel" },
-                    datePublished: "2026-06-08",
-                    reviewBody:
-                      "Completed my ADIS from NIFS Surat. Excellent training for textile and chemical industry safety. Got placed in Reliance Industries Hazira as Safety Officer.",
-                    reviewRating: {
-                      "@type": "Rating",
-                      ratingValue: "5",
-                      bestRating: "5",
-                    },
-                  },
-                  {
-                    "@type": "Review",
-                    author: { "@type": "Person", name: "Priya Mehta" },
-                    datePublished: "2026-05-12",
-                    reviewBody:
-                      "Best fire safety institute in Gujarat. The practical fire yard training was world-class. Working with Adani Hazira Port as EHS Coordinator.",
-                    reviewRating: {
-                      "@type": "Rating",
-                      ratingValue: "5",
-                      bestRating: "5",
-                    },
-                  },
-                ],
                 openingHoursSpecification: [
                   {
                     "@type": "OpeningHoursSpecification",

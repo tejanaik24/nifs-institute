@@ -57,14 +57,14 @@ export const LAKSHMINAGAR_FAQS = [
 ];
 
 export const metadata: Metadata = {
-  title: "Fire and Safety Course in Laxmi Nagar Delhi East | Govt Approved NIFS (4.9★)",
+  title: "Fire and Safety Course in Laxmi Nagar Delhi East | Govt Approved NIFS",
   description:
-    "Join East Delhi's premier Fire & Safety Officer training institute near Laxminagar Metro. 4.9★ on Google with 400+ reviews. NSDC approved 1-Year Diploma (DFS, ADIS), live practical yard drills, and 100% placement support.",
+    "Join East Delhi's premier Fire & Safety Officer training institute near Laxminagar Metro. NSDC approved 1-Year Diploma (DFS, ADIS), live practical yard drills, and 100% placement support.",
   alternates: { canonical: "/centers/lakshminagar-delhi-east/" },
   openGraph: {
     title: "Fire & Safety Officer Course in Laxmi Nagar Delhi East | NIFS Institute",
     description:
-      "Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Laxmi Nagar, East Delhi. 4.9★ Google Rating, 45,000+ placements with L&T, Adani, and Gulf employers.",
+      "Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Laxmi Nagar, East Delhi. 45,000+ placements with L&T, Adani, and Gulf employers.",
     url: PAGE_URL,
     siteName: "NIFS India",
     locale: "en_IN",
@@ -116,39 +116,6 @@ export default function LakshminagarCenterPage() {
                   latitude: 28.6375,
                   longitude: 77.2935,
                 },
-                aggregateRating: {
-                  "@type": "AggregateRating",
-                  ratingValue: "4.9",
-                  bestRating: "5",
-                  worstRating: "1",
-                  reviewCount: "405",
-                },
-                review: [
-                  {
-                    "@type": "Review",
-                    author: { "@type": "Person", name: "Rajesh Gupta" },
-                    datePublished: "2026-06-02",
-                    reviewBody:
-                      "Completed my ADIS from NIFS Laxmi Nagar. Excellent faculty with real practical fire yard experience. Got placed in Patparganj industrial area as EHS Officer.",
-                    reviewRating: {
-                      "@type": "Rating",
-                      ratingValue: "5",
-                      bestRating: "5",
-                    },
-                  },
-                  {
-                    "@type": "Review",
-                    author: { "@type": "Person", name: "Ankit Verma" },
-                    datePublished: "2026-05-10",
-                    reviewBody:
-                      "Best fire safety institute in East Delhi. The live training yard drill at Vizag was a game-changer. Currently working with Adani as Safety Supervisor.",
-                    reviewRating: {
-                      "@type": "Rating",
-                      ratingValue: "5",
-                      bestRating: "5",
-                    },
-                  },
-                ],
                 openingHoursSpecification: [
                   {
                     "@type": "OpeningHoursSpecification",

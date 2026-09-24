@@ -1,4 +1,4 @@
-import { blogPosts } from "@/lib/data/blog";
+import { getPublishedPosts } from "@/lib/db/posts";
 import { centers } from "@/lib/data/centers";
 import { courses } from "@/lib/data/courses";
 import type { MetadataRoute } from "next";
@@ -68,9 +68,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
+  const blogPosts = await getPublishedPosts();
   const blogRoutes = blogPosts.map((post) => ({
     url: `${baseUrl}/blog/${post.slug}/`,
-    lastModified: post.date ? new Date(post.date) : new Date(),
+    lastModified: post.publishedAt ?? new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));

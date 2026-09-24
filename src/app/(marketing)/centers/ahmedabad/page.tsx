@@ -55,14 +55,14 @@ export const AHMEDABAD_FAQS = [
 ];
 
 export const metadata: Metadata = {
-  title: "Fire and Safety Course in Ahmedabad | Govt Approved NIFS Ghatlodia (4.9★)",
+  title: "Fire and Safety Course in Ahmedabad | Govt Approved NIFS Ghatlodia",
   description:
-    "Join Ahmedabad's top-rated Fire & Safety Officer training institute in Ghatlodia. 4.9★ on Google with 430+ reviews. NSDC approved 1-Year Diploma (DFS, ADIS), live practical yard drills, and 100% placement support in Pharma & GIDC.",
+    "Join Ahmedabad's top-rated Fire & Safety Officer training institute in Ghatlodia. NSDC approved 1-Year Diploma (DFS, ADIS), live practical yard drills, and 100% placement support in Pharma & GIDC.",
   alternates: { canonical: "/centers/ahmedabad/" },
   openGraph: {
     title: "Fire & Safety Officer Course in Ahmedabad | NIFS Institute Ghatlodia",
     description:
-      "Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Ahmedabad. 4.9★ Google Rating, 45,000+ placements with Torrent Pharma, Cadila, and Gulf employers.",
+      "Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Ahmedabad. 45,000+ placements with Torrent Pharma, Cadila, and Gulf employers.",
     url: PAGE_URL,
     siteName: "NIFS India",
     locale: "en_IN",
@@ -114,39 +114,6 @@ export default function AhmedabadCenterPage() {
                   latitude: 23.0504,
                   longitude: 72.5313,
                 },
-                aggregateRating: {
-                  "@type": "AggregateRating",
-                  ratingValue: "4.9",
-                  bestRating: "5",
-                  worstRating: "1",
-                  reviewCount: "435",
-                },
-                review: [
-                  {
-                    "@type": "Review",
-                    author: { "@type": "Person", name: "Ketan Joshi" },
-                    datePublished: "2026-06-12",
-                    reviewBody:
-                      "Completed my ADIS course from NIFS Ahmedabad. Excellent faculty with real practical fire yard experience. Got placed in Torrent Pharmaceuticals as EHS Officer.",
-                    reviewRating: {
-                      "@type": "Rating",
-                      ratingValue: "5",
-                      bestRating: "5",
-                    },
-                  },
-                  {
-                    "@type": "Review",
-                    author: { "@type": "Person", name: "Neha Shah" },
-                    datePublished: "2026-05-18",
-                    reviewBody:
-                      "Best fire safety institute in Gujarat. The live training yard drill at Vizag was a game-changer. Currently working with Cadila Healthcare as Safety Supervisor.",
-                    reviewRating: {
-                      "@type": "Rating",
-                      ratingValue: "5",
-                      bestRating: "5",
-                    },
-                  },
-                ],
                 openingHoursSpecification: [
                   {
                     "@type": "OpeningHoursSpecification",

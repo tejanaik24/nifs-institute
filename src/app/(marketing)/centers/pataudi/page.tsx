@@ -56,14 +56,14 @@ export const PATAUDI_FAQS = [
 ];
 
 export const metadata: Metadata = {
-  title: "Fire and Safety Course in Pataudi Haryana | Govt Approved NIFS (4.9★)",
+  title: "Fire and Safety Course in Pataudi Haryana | Govt Approved NIFS",
   description:
-    "Join Pataudi's premier Fire & Safety Officer training center on Palam-Gurgaon Road. 4.9★ on Google with 390+ reviews. NSDC approved 1-Year Diploma (DFS, ADIS), live practical yard drills, and 100% placement support.",
+    "Join Pataudi's premier Fire & Safety Officer training center on Palam-Gurgaon Road. NSDC approved 1-Year Diploma (DFS, ADIS), live practical yard drills, and 100% placement support.",
   alternates: { canonical: "/centers/pataudi/" },
   openGraph: {
     title: "Fire & Safety Officer Course in Pataudi Haryana | NIFS Institute",
     description:
-      "Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Pataudi, Gurgaon district. 4.9★ Google Rating, 45,000+ placements with L&T, Maruti Suzuki, and Gulf employers.",
+      "Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Pataudi, Gurgaon district. 45,000+ placements with L&T, Maruti Suzuki, and Gulf employers.",
     url: PAGE_URL,
     siteName: "NIFS India",
     locale: "en_IN",
@@ -115,39 +115,6 @@ export default function PataudiCenterPage() {
                   latitude: 28.3670,
                   longitude: 76.9480,
                 },
-                aggregateRating: {
-                  "@type": "AggregateRating",
-                  ratingValue: "4.9",
-                  bestRating: "5",
-                  worstRating: "1",
-                  reviewCount: "392",
-                },
-                review: [
-                  {
-                    "@type": "Review",
-                    author: { "@type": "Person", name: "Manoj Lamba" },
-                    datePublished: "2026-06-14",
-                    reviewBody:
-                      "Completed my DFS from NIFS Pataudi. Excellent faculty with real practical fire yard experience. Got placed in KMP Expressway logistics as Safety Officer.",
-                    reviewRating: {
-                      "@type": "Rating",
-                      ratingValue: "5",
-                      bestRating: "5",
-                    },
-                  },
-                  {
-                    "@type": "Review",
-                    author: { "@type": "Person", name: "Sunil Jangra" },
-                    datePublished: "2026-05-22",
-                    reviewBody:
-                      "Best fire safety institute near Gurgaon. The live training yard drill at Vizag was world-class. Currently working with Bosch Manesar as EHS Supervisor.",
-                    reviewRating: {
-                      "@type": "Rating",
-                      ratingValue: "5",
-                      bestRating: "5",
-                    },
-                  },
-                ],
                 openingHoursSpecification: [
                   {
                     "@type": "OpeningHoursSpecification",

@@ -55,14 +55,14 @@ export const GURGAON_FAQS = [
 ];
 
 export const metadata: Metadata = {
-  title: "Fire and Safety Course in Gurgaon | Govt Approved NIFS Ashok Vihar (4.9★)",
+  title: "Fire and Safety Course in Gurgaon | Govt Approved NIFS Ashok Vihar",
   description:
-    "Join Gurgaon's top-rated Fire & Safety Officer training institute in Ashok Vihar. 4.9★ on Google with 450+ reviews. NSDC approved 1-Year Diploma (DFS, ADIS), live practical yard drills, and 100% placement support in Auto & Manufacturing.",
+    "Join Gurgaon's top-rated Fire & Safety Officer training institute in Ashok Vihar. NSDC approved 1-Year Diploma (DFS, ADIS), live practical yard drills, and 100% placement support in Auto & Manufacturing.",
   alternates: { canonical: "/centers/gurgaon/" },
   openGraph: {
     title: "Fire & Safety Officer Course in Gurgaon | NIFS Institute Ashok Vihar",
     description:
-      "Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Gurgaon. 4.9★ Google Rating, 45,000+ placements with Maruti Suzuki, Hero MotoCorp, and Gulf employers.",
+      "Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Gurgaon. 45,000+ placements with Maruti Suzuki, Hero MotoCorp, and Gulf employers.",
     url: PAGE_URL,
     siteName: "NIFS India",
     locale: "en_IN",
@@ -114,39 +114,6 @@ export default function GurgaonCenterPage() {
                   latitude: 28.4595,
                   longitude: 77.0266,
                 },
-                aggregateRating: {
-                  "@type": "AggregateRating",
-                  ratingValue: "4.9",
-                  bestRating: "5",
-                  worstRating: "1",
-                  reviewCount: "456",
-                },
-                review: [
-                  {
-                    "@type": "Review",
-                    author: { "@type": "Person", name: "Rohit Sharma" },
-                    datePublished: "2026-06-10",
-                    reviewBody:
-                      "Completed my ADIS course from NIFS Gurgaon branch. Excellent faculty with real practical fire yard experience. Got placed in Maruti Suzuki Manesar as Safety Officer.",
-                    reviewRating: {
-                      "@type": "Rating",
-                      ratingValue: "5",
-                      bestRating: "5",
-                    },
-                  },
-                  {
-                    "@type": "Review",
-                    author: { "@type": "Person", name: "Amit Kumar" },
-                    datePublished: "2026-05-15",
-                    reviewBody:
-                      "Best fire safety institute near Manesar. The live training yard drill at Vizag was a game-changer. Currently working with Hero MotoCorp as EHS Supervisor.",
-                    reviewRating: {
-                      "@type": "Rating",
-                      ratingValue: "5",
-                      bestRating: "5",
-                    },
-                  },
-                ],
                 openingHoursSpecification: [
                   {
                     "@type": "OpeningHoursSpecification",

@@ -55,14 +55,14 @@ export const BALLIA_FAQS = [
 ];
 
 export const metadata: Metadata = {
-  title: "Fire and Safety Course in Ballia | Govt Approved NIFS Campus (4.9★)",
+  title: "Fire and Safety Course in Ballia | Govt Approved NIFS Campus",
   description:
-    "Join Ballia's top-rated Fire & Safety Officer training institute. 4.9★ on Google with verified alumni ratings. NSDC approved 1-Year Diploma (DFS, ADIS), live practical training yard drills, and 100% placement support in Uttar Pradesh.",
+    "Join Ballia's top-rated Fire & Safety Officer training institute. NSDC approved 1-Year Diploma (DFS, ADIS), live practical training yard drills, and 100% placement support in Uttar Pradesh.",
   alternates: { canonical: "/centers/ballia/" },
   openGraph: {
     title: "Fire & Safety Officer Course in Ballia | NIFS Institute",
     description:
-      "Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Ballia, Uttar Pradesh. 4.9★ Google Rating, live practical training, and 100% placement support.",
+      "Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Ballia, Uttar Pradesh. Live practical training and 100% placement support.",
     url: PAGE_URL,
     siteName: "NIFS India",
     locale: "en_IN",
@@ -106,27 +106,6 @@ export default function BalliaCenterPage() {
                   addressRegion: "Uttar Pradesh",
                   addressCountry: "IN",
                 },
-                aggregateRating: {
-                  "@type": "AggregateRating",
-                  ratingValue: "4.9",
-                  bestRating: "5",
-                  worstRating: "1",
-                  reviewCount: "428",
-                },
-                review: [
-                  {
-                    "@type": "Review",
-                    author: { "@type": "Person", name: "Suresh Reddy" },
-                    datePublished: "2026-06-12",
-                    reviewBody:
-                      "Completed my safety diploma from NIFS Ballia center. The practical firefighting drills gave huge real-world exposure. Placed as Safety Officer.",
-                    reviewRating: {
-                      "@type": "Rating",
-                      ratingValue: "5",
-                      bestRating: "5",
-                    },
-                  },
-                ],
                 openingHoursSpecification: [
                   {
                     "@type": "OpeningHoursSpecification",

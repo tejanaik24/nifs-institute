@@ -73,14 +73,31 @@ const MERGED_BLOG_REDIRECTS: Record<string, string> = {
   "fire-and-safety-courses-in-visakhapatnam-a-path-to-secure-careers":
     "fire-safety-training-visakhapatnam-complete-guide",
   "start-a-rewarding-career-by-joining-the-fire-and-safety-course-in-tambaram-by-nifs-india":
-    "unleashing-your-potential-how-a-fire-and-safety-course-in-chennai-can-boost-your-career",
-  "fire-and-safety-courses-in-chennai-essential-training-for-a-safe-and-secure-future":
-    "unleashing-your-potential-how-a-fire-and-safety-course-in-chennai-can-boost-your-career",
+    "nifs-fire-safety-training-centers-chennai-vijayawada-guntur-bhubaneswar",
   "kickstart-your-career-with-government-recognized-fireman-safety-course-in-hyderabad":
     "fire-and-safety-courses-in-hyderabad-enhancing-workplace-safety",
   // Exact same article republished under a "-2" slug.
   "how-to-use-a-fire-extinguisher-your-complete-guide-to-fire-safety-2":
     "how-to-use-a-fire-extinguisher-your-complete-guide-to-fire-safety",
+
+  // 2026-09-24: 7 separate Chennai/Vijayawada/Guntur/Bhubaneswar posts
+  // (3 of them just for Chennai) merged into one real center-comparison
+  // guide — same scaled-content pattern as the Vizag/Chennai merge above,
+  // caught before Google flagged it this time.
+  "fire-and-safety-courses-in-chennai-essential-training-for-a-safe-and-secure-future":
+    "nifs-fire-safety-training-centers-chennai-vijayawada-guntur-bhubaneswar",
+  "explore-nsdc-approved-fire-and-safety-courses-in-chennai-for-high-demand-jobs":
+    "nifs-fire-safety-training-centers-chennai-vijayawada-guntur-bhubaneswar",
+  "unleashing-your-potential-how-a-fire-and-safety-course-in-chennai-can-boost-your-career":
+    "nifs-fire-safety-training-centers-chennai-vijayawada-guntur-bhubaneswar",
+  "fire-and-safety-courses-in-vijayawada-a-path-to-secure-future":
+    "nifs-fire-safety-training-centers-chennai-vijayawada-guntur-bhubaneswar",
+  "choosing-the-best-institute-for-fire-and-safety-course-in-guntur-your-guide-to-a-successful-career":
+    "nifs-fire-safety-training-centers-chennai-vijayawada-guntur-bhubaneswar",
+  "industrial-safety-course-in-bhubaneswar-best-institute-certifications-and-career-opportunities":
+    "nifs-fire-safety-training-centers-chennai-vijayawada-guntur-bhubaneswar",
+  "fire-safety-management-training-and-job-placement-services-in-bhubaneswar":
+    "nifs-fire-safety-training-centers-chennai-vijayawada-guntur-bhubaneswar",
 };
 
 const nextConfig: NextConfig = {

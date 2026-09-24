@@ -258,10 +258,10 @@ export function ThrissurPageView({
                 </div>
                 <div>
                   <p className="font-display text-3xl sm:text-4xl font-black text-slate-900">
-                    4.9★
+                    22+
                   </p>
                   <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mt-1">
-                    Google Verified
+                    Years Established
                   </p>
                 </div>
               </div>
@@ -738,41 +738,13 @@ export function ThrissurPageView({
               </div>
 
               <div className="flex items-center gap-4 bg-slate-50 p-5 rounded-2xl border border-slate-200">
-                <p className="font-display text-4xl sm:text-5xl font-black text-slate-900">
-                  4.9
-                </p>
+                <Star className="h-8 w-8 fill-amber-500 text-amber-500 shrink-0" />
                 <div>
-                  <div className="flex text-amber-500">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-amber-500" />
-                    ))}
-                  </div>
-                  <p className="text-xs font-bold text-slate-600 mt-1">
-                    428+ Verified Alumni Ratings on Google
+                  <p className="text-sm font-bold text-slate-900">
+                    NSDC &amp; Skill India Approved
                   </p>
-                </div>
-              </div>
-
-              <div className="space-y-3">
-                <div className="rounded-2xl border border-slate-200 bg-slate-50/50 p-4 text-xs space-y-1.5">
-                  <div className="flex justify-between font-bold">
-                    <span className="text-slate-900">
-                      Suresh Reddy (ADIS)
-                    </span>
-                    <span className="text-amber-500">5.0 ★</span>
-                  </div>
-                  <p className="text-slate-600 leading-relaxed">
-                    &ldquo;Best practical training in Thrissur. Live fire drills gave huge confidence. Selected as Safety Officer.&rdquo;
-                  </p>
-                </div>
-
-                <div className="rounded-2xl border border-slate-200 bg-slate-50/50 p-4 text-xs space-y-1.5">
-                  <div className="flex justify-between font-bold">
-                    <span className="text-slate-900">K. Ramesh (DFS)</span>
-                    <span className="text-amber-500">5.0 ★</span>
-                  </div>
-                  <p className="text-slate-600 leading-relaxed">
-                    &ldquo;Top faculty with deep industry experience. Live practical yard sessions were outstanding.&rdquo;
+                  <p className="text-xs font-semibold text-slate-600 mt-1">
+                    ISO 9001:2015 Certified &middot; 45,000+ Alumni Placed Nationwide
                   </p>
                 </div>
               </div>

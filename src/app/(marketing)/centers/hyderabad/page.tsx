@@ -57,14 +57,14 @@ export const HYDERABAD_FAQS = [
 ];
 
 export const metadata: Metadata = {
-  title: "Fire and Safety Course in Hyderabad | Govt Approved NIFS Ameerpet (4.9★)",
+  title: "Fire and Safety Course in Hyderabad | Govt Approved NIFS Ameerpet",
   description:
-    "Join Hyderabad's #1 rated Fire & Safety Officer training institute in Ameerpet. 4.9★ on Google with 480+ reviews. NSDC approved 1-Year Diploma (DFS, ADIS), live practical yard drills, and 100% placement support in Pharma & Gulf.",
+    "Join Hyderabad's #1 rated Fire & Safety Officer training institute in Ameerpet. NSDC approved 1-Year Diploma (DFS, ADIS), live practical yard drills, and 100% placement support in Pharma & Gulf.",
   alternates: { canonical: "/centers/hyderabad/" },
   openGraph: {
     title: "Fire & Safety Officer Course in Hyderabad | NIFS Institute Ameerpet",
     description:
-      "Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Ameerpet, Hyderabad. 4.9★ Google Rating, 45,000+ placements with L&T, Dr. Reddy's, Hetero, and Gulf employers.",
+      "Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Ameerpet, Hyderabad. 45,000+ placements with L&T, Dr. Reddy's, Hetero, and Gulf employers.",
     url: PAGE_URL,
     siteName: "NIFS India",
     locale: "en_IN",
@@ -118,39 +118,6 @@ export default function HyderabadCenterPage() {
                   latitude: 17.4375,
                   longitude: 78.4482,
                 },
-                aggregateRating: {
-                  "@type": "AggregateRating",
-                  ratingValue: "4.9",
-                  bestRating: "5",
-                  worstRating: "1",
-                  reviewCount: "482",
-                },
-                review: [
-                  {
-                    "@type": "Review",
-                    author: { "@type": "Person", name: "K. Sai Praneeth" },
-                    datePublished: "2026-06-15",
-                    reviewBody:
-                      "Completed my ADIS course from NIFS Ameerpet branch. Excellent faculty with real practical fire yard experience. Got placed in Dr. Reddy's Laboratories as Junior EHS Officer.",
-                    reviewRating: {
-                      "@type": "Rating",
-                      ratingValue: "5",
-                      bestRating: "5",
-                    },
-                  },
-                  {
-                    "@type": "Review",
-                    author: { "@type": "Person", name: "Mohammed Irfan" },
-                    datePublished: "2026-05-20",
-                    reviewBody:
-                      "Best fire safety institute in Hyderabad. The live training yard drill at Vizag was a game-changer. Currently working with L&T Metro project in Hyderabad.",
-                    reviewRating: {
-                      "@type": "Rating",
-                      ratingValue: "5",
-                      bestRating: "5",
-                    },
-                  },
-                ],
                 openingHoursSpecification: [
                   {
                     "@type": "OpeningHoursSpecification",
