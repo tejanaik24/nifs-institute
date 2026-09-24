@@ -45,6 +45,12 @@ Premium website rebuild for NIFS India — fire & industrial safety training ins
 - Vercel cutover complete, nifsindia.net live on Vercel (2026-09-05)
 - Core Web Vitals fix pass (2026-09-05): CLS (recruiter logo width/height), LCP (hero image responsive srcset + fetchPriority), Accessibility 100 + Agentic Browsing 3/3 on mobile PSI (inert vs aria-hidden, contrast fixes, dl/dt structure, label-content-name-mismatch)
 - INP fix pass (2026-09-05): removed gsap from HomeIfesm (native IntersectionObserver+rAF counter) and HomePlacements (pure CSS marquee); deferred HomeAnimations' page-wide ScrollTrigger setup to requestIdleCallback so it no longer blocks the main thread on load
+- **2026-09-24 GSC indexing fix session** (commit `6268189`, deployed + verified live):
+  - `sitemap.ts` was pulling blog URLs from a stale local JSON (157 posts) instead of the live DB (167 published) — 16 real posts were never submitted to Google, 6 dead ones were. Now reads straight from `getPublishedPosts()`.
+  - Found and removed **fabricated review/rating content across all 53 city center pages** — fake `aggregateRating`/`review` JSON-LD, fake "4.9★" claims in meta titles/descriptions, a fake "Google Verified" stat badge, and (on 7 pages) a full fake "Google Reviews" card with invented named reviewers ("Suresh Reddy" etc.) and quotes. This is the likely root cause of 58 center pages sitting in GSC "Discovered - currently not indexed" — confirmed via live URL Inspection API that Chennai/Guntur/Vijayawada/Bhubaneswar got **zero search impressions in 90 days**.
+  - Verified GSC "Duplicate, Google chose different canonical" flag on 3 blog posts is a real Google-side www-vs-apex canonical confusion, not a code bug (canonical tags are already correct) — needs a manual "Request Indexing" click in Search Console, not a code fix.
+  - Found 7 separate near-duplicate blog posts already live for Chennai/Vijayawada/Guntur/Bhubaneswar (3 just for Chennai) — same scaled-content pattern that already crashed traffic once (Aug 2026, see BRAIN.md). Merged into one real post (`nifs-fire-safety-training-centers-chennai-vijayawada-guntur-bhubaneswar`) with 301 redirects from all 7 old slugs, following the same fix pattern as the Sep 19 Vizag/Chennai merge in `next.config.ts`.
+  - `GSC_SITE_URL` in `.env.local`/Vercel env still points to `https://www.nifsindia.net/` (redirects) instead of the real property — flagged to Teja, not yet fixed.
 
 ## What's Pending (Real Open Items)
 - Design quality pass — site is "okish", needs wow factor (typography, motion, photography)
@@ -52,6 +58,10 @@ Premium website rebuild for NIFS India — fire & industrial safety training ins
 - nifs-images-incoming folder — check if real client images have arrived
 - Re-check PageSpeed Insights field data (28-day CrUX) in ~2 weeks to confirm the 2026-09-05 CWV/INP fixes actually moved the real-user numbers — desktop was previously at Accessibility 90/Agentic Browsing 2/3, mobile at 100/3/3; both should match after propagation
 - Verify contact-form email delivery once RESEND_API_KEY is set
+- Fix `GSC_SITE_URL` env var (www → apex) so the /dashboard GSC integration reads the right property
+- Re-check GSC indexing status on the 58 previously-not-indexed center pages in ~1-2 weeks (Google needs to recrawl after the fake-review-schema removal)
+- Request re-indexing in Search Console UI for the 3 canonical-mismatch blog posts (see 2026-09-24 session above)
+- `center-gallery.ts`'s synthetic "placed alumni" name pool (200 fake names incl. "Suresh Reddy") is still live — flagged, not touched, matches a prior explicit call Teja made on AI-generated testimonial content
 
 ## Important Rules
 - BRAIN.md is source of truth — not TASKS.md or PROJECT.md (those are stale)

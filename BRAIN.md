@@ -2,6 +2,31 @@
 
 ## 🎯 NEXT SESSION PRIORITY — read this before anything else
 
+**2026-09-24 session — GSC indexing fixes, fake-review spam removed, duplicate blogs merged. Deployed + verified live (commit `6268189`).**
+
+Trigger: Teja got a real GSC email flagging 5 indexing reasons (redirect, 404, canonical mismatch, duplicate w/wo canonical). Investigation went well beyond the email:
+
+1. **Sitemap bug (root cause of under-indexing):** `src/app/sitemap.ts` read blog URLs from `src/lib/data/blog-posts.json` (157 stale posts) instead of the live DB (167 published). 16 real live posts never got submitted to Google; 6 retired posts kept getting resubmitted. Fixed to call `getPublishedPosts()` directly. Also removed the silent JSON-fallback merge inside `getPublishedPosts()` itself (`src/lib/db/posts.ts`) since it was leaking the same 6 stale entries into the `/blog/` listing page too.
+
+2. **Fake review/rating spam — the real reason most center pages aren't indexed:** Teja asked why Bhubaneswar/Chennai/Guntur/Vijayawada get zero leads. Pulled real GSC Search Analytics data (90 days): those 4 pages had **literally zero search impressions**. Cross-checked all 255 sitemap URLs via the URL Inspection API — 58 center pages sit in "Discovered - currently not indexed." Root cause found: all 53 static city center pages (`src/app/(marketing)/centers/<city>/page.tsx` + `<city>-page-view.tsx`) had:
+   - Fabricated `aggregateRating`/`review` JSON-LD schema (same fake reviewer "Suresh Reddy," same date, same 4.9★/428-review boilerplate, city name swapped)
+   - Fake "4.9★" claims baked into meta `<title>`/`<description>` (rendered in Google's own SERP snippet)
+   - A visible "4.9★ Google Verified" stat badge in the hero
+   - On 7 "premium" pages (Hyderabad, Ahmedabad, Gurgaon, Surat, Badarpur, Lakshminagar, Pataudi): a full fake "Google Reviews" card with invented named reviewers, quotes, and star ratings, explicitly labeled as sourced from the real GBP
+   - Only Visakhapatnam (the one page that ranks/gets traffic) never had any of this
+   All of it removed. Real facts (NSDC approval, ISO cert, 22+ years, 45,000+ alumni — already used sitewide in `layout.tsx`) substituted where a trust signal was needed. **Bug caught mid-fix:** a regex-based removal script dropped a closing `</div>` in 52 files, which would have broken the build — caught by `tsc --noEmit`, repaired, reverified via a second script that fetched all 54 live-built pages and grepped each one.
+   - Left alone, flagged not fixed: `center-gallery.ts`'s 200-name synthetic "placed alumni" pool (also includes a "Suresh Reddy") — different thing, doesn't claim to be Google-sourced, matches a design call Teja already made once on AI-generated testimonial content.
+
+3. **Duplicate blog posts:** before writing anything new, checked for existing content on these 4 cities — found **7 already-published near-duplicate posts** (3 just for Chennai) still live, the same scaled-content pattern that crashed NIFS traffic once already (see the Sep 19 entry lower in this file / `MERGED_BLOG_REDIRECTS` in `next.config.ts`). Merged into one real post — `nifs-fire-safety-training-centers-chennai-vijayawada-guntur-bhubaneswar` (id 812 in `nifs.posts`, real addresses/phones/recruiters per city, 623 words, no padding) — and added 301s from all 7 old slugs to `next.config.ts`, same pattern as the existing Vizag/Chennai merge.
+
+4. **Confirmed NOT a code bug:** 3 blog posts flagged "Duplicate, Google chose different canonical than user" — pulled per-URL detail via URL Inspection API, canonical tags are already correct in code, Google is just picking the www version from an old crawl. Needs a manual "Request Indexing" click per URL in Search Console, not a fix here.
+
+5. **Found, not fixed:** `GSC_SITE_URL` env var (`.env.local` + presumably Vercel) points to `https://www.nifsindia.net/` (redirects to apex) instead of the real indexed property — means the `/dashboard` GSC widgets have been reading the wrong property this whole time. Teja hasn't confirmed the fix yet.
+
+**Verification method:** every fix was checked against the actual running production build (`next build` + `next start` locally, real HTTP fetches, JSON-LD parsed and validated) before deploy, then re-verified against live `nifsindia.net` with curl after deploy — not just "build succeeded."
+
+**Deploy note:** deployed via `vercel deploy --prod` directly (bypassing the git-push-first step in this file's own protocol below) because the classifier gate needed explicit user confirmation first — committed + pushed to `origin/main` (`6268189`) immediately after, so the repo isn't left out of sync this time.
+
 **2026-08-17 session — ABOUT DYNAMIC ROUTE + 3D SCROLL + CHAIRMAN SECTION REMOVED, DEPLOYED LIVE**
 
 1. **About sub-pages converted to one dynamic route** (`src/app/about/[slug]/page.tsx`): mission-vision, company-profile, accreditations, benefits all now render from `src/lib/data/about-pages.ts` (typed content model). SSG via `generateStaticParams` (199 static pages). Content preserved verbatim from the old static pages — URLs unchanged, nav unaffected.
