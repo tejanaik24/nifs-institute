@@ -1,6 +1,8 @@
 import { DeadlineCountdown } from "@/components/sections/deadline-countdown";
 import { JobApplyForm } from "@/components/sections/job-apply-form";
 import { PageHero } from "@/components/sections/page-hero";
+import { centers } from "@/lib/data/centers";
+import { slugifyCity } from "@/lib/data/center-gallery";
 import { getAllJobs, getJobBySlug, getOpenJobs } from "@/lib/db/jobs";
 import {
   AlertCircle,
@@ -20,6 +22,54 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+
+// NIFS HQ — fallback postal address for job locations that don't match a listed center.
+const HQ_ADDRESS = {
+  streetAddress:
+    "Door No. 47-10-15, 2nd Lane, Dwarakanagar, AG Avenue Building, 3rd Floor",
+  addressLocality: "Visakhapatnam",
+  addressRegion: "Andhra Pradesh",
+  postalCode: "530016",
+};
+
+function jobLocationAddress(location: string) {
+  const normalized = slugifyCity(location);
+  const matched = centers.find((c) => normalized.includes(slugifyCity(c.city)));
+  return {
+    "@type": "PostalAddress",
+    streetAddress: matched?.address || HQ_ADDRESS.streetAddress,
+    addressLocality: matched?.city || location,
+    addressRegion: matched?.state || HQ_ADDRESS.addressRegion,
+    postalCode: HQ_ADDRESS.postalCode,
+    addressCountry: "IN",
+  };
+}
+
+// Parses free-text salary ("₹15,000 - ₹20,000/month") into schema.org baseSalary.
+// ponytail: regex-based, skips unparseable formats rather than fabricating numbers.
+function parseBaseSalary(salary: string | null | undefined) {
+  if (!salary) return undefined;
+  const nums = salary
+    .match(/[\d,]+(?:\.\d+)?/g)
+    ?.map((n) => Number(n.replace(/,/g, "")));
+  if (!nums || nums.length === 0) return undefined;
+  const unitText = /year|annum|p\.?a\.?/i.test(salary)
+    ? "YEAR"
+    : /day/i.test(salary)
+      ? "DAY"
+      : "MONTH";
+  return {
+    "@type": "MonetaryAmount",
+    currency: "INR",
+    value: {
+      "@type": "QuantitativeValue",
+      ...(nums.length > 1
+        ? { minValue: Math.min(...nums), maxValue: Math.max(...nums) }
+        : { value: nums[0] }),
+      unitText,
+    },
+  };
+}
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -95,35 +145,37 @@ export default async function JobDetailPage({ params }: Props) {
             salary: undefined,
           },
         ]
-  ).map((pos) => ({
-    "@context": "https://schema.org",
-    "@type": "JobPosting",
-    title: `${pos.designation} — ${job.companyName}`,
-    description: `Immediate recruitment drive for ${pos.designation} at ${job.companyName} in ${job.location}. ${pos.qualification ? `Required Qualification: ${pos.qualification}. ` : ""}${pos.vacancies ? `Total Vacancies: ${pos.vacancies}. ` : ""}Apply online with resume at NIFS India Official Placement Portal.`,
-    datePosted: (job.publishedAt ?? job.createdAt).toISOString(),
-    validThrough: job.applyByDate
-      ? new Date(job.applyByDate).toISOString()
-      : new Date(
-          new Date(job.publishedAt ?? job.createdAt).getTime() + 60 * 86400000,
-        ).toISOString(),
-    employmentType: "FULL_TIME",
-    hiringOrganization: {
-      "@type": "Organization",
-      name: job.clientCompany || job.companyName,
-      sameAs: "https://nifsindia.net",
-      logo: job.clientLogoUrl || "https://nifsindia.net/images/nifs-crest.png",
-    },
-    jobLocation: {
-      "@type": "Place",
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: job.location,
-        addressCountry: "IN",
+  ).map((pos) => {
+    const baseSalary = parseBaseSalary(pos.salary);
+    return {
+      "@context": "https://schema.org",
+      "@type": "JobPosting",
+      title: `${pos.designation} — ${job.companyName}`,
+      description: `Immediate recruitment drive for ${pos.designation} at ${job.companyName} in ${job.location}. ${pos.qualification ? `Required Qualification: ${pos.qualification}. ` : ""}${pos.vacancies ? `Total Vacancies: ${pos.vacancies}. ` : ""}Apply online with resume at NIFS India Official Placement Portal.`,
+      datePosted: (job.publishedAt ?? job.createdAt).toISOString(),
+      validThrough: job.applyByDate
+        ? new Date(job.applyByDate).toISOString()
+        : new Date(
+            new Date(job.publishedAt ?? job.createdAt).getTime() +
+              60 * 86400000,
+          ).toISOString(),
+      employmentType: "FULL_TIME",
+      hiringOrganization: {
+        "@type": "Organization",
+        name: job.clientCompany || job.companyName,
+        sameAs: "https://nifsindia.net",
+        logo:
+          job.clientLogoUrl || "https://nifsindia.net/images/nifs-crest.png",
       },
-    },
-    directApply: true,
-    url: `https://nifsindia.net/placements/jobs/${job.slug}/`,
-  }));
+      jobLocation: {
+        "@type": "Place",
+        address: jobLocationAddress(job.location),
+      },
+      ...(baseSalary && { baseSalary }),
+      directApply: true,
+      url: `https://nifsindia.net/placements/jobs/${job.slug}/`,
+    };
+  });
 
   return (
     <>
