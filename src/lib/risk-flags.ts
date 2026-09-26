@@ -1,4 +1,32 @@
+import { db } from "@/lib/db/client";
 import { getAllPosts } from "@/lib/db/posts";
+import { posts as postsTable } from "@/lib/db/schema";
+import { eq } from "drizzle-orm";
+
+// Only the columns the checks read. getAllPosts() pulls every post's full
+// content (~2.4 MB), which made every dashboard load slow.
+async function getPublishedPostMeta() {
+  if (process.env.DATABASE_URL) {
+    try {
+      return await db
+        .select({
+          slug: postsTable.slug,
+          title: postsTable.title,
+          status: postsTable.status,
+          seoTitle: postsTable.seoTitle,
+          metaDescription: postsTable.metaDescription,
+          wordCount: postsTable.wordCount,
+          coverImage: postsTable.coverImage,
+          faqs: postsTable.faqs,
+        })
+        .from(postsTable)
+        .where(eq(postsTable.status, "published"));
+    } catch {
+      // fall through to the full loader
+    }
+  }
+  return getAllPosts();
+}
 
 export type RiskFlag = {
   severity: "red" | "orange";
@@ -12,7 +40,7 @@ export type RiskFlag = {
  * missing/thin in the posts table. Flags apply to published posts only:
  * drafts are expected to be incomplete. */
 export async function getRiskFlags(): Promise<RiskFlag[]> {
-  const posts = await getAllPosts();
+  const posts = await getPublishedPostMeta();
   const flags: RiskFlag[] = [];
 
   for (const post of posts) {

@@ -92,6 +92,8 @@ function FreshnessLabel({
 
 interface AnalyticsViewProps {
   fetchedAt: string;
+  enquiryCount?: number;
+  whatsappClickCount?: number;
   summary: {
     ok: boolean;
     data?: { visitors: number; topPages: TopPage[] };
@@ -128,6 +130,8 @@ type TabKey = "overview" | "intent" | "seo" | "audience" | "ai-health";
 
 export function AnalyticsDashboardView({
   fetchedAt,
+  enquiryCount,
+  whatsappClickCount,
   summary,
   queries,
   siteTotals,
@@ -171,7 +175,9 @@ export function AnalyticsDashboardView({
 
   const topCourseFromData =
     courseMatrix?.ok && courseMatrix.data && courseMatrix.data.length > 0
-      ? [...courseMatrix.data].sort((a, b) => b.views - a.views)[0]
+      ? [...courseMatrix.data]
+          .filter((c) => c.category !== "General")
+          .sort((a, b) => b.views - a.views)[0] ?? null
       : null;
 
   const peakHour =
@@ -483,6 +489,8 @@ export function AnalyticsDashboardView({
                   (intent.data?.jobViews ?? 0)
                 : undefined
             }
+            enquiries={enquiryCount}
+            whatsappClicks={whatsappClickCount}
           />
 
           {/* Top Pages Table */}

@@ -21,9 +21,13 @@ interface BIDashboardViewProps {
     name: string;
     phone: string;
     course: string;
+    city: string;
+    state: string;
+    status: string;
     createdAt: string | Date;
   }[];
   totalEnquiriesCount: number;
+  halfFilledCount: number;
   lastRefreshTime?: string;
 }
 
@@ -49,8 +53,6 @@ const ZONE_MAPPING: Record<string, string[]> = {
     "gorakhpur",
     "jaipur",
     "gurgaon",
-    "dehradun",
-    "chandigarh",
   ],
   East: ["patna", "bhubaneswar", "kolkata", "ranchi", "guwahati", "jamshedpur"],
   West: [
@@ -71,18 +73,13 @@ export function BIDashboardView({
   intent,
   rawEnquiries,
   totalEnquiriesCount,
-  lastRefreshTime = "2026-09-11 00:44:12 IST",
+  halfFilledCount,
+  lastRefreshTime = "",
 }: BIDashboardViewProps) {
   const [filters, setFilters] = useState<FilterState>({
     zone: "All",
     category: "All",
-    city: "All",
-    dateRange: "28d",
   });
-
-  const availableCities = useMemo(() => {
-    return Array.from(new Set(cities.map((c) => c.city))).sort();
-  }, [cities]);
 
   // Filter courses based on Category
   const filteredCourses = useMemo(() => {
@@ -103,7 +100,7 @@ export function BIDashboardView({
         .slice(0, 8)
         .map((c) => ({
           label: c.city,
-          value: c.views,
+          value: c.users,
           isHub: c.isMajorNifsHub,
         }));
     }
@@ -111,24 +108,25 @@ export function BIDashboardView({
     // Default: Show Top Cities & Zones
     return cities.slice(0, 8).map((c) => ({
       label: c.city,
-      value: c.views,
+      value: c.users,
       isHub: c.isMajorNifsHub,
     }));
   }, [cities, filters.zone]);
 
   // Intent Donut Data (Course vs Job)
   const intentSlices: DonutSlice[] = useMemo(() => {
-    const courseViews = intent?.courseViews ?? 5900;
-    const jobViews = intent?.jobViews ?? 670;
+    // No analytics = show nothing, never invented placeholder numbers.
+    if (!intent) return [];
+    const { courseViews, jobViews } = intent;
 
     return [
       {
-        label: "Course Seekers",
+        label: "Course, admission & centre pages",
         value: courseViews,
         color: "#06b6d4", // Cyan
       },
       {
-        label: "Job / Placements",
+        label: "Job & placement pages",
         value: jobViews,
         color: "#a855f7", // Purple
       },
@@ -183,9 +181,11 @@ export function BIDashboardView({
         name: enq.name,
         phone: enq.phone,
         course: enq.course,
-        city: "Visakhapatnam HQ",
+        // Approximate location from the visitor's network (Vercel geo headers);
+        // only captured for enquiries since 2026-09-19.
+        city: [enq.city, enq.state].filter(Boolean).join(", "),
         type: "enquiry" as const,
-        status: "Pending Call",
+        status: enq.status === "draft" ? "Half-filled" : "Submitted",
         dateStr,
       };
     });
@@ -201,11 +201,8 @@ export function BIDashboardView({
           setFilters({
             zone: "All",
             category: "All",
-            city: "All",
-            dateRange: "28d",
           })
         }
-        availableCities={availableCities}
         lastRefreshTime={lastRefreshTime}
       />
 
@@ -222,8 +219,8 @@ export function BIDashboardView({
             data={regionChartData}
             title={
               filters.zone === "All"
-                ? "Feeder Cities by Traffic"
-                : `${filters.zone} India Feeder Volume`
+                ? "Website Visitors by City"
+                : `${filters.zone} India — Website Visitors`
             }
           />
         </div>
@@ -234,7 +231,7 @@ export function BIDashboardView({
             title="Intent Split Ratio"
             subtitle="Course vs Job"
             slices={intentSlices}
-            totalLabel="Total Views"
+            totalLabel={intent ? "Total Views" : "Analytics unavailable"}
           />
         </div>
       </div>
@@ -256,6 +253,7 @@ export function BIDashboardView({
           <BIMasterTable
             records={masterRecords}
             totalCount={totalEnquiriesCount}
+            halfFilledCount={halfFilledCount}
           />
         </div>
       </div>

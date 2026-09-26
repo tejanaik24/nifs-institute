@@ -77,13 +77,13 @@ export function ImmediateActionCenter({
             <h2 className="text-base sm:text-lg font-bold text-[var(--dash-text)] flex items-center gap-2">
               <span>Immediate Action Center</span>
               <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
-                {totalCount} Awaiting Call
+                {totalCount} candidates
               </span>
             </h2>
           </div>
           <p className="text-xs text-[var(--dash-text-muted)] mt-0.5">
-            Real student callback leads. One-click direct calling & WhatsApp
-            outreach.
+            Latest website enquiries. One-click calling & WhatsApp. Call
+            status is not tracked yet.
           </p>
         </div>
 

@@ -18,7 +18,7 @@ interface BIRegionBarChartProps {
 
 export function BIRegionBarChart({
   data,
-  title = "Student Inquiries by Region / Feeder Hub",
+  title = "Website Visitors by City",
   height = 280,
 }: BIRegionBarChartProps) {
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
@@ -121,9 +121,9 @@ export function BIRegionBarChart({
 
         {/* Footer info */}
         <div className="mt-2.5 flex items-center justify-between text-[10px] text-[var(--dash-text-muted)] px-1">
-          <span>Pan-India Feeder Centers</span>
+          <span>Visitor location (Google Analytics, 28 days)</span>
           <span className="font-semibold text-amber-600 dark:text-amber-400">
-            Ranked by Inquiries
+            Ranked by visitors
           </span>
         </div>
       </div>

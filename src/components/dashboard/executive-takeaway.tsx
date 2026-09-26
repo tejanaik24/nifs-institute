@@ -45,13 +45,13 @@ export function ExecutiveTakeaway({
       `━━━━━━━━━━━━━━━━━━━━`,
       `💡 *Key Takeaway:*`,
       hasData
-        ? `• *${topCourseName}* is currently your #1 popular course with ${topCourseViews!.toLocaleString()} student views.`
+        ? `• *${topCourseName}* is currently your #1 viewed course with ${topCourseViews!.toLocaleString()} page views.`
         : "",
       `• *${plainCourseRatio} visitors* are looking for courses and admissions rather than job openings.`,
-      hasData ? `• *${topCity}* is your top student feeder hub.` : "",
-      `• *${totalCallbacks} student callbacks* are awaiting counselor follow-up.`,
+      hasData ? `• *${topCity}* is your top website visitor city.` : "",
+      `• *${totalCallbacks} website enquiries* received so far.`,
       totalVisitors28d
-        ? `• *Total 28-Day Reach:* ${totalVisitors28d.toLocaleString()} student visitors.`
+        ? `• *Total 28-Day Reach:* ${totalVisitors28d.toLocaleString()} course & job page visitors.`
         : "",
       `━━━━━━━━━━━━━━━━━━━━`,
       `_Generated from NIFS Executive Cockpit_`,
@@ -94,7 +94,7 @@ export function ExecutiveTakeaway({
                   </strong>{" "}
                   is your #1 in-demand course with{" "}
                   <strong className="text-[var(--dash-text)]">
-                    {topCourseViews!.toLocaleString()} student reads
+                    {topCourseViews!.toLocaleString()} page views
                   </strong>
                   .{" "}
                   <span className="font-semibold text-emerald-600 dark:text-emerald-400">
@@ -102,10 +102,10 @@ export function ExecutiveTakeaway({
                   </span>{" "}
                   are looking for courses, and{" "}
                   <strong className="text-[var(--dash-text)]">{topCity}</strong>{" "}
-                  is your top feeder hub.
+                  is your top website visitor city.
                 </>
               ) : (
-                "Not enough analytics data yet to name a #1 course or top feeder city."
+                "Not enough analytics data yet to name a #1 course or top visitor city."
               )}
             </p>
           </div>

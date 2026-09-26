@@ -18,6 +18,9 @@ import { getKeywordGaps, getSiteTotals, getTopQueries } from "@/lib/analytics/gs
 import { getAeoGeoHealth } from "@/lib/analytics/health";
 import { NIFS_TARGET_KEYWORDS } from "@/lib/analytics/target-keywords";
 import { getBotHitSummary } from "@/lib/db/bot-hits";
+import { db } from "@/lib/db/client";
+import { enquiries, whatsappClicks } from "@/lib/db/schema";
+import { sql } from "drizzle-orm";
 
 export const revalidate = 3600; // daily-granularity data — refresh hourly, not per-request
 
@@ -51,6 +54,8 @@ export default async function AnalyticsPage() {
     centerCities,
     courseMatrix,
     hourlyTraffic,
+    enquiryCount,
+    whatsappClickCount,
   ] = await Promise.all([
     safe(getDailySummary()),
     safe(getTopQueries()),
@@ -70,12 +75,28 @@ export default async function AnalyticsPage() {
     safe(getCenterCityBreakdown()),
     safe(getCourseDemandMatrix()),
     safe(getHourlyTraffic()),
+    safe(
+      db
+        .select({
+          n: sql<number>`(count(distinct phone) filter (where status = 'submitted'))::int`,
+        })
+        .from(enquiries)
+        .then((r) => r[0]?.n ?? 0),
+    ),
+    safe(
+      db
+        .select({ n: sql<number>`count(*)::int` })
+        .from(whatsappClicks)
+        .then((r) => r[0]?.n ?? 0),
+    ),
   ]);
   const fetchedAt = new Date().toISOString();
 
   return (
     <AnalyticsDashboardView
       fetchedAt={fetchedAt}
+      enquiryCount={enquiryCount.ok ? enquiryCount.data : undefined}
+      whatsappClickCount={whatsappClickCount.ok ? whatsappClickCount.data : undefined}
       summary={summary}
       queries={queries}
       siteTotals={siteTotals}

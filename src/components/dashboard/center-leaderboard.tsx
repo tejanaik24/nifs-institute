@@ -35,8 +35,7 @@ export function CenterLeaderboard({ cities }: CenterLeaderboardProps) {
             </span>
           </div>
           <p className="text-xs text-[var(--dash-text-muted)]">
-            Student geographic concentration & campus branch demand across India
-            (28 days).
+            Website visitors by city (Google Analytics, last 28 days).
           </p>
         </div>
 
@@ -65,57 +64,29 @@ export function CenterLeaderboard({ cities }: CenterLeaderboardProps) {
             }`}
           >
             <Building2 size={12} />
-            NIFS Campuses Only
+            NIFS centre cities only
           </button>
         </div>
       </div>
 
-      {/* Top Insights Strip */}
+      {/* Top Insights Strip — real top 4 visitor cities */}
       <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-4">
-        <div className="rounded-lg bg-[var(--dash-bg)] p-2.5 border border-[var(--dash-border)]">
-          <div className="text-[11px] text-[var(--dash-text-muted)]">
-            Top South Hub
+        {cities.slice(0, 4).map((c, i) => (
+          <div
+            key={c.city}
+            className="rounded-lg bg-[var(--dash-bg)] p-2.5 border border-[var(--dash-border)]"
+          >
+            <div className="text-[11px] text-[var(--dash-text-muted)]">
+              #{i + 1} visitor city
+            </div>
+            <div className="text-sm font-bold text-[var(--dash-text)]">
+              {c.city}
+            </div>
+            <div className="text-[10px] text-emerald-600 dark:text-emerald-400">
+              {c.views.toLocaleString()} page views
+            </div>
           </div>
-          <div className="text-sm font-bold text-[var(--dash-text)]">
-            Hyderabad & Vizag
-          </div>
-          <div className="text-[10px] text-emerald-600 dark:text-emerald-400">
-            1,209 Combined Views
-          </div>
-        </div>
-        <div className="rounded-lg bg-[var(--dash-bg)] p-2.5 border border-[var(--dash-border)]">
-          <div className="text-[11px] text-[var(--dash-text-muted)]">
-            Top East Hub
-          </div>
-          <div className="text-sm font-bold text-[var(--dash-text)]">
-            Patna & Bhubaneswar
-          </div>
-          <div className="text-[10px] text-emerald-600 dark:text-emerald-400">
-            856 Combined Views
-          </div>
-        </div>
-        <div className="rounded-lg bg-[var(--dash-bg)] p-2.5 border border-[var(--dash-border)]">
-          <div className="text-[11px] text-[var(--dash-text-muted)]">
-            Top North Hub
-          </div>
-          <div className="text-sm font-bold text-[var(--dash-text)]">
-            Lucknow & Delhi
-          </div>
-          <div className="text-[10px] text-emerald-600 dark:text-emerald-400">
-            861 Combined Views
-          </div>
-        </div>
-        <div className="rounded-lg bg-[var(--dash-bg)] p-2.5 border border-[var(--dash-border)]">
-          <div className="text-[11px] text-[var(--dash-text-muted)]">
-            Top West Hub
-          </div>
-          <div className="text-sm font-bold text-[var(--dash-text)]">
-            Mumbai & Pune
-          </div>
-          <div className="text-[10px] text-emerald-600 dark:text-emerald-400">
-            503 Combined Views
-          </div>
-        </div>
+        ))}
       </div>
 
       {/* City Table */}
@@ -124,9 +95,9 @@ export function CenterLeaderboard({ cities }: CenterLeaderboardProps) {
           <thead className="sticky top-0 border-b border-[var(--dash-border)] bg-[var(--dash-bg)] text-[var(--dash-text-muted)]">
             <tr>
               <th className="py-2.5 pl-3 pr-2 font-medium">Rank & City</th>
-              <th className="px-2 py-2.5 font-medium">Campus Status</th>
+              <th className="px-2 py-2.5 font-medium">NIFS Centre</th>
               <th className="px-2 py-2.5 font-medium text-right">
-                Active Students
+                Visitors
               </th>
               <th className="px-2 py-2.5 font-medium text-right">Pageviews</th>
               <th className="py-2.5 pl-2 pr-3 font-medium text-right">
@@ -172,11 +143,11 @@ export function CenterLeaderboard({ cities }: CenterLeaderboardProps) {
                     <td className="px-2 py-2.5">
                       {c.isMajorNifsHub ? (
                         <span className="inline-flex items-center gap-1 rounded-full bg-emerald-500/10 px-2 py-0.5 text-[10px] font-semibold text-emerald-600 dark:text-emerald-400">
-                          <CheckCircle2 size={10} /> Official NIFS Hub
+                          <CheckCircle2 size={10} /> NIFS centre city
                         </span>
                       ) : (
                         <span className="inline-flex items-center gap-1 rounded-full bg-[var(--dash-bg)] px-2 py-0.5 text-[10px] text-[var(--dash-text-muted)]">
-                          Regional Feeder
+                          No NIFS centre
                         </span>
                       )}
                     </td>

@@ -18,9 +18,14 @@ export type MasterRecord = {
 interface BIMasterTableProps {
   records: MasterRecord[];
   totalCount: number;
+  halfFilledCount: number;
 }
 
-export function BIMasterTable({ records, totalCount }: BIMasterTableProps) {
+export function BIMasterTable({
+  records,
+  totalCount,
+  halfFilledCount,
+}: BIMasterTableProps) {
   const [searchTerm, setSearchTerm] = useState("");
 
   const filtered = useMemo(() => {
@@ -41,10 +46,11 @@ export function BIMasterTable({ records, totalCount }: BIMasterTableProps) {
         <div className="flex items-center gap-2">
           <Table size={16} className="text-indigo-300" />
           <h3 className="text-xs font-black uppercase tracking-wider text-white">
-            Master Action Matrix • Inquiries & Drives
+            Latest Website Enquiries
           </h3>
           <span className="text-[10px] font-bold text-indigo-300 bg-indigo-900/40 px-2 py-0.5 rounded border border-indigo-700/40">
-            {totalCount} Total
+            {totalCount} candidates
+            {halfFilledCount > 0 && ` · ${halfFilledCount} half-filled`}
           </span>
         </div>
 
@@ -72,7 +78,12 @@ export function BIMasterTable({ records, totalCount }: BIMasterTableProps) {
               <th className="py-2.5 px-3">Lead / Candidate Name</th>
               <th className="py-2.5 px-2 text-center">Action</th>
               <th className="py-2.5 px-3">Course / Role</th>
-              <th className="py-2.5 px-3">Feeder City</th>
+              <th
+                className="py-2.5 px-3"
+                title="Approximate, from the candidate's internet connection. Recorded since 19 Sep 2026."
+              >
+                Candidate Location
+              </th>
               <th className="py-2.5 px-3">Date</th>
               <th className="py-2.5 px-3">Status</th>
             </tr>
@@ -136,7 +147,7 @@ export function BIMasterTable({ records, totalCount }: BIMasterTableProps) {
 
                     {/* Center / Feeder City */}
                     <td className="py-2.5 px-3 font-medium text-[var(--dash-text-muted)] text-xs">
-                      {row.city || "Visakhapatnam"}
+                      {row.city || "Not recorded"}
                     </td>
 
                     {/* Date */}
@@ -148,7 +159,7 @@ export function BIMasterTable({ records, totalCount }: BIMasterTableProps) {
                     <td className="py-2.5 px-3">
                       <span
                         className={`inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold ${
-                          row.status === "Pending Call"
+                          row.status === "Half-filled"
                             ? "bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20"
                             : "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20"
                         }`}
@@ -166,7 +177,7 @@ export function BIMasterTable({ records, totalCount }: BIMasterTableProps) {
 
       {/* Footer view all link */}
       <div className="bg-indigo-950/40 px-4 py-2.5 border-t border-[var(--dash-border)] flex items-center justify-between text-xs text-[var(--dash-text-muted)]">
-        <span>Displaying latest real-time admissions and candidate leads</span>
+        <span>Latest 10 enquiries · location is approximate (from internet connection)</span>
         <Link
           href="/dashboard/enquiries"
           className="font-bold text-indigo-600 dark:text-indigo-400 hover:underline flex items-center gap-1"

@@ -67,9 +67,12 @@ export default async function DashboardIndexPage() {
       .limit(10)
       .catch(() => []),
     db
-      .select({ count: sql<number>`count(*)::int` })
+      .select({
+        count: sql<number>`(count(distinct phone) filter (where status = 'submitted'))::int`,
+        drafts: sql<number>`(count(*) filter (where status = 'draft'))::int`,
+      })
       .from(enquiries)
-      .catch(() => [{ count: 0 }]),
+      .catch(() => [{ count: 0, drafts: 0 }]),
     db
       .select()
       .from(jobs)
@@ -104,6 +107,7 @@ export default async function DashboardIndexPage() {
   ]);
 
   const totalEnquiries = enquiriesCountRes[0]?.count ?? 0;
+  const halfFilledEnquiries = enquiriesCountRes[0]?.drafts ?? 0;
   const activeJobs = jobsCountRes[0]?.count ?? 0;
   const totalApplications = applicationsCountRes[0]?.count ?? 0;
   const totalPosts = postsCountRes[0]?.count ?? 0;
@@ -125,7 +129,7 @@ export default async function DashboardIndexPage() {
     const src = s.label.toLowerCase();
     return (
       src.includes("instagram") ||
-      src.includes("ig") ||
+      src === "ig" ||
       src.includes("l.instagram") ||
       src.includes("facebook")
     );
@@ -140,13 +144,13 @@ export default async function DashboardIndexPage() {
   const topCity = centerCitiesRes[0]?.city ?? null;
 
   const now = new Date();
-  const refreshTimestamp = `${now.toISOString().slice(0, 10)} ${now.toTimeString().slice(0, 8)} IST`;
+  const refreshTimestamp = `${now.toLocaleString("en-IN", { timeZone: "Asia/Kolkata", dateStyle: "medium", timeStyle: "short" })} IST`;
 
   // Top 5 courses for visual podium bars
   const rankedCourses = validCourses.slice(0, 5).map((c) => ({
     name: c.name,
     count: c.views,
-    subtitle: `${c.users} students · ${c.avgTimeSeconds}s avg reading time`,
+    subtitle: `${c.users} visitors · ${c.avgTimeSeconds}s avg reading time`,
     sharePercent: c.sharePercent,
   }));
 
@@ -166,8 +170,8 @@ export default async function DashboardIndexPage() {
   const rankedCities = centerCitiesRes.slice(0, 5).map((c) => ({
     name: c.city,
     count: c.views,
-    subtitle: `${c.users} student inquiries`,
-    badge: c.isMajorNifsHub ? "NIFS HUB" : undefined,
+    subtitle: `${c.users} website visitors`,
+    badge: c.isMajorNifsHub ? "NIFS CENTRE" : undefined,
   }));
 
   // Bird's-Eye PowerBI Matrix Content
@@ -179,6 +183,7 @@ export default async function DashboardIndexPage() {
         intent={intentRes}
         rawEnquiries={recentEnquiriesRes}
         totalEnquiriesCount={totalEnquiries}
+        halfFilledCount={halfFilledEnquiries}
         lastRefreshTime={refreshTimestamp}
       />
     </div>
@@ -189,8 +194,8 @@ export default async function DashboardIndexPage() {
     <div className="space-y-6">
       {/* Plain-English Daily Takeaway Story + 1-Tap WhatsApp Dispatch */}
       <ExecutiveTakeaway
-        topCourseName={topCourse.name}
-        topCourseViews={topCourse.views}
+        topCourseName={topCourse?.name ?? null}
+        topCourseViews={topCourse?.views ?? null}
         coursePercent={coursePct}
         topCity={topCity}
         totalVisitors28d={totalUsers28d ?? undefined}
@@ -226,7 +231,7 @@ export default async function DashboardIndexPage() {
         >
           <div className="flex items-center justify-between">
             <span className="text-xs font-black text-amber-600 dark:text-amber-400 uppercase tracking-wider">
-              Student Callbacks
+              Website Leads
             </span>
             <div className="rounded-xl bg-amber-500/10 p-2.5 text-amber-600 dark:text-amber-400 group-hover:scale-110 transition-transform">
               <PhoneCall size={20} />
@@ -236,7 +241,7 @@ export default async function DashboardIndexPage() {
             {totalEnquiries}
           </div>
           <div className="mt-1 flex items-center justify-between text-xs text-[var(--dash-text-muted)]">
-            <span>Waiting for counselor call</span>
+            <span>Unique candidates (by phone)</span>
             <span className="font-bold text-[var(--dash-accent)] flex items-center gap-0.5 group-hover:underline">
               Call Now <ArrowRight size={12} />
             </span>
@@ -274,7 +279,7 @@ export default async function DashboardIndexPage() {
         >
           <div className="flex items-center justify-between">
             <span className="text-xs font-black text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">
-              Student Visitors (28D)
+              Course & Job Page Visitors (28D)
             </span>
             <div className="rounded-xl bg-emerald-500/10 p-2.5 text-emerald-600 dark:text-emerald-400 group-hover:scale-110 transition-transform">
               <GraduationCap size={20} />
@@ -322,20 +327,20 @@ export default async function DashboardIndexPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <RankPodiumCard
           title="Most In-Demand Courses"
-          subtitle="Ranked by genuine student reading volume (28 Days)"
+          subtitle="Ranked by course page views (Google Analytics, 28 days)"
           iconType="course"
           items={rankedCourses}
           viewAllHref="/dashboard/analytics"
-          unitLabel="reads"
+          unitLabel="views"
         />
 
         <RankPodiumCard
-          title="Top Regional Feeder Cities"
-          subtitle="Where prospective safety students are calling from"
+          title="Top Visitor Cities"
+          subtitle="Where website visitors are browsing from (28 days)"
           iconType="city"
           items={rankedCities}
           viewAllHref="/dashboard/analytics"
-          unitLabel="students"
+          unitLabel="views"
         />
       </div>
 
@@ -382,13 +387,9 @@ export default async function DashboardIndexPage() {
             <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-[var(--dash-text)]">
               Executive Mission Control
             </h1>
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-bold text-emerald-600 dark:text-emerald-400">
-              <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-              Live Telemetry
-            </span>
           </div>
           <p className="text-sm text-[var(--dash-text-muted)] mt-1">
-            Welcome, <strong className="text-[var(--dash-text)]">{userName}</strong>. Pan-India student admissions, feeder channels, and placement drives.
+            Welcome, <strong className="text-[var(--dash-text)]">{userName}</strong>. Website enquiries, website traffic, and job postings.
           </p>
         </div>
 

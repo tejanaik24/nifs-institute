@@ -50,7 +50,7 @@ export function DashboardViewSwitcher({
 
         <div className="text-[11px] font-semibold text-[var(--dash-text-muted)] px-3 text-right hidden md:block">
           {activeTab === "bird"
-            ? "Full PowerBI multi-metric matrix matching reference"
+            ? "All metrics on one screen"
             : "Simplified 3-second action stream for counselors"}
         </div>
       </div>

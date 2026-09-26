@@ -5,15 +5,12 @@ import { ChevronDown, Clock, RotateCcw } from "lucide-react";
 export interface FilterState {
   zone: string;
   category: string;
-  city: string;
-  dateRange: string;
 }
 
 interface BIHeaderFiltersProps {
   filters: FilterState;
   onFilterChange: (filters: FilterState) => void;
   onReset: () => void;
-  availableCities: string[];
   lastRefreshTime?: string;
 }
 
@@ -21,8 +18,7 @@ export function BIHeaderFilters({
   filters,
   onFilterChange,
   onReset,
-  availableCities,
-  lastRefreshTime = "2026-09-11 00:44:12 IST",
+  lastRefreshTime = "",
 }: BIHeaderFiltersProps) {
   const updateFilter = (key: keyof FilterState, value: string) => {
     onFilterChange({
@@ -43,8 +39,8 @@ export function BIHeaderFilters({
             </span>
           </h1>
           <p className="text-xs text-indigo-200 mt-1">
-            Real-time pan-India student admissions, course reading velocity &
-            regional feeder analytics
+            Website traffic (Google Analytics, last 28 days) and website
+            enquiries
           </p>
         </div>
 
@@ -114,52 +110,6 @@ export function BIHeaderFilters({
               </div>
             </div>
 
-            {/* Center City Filter */}
-            <div className="flex flex-col gap-1 min-w-[140px]">
-              <label className="text-[10px] font-extrabold uppercase tracking-wider text-[var(--dash-text-muted)]">
-                Center / City
-              </label>
-              <div className="relative">
-                <select
-                  value={filters.city}
-                  onChange={(e) => updateFilter("city", e.target.value)}
-                  className="w-full appearance-none rounded-lg border border-[var(--dash-border)] bg-[var(--dash-bg)] px-3 py-1.5 text-xs font-semibold text-[var(--dash-text)] focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 pr-8 shadow-2xs"
-                >
-                  <option value="All">All 54 Centers</option>
-                  {availableCities.map((city) => (
-                    <option key={city} value={city}>
-                      {city}
-                    </option>
-                  ))}
-                </select>
-                <ChevronDown
-                  size={13}
-                  className="pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 text-[var(--dash-text-muted)]"
-                />
-              </div>
-            </div>
-
-            {/* Time Period / Range Filter */}
-            <div className="flex flex-col gap-1 min-w-[130px]">
-              <label className="text-[10px] font-extrabold uppercase tracking-wider text-[var(--dash-text-muted)]">
-                Time Window
-              </label>
-              <div className="relative">
-                <select
-                  value={filters.dateRange}
-                  onChange={(e) => updateFilter("dateRange", e.target.value)}
-                  className="w-full appearance-none rounded-lg border border-[var(--dash-border)] bg-[var(--dash-bg)] px-3 py-1.5 text-xs font-semibold text-[var(--dash-text)] focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 pr-8 shadow-2xs"
-                >
-                  <option value="28d">Last 28 Days (Verified)</option>
-                  <option value="7d">Last 7 Days</option>
-                  <option value="90d">Last Quarter (90 Days)</option>
-                </select>
-                <ChevronDown
-                  size={13}
-                  className="pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 text-[var(--dash-text-muted)]"
-                />
-              </div>
-            </div>
           </div>
 
           {/* Reset Filters Button */}

@@ -12,6 +12,10 @@ import { useCallback, useEffect, useRef, useState } from "react";
 
 export function SiteHeader() {
   const pathname = usePathname();
+  // Hide the Home link on the homepage itself
+  const navItems = primaryNav.filter(
+    (item) => !(item.href === "/" && pathname === "/"),
+  );
 
   const [menuOpen, setMenuOpen] = useState(false);
   const [megaOpen, setMegaOpen] = useState<string | null>(null);
@@ -83,7 +87,7 @@ export function SiteHeader() {
       >
         {/* Desktop Navigation Items */}
         <div className="hidden items-center gap-0.5 lg:flex">
-          {primaryNav.map((item) => {
+          {navItems.map((item) => {
             const isActive =
               pathname === item.href ||
               (item.href !== "/" && pathname.startsWith(item.href));
@@ -292,7 +296,7 @@ export function SiteHeader() {
         </div>
 
         <nav className="flex flex-1 flex-col gap-2 overflow-y-auto px-6 py-6">
-          {primaryNav.map((item, i) => (
+          {navItems.map((item, i) => (
             <div
               key={item.label}
               style={{

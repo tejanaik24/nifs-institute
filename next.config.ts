@@ -197,6 +197,13 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
 
+      // Centers closed 2026-09-26 -> centers list
+      ...["chandigarh", "chandigarh-2", "dehradun", "hamirpur"].map((c) => ({
+        source: `/centers/${c}`,
+        destination: "/centers/",
+        permanent: true,
+      })),
+
       // Old per-city landing pages -> the single current /centers/ page.
       // Bounded to the "nifs-" prefix (no real route starts with it) so
       // this can't accidentally shadow an actual page.

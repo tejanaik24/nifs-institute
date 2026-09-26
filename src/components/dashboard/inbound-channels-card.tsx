@@ -36,8 +36,6 @@ export function InboundChannelsCard({
   websiteEnquiriesCount,
   emailApplicationsCount,
 }: InboundChannelsCardProps) {
-  const totalInbound =
-    whatsappCount + instagramCount + websiteEnquiriesCount + emailApplicationsCount;
 
   return (
     <div className="rounded-2xl border border-[var(--dash-border)] bg-[var(--dash-card)] p-5 sm:p-6 shadow-xs">
@@ -49,19 +47,16 @@ export function InboundChannelsCard({
               <MessageSquare size={18} />
             </div>
             <h3 className="text-base sm:text-lg font-black text-[var(--dash-text)]">
-              Where Did Students Contact Us?
+              Where Are Leads Coming From?
             </h3>
-            <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
-              {totalInbound.toLocaleString()} Total Inbound Touches
-            </span>
           </div>
           <p className="text-xs text-[var(--dash-text-muted)] mt-0.5">
-            4 active student channels: WhatsApp chats, Instagram social, website callbacks & email resumes.
+            Each card counts something different (clicks, visits, forms), so they are not added together.
           </p>
         </div>
 
         <span className="text-[11px] font-semibold text-[var(--dash-text-muted)]">
-          28-Day Telemetry
+          Period shown on each card
         </span>
       </div>
 
@@ -79,9 +74,6 @@ export function InboundChannelsCard({
                   WhatsApp
                 </span>
               </div>
-              <span className="text-[9px] font-extrabold uppercase px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-700 dark:text-emerald-300">
-                #1 Channel
-              </span>
             </div>
 
             <div className="mt-3">
@@ -89,10 +81,10 @@ export function InboundChannelsCard({
                 {whatsappCount.toLocaleString()}
               </div>
               <div className="text-[11px] font-semibold text-[var(--dash-text)] mt-0.5">
-                Direct Student Chats
+                WhatsApp Button Clicks
               </div>
               <p className="text-[10px] text-[var(--dash-text-muted)] mt-1 leading-relaxed">
-                From website WhatsApp buttons, Priya chatbot redirects & course syllabus CTAs.
+                Clicks on the website's WhatsApp buttons since 19 Sep. A click does not always mean a chat was started.
               </p>
             </div>
           </div>
@@ -117,7 +109,7 @@ export function InboundChannelsCard({
                   <InstagramIcon size={16} />
                 </div>
                 <span className="font-extrabold text-xs text-[var(--dash-text)]">
-                  Instagram
+                  Instagram + Facebook
                 </span>
               </div>
               <span className="text-[9px] font-extrabold uppercase px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-700 dark:text-purple-300">
@@ -130,16 +122,16 @@ export function InboundChannelsCard({
                 {instagramCount.toLocaleString()}
               </div>
               <div className="text-[11px] font-semibold text-[var(--dash-text)] mt-0.5">
-                Social Inbound Visits
+                Website Visitors
               </div>
               <p className="text-[10px] text-[var(--dash-text-muted)] mt-1 leading-relaxed">
-                Students visiting via Instagram bio links, reels, placement carousels & posts.
+                Website visitors who came from Instagram or Facebook links (28 days).
               </p>
             </div>
           </div>
 
           <a
-            href="https://www.instagram.com/iron_prince_official/"
+            href="https://www.instagram.com/nifsindia/"
             target="_blank"
             rel="noopener noreferrer"
             className="mt-4 inline-flex items-center justify-between text-xs font-bold text-purple-600 dark:text-purple-400 group-hover:underline pt-2 border-t border-purple-500/20"
@@ -161,9 +153,6 @@ export function InboundChannelsCard({
                   Website Leads
                 </span>
               </div>
-              <span className="text-[9px] font-extrabold uppercase px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-700 dark:text-amber-300">
-                Direct Calls
-              </span>
             </div>
 
             <div className="mt-3">
@@ -171,10 +160,10 @@ export function InboundChannelsCard({
                 {websiteEnquiriesCount}
               </div>
               <div className="text-[11px] font-semibold text-[var(--dash-text)] mt-0.5">
-                Callback Requests
+                Unique Candidates
               </div>
               <p className="text-[10px] text-[var(--dash-text-muted)] mt-1 leading-relaxed">
-                Prospective students who filled out the admission form awaiting phone counseling.
+                People who submitted the website enquiry form since 10 Sep (repeat submissions counted once).
               </p>
             </div>
           </div>
@@ -183,7 +172,7 @@ export function InboundChannelsCard({
             href="/dashboard/enquiries"
             className="mt-4 inline-flex items-center justify-between text-xs font-bold text-amber-600 dark:text-amber-400 group-hover:underline pt-2 border-t border-amber-500/20"
           >
-            <span>Call Waiting Leads</span>
+            <span>View Leads</span>
             <ArrowRight size={12} />
           </Link>
         </div>

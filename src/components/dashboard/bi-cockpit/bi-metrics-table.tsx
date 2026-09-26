@@ -10,7 +10,6 @@ interface BIMetricsTableProps {
 export function BIMetricsTable({ courses }: BIMetricsTableProps) {
   const maxViews = Math.max(...courses.map((c) => c.views), 1);
   const totalViews = courses.reduce((acc, c) => acc + c.views, 0);
-  const totalUsers = courses.reduce((acc, c) => acc + c.users, 0);
   const avgReadOverall =
     courses.length > 0
       ? Math.round(
@@ -26,11 +25,11 @@ export function BIMetricsTable({ courses }: BIMetricsTableProps) {
         <div className="flex items-center gap-2">
           <GraduationCap size={16} className="text-cyan-400" />
           <h3 className="text-xs font-black uppercase tracking-wider text-white">
-            Metrics by Course Demand
+            Course Page Views (28 days)
           </h3>
         </div>
         <span className="text-[10px] font-bold text-cyan-300 bg-cyan-900/40 px-2 py-0.5 rounded border border-cyan-700/40">
-          {courses.length} Programs
+          {courses.length} Courses
         </span>
       </div>
 
@@ -42,8 +41,8 @@ export function BIMetricsTable({ courses }: BIMetricsTableProps) {
             <tr>
               <th className="py-2.5 px-3">Course Name</th>
               <th className="py-2.5 px-2">Tier</th>
-              <th className="py-2.5 px-3 min-w-[140px]">Student Views</th>
-              <th className="py-2.5 px-3 text-right">Students</th>
+              <th className="py-2.5 px-3 min-w-[140px]">Page Views</th>
+              <th className="py-2.5 px-3 text-right" title="Website visitors who opened this course page — not enrolled students">Visitors</th>
               <th className="py-2.5 px-3 text-right">Avg Read</th>
             </tr>
           </thead>
@@ -112,9 +111,6 @@ export function BIMetricsTable({ courses }: BIMetricsTableProps) {
         <div className="flex items-center gap-6 font-mono text-xs">
           <span className="text-cyan-300 font-bold">
             {totalViews.toLocaleString()} views
-          </span>
-          <span className="text-white">
-            {totalUsers.toLocaleString()} students
           </span>
           <span className="text-indigo-200 text-[11px]">
             {avgReadOverall}s avg

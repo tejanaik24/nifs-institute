@@ -172,15 +172,6 @@ export const centers: Center[] = [
 
   // ===== HARYANA & PUNJAB =====
   {
-    city: "Chandigarh",
-    state: "Haryana & Punjab",
-    x: 40.68,
-    y: 22.74,
-    address:
-      "SCO-21, 2nd & 3rd Floor, Near Maharashtra Bank, AKS Colony, Patiala Road, Zirakpur, S.A.S. Nagar (Mohali), Punjab – 140603",
-    phones: ["9023033687", "6230433687"],
-  },
-  {
     city: "Hoshiarpur",
     state: "Haryana & Punjab",
     x: 39.09,
@@ -216,26 +207,7 @@ export const centers: Center[] = [
       "SCO 55-F, Second Floor, Near Webberz, City Centre, Main Bus Stand, Amritsar (Punjab) – 143001",
     phones: ["7973874720", "9115955730", "9115955731"],
   },
-  {
-    city: "Chandigarh - 2",
-    state: "Haryana & Punjab",
-    x: 40.77,
-    y: 22.89,
-    address:
-      "SCF-9, Kalgidhar Enclave, Furniture Market, Opp. Wedding Resort, Baltana, Zirakpur, Punjab",
-    phones: ["7973874720", "9814200000"],
-  },
 
-  // ===== HIMACHAL PRADESH =====
-  {
-    city: "Hamirpur",
-    state: "Himachal Pradesh",
-    x: 40.2,
-    y: 19.97,
-    address:
-      "3rd Floor, Roshan Complex, Gandhi Chowk, Hamirpur Main Bazar, Hamirpur, Himachal Pradesh – 177001",
-    phones: ["6230433687", "9023033687"],
-  },
 
   // ===== JHARKHAND =====
   {
@@ -543,15 +515,6 @@ export const centers: Center[] = [
   },
 
   // ===== UTTARAKHAND =====
-  {
-    city: "Dehradun",
-    state: "Uttarakhand",
-    x: 42.97,
-    y: 23.95,
-    address:
-      "IInd Floor, Shimla Bye Pass, GMS Road, Near St. Jude's School, Dehradun – 248001",
-    phones: ["0135-2645802", "9897990861", "9023033687"],
-  },
   {
     city: "Haridwar",
     state: "Uttarakhand",

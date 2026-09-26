@@ -1,4 +1,6 @@
 import { BetaAnalyticsDataClient } from "@google-analytics/data";
+import { centers } from "@/lib/data/centers";
+import { courses } from "@/lib/data/courses";
 import { FIVE_MINUTES, withCache, withTimeout } from "./cache";
 import { getGoogleCredentials } from "./google-credentials";
 
@@ -303,34 +305,27 @@ export type CenterCityMetric = {
   isMajorNifsHub: boolean;
 };
 
-const NIFS_HUB_CITIES = new Set([
-  "visakhapatnam",
-  "hyderabad",
-  "patna",
-  "bengaluru",
-  "lucknow",
-  "delhi",
-  "mumbai",
-  "chennai",
-  "bhubaneswar",
-  "kolkata",
-  "ahmedabad",
-  "pune",
-  "indore",
-  "vijayawada",
-  "guntur",
-  "tirupati",
-  "nagpur",
-  "ranchi",
-  "gorakhpur",
-  "varanasi",
-  "kanpur",
-  "raipur",
-  "bhopal",
-  "coimbatore",
-  "surat",
-  "jaipur",
-]);
+// A visitor city is tagged as a NIFS city only if a real centre from
+// centers.ts is in it — the old hand-typed list tagged Pune, Jaipur, Indore
+// etc., where NIFS has no centre.
+const GA_CITY_ALIASES: Record<string, string> = {
+  bengaluru: "bangalore",
+  prayagraj: "allahabad",
+  "new delhi": "delhi",
+  gurugram: "gurgaon",
+  puducherry: "pondicherry",
+  kozhikode: "calicut",
+  tiruchirappalli: "trichy",
+};
+const CENTER_CITY_NAMES = centers.map((c) =>
+  c.city.toLowerCase().replace(/[^a-z]+/g, " ").trim(),
+);
+function hasNifsCenter(gaCity: string): boolean {
+  const lower = gaCity.toLowerCase();
+  const name = GA_CITY_ALIASES[lower] ?? lower;
+  const re = new RegExp(`\\b${name.replace(/[^a-z ]/g, "")}\\b`);
+  return CENTER_CITY_NAMES.some((c) => re.test(c));
+}
 
 export async function getCenterCityBreakdownRaw(): Promise<CenterCityMetric[]> {
   const propertyId = process.env.GA4_PROPERTY_ID!;
@@ -350,7 +345,7 @@ export async function getCenterCityBreakdownRaw(): Promise<CenterCityMetric[]> {
     })
     .map((row) => {
       const city = row.dimensionValues?.[0]?.value ?? "";
-      const isMajorNifsHub = NIFS_HUB_CITIES.has(city.toLowerCase());
+      const isMajorNifsHub = hasNifsCenter(city);
       return {
         city,
         users: Number(row.metricValues?.[0]?.value ?? 0),
@@ -382,70 +377,20 @@ function formatCourseName(path: string): {
   const clean = path.replace(/^\/courses\/?/, "").replace(/\/$/, "");
   if (!clean) return { name: "All Courses Overview", category: "General" };
 
-  if (
-    clean.includes("advanced-diploma-in-industrial-safety") ||
-    clean.includes("adis")
-  ) {
-    return {
-      name: "ADIS (Adv. Diploma in Industrial Safety)",
-      category: "Diploma",
-    };
+  // Names come from the real course list, matched by exact slug — substring
+  // matching mislabelled ADFS and PG DFS as "Diploma in Fire Safety".
+  const course = courses.find((c) => c.slug === clean);
+  if (!course) {
+    // Listing pages (/courses/online) and old/dead URLs — not a program.
+    return { name: clean, category: "General" };
   }
-  if (clean.includes("diploma-in-fire-safety")) {
-    return { name: "Diploma in Fire Safety", category: "Diploma" };
-  }
-  if (clean.includes("b-sc-honours")) {
-    return { name: "B.Sc (Hons) Fire & Industrial Safety", category: "Degree" };
-  }
-  if (clean.includes("b-sc")) {
-    return { name: "B.Sc in Fire & Industrial Safety", category: "Degree" };
-  }
-  if (clean.includes("pg-diploma-in-health") || clean.includes("pg-dhse")) {
-    return {
-      name: "PG Diploma in Health, Safety & Env (PG-DHSE)",
-      category: "PG Diploma",
-    };
-  }
-  if (clean.includes("pg-diploma-in-fire") || clean.includes("pg-dfs")) {
-    return {
-      name: "PG Diploma in Fire Safety (PG-DFS)",
-      category: "PG Diploma",
-    };
-  }
-  if (clean.includes("advanced-diploma-in-fire") || clean.includes("adfs")) {
-    return { name: "ADFS (Adv. Diploma in Fire Safety)", category: "Diploma" };
-  }
-  if (clean.includes("diploma-in-health-safety")) {
-    return {
-      name: "Diploma in Health Safety Environment (DHSE)",
-      category: "Diploma",
-    };
-  }
-  if (clean.includes("diploma-in-industrial-safety") || clean.includes("dis")) {
-    return { name: "Diploma in Industrial Safety (DIS)", category: "Diploma" };
-  }
-  if (clean.includes("certificate-course-in-fire")) {
-    return { name: "Certificate in Fire Safety", category: "Certificate" };
-  }
-  if (clean.includes("certificate-course-in-construction")) {
-    return {
-      name: "Certificate in Construction Safety",
-      category: "Certificate",
-    };
-  }
-  if (clean.includes("online")) {
-    return { name: "Online Safety Programs", category: "General" };
-  }
-  if (clean.includes("sbtet")) {
-    return { name: "Industrial Safety Engineer (SBTET)", category: "Diploma" };
-  }
-
-  // fallback formatting
-  const formatted = clean
-    .split("-")
-    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-    .join(" ");
-  return { name: formatted, category: "Diploma" };
+  const category: CourseDemandMetric["category"] =
+    course.tier === "B.Sc"
+      ? "Degree"
+      : course.tier === "Advanced Diploma"
+        ? "Diploma"
+        : course.tier;
+  return { name: course.name, category };
 }
 
 export async function getCourseDemandMatrixRaw(): Promise<
