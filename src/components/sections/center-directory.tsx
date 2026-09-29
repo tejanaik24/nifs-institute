@@ -219,7 +219,7 @@ export function CenterDirectory({ centers }: { centers: Center[] }) {
 
                     <div className="flex flex-wrap gap-2 pt-2">
                       <a
-                        href={`/centers/${selectedCenter.city.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
+                        href={`/centers/${selectedCenter.city.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}/`}
                         className="inline-flex items-center gap-1.5 rounded-full bg-nifs-red hover:bg-red-700 px-3.5 py-1.5 text-xs font-bold text-white transition-colors shadow-sm"
                       >
                         <span>Explore {selectedCenter.city} Page →</span>
@@ -309,8 +309,9 @@ export function CenterDirectory({ centers }: { centers: Center[] }) {
                       const isSelected = c.city === selectedCity;
                       const citySlug = c.city
                         .toLowerCase()
-                        .replace(/[^a-z0-9]+/g, "-");
-                      const href = `/centers/${citySlug}`;
+                        .replace(/[^a-z0-9]+/g, "-")
+                        .replace(/^-|-$/g, "");
+                      const href = `/centers/${citySlug}/`;
 
                       return (
                         <div
