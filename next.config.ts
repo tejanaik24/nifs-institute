@@ -204,6 +204,25 @@ const nextConfig: NextConfig = {
         permanent: true,
       })),
 
+      // 2026-09-29: duplicate/cannibalizing pages -> the single surviving
+      // URL for that topic (both ranking for the same queries, splitting
+      // authority instead of one page ranking higher).
+      {
+        source: "/safety-officer-salary-in-india",
+        destination: "/blog/safety-officer-salary-in-india-2026-complete-guide/",
+        permanent: true,
+      },
+      {
+        source: "/blog/fire-safety-courses-after-12th",
+        destination: "/blog/top-fire-and-safety-courses-after-10th-12th-graduation-2026/",
+        permanent: true,
+      },
+      {
+        source: "/safety-officer-course-after-12th",
+        destination: "/blog/top-fire-and-safety-courses-after-10th-12th-graduation-2026/",
+        permanent: true,
+      },
+
       // Old per-city landing pages -> the single current /centers/ page.
       // Bounded to the "nifs-" prefix (no real route starts with it) so
       // this can't accidentally shadow an actual page.
