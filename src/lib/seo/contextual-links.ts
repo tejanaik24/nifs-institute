@@ -33,10 +33,15 @@ LINK_MAP["practical training"] = "/gallery/practical-training-yard/";
 // 2026-09-29: route more internal links into 3 blog posts sitting at
 // striking distance (position 5-15) for real, already-ranking queries —
 // more internal links is one of the fastest ways to push them onto page 1.
-LINK_MAP["safety officer training"] =
+// Keywords checked against the live posts table before picking them —
+// the first version of this used "safety officer training" (matches only
+// 1 other post) and "safety engineering" (matches 0 other posts, dead
+// code that could never fire); replaced with keywords that actually
+// appear on other posts' titles/categories.
+LINK_MAP["safety officer"] =
   "/blog/how-safety-officer-training-equips-you-to-lead-in-industrial-environments/";
 LINK_MAP["fire and safety course"] = "/blog/a-complete-guide-on-fire-courses-at-nifs/";
-LINK_MAP["safety engineering"] =
+LINK_MAP["safety engineer"] =
   "/blog/why-safety-engineering-courses-by-nifs-are-your-best-for-a-secure-future/";
 
 const MAX_LINKS = 6;
