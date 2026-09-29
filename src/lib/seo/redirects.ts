@@ -72,6 +72,11 @@ export function buildRedirects() {
   redirects.push({ source: "/tag/:path*", destination: "/blog/", permanent: true });
   redirects.push({ source: "/category/:path*", destination: "/blog/", permanent: true });
 
+  // Duplicate/cannibalizing pages -> the single surviving URL for that topic
+  redirects.push({ source: "/safety-officer-salary-in-india/", destination: "/blog/safety-officer-salary-in-india-2026-complete-guide/", permanent: true });
+  redirects.push({ source: "/blog/fire-safety-courses-after-12th/", destination: "/blog/top-fire-and-safety-courses-after-10th-12th-graduation-2026/", permanent: true });
+  redirects.push({ source: "/safety-officer-course-after-12th/", destination: "/blog/top-fire-and-safety-courses-after-10th-12th-graduation-2026/", permanent: true });
+
   // Old utility/program pages with no 1:1 page today
   const utilityRedirects: Record<string, string> = {
     "how-to-apply": "/admissions/",

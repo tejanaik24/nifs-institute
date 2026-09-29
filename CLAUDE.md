@@ -51,14 +51,24 @@ Premium website rebuild for NIFS India — fire & industrial safety training ins
   - Verified GSC "Duplicate, Google chose different canonical" flag on 3 blog posts is a real Google-side www-vs-apex canonical confusion, not a code bug (canonical tags are already correct) — needs a manual "Request Indexing" click in Search Console, not a code fix.
   - Found 7 separate near-duplicate blog posts already live for Chennai/Vijayawada/Guntur/Bhubaneswar (3 just for Chennai) — same scaled-content pattern that already crashed traffic once (Aug 2026, see BRAIN.md). Merged into one real post (`nifs-fire-safety-training-centers-chennai-vijayawada-guntur-bhubaneswar`) with 301 redirects from all 7 old slugs, following the same fix pattern as the Sep 19 Vizag/Chennai merge in `next.config.ts`.
   - `GSC_SITE_URL` in `.env.local`/Vercel env still points to `https://www.nifsindia.net/` (redirects) instead of the real property — flagged to Teja, not yet fixed.
+- **2026-09-26 session** (commit `ee14d5c`):
+  - Removed closed centers Chandigarh, Chandigarh-2, Dehradun, Hamirpur (centers.ts, page folders, home map counts, indexnow/dashboard lists) + 301s to `/centers/` in `next.config.ts`. Ludhiana/Shimla never had pages. Blogs (DB) had zero mentions.
+  - Home nav link hidden on the homepage itself (`site-header.tsx`).
+  - Dashboard honesty pass: lead table showed hardcoded "Visakhapatnam HQ" + "Pending Call" for every lead → now real `city, state` (Vercel geo, captured since 2026-09-19) and Submitted/Half-filled. Counts = unique candidates by phone (6 people had submitted 2-3 times). Removed fake fallbacks (5900/670 donut, "54 Centers", hardcoded "Top South/East/North/West Hub" numbers on analytics), dead City/Time filters, "students"/"inquiries" labels on visitor data, wrong Instagram link (was iron_prince_official → nifsindia). Course names now mapped by exact slug from courses.ts (ADFS/PG DFS were labelled "Diploma in Fire Safety"). NIFS-centre tag now derived from centers.ts.
+  - `GSC_SITE_URL` fixed to `https://nifsindia.net/` in `.env.local` + Vercel production (28d clicks 35 → 1,017).
+  - Speed: `vercel.json` `regions: ["bom1"]` — functions were running in iad1 (Washington) against the Mumbai Supabase DB. Risk-flags no longer loads all post content (2.4 MB).
+  - New blog published: `/blog/types-of-fire-and-safety-institutes-in-india/` (AI-search angle, logged in brain vault blog-performance-log).
 
 ## What's Pending (Real Open Items)
+- About page center counts disagree ("69 centers / 21 states" vs "70+ / 24 states"; real data = 65 locations / 18 states) — Teja wants to confirm the number with the client first
+- Dashboard has no call-status tracking (who was called / converted) — needs a real feature if wanted
+- A real ADIS enquiry came from Chandigarh on 2026-09-22 after that center was closed — tell client
 - Design quality pass — site is "okish", needs wow factor (typography, motion, photography)
 - RESEND_API_KEY + ADMISSIONS_EMAIL env vars not set → contact form not sending emails
 - nifs-images-incoming folder — check if real client images have arrived
 - Re-check PageSpeed Insights field data (28-day CrUX) in ~2 weeks to confirm the 2026-09-05 CWV/INP fixes actually moved the real-user numbers — desktop was previously at Accessibility 90/Agentic Browsing 2/3, mobile at 100/3/3; both should match after propagation
 - Verify contact-form email delivery once RESEND_API_KEY is set
-- Fix `GSC_SITE_URL` env var (www → apex) so the /dashboard GSC integration reads the right property
+- ~~Fix `GSC_SITE_URL` env var~~ done 2026-09-26
 - Re-check GSC indexing status on the 58 previously-not-indexed center pages in ~1-2 weeks (Google needs to recrawl after the fake-review-schema removal)
 - Request re-indexing in Search Console UI for the 3 canonical-mismatch blog posts (see 2026-09-24 session above)
 - `center-gallery.ts`'s synthetic "placed alumni" name pool (200 fake names incl. "Suresh Reddy") is still live — flagged, not touched, matches a prior explicit call Teja made on AI-generated testimonial content

@@ -30,10 +30,10 @@ export async function generateMetadata({
   const { slug } = await params;
   const row = await getPostBySlug(slug);
   const post = row ? toBlogPostView(row) : null;
-  if (!post) return {};
+  if (!post || !row) return {};
   return {
-    title: `${post.title} | NIFS India`,
-    description: post.excerpt,
+    title: row.seoTitle ? row.seoTitle : `${post.title} | NIFS India`,
+    description: row.metaDescription || post.excerpt,
     alternates: { canonical: `/blog/${slug}/` },
   };
 }
