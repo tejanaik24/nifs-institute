@@ -25,6 +25,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     { url: `${baseUrl}/blog/`, changeFrequency: "daily", priority: 0.8 },
     {
+      url: `${baseUrl}/courses/ergonomic-safety/`,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
       url: `${baseUrl}/courses/safety-officer-course/`,
       changeFrequency: "weekly",
       priority: 0.8,

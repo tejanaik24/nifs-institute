@@ -19,7 +19,7 @@ import { getAeoGeoHealth } from "@/lib/analytics/health";
 import { NIFS_TARGET_KEYWORDS } from "@/lib/analytics/target-keywords";
 import { getBotHitSummary } from "@/lib/db/bot-hits";
 import { db } from "@/lib/db/client";
-import { enquiries, whatsappClicks } from "@/lib/db/schema";
+import { enquiries, phoneClicks, whatsappClicks } from "@/lib/db/schema";
 import { sql } from "drizzle-orm";
 
 export const revalidate = 3600; // daily-granularity data — refresh hourly, not per-request
@@ -56,6 +56,7 @@ export default async function AnalyticsPage() {
     hourlyTraffic,
     enquiryCount,
     whatsappClickCount,
+    phoneClickCount,
   ] = await Promise.all([
     safe(getDailySummary()),
     safe(getTopQueries()),
@@ -89,6 +90,12 @@ export default async function AnalyticsPage() {
         .from(whatsappClicks)
         .then((r) => r[0]?.n ?? 0),
     ),
+    safe(
+      db
+        .select({ n: sql<number>`count(*)::int` })
+        .from(phoneClicks)
+        .then((r) => r[0]?.n ?? 0),
+    ),
   ]);
   const fetchedAt = new Date().toISOString();
 
@@ -97,6 +104,7 @@ export default async function AnalyticsPage() {
       fetchedAt={fetchedAt}
       enquiryCount={enquiryCount.ok ? enquiryCount.data : undefined}
       whatsappClickCount={whatsappClickCount.ok ? whatsappClickCount.data : undefined}
+      phoneClickCount={phoneClickCount.ok ? phoneClickCount.data : undefined}
       summary={summary}
       queries={queries}
       siteTotals={siteTotals}

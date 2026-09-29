@@ -94,6 +94,7 @@ interface AnalyticsViewProps {
   fetchedAt: string;
   enquiryCount?: number;
   whatsappClickCount?: number;
+  phoneClickCount?: number;
   summary: {
     ok: boolean;
     data?: { visitors: number; topPages: TopPage[] };
@@ -132,6 +133,7 @@ export function AnalyticsDashboardView({
   fetchedAt,
   enquiryCount,
   whatsappClickCount,
+  phoneClickCount,
   summary,
   queries,
   siteTotals,
@@ -491,6 +493,7 @@ export function AnalyticsDashboardView({
             }
             enquiries={enquiryCount}
             whatsappClicks={whatsappClickCount}
+            phoneClicks={phoneClickCount}
           />
 
           {/* Top Pages Table */}

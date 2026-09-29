@@ -74,7 +74,7 @@ export function ConversionFunnel({
       label: "6. Action Clicks (Phone)",
       measure: phoneClicks,
       unit: "clicks",
-      sub: "Recorded when measured",
+      sub: "Phone (tel:) link clicks on the website, since 29 Sep",
       icon: PhoneCall,
       color: "bg-emerald-500",
     },

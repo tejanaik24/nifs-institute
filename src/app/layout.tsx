@@ -1,4 +1,5 @@
 import { DevAnnotations } from "@/components/DevAnnotations";
+import { PhoneClickTracker } from "@/components/analytics/phone-click-tracker";
 import { WhatsAppClickTracker } from "@/components/analytics/whatsapp-click-tracker";
 import { CombinedGraphSchema } from "@/lib/seo/schema";
 import type { Metadata } from "next";
@@ -123,7 +124,7 @@ export default function RootLayout({
                 c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
                 t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
                 y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-            })(window, document, "clarity", "script", "r2e82j7ubz");
+            })(window, document, "clarity", "script", "ypu3ajsxw1");
           `}
         </Script>
       </head>
@@ -135,6 +136,7 @@ export default function RootLayout({
         {children}
         <DevAnnotations />
         <WhatsAppClickTracker />
+        <PhoneClickTracker />
       </body>
     </html>
   );

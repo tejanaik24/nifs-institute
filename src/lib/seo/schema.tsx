@@ -181,12 +181,20 @@ export function CourseSchema({
   url,
   duration,
   tier,
+  occupationalCategory = "Fire Safety Officer",
+  courseCode,
+  timeRequired,
+  free,
 }: {
   name: string;
   description: string;
   url: string;
   duration: string;
   tier: string;
+  occupationalCategory?: string;
+  courseCode?: string;
+  timeRequired?: string;
+  free?: boolean;
 }) {
   return (
     <script
@@ -200,7 +208,19 @@ export function CourseSchema({
           url,
           provider: { "@id": ORG_ID },
           educationalLevel: tier,
-          occupationalCategory: "Fire Safety Officer",
+          occupationalCategory,
+          ...(courseCode ? { courseCode } : {}),
+          ...(free
+            ? {
+                isAccessibleForFree: true,
+                offers: { "@type": "Offer", category: "Free", price: 0, priceCurrency: "INR", url },
+                hasCourseInstance: {
+                  "@type": "CourseInstance",
+                  courseMode: "online",
+                  ...(timeRequired ? { courseWorkload: timeRequired } : {}),
+                },
+              }
+            : {}),
         }),
       }}
     />

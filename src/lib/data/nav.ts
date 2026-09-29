@@ -84,6 +84,11 @@ export const primaryNav: NavItem[] = [
         href: "/courses/b-sc-honours-in-fire-industrial-safety",
       },
       {
+        label: "Free Course: Ergonomic Safety",
+        href: "/courses/ergonomic-safety",
+        description: "3-hour online course, no fees",
+      },
+      {
         label: "Online Courses",
         href: "/courses/online",
         description: "All online-mode programs in one place",

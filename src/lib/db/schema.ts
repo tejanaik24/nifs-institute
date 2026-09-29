@@ -93,6 +93,16 @@ export const whatsappClicks = pgTable("whatsapp_clicks", {
   createdAt: timestamp("created_at").notNull().defaultNow(),
 });
 
+// Logged by /api/track/phone-click — mirrors whatsappClicks. Every tel:
+// link on the site is wired through PhoneClickTracker (see
+// src/components/analytics/phone-click-tracker.tsx).
+export const phoneClicks = pgTable("phone_clicks", {
+  id: serial("id").primaryKey(),
+  pagePath: text("page_path").notNull(),
+  linkLabel: text("link_label").notNull().default(""),
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+});
+
 export const jobs = pgTable("jobs", {
   id: serial("id").primaryKey(),
   jobCode: varchar("job_code", { length: 30 }).unique(),
@@ -166,4 +176,33 @@ export const agentActions = pgTable("agent_actions", {
   result: jsonb("result"),
   error: text("error"),
   createdAt: timestamp("created_at").notNull().defaultNow(),
+});
+
+// Free "Ergonomic Safety" course (see migrations/free-course-ergonomic.sql):
+// one row per student holds registration, assignment and the timed exam.
+// All exam timestamps are timestamptz so the 10-minute clock is timezone-safe.
+export const courseRegistrations = pgTable("course_registrations", {
+  id: serial("id").primaryKey(),
+  course: text("course").notNull().default("ergonomic-safety"),
+  name: text("name").notNull(),
+  phone: varchar("phone", { length: 15 }).notNull(),
+  email: text("email").notNull(),
+  token: text("token").notNull().unique(),
+  assignmentAnswers: jsonb("assignment_answers").$type<string[]>(),
+  assignmentAt: timestamp("assignment_at", { withTimezone: true }),
+  examStartedAt: timestamp("exam_started_at", { withTimezone: true }),
+  examSubmittedAt: timestamp("exam_submitted_at", { withTimezone: true }),
+  examSeed: integer("exam_seed"),
+  examAnswers: jsonb("exam_answers").$type<Record<string, number>>(),
+  score: integer("score"),
+  certificateSentAt: timestamp("certificate_sent_at", { withTimezone: true }),
+  createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+});
+
+// Suggestion box on the free Ergonomic Safety course (see migrations/free-course-suggestions.sql).
+export const courseSuggestions = pgTable("course_suggestions", {
+  id: serial("id").primaryKey(),
+  registrationId: integer("registration_id").notNull().references(() => courseRegistrations.id, { onDelete: "cascade" }),
+  message: text("message").notNull(),
+  createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
 });

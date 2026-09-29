@@ -6,6 +6,7 @@ import {
   Bot,
   Briefcase,
   FileText,
+  GraduationCap,
   Inbox,
   LayoutDashboard,
   PhoneCall,
@@ -20,6 +21,7 @@ const STAFF_NAV_ITEMS = [
   { href: "/dashboard/enquiries", label: "Callbacks", icon: PhoneCall },
   { href: "/dashboard/jobs", label: "Jobs", icon: Briefcase },
   { href: "/dashboard/applications", label: "Applications", icon: Inbox },
+  { href: "/dashboard/course-exams", label: "Free Course Leads", icon: GraduationCap },
   { href: "/dashboard/analytics", label: "Analytics", icon: BarChart3 },
 ];
 

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/sections/page-hero";
 import { CourseCatalog } from "@/components/sections/course-catalog";
+import { FreeCourseFeature } from "@/components/sections/ergonomic-course/free-course-feature";
 
 export const metadata: Metadata = {
   title: "Courses — Certificate to B.Sc in Fire Safety | NIFS India",
@@ -19,7 +20,10 @@ export default function CoursesPage() {
       />
 
       <section className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
-        <CourseCatalog />
+        <FreeCourseFeature />
+        <div className="mt-16">
+          <CourseCatalog />
+        </div>
       </section>
     </>
   );

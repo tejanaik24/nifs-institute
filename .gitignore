@@ -54,3 +54,4 @@ temp_*.json
 test_*.js
 insert_master_blog.py
 
+scripts/pdf/.edge-profile/
