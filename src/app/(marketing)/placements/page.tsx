@@ -9,7 +9,6 @@ import { RecruiterLogoShowcase } from "@/components/sections/recruiter-logo-show
 import HomeOutcomes from "@/components/sections/home/home-outcomes";
 import HomePlacements from "@/components/sections/home/home-placements";
 import { PlacementsDualCta } from "@/components/sections/placements-dual-cta";
-import { PlacementLeadForm } from "@/components/sections/placement-lead-form";
 
 export const metadata: Metadata = {
   title: "Placements — Graduates at Adani, L&T, ITC | NIFS India",
@@ -30,58 +29,28 @@ export default async function PlacementsPage() {
         description="Our placement cell partners directly with recruiters across construction, EPC, manufacturing, and FMCG to place every graduating batch into real industrial safety roles."
       />
 
-      <PlacementLeadForm />
-
-      <HomeOutcomes />
-      <HomePlacements />
-
-      <section className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
-          <div
-            data-path-target="true"
-            className="relative aspect-[4/5] w-full overflow-hidden rounded-sm"
-          >
-            <Image
-              src="/images/placement-success-story.jpg"
-              alt="NIFS graduate, now a corporate safety officer"
-              fill
-              className="object-cover"
-            />
-          </div>
-          <div className="flex flex-col justify-center">
-            <span className="text-xs font-semibold uppercase tracking-widest text-primary">
-              Career Outcomes
-            </span>
-            <h2 className="font-display mt-2 text-3xl italic leading-tight">
-              From certificate to corporate safety officer
-            </h2>
-            <p className="mt-4 text-muted-foreground">
-              NIFS graduates go on to roles including Fire Safety Officer,
-              Industrial Safety Supervisor, HSE Manager, Emergency Response
-              Coordinator, and Risk Analyst — across construction, EPC,
-              manufacturing, and logistics.
-            </p>
-          </div>
-        </div>
-
-        <div data-path-target="true" className="mt-20 text-center">
-          <h2 className="font-display text-2xl italic">
-            Trusted by {recruiterLogos.length}+ MNC &amp; Govt Partners
-          </h2>
-          <RecruiterLogoShowcase
-            logos={recruiterLogos.map((r) => ({ name: r.name, logo: r.logo! }))}
-          />
-        </div>
-
-        {openJobs.length > 0 && (
-          <div id="current-openings" data-path-target="true" className="mt-20 scroll-mt-28">
-            <span className="text-xs font-semibold uppercase tracking-widest text-primary">
-              Current Openings
-            </span>
-            <h2 className="font-display mt-2 text-2xl italic">
-              Join our alumni network
-            </h2>
-            <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {openJobs.length > 0 && (
+        <section
+          id="current-openings"
+          data-path-target="true"
+          className="scroll-mt-28 border-b border-border/60 bg-primary/[0.04]"
+        >
+          <div className="mx-auto max-w-7xl px-6 py-14 lg:px-10">
+            <div className="flex flex-wrap items-end justify-between gap-4">
+              <div>
+                <span className="inline-flex items-center gap-2 rounded-full bg-primary px-3 py-1 text-xs font-semibold uppercase tracking-widest text-primary-foreground">
+                  <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-primary-foreground" />
+                  Current Openings
+                </span>
+                <h2 className="font-display mt-3 text-3xl italic leading-tight sm:text-4xl">
+                  Join our alumni network
+                </h2>
+              </div>
+              <p className="text-sm font-medium text-muted-foreground">
+                {openJobs.length} live {openJobs.length === 1 ? "opening" : "openings"} from the NIFS placement team
+              </p>
+            </div>
+            <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {openJobs.map((job) => {
                 const posCount = job.positions.length;
                 const posSummary =
@@ -172,7 +141,50 @@ export default async function PlacementsPage() {
               })}
             </div>
           </div>
-        )}
+        </section>
+      )}
+
+      <HomeOutcomes />
+      <HomePlacements />
+
+      <section className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
+          <div
+            data-path-target="true"
+            className="relative aspect-[4/5] w-full overflow-hidden rounded-sm"
+          >
+            <Image
+              src="/images/placement-success-story.jpg"
+              alt="NIFS graduate, now a corporate safety officer"
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div className="flex flex-col justify-center">
+            <span className="text-xs font-semibold uppercase tracking-widest text-primary">
+              Career Outcomes
+            </span>
+            <h2 className="font-display mt-2 text-3xl italic leading-tight">
+              From certificate to corporate safety officer
+            </h2>
+            <p className="mt-4 text-muted-foreground">
+              NIFS graduates go on to roles including Fire Safety Officer,
+              Industrial Safety Supervisor, HSE Manager, Emergency Response
+              Coordinator, and Risk Analyst — across construction, EPC,
+              manufacturing, and logistics.
+            </p>
+          </div>
+        </div>
+
+        <div data-path-target="true" className="mt-20 text-center">
+          <h2 className="font-display text-2xl italic">
+            Trusted by {recruiterLogos.length}+ MNC &amp; Govt Partners
+          </h2>
+          <RecruiterLogoShowcase
+            logos={recruiterLogos.map((r) => ({ name: r.name, logo: r.logo! }))}
+          />
+        </div>
+
       </section>
 
       <PlacementsDualCta />

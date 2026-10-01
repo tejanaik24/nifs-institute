@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { enquirySchema, submitEnquiry, trackEnquiry } from "./enquiry";
+import { describeSubmitError, enquirySchema, submitEnquiry, trackEnquiry } from "./enquiry";
 
 const values = { name: "Test Applicant", phone: "9876543210", course: "DFS" };
 afterEach(() => { vi.unstubAllGlobals(); vi.useRealTimers(); });
@@ -76,5 +76,14 @@ describe("measurement", () => {
   it("does not break enquiries when analytics is unavailable", () => {
     vi.stubGlobal("window", { get dataLayer() { throw new Error("blocked"); } });
     expect(() => trackEnquiry("enquiry_start")).not.toThrow();
+  });
+});
+
+describe("describeSubmitError", () => {
+  it("labels timeouts, network drops and HTTP failures without leaking form values", () => {
+    expect(describeSubmitError(new DOMException("aborted", "AbortError"))).toBe("timeout");
+    expect(describeSubmitError(new TypeError("Failed to fetch"))).toBe("network");
+    expect(describeSubmitError(new Error("http_500"))).toBe("http_500");
+    expect(describeSubmitError("weird")).toBe("unknown");
   });
 });

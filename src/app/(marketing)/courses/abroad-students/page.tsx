@@ -99,7 +99,7 @@ export default function AbroadStudentsPage() {
             Two Premier International Programs
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-sm text-muted-foreground">
-            Specially structured for international students desiring recognized qualifications that meet both Indian statutory and international OSHA / NEBOSH standards.
+            Specially structured for international students desiring recognized qualifications built around Indian statutory safety requirements.
           </p>
         </div>
 

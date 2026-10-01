@@ -104,6 +104,17 @@ export const phoneClicks = pgTable("phone_clicks", {
   createdAt: timestamp("created_at").notNull().defaultNow(),
 });
 
+// Why an enquiry submit failed (see migrations/enquiry-errors.sql). Never
+// holds names, numbers or other personal data.
+export const enquiryErrors = pgTable("enquiry_errors", {
+  id: serial("id").primaryKey(),
+  reason: varchar("reason", { length: 20 }).notNull(), // "validation" | "delivery" | "server"
+  detail: text("detail").notNull().default(""),
+  pagePath: text("page_path").notNull().default(""),
+  userAgent: text("user_agent").notNull().default(""),
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+});
+
 export const jobs = pgTable("jobs", {
   id: serial("id").primaryKey(),
   jobCode: varchar("job_code", { length: 30 }).unique(),

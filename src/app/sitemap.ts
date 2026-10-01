@@ -30,6 +30,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
     },
     {
+      url: `${baseUrl}/courses/abroad-students/`,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
       url: `${baseUrl}/courses/safety-officer-course/`,
       changeFrequency: "weekly",
       priority: 0.8,

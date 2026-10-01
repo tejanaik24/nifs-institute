@@ -8,7 +8,9 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 import {
+  describeSubmitError,
   enquirySchema,
+  logEnquiryFailure,
   submitEnquiry,
   trackEnquiry,
   type EnquiryValues,
@@ -110,9 +112,10 @@ export function EnquiryForm() {
       setStatus("success");
       reset();
       trackEnquiry("enquiry_accepted");
-    } catch {
+    } catch (error) {
       setStatus("error");
       trackEnquiry("enquiry_error", "delivery");
+      logEnquiryFailure("delivery", describeSubmitError(error));
     } finally {
       pending.current = false;
     }
@@ -239,9 +242,10 @@ export function EnquiryForm() {
             }
           }}
           onSubmit={(event) => {
-            void handleSubmit(onSubmit, () =>
-              trackEnquiry("enquiry_error", "validation"),
-            )(event);
+            void handleSubmit(onSubmit, (fieldErrors) => {
+              trackEnquiry("enquiry_error", "validation");
+              logEnquiryFailure("validation", Object.keys(fieldErrors).join(","));
+            })(event);
           }}
           className="space-y-4 text-left"
         >

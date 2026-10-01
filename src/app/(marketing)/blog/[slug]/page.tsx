@@ -1,3 +1,4 @@
+import { FreeCourseBlogSignup } from "@/components/sections/free-course-blog-signup";
 import { LiveJobsBanner } from "@/components/sections/live-jobs-banner";
 import { getPostBySlug, toBlogPostView } from "@/lib/db/posts";
 import { getContextualLinks } from "@/lib/seo/contextual-links";
@@ -18,6 +19,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Fragment } from "react";
+
+const FREE_COURSE_SIGNUP_MARKER = "<!--free-course-signup-->";
 
 // Blog posts are database-backed now (publish/unpublish takes effect
 // immediately) — no generateStaticParams here, this route renders on demand.
@@ -146,10 +150,15 @@ export default async function BlogPostPage({
           )}
 
           {/* Post Content */}
-          <div
-            className="blog-prose mt-8 border-t border-slate-100 pt-8"
-            dangerouslySetInnerHTML={{ __html: post.contentHtml }}
-          />
+          <div className="blog-prose mt-8 border-t border-slate-100 pt-8">
+            {/* A post can drop <!--free-course-signup--> anywhere in its HTML to show the free-course sign-up form there. */}
+            {post.contentHtml.split(FREE_COURSE_SIGNUP_MARKER).map((html, i) => (
+              <Fragment key={i}>
+                {i > 0 && <FreeCourseBlogSignup />}
+                <div dangerouslySetInnerHTML={{ __html: html }} />
+              </Fragment>
+            ))}
+          </div>
 
           {/* Explore More — contextual internal links */}
           {exploreLinks.length > 0 && (

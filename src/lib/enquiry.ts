@@ -21,7 +21,7 @@ export async function submitEnquiry(values: EnquiryValues, draftId?: number, dra
       signal: controller.signal,
       body: JSON.stringify(draftId && draftToken ? { ...values, draftId, draftToken } : values),
     });
-    if (!response.ok) throw new Error("Enquiry was not accepted");
+    if (!response.ok) throw new Error(`http_${response.status}`);
     const ack = (await response.json().catch(() => null)) as { ok?: unknown } | null;
     if (!ack || ack.ok !== true) throw new Error("Enquiry was not accepted");
   } finally {
@@ -34,6 +34,30 @@ type EnquiryEvent = "enquiry_start" | "enquiry_attempt" | "enquiry_error" | "enq
 // Only fixed labels go to analytics. Never send names, numbers or free-text fields.
 export function trackEnquiry(event: EnquiryEvent, reason?: "validation" | "delivery") {
   trackEvent(event, { form_id: "nifs_enquiry", ...(reason ? { error_type: reason } : {}) });
+}
+
+/** Records WHY a submit failed in our own DB (migrations/enquiry-errors.sql),
+ * because GA4's error_type needs a registered custom dimension to be readable.
+ * Fire-and-forget; `detail` must be field names or a short failure code, never
+ * what the visitor typed. */
+export function logEnquiryFailure(reason: "validation" | "delivery", detail: string) {
+  try {
+    void fetch("/api/track/enquiry-error/", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ reason, detail, pagePath: window.location.pathname }),
+      keepalive: true,
+    }).catch(() => {});
+  } catch {
+    // Logging must never interrupt the real action.
+  }
+}
+
+/** Short failure code for a thrown submit error: timeout, network or the HTTP status. */
+export function describeSubmitError(error: unknown): string {
+  if (error instanceof DOMException && error.name === "AbortError") return "timeout";
+  if (error instanceof TypeError) return "network";
+  return error instanceof Error ? error.message.slice(0, 60) : "unknown";
 }
 
 /** Pushes a GA4 event into the dataLayer. Fixed labels only — callers must
