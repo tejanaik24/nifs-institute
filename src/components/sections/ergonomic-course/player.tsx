@@ -243,7 +243,7 @@ export function StudyPlayer({ onProgress }: { onProgress?: (done: number, total:
         </Reveal>
         {allDone && (
           <p role="status" className="es-pop mt-6 border border-primary bg-primary/5 p-5">
-            <strong className="font-display text-xl italic">Study complete.</strong> Download the PDF, then submit your assignment to unlock the exam.
+            <strong className="font-display text-xl italic">Study complete.</strong> Download the PDF, then proceed directly to the final exam.
           </p>
         )}
       </div>

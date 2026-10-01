@@ -5,8 +5,7 @@ import { useScrollProgress } from "./motion";
 const steps = [
   { n: "01", t: "Register", d: "Name, mobile and email. One minute, no fee." },
   { n: "02", t: "Study", d: "Four key benefits, then download the premium study guide and read it at your pace. About 2 hours." },
-  { n: "03", t: "Final exam", d: "After you are ready: three hands-on activities, then one exam of 20 questions in 10 minutes, 20 marks. When time is over, the exam is over." },
-  { n: "04", t: "Assignment", d: "Two written questions in your own words. 10 marks. Submit any time. Your certificate reaches your email within 3 days of the exam." },
+  { n: "03", t: "Final exam", d: "After you are ready: interactive lessons, then one online exam of 20 questions in 10 minutes, 20 marks. Option to rewrite anytime to improve your score. Certificate emailed within 3 days." },
 ];
 
 /** The path draws itself as you scroll; each stop lights up when the line reaches it. */

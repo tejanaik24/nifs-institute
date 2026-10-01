@@ -129,13 +129,35 @@ export function SiteHeader() {
                     isActive
                       ? "text-white"
                       : megaOpen === item.label
-                        ? "text-white bg-white/15"
-                        : "text-white/80 hover:bg-white/15 hover:text-white",
+                        ? item.label === "Centers"
+                          ? "text-emerald-300 bg-emerald-950/50"
+                          : "text-white bg-white/15"
+                        : item.label === "Centers"
+                          ? "text-white/80 hover:bg-emerald-950/40 hover:text-emerald-300"
+                          : "text-white/80 hover:bg-white/15 hover:text-white",
                   )}
-                  onClick={closeMega}
+                  onClick={(e) => {
+                    if (item.children) {
+                      if (megaOpen === item.label) {
+                        closeMega();
+                      } else {
+                        e.preventDefault();
+                        openMega(item.label);
+                      }
+                    } else {
+                      closeMega();
+                    }
+                  }}
                 >
                   {isActive && (
-                    <span className="absolute inset-0 z-[-1] rounded-full bg-primary shadow-lg shadow-primary/35" />
+                    <span
+                      className={cn(
+                        "absolute inset-0 z-[-1] rounded-full shadow-lg",
+                        item.label === "Centers"
+                          ? "bg-emerald-600 shadow-emerald-600/35"
+                          : "bg-primary shadow-primary/35",
+                      )}
+                    />
                   )}
 
                   <span>{item.label}</span>
@@ -145,6 +167,8 @@ export function SiteHeader() {
                       className={cn(
                         "h-3 w-3 transition-transform duration-200 opacity-75",
                         megaOpen === item.label && "rotate-180",
+                        item.label === "Centers" &&
+                          "text-emerald-400 opacity-100",
                       )}
                       viewBox="0 0 24 24"
                       fill="none"
@@ -161,7 +185,11 @@ export function SiteHeader() {
                   <div
                     className={cn(
                       "absolute left-1/2 top-full z-[70] pt-3 transition-all duration-200",
-                      item.children.length > 4 ? "w-[480px]" : "w-[280px]",
+                      item.label === "Centers"
+                        ? "w-[340px] sm:w-[370px]"
+                        : item.children.length > 4
+                          ? "w-[540px] 2xl:w-[570px]"
+                          : "w-[280px]",
                       megaOpen === item.label
                         ? "opacity-100 translate-y-0 pointer-events-auto"
                         : "opacity-0 translate-y-2 pointer-events-none",
@@ -172,39 +200,122 @@ export function SiteHeader() {
                     onMouseEnter={() => openMega(item.label)}
                     onMouseLeave={closeMegaDelayed}
                   >
-                    <div className="overflow-hidden rounded-3xl border border-white/15 bg-zinc-950/95 shadow-2xl shadow-black/60 backdrop-blur-2xl p-2">
+                    <div
+                      className={cn(
+                        "overflow-hidden rounded-3xl border shadow-2xl backdrop-blur-2xl p-2.5",
+                        item.label === "Centers"
+                          ? "border-emerald-500/50 bg-gradient-to-b from-zinc-950 via-emerald-950/25 to-zinc-950 shadow-emerald-950/60 ring-1 ring-emerald-500/30"
+                          : "border-white/15 bg-zinc-950/95 shadow-black/60",
+                      )}
+                    >
+                      {item.label === "Centers" && (
+                        <div className="px-3 py-1.5 mb-1 flex items-center justify-between border-b border-emerald-500/20 text-[11px] font-bold uppercase tracking-wider text-emerald-400">
+                          <span>NIFS Training Network</span>
+                          <span className="flex h-2 w-2 rounded-full bg-emerald-400 shadow-xs shadow-emerald-400 animate-pulse" />
+                        </div>
+                      )}
                       <div
                         className={cn(
-                          "grid gap-1 p-2",
+                          "grid gap-1.5 p-1.5",
                           item.children.length > 4
                             ? "grid-cols-2"
                             : "grid-cols-1",
                         )}
                       >
-                        {item.children.map((child) => (
-                          <Link
-                            key={child.label}
-                            href={child.href}
-                            target={child.external ? "_blank" : undefined}
-                            rel={
-                              child.external ? "noopener noreferrer" : undefined
-                            }
-                            className="group flex items-start gap-3 rounded-2xl px-3.5 py-3 transition-all hover:bg-white/10"
-                            onClick={closeMega}
-                          >
-                            <div className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-primary opacity-60 transition-all group-hover:scale-150 group-hover:opacity-100" />
-                            <div className="min-w-0">
-                              <div className="text-sm font-medium text-white transition-colors group-hover:text-primary">
-                                {child.label}
-                              </div>
-                              {child.description && (
-                                <div className="mt-0.5 text-xs text-white/60 leading-relaxed">
-                                  {child.description}
-                                </div>
+                        {item.children.map((child) => {
+                          const isGreen = child.highlight === "green";
+                          const isBlue = child.highlight === "blue";
+                          const isAmber = child.highlight === "amber";
+
+                          return (
+                            <Link
+                              key={child.label}
+                              href={child.href}
+                              target={child.external ? "_blank" : undefined}
+                              rel={
+                                child.external
+                                  ? "noopener noreferrer"
+                                  : undefined
+                              }
+                              className={cn(
+                                "group relative flex items-start gap-2.5 rounded-2xl p-3 transition-all duration-200",
+                                isGreen &&
+                                  "border border-emerald-500/40 bg-emerald-950/40 hover:bg-emerald-900/60 hover:border-emerald-400 shadow-sm shadow-emerald-950/50",
+                                isBlue &&
+                                  "border border-sky-500/40 bg-sky-950/40 hover:bg-sky-900/60 hover:border-sky-400 shadow-sm shadow-sky-950/50",
+                                isAmber &&
+                                  "border border-amber-500/40 bg-amber-950/35 hover:bg-amber-900/55 hover:border-amber-400 shadow-sm shadow-amber-950/50",
+                                !child.highlight && "hover:bg-white/10",
                               )}
-                            </div>
-                          </Link>
-                        ))}
+                              onClick={closeMega}
+                            >
+                              {/* Indicator dot */}
+                              <div
+                                className={cn(
+                                  "mt-1.5 shrink-0 rounded-full transition-all",
+                                  isGreen &&
+                                    "h-2 w-2 bg-emerald-400 shadow-xs shadow-emerald-400 ring-2 ring-emerald-500/30",
+                                  isBlue &&
+                                    "h-2 w-2 bg-sky-400 shadow-xs shadow-sky-400 ring-2 ring-sky-500/30",
+                                  isAmber &&
+                                    "h-2 w-2 bg-amber-400 shadow-xs shadow-amber-400 ring-2 ring-amber-500/30",
+                                  !child.highlight &&
+                                    "h-1.5 w-1.5 bg-primary opacity-60 group-hover:scale-150 group-hover:opacity-100",
+                                )}
+                              />
+
+                              <div className="min-w-0 flex-1">
+                                <div className="flex items-center justify-between gap-1.5">
+                                  <span
+                                    className={cn(
+                                      "text-sm font-medium transition-colors",
+                                      isGreen &&
+                                        "text-emerald-100 font-semibold group-hover:text-emerald-200",
+                                      isBlue &&
+                                        "text-sky-100 font-semibold group-hover:text-sky-200",
+                                      isAmber &&
+                                        "text-amber-100 font-semibold group-hover:text-amber-200",
+                                      !child.highlight &&
+                                        "text-white group-hover:text-primary",
+                                    )}
+                                  >
+                                    {child.label}
+                                  </span>
+
+                                  {child.badge && (
+                                    <span
+                                      className={cn(
+                                        "shrink-0 rounded-full px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider",
+                                        isGreen &&
+                                          "bg-emerald-500/20 text-emerald-300 border border-emerald-500/40",
+                                        isBlue &&
+                                          "bg-sky-500/20 text-sky-300 border border-sky-500/40",
+                                        isAmber &&
+                                          "bg-amber-500/20 text-amber-300 border border-amber-500/40",
+                                      )}
+                                    >
+                                      {child.badge}
+                                    </span>
+                                  )}
+                                </div>
+
+                                {child.description && (
+                                  <div
+                                    className={cn(
+                                      "mt-0.5 text-xs leading-relaxed",
+                                      isGreen && "text-emerald-300/80",
+                                      isBlue && "text-sky-300/80",
+                                      isAmber && "text-amber-300/80",
+                                      !child.highlight && "text-white/60",
+                                    )}
+                                  >
+                                    {child.description}
+                                  </div>
+                                )}
+                              </div>
+                            </Link>
+                          );
+                        })}
                       </div>
                     </div>
                   </div>
@@ -338,10 +449,24 @@ export function SiteHeader() {
                       href={child.href}
                       target={child.external ? "_blank" : undefined}
                       rel={child.external ? "noopener noreferrer" : undefined}
-                      className="rounded-full bg-white/5 px-3 py-1 text-xs text-white/60 transition-colors hover:bg-primary/20 hover:text-white"
+                      className={cn(
+                        "rounded-full px-3 py-1 text-xs transition-colors",
+                        child.highlight === "green"
+                          ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 font-semibold"
+                          : child.highlight === "blue"
+                            ? "bg-sky-500/20 text-sky-300 border border-sky-500/40 font-semibold"
+                            : child.highlight === "amber"
+                              ? "bg-amber-500/20 text-amber-300 border border-amber-500/40 font-semibold"
+                              : "bg-white/5 text-white/60 hover:bg-primary/20 hover:text-white",
+                      )}
                       onClick={() => setMenuOpen(false)}
                     >
-                      {child.label}
+                      <span>{child.label}</span>
+                      {child.badge && (
+                        <span className="ml-1 opacity-80 text-[10px] uppercase font-bold">
+                          ({child.badge})
+                        </span>
+                      )}
                     </Link>
                   ))}
                 </div>

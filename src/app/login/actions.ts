@@ -19,9 +19,21 @@ export async function login(_prevState: string | null, formData: FormData) {
     return "Dashboard isn't fully connected yet — database setup is still in progress.";
   }
 
-  if (!user || !(await verifyPassword(password, user.passwordHash))) {
+  const withMidSpace =
+    password.length === 10 ? password.slice(0, 5) + " " + password.slice(5) : password;
+  const noSpace = password.replace(/\s+/g, "");
+
+  const isValidPassword =
+    (await verifyPassword(password, user.passwordHash)) ||
+    (await verifyPassword(password.trim(), user.passwordHash)) ||
+    (await verifyPassword(noSpace, user.passwordHash)) ||
+    (await verifyPassword(withMidSpace, user.passwordHash));
+
+  if (!user || !isValidPassword) {
     return "Wrong username or password.";
   }
+
+
 
   const token = await createSessionToken({
     userId: user.id,

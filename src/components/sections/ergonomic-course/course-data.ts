@@ -108,7 +108,7 @@ export const assignment = [
 export const faqs = [
   {
     question: "Is the Ergonomic Safety course really free?",
-    answer: "Yes. The NIFS Ergonomic Safety course (course code NIFS ES) is a free online course. There is no fee to register, read the material, submit the assignment or take the final assessment.",
+    answer: "Yes. The NIFS Ergonomic Safety course (course code NIFS ES) is a free online course. There is no fee to register, read the material, or take the final assessment.",
   },
   {
     question: "How long is the course?",
@@ -116,11 +116,11 @@ export const faqs = [
   },
   {
     question: "How do I complete the course?",
-    answer: "Four steps: register, download and read the study guide, submit the assignment (10 marks), then take the final assessment (20 marks).",
+    answer: "Three steps: register, download and read the study guide, then take the final assessment (20 marks). You can rewrite the exam anytime to improve your score.",
   },
   {
     question: "Will I get a certificate?",
-    answer: "NIFS sends a certificate of completion after you finish the assignment and final assessment.",
+    answer: "NIFS sends a certificate of completion to your registered email within 3 days of completing the final assessment.",
   },
   {
     question: "Who is this course for?",
@@ -135,6 +135,6 @@ export const examRules = [
   "Every question must be answered before you can submit early.",
   "Closing or refreshing the page does not stop or reset the clock.",
   "Do not leave the exam window. Leaving it is recorded as a warning.",
-  "One attempt only. Answers cannot be changed after submission.",
+  "Option to rewrite and retake the exam anytime to improve your score.",
   "After the exam, your certificate is sent to your registered email within 3 days.",
 ];

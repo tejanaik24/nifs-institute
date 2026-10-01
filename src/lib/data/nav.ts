@@ -7,6 +7,8 @@ export type NavItem = {
     href: string;
     description?: string;
     external?: boolean;
+    badge?: string;
+    highlight?: "green" | "blue" | "amber";
   }[];
 };
 
@@ -86,12 +88,23 @@ export const primaryNav: NavItem[] = [
       {
         label: "Free Course: Ergonomic Safety",
         href: "/courses/ergonomic-safety",
-        description: "3-hour online course, no fees",
+        description: "3-hour online certification, 100% free",
+        badge: "Free",
+        highlight: "green",
       },
       {
         label: "Online Courses",
         href: "/courses/online",
         description: "All online-mode programs in one place",
+        badge: "E-Learning",
+        highlight: "amber",
+      },
+      {
+        label: "Abroad Students (Study in India)",
+        href: "/courses/abroad-students",
+        description: "International admissions via Govt. of India portal",
+        badge: "Global ✈️",
+        highlight: "blue",
       },
     ],
   },
@@ -158,19 +171,18 @@ export const primaryNav: NavItem[] = [
     href: "/centers",
     children: [
       {
-        label: "All 70+ Centers",
+        label: "All Training Centers",
         href: "/centers",
-        description: "Pan-India Training Centers Directory",
+        description: "Verified centers across 21 states & UTs",
+        highlight: "green",
+        badge: "Directory",
       },
       {
-        label: "Hyderabad Command",
-        href: "/centers/hyderabad",
-        description: "Ameerpet Metro, Telangana",
-      },
-      {
-        label: "Visakhapatnam (HQ)",
-        href: "/centers/visakhapatnam",
-        description: "National Headquarters & Yard",
+        label: "Apply for New Center",
+        href: "/centers/apply",
+        description: "Partner with NIFS & launch in your city",
+        highlight: "green",
+        badge: "Partner 🏛️",
       },
     ],
   },
@@ -184,7 +196,7 @@ export const mobileNav: NavItem[] = [
   primaryNav.find((item) => item.label === "Courses")!,
   { label: "Placements", href: "/placements" },
   primaryNav.find((item) => item.label === "Industrial Services")!,
-  { label: "Centers", href: "/centers" },
+  primaryNav.find((item) => item.label === "Centers")!,
   { label: "Gallery", href: "/gallery" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },

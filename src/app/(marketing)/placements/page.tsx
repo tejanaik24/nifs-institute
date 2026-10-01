@@ -9,6 +9,7 @@ import { RecruiterLogoShowcase } from "@/components/sections/recruiter-logo-show
 import HomeOutcomes from "@/components/sections/home/home-outcomes";
 import HomePlacements from "@/components/sections/home/home-placements";
 import { PlacementsDualCta } from "@/components/sections/placements-dual-cta";
+import { PlacementLeadForm } from "@/components/sections/placement-lead-form";
 
 export const metadata: Metadata = {
   title: "Placements — Graduates at Adani, L&T, ITC | NIFS India",
@@ -28,6 +29,8 @@ export default async function PlacementsPage() {
         title="Built for real industrial safety careers"
         description="Our placement cell partners directly with recruiters across construction, EPC, manufacturing, and FMCG to place every graduating batch into real industrial safety roles."
       />
+
+      <PlacementLeadForm />
 
       <HomeOutcomes />
       <HomePlacements />

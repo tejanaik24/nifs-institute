@@ -1,4 +1,5 @@
 import {
+  date,
   integer,
   jsonb,
   pgSchema,
@@ -199,6 +200,17 @@ export const courseRegistrations = pgTable("course_registrations", {
   createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
 });
 
+// Placement-seeker form on /placements (see migrations/placement-leads.sql).
+export const placementLeads = pgTable("placement_leads", {
+  id: serial("id").primaryKey(),
+  name: text("name").notNull(),
+  dob: date("dob", { mode: "string" }).notNull(),
+  phone: varchar("phone", { length: 15 }).notNull(),
+  email: text("email").notNull(),
+  location: text("location").notNull(),
+  createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+});
+
 // Suggestion box on the free Ergonomic Safety course (see migrations/free-course-suggestions.sql).
 export const courseSuggestions = pgTable("course_suggestions", {
   id: serial("id").primaryKey(),
@@ -206,3 +218,36 @@ export const courseSuggestions = pgTable("course_suggestions", {
   message: text("message").notNull(),
   createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
 });
+
+// Abroad & International student enquiries on /courses/abroad-students (see migrations/abroad-enquiries.sql).
+export const abroadEnquiries = pgTable("abroad_enquiries", {
+  id: serial("id").primaryKey(),
+  name: text("name").notNull(),
+  phone: varchar("phone", { length: 35 }).notNull(), // Contact No
+  email: text("email").notNull(),
+  country: text("country").notNull().default(""),
+  state: text("state").notNull().default(""),
+  city: text("city").default(""),
+  location: text("location").default(""),
+  course: text("course").notNull(),
+  createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+});
+
+// Center partnership & franchise applications on /centers/apply (see migrations/center-applications.sql)
+// Applications are reviewed directly by the Office of the Director (director@nifsindia.com).
+export const centerApplications = pgTable("center_applications", {
+  id: serial("id").primaryKey(),
+  name: text("name").notNull(),
+  phone: varchar("phone", { length: 35 }).notNull(),
+  email: text("email").notNull(),
+  city: text("city").notNull(),
+  state: text("state").notNull(),
+  profession: text("profession").notNull().default(""),
+  carpetArea: text("carpet_area").notNull().default(""),
+  investmentCapacity: text("investment_capacity").notNull().default(""),
+  timeline: text("timeline").notNull().default(""),
+  message: text("message").notNull().default(""),
+  status: varchar("status", { length: 20 }).notNull().default("new"),
+  createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+});
+

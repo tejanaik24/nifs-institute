@@ -1,6 +1,6 @@
-import { getPublishedPosts } from "@/lib/db/posts";
 import { centers } from "@/lib/data/centers";
 import { courses } from "@/lib/data/courses";
+import { getPublishedPosts } from "@/lib/db/posts";
 import type { MetadataRoute } from "next";
 import { slugifyCity } from "./(marketing)/centers/[city]/page";
 

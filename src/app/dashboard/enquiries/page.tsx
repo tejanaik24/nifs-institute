@@ -1,13 +1,53 @@
 import { desc } from "drizzle-orm";
 import { db } from "@/lib/db/client";
 import { enquiries } from "@/lib/db/schema";
+import { ExportButton } from "@/components/dashboard/export-button";
+
+const exportCols = [
+  { key: "name", label: "Candidate Name" },
+  { key: "phone", label: "Phone Number" },
+  { key: "course", label: "Course Requested" },
+  { key: "city", label: "City" },
+  { key: "state", label: "State" },
+  { key: "status", label: "Status" },
+  { key: "dateReceived", label: "Date Received" },
+];
 
 export default async function EnquiriesPage() {
   const rows = await db.select().from(enquiries).orderBy(desc(enquiries.createdAt)).limit(200);
 
+  // Pre-format data server-side — no functions cross the Server→Client boundary
+  const exportData = rows.map((row) => ({
+    name: row.name ?? "",
+    phone: row.phone ?? "",
+    course: row.course ?? "",
+    city: row.city ?? "",
+    state: row.state ?? "",
+    status: row.status || "Submitted",
+    dateReceived: row.createdAt
+      ? new Date(row.createdAt).toLocaleString("en-IN", { dateStyle: "medium", timeStyle: "short" })
+      : "",
+  }));
+
   return (
     <div>
-      <h1 className="mb-6 text-lg font-semibold">Callback Requests</h1>
+      <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <h1 className="text-xl font-bold tracking-tight text-[var(--dash-text)]">
+            Callback Requests &amp; Leads
+          </h1>
+          <p className="text-xs text-[var(--dash-text-muted)] mt-0.5">
+            {rows.length} student enquiries recorded
+          </p>
+        </div>
+        <ExportButton
+          data={exportData}
+          filename="nifs-callbacks"
+          columns={exportCols}
+          label="Export to Excel / CSV"
+        />
+      </div>
+
       {rows.length === 0 ? (
         <p className="text-sm text-[var(--dash-text-muted)]">No callback requests yet.</p>
       ) : (

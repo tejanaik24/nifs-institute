@@ -162,7 +162,22 @@ export function SiteFooter() {
               Door No. 47-10-15, 2nd Lane, Dwarakanagar, AG Avenue Building, 3rd
               Floor, Visakhapatnam (A.P.) – 530016
             </p>
-            <p className="mt-2 text-sm text-background/70">+91-8374-340-999</p>
+            <p className="mt-2 text-sm text-background/70">
+              <a
+                href="tel:+918374340999"
+                className="hover:text-background transition-colors"
+              >
+                +91-8374-340-999
+              </a>
+            </p>
+            <p className="mt-1 text-sm text-background/70">
+              <a
+                href="mailto:headoffice@nifsindia.com"
+                className="hover:text-background transition-colors"
+              >
+                headoffice@nifsindia.com
+              </a>
+            </p>
             <Link
               href="/admissions"
               className="mt-4 inline-block rounded-sm bg-primary px-4 py-2 text-sm font-medium text-primary-foreground"

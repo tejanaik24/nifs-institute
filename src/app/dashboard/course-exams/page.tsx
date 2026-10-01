@@ -2,8 +2,20 @@ import { desc, eq } from "drizzle-orm";
 import { db } from "@/lib/db/client";
 import { courseRegistrations as t, courseSuggestions } from "@/lib/db/schema";
 import { markCertificateSent } from "./actions";
+import { ExportButton } from "@/components/dashboard/export-button";
 
 const fmt = (d: Date | null) => (d ? d.toLocaleString("en-IN", { dateStyle: "medium", timeStyle: "short" }) : "—");
+
+const exportCols = [
+  { key: "name", label: "Candidate Name" },
+  { key: "phone", label: "Mobile" },
+  { key: "email", label: "Email" },
+  { key: "certificateId", label: "Certificate ID" },
+  { key: "examStatus", label: "Exam Status" },
+  { key: "score", label: "Score" },
+  { key: "certificateStatus", label: "Certificate Status" },
+  { key: "registeredDate", label: "Registered Date" },
+];
 
 export default async function CourseExamsPage() {
   const rows = await db.select().from(t).orderBy(desc(t.createdAt));
@@ -14,12 +26,37 @@ export default async function CourseExamsPage() {
     .orderBy(desc(courseSuggestions.createdAt));
   const waiting = rows.filter((r) => r.examSubmittedAt && !r.certificateSentAt).length;
 
+  // Pre-format data server-side — no functions cross the Server→Client boundary
+  const exportData = rows.map((r) => ({
+    name: r.name ?? "",
+    phone: r.phone ?? "",
+    email: r.email ?? "",
+    certificateId: `NIFS-ES-${String(r.id).padStart(5, "0")}`,
+    examStatus: r.examSubmittedAt ? "Completed" : r.examStartedAt ? "In Progress" : "Registered",
+    score: r.score != null ? `${r.score} / 20` : "",
+    certificateStatus: r.certificateSentAt ? `Sent on ${fmt(r.certificateSentAt)}` : "Pending Dispatch",
+    registeredDate: r.createdAt ? fmt(r.createdAt) : "",
+  }));
+
   return (
     <div>
-      <h1 className="text-lg font-semibold">Free Course Leads: Ergonomic Safety</h1>
-      <p className="mb-6 mt-1 text-sm text-[var(--dash-text-muted)]">
-        {rows.length} registered · {waiting} certificate{waiting === 1 ? "" : "s"} waiting to be sent (promised within 3 days of the exam)
-      </p>
+      <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <h1 className="text-xl font-bold tracking-tight text-[var(--dash-text)]">
+            Course Exams &amp; Certificates: Ergonomic Safety
+          </h1>
+          <p className="text-xs text-[var(--dash-text-muted)] mt-0.5">
+            {rows.length} registered candidates · <strong className="text-amber-700">{waiting} certificate{waiting === 1 ? "" : "s"} waiting to be dispatched</strong>
+          </p>
+        </div>
+        <ExportButton
+          data={exportData}
+          filename="nifs-course-certificates"
+          columns={exportCols}
+          label="Export to Excel / CSV"
+        />
+      </div>
+
       {rows.length === 0 ? (
         <p className="text-sm text-[var(--dash-text-muted)]">No registrations yet.</p>
       ) : (

@@ -108,4 +108,20 @@ export async function saveExamAnswers(id: number, answers: Record<string, number
   return row ?? null;
 }
 
+/** Resets the candidate's exam state to allow rewriting the exam. */
+export async function resetExam(row: Row): Promise<Row> {
+  const [reset] = await db
+    .update(t)
+    .set({
+      examStartedAt: null,
+      examSubmittedAt: null,
+      examSeed: null,
+      examAnswers: {},
+      score: null,
+    })
+    .where(eq(t.id, row.id))
+    .returning();
+  return reset ?? row;
+}
+
 export { EXAM_MS, answeredCount, deadline, TOTAL };

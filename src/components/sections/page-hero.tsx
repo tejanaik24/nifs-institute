@@ -2,10 +2,12 @@ export function PageHero({
   eyebrow,
   title,
   description,
+  children,
 }: {
   eyebrow: string;
   title: string;
   description?: string;
+  children?: React.ReactNode;
 }) {
   return (
     <section
@@ -24,7 +26,13 @@ export function PageHero({
             {description}
           </p>
         )}
+        {children && (
+          <div className="mt-8 flex items-center justify-center">
+            {children}
+          </div>
+        )}
       </div>
     </section>
   );
 }
+

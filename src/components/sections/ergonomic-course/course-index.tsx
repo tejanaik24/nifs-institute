@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { ArrowRight, Check, Download } from "lucide-react";
 import type { CourseState } from "@/lib/free-course/db";
-import { AssignmentForm } from "./assignment-form";
 import { ExamPanel } from "./exam";
 import { Upsell } from "./landing-sections";
 import { Reveal } from "./motion";
@@ -42,8 +41,8 @@ export function CourseIndex({ token, state, onState, onLogout }: { token: string
       setReadyLocal(localStorage.getItem("nifs-es-ready") === "1");
     } catch {}
   }, []);
-  // Anyone who already submitted the assignment or touched the exam is past the "ready" step.
-  const ready = readyLocal || state.assignmentDone || state.exam === "running" || state.exam === "done";
+  // Anyone who already touched the exam is past the "ready" step.
+  const ready = readyLocal || state.exam === "running" || state.exam === "done";
   const markDownloaded = () => { setDownloaded(true); try { localStorage.setItem("nifs-es-dl", "1"); } catch {} };
   const goReady = () => {
     setReadyLocal(true);
@@ -54,7 +53,6 @@ export function CourseIndex({ token, state, onState, onLogout }: { token: string
   const items = [
     { n: "01", t: "Study guide", d: downloaded ? "Downloaded" : "Download the PDF", href: "#pdf", done: downloaded },
     { n: "02", t: "Final exam", d: examLabel, href: ready ? "#exam" : "#pdf", done: state.exam === "done" },
-    { n: "03", t: "Assignment", d: state.assignmentDone ? "Submitted" : "10 marks", href: ready ? "#assignment" : "#pdf", done: state.assignmentDone },
   ];
   const doneCount = items.filter((i) => i.done).length;
 
@@ -80,8 +78,8 @@ export function CourseIndex({ token, state, onState, onLogout }: { token: string
 
           <div className="relative mt-10">
             <div className="absolute left-0 right-0 top-[27px] hidden h-px bg-[var(--es-line)] md:block" aria-hidden />
-            <div className="absolute left-0 top-[27px] hidden h-px bg-primary transition-[width] duration-700 md:block" style={{ width: `${(doneCount / 3) * 100}%` }} aria-hidden />
-            <ol className="relative grid gap-3 sm:grid-cols-2 md:grid-cols-3">
+            <div className="absolute left-0 top-[27px] hidden h-px bg-primary transition-[width] duration-700 md:block" style={{ width: `${(doneCount / 2) * 100}%` }} aria-hidden />
+            <ol className="relative grid gap-4 sm:grid-cols-2">
               {items.map((it) => (
                 <li key={it.n}>
                   <a href={it.href} className="group flex items-center gap-4 md:block">
@@ -114,7 +112,7 @@ export function CourseIndex({ token, state, onState, onLogout }: { token: string
           <Reveal>
             <span className={eyebrow}>Yours right now</span>
             <h2 className="font-display mt-3 text-4xl italic leading-[1.05] md:text-6xl">The NIFS Ergonomic Safety study guide</h2>
-            <p className="mt-4 max-w-lg text-lg text-muted-foreground">Every chapter, the posture diagram, the assignment questions and the exam regulations, in one printable PDF.</p>
+            <p className="mt-4 max-w-lg text-lg text-muted-foreground">Every chapter, the posture diagram and the exam regulations, in one printable PDF.</p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <a href={PDF_URL} download onClick={markDownloaded} className="inline-flex min-h-13 items-center gap-2 bg-primary px-8 py-3.5 text-base font-semibold text-primary-foreground transition-colors hover:bg-[var(--es-ink)]">
                 <Download className="h-4 w-4" aria-hidden /> Download PDF
@@ -154,15 +152,6 @@ export function CourseIndex({ token, state, onState, onLogout }: { token: string
           <p className="mb-10 mt-3 text-lg text-[var(--es-paper)]/70">After the exam your certificate is emailed to {state.email} within 3 days.</p>
           <ExamPanel token={token} state={state} onState={onState} />
         </div>
-      </section>
-
-      <section id="assignment" className="mx-auto max-w-3xl scroll-mt-32 px-6 py-16 lg:py-24">
-        <Reveal>
-          <span className={eyebrow}>Step 3 · any time</span>
-          <h2 className="font-display mt-3 text-4xl italic md:text-6xl">Assignment: 10 marks</h2>
-          <p className="mb-10 mt-3 text-lg text-muted-foreground">Answer both questions in your own words. You can submit it before or after the exam.</p>
-        </Reveal>
-        <AssignmentForm token={token} state={state} onState={onState} />
       </section>
         </>
       )}

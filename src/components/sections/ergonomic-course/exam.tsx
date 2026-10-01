@@ -57,6 +57,20 @@ export function ExamPanel({ token, state, onState }: { token: string; state: Cou
   const [phase, setPhase] = useState<"idle" | "instructions" | "running">(state.exam === "running" ? "running" : "idle");
   const [agreed, setAgreed] = useState(false);
   const [shown, setShown] = useState(0);
+  const [retaking, setRetaking] = useState(false);
+
+  const handleRetake = async () => {
+    if (retaking) return;
+    setRetaking(true);
+    try {
+      const res = await post("/exam/retake", { token });
+      if (res.ok && res.j?.state) {
+        onState(res.j.state);
+        setPhase("instructions");
+      }
+    } catch {}
+    setRetaking(false);
+  };
 
   useEffect(() => {
     if (state.exam !== "done") return;
@@ -78,7 +92,44 @@ export function ExamPanel({ token, state, onState }: { token: string; state: Cou
             <div><dt className="text-xs uppercase tracking-widest text-white/50">Candidate</dt><dd className="mt-1 font-medium">{state.name}</dd></div>
             <div><dt className="text-xs uppercase tracking-widest text-white/50">Roll no.</dt><dd className="mt-1 font-medium">{state.rollNo}</dd></div>
           </dl>
-          <p className="mt-5 text-[var(--es-paper)]/85">Your certificate will reach <strong>{state.email}</strong> within 3 days.</p>
+          <div className="mt-5 rounded border border-[#C5A059]/40 bg-[#FAF7F0]/10 p-4">
+            <p className="text-xs font-bold text-[#FFB800] uppercase tracking-wider flex items-center gap-1.5">
+              <span>🎓</span> Official Credential Verified &amp; Dispatched
+            </p>
+            <p className="mt-1 text-xs text-[var(--es-paper)]/90 leading-relaxed">
+              Your verified certificate will reach <strong>{state.email}</strong> within 3 days. This credential awards academic credits recognized for direct fast-track admission into NIFS Sanctioned Diplomas and B.Sc. Degree Programs.
+            </p>
+            <div className="mt-3 flex flex-wrap items-center gap-3">
+              <a
+                href="https://wa.me/918374340999?text=Hello%20NIFS%2C%20I%20have%20completed%20the%20Ergonomic%20Safety%20evaluation%20and%20want%20to%20apply%20for%20the%20Advance%20Diploma%20(ADIS)%20/%20B.Sc.%20Degree."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 bg-[#25D366] hover:bg-[#20ba59] text-black text-xs font-bold px-3.5 py-1.5 rounded transition-all shadow-sm"
+              >
+                <span>💬 Connect on WhatsApp for Admission</span>
+              </a>
+              <a
+                href="/courses/"
+                className="text-xs text-[var(--es-paper)]/80 hover:text-white underline underline-offset-4"
+              >
+                Explore Sanctioned Diplomas &rarr;
+              </a>
+            </div>
+          </div>
+          <div className="mt-6 flex flex-wrap items-center gap-4 border-t border-white/20 pt-5">
+            <button
+              type="button"
+              onClick={handleRetake}
+              disabled={retaking}
+              className="inline-flex min-h-12 items-center gap-2 bg-primary px-6 text-sm font-semibold text-primary-foreground transition-all hover:bg-white hover:text-[var(--es-ink)] disabled:opacity-50 cursor-pointer shadow-md"
+            >
+              <RotateCcw className={`h-4 w-4 ${retaking ? "animate-spin" : ""}`} />
+              <span>{retaking ? "Resetting exam..." : "Rewrite / Retake Exam"}</span>
+            </button>
+            <span className="text-xs text-[var(--es-paper)]/70">
+              Want to improve your score? You can retake the test anytime.
+            </span>
+          </div>
         </div>
         <div className="flex justify-center lg:justify-end"><CertificateCard name={state.name} /></div>
       </div>
