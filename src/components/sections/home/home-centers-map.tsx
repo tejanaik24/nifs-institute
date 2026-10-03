@@ -360,10 +360,11 @@ export default function HomeCentersMap() {
                       details: s.details,
                     })
                   }
-                  className="group absolute cursor-pointer focus:outline-none"
+                  aria-label={`View centers in ${s.name}`}
+                  className="group absolute cursor-pointer focus:outline-none -translate-x-1/2 -translate-y-1/2 flex items-center justify-center min-h-[44px] min-w-[44px] p-2 z-20"
                   style={{ left: s.left, top: s.top }}
                 >
-                  <div className="relative -translate-x-1/2 -translate-y-1/2">
+                  <div className="relative">
                     <span
                       className={`animate-ping absolute inset-0 inline-flex ${s.size} rounded-full bg-nifs-red opacity-75`}
                     />

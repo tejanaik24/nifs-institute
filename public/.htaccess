@@ -5,6 +5,7 @@
 
 RewriteEngine On
 
+RewriteCond %{HTTPS} off [OR]
 RewriteCond %{HTTP_HOST} ^www\.nifsindia\.net$ [NC]
 RewriteRule ^(.*)$ https://nifsindia.net/$1 [R=301,L]
 
@@ -178,10 +179,20 @@ RewriteRule ^pg-diploma-in-fire-safety-pg-dfs/?$ /courses/pg-diploma-in-fire-saf
 RewriteRule ^pg-diploma-in-health-safety-environment-pg-dhse/?$ /courses/pg-diploma-in-health-safety-environment-pg-dhse/ [R=301,L]
 RewriteRule ^b-sc-in-fire-industrial-safety/?$ /courses/b-sc-in-fire-industrial-safety/ [R=301,L]
 RewriteRule ^b-sc-honours-in-fire-industrial-safety/?$ /courses/b-sc-honours-in-fire-industrial-safety/ [R=301,L]
+RewriteRule ^diploma-in-industrial-safety-dis/?$ /courses/diploma-in-industrial-safety-dis/ [R=301,L]
+RewriteRule ^advance-diploma-in-quality-health-safety-environment-adqhse/?$ /courses/advance-diploma-in-quality-health-safety-environment-adqhse/ [R=301,L]
+RewriteRule ^certificate-course-in-chemical-safety/?$ /courses/certificate-course-in-chemical-safety/ [R=301,L]
+RewriteRule ^certificate-course-in-construction-safety/?$ /courses/certificate-course-in-construction-safety/ [R=301,L]
+RewriteRule ^industrial-safety-engineer-sbtet/?$ /courses/industrial-safety-engineer-sbtet/ [R=301,L]
 
 RewriteRule ^diploma-in-fire-safety-dfs/?$ /courses/diploma-in-fire-safety/ [R=301,L]
 RewriteRule ^certificate-course-in-fire-safety-ccfs/?$ /courses/certificate-course-in-fire-safety/ [R=301,L]
-RewriteRule ^sbtet-certificate-course-in-industrial-safety/?$ /courses/certificate-course-in-fire-safety/ [R=301,L]
+RewriteRule ^sbtet-certificate-course-in-industrial-safety/?$ /courses/industrial-safety-engineer-sbtet/ [R=301,L]
+RewriteRule ^advanced-diploma-in-industrial-safety/?$ /courses/advanced-diploma-in-industrial-safety-adis/ [R=301,L]
+RewriteRule ^adis-course/?$ /courses/advanced-diploma-in-industrial-safety-adis/ [R=301,L]
+RewriteRule ^diploma-in-industrial-safety/?$ /courses/diploma-in-industrial-safety-dis/ [R=301,L]
+RewriteRule ^advanced-diploma-in-fire-safety/?$ /courses/advanced-diploma-in-fire-safety-adfs/ [R=301,L]
+RewriteRule ^adfs-course/?$ /courses/advanced-diploma-in-fire-safety-adfs/ [R=301,L]
 
 RewriteRule ^gallery/infrastructure/?$ /gallery/?category=infrastructure [R=301,L]
 RewriteRule ^gallery/study-tours-gallery/?$ /gallery/?category=study-tours-gallery [R=301,L]
@@ -203,7 +214,7 @@ RewriteRule ^visakhapatnam/?$ /centers/visakhapatnam/ [R=301,L]
 
 RewriteRule ^nifs-[a-z-]+/?$ /centers/ [R=301,L]
 
-RewriteRule ^category/safety-officer-course/?$ /courses/ [R=301,L]
+RewriteRule ^category/safety-officer-course/?$ /courses/safety-officer-course/ [R=301,L]
 
 RewriteRule ^tag/.*$ /blog/ [R=301,L]
 RewriteRule ^category/.*$ /blog/ [R=301,L]

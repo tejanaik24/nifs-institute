@@ -106,21 +106,40 @@ export default async function CourseDetailPage({
 
           <div
             data-path-target="true"
-            className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4"
+            className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6"
           >
             {[
               { label: "Duration", value: course.duration },
               { label: "Eligibility", value: course.eligibility },
               { label: "Mode", value: course.mode },
               { label: "Tier", value: course.tier },
+              { label: "Fee Aid", value: "EMI & Assistance" },
+              { label: "Salary Scope", value: "₹3.0L – ₹4.8L/Yr" },
             ].map((f) => (
-              <div key={f.label} className="border border-border p-4">
-                <p className="text-xs uppercase tracking-widest text-muted-foreground">
+              <div key={f.label} className="border border-border p-3.5 rounded-sm bg-card">
+                <p className="text-[10px] uppercase tracking-widest text-muted-foreground font-semibold">
                   {f.label}
                 </p>
-                <p className="mt-1 text-sm font-medium">{f.value}</p>
+                <p className="mt-1 text-xs sm:text-sm font-bold text-foreground">{f.value}</p>
               </div>
             ))}
+          </div>
+
+          {/* Upfront Fee Transparency & Search Intent Resolution */}
+          <div className="mt-4 flex flex-wrap items-center justify-between gap-3 rounded-lg bg-primary/5 border border-primary/20 px-4 py-2.5 text-xs text-muted-foreground">
+            <span className="flex items-center gap-1.5 font-medium text-foreground">
+              <CheckCircle2 className="h-4 w-4 text-primary shrink-0" />
+              Transparent Govt-Approved Fee Structure with Flexible Installment / EMI options across all 70+ centers.
+            </span>
+            <a
+              href={`https://wa.me/918374340999?text=${encodeURIComponent(`Hi NIFS, I want to know the 2026 fee structure, installment plans, and syllabus for ${course.name}.`)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-bold text-primary hover:underline inline-flex items-center gap-1 shrink-0"
+            >
+              <span>Get Fee Brochure &amp; Syllabus PDF</span>
+              <span>&rarr;</span>
+            </a>
           </div>
 
           {/* Trust Badges Bar */}

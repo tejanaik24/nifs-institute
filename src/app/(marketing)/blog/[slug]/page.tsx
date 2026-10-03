@@ -23,6 +23,21 @@ import { Fragment } from "react";
 
 const FREE_COURSE_SIGNUP_MARKER = "<!--free-course-signup-->";
 
+// Canonical consolidation: Resolves keyword cannibalization where a blog post
+// competes against a high-converting core landing page on Google.
+const CANONICAL_OVERRIDES: Record<string, string> = {
+  "safety-officer-salary-in-india-2026-complete-guide":
+    "/safety-officer-salary-in-india/",
+  "safety-officer-salary-in-india-2026-comprehensive-guide":
+    "/safety-officer-salary-in-india/",
+  "a-complete-guide-on-fire-courses-at-nifs":
+    "/courses/diploma-in-fire-safety/",
+  "how-safety-officer-training-equips-you-for-high-demand-careers":
+    "/courses/safety-officer-course/",
+  "how-to-become-a-safety-officer-in-india-2026-guide":
+    "/how-to-become-a-safety-officer-in-india/",
+};
+
 // Blog posts are database-backed now (publish/unpublish takes effect
 // immediately) — no generateStaticParams here, this route renders on demand.
 
@@ -35,10 +50,13 @@ export async function generateMetadata({
   const row = await getPostBySlug(slug);
   const post = row ? toBlogPostView(row) : null;
   if (!post || !row) return {};
+
+  const canonicalPath = CANONICAL_OVERRIDES[slug] || `/blog/${slug}/`;
+
   return {
     title: row.seoTitle ? row.seoTitle : `${post.title} | NIFS India`,
     description: row.metaDescription || post.excerpt,
-    alternates: { canonical: `/blog/${slug}/` },
+    alternates: { canonical: canonicalPath },
   };
 }
 
@@ -146,6 +164,25 @@ export default async function BlogPostPage({
                 className="object-cover"
                 priority
               />
+            </div>
+          )}
+
+          {/* Canonical Consolidation Callout Banner */}
+          {CANONICAL_OVERRIDES[slug] && (
+            <div className="mt-6 rounded-xl border border-primary/30 bg-primary/5 p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-xs">
+              <div className="flex items-center gap-2.5 text-xs sm:text-sm font-semibold text-slate-800">
+                <ShieldCheck className="h-5 w-5 text-primary shrink-0" />
+                <span>
+                  Looking for the official 2026 admissions guide, syllabus &amp; fee structure?
+                </span>
+              </div>
+              <Link
+                href={CANONICAL_OVERRIDES[slug]}
+                className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-primary hover:underline shrink-0 bg-white px-3 py-1.5 rounded-lg border border-primary/20 shadow-xs"
+              >
+                <span>Visit Official Portal</span>
+                <span>&rarr;</span>
+              </Link>
             </div>
           )}
 

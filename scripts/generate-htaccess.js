@@ -20,6 +20,11 @@ const courses = [
   { slug: "pg-diploma-in-health-safety-environment-pg-dhse" },
   { slug: "b-sc-in-fire-industrial-safety" },
   { slug: "b-sc-honours-in-fire-industrial-safety" },
+  { slug: "diploma-in-industrial-safety-dis" },
+  { slug: "advance-diploma-in-quality-health-safety-environment-adqhse" },
+  { slug: "certificate-course-in-chemical-safety" },
+  { slug: "certificate-course-in-construction-safety" },
+  { slug: "industrial-safety-engineer-sbtet" },
 ];
 
 const lines = [];
@@ -33,8 +38,8 @@ lines.push("");
 lines.push("RewriteEngine On");
 lines.push("");
 
-// www -> apex (canonical domain is https://nifsindia.net per metadataBase in
-// src/app/layout.tsx). Must run first so it fires before any other rule.
+// Force HTTPS and www -> apex in a single 301 hop (canonical domain is https://nifsindia.net)
+lines.push("RewriteCond %{HTTPS} off [OR]");
 lines.push('RewriteCond %{HTTP_HOST} ^www\\.nifsindia\\.net$ [NC]');
 lines.push("RewriteRule ^(.*)$ https://nifsindia.net/$1 [R=301,L]");
 lines.push("");
@@ -64,7 +69,12 @@ lines.push("");
 const courseAliases = {
   "diploma-in-fire-safety-dfs": "diploma-in-fire-safety",
   "certificate-course-in-fire-safety-ccfs": "certificate-course-in-fire-safety",
-  "sbtet-certificate-course-in-industrial-safety": "certificate-course-in-fire-safety",
+  "sbtet-certificate-course-in-industrial-safety": "industrial-safety-engineer-sbtet",
+  "advanced-diploma-in-industrial-safety": "advanced-diploma-in-industrial-safety-adis",
+  "adis-course": "advanced-diploma-in-industrial-safety-adis",
+  "diploma-in-industrial-safety": "diploma-in-industrial-safety-dis",
+  "advanced-diploma-in-fire-safety": "advanced-diploma-in-fire-safety-adfs",
+  "adfs-course": "advanced-diploma-in-fire-safety-adfs",
 };
 for (const [oldSlug, newSlug] of Object.entries(courseAliases)) {
   lines.push(`RewriteRule ^${oldSlug}/?$ /courses/${newSlug}/ [R=301,L]`);
@@ -106,11 +116,8 @@ lines.push("");
 lines.push("RewriteRule ^nifs-[a-z-]+/?$ /centers/ [R=301,L]");
 lines.push("");
 
-// No dedicated "Safety Officer Course" page exists in courses.ts — send
-// this specific high-demand category to the course catalog instead of the
-// generic category->blog fallback below (several courses list "Safety
-// Officer" as a career outcome: ADFS, ADIS, B.Sc Hons).
-lines.push("RewriteRule ^category/safety-officer-course/?$ /courses/ [R=301,L]");
+// Old WordPress safety-officer-course archive -> dedicated 2026 course landing page
+lines.push("RewriteRule ^category/safety-officer-course/?$ /courses/safety-officer-course/ [R=301,L]");
 lines.push("");
 
 // Old WordPress taxonomy archives -> the current blog index

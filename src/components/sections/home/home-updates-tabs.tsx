@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 
 type TabName = "updates" | "events" | "jobs" | "industrial";
@@ -86,15 +87,38 @@ const TABS: { name: TabName; label: string; icon: React.ReactNode }[] = [
   },
 ];
 
-function Row({ dot, children }: { dot: string; children: React.ReactNode }) {
-  return (
+function Row({
+  dot,
+  href,
+  children,
+}: {
+  dot: string;
+  href?: string;
+  children: React.ReactNode;
+}) {
+  const content = (
     <div className="flex items-start gap-4 p-4 bg-white/5 hover:bg-white/10 transition-colors duration-200 rounded-[16px] cursor-pointer group">
       <span
         className={`w-2 h-2 rounded-full ${dot} mt-2 flex-shrink-0 group-hover:scale-125 transition-transform`}
       />
-      {children}
+      <div className="flex-1">{children}</div>
+      {href && (
+        <span className="text-white/40 group-hover:text-white group-hover:translate-x-1 transition-all text-xs font-semibold self-center shrink-0">
+          →
+        </span>
+      )}
     </div>
   );
+
+  if (href) {
+    return (
+      <Link href={href} className="block no-underline">
+        {content}
+      </Link>
+    );
+  }
+
+  return content;
 }
 
 export default function HomeUpdatesTabs() {
@@ -139,47 +163,50 @@ export default function HomeUpdatesTabs() {
 
             {tab === "updates" && (
               <div className="flex flex-col gap-4">
-                <Row dot="bg-nifs-red">
+                <Row dot="bg-nifs-red" href="/admissions">
                   <div>
                     <p className="font-sans text-white font-semibold text-[14px] leading-snug">
                       Admissions Open for Diploma / PG Diploma / Degree / PG and
                       International Courses 2026
                     </p>
                     <span className="font-sans text-slate-300 text-[12px] mt-1 block">
-                      Latest · Admissions
+                      Latest · Admissions · Apply Now
                     </span>
                   </div>
                 </Row>
-                <Row dot="bg-nifs-orange">
+                <Row dot="bg-nifs-orange" href="/courses">
                   <div>
                     <p className="font-sans text-white font-semibold text-[14px] leading-snug">
                       NIFS offering Certification in Defensive Driving Training
                       recognized by Govt of Andhra Pradesh
                     </p>
                     <span className="font-sans text-slate-300 text-[12px] mt-1 block">
-                      Certification · New Program
+                      Certification · New Program · View Courses
                     </span>
                   </div>
                 </Row>
-                <Row dot="bg-nifs-green">
+                <Row
+                  dot="bg-nifs-green"
+                  href="/blog/nifs-india-achieves-milestone-collaboration-with-acharya-nagarjuna-university/"
+                >
                   <div>
                     <p className="font-sans text-white font-semibold text-[14px] leading-snug">
                       NIFS India achieves Milestone Collaboration with Acharya
                       Nagarjuna University for advanced certifications
                     </p>
                     <span className="font-sans text-slate-300 text-[12px] mt-1 block">
-                      Partnership · July 2025
+                      Partnership · Statutory MoU · Read Announcement
                     </span>
                   </div>
                 </Row>
-                <Row dot="bg-nifs-red">
+                <Row dot="bg-nifs-red" href="/courses/online">
                   <div>
                     <p className="font-sans text-white font-semibold text-[14px] leading-snug">
                       NSDC-approved e-Learning programs now available for
                       working professionals across India
                     </p>
                     <span className="font-sans text-slate-300 text-[12px] mt-1 block">
-                      E-Learning · Online
+                      E-Learning · Online Courses · Explore Online
                     </span>
                   </div>
                 </Row>
@@ -196,7 +223,8 @@ export default function HomeUpdatesTabs() {
                     num: "text-nifs-red",
                     sub: "text-nifs-red/70",
                     title: "Campus Recruitment Drive — Adani, L&T, GMR Group",
-                    meta: "Visakhapatnam HQ · Open to all graduates",
+                    meta: "Visakhapatnam HQ · Open to all graduates · View Placements",
+                    href: "/placements",
                   },
                   {
                     day: "05",
@@ -206,7 +234,8 @@ export default function HomeUpdatesTabs() {
                     sub: "text-nifs-orange/70",
                     title:
                       "Industrial Fire Safety Awareness Seminar — Hyderabad Center",
-                    meta: "Hyderabad · Free Entry",
+                    meta: "Hyderabad · Free Entry · Visit Hyderabad Center",
+                    href: "/centers/hyderabad",
                   },
                   {
                     day: "15",
@@ -215,12 +244,14 @@ export default function HomeUpdatesTabs() {
                     num: "text-nifs-green",
                     sub: "text-nifs-green/70",
                     title: "NIFS Annual Convocation Ceremony — 2025 Batch",
-                    meta: "Vizag · Students & Parents Welcome",
+                    meta: "Vizag · Students & Parents Welcome · Visit Vizag HQ",
+                    href: "/centers/visakhapatnam",
                   },
                 ].map((e) => (
-                  <div
+                  <Link
                     key={e.title}
-                    className="flex items-start gap-4 p-4 bg-white/5 hover:bg-white/10 transition-colors duration-200 rounded-[16px] cursor-pointer group"
+                    href={e.href}
+                    className="flex items-start gap-4 p-4 bg-white/5 hover:bg-white/10 transition-colors duration-200 rounded-[16px] cursor-pointer group no-underline"
                   >
                     <div
                       className={`flex-shrink-0 flex flex-col items-center ${e.chip} rounded-[12px] px-3 py-2 min-w-[52px] text-center`}
@@ -236,7 +267,7 @@ export default function HomeUpdatesTabs() {
                         {e.mon}
                       </span>
                     </div>
-                    <div>
+                    <div className="flex-1">
                       <p className="font-sans text-white font-semibold text-[14px] leading-snug">
                         {e.title}
                       </p>
@@ -244,7 +275,10 @@ export default function HomeUpdatesTabs() {
                         {e.meta}
                       </span>
                     </div>
-                  </div>
+                    <span className="text-white/40 group-hover:text-white group-hover:translate-x-1 transition-all text-xs font-semibold self-center shrink-0">
+                      →
+                    </span>
+                  </Link>
                 ))}
               </div>
             )}
@@ -257,26 +291,30 @@ export default function HomeUpdatesTabs() {
                     badge: "Hiring",
                     badgeCls: "bg-nifs-green/20 text-nifs-green",
                     title: "Safety Officer — Adani Ports, Visakhapatnam",
-                    meta: "B.Sc / Diploma · 1-3 yrs exp",
+                    meta: "B.Sc / Diploma · 1-3 yrs exp · Apply via Placement Desk",
+                    href: "/placements",
                   },
                   {
                     dot: "bg-nifs-green",
                     badge: "Hiring",
                     badgeCls: "bg-nifs-green/20 text-nifs-green",
                     title: "Fire Safety Inspector — L&T Construction, Chennai",
-                    meta: "Diploma / PG Diploma · Fresher OK",
+                    meta: "Diploma / PG Diploma · Fresher OK · Apply via Placement Desk",
+                    href: "/placements",
                   },
                   {
                     dot: "bg-nifs-orange",
                     badge: "Urgent",
                     badgeCls: "bg-nifs-orange/20 text-nifs-orange",
                     title: "HSE Supervisor — GMR Group, Hyderabad Airport",
-                    meta: "Advanced Diploma · 2+ yrs exp",
+                    meta: "Advanced Diploma · 2+ yrs exp · Apply via Placement Desk",
+                    href: "/placements",
                   },
                 ].map((j) => (
-                  <div
+                  <Link
                     key={j.title}
-                    className="flex items-start gap-4 p-4 bg-white/5 hover:bg-white/10 transition-colors duration-200 rounded-[16px] cursor-pointer group"
+                    href={j.href}
+                    className="flex items-start gap-4 p-4 bg-white/5 hover:bg-white/10 transition-colors duration-200 rounded-[16px] cursor-pointer group no-underline"
                   >
                     <span
                       className={`w-2 h-2 rounded-full ${j.dot} mt-2 flex-shrink-0`}
@@ -296,43 +334,46 @@ export default function HomeUpdatesTabs() {
                         {j.meta}
                       </span>
                     </div>
-                  </div>
+                    <span className="text-white/40 group-hover:text-white group-hover:translate-x-1 transition-all text-xs font-semibold self-center shrink-0">
+                      →
+                    </span>
+                  </Link>
                 ))}
               </div>
             )}
 
             {tab === "industrial" && (
               <div className="flex flex-col gap-4">
-                <Row dot="bg-nifs-red">
+                <Row dot="bg-nifs-red" href="/industrial-services">
                   <div>
                     <p className="font-sans text-white font-semibold text-[14px] leading-snug">
                       Fire Safety Audit conducted at Nilkamal Manufacturing
                       Plant, Silvassa
                     </p>
                     <span className="font-sans text-slate-300 text-[12px] mt-1 block">
-                      Industrial Services · June 2025
+                      Industrial Services · Safety Audits · Explore Services
                     </span>
                   </div>
                 </Row>
-                <Row dot="bg-nifs-orange">
+                <Row dot="bg-nifs-orange" href="/industrial-services">
                   <div>
                     <p className="font-sans text-white font-semibold text-[14px] leading-snug">
                       Emergency Response Drill for MEIL Infrastructure sites
                       across 3 states
                     </p>
                     <span className="font-sans text-slate-300 text-[12px] mt-1 block">
-                      Industrial Services · May 2025
+                      Industrial Services · Drills &amp; Training · Explore Services
                     </span>
                   </div>
                 </Row>
-                <Row dot="bg-nifs-green">
+                <Row dot="bg-nifs-green" href="/industrial-services">
                   <div>
                     <p className="font-sans text-white font-semibold text-[14px] leading-snug">
                       Safety Compliance Assessment for Amazon Fulfillment
                       Center, Hyderabad — NIFS Certified
                     </p>
                     <span className="font-sans text-slate-300 text-[12px] mt-1 block">
-                      Compliance · April 2025
+                      Compliance · Corporate Training · Explore Services
                     </span>
                   </div>
                 </Row>

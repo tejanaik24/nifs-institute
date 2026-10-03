@@ -13,12 +13,12 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title:
-    "Safety Officer Salary in India 2026: Fresher to Manager Pay Scale | NIFS",
+    "Safety Officer Salary in India 2026: Per Month Pay Scale & Freshers Package | NIFS",
   description:
-    "2026 Safety Officer salary guide in India & Gulf. Starting fresher salary (₹25k–₹35k/mo), experienced EHS manager CTC (₹10L–₹25L/yr), city-wise & sector-wise pay scales.",
+    "2026 verified Safety Officer salary guide in India & Gulf. Starting fresher salary (₹25k–₹40k/mo), experienced EHS manager CTC (₹10L–₹25L/yr), state-wise pay scales & growth paths.",
   alternates: { canonical: "/safety-officer-salary-in-india/" },
   openGraph: {
-    title: "Safety Officer Salary in India 2026: Fresher to Manager Pay Scale",
+    title: "Safety Officer Salary in India 2026: Per Month Pay Scale & Freshers Package",
     description:
       "2026 verified salary benchmarks for Fire & Safety Officers in India & Gulf. Experience, qualification, city, and industry pay scales.",
     url: "https://nifsindia.net/safety-officer-salary-in-india/",

@@ -1,12 +1,14 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useInView } from "@/hooks/use-in-view";
 
 const COURSES = [
   {
     tag: "DFS",
+    slug: "diploma-in-fire-safety",
     title: "Diploma in Fire & Safety",
     duration: "1 Year • NSDC Approved",
     desc: "Fire Prevention & Emergency Response",
@@ -14,6 +16,7 @@ const COURSES = [
   },
   {
     tag: "DHSE",
+    slug: "diploma-in-health-safety-environment",
     title: "Diploma in HSE",
     duration: "1 Year • NSDC Approved",
     desc: "Health, Safety & Environment",
@@ -21,6 +24,7 @@ const COURSES = [
   },
   {
     tag: "DIS",
+    slug: "diploma-in-industrial-safety-dis",
     title: "Diploma in Industrial Safety",
     duration: "1 Year • NSDC Approved",
     desc: "Industrial Hygiene & Hazard Management",
@@ -28,6 +32,7 @@ const COURSES = [
   },
   {
     tag: "PGDFS",
+    slug: "pg-diploma-in-fire-safety-pg-dfs",
     title: "PG Diploma in Fire & Safety",
     duration: "1 Year • NSDC Approved",
     desc: "Advanced Fire Engineering",
@@ -35,6 +40,7 @@ const COURSES = [
   },
   {
     tag: "PGDHSE",
+    slug: "pg-diploma-in-health-safety-environment-pg-dhse",
     title: "PG Diploma in HSE",
     duration: "1 Year • NSDC Approved",
     desc: "Senior HSE Management",
@@ -42,6 +48,7 @@ const COURSES = [
   },
   {
     tag: "ADFS",
+    slug: "advanced-diploma-in-fire-safety-adfs",
     title: "Advanced Diploma in Fire & Safety",
     duration: "18 Months • NSDC Approved",
     desc: "Fire Risk Assessment & Safety Audits",
@@ -49,6 +56,7 @@ const COURSES = [
   },
   {
     tag: "B.Sc",
+    slug: "b-sc-in-fire-industrial-safety",
     title: "B.Sc in Fire & Industrial Safety",
     duration: "3 Years (6 Semesters) • University Approved",
     desc: "Full degree with internship training",
@@ -56,6 +64,7 @@ const COURSES = [
   },
   {
     tag: "B.Sc Hons",
+    slug: "b-sc-honours-in-fire-industrial-safety",
     title: "B.Sc (Honours) in Fire & Industrial Safety",
     duration: "4 Years (8 Semesters) • University Approved",
     desc: "4-year honours degree program",
@@ -63,6 +72,7 @@ const COURSES = [
   },
   {
     tag: "CCFS",
+    slug: "certificate-course-in-fire-safety",
     title: "Certificate Course in Fire & Safety",
     duration: "3-6 Months • NSDC Approved",
     desc: "Quick-entry safety certification",
@@ -228,7 +238,7 @@ export default function HomeCourses() {
           {COURSES.map((c) => (
             <div
               key={c.tag}
-              className="relative overflow-hidden rounded-[32px] p-6 flex flex-col min-h-[320px] justify-end group cursor-pointer shadow-xl border border-white/10 shrink-0 snap-start"
+              className="relative overflow-hidden rounded-[32px] p-6 flex flex-col min-h-[340px] justify-end group shadow-xl border border-white/10 shrink-0 snap-start"
               style={{ width: "85vw" }}
             >
               <Image
@@ -237,27 +247,50 @@ export default function HomeCourses() {
                 fill
                 loading="lazy"
                 sizes="85vw"
-                className="object-cover"
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-x-0 bottom-0 h-[60%] bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 h-[70%] bg-gradient-to-t from-black/95 via-black/55 to-transparent pointer-events-none" />
+
+              {/* Full-card link to course detail page */}
+              <Link
+                href={`/courses/${c.slug}`}
+                className="absolute inset-0 z-10"
+                aria-label={`View ${c.title} course details`}
+              />
+
+              <span className="font-sans text-xs font-bold uppercase tracking-wider text-nifs-red relative z-10 mb-1">
+                {c.tag}
+              </span>
               <h3 className="font-sans text-white text-[20px] font-bold relative z-10">
                 {c.title}
               </h3>
               <p className="text-white/70 text-[13px] relative z-10 mt-1">
                 {c.duration}
               </p>
-              <p className="text-white/80 text-[14px] relative z-10 mt-1">
+              <p className="text-white/80 text-[14px] relative z-10 mt-1 line-clamp-2">
                 {c.desc}
               </p>
-              <a
-                href={waHref(c.title)}
-                target="_blank"
-                rel="noopener"
-                aria-label={`Chat about this course — ${c.title}`}
-                className="text-emerald-400 text-[13px] font-semibold relative z-10 mt-3 inline-block hover:underline"
-              >
-                Chat about this course →
-              </a>
+
+              <div className="flex items-center justify-between gap-3 mt-4 relative z-20">
+                <Link
+                  href={`/courses/${c.slug}`}
+                  className="inline-flex items-center gap-1.5 text-white text-[13px] font-semibold bg-white/15 hover:bg-white/25 px-3.5 py-1.5 rounded-full transition-colors backdrop-blur-sm"
+                >
+                  <span>Syllabus</span>
+                  <span>→</span>
+                </Link>
+                <a
+                  href={waHref(c.title)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  aria-label={`Chat about this course — ${c.title}`}
+                  className="inline-flex items-center gap-1.5 text-emerald-300 text-[13px] font-semibold bg-emerald-950/80 border border-emerald-500/40 px-3.5 py-1.5 rounded-full hover:bg-emerald-900 transition-colors"
+                >
+                  <span>WhatsApp</span>
+                  <span>→</span>
+                </a>
+              </div>
             </div>
           ))}
         </div>
@@ -317,23 +350,32 @@ export default function HomeCourses() {
                     </span>
                   ))}
                 </p>
-                <a
-                  href={waHref(course.title)}
-                  target="_blank"
-                  rel="noopener"
-                  aria-label={`Chat about this course — ${course.title}`}
-                  className="inline-flex items-center gap-2 mt-6 text-emerald-400 font-sans font-semibold text-[15px] hover:underline"
-                >
-                  <svg
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
+                <div className="flex flex-wrap items-center gap-4 mt-6">
+                  <Link
+                    href={`/courses/${course.slug}`}
+                    className="inline-flex items-center gap-2 rounded-full bg-nifs-red hover:bg-nifs-red/90 text-white font-sans font-semibold text-[14px] px-5 py-2.5 shadow-md shadow-nifs-red/20 transition-all duration-200"
                   >
-                    <path d="M17.6 6.32A8.86 8.86 0 0 0 12.05 4c-4.86 0-8.82 3.96-8.82 8.82 0 1.56.4 3.08 1.18 4.42L3.2 22l4.9-1.28a8.82 8.82 0 0 0 3.94.93h.01c4.86 0 8.82-3.96 8.82-8.82 0-2.36-.92-4.57-2.6-6.24l-.05-.27zm-5.55 13.58h-.01a7.3 7.3 0 0 1-3.73-1.02l-.27-.16-2.77.73.74-2.7-.18-.28a7.36 7.36 0 0 1-1.13-3.93c0-4.06 3.31-7.37 7.38-7.37a7.34 7.34 0 0 1 5.22 2.17 7.32 7.32 0 0 1 2.16 5.21c0 4.06-3.31 7.35-7.41 7.35zm4.04-5.52c-.22-.11-1.31-.65-1.51-.72-.2-.07-.35-.11-.5.11-.15.22-.57.72-.7.87-.13.15-.26.16-.48.05-.22-.11-.94-.35-1.79-1.11a6.7 6.7 0 0 1-1.24-1.55c-.13-.22-.01-.34.1-.45.1-.1.22-.26.33-.39.11-.13.15-.22.22-.37.07-.15.04-.28-.02-.39-.06-.11-.5-1.21-.69-1.66-.18-.43-.36-.37-.5-.38h-.42c-.15 0-.39.05-.59.28-.2.22-.78.76-.78 1.86s.8 2.16.91 2.31c.11.15 1.57 2.4 3.8 3.36.53.23.94.36 1.27.47.53.17 1.01.14 1.4.09.43-.06 1.31-.53 1.5-1.05.18-.51.18-.95.13-1.04-.05-.09-.2-.15-.42-.26z" />
-                  </svg>
-                  Chat about this course
-                </a>
+                    <span>View Syllabus &amp; Fees</span>
+                    <span>→</span>
+                  </Link>
+                  <a
+                    href={waHref(course.title)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Chat about this course — ${course.title}`}
+                    className="inline-flex items-center gap-2 text-emerald-400 font-sans font-semibold text-[14px] hover:underline"
+                  >
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path d="M17.6 6.32A8.86 8.86 0 0 0 12.05 4c-4.86 0-8.82 3.96-8.82 8.82 0 1.56.4 3.08 1.18 4.42L3.2 22l4.9-1.28a8.82 8.82 0 0 0 3.94.93h.01c4.86 0 8.82-3.96 8.82-8.82 0-2.36-.92-4.57-2.6-6.24l-.05-.27zm-5.55 13.58h-.01a7.3 7.3 0 0 1-3.73-1.02l-.27-.16-2.77.73.74-2.7-.18-.28a7.36 7.36 0 0 1-1.13-3.93c0-4.06 3.31-7.37 7.38-7.37a7.34 7.34 0 0 1 5.22 2.17 7.32 7.32 0 0 1 2.16 5.21c0 4.06-3.31 7.35-7.41 7.35zm4.04-5.52c-.22-.11-1.31-.65-1.51-.72-.2-.07-.35-.11-.5.11-.15.22-.57.72-.7.87-.13.15-.26.16-.48.05-.22-.11-.94-.35-1.79-1.11a6.7 6.7 0 0 1-1.24-1.55c-.13-.22-.01-.34.1-.45.1-.1.22-.26.33-.39.11-.13.15-.22.22-.37.07-.15.04-.28-.02-.39-.06-.11-.5-1.21-.69-1.66-.18-.43-.36-.37-.5-.38h-.42c-.15 0-.39.05-.59.28-.2.22-.78.76-.78 1.86s.8 2.16.91 2.31c.11.15 1.57 2.4 3.8 3.36.53.23.94.36 1.27.47.53.17 1.01.14 1.4.09.43-.06 1.31-.53 1.5-1.05.18-.51.18-.95.13-1.04-.05-.09-.2-.15-.42-.26z" />
+                    </svg>
+                    <span>Chat on WhatsApp</span>
+                  </a>
+                </div>
               </div>
               <div className="flex gap-6 pt-12">
                 <button
