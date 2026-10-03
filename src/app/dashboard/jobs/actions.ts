@@ -13,6 +13,7 @@ import {
 } from "@/lib/db/jobs";
 import { uploadJobPoster, uploadCompanyLogo } from "@/lib/storage/images";
 import { getAllCompanyLogos, createCompanyLogo } from "@/lib/db/company-logos";
+import { jobUrl, notifySearchEngines } from "@/lib/seo/notify-search";
 
 export async function uploadJobPosterAction(
   formData: FormData
@@ -135,6 +136,7 @@ export async function saveJobAction(
     revalidatePath("/dashboard/jobs");
     if (updated) {
       revalidatePath(`/placements/jobs/${updated.slug}`);
+      if (publish) await notifySearchEngines(jobUrl(updated.slug));
     }
     return { success: true, id, redirectUrl: "/dashboard/jobs" };
   } else {
@@ -158,6 +160,7 @@ export async function saveJobAction(
     });
     revalidatePath("/placements");
     revalidatePath("/dashboard/jobs");
+    if (publish) await notifySearchEngines(jobUrl(created.slug));
     return { success: true, id: created.id, redirectUrl: "/dashboard/jobs" };
   }
 }
@@ -170,9 +173,13 @@ export async function closeJobAction(id: number) {
   if (session.role !== "admin") {
     throw new Error("Unauthorized: Only administrators can close job postings.");
   }
-  await closeJob(id);
+  const closed = await closeJob(id);
   revalidatePath("/placements");
   revalidatePath("/dashboard/jobs");
+  if (closed) {
+    revalidatePath(`/placements/jobs/${closed.slug}`);
+    await notifySearchEngines(jobUrl(closed.slug));
+  }
   redirect("/dashboard/jobs");
 }
 
@@ -184,9 +191,13 @@ export async function publishJobByIdAction(id: number) {
   if (session.role !== "admin") {
     throw new Error("Unauthorized: Only administrators can publish job postings.");
   }
-  await publishJob(id);
+  const published = await publishJob(id);
   revalidatePath("/placements");
   revalidatePath("/dashboard/jobs");
+  if (published) {
+    revalidatePath(`/placements/jobs/${published.slug}`);
+    await notifySearchEngines(jobUrl(published.slug));
+  }
   redirect("/dashboard/jobs");
 }
 

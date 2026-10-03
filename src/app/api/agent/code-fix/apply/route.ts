@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { commitWorktree } from "@/lib/agent/worktree";
+import { assertAuthorizedWorktreeAccess, commitWorktree } from "@/lib/agent/worktree";
 
 export async function POST(request: Request) {
   const { worktreePath, branch } = await request.json();
@@ -8,6 +8,7 @@ export async function POST(request: Request) {
   }
 
   try {
+    await assertAuthorizedWorktreeAccess(worktreePath);
     await commitWorktree(worktreePath, `Agent fix (${branch})`);
     return NextResponse.json({ committed: true, branch });
   } catch (e) {

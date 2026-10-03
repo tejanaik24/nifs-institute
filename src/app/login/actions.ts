@@ -19,6 +19,10 @@ export async function login(_prevState: string | null, formData: FormData) {
     return "Dashboard isn't fully connected yet — database setup is still in progress.";
   }
 
+  if (!user) {
+    return "Wrong username or password.";
+  }
+
   const withMidSpace =
     password.length === 10 ? password.slice(0, 5) + " " + password.slice(5) : password;
   const noSpace = password.replace(/\s+/g, "");
@@ -29,7 +33,7 @@ export async function login(_prevState: string | null, formData: FormData) {
     (await verifyPassword(noSpace, user.passwordHash)) ||
     (await verifyPassword(withMidSpace, user.passwordHash));
 
-  if (!user || !isValidPassword) {
+  if (!isValidPassword) {
     return "Wrong username or password.";
   }
 

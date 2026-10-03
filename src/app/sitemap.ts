@@ -1,10 +1,13 @@
 import { centers } from "@/lib/data/centers";
 import { courses } from "@/lib/data/courses";
+import { getOpenJobs } from "@/lib/db/jobs";
 import { getPublishedPosts } from "@/lib/db/posts";
 import type { MetadataRoute } from "next";
 import { slugifyCity } from "./(marketing)/centers/[city]/page";
 
-export const dynamic = "force-static";
+// Hourly refresh (not force-static) so a newly published job shows up in the
+// sitemap without waiting for the next deploy.
+export const revalidate = 3600;
 
 const baseUrl = "https://nifsindia.net";
 
@@ -26,6 +29,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${baseUrl}/blog/`, changeFrequency: "daily", priority: 0.8 },
     {
       url: `${baseUrl}/courses/ergonomic-safety/`,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/courses/online/`,
       changeFrequency: "weekly",
       priority: 0.8,
     },
@@ -86,5 +94,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }));
 
-  return [...staticPages, ...centerRoutes, ...courseRoutes, ...blogRoutes];
+  // Only open jobs: closed drives stay live for users but aren't pushed to crawlers.
+  const jobRoutes = (await getOpenJobs()).map((job) => ({
+    url: `${baseUrl}/placements/jobs/${job.slug}/`,
+    lastModified: job.updatedAt ?? job.createdAt,
+    changeFrequency: "daily" as const,
+    priority: 0.8,
+  }));
+
+  return [
+    ...staticPages,
+    ...centerRoutes,
+    ...courseRoutes,
+    ...blogRoutes,
+    ...jobRoutes,
+  ];
 }

@@ -22,9 +22,14 @@ vi.mock("@/lib/storage/images", () => ({
   uploadJobPoster: vi.fn(),
   uploadCompanyLogo: vi.fn(),
 }));
+vi.mock("@/lib/seo/notify-search", () => ({
+  jobUrl: (slug: string) => `https://nifsindia.net/placements/jobs/${slug}/`,
+  notifySearchEngines: vi.fn(),
+}));
 
 import { getSession } from "@/lib/auth/session";
 import { closeJob, publishJob } from "@/lib/db/jobs";
+import { notifySearchEngines } from "@/lib/seo/notify-search";
 import {
   addCompanyLogoAction,
   closeJobAction,
@@ -61,6 +66,18 @@ describe("job dashboard action auth guards", () => {
     vi.mocked(getSession).mockResolvedValue(null);
     await expect(publishJobByIdAction(1)).rejects.toThrow("NEXT_REDIRECT");
     expect(publishJob).not.toHaveBeenCalled();
+  });
+
+  it("tells search engines when an admin publishes or closes a job", async () => {
+    vi.mocked(getSession).mockResolvedValue({ userId: 1, role: "admin" } as any);
+    vi.mocked(publishJob).mockResolvedValue({ slug: "acme-1" } as any);
+    vi.mocked(closeJob).mockResolvedValue({ slug: "acme-1" } as any);
+    await expect(publishJobByIdAction(1)).rejects.toThrow("NEXT_REDIRECT");
+    await expect(closeJobAction(1)).rejects.toThrow("NEXT_REDIRECT");
+    expect(notifySearchEngines).toHaveBeenCalledTimes(2);
+    expect(notifySearchEngines).toHaveBeenCalledWith(
+      "https://nifsindia.net/placements/jobs/acme-1/",
+    );
   });
 
   it("proceeds with an authenticated upload", async () => {

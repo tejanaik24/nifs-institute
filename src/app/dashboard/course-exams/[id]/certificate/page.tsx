@@ -63,10 +63,7 @@ export default async function CertificatePage({ params }: { params: Promise<{ id
       `}</style>
       <CertificateToolbar
         id={r.id}
-        name={r.name}
         email={r.email}
-        certNo={certNo}
-        date={date}
         initialSentAt={r.certificateSentAt}
       />
 

@@ -2,72 +2,56 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Check, Mail, Printer, RefreshCw } from "lucide-react";
+import { AlertTriangle, Check, Mail, Printer, RefreshCw } from "lucide-react";
 import { sendCertificateEmailAction } from "../../actions";
 
 interface CertificateToolbarProps {
   id: number;
-  name: string;
   email: string;
-  certNo: string;
-  date: string;
   initialSentAt?: Date | null;
 }
 
 export function CertificateToolbar({
   id,
-  name,
   email,
-  certNo,
-  date,
   initialSentAt,
 }: CertificateToolbarProps) {
   const [sentAt, setSentAt] = useState<string | null>(
     initialSentAt ? initialSentAt.toISOString() : null
   );
   const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleSend = async () => {
     if (sending) return;
     setSending(true);
+    setError(null);
 
-    const mailSubject = encodeURIComponent(
-      `Official Certificate of Completion: Occupational Ergonomic Safety (${certNo}) - NIFS India`
-    );
-    const mailBody = encodeURIComponent(
-      `Dear ${name},\n\n` +
-      `Congratulations on successfully completing the executive credential program in Occupational Ergonomic Safety (NIFS-ES) conducted by the National Institute of Fire & Safety (NIFS India).\n\n` +
-      `YOUR OFFICIAL CREDENTIAL DETAILS:\n` +
-      `• Candidate Name: ${name.toUpperCase()}\n` +
-      `• Certificate ID: ${certNo}\n` +
-      `• Issue Date: ${date}\n` +
-      `• Verification Status: Verified & Tamper-Evident\n` +
-      `• Verification Portal: https://www.nifsindia.net\n\n` +
-      `ACADEMIC CREDIT PATHWAY & DIRECT ADMISSION:\n` +
-      `This certified qualification officially awards Continuing Professional Development (CPD) credits, recognized towards prior learning assessment and direct fast-track admission into NIFS Sanctioned Programs:\n` +
-      `1. Advance Diploma in Industrial Safety (ADIS) — 1 Year Sanctioned Program\n` +
-      `2. B.Sc. in Fire & Industrial Safety — 4 Years Sanctioned Program\n\n` +
-      `To claim your credit transfer and discuss direct admissions with placement assistance, please connect with our admissions team:\n` +
-      `• Phone / WhatsApp: +91 8374 340 999\n` +
-      `• Email: headoffice@nifsindia.com\n` +
-      `• Course Portal: https://www.nifsindia.net/courses/\n\n` +
-      `Warm regards,\n` +
-      `Controller of Academics & Examination Board\n` +
-      `National Institute of Fire & Safety (NIFS India)\n` +
-      `Govt. Recognized • Estd. 2004`
-    );
-
-    // Open default mail client with pre-composed professional letter
-    window.location.href = `mailto:${email}?subject=${mailSubject}&body=${mailBody}`;
-
-    // Mark as sent in database
     try {
-      const res = await sendCertificateEmailAction(id);
+      const certEl = document.querySelector(".cert") as HTMLElement | null;
+      let pdfBase64: string | undefined;
+      if (certEl) {
+        const [{ default: html2canvas }, { default: jsPDF }] = await Promise.all([
+          // html2canvas-pro, not html2canvas — vanilla html2canvas can't parse
+          // the lab()/oklch() colors Tailwind v4 generates and throws instead
+          // of rendering (confirmed by an actual failed capture, not a guess).
+          import("html2canvas-pro"),
+          import("jspdf"),
+        ]);
+        const canvas = await html2canvas(certEl, { scale: 2, useCORS: true });
+        const pdf = new jsPDF({ orientation: "landscape", unit: "mm", format: "a4" });
+        pdf.addImage(canvas.toDataURL("image/jpeg", 0.92), "JPEG", 0, 0, 297, 210);
+        pdfBase64 = pdf.output("datauristring").split(",")[1];
+      }
+
+      const res = await sendCertificateEmailAction(id, pdfBase64);
       if (res.ok && res.sentAt) {
         setSentAt(res.sentAt);
+      } else {
+        setError(res.error ?? "Failed to send — try again.");
       }
-    } catch (err) {
-      console.error("Failed to mark certificate sent:", err);
+    } catch {
+      setError("Failed to send — try again.");
     } finally {
       setSending(false);
     }
@@ -114,7 +98,7 @@ export function CertificateToolbar({
           )}
           <span>
             {sending
-              ? "Opening Mail..."
+              ? "Sending..."
               : sentAt
               ? "Send Email Again"
               : `Send to ${email}`}
@@ -124,14 +108,19 @@ export function CertificateToolbar({
 
       {/* Status Right */}
       <div className="flex items-center gap-4 text-xs">
-        {sentAt ? (
+        {error ? (
+          <div className="inline-flex items-center gap-1.5 bg-red-50 text-red-800 border border-red-300 px-3 py-1.5 rounded-full font-medium">
+            <AlertTriangle className="h-3.5 w-3.5 text-red-600" />
+            <span>{error}</span>
+          </div>
+        ) : sentAt ? (
           <div className="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-800 border border-emerald-300 px-3 py-1.5 rounded-full font-medium">
             <Check className="h-3.5 w-3.5 text-emerald-600" />
-            <span>Marked as Sent ({formattedSentDate})</span>
+            <span>Sent ({formattedSentDate})</span>
           </div>
         ) : (
           <span className="text-stone-500 font-medium">
-            Status: <strong className="text-amber-700">Not marked as sent yet</strong>
+            Status: <strong className="text-amber-700">Not sent yet</strong>
           </span>
         )}
 
