@@ -55,7 +55,7 @@ const PARTNERSHIP_PILLARS = [
   {
     icon: Briefcase,
     title: "Central Placement Network",
-    desc: "Your candidates gain direct entry into centralized campus drives with 45,000+ placed alumni across L&T, Adani, Tata Steel, Reliance, and Gulf EPCs.",
+    desc: "Your candidates gain direct entry into centralized campus drives with 45,000+ placed alumni across L&T, Adani, Tata Steel, Reliance, and leading EPC contractors.",
     tag: "45k+ Placed",
     iconBoxClass: "border-emerald-500/30 bg-emerald-500/15 text-emerald-400 shadow-sm shadow-emerald-500/15",
     tagClass: "border-emerald-500/30 bg-emerald-500/10 text-emerald-300",

@@ -101,3 +101,8 @@ Premium website rebuild for NIFS India — fire & industrial safety training ins
    - `curl -s https://nifsindia.net/ | grep -o "..."` for any specific text/class you just changed, to confirm it's actually in the served HTML (not just built locally).
 4. **Memory Logging:** Update this file's "What's Done"/"What's Pending" sections after every session.
 
+
+
+## Session 2026-10-03
+- Done: safety-engineer blog live (posts id 819); sitemap now includes open jobs + /courses/online/; job publish/close pings Google Indexing API + IndexNow (src/lib/seo/notify-search.ts); llms.txt lists free course + jobs; security fixes + Resend certificate email deployed.
+- Pending: weekly job posts + WhatsApp channel; job schema hiringOrganization.sameAs; Course schema on /courses/online/; interlink blogs to jobs/free course; legacy NEBOSH/IOSH blogs; staff session revocation; live certificate-email test; recheck GSC 'safety engineer course' ~2026-10-17.

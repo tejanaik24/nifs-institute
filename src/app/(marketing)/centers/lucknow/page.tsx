@@ -30,7 +30,7 @@ export const LUCKNOW_FAQS = [
   {
     question: "Which industries hire safety officers near Lucknow?",
     answer:
-      "Graduates from NIFS Lucknow are hired across Heavy electrical manufacturing, UPSIDC industrial areas, thermal power projects, and engineering fabrication corridors, including recruiters such as Tata Motors, BHEL Haridwar / Jhansi, NTPC Unchahar, and Gulf EPC projects.",
+      "Graduates from NIFS Lucknow are hired across Heavy electrical manufacturing, UPSIDC industrial areas, thermal power projects, and engineering fabrication corridors, including recruiters such as Tata Motors, BHEL Haridwar / Jhansi, NTPC Unchahar, and major infrastructure projects.",
   },
   {
     question: "What is the fee for Fire and Safety courses at NIFS in Lucknow?",
@@ -43,26 +43,26 @@ export const LUCKNOW_FAQS = [
       "Eligibility varies by course level: Certificate and Diploma in Fire & Safety (DFS) require a minimum 10th or 10+2 (Intermediate in any stream) or ITI. Advanced Diplomas (ADIS/ADFS) and PG Diplomas require a Polytechnic Diploma or Graduate Degree (B.Sc, B.Com, B.A, B.Tech/B.E).",
   },
   {
-    question: "Does NIFS provide placement assistance in Lucknow and Gulf countries?",
+    question: "Does NIFS provide placement assistance in Lucknow?",
     answer:
-      "Yes. NIFS provides 100% placement assistance with over 45,000 placed alumni working across India and the Gulf (UAE, Saudi Arabia, Qatar, Oman). Recruiter partners include L&T, Adani, Tata Projects, and multinational EPC contractors.",
+      "Yes. NIFS provides placement assistance with over 45,000 placed alumni working across India. Recruiter partners include L&T, Adani, Tata Projects, and leading industrial employers.",
   },
   {
     question: "Are NIFS certifications recognized by the Government and industry?",
     answer:
-      "Yes. NIFS courses are approved by NSDC (National Skill Development Corporation) and Skill India, certified under ISO 9001:2015, with academic university affiliations including Acharya Nagarjuna University (ANU). Certificates are officially accepted across private corporations, PSUs, and international Gulf recruitment agencies.",
+      "Yes. NIFS courses are approved by NSDC (National Skill Development Corporation) and Skill India, certified under ISO 9001:2015, with academic university affiliations including Acharya Nagarjuna University (ANU). Certificates are officially accepted across private corporations, PSUs, and international industrial compliance standards.",
   },
 ];
 
 export const metadata: Metadata = {
   title: "Fire and Safety Course in Lucknow | Govt Approved NIFS Campus",
   description:
-    "Join Lucknow's top-rated Fire & Safety Officer training institute. NSDC approved 1-Year Diploma (DFS, ADIS), live practical training yard drills, and 100% placement support in Uttar Pradesh.",
+    "Join Lucknow's top-rated Fire & Safety Officer training institute. NSDC approved 1-Year Diploma (DFS, ADIS), live practical training yard drills, and placement support in Uttar Pradesh.",
   alternates: { canonical: "/centers/lucknow/" },
   openGraph: {
     title: "Fire & Safety Officer Course in Lucknow | NIFS Institute",
     description:
-      "Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Lucknow, Uttar Pradesh. Live practical training and 100% placement support.",
+      "Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Lucknow, Uttar Pradesh. Live practical training and placement support.",
     url: PAGE_URL,
     siteName: "NIFS India",
     locale: "en_IN",

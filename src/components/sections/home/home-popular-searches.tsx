@@ -16,7 +16,7 @@ const TAGS: { label: string; href: string; active?: boolean }[] = [
   { label: "Industrial Safety Course Near Me", href: "/courses" },
   { label: "Best Fire And Safety Institute Near Me", href: "/courses" },
   { label: "Fire Engineering Course Near Me", href: "/courses" },
-  { label: "Most Trusted Fire And Safety Institute", href: "/about" },
+  { label: "Fire And Safety Training Institute", href: "/about" },
   { label: "Top 10 Fire And Safety Institute", href: "/courses" },
   { label: "Government Approved Fire And Safety Course", href: "/courses" },
   { label: "No. 1 Fire And Safety College In India", href: "/courses" },

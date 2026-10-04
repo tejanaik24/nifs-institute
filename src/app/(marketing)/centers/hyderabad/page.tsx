@@ -45,26 +45,26 @@ export const HYDERABAD_FAQS = [
       "Eligibility varies by course level: Certificate and Diploma in Fire & Safety (DFS) require a minimum 10th or 10+2 (Intermediate in any stream: MPC, BiPC, CEC, MEC) or ITI. Advanced Diplomas (ADIS/ADFS) and PG Diplomas require a Polytechnic Diploma or Graduate Degree (B.Sc, B.Com, B.A, B.Tech/B.E). Fresh graduates from all streams are eligible.",
   },
   {
-    question: "Does NIFS provide 100% placement assistance in Hyderabad and Gulf countries?",
+    question: "Does NIFS provide placement assistance in Hyderabad?",
     answer:
-      "Yes. NIFS provides dedicated placement assistance with over 45,000 placed alumni working across India and the Gulf (UAE, Saudi Arabia, Qatar, Oman). Recruiter partners include L&T, Adani, ITC, Hetero Drugs, Dr. Reddy's, Amazon, and MEIL. Placement drives and interviews are organized regularly at our regional centers.",
+      "Yes. NIFS provides dedicated placement assistance with over 45,000 placed alumni working across India. Recruiter partners include L&T, Adani, ITC, Hetero Drugs, Dr. Reddy's, Amazon, and MEIL. Placement drives and interviews are organized regularly at our regional centers.",
   },
   {
     question: "Are NIFS Hyderabad certifications recognized by the Government and industry?",
     answer:
-      "Yes. NIFS courses are approved by NSDC (National Skill Development Corporation) and Skill India, certified under ISO 9001:2015, with academic university affiliations including Acharya Nagarjuna University (ANU). Certificates are officially accepted across private corporations, public sector undertakings (PSUs), and international Gulf recruitment agencies.",
+      "Yes. NIFS courses are approved by NSDC (National Skill Development Corporation) and Skill India, certified under ISO 9001:2015, with academic university affiliations including Acharya Nagarjuna University (ANU). Certificates are officially accepted across private corporations, public sector undertakings (PSUs), and international industrial compliance standards.",
   },
 ];
 
 export const metadata: Metadata = {
   title: "Fire and Safety Course in Hyderabad | Govt Approved NIFS Ameerpet",
   description:
-    "Join Hyderabad's #1 rated Fire & Safety Officer training institute in Ameerpet. NSDC approved 1-Year Diploma (DFS, ADIS), live practical yard drills, and 100% placement support in Pharma & Gulf.",
+    "Join Hyderabad's #1 rated Fire & Safety Officer training institute in Ameerpet. NSDC approved 1-Year Diploma (DFS, ADIS), live practical yard drills, and placement support in Pharma & Industrial Safety.",
   alternates: { canonical: "/centers/hyderabad/" },
   openGraph: {
     title: "Fire & Safety Officer Course in Hyderabad | NIFS Institute Ameerpet",
     description:
-      "Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Ameerpet, Hyderabad. 45,000+ placements with L&T, Dr. Reddy's, Hetero, and Gulf employers.",
+      "Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Ameerpet, Hyderabad. 45,000+ placements with L&T, Dr. Reddy's, Hetero, and leading industrial employers.",
     url: PAGE_URL,
     siteName: "NIFS India",
     locale: "en_IN",

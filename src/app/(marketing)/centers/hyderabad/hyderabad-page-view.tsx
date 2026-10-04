@@ -6,8 +6,7 @@ import type { Course } from "@/lib/data/courses";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   ArrowRight,
-  Award,
-  Calendar,
+    Calendar,
   CheckCircle2,
   ChevronDown,
   ChevronRight,
@@ -18,10 +17,9 @@ import {
   MapPin,
   Navigation,
   Phone,
-  Sliders,
+  TrendingUp,
   Star,
   Train,
-  Zap,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -65,7 +63,7 @@ const PRACTICAL_YARD_PHOTOS = [
     title: "Chemical Foam Fire Attack",
     subtitle: "Class B solvent & volatile fuel blaze suppression",
     src: "/images/gallery/practical-training-yard/practical-training-yard-16.webp",
-    tag: "Pharma Hazmat",
+    tag: "Chemical Safety",
     stat: "Multi-Fuel Pits",
   },
   {
@@ -87,52 +85,7 @@ const PRACTICAL_YARD_PHOTOS = [
 const centerGallery = getCenterGallery("hyderabad");
 
 // Visual Placement Cards
-const PLACEMENT_PROOFS = [
-  {
-    name: "K. Sai Praneeth",
-    company: "Dr. Reddy's Laboratories",
-    role: "Junior EHS Officer",
-    pkg: "₹6.2 LPA",
-    course: "ADIS (1-Year)",
-    badge: "Pharma SEZ",
-    image:
-      centerGallery.placementPhotos[0]?.src ||
-      "/images/placements/students/student-01.webp",
-  },
-  {
-    name: "Mohammed Irfan",
-    company: "L&T Construction",
-    role: "Site Safety Supervisor",
-    pkg: "₹5.4 LPA",
-    course: "Diploma in Fire Safety",
-    badge: "Metro Project",
-    image:
-      centerGallery.placementPhotos[1]?.src ||
-      "/images/placements/students/student-02.webp",
-  },
-  {
-    name: "B. Venkatesh Goud",
-    company: "Petrofac (UAE)",
-    role: "Offshore Safety Engineer",
-    pkg: "₹18.5 LPA",
-    course: "PG Diploma in HSE",
-    badge: "Gulf Placed",
-    image:
-      centerGallery.placementPhotos[2]?.src ||
-      "/images/placements/students/student-03.webp",
-  },
-  {
-    name: "T. Rajesh Kumar",
-    company: "Hetero Drugs",
-    role: "EHS Plant Trainee",
-    pkg: "₹4.8 LPA",
-    course: "DFS 2025 Batch",
-    badge: "Chemical SEZ",
-    image:
-      centerGallery.placementPhotos[3]?.src ||
-      "/images/placements/students/student-04.webp",
-  },
-];
+
 
 // Qualification Matcher
 const QUALIFICATIONS = [
@@ -141,7 +94,6 @@ const QUALIFICATIONS = [
     label: "10th / 12th Pass",
     course: "Diploma in Fire & Safety (DFS)",
     duration: "1 Year",
-    pkg: "₹3.5 L – ₹4.8 L / yr",
     slug: "diploma-in-fire-safety",
     highlights: [
       "NSDC & Skill India Approved",
@@ -153,7 +105,6 @@ const QUALIFICATIONS = [
     label: "Any Graduate (B.Sc/B.Com/B.A)",
     course: "Advanced Diploma in Industrial Safety (ADIS)",
     duration: "12 Months",
-    pkg: "₹5.5 L – ₹8.5 L / yr",
     slug: "advanced-diploma-in-industrial-safety-adis",
     highlights: [
       "Factories Act Statutory Qualification",
@@ -165,10 +116,8 @@ const QUALIFICATIONS = [
     label: "B.Tech / Diploma",
     course: "PG Diploma in HSE (PG DHSE)",
     duration: "1 Year",
-    pkg: "₹6.5 L – ₹12.0 L / yr",
     slug: "pg-diploma-in-health-safety-environment-pg-dhse",
     highlights: [
-      "Gulf Petrochemical & Oil/Gas Eligibility",
       "ISO 45001 Auditor Training",
     ],
   },
@@ -177,7 +126,6 @@ const QUALIFICATIONS = [
     label: "Working Professional",
     course: "PG Diploma in Fire Safety (Hybrid)",
     duration: "Weekend Batch",
-    pkg: "₹14.0 L – ₹22.0 L / yr (Gulf)",
     slug: "pg-diploma-in-fire-safety-pg-dfs",
     highlights: [
       "Flexible Hybrid Sessions",
@@ -196,26 +144,13 @@ export function HyderabadPageView({
   const [selectedQualification, setSelectedQualification] = useState(
     QUALIFICATIONS[0].id,
   );
-  const [experienceYears, setExperienceYears] = useState<number>(2);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   const matched =
     QUALIFICATIONS.find((q) => q.id === selectedQualification) ||
     QUALIFICATIONS[0];
 
-  // Dynamic Salary Calculations based on Experience Slider
-  const hydSalaryMin = (3.2 + experienceYears * 1.4).toFixed(1);
-  const hydSalaryMax = (4.5 + experienceYears * 1.8).toFixed(1);
-  const gulfSalaryMin = (8.5 + experienceYears * 2.8).toFixed(1);
-  const gulfSalaryMax = (12.0 + experienceYears * 3.4).toFixed(1);
-
-  const getRoleByExperience = (years: number) => {
-    if (years <= 1) return "Site Safety Supervisor / Trainee";
-    if (years <= 4) return "Industrial Safety Officer (EHS)";
-    if (years <= 7) return "Senior Plant Safety Engineer";
-    return "Chief EHS Manager / International HSE Lead";
-  };
-
+  
   return (
     <article className="min-h-screen bg-white text-slate-900 selection:bg-primary/20">
       {/* =========================================================================
@@ -237,7 +172,7 @@ export function HyderabadPageView({
 
               {/* Unique Dynamic Headline */}
               <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.08]">
-                Hyderabad&apos;s Most Trusted{" "}
+Hyderabad 
                 <span className="font-serif italic font-normal text-primary">
                   Fire &amp; Industrial Safety
                 </span>{" "}
@@ -246,9 +181,7 @@ export function HyderabadPageView({
 
               {/* Concise Authority Subtitle */}
               <p className="text-base sm:text-lg text-slate-600 max-w-xl leading-relaxed font-medium">
-                Government-approved NSDC safety certifications with Asia&apos;s
-                dedicated practical fire training yard drills and 100% placement
-                track record in Telangana.
+                Government-approved NSDC safety certifications with NIFS practical fire training yard drills and placement track record in Telangana.
               </p>
 
               {/* Micro-Features Row */}
@@ -349,7 +282,7 @@ export function HyderabadPageView({
                       Ground Training Excellence
                     </p>
                     <h3 className="text-base font-bold">
-                      Asia&apos;s Dedicated Fire &amp; Hazmat Training Yard
+                      Practical Training at NIFS
                     </h3>
                   </div>
                 </div>
@@ -378,11 +311,11 @@ export function HyderabadPageView({
                         <Calendar className="h-4 w-4" />
                       </div>
                       <p className="text-xs font-bold text-amber-900 leading-tight">
-                        Next Batch: 15th Sept
+                        Upcoming Batches
                       </p>
                     </div>
                     <p className="text-[11px] font-semibold text-amber-800 mt-2">
-                      8 Seats Left for Ameerpet Center
+                      Call for current batch dates
                     </p>
                   </div>
                 </div>
@@ -419,7 +352,7 @@ export function HyderabadPageView({
           </p>
         </div>
 
-        <div className="flex w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,black_10%,black_90%,transparent_100%)]">
+        <div className="flex w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,black_10%,black_90%,transparent)]">
           <div className="flex shrink-0 items-center gap-8 animate-marquee py-2">
             {[...RECRUITER_LOGOS, ...RECRUITER_LOGOS].map((recruiter, idx) => (
               <div
@@ -448,11 +381,14 @@ export function HyderabadPageView({
           <div className="space-y-2">
             <span className="text-xs font-bold uppercase tracking-widest text-primary flex items-center gap-1.5">
               <Flame className="h-4 w-4" />
-              <span>Real Industrial Training Ground</span>
+              <span>PHOTOS FROM NIFS TRAINING PROGRAMS</span>
             </span>
             <h2 className="font-display text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
-              Asia&apos;s Dedicated Fire &amp; Hazmat Training Yard
+              Practical Training at NIFS
             </h2>
+            <p className="mt-2 text-sm text-slate-600">
+              Representative photos from NIFS training programs across India. Not specific to this center.
+            </p>
           </div>
           <Link
             href="/gallery/practical-training-yard"
@@ -500,191 +436,42 @@ export function HyderabadPageView({
       </section>
 
       {/* =========================================================================
-          4. PLACEMENT PROOF CARDS (Real Salaries & Recruiter Badges)
-         ========================================================================= */}
-      <section className="border-t border-slate-200/80 bg-slate-50/50 py-20 lg:py-24">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <div className="text-center max-w-2xl mx-auto space-y-3 mb-14">
-            <span className="text-xs font-bold uppercase tracking-widest text-primary flex items-center justify-center gap-1.5">
-              <Award className="h-4 w-4" />
-              <span>Placement Outcomes</span>
-            </span>
-            <h2 className="font-display text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
-              Recent Placements from NIFS Hyderabad
-            </h2>
-            <p className="text-sm text-slate-600">
-              Verified campus selections across Fortune 500 manufacturing,
-              Hyderabad pharma SEZs, and Gulf projects.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {PLACEMENT_PROOFS.map((proof, idx) => (
-              <div
-                key={idx}
-                className="rounded-3xl border border-slate-200 bg-white overflow-hidden shadow-md hover:shadow-2xl hover:border-primary/40 transition-all duration-300 flex flex-col justify-between"
-              >
-                {/* Photo Header */}
-                <div className="relative h-48 w-full bg-slate-900">
-                  <Image
-                    src={proof.image}
-                    alt={proof.name}
-                    fill
-                    className="object-cover object-center"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                  <div className="absolute top-3 right-3 bg-black/70 backdrop-blur-md text-white text-[10px] font-bold px-2.5 py-1 rounded-full border border-white/20">
-                    {proof.badge}
-                  </div>
-                  <div className="absolute bottom-3 left-4 text-white">
-                    <p className="font-bold text-base">{proof.name}</p>
-                    <p className="text-xs text-slate-300">{proof.course}</p>
-                  </div>
-                </div>
-
-                {/* Offer Details */}
-                <div className="p-5 space-y-3">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-[10px] uppercase font-bold text-slate-500">
-                        Company
-                      </p>
-                      <p className="text-xs font-bold text-slate-900">
-                        {proof.company}
-                      </p>
-                    </div>
-                    <div className="text-right">
-                      <p className="text-[10px] uppercase font-bold text-slate-500">
-                        Package
-                      </p>
-                      <p className="text-base font-mono font-black text-[#25D366]">
-                        {proof.pkg}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-primary font-semibold">
-                    <span>{proof.role}</span>
-                    <CheckCircle2 className="h-4 w-4 text-[#25D366]" />
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================================
           5. DYNAMIC INTERACTIVE SALARY ROI SLIDER
          ========================================================================= */}
-      <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-24">
-        <div className="rounded-3xl border border-slate-200 bg-gradient-to-br from-white via-slate-50 to-red-50/20 p-8 sm:p-12 shadow-xl relative overflow-hidden">
+            {/* 5. VERIFIED PLACEMENT COMPENSATION RECORDS */}
+      <section className="mx-auto max-w-7xl px-6 py-16 lg:px-10 lg:py-20">
+        <div className="rounded-3xl border border-slate-200 bg-gradient-to-br from-white via-slate-50 to-slate-100/50 p-8 sm:p-12 shadow-xl relative overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            {/* Left: Interactive Slider Control */}
-            <div className="lg:col-span-6 space-y-6">
+            <div className="lg:col-span-7 space-y-4">
               <div className="space-y-2">
                 <span className="text-xs font-bold uppercase tracking-widest text-primary flex items-center gap-1.5">
-                  <Sliders className="h-4 w-4" />
-                  <span>Dynamic Career ROI Calculator</span>
+                  <TrendingUp className="h-4 w-4" />
+                  <span>Documented Placement Records</span>
                 </span>
-                <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-slate-900">
-                  Estimate Your EHS Salary Growth
+                <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-slate-900">
+                  Placement Compensation at NIFS
                 </h2>
-                <p className="text-sm text-slate-600">
-                  Drag the experience slider to see live compensation
-                  projections in Hyderabad vs. Gulf countries.
+                <p className="text-base text-slate-700 leading-relaxed font-medium">NIFS placement records show packages from <span className="font-bold text-slate-900">₹1.2 L to ₹8.2 L</span> per year (based on 90 recorded placements).</p>
+                <p className="text-xs text-slate-500 leading-relaxed pt-1">
+                  Figures reflect documented institutional placement records across Indian industrial sectors including manufacturing, construction, energy, and infrastructure. Individual compensation depends on academic qualification, technical role, prior experience, and recruiting employer standards.
                 </p>
-              </div>
-
-              {/* Slider Component */}
-              <div className="space-y-3 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
-                <div className="flex justify-between items-center">
-                  <span className="text-xs font-bold uppercase tracking-wider text-slate-700">
-                    Experience Level
-                  </span>
-                  <span className="text-base font-mono font-bold text-primary bg-primary/10 px-3 py-0.5 rounded-full border border-primary/20">
-                    {experienceYears} {experienceYears === 1 ? "Year" : "Years"}
-                  </span>
-                </div>
-
-                <input
-                  type="range"
-                  min="0"
-                  max="10"
-                  step="1"
-                  value={experienceYears}
-                  onChange={(e) => setExperienceYears(Number(e.target.value))}
-                  className="w-full h-2.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-primary"
-                />
-
-                <div className="flex justify-between text-[10px] font-bold text-slate-500">
-                  <span>Fresher (0 Yrs)</span>
-                  <span>Mid Level (5 Yrs)</span>
-                  <span>Senior Lead (10+ Yrs)</span>
-                </div>
-              </div>
-
-              {/* Current Role Indicator */}
-              <div className="rounded-2xl border border-slate-200 bg-white p-4 flex items-center gap-3 shadow-sm">
-                <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
-                  <Zap className="h-5 w-5" />
-                </div>
-                <div>
-                  <p className="text-[11px] text-slate-500 font-bold uppercase">
-                    Expected Job Title
-                  </p>
-                  <p className="text-sm font-bold text-slate-900">
-                    {getRoleByExperience(experienceYears)}
-                  </p>
-                </div>
               </div>
             </div>
-
-            {/* Right: Live Dynamic Salary Cards */}
-            <div className="lg:col-span-6 space-y-4">
-              {/* Hyderabad Salary Card */}
-              <div className="rounded-2xl border border-slate-200 bg-white p-6 space-y-2 shadow-md">
+            <div className="lg:col-span-5 flex flex-col justify-center space-y-4">
+              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-md space-y-3">
                 <div className="flex justify-between items-center">
                   <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
-                    Hyderabad Package (INR)
+                    Recorded Annual Package
                   </span>
                   <span className="text-[11px] font-bold text-primary bg-primary/10 px-2.5 py-0.5 rounded-full">
-                    Telangana Pharma &amp; IT
+                    Verified Records
                   </span>
                 </div>
-                <p className="font-display text-3xl sm:text-4xl font-extrabold text-slate-900">
-                  ₹{hydSalaryMin} L – ₹{hydSalaryMax} L{" "}
-                  <span className="text-sm font-normal text-slate-500">
-                    / year
-                  </span>
-                </p>
+                <p className="font-display text-3xl sm:text-4xl font-extrabold text-slate-900">₹1.2 L – ₹8.2 L <span className="text-sm font-normal text-slate-500">/ year</span></p>
                 <p className="text-xs text-slate-500">
-                  Includes statutory allowances, EHS bonuses, and PF compliance.
+                  Based on 90 documented alumni records across India.
                 </p>
               </div>
-
-              {/* Gulf Salary Card (Tax Free) */}
-              <div className="rounded-2xl border border-[#25D366]/40 bg-emerald-50/50 p-6 space-y-2 shadow-md">
-                <div className="flex justify-between items-center">
-                  <span className="text-xs font-bold uppercase tracking-wider text-emerald-800">
-                    Gulf Package (Tax-Free INR Equivalent)
-                  </span>
-                  <span className="text-[11px] font-bold text-emerald-700 bg-emerald-100 px-2.5 py-0.5 rounded-full border border-emerald-200">
-                    UAE / Saudi / Qatar
-                  </span>
-                </div>
-                <p className="font-display text-3xl sm:text-4xl font-extrabold text-emerald-700">
-                  ₹{gulfSalaryMin} L – ₹{gulfSalaryMax} L{" "}
-                  <span className="text-sm font-normal text-slate-600">
-                    / year (Tax-Free)
-                  </span>
-                </p>
-                <p className="text-xs text-slate-600">
-                  Includes free company accommodation, medical coverage, and
-                  annual flights.
-                </p>
-              </div>
-
               <a
                 href={WHATSAPP_URL}
                 target="_blank"
@@ -764,12 +551,6 @@ export function HyderabadPageView({
                     <span className="text-slate-500">Duration:</span>
                     <span className="text-slate-900 font-bold">
                       {matched.duration}
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-1.5 bg-slate-100 px-4 py-2 rounded-xl border border-slate-200">
-                    <span className="text-slate-500">Salary Potential:</span>
-                    <span className="text-[#25D366] font-mono font-bold">
-                      {matched.pkg}
                     </span>
                   </div>
                 </div>
@@ -875,8 +656,6 @@ export function HyderabadPageView({
                 <iframe
                   title="NIFS Hyderabad Ameerpet Center Map"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.634629471556!2d78.44562517591782!3d17.43750000160751!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb90c5f2122ef7%3A0x6b6c1674db81d609!2sAmeerpet%2C%20Hyderabad%2C%20Telangana%20500016!5e0!3m2!1sen!2sin!4v1725140000000!5m2!1sen!2sin"
-                  width="100%"
-                  height="100%"
                   style={{ border: 0 }}
                   allowFullScreen={true}
                   loading="lazy"
@@ -961,7 +740,7 @@ export function HyderabadPageView({
       <section className="border-t border-slate-200 bg-primary text-white py-20 lg:py-24 relative overflow-hidden">
         <div className="mx-auto max-w-5xl px-6 text-center space-y-6 lg:px-10 relative z-10">
           <div className="inline-flex items-center gap-2 rounded-full bg-black/20 border border-white/20 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white backdrop-blur-md">
-            Limited Seats Available for 2026 Hyderabad Batch
+            Admissions Open for 2026 Hyderabad Batch
           </div>
 
           <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white max-w-4xl mx-auto leading-tight">
@@ -970,8 +749,7 @@ export function HyderabadPageView({
 
           <p className="text-sm sm:text-base text-white/90 max-w-xl mx-auto">
             Visit our Ameerpet campus or speak directly with our senior
-            counseling experts to get course guidance, fee concessions, and
-            immediate seat booking.
+            counseling experts to get course guidance, fee details, and admission guidance.
           </p>
 
           <div className="pt-4 flex flex-wrap items-center justify-center gap-4">

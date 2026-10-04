@@ -43,9 +43,9 @@ export const SURAT_FAQS = [
       "Eligibility varies by course level: Certificate and Diploma in Fire & Safety (DFS) require a minimum 10th or 10+2 (Intermediate in any stream: MPC, BiPC, CEC, MEC) or ITI. Advanced Diplomas (ADIS/ADFS) and PG Diplomas require a Polytechnic Diploma or Graduate Degree (B.Sc, B.Com, B.A, B.Tech/B.E). Fresh graduates from all streams are eligible.",
   },
   {
-    question: "Does NIFS provide 100% placement assistance in Surat and Gulf countries?",
+    question: "Does NIFS provide placement assistance in Surat?",
     answer:
-      "Yes. NIFS provides dedicated placement assistance with over 45,000 placed alumni working across India and the Gulf (UAE, Saudi Arabia, Qatar, Oman). Recruiter partners include Reliance, L&T, Adani, ITC, and Hazira petrochemical employers. Placement drives and interviews are organized regularly at our regional centers.",
+      "Yes. NIFS provides dedicated placement assistance with over 45,000 placed alumni working across India. Recruiter partners include Reliance, L&T, Adani, ITC, and Hazira petrochemical employers. Placement drives and interviews are organized regularly at our regional centers.",
   },
   {
     question: "Are NIFS diplomas accepted by Gujarat factory inspectorates?",
@@ -57,12 +57,12 @@ export const SURAT_FAQS = [
 export const metadata: Metadata = {
   title: "Fire and Safety Course in Surat | Govt Approved NIFS Gauravpath",
   description:
-    "Join Surat's premier Fire & Safety Officer training institute in Gauravpath. NSDC approved 1-Year Diploma (DFS, ADIS), live practical yard drills, and 100% placement support in Textile & Petrochemical.",
+    "Join Surat's premier Fire & Safety Officer training institute in Gauravpath. NSDC approved 1-Year Diploma (DFS, ADIS), live practical yard drills, and placement support in Textile & Petrochemical.",
   alternates: { canonical: "/centers/surat/" },
   openGraph: {
     title: "Fire & Safety Officer Course in Surat | NIFS Institute Gauravpath",
     description:
-      "Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Surat. 45,000+ placements with Reliance, L&T, and Gulf employers.",
+      "Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Surat. 45,000+ placements with Reliance, L&T, and leading industrial employers.",
     url: PAGE_URL,
     siteName: "NIFS India",
     locale: "en_IN",

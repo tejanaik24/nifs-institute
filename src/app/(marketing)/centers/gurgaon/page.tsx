@@ -43,26 +43,26 @@ export const GURGAON_FAQS = [
       "Eligibility varies by course level: Certificate and Diploma in Fire & Safety (DFS) require a minimum 10th or 10+2 (Intermediate in any stream: MPC, BiPC, CEC, MEC) or ITI. Advanced Diplomas (ADIS/ADFS) and PG Diplomas require a Polytechnic Diploma or Graduate Degree (B.Sc, B.Com, B.A, B.Tech/B.E). Fresh graduates from all streams are eligible.",
   },
   {
-    question: "Does NIFS provide 100% placement assistance in Gurgaon and Gulf countries?",
+    question: "Does NIFS provide placement assistance in Gurgaon?",
     answer:
-      "Yes. NIFS provides dedicated placement assistance with over 45,000 placed alumni working across India and the Gulf (UAE, Saudi Arabia, Qatar, Oman). Recruiter partners include L&T, Adani, Maruti Suzuki, Hero MotoCorp, and Bosch. Placement drives and interviews are organized regularly at our regional centers.",
+      "Yes. NIFS provides dedicated placement assistance with over 45,000 placed alumni working across India. Recruiter partners include L&T, Adani, Maruti Suzuki, Hero MotoCorp, and Bosch. Placement drives and interviews are organized regularly at our regional centers.",
   },
   {
     question: "Are NIFS certifications recognized by the Government and industry?",
     answer:
-      "Yes. NIFS courses are approved by NSDC (National Skill Development Corporation) and Skill India, certified under ISO 9001:2015, with academic university affiliations including Acharya Nagarjuna University (ANU). Certificates are officially accepted across private corporations, public sector undertakings (PSUs), and international Gulf recruitment agencies.",
+      "Yes. NIFS courses are approved by NSDC (National Skill Development Corporation) and Skill India, certified under ISO 9001:2015, with academic university affiliations including Acharya Nagarjuna University (ANU). Certificates are officially accepted across private corporations, public sector undertakings (PSUs), and international industrial compliance standards.",
   },
 ];
 
 export const metadata: Metadata = {
   title: "Fire and Safety Course in Gurgaon | Govt Approved NIFS Ashok Vihar",
   description:
-    "Join Gurgaon's top-rated Fire & Safety Officer training institute in Ashok Vihar. NSDC approved 1-Year Diploma (DFS, ADIS), live practical yard drills, and 100% placement support in Auto & Manufacturing.",
+    "Join Gurgaon's top-rated Fire & Safety Officer training institute in Ashok Vihar. NSDC approved 1-Year Diploma (DFS, ADIS), live practical yard drills, and placement support in Auto & Manufacturing.",
   alternates: { canonical: "/centers/gurgaon/" },
   openGraph: {
     title: "Fire & Safety Officer Course in Gurgaon | NIFS Institute Ashok Vihar",
     description:
-      "Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Gurgaon. 45,000+ placements with Maruti Suzuki, Hero MotoCorp, and Gulf employers.",
+      "Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Gurgaon. 45,000+ placements with Maruti Suzuki, Hero MotoCorp, and leading industrial employers.",
     url: PAGE_URL,
     siteName: "NIFS India",
     locale: "en_IN",

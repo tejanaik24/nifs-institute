@@ -15,7 +15,7 @@ export default function HomeApplyCta() {
         alumni.
       </p>
       <p className="font-sans text-white font-semibold text-[16px] mb-8">
-        Limited seats available for August 2026 intake
+        Admissions open for August 2026 intake
       </p>
       <div className="flex gap-4 max-sm:flex-col max-sm:w-full max-sm:items-center">
         <a

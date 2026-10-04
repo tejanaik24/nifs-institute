@@ -50,21 +50,21 @@ export const LAKSHMINAGAR_FAQS = [
       "The 1-Year Diploma in Fire & Safety (DFS) and the Advanced Diploma in Industrial Safety (ADIS) are both well-suited for factory safety roles in Patparganj and Jhilmil industrial areas.",
   },
   {
-    question: "Does NIFS provide 100% placement assistance in Delhi NCR?",
+    question: "Does NIFS provide placement assistance in Delhi NCR?",
     answer:
-      "Yes. NIFS provides dedicated placement assistance with over 45,000 placed alumni working across India and the Gulf. Recruiter partners include L&T, Adani, ITC, and major Delhi NCR industrial employers. Placement drives and interviews are organized regularly at our regional centers.",
+      "Yes. NIFS provides dedicated placement assistance with over 45,000 placed alumni working across India. Recruiter partners include L&T, Adani, ITC, and major Delhi NCR industrial employers. Placement drives and interviews are organized regularly at our regional centers.",
   },
 ];
 
 export const metadata: Metadata = {
   title: "Fire and Safety Course in Laxmi Nagar Delhi East | Govt Approved NIFS",
   description:
-    "Join East Delhi's premier Fire & Safety Officer training institute near Laxminagar Metro. NSDC approved 1-Year Diploma (DFS, ADIS), live practical yard drills, and 100% placement support.",
+    "Join East Delhi's premier Fire & Safety Officer training institute near Laxminagar Metro. NSDC approved 1-Year Diploma (DFS, ADIS), live practical yard drills, and placement support.",
   alternates: { canonical: "/centers/lakshminagar-delhi-east/" },
   openGraph: {
     title: "Fire & Safety Officer Course in Laxmi Nagar Delhi East | NIFS Institute",
     description:
-      "Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Laxmi Nagar, East Delhi. 45,000+ placements with L&T, Adani, and Gulf employers.",
+      "Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Laxmi Nagar, East Delhi. 45,000+ placements with L&T, Adani, and leading industrial employers.",
     url: PAGE_URL,
     siteName: "NIFS India",
     locale: "en_IN",

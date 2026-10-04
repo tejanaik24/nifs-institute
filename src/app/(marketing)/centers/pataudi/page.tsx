@@ -49,21 +49,21 @@ export const PATAUDI_FAQS = [
       "NIFS Pataudi offers the 1-Year Diploma in Fire & Safety (DFS), Advanced Diploma in Industrial Safety (ADIS), and certificate programs with placement assistance.",
   },
   {
-    question: "Does NIFS provide 100% placement assistance in Gurgaon district?",
+    question: "Does NIFS provide placement assistance in Gurgaon district?",
     answer:
-      "Yes. NIFS provides dedicated placement assistance with over 45,000 placed alumni working across India and the Gulf. Recruiter partners include L&T, Adani, Maruti Suzuki, and Hero MotoCorp. Placement drives and interviews are organized regularly at our regional centers.",
+      "Yes. NIFS provides dedicated placement assistance with over 45,000 placed alumni working across India. Recruiter partners include L&T, Adani, Maruti Suzuki, and Hero MotoCorp. Placement drives and interviews are organized regularly at our regional centers.",
   },
 ];
 
 export const metadata: Metadata = {
   title: "Fire and Safety Course in Pataudi Haryana | Govt Approved NIFS",
   description:
-    "Join Pataudi's premier Fire & Safety Officer training center on Palam-Gurgaon Road. NSDC approved 1-Year Diploma (DFS, ADIS), live practical yard drills, and 100% placement support.",
+    "Join Pataudi's premier Fire & Safety Officer training center on Palam-Gurgaon Road. NSDC approved 1-Year Diploma (DFS, ADIS), live practical yard drills, and placement support.",
   alternates: { canonical: "/centers/pataudi/" },
   openGraph: {
     title: "Fire & Safety Officer Course in Pataudi Haryana | NIFS Institute",
     description:
-      "Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Pataudi, Gurgaon district. 45,000+ placements with L&T, Maruti Suzuki, and Gulf employers.",
+      "Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Pataudi, Gurgaon district. 45,000+ placements with L&T, Maruti Suzuki, and leading industrial employers.",
     url: PAGE_URL,
     siteName: "NIFS India",
     locale: "en_IN",

@@ -768,316 +768,174 @@ export const CATEGORY_CAPTIONS: Record<
 > = {
   "practical-training-yard": [
     {
-      "title": "SCBA Smoke Chamber & Rescue Drill",
-      "subtitle": "Zero-visibility breathing apparatus search, rescue & casualty extraction",
-      "tag": "Toxic Gas Entry",
-      "stat": "Confined Space"
+      "title": "Breathing Apparatus & Confined Space Training",
+      "subtitle": "Students practicing with self-contained breathing apparatus in controlled training drills",
+      "tag": "Safety Equipment",
+      "stat": "Practical Drill"
     },
     {
-      "title": "High-Rise Scaffolding & Rope Access",
-      "subtitle": "Industrial height safety, fall arrest harness & casualty lowering drills",
+      "title": "Height Safety & Scaffolding Drill",
+      "subtitle": "Practical exercises with safety harnesses, fall arrest equipment and working at height",
       "tag": "Height Safety",
-      "stat": "15m Scaffolding"
+      "stat": "Safety Practical"
     },
     {
-      "title": "Chemical Foam Fire Attack Simulation",
-      "subtitle": "Class B solvent & volatile liquid fuel blaze suppression operations",
-      "tag": "Hazmat Fire",
-      "stat": "Multi-Fuel Pits"
+      "title": "Fire Suppression Exercise",
+      "subtitle": "Students practicing fire suppression techniques under instructor supervision",
+      "tag": "Fire Training",
+      "stat": "Practical Drill"
     },
     {
-      "title": "Industrial Fire Hydrant & Pump Relay",
-      "subtitle": "Multi-line industrial hose deployment and water cannon operations",
-      "tag": "Hydraulics",
-      "stat": "10-Bar Pressure"
+      "title": "Hydrant & Hose Equipment Operation",
+      "subtitle": "Practical handling of industrial fire hoses, nozzles and water supply lines",
+      "tag": "Equipment Training",
+      "stat": "Hands-on Drill"
     }
   ],
   "industrial-visit-gallery": [
     {
-      "title": "Industrial Plant Safety Walkthrough",
-      "subtitle": "Comprehensive hazard identification and EHS audit at live manufacturing plants",
-      "tag": "Industrial Visit",
-      "stat": "Live Plant"
+      "title": "Industrial Safety Observation Visit",
+      "subtitle": "Students observing plant safety practices and hazard controls during an industrial visit",
+      "tag": "Field Visit",
+      "stat": "Industrial Visit"
     },
     {
-      "title": "Heavy Engineering Site Inspection",
-      "subtitle": "On-site safety machinery assessment, lockout-tagout (LOTO) protocols",
-      "tag": "Industrial Visit",
-      "stat": "EHS Inspection"
+      "title": "Plant Machinery & Safety Inspection",
+      "subtitle": "Observing industrial equipment, machine guarding and safety protocols on site",
+      "tag": "Field Visit",
+      "stat": "Industrial Visit"
     },
     {
-      "title": "Process Safety & Refineries Tour",
-      "subtitle": "Hazardous area zoning, gas detection review and chemical safety systems",
-      "tag": "Industrial Visit",
-      "stat": "Process Safety"
+      "title": "Process Safety & Hazard Controls",
+      "subtitle": "Reviewing industrial safety systems, signage and emergency evacuation paths",
+      "tag": "Field Visit",
+      "stat": "Industrial Visit"
     },
     {
-      "title": "Manufacturing Emergency Systems Review",
-      "subtitle": "Assembly line safety systems, egress mapping and automated deluge systems",
-      "tag": "Industrial Visit",
-      "stat": "Field Study"
+      "title": "Industrial Facility Walkthrough",
+      "subtitle": "Guided walkthrough of factory safety installations and emergency response equipment",
+      "tag": "Field Visit",
+      "stat": "Industrial Visit"
     }
   ],
   "corporate-yard-gallery": [
     {
-      "title": "Corporate HSE Simulation Drill",
-      "subtitle": "Enterprise-grade industrial safety drills and live chemical containment",
-      "tag": "Corporate Yard",
-      "stat": "Industry Standard"
+      "title": "Practical Safety Simulation Drill",
+      "subtitle": "Participants performing practical emergency response and safety drills",
+      "tag": "Safety Training",
+      "stat": "Practical Session"
     },
     {
-      "title": "Advanced Tactical Fire Ground Drills",
-      "subtitle": "Multi-tier tactical firefighting and emergency incident command simulations",
-      "tag": "Corporate Yard",
-      "stat": "Tactical Drill"
+      "title": "Emergency Response Practical Exercise",
+      "subtitle": "Structured training in hazard response procedures and team coordination",
+      "tag": "Safety Training",
+      "stat": "Practical Session"
     },
     {
-      "title": "Emergency Response Team (ERT) Exercises",
-      "subtitle": "Rapid disaster response, victim triage and hazardous leak containment",
-      "tag": "Corporate Yard",
-      "stat": "ERT Simulation"
+      "title": "Emergency Response Team Practice",
+      "subtitle": "Practical exercise in incident coordination and emergency evacuation",
+      "tag": "Safety Training",
+      "stat": "Practical Session"
     },
     {
-      "title": "Heavy Industrial Fire Control Operations",
-      "subtitle": "Industrial plant apparatus, booster pump operations and foam monitor handling",
-      "tag": "Corporate Yard",
-      "stat": "Heavy Rig"
+      "title": "Industrial Equipment Handling",
+      "subtitle": "Practical session on handling industrial emergency gear and safety apparatus",
+      "tag": "Safety Training",
+      "stat": "Practical Session"
     }
   ],
   "in-house-training": [
     {
-      "title": "Hands-On Safety Equipment Workshop",
-      "subtitle": "Practical operation of fire extinguishers, gas detectors and personal PPE",
-      "tag": "In-House Training",
-      "stat": "Practical Lab"
+      "title": "Safety Equipment Workshop",
+      "subtitle": "Demonstration and handling of fire extinguishers, PPE and basic detection gear",
+      "tag": "Lab Practical",
+      "stat": "Equipment Demo"
     },
     {
-      "title": "Industrial First Aid & CPR Life Support",
-      "subtitle": "Emergency trauma management, AED defibrillator usage and casualty stabilization",
-      "tag": "In-House Training",
-      "stat": "Life Support"
+      "title": "First Aid & CPR Practical Session",
+      "subtitle": "Instructor demonstration of basic first aid, CPR techniques and casualty care",
+      "tag": "First Aid",
+      "stat": "Practical Demo"
     },
     {
-      "title": "Confined Space Entry & Gas Monitoring",
-      "subtitle": "Multi-gas detector calibration, harness rigging and permit-to-work protocols",
-      "tag": "In-House Training",
-      "stat": "Safety Protocol"
+      "title": "Confined Space & Gas Monitoring Demo",
+      "subtitle": "Introduction to gas detection equipment, safety harnesses and entry permits",
+      "tag": "Safety Protocol",
+      "stat": "Lab Practical"
     },
     {
-      "title": "Electrical Safety & Fire Prevention Lab",
-      "subtitle": "Arc flash precautions, circuit hazard detection and preventive maintenance",
-      "tag": "In-House Training",
+      "title": "Electrical Safety Demonstration",
+      "subtitle": "Practical review of electrical hazard precautions and basic safety devices",
+      "tag": "Electrical Safety",
       "stat": "Lab Practical"
     }
   ],
   "infrastructure": [
     {
-      "title": "Modern Fire & Safety Training Center",
-      "subtitle": "State-of-the-art multimedia lecture halls and digital risk modeling simulators",
-      "tag": "Infrastructure",
-      "stat": "Smart Campus"
+      "title": "NIFS Classroom & Training Hall",
+      "subtitle": "Classroom facility equipped for technical fire and industrial safety lectures",
+      "tag": "Campus Facility",
+      "stat": "Classroom"
     },
     {
-      "title": "Advanced Safety Equipment Repository",
-      "subtitle": "Extensive inventory of SCBA sets, gas analyzers, and certified rescue gear",
-      "tag": "Infrastructure",
-      "stat": "Full Inventory"
+      "title": "Safety Equipment Inventory",
+      "subtitle": "Display of safety gear, personal protective equipment and inspection apparatus",
+      "tag": "Training Facility",
+      "stat": "Equipment"
     },
     {
-      "title": "Industrial Safety Demonstration Hall",
-      "subtitle": "Cut-section working models of valves, hydrants, sprinklers and alarm panels",
-      "tag": "Infrastructure",
-      "stat": "Demo Lab"
+      "title": "Safety Demonstration Display",
+      "subtitle": "Cut-section models and visual charts of fire safety and industrial systems",
+      "tag": "Training Facility",
+      "stat": "Demonstration"
     },
     {
-      "title": "Hazardous Materials Simulation Lab",
-      "subtitle": "Chemical reaction safety simulators, SDS library and neutralization kits",
-      "tag": "Infrastructure",
-      "stat": "Hazmat Lab"
+      "title": "Safety Study & Training Resources",
+      "subtitle": "Educational reference materials, safety data sheets and training manuals",
+      "tag": "Training Facility",
+      "stat": "Resources"
     }
   ],
   "study-tours-gallery": [
     {
-      "title": "National Safety Infrastructure Tour",
-      "subtitle": "Field exposure to port safety, maritime fire protection and heavy cargo terminals",
-      "tag": "Study Tour",
+      "title": "Industrial Safety Study Visit",
+      "subtitle": "Students visiting an industrial installation to observe operational safety practices",
+      "tag": "Study Visit",
       "stat": "Field Exposure"
     },
     {
-      "title": "Major Power & Energy Complex Tour",
-      "subtitle": "Study of high-hazard safety controls at major power plants and grid substations",
-      "tag": "Study Tour",
-      "stat": "Power & Energy"
+      "title": "Industrial Plant Study Visit",
+      "subtitle": "Observing high-hazard safety controls and plant procedures during a field tour",
+      "tag": "Study Visit",
+      "stat": "Field Exposure"
     },
     {
-      "title": "Logistics Hub & Warehouse Safety Audit",
-      "subtitle": "Automated racking fire protection, loading dock safety and forklift risk assessment",
-      "tag": "Study Tour",
-      "stat": "Logistics Hub"
+      "title": "Facility Safety Inspection Visit",
+      "subtitle": "Reviewing facility layouts, warehouse storage safety and material handling precautions",
+      "tag": "Study Visit",
+      "stat": "Field Exposure"
     },
     {
-      "title": "Infrastructure & Tunnel Safety Exposure",
-      "subtitle": "Emergency ventilation systems, egress tunnels and passive fire containment",
-      "tag": "Study Tour",
-      "stat": "Infrastructure"
+      "title": "Infrastructure Safety Study Visit",
+      "subtitle": "Observing safety installations, emergency egress routes and safety equipment",
+      "tag": "Study Visit",
+      "stat": "Field Exposure"
     }
   ],
   "campus-drive": [
     {
-      "title": "Annual Campus Recruitment Drive",
-      "subtitle": "Top multinational infrastructure & manufacturing firms hiring NIFS graduates",
+      "title": "Campus Recruitment Session",
+      "subtitle": "Recruitment drive and candidate interview session for safety graduates",
       "tag": "Campus Drive",
-      "stat": "100% Placement"
+      "stat": "Recruitment"
     },
     {
-      "title": "Core EHS Corporate Placement Session",
-      "subtitle": "Direct technical interviews and on-the-spot offer letter distributions",
+      "title": "Placement Interview Session",
+      "subtitle": "Technical interviews and selection process with participating employers",
       "tag": "Campus Drive",
-      "stat": "Direct Hiring"
-    },
-    {
-      "title": "Industrial Safety Talent Acquisition",
-      "subtitle": "Fortune 500 safety recruiters conducting multi-round selection",
-      "tag": "Campus Drive",
-      "stat": "Top Recruiters"
-    },
-    {
-      "title": "International HSE Placement Drive",
-      "subtitle": "Overseas EPC contractors and Gulf facilities recruiting certified officers",
-      "tag": "Campus Drive",
-      "stat": "Gulf Hiring"
+      "stat": "Recruitment"
     }
   ],
-  "graduation-celebration": [
-    {
-      "title": "NIFS Convocation & Certification Day",
-      "subtitle": "Awarding government-recognized safety diplomas and academic honors",
-      "tag": "Graduation",
-      "stat": "Alumni Network"
-    },
-    {
-      "title": "Safety Officer Pinning Ceremony",
-      "subtitle": "Induction of certified safety professionals into the industrial workforce",
-      "tag": "Graduation",
-      "stat": "Certified Batch"
-    },
-    {
-      "title": "Annual Graduation & Achievement Meet",
-      "subtitle": "Celebrating successful course completions and top batch rankers",
-      "tag": "Graduation",
-      "stat": "Convocation"
-    },
-    {
-      "title": "EHS Professional Batch Felicitation",
-      "subtitle": "Honoring graduates transitioning into prestigious industrial roles",
-      "tag": "Graduation",
-      "stat": "Batch Honors"
-    }
-  ],
-  "achievements": [
-    {
-      "title": "National Fire & Safety Excellence Award",
-      "subtitle": "Recognition for outstanding industrial training standards and placement record",
-      "tag": "Achievement",
-      "stat": "National Award"
-    },
-    {
-      "title": "Institutional Quality & Training Accolade",
-      "subtitle": "Ranked among premier occupational safety training institutions",
-      "tag": "Achievement",
-      "stat": "Premier Rank"
-    },
-    {
-      "title": "Safety Excellence & Innovation Trophy",
-      "subtitle": "Recognized for high-impact practical safety curriculum and lab facilities",
-      "tag": "Achievement",
-      "stat": "Excellence"
-    },
-    {
-      "title": "Government Recognition & Industry Milestone",
-      "subtitle": "Celebration of landmark safety education milestones across India",
-      "tag": "Achievement",
-      "stat": "Milestone"
-    }
-  ],
-  "recognition-gallery": [
-    {
-      "title": "Industry Association Accreditations",
-      "subtitle": "Formal recognition by apex industrial safety councils and associations",
-      "tag": "Recognition",
-      "stat": "Accredited"
-    },
-    {
-      "title": "Statutory & Academic Affiliations",
-      "subtitle": "Government board approvals and NSDC skill mission partnerships",
-      "tag": "Recognition",
-      "stat": "Govt Approved"
-    },
-    {
-      "title": "Corporate Safety Partner Memento",
-      "subtitle": "Presented by industry leaders for excellence in safety manpower training",
-      "tag": "Recognition",
-      "stat": "Partner Award"
-    },
-    {
-      "title": "National Skill Development Commendation",
-      "subtitle": "Commended for delivering high-employability vocational safety training",
-      "tag": "Recognition",
-      "stat": "Skill India"
-    }
-  ],
-  "events": [
-    {
-      "title": "National Safety Day Seminar & Expo",
-      "subtitle": "Industry experts and students participating in live safety demonstrations",
-      "tag": "Events",
-      "stat": "Safety Day"
-    },
-    {
-      "title": "Annual Fire Service Week Exhibition",
-      "subtitle": "Community fire awareness campaigns and modern equipment showcases",
-      "tag": "Events",
-      "stat": "Fire Week"
-    },
-    {
-      "title": "Occupational Health & Safety Symposium",
-      "subtitle": "Workshops on emerging industrial hazards and ISO 45001 standards",
-      "tag": "Events",
-      "stat": "Symposium"
-    },
-    {
-      "title": "Inter-Institute Safety Competition",
-      "subtitle": "Students competing in emergency drills, hazard hunts and rescue speed tests",
-      "tag": "Events",
-      "stat": "Safety Contest"
-    }
-  ],
-  "guest-lectures-gallery": [
-    {
-      "title": "Chief Safety Officer Masterclass",
-      "subtitle": "Interactive knowledge session by senior director from Fortune 500 plant",
-      "tag": "Guest Lecture",
-      "stat": "Expert Session"
-    },
-    {
-      "title": "Industrial Hazmat Management Lecture",
-      "subtitle": "Specialized insights into chemical process hazards and refinery safety",
-      "tag": "Guest Lecture",
-      "stat": "Industry Expert"
-    },
-    {
-      "title": "International HSE Standards Workshop",
-      "subtitle": "Global safety regulations, OSHA compliance and Gulf job readiness",
-      "tag": "Guest Lecture",
-      "stat": "Global Safety"
-    },
-    {
-      "title": "Disaster Management & Fire Tech Talk",
-      "subtitle": "Session on modern drone safety monitoring and automated deluge systems",
-      "tag": "Guest Lecture",
-      "stat": "Fire Tech"
-    }
-  ]
 };
 
 export function slugifyCity(cityName: string): string {

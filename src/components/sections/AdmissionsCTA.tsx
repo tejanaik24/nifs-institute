@@ -168,7 +168,7 @@ export function AdmissionsCTA() {
               animate={reduceMotion ? {} : { scale: [1, 1.05, 1] }}
               className="mt-4 inline-block text-[13px] text-[#FCA5A5]"
             >
-              ⚠ Limited seats available for August 2026 intake
+              ⚠ Admissions open for August 2026 intake
             </motion.span>
           </div>
         }

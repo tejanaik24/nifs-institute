@@ -43,9 +43,9 @@ export const AHMEDABAD_FAQS = [
       "Eligibility varies by course level: Certificate and Diploma in Fire & Safety (DFS) require a minimum 10th or 10+2 (Intermediate in any stream: MPC, BiPC, CEC, MEC) or ITI. Advanced Diplomas (ADIS/ADFS) and PG Diplomas require a Polytechnic Diploma or Graduate Degree (B.Sc, B.Com, B.A, B.Tech/B.E). Fresh graduates from all streams are eligible.",
   },
   {
-    question: "Does NIFS provide 100% placement assistance in Ahmedabad and Gulf countries?",
+    question: "Does NIFS provide placement assistance in Ahmedabad?",
     answer:
-      "Yes. NIFS provides dedicated placement assistance with over 45,000 placed alumni working across India and the Gulf (UAE, Saudi Arabia, Qatar, Oman). Recruiter partners include Torrent Pharma, Cadila, L&T, Adani, and ITC. Placement drives and interviews are organized regularly at our regional centers.",
+      "Yes. NIFS provides dedicated placement assistance with over 45,000 placed alumni working across India. Recruiter partners include Torrent Pharma, Cadila, L&T, Adani, and ITC. Placement drives and interviews are organized regularly at our regional centers.",
   },
   {
     question: "Does NIFS offer placement in Ahmedabad pharma companies?",
@@ -57,12 +57,12 @@ export const AHMEDABAD_FAQS = [
 export const metadata: Metadata = {
   title: "Fire and Safety Course in Ahmedabad | Govt Approved NIFS Ghatlodia",
   description:
-    "Join Ahmedabad's top-rated Fire & Safety Officer training institute in Ghatlodia. NSDC approved 1-Year Diploma (DFS, ADIS), live practical yard drills, and 100% placement support in Pharma & GIDC.",
+    "Join Ahmedabad's top-rated Fire & Safety Officer training institute in Ghatlodia. NSDC approved 1-Year Diploma (DFS, ADIS), live practical yard drills, and placement support in Pharma & GIDC.",
   alternates: { canonical: "/centers/ahmedabad/" },
   openGraph: {
     title: "Fire & Safety Officer Course in Ahmedabad | NIFS Institute Ghatlodia",
     description:
-      "Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Ahmedabad. 45,000+ placements with Torrent Pharma, Cadila, and Gulf employers.",
+      "Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Ahmedabad. 45,000+ placements with Torrent Pharma, Cadila, and leading industrial employers.",
     url: PAGE_URL,
     siteName: "NIFS India",
     locale: "en_IN",

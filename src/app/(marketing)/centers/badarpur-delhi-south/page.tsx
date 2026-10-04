@@ -50,21 +50,21 @@ export const BADARPUR_FAQS = [
       "Yes, NIFS offers flexible weekend and evening hybrid batches designed for working professionals in the South Delhi industrial belt. Contact +91 99580 32663 for batch schedules and enrollment.",
   },
   {
-    question: "Does NIFS provide 100% placement assistance in Delhi NCR?",
+    question: "Does NIFS provide placement assistance in Delhi NCR?",
     answer:
-      "Yes. NIFS provides dedicated placement assistance with over 45,000 placed alumni working across India and the Gulf. Recruiter partners include L&T, Adani, ITC, and major Delhi NCR industrial employers. Placement drives and interviews are organized regularly at our regional centers.",
+      "Yes. NIFS provides dedicated placement assistance with over 45,000 placed alumni working across India. Recruiter partners include L&T, Adani, ITC, and major Delhi NCR industrial employers. Placement drives and interviews are organized regularly at our regional centers.",
   },
 ];
 
 export const metadata: Metadata = {
   title: "Fire and Safety Course in Badarpur Delhi South | Govt Approved NIFS",
   description:
-    "Join Badarpur's premier Fire & Safety Officer training institute near Metro Station. NSDC approved 1-Year Diploma (DFS, ADIS), live practical yard drills, and 100% placement support.",
+    "Join Badarpur's premier Fire & Safety Officer training institute near Metro Station. NSDC approved 1-Year Diploma (DFS, ADIS), live practical yard drills, and placement support.",
   alternates: { canonical: "/centers/badarpur-delhi-south/" },
   openGraph: {
     title: "Fire & Safety Officer Course in Badarpur Delhi South | NIFS Institute",
     description:
-      "Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Badarpur, South Delhi. 45,000+ placements with L&T, Adani, and Gulf employers.",
+      "Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Badarpur, South Delhi. 45,000+ placements with L&T, Adani, and leading industrial employers.",
     url: PAGE_URL,
     siteName: "NIFS India",
     locale: "en_IN",

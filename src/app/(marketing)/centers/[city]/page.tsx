@@ -1,5 +1,4 @@
 import { PageHero } from "@/components/sections/page-hero";
-import { getCenterGallery } from "@/lib/data/center-gallery";
 import { centers } from "@/lib/data/centers";
 import { courses } from "@/lib/data/courses";
 import {
@@ -299,9 +298,9 @@ const CITY_DATA: Record<
           "Students from Chennai can enroll for regular classroom, weekend hybrid, or live virtual batches with hands-on practical yard training. Call +91 83743 40999 for enrollment.",
       },
       {
-        question: "Are NIFS diplomas eligible for Gulf jobs from Chennai?",
+        question: "Are NIFS diplomas recognized for corporate and industrial jobs from Chennai?",
         answer:
-          "Yes, NIFS diplomas — including the UGC-recognized degree issued through Acharya Nagarjuna University — are widely accepted by Gulf employers hiring through Chennai recruitment channels.",
+          "Yes, NIFS diplomas — including the UGC-recognized degree issued through Acharya Nagarjuna University — are widely accepted by leading employers hiring through Chennai recruitment channels.",
       },
     ],
   },
@@ -398,7 +397,7 @@ const CITY_DATA: Record<
       {
         question: "How to enroll for NIFS Fire and Safety courses in Kolkata?",
         answer:
-          "Call our national admissions desk at +91 83743 40999 or apply online for immediate seat booking in upcoming batches.",
+          "Call our national admissions desk at +91 83743 40999 or apply online for admission enrollment in upcoming batches.",
       },
     ],
   },
@@ -432,7 +431,7 @@ const CITY_DATA: Record<
       {
         question: "Where is the NIFS center located in Gorakhpur?",
         answer:
-          "NIFS operates an active admissions and student assistance desk in Gorakhpur. Connect with our counselors at +91 83743 40999 for local batch timings and seat availability.",
+          "NIFS operates an active admissions and student assistance desk in Gorakhpur. Connect with our counselors at +91 83743 40999 for local batch timings and enrollment details.",
       },
       {
         question:
@@ -444,7 +443,7 @@ const CITY_DATA: Record<
         question:
           "Can 10th and 12th pass students from UP apply for NIFS courses?",
         answer:
-          "Yes, students with 10th or 12th pass from UP Board, CBSE, or ICSE can apply directly for Government-approved Certificate and Diploma courses with 100% placement support.",
+          "Yes, students with 10th or 12th pass from UP Board, CBSE, or ICSE can apply directly for Government-approved Certificate and Diploma courses with placement support.",
       },
     ],
   },
@@ -523,7 +522,7 @@ export async function generateMetadata({
 
   return {
     title: `Fire and Safety Officer Course in ${cityName}, ${stateName} | NIFS India`,
-    description: `Enroll in government-approved Fire and Safety Officer courses in ${cityName}, ${stateName}. 1-Year Diploma (DFS, ADIS), B.Sc degree, practical training yard, and 100% placement support.`,
+    description: `Enroll in government-approved Fire and Safety Officer courses in ${cityName}, ${stateName}. 1-Year Diploma (DFS, ADIS), B.Sc degree, practical training yard, and placement support.`,
     alternates: { canonical: `/centers/${normalizedSlug}/` },
   };
 }
@@ -553,7 +552,6 @@ export default async function DynamicCenterPage({
   const phoneDisplay = `+91 ${phone}`;
   const phoneTel = `tel:+91${phone.replace(/[^0-9]/g, "")}`;
   const pageUrl = `https://nifsindia.net/centers/${normalizedSlug}/`;
-  const centerGallery = getCenterGallery(normalizedSlug);
 
   const topCourses = courses.slice(0, 3);
   const industries = cityMeta?.industries ?? [
@@ -582,7 +580,7 @@ export default async function DynamicCenterPage({
     },
     {
       question: `Does NIFS provide placement assistance in ${cityName}?`,
-      answer: `Yes, NIFS provides 100% placement support with over 45,000 alumni working in top recruiters like L&T, Adani, ITC, and Amazon across India and Gulf countries.`,
+      answer: `Yes, NIFS provides placement support with over 45,000 alumni working in top recruiters like L&T, Adani, ITC, and Amazon across India.`,
     },
   ];
 
@@ -722,85 +720,6 @@ export default async function DynamicCenterPage({
                   </div>
                 </Link>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Placement Outcomes & Proofs */}
-        <section className="border-t border-border bg-card">
-          <div className="mx-auto max-w-6xl px-6 py-16 lg:px-10">
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-              <div>
-                <span className="text-xs font-bold uppercase tracking-widest text-primary">
-                  100% Placement Record
-                </span>
-                <h2 className="font-display mt-2 text-2xl sm:text-3xl font-bold text-foreground">
-                  Recent Placement Outcomes — {cityName} &amp; {stateName}
-                </h2>
-                <p className="mt-2 text-xs sm:text-sm text-muted-foreground max-w-2xl">
-                  NIFS certified safety professionals placed across top
-                  infrastructure, manufacturing, and oil &amp; gas leaders.
-                </p>
-              </div>
-              <Link
-                href="/placements"
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:underline shrink-0"
-              >
-                <span>View All Placements</span>
-                <ArrowRight className="h-3.5 w-3.5" />
-              </Link>
-            </div>
-
-            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {centerGallery.placementPhotos.map((photo, i) => {
-                const studentName =
-                  centerGallery.placementNames[i] || "NIFS Graduate";
-                const roles = [
-                  "Safety Officer (HSE)",
-                  "Fire Safety Supervisor",
-                  "EHS Plant Executive",
-                  "Fire Marshall & Steward",
-                ];
-                const companies = [
-                  "L&T Construction",
-                  "Adani Group",
-                  "ITC Limited",
-                  "Amazon",
-                  "Reliance Industries",
-                  "MEIL",
-                  "GMR",
-                ];
-                const comp =
-                  companies[(simpleHash(cityName) + i) % companies.length];
-                const role = roles[i % roles.length];
-
-                return (
-                  <div
-                    key={i}
-                    className="flex flex-col rounded-xl border border-border bg-background p-4 shadow-sm transition-all hover:border-primary/50 hover:shadow-md"
-                  >
-                    <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg border border-border bg-muted">
-                      <Image
-                        src={photo.src}
-                        alt={`${studentName} — Placed at ${comp}`}
-                        fill
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                        className="object-cover"
-                      />
-                    </div>
-                    <div className="mt-3 text-center">
-                      <p className="font-bold text-sm text-foreground">
-                        {studentName}
-                      </p>
-                      <p className="text-xs text-primary font-medium">{role}</p>
-                      <p className="text-xs text-muted-foreground mt-0.5">
-                        Placed at:{" "}
-                        <strong className="text-foreground">{comp}</strong>
-                      </p>
-                    </div>
-                  </div>
-                );
-              })}
             </div>
           </div>
         </section>

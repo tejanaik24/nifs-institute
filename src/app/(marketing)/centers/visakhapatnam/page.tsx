@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { CheckCircle2, MapPin, Phone } from "lucide-react";
 import { PageHero } from "@/components/sections/page-hero";
@@ -46,6 +47,50 @@ const industries = [
   {
     name: "Jawaharlal Nehru Pharma City (JNPC)",
     detail: "Dedicated pharma SEZ near Parawada with multiple manufacturing units.",
+  },
+];
+
+const trainingPhotos = [
+  {
+    src: "/images/real/vizag/safety-awareness-demonstration-v2.webp",
+    alt: "Fire safety awareness demonstration with dry chemical fire extinguisher",
+    label: "Safety Demonstration",
+    caption:
+      "NIFS team and participants with portable fire extinguishers during a National Safety Week demonstration.",
+  },
+  {
+    src: "/images/real/vizag/road-safety-bike-rally-highway-v2.webp",
+    alt: "Road safety awareness motorcycle rally with riders in orange shirts",
+    label: "Road Safety Rally",
+    caption:
+      "Motorcycle road safety awareness rally with riders wearing orange NIFS shirts and helmets, displaying safety placards.",
+  },
+  {
+    src: "/images/real/vizag/road-safety-rally-media-briefing-v2.webp",
+    alt: "Road safety awareness rally participants with local news microphones",
+    label: "Media Briefing",
+    caption: "NIFS road safety awareness rally with local news coverage.",
+  },
+  {
+    src: "/images/real/vizag/mou-acharya-nagarjuna-university-vizag-v2.webp",
+    alt: "Acharya Nagarjuna University and NIFS officials holding agreement documents",
+    label: "University Collaboration",
+    caption:
+      "Officials of Acharya Nagarjuna University and NIFS holding documents for programs at the Visakhapatnam campus.",
+  },
+  {
+    src: "/images/real/vizag/rpf-corporate-training-nifs-hq-v2.webp",
+    alt: "Corporate fire training session for Railway Protection Force officers at NIFS Headquarters",
+    label: "Corporate Training",
+    caption:
+      "Classroom training session conducted for Railway Protection Force (RPF) personnel at NIFS Headquarters.",
+  },
+  {
+    src: "/images/real/vizag/rpf-training-presentation-hall-v2.webp",
+    alt: "Presentation on industrial safety trends during RPF training session",
+    label: "Technical Presentation",
+    caption:
+      "Instructor presenting industrial fire safety slides to uniformed officers in the training hall.",
   },
 ];
 
@@ -220,6 +265,47 @@ export default function VisakhapatnamCenterPage() {
                 <Phone className="h-4 w-4" /> {PHONE_DISPLAY}
               </a>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Training & Programs */}
+      <section className="border-t border-border bg-card">
+        <div className="mx-auto max-w-6xl px-6 py-16 lg:px-10">
+          <span className="text-xs font-semibold uppercase tracking-widest text-primary">
+            Visakhapatnam Center &amp; Community Activity
+          </span>
+          <h2 className="font-display mt-2 text-2xl italic">
+            Training &amp; Programs at NIFS Visakhapatnam
+          </h2>
+          <p className="mt-3 max-w-2xl text-sm text-muted-foreground">
+            Photos from NIFS safety demonstrations, university collaboration, corporate sessions and road safety rallies.
+          </p>
+          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
+            {trainingPhotos.map((photo) => (
+              <div
+                key={photo.src}
+                className="overflow-hidden border border-border bg-background"
+              >
+                <div className="relative aspect-[4/3] w-full">
+                  <Image
+                    src={photo.src}
+                    alt={photo.alt}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-4">
+                  <span className="text-xs font-semibold uppercase tracking-wider text-primary">
+                    {photo.label}
+                  </span>
+                  <p className="mt-1 text-xs text-muted-foreground leading-relaxed">
+                    {photo.caption}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
