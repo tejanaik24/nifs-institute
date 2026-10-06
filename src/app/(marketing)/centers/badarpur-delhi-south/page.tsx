@@ -52,7 +52,7 @@ export const BADARPUR_FAQS = [
   {
     question: "Does NIFS provide placement assistance in Delhi NCR?",
     answer:
-      "Yes. NIFS provides dedicated placement assistance with over 45,000 placed alumni working across India. Recruiter partners include L&T, Adani, ITC, and major Delhi NCR industrial employers. Placement drives and interviews are organized regularly at our regional centers.",
+      "Yes. NIFS provides dedicated placement assistance with over 45,000 placed alumni working across India. Graduates are eligible for placements across leading Pan-India corporate recruiters including L&T, Adani, Tata Projects, ITC, and regional industrial employers.",
   },
 ];
 

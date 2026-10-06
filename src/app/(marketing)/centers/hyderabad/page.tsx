@@ -47,7 +47,7 @@ export const HYDERABAD_FAQS = [
   {
     question: "Does NIFS provide placement assistance in Hyderabad?",
     answer:
-      "Yes. NIFS provides dedicated placement assistance with over 45,000 placed alumni working across India. Recruiter partners include L&T, Adani, ITC, Hetero Drugs, Dr. Reddy's, Amazon, and MEIL. Placement drives and interviews are organized regularly at our regional centers.",
+      "Yes. NIFS provides dedicated placement assistance with over 45,000 placed alumni working across India. Graduates are eligible for placements across leading Pan-India corporate recruiters including L&T, Adani, Tata Projects, ITC, Hetero Drugs, and Dr. Reddy's.",
   },
   {
     question: "Are NIFS Hyderabad certifications recognized by the Government and industry?",
@@ -59,7 +59,7 @@ export const HYDERABAD_FAQS = [
 export const metadata: Metadata = {
   title: "Fire and Safety Course in Hyderabad | Govt Approved NIFS Ameerpet",
   description:
-    "Join Hyderabad's #1 rated Fire & Safety Officer training institute in Ameerpet. NSDC approved 1-Year Diploma (DFS, ADIS), live practical yard drills, and placement support in Pharma & Industrial Safety.",
+    "Join Hyderabad's recognized Fire & Safety Officer training institute in Ameerpet. NSDC approved 1-Year Diploma (DFS, ADIS), live practical yard drills, and placement support in Pharma & Industrial Safety.",
   alternates: { canonical: "/centers/hyderabad/" },
   openGraph: {
     title: "Fire & Safety Officer Course in Hyderabad | NIFS Institute Ameerpet",

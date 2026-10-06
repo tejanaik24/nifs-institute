@@ -113,13 +113,13 @@ export default async function CourseDetailPage({
               { label: "Eligibility", value: course.eligibility, isAction: false },
               { label: "Mode", value: course.mode, isAction: false },
               { label: "Tier", value: course.tier, isAction: false },
-              { label: "Fee Aid", value: "EMI & Assistance", isAction: true },
-              { label: "Salary Scope", value: "₹3.0L – ₹4.8L/Yr", isAction: true },
+              { label: "Fee Aid", value: "EMI & Assistance", isAction: true, targetId: "#fee-brochure" },
+              { label: "Salary Scope", value: "₹3.0L – ₹4.8L/Yr", isAction: true, targetId: "#salary-scope" },
             ].map((f) =>
               f.isAction ? (
                 <a
                   key={f.label}
-                  href="#fee-brochure"
+                  href={f.targetId}
                   className="border border-border p-3.5 rounded-sm bg-card transition-colors hover:border-primary/50 group block cursor-pointer"
                 >
                   <p className="text-[10px] uppercase tracking-widest text-muted-foreground font-semibold flex items-center justify-between">
@@ -305,7 +305,10 @@ export default async function CourseDetailPage({
           </div>
 
           {/* Section: Statutory Importance & Legal Value */}
-          <div className="mt-12 space-y-4 rounded-2xl border border-border bg-muted/30 p-6 sm:p-8">
+          <div
+            id="salary-scope"
+            className="mt-12 space-y-4 rounded-2xl border border-border bg-muted/30 p-6 sm:p-8"
+          >
             <h2 className="font-display text-2xl italic text-foreground">
               Statutory Legal Mandate &amp; Industrial Demand
             </h2>

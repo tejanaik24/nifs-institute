@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title:
     "How to Become a Safety Officer in India (2026 Step-by-Step Career Guide) | NIFS India",
   description:
-    "Complete 2026 step-by-step guide on how to become a certified Safety Officer in India. Eligibility after 10th/12th/Graduation, top courses (ADIS, DFS), training duration, salary (₹3L–₹25L/yr), and 100% placement roadmap.",
+    "Complete 2026 step-by-step guide on how to become a certified Safety Officer in India. Eligibility after 10th/12th/Graduation, top courses (ADIS, DFS), training duration, salary (₹3L–₹25L/yr), and proven placement roadmap.",
   alternates: { canonical: "/how-to-become-a-safety-officer-in-india/" },
   openGraph: {
     title: "How to Become a Safety Officer in India (2026 Guide) — NIFS India",

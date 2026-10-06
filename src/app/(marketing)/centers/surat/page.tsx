@@ -45,7 +45,7 @@ export const SURAT_FAQS = [
   {
     question: "Does NIFS provide placement assistance in Surat?",
     answer:
-      "Yes. NIFS provides dedicated placement assistance with over 45,000 placed alumni working across India. Recruiter partners include Reliance, L&T, Adani, ITC, and Hazira petrochemical employers. Placement drives and interviews are organized regularly at our regional centers.",
+      "Yes. NIFS provides dedicated placement assistance with over 45,000 placed alumni working across India. Graduates are eligible for placements across leading Pan-India corporate recruiters including L&T, Adani, Tata Projects, ITC, and regional industrial employers.",
   },
   {
     question: "Are NIFS diplomas accepted by Gujarat factory inspectorates?",

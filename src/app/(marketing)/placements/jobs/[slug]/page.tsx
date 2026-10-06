@@ -516,7 +516,7 @@ export default async function JobDetailPage({ params }: Props) {
                   <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
                     Recruiters like {job.companyName}, L&amp;T, and Adani
                     require government-recognized safety certifications (ADIS,
-                    DFS, or DHSE). NIFS provides 100% placement assistance to
+                    DFS, or DHSE). NIFS provides dedicated placement assistance to
                     all certified graduates.
                   </p>
                   <div className="mt-6 space-y-3">

@@ -254,7 +254,7 @@ export default async function BlogPostPage({
                 </h3>
                 <p className="mt-2 text-xs text-slate-300 sm:text-sm max-w-xl">
                   NSDC-approved Diploma, Advanced Diploma, and Degree programs
-                  with 100% placement assistance at top companies like L&T,
+                  with dedicated placement assistance at top companies like L&T,
                   Adani, and Reliance.
                 </p>
               </div>

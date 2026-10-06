@@ -130,7 +130,7 @@ export default function SafetyOfficerCoursePage() {
       />
       <CourseSchema
         name="Safety Officer Course in India"
-        description="Government recognized and NSDC-approved Safety Officer courses from Diploma (DFS, DIS, ADIS) to B.Sc Degree level with practical fire training yard drills and 100% placement support."
+        description="Government recognized and NSDC-approved Safety Officer courses from Diploma (DFS, DIS, ADIS) to B.Sc Degree level with practical fire training yard drills and dedicated placement assistance."
         url="https://nifsindia.net/courses/safety-officer-course/"
         duration="1 Year - 3 Years"
         tier="Diploma / Degree"

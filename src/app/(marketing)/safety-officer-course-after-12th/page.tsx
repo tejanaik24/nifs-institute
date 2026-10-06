@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title:
     "Safety Officer Course After 12th (2026 Eligibility, Fees, Duration & Placement) | NIFS India",
   description:
-    "Explore top Safety Officer courses after 12th (Science, Commerce, Arts). 1-year Diplomas (DFS, ADIS) & 3-year B.Sc degrees. Fees, syllabus, government approvals (NSDC, SBTET), and 100% placement support.",
+    "Explore top Safety Officer courses after 12th (Science, Commerce, Arts). 1-year Diplomas (DFS, ADIS) & 3-year B.Sc degrees. Fees, syllabus, government approvals (NSDC, SBTET), and dedicated placement assistance.",
   alternates: { canonical: "/safety-officer-course-after-12th/" },
   openGraph: {
     title: "Safety Officer Course After 12th (2026 Guide) — NIFS India",

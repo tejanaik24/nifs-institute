@@ -51,7 +51,7 @@ export const PATAUDI_FAQS = [
   {
     question: "Does NIFS provide placement assistance in Gurgaon district?",
     answer:
-      "Yes. NIFS provides dedicated placement assistance with over 45,000 placed alumni working across India. Recruiter partners include L&T, Adani, Maruti Suzuki, and Hero MotoCorp. Placement drives and interviews are organized regularly at our regional centers.",
+      "Yes. NIFS provides dedicated placement assistance with over 45,000 placed alumni working across India. Graduates are eligible for placements across leading Pan-India corporate recruiters including L&T, Adani, Tata Projects, ITC, and regional industrial employers.",
   },
 ];
 
