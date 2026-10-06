@@ -57,7 +57,7 @@ export const GURGAON_FAQS = [
 export const metadata: Metadata = {
   title: "Fire and Safety Course in Gurgaon | Govt Approved NIFS Ashok Vihar",
   description:
-    "Join Gurgaon's top-rated Fire & Safety Officer training institute in Ashok Vihar. NSDC approved 1-Year Diploma (DFS, ADIS), live practical yard drills, and placement support in Auto & Manufacturing.",
+    "Join Gurgaon's recognized Fire & Safety Officer training institute in Ashok Vihar. NSDC approved 1-Year Diploma (DFS, ADIS), live practical yard drills, and placement support in Auto & Manufacturing.",
   alternates: { canonical: "/centers/gurgaon/" },
   openGraph: {
     title: "Fire & Safety Officer Course in Gurgaon | NIFS Institute Ashok Vihar",

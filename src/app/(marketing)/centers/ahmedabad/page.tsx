@@ -57,7 +57,7 @@ export const AHMEDABAD_FAQS = [
 export const metadata: Metadata = {
   title: "Fire and Safety Course in Ahmedabad | Govt Approved NIFS Ghatlodia",
   description:
-    "Join Ahmedabad's top-rated Fire & Safety Officer training institute in Ghatlodia. NSDC approved 1-Year Diploma (DFS, ADIS), live practical yard drills, and placement support in Pharma & GIDC.",
+    "Join Ahmedabad's recognized Fire & Safety Officer training institute in Ghatlodia. NSDC approved 1-Year Diploma (DFS, ADIS), live practical yard drills, and placement support in Pharma & GIDC.",
   alternates: { canonical: "/centers/ahmedabad/" },
   openGraph: {
     title: "Fire & Safety Officer Course in Ahmedabad | NIFS Institute Ghatlodia",

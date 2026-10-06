@@ -572,7 +572,7 @@ export default async function DynamicCenterPage({
   const faqs = cityMeta?.localFaqs ?? [
     {
       question: `Which is the best Fire and Safety course in ${cityName}?`,
-      answer: `The Advanced Diploma in Industrial Safety (ADIS) and 1-Year Diploma in Fire & Safety (DFS) are the top-rated courses for fast placement in ${cityName} and surrounding industrial zones.`,
+      answer: `The Advanced Diploma in Industrial Safety (ADIS) and 1-Year Diploma in Fire & Safety (DFS) are the recognized courses for fast placement in ${cityName} and surrounding industrial zones.`,
     },
     {
       question: `What is the eligibility for Safety Officer training in ${cityName}?`,
@@ -580,7 +580,7 @@ export default async function DynamicCenterPage({
     },
     {
       question: `Does NIFS provide placement assistance in ${cityName}?`,
-      answer: `Yes, NIFS provides placement support with over 45,000 alumni working in top recruiters like L&T, Adani, ITC, and Amazon across India.`,
+      answer: `Yes, NIFS provides dedicated placement support with over 45,000 alumni. Graduates are eligible for opportunities with Pan-India recruiters like L&T, Adani, ITC, Amazon, and regional industrial plants.`,
     },
   ];
 

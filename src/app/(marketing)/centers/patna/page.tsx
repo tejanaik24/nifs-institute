@@ -45,7 +45,7 @@ export const PATNA_FAQS = [
   {
     question: "Does NIFS provide placement assistance in Patna?",
     answer:
-      "Yes. NIFS provides placement assistance with over 45,000 placed alumni working across India. Recruiter partners include L&T, Adani, Tata Projects, and leading industrial employers.",
+      "Yes. NIFS provides dedicated placement assistance with over 45,000 placed alumni working across India. Graduates are eligible for placements across leading Pan-India recruiters including L&T, Adani, Tata Projects, and regional industrial employers.",
   },
   {
     question: "Are NIFS certifications recognized by the Government and industry?",
@@ -57,7 +57,7 @@ export const PATNA_FAQS = [
 export const metadata: Metadata = {
   title: "Fire and Safety Course in Patna | Govt Approved NIFS Campus",
   description:
-    "Join Patna's top-rated Fire & Safety Officer training institute. NSDC approved 1-Year Diploma (DFS, ADIS), live practical training yard drills, and placement support in Bihar.",
+    "Join Patna's recognized Fire & Safety Officer training institute. NSDC approved 1-Year Diploma (DFS, ADIS), live practical training yard drills, and placement support in Bihar.",
   alternates: { canonical: "/centers/patna/" },
   openGraph: {
     title: "Fire & Safety Officer Course in Patna | NIFS Institute",

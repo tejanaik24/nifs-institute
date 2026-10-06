@@ -45,7 +45,7 @@ export const CHENNAI_FAQS = [
   {
     question: "Does NIFS provide placement assistance in Chennai?",
     answer:
-      "Yes. NIFS provides placement assistance with over 45,000 placed alumni working across India. Recruiter partners include L&T, Adani, Tata Projects, and leading industrial employers.",
+      "Yes. NIFS provides dedicated placement assistance with over 45,000 placed alumni working across India. Graduates are eligible for placements across leading Pan-India recruiters including L&T, Adani, Tata Projects, and regional industrial employers.",
   },
   {
     question: "Are NIFS certifications recognized by the Government and industry?",
@@ -57,7 +57,7 @@ export const CHENNAI_FAQS = [
 export const metadata: Metadata = {
   title: "Fire and Safety Course in Chennai | Govt Approved NIFS Campus",
   description:
-    "Join Chennai's top-rated Fire & Safety Officer training institute. NSDC approved 1-Year Diploma (DFS, ADIS), live practical training yard drills, and placement support in Tamil Nadu.",
+    "Join Chennai's recognized Fire & Safety Officer training institute. NSDC approved 1-Year Diploma (DFS, ADIS), live practical training yard drills, and placement support in Tamil Nadu.",
   alternates: { canonical: "/centers/chennai/" },
   openGraph: {
     title: "Fire & Safety Officer Course in Chennai | NIFS Institute",
