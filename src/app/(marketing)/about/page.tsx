@@ -7,7 +7,7 @@ import Link from "next/link";
 const aboutSections = [
   {
     title: "Company Profile",
-    body: "25+ years, 70+ centers, 45,000+ alumni.",
+    body: "25+ years, 65+ centers, 45,000+ alumni.",
     href: "/about/company-profile",
   },
   {

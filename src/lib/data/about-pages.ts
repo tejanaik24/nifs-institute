@@ -42,7 +42,7 @@ export const aboutPages: AboutPage[] = [
     slug: "company-profile",
     seoTitle: "Company Profile — 22+ Years in Safety Training | NIFS India",
     seoDescription:
-      "NIFS India: Founded 2004, 69 centers across 21 states, 45,000+ alumni. NSDC approved, ISO 9001:2015 certified, HQ in Visakhapatnam.",
+      "NIFS India: Founded 2004, 65+ centers across 18 states, 45,000+ alumni. NSDC approved, ISO 9001:2015 certified, HQ in Visakhapatnam.",
     hero: {
       eyebrow: "Company Profile",
       title: "22+ years of building India's industrial safety workforce",
@@ -54,8 +54,8 @@ export const aboutPages: AboutPage[] = [
         type: "stats",
         stats: [
           { value: "22+", label: "Years of Excellence (Est. 2004)" },
-          { value: "69", label: "Centers Nationwide" },
-          { value: "21", label: "States & UTs Covered" },
+          { value: "65+", label: "Centers Nationwide" },
+          { value: "18", label: "States & UTs Covered" },
           { value: "45,000+", label: "Alumni Placed" },
         ],
       },

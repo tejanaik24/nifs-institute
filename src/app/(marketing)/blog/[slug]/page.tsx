@@ -26,14 +26,8 @@ const FREE_COURSE_SIGNUP_MARKER = "<!--free-course-signup-->";
 // Canonical consolidation: Resolves keyword cannibalization where a blog post
 // competes against a high-converting core landing page on Google.
 const CANONICAL_OVERRIDES: Record<string, string> = {
-  "safety-officer-salary-in-india-2026-complete-guide":
-    "/safety-officer-salary-in-india/",
-  "safety-officer-salary-in-india-2026-comprehensive-guide":
-    "/safety-officer-salary-in-india/",
   "a-complete-guide-on-fire-courses-at-nifs":
     "/courses/diploma-in-fire-safety/",
-  "how-safety-officer-training-equips-you-for-high-demand-careers":
-    "/courses/safety-officer-course/",
   "how-to-become-a-safety-officer-in-india-2026-guide":
     "/how-to-become-a-safety-officer-in-india/",
 };

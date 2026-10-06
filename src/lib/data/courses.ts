@@ -93,7 +93,7 @@ export const courses: Course[] = [
     seoTitle:
       "Diploma in Fire & Safety Course 2026: Fees, Eligibility, Syllabus & Admissions | NIFS",
     seoDescription:
-      "1-Year NSDC & Govt Approved Diploma in Fire and Safety (DFS) course at NIFS India. Eligibility 10+2/ITI. Practical yard drills, affordable fee structure & 100% placement assistance.",
+      "1-Year NSDC & Govt Approved Diploma in Fire and Safety (DFS) course at NIFS India. Eligibility 10+2/ITI. Practical yard drills, affordable fee structure & dedicated placement assistance.",
     name: "Diploma in Fire & Safety (DFS)",
     shortName: "DFS",
     tier: "Diploma",
@@ -241,7 +241,7 @@ export const courses: Course[] = [
       "ADIS Course 2026: Advanced Diploma in Industrial Safety | Fees, Eligibility & Placements | NIFS",
     h1: "Advanced Diploma in Industrial Safety (ADIS) Course 2026",
     seoDescription:
-      "Official ADIS Course (Advanced Diploma in Industrial Safety) at NIFS India. Factories Act 1948 recognized. Check 2026 course fees, eligibility (10+2/Diploma), syllabus & 100% placement support.",
+      "Official ADIS Course (Advanced Diploma in Industrial Safety) at NIFS India. Factories Act 1948 recognized. Check 2026 course fees, eligibility (10+2/Diploma), syllabus & dedicated placement assistance.",
   },
   {
     slug: "pg-diploma-in-fire-safety-pg-dfs",
