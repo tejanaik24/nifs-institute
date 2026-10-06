@@ -87,12 +87,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }));
 
   const blogPosts = await getPublishedPosts();
-  const blogRoutes = blogPosts.map((post) => ({
-    url: `${baseUrl}/blog/${post.slug}/`,
-    lastModified: post.publishedAt ?? new Date(),
-    changeFrequency: "monthly" as const,
-    priority: 0.6,
-  }));
+  const blogRoutes = blogPosts
+    .filter((post) => {
+      // Exclude ultra-thin / noindex posts from the sitemap
+      if ((post as any).noindex === true) return false;
+      if (post.wordCount > 0 && post.wordCount < 400) return false;
+      return true;
+    })
+    .map((post) => ({
+      url: `${baseUrl}/blog/${post.slug}/`,
+      lastModified: post.publishedAt ?? new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    }));
 
   // Only open jobs: closed drives stay live for users but aren't pushed to crawlers.
   const jobRoutes = (await getOpenJobs()).map((job) => ({

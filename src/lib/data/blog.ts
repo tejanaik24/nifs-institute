@@ -12,6 +12,8 @@ export type BlogPost = {
   faqs?: { question: string; answer: string }[];
   /** Named author with a real, checkable credential — omit rather than invent one. */
   author?: { name: string; title: string };
+  /** When true, flags thin/legacy content with noindex to protect crawl budget and site quality. */
+  noindex?: boolean;
 };
 
 export const blogPosts: BlogPost[] = [...posts].sort(

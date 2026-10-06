@@ -13,6 +13,7 @@ export type BlogPostView = {
   contentHtml: string;
   faqs?: { question: string; answer: string }[];
   author?: { name: string; title: string };
+  noindex?: boolean;
 };
 
 /** Maps a `posts` DB row onto the shape existing blog pages/components expect
@@ -32,6 +33,7 @@ export function toBlogPostView(row: typeof posts.$inferSelect): BlogPostView {
     author: row.authorName
       ? { name: row.authorName, title: row.authorTitle }
       : undefined,
+    noindex: (row as any).noindex ?? (row.wordCount > 0 && row.wordCount < 400),
   };
 }
 

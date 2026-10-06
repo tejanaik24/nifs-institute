@@ -51,6 +51,14 @@ export async function generateMetadata({
     title: row.seoTitle ? row.seoTitle : `${post.title} | NIFS India`,
     description: row.metaDescription || post.excerpt,
     alternates: { canonical: canonicalPath },
+    ...(post.noindex
+      ? {
+          robots: {
+            index: false,
+            follow: true,
+          },
+        }
+      : {}),
   };
 }
 

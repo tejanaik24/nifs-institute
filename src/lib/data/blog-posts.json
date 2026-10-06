@@ -32,7 +32,11 @@
         "question": "Is NSDC a course or a certifying body?",
         "answer": "NSDC (National Skill Development Corporation) is the central government's skill-certification body, not a course. An NSDC-approved course means its curriculum meets national vocational training standards."
       }
-    ]
+    ],
+    "author": {
+      "name": "NIFS Editorial Board",
+      "title": "National Institute of Fire and Safety"
+    }
   },
   {
     "slug": "fire-and-safety-officer-jobs-2026-vacancies-salary-eligibility",
@@ -140,7 +144,11 @@
         "question": "What is the duration of the ADIS course?",
         "answer": "The Advanced Diploma in Industrial Safety (ADIS) is a 1-year comprehensive program covering industrial safety management, occupational health, safety engineering, and environmental legislation."
       }
-    ]
+    ],
+    "author": {
+      "name": "NIFS Academic Advisory Board",
+      "title": "National Institute of Fire and Safety"
+    }
   },
   {
     "slug": "ev-battery-and-industrial-fire-safety-in-india-2026-guide",
@@ -174,7 +182,11 @@
         "question": "Are NIFS India courses recognized for industrial compliance?",
         "answer": "Yes. NIFS India is an ISO 9001:2015 certified institute with courses aligned with state technical education boards, national vocational frameworks, and statutory requirements under the Factories Act."
       }
-    ]
+    ],
+    "author": {
+      "name": "Dr. Gaddeyya Gandipilli",
+      "title": "Head of the Department (HSE), NIFS Visakhapatnam"
+    }
   },
   {
     "slug": "how-to-become-a-safety-officer-in-india-2026-guide",
@@ -208,7 +220,11 @@
         "question": "Does NIFS India provide placement assistance for safety courses?",
         "answer": "Yes. NIFS India has placed over 45,000+ candidates over the last 25 years with leading employers including L&T, Adani, Amazon, ITC, Tata Projects, and top Gulf recruiters with structured campus interview drives."
       }
-    ]
+    ],
+    "author": {
+      "name": "NIFS Career Guidance Cell",
+      "title": "National Institute of Fire and Safety"
+    }
   },
   {
     "slug": "top-10-fire-and-safety-institutes-in-india-2026-ranking",
@@ -442,7 +458,11 @@
         "question": "Can I work as a safety officer in India without a formal diploma?",
         "answer": "Many statutory safety officer positions legally require a recognized diploma or degree — without one, certain roles aren't accessible regardless of experience, since compliance requirements name the qualification explicitly."
       }
-    ]
+    ],
+    "author": {
+      "name": "NIFS Career Guidance Cell",
+      "title": "National Institute of Fire and Safety"
+    }
   },
   {
     "slug": "career-paths-after-industrial-safety-diploma",
@@ -472,7 +492,11 @@
         "question": "How soon after graduating can I move into an auditor or consultant role?",
         "answer": "Auditor and consultant roles typically follow a few years of real field experience as an Industrial Safety Officer or EHS Officer — they're rarely a first job straight out of the diploma."
       }
-    ]
+    ],
+    "author": {
+      "name": "NIFS Career Guidance Cell",
+      "title": "National Institute of Fire and Safety"
+    }
   },
   {
     "slug": "diploma-in-fire-and-safety-dfs-eligibility-duration-career",
@@ -503,7 +527,11 @@
         "question": "Does DFS include hands-on emergency drill practice, or just classroom theory?",
         "answer": "DFS includes a genuine practical-training component — hands-on fire-fighting equipment work and simulated emergency evacuation drills, not classroom theory alone."
       }
-    ]
+    ],
+    "author": {
+      "name": "NIFS Academic Advisory Board",
+      "title": "National Institute of Fire and Safety"
+    }
   },
   {
     "slug": "dis-vs-adis-vs-dfs-vs-adfs-diploma-comparison",
@@ -533,7 +561,11 @@
         "question": "Can I switch from the industrial safety track to the fire safety track later?",
         "answer": "You're not permanently locked in — advanced-tier programs generally consider your overall academic background rather than requiring the exact matching base diploma — but it's a genuinely different curriculum, not a seamless continuation. Confirm specific cross-track eligibility with admissions directly."
       }
-    ]
+    ],
+    "author": {
+      "name": "NIFS Academic Advisory Board",
+      "title": "National Institute of Fire and Safety"
+    }
   },
   {
     "slug": "how-to-verify-fire-safety-institute-is-legitimate",
@@ -567,7 +599,11 @@
         "question": "What makes NIFS's own credentials independently verifiable?",
         "answer": "NIFS's B.Sc programs are issued through Acharya Nagarjuna University (a UGC-recognized university, checkable on ANU's own records), its diploma courses run under NSDC frameworks, and NIFS itself is ISO 9001:2015 certified — all third-party verifiable, not self-issued claims."
       }
-    ]
+    ],
+    "author": {
+      "name": "NIFS Academic Advisory Board",
+      "title": "National Institute of Fire and Safety"
+    }
   },
   {
     "slug": "government-recognized-fire-safety-course-india",
@@ -598,7 +634,11 @@
         "question": "Why does government recognition matter for hiring, not just for the certificate itself?",
         "answer": "Many statutory safety officer roles exist because of specific legal compliance requirements under the Factories Act. An employer hiring for such a role needs a candidate whose qualification satisfies that compliance obligation — a private, non-recognized certificate can leave the employer non-compliant even if the candidate is skilled."
       }
-    ]
+    ],
+    "author": {
+      "name": "Asst. Prof. B. Elayalwar",
+      "title": "Dept. of Fire and Industrial Safety, ANU academic collaboration with NIFS HQ, Visakhapatnam"
+    }
   },
   {
     "slug": "safety-intelligence-predict-before-you-protect-dr-gpr-krishna",
@@ -626,7 +666,11 @@
         "question": "Why is predictive safety analytics important for HSE Officers in 2026?",
         "answer": "Predictive analytics shifts safety management from reactive incident reporting to proactive hazard prevention, making HSE officers indispensable in top manufacturing and oil & gas firms."
       }
-    ]
+    ],
+    "author": {
+      "name": "Dr. GPR Krishna, Ph.D.",
+      "title": "Director of Academics & Safety Governance, NIFS India"
+    }
   },
   {
     "slug": "fire-safety-training-visakhapatnam-complete-guide",
@@ -663,7 +707,11 @@
         "question": "Is placement assistance included after the course?",
         "answer": "Institutes vary on this, so it's worth confirming before enrolling rather than after. NIFS graduates have been placed with employers including Adani, L&T, ITC, and Amazon."
       }
-    ]
+    ],
+    "author": {
+      "name": "Dr. Gaddeyya Gandipilli",
+      "title": "Head of the Department (HSE), NIFS Visakhapatnam"
+    }
   },
   {
     "slug": "government-recognized-degree-vs-private-certificate-fire-safety-institute-india",
@@ -689,7 +737,11 @@
         "question": "Is NIFS India government recognized?",
         "answer": "Yes, NIFS offers NSDC-approved and University-affiliated programs recognized by industrial employers nationwide."
       }
-    ]
+    ],
+    "author": {
+      "name": "Asst. Prof. B. Elayalwar",
+      "title": "Dept. of Fire and Industrial Safety, ANU academic collaboration with NIFS HQ, Visakhapatnam"
+    }
   },
   {
     "slug": "ai-industrial-safety-computer-vision-next-safety-officer",
@@ -731,7 +783,11 @@
         "question": "Where should a plant begin its AI safety journey?",
         "answer": "Start with your highest-risk locations, using the cameras you already have. Set clear objectives, train your safety officers, measure results, then expand."
       }
-    ]
+    ],
+    "author": {
+      "name": "Dr. GPR Krishna",
+      "title": "Head – Projects, NIFS | Industrial Safety AI Integrator"
+    }
   },
   {
     "slug": "why-fresh-engineers-are-switching-to-fire-safety-careers-2026",
@@ -757,7 +813,11 @@
         "question": "Is ADIS or PDIS mandatory for engineering graduates?",
         "answer": "Yes, an ADIS or PDIS qualification is mandatory under the Factories Act for appointment as a Chief Safety Officer in manufacturing plants."
       }
-    ]
+    ],
+    "author": {
+      "name": "NIFS Career Guidance Cell",
+      "title": "National Institute of Fire and Safety"
+    }
   },
   {
     "slug": "top-fire-and-safety-courses-after-10th-12th-graduation-2026",
@@ -786,7 +846,11 @@
         "question": "What are the fees for NIFS Fire and Safety courses in 2026?",
         "answer": "Course fees range from ₹25,000 for certificate courses to ₹65,000 for advanced university diplomas, including practical training yard fees."
       }
-    ]
+    ],
+    "author": {
+      "name": "NIFS Career Guidance Cell",
+      "title": "National Institute of Fire and Safety"
+    }
   },
   {
     "slug": "safety-intelligence-industrial-safety-predictive-ai-india",
@@ -815,7 +879,11 @@
         "question": "Does NIFS provide placement assistance after course completion?",
         "answer": "Yes, NIFS has a dedicated placement cell with 45,000+ alumni placed across top industrial firms including Adani, L&T, ITC, GMR, and Amazon."
       }
-    ]
+    ],
+    "author": {
+      "name": "Dr. GPR Krishna",
+      "title": "Head – Projects, NIFS | Industrial Safety AI Integrator"
+    }
   },
   {
     "slug": "safety-officer-salary-in-india-2026-complete-guide",
@@ -842,7 +910,11 @@
         "question": "Does having a PDIS or ADIS diploma increase Safety Officer salary?",
         "answer": "Yes, candidates holding a State Board (SBTET) or University recognized PDIS/ADIS diploma receive up to 50% higher starting salaries compared to private certificate holders."
       }
-    ]
+    ],
+    "author": {
+      "name": "NIFS Placement Directorate",
+      "title": "Head of Corporate Placements & Industry Alliances"
+    }
   },
   {
     "slug": "pdis-course-eligibility-criteria-based-on-academic-and-work-background",
@@ -1286,7 +1358,8 @@
         "question": "Does NIFS provide placement assistance after course completion?",
         "answer": "Yes, NIFS has a dedicated placement cell with 45,000+ alumni placed across top industrial firms including Adani, L&T, ITC, GMR, and Amazon."
       }
-    ]
+    ],
+    "noindex": true
   },
   {
     "slug": "why-petroleum-safety-training-is-crucial-for-oil-and-gas-professionals",
@@ -1312,7 +1385,8 @@
         "question": "Does NIFS provide placement assistance after course completion?",
         "answer": "Yes, NIFS has a dedicated placement cell with 45,000+ alumni placed across top industrial firms including Adani, L&T, ITC, GMR, and Amazon."
       }
-    ]
+    ],
+    "noindex": true
   },
   {
     "slug": "how-nsdc-certified-courses-can-boost-your-career-opportunities",
@@ -1338,7 +1412,8 @@
         "question": "Does NIFS provide placement assistance after course completion?",
         "answer": "Yes, NIFS has a dedicated placement cell with 45,000+ alumni placed across top industrial firms including Adani, L&T, ITC, GMR, and Amazon."
       }
-    ]
+    ],
+    "noindex": true
   },
   {
     "slug": "the-key-difference-between-preventive-action-and-corrective-action-explained",
@@ -1364,7 +1439,8 @@
         "question": "Does NIFS provide placement assistance after course completion?",
         "answer": "Yes, NIFS has a dedicated placement cell with 45,000+ alumni placed across top industrial firms including Adani, L&T, ITC, GMR, and Amazon."
       }
-    ]
+    ],
+    "noindex": true
   },
   {
     "slug": "exploring-high-demand-jobs-in-the-fire-and-safety-industry",
@@ -1416,7 +1492,8 @@
         "question": "Does NIFS provide placement assistance after course completion?",
         "answer": "Yes, NIFS has a dedicated placement cell with 45,000+ alumni placed across top industrial firms including Adani, L&T, ITC, GMR, and Amazon."
       }
-    ]
+    ],
+    "noindex": true
   },
   {
     "slug": "how-fire-safety-training-can-save-lives-and-boost-workplace-readiness",
@@ -1442,7 +1519,8 @@
         "question": "Does NIFS provide placement assistance after course completion?",
         "answer": "Yes, NIFS has a dedicated placement cell with 45,000+ alumni placed across top industrial firms including Adani, L&T, ITC, GMR, and Amazon."
       }
-    ]
+    ],
+    "noindex": true
   },
   {
     "slug": "a-complete-guide-to-building-a-career-through-fire-and-safety-courses",
@@ -1494,7 +1572,8 @@
         "question": "Does NIFS provide placement assistance after course completion?",
         "answer": "Yes, NIFS has a dedicated placement cell with 45,000+ alumni placed across top industrial firms including Adani, L&T, ITC, GMR, and Amazon."
       }
-    ]
+    ],
+    "noindex": true
   },
   {
     "slug": "begin-your-safety-career-with-specialized-assistant-officer-training",
@@ -4287,7 +4366,11 @@
         "question": "Does NIFS provide placement assistance after course completion?",
         "answer": "Yes, NIFS has a dedicated placement cell with 45,000+ alumni placed across top industrial firms including Adani, L&T, ITC, GMR, and Amazon."
       }
-    ]
+    ],
+    "author": {
+      "name": "Dr. GPR Krishna, Ph.D.",
+      "title": "Director of Academics & Safety Governance, NIFS India"
+    }
   },
   {
     "slug": "safety-is-not-an-expense-cheapest-insurance",
