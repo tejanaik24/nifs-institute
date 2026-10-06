@@ -1,3 +1,4 @@
+import { SITE } from "@/lib/data/site-constants";
 import { BreadcrumbSchema, FAQSchema } from "@/lib/seo/schema";
 import {
   ArrowRight,
@@ -576,7 +577,7 @@ export default function HowToBecomeSafetyOfficerPage() {
               <div className="flex items-start gap-2 text-sm text-muted-foreground">
                 <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                 <span>
-                  <strong>65+ Centers Nationwide:</strong> Accessible training
+                  <strong>{SITE.centerCount} Centers Nationwide:</strong> Accessible training
                   across 18 states & UTs in India.
                 </span>
               </div>

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { SITE } from "@/lib/data/site-constants";
 
 const items = [
   {
@@ -30,7 +31,7 @@ const items = [
   },
   {
     number: "05",
-    title: "65+ Centers Nationwide",
+    title: `${SITE.centerCount} Centers Nationwide`,
     body: "Learn near home. Transfer between centers anytime. New centers opening every quarter.",
     icon: "/images/icons/centers-nationwide.png",
   },

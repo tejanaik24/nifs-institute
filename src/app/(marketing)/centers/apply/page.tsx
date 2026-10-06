@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import { SITE } from "@/lib/data/site-constants";
 import { PageHero } from "@/components/sections/page-hero";
 import { NewCenterForm } from "@/components/sections/new-center-form";
 import {
@@ -137,7 +138,7 @@ export default function ApplyForNewCenterPage() {
                     <span className="relative inline-flex h-2 w-2 rounded-full bg-red-500" />
                   </span>
                   <Compass className="h-3.5 w-3.5 text-red-400" />
-                  <span>Pan-India Expansion • 18 States &amp; UTs</span>
+                  <span>Pan-India Expansion • {SITE.stateCount} States &amp; UTs</span>
                 </div>
 
                 {/* Punchy Sans Heading */}

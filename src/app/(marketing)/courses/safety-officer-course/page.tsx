@@ -1,3 +1,4 @@
+import { SITE } from "@/lib/data/site-constants";
 import { BreadcrumbSchema, CourseSchema, FAQSchema } from "@/lib/seo/schema";
 import {
   ArrowRight,
@@ -275,7 +276,7 @@ export default function SafetyOfficerCoursePage() {
                 desc: "45,000+ candidates placed in Adani, L&T, GMR, Amazon, ITC, MEIL and 100+ other companies. Active placement cell.",
               },
               {
-                title: "65+ Centers",
+                title: `${SITE.centerCount} Centers`,
                 desc: "Training centers across Visakhapatnam, Hyderabad, Delhi, Mumbai, Chennai, Kolkata, Nagpur, and 60+ more cities.",
               },
               {

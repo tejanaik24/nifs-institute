@@ -1,5 +1,6 @@
 import WhatsAppSeatChecker from "@/components/ui/whatsapp-seat-checker";
 import { courses } from "@/lib/data/courses";
+import { SITE } from "@/lib/data/site-constants";
 import { BreadcrumbSchema, CourseSchema, FAQSchema } from "@/lib/seo/schema";
 import {
   ArrowRight,
@@ -179,7 +180,7 @@ export default async function CourseDetailPage({
             </div>
             <div className="flex items-center gap-2 text-xs font-semibold text-muted-foreground">
               <CheckCircle2 className="h-4 w-4 text-primary shrink-0" />
-              <span>65+ Centers in India</span>
+              <span>{SITE.centerCount} Centers in India</span>
             </div>
             <div className="flex items-center gap-2 text-xs font-semibold text-muted-foreground">
               <CheckCircle2 className="h-4 w-4 text-primary shrink-0" />

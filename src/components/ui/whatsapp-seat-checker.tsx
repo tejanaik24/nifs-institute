@@ -2,6 +2,7 @@
 
 import { Building2, CheckCircle2, MessageSquare } from "lucide-react";
 import { useState } from "react";
+import { SITE } from "@/lib/data/site-constants";
 
 interface WhatsAppSeatCheckerProps {
   courseName: string;
@@ -48,12 +49,12 @@ export default function WhatsAppSeatChecker({
           <p className="text-xs sm:text-sm text-muted-foreground mt-1">
             {isUniversityDegree
               ? "Limited university batch quota for Acharya Nagarjuna University degree programs."
-              : "Direct admission counseling across 65+ training centers in India."}
+              : `Direct admission counseling across ${SITE.centerCount} training centers in India.`}
           </p>
         </div>
         <div className="flex items-center gap-2 text-xs font-semibold text-muted-foreground shrink-0 bg-background/80 px-3 py-1.5 rounded-lg border border-border">
           <Building2 className="h-4 w-4 text-primary" />
-          <span>65+ Centers Pan-India</span>
+          <span>{SITE.centerCount} Centers Pan-India</span>
         </div>
       </div>
 

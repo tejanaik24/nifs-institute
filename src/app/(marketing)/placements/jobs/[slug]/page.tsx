@@ -3,6 +3,7 @@ import { JobApplyForm } from "@/components/sections/job-apply-form";
 import { PageHero } from "@/components/sections/page-hero";
 import { centers } from "@/lib/data/centers";
 import { slugifyCity } from "@/lib/data/center-gallery";
+import { SITE } from "@/lib/data/site-constants";
 import { getAllJobs, getJobBySlug, getOpenJobs } from "@/lib/db/jobs";
 import {
   AlertCircle,
@@ -537,7 +538,7 @@ export default async function JobDetailPage({ params }: Props) {
                   </div>
                   <div className="mt-6 border-t border-border pt-4">
                     <p className="text-center text-xs text-muted-foreground">
-                      Over 45,000+ Alumni Placed Across 65+ Centers Nationwide
+                      Over 45,000+ Alumni Placed Across {SITE.centerCount} Centers Nationwide
                     </p>
                   </div>
                 </div>

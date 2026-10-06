@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { SITE } from "@/lib/data/site-constants";
 
 const ITEMS = [
   {
@@ -19,7 +20,7 @@ const ITEMS = [
     img: "/why_government_bg.webp",
   },
   {
-    title: "65+ Centers Nationwide",
+    title: `${SITE.centerCount} Centers Nationwide`,
     desc: "Learn near home. Transfer between centers anytime. New centers opening every quarter.",
     img: "/why_centers_bg.webp",
   },

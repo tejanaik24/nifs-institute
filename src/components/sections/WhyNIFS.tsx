@@ -7,6 +7,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { SpineGutterBg, SpineSplit } from "@/components/sections/spine-helpers";
 import { NifsCrest } from "@/components/nifs-crest";
 import { useTypewriter } from "@/components/sections/scroll-reveal-hooks";
+import { SITE } from "@/lib/data/site-constants";
 
 const items = [
   {
@@ -35,7 +36,7 @@ const items = [
   },
   {
     number: "05",
-    title: "65+ Centers Nationwide",
+    title: `${SITE.centerCount} Centers Nationwide`,
     body: "Learn near home. Transfer between centers anytime. New centers opening every quarter.",
     icon: "/images/icons/centers-nationwide.png",
   },

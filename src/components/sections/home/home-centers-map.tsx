@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { SITE } from "@/lib/data/site-constants";
 
 const STATES = [
   {
@@ -249,8 +250,8 @@ export default function HomeCentersMap() {
                 National Presence
               </span>
               <h2 className="font-sans text-[3.2vw] max-lg:text-[5vw] max-sm:text-[32px] font-black leading-tight text-gray-900 mt-1 break-words w-full">
-                65+ Centers Across{" "}
-                <span className="font-display italic">18 States & UTs</span>
+                {SITE.centerCount} Centers Across{" "}
+                <span className="font-display italic">{SITE.stateCount} States & UTs</span>
               </h2>
               <p className="font-sans text-gray-500 text-[15px] mt-2 font-medium">
                 India&apos;s largest network of safety training institutes,

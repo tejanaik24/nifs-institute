@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/sections/page-hero";
 import { centers } from "@/lib/data/centers";
+import { SITE } from "@/lib/data/site-constants";
 import { CenterDirectory } from "@/components/sections/center-directory";
 import { ApplyNewCenterBanner } from "@/components/sections/apply-new-center-banner";
 
 export const metadata: Metadata = {
-  title: "NIFS Training Centers — 65+ Locations, 18 States & UTs | NIFS India",
+  title: `NIFS Training Centers — ${SITE.centerCount} Locations, ${SITE.stateCount} States & UTs | NIFS India`,
   description:
     "Find your nearest NIFS training center — verified centers across India with phone numbers and directions for every location.",
   alternates: { canonical: "/centers/" },
