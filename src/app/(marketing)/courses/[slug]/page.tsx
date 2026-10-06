@@ -109,27 +109,49 @@ export default async function CourseDetailPage({
             className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6"
           >
             {[
-              { label: "Duration", value: course.duration },
-              { label: "Eligibility", value: course.eligibility },
-              { label: "Mode", value: course.mode },
-              { label: "Tier", value: course.tier },
-              { label: "Fee Aid", value: "EMI & Assistance" },
-              { label: "Salary Scope", value: "₹3.0L – ₹4.8L/Yr" },
-            ].map((f) => (
-              <div key={f.label} className="border border-border p-3.5 rounded-sm bg-card">
-                <p className="text-[10px] uppercase tracking-widest text-muted-foreground font-semibold">
-                  {f.label}
-                </p>
-                <p className="mt-1 text-xs sm:text-sm font-bold text-foreground">{f.value}</p>
-              </div>
-            ))}
+              { label: "Duration", value: course.duration, isAction: false },
+              { label: "Eligibility", value: course.eligibility, isAction: false },
+              { label: "Mode", value: course.mode, isAction: false },
+              { label: "Tier", value: course.tier, isAction: false },
+              { label: "Fee Aid", value: "EMI & Assistance", isAction: true },
+              { label: "Salary Scope", value: "₹3.0L – ₹4.8L/Yr", isAction: true },
+            ].map((f) =>
+              f.isAction ? (
+                <a
+                  key={f.label}
+                  href="#fee-brochure"
+                  className="border border-border p-3.5 rounded-sm bg-card transition-colors hover:border-primary/50 group block cursor-pointer"
+                >
+                  <p className="text-[10px] uppercase tracking-widest text-muted-foreground font-semibold flex items-center justify-between">
+                    <span>{f.label}</span>
+                    <span className="text-[9px] text-primary font-bold">↓</span>
+                  </p>
+                  <p className="mt-1 text-xs sm:text-sm font-bold text-foreground group-hover:text-primary transition-colors">
+                    {f.value}
+                  </p>
+                </a>
+              ) : (
+                <div
+                  key={f.label}
+                  className="border border-border p-3.5 rounded-sm bg-card select-none cursor-default pointer-events-none"
+                >
+                  <p className="text-[10px] uppercase tracking-widest text-muted-foreground font-semibold">
+                    {f.label}
+                  </p>
+                  <p className="mt-1 text-xs sm:text-sm font-bold text-foreground">{f.value}</p>
+                </div>
+              ),
+            )}
           </div>
 
           {/* Upfront Fee Transparency & Search Intent Resolution */}
-          <div className="mt-4 flex flex-wrap items-center justify-between gap-3 rounded-lg bg-primary/5 border border-primary/20 px-4 py-2.5 text-xs text-muted-foreground">
+          <div
+            id="fee-brochure"
+            className="mt-4 flex flex-wrap items-center justify-between gap-3 rounded-lg bg-primary/5 border border-primary/20 px-4 py-2.5 text-xs text-muted-foreground"
+          >
             <span className="flex items-center gap-1.5 font-medium text-foreground">
               <CheckCircle2 className="h-4 w-4 text-primary shrink-0" />
-              Transparent Govt-Approved Fee Structure with Flexible Installment / EMI options across all 70+ centers.
+              Transparent Govt-Approved Fee Structure with Flexible Installment / EMI options across all 65+ centers.
             </span>
             <a
               href={`https://wa.me/918374340999?text=${encodeURIComponent(`Hi NIFS, I want to know the 2026 fee structure, installment plans, and syllabus for ${course.name}.`)}`}
@@ -145,7 +167,7 @@ export default async function CourseDetailPage({
           {/* Trust Badges Bar */}
           <div
             data-path-target="true"
-            className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6 border-y border-border py-4"
+            className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6 border-y border-border py-4 select-none cursor-default pointer-events-none"
           >
             <div className="flex items-center gap-2 text-xs font-semibold text-muted-foreground">
               <CheckCircle2 className="h-4 w-4 text-primary shrink-0" />
@@ -157,7 +179,7 @@ export default async function CourseDetailPage({
             </div>
             <div className="flex items-center gap-2 text-xs font-semibold text-muted-foreground">
               <CheckCircle2 className="h-4 w-4 text-primary shrink-0" />
-              <span>70+ Centers in India</span>
+              <span>65+ Centers in India</span>
             </div>
             <div className="flex items-center gap-2 text-xs font-semibold text-muted-foreground">
               <CheckCircle2 className="h-4 w-4 text-primary shrink-0" />

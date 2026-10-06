@@ -5,9 +5,9 @@ import { ArrowLeft, Building2, Globe2, GraduationCap, Award, FileCheck2, Compass
 import { AbroadStudentsForm } from "@/components/sections/abroad-students-form";
 
 export const metadata: Metadata = {
-  title: "Abroad Students — Study in India Portal | NIFS India",
+  title: "Abroad & International Students Admissions | NIFS India",
   description:
-    "Admissions for abroad and international students at NIFS India. Ministry of Education Study in India partner for Advance Diploma in Industrial Safety and B.Sc. (Honors).",
+    "Admissions for abroad and international students at NIFS India in academic collaboration with Acharya Nagarjuna University (ANU). Advance Diploma in Industrial Safety and B.Sc. (Honours).",
   alternates: { canonical: "/courses/abroad-students/" },
 };
 
@@ -29,7 +29,7 @@ export default function AbroadStudentsPage() {
 
           <div className="text-center max-w-3xl mx-auto">
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-primary shadow-xs">
-              <Globe2 className="h-4 w-4" /> Ministry of Education (GOI) · Study in India
+              <Globe2 className="h-4 w-4" /> International Safety Programs · ANU Collaboration
             </div>
 
             <h1 className="font-display mt-5 text-3xl sm:text-5xl md:text-6xl italic leading-tight text-foreground">
@@ -37,7 +37,7 @@ export default function AbroadStudentsPage() {
             </h1>
 
             <p className="mt-4 text-base sm:text-lg text-muted-foreground font-normal leading-relaxed">
-              Welcome to NIFS India. International students can enroll in our flagship safety engineering programs officially sanctioned under the Government of India&apos;s <em>Study in India</em> initiative.
+              Welcome to NIFS India. International students can enroll in our flagship safety engineering programs officially recognized in collaboration with Acharya Nagarjuna University (ANU).
             </p>
 
             {/* Quick Badges */}
@@ -58,8 +58,8 @@ export default function AbroadStudentsPage() {
           <div className="mt-10 mx-auto max-w-5xl">
             <div className="group relative aspect-[16/10] sm:aspect-[21/9] w-full overflow-hidden rounded-2xl sm:rounded-3xl border-2 border-border/80 shadow-2xl bg-muted">
               <Image
-                src="/images/courses/abroad-hero-campus.jpg"
-                alt="International students at prestigious Indian safety engineering university campus"
+                src="/images/real/vizag/mou-acharya-nagarjuna-university-vizag-v2.webp"
+                alt="Official MoU signing and academic collaboration between NIFS India and Acharya Nagarjuna University"
                 fill
                 quality={95}
                 sizes="(max-width: 768px) 100vw, 1100px"
@@ -72,11 +72,11 @@ export default function AbroadStudentsPage() {
                 <div className="flex items-center gap-2">
                   <span className="flex h-2.5 w-2.5 rounded-full bg-emerald-400 animate-pulse" />
                   <span className="text-xs sm:text-sm font-semibold tracking-wide drop-shadow-sm">
-                    NIFS India International Training Campus · Recognized Safety Leaders
+                    NIFS India Academic Collaboration · Acharya Nagarjuna University (ANU)
                   </span>
                 </div>
                 <span className="hidden sm:inline-block rounded-md bg-white/20 px-3 py-1 text-xs font-semibold backdrop-blur-md">
-                  Study in India Partner
+                  University Affiliated
                 </span>
               </div>
             </div>

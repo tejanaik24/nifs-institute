@@ -238,10 +238,10 @@ export const courses: Course[] = [
     ],
     image: "/images/course-card-industrial-safety.jpg",
     seoTitle:
-      "ADIS Course 2026: Advanced Diploma in Industrial Safety | Fees, Eligibility & Placements | NIFS",
+      "ADIS Course 2026: Full Form, Fees, Eligibility, Syllabus & Admissions | NIFS India",
     h1: "Advanced Diploma in Industrial Safety (ADIS) Course 2026",
     seoDescription:
-      "Official ADIS Course (Advanced Diploma in Industrial Safety) at NIFS India. Factories Act 1948 recognized. Check 2026 course fees, eligibility (10+2/Diploma), syllabus & dedicated placement assistance.",
+      "Official ADIS Course (Advanced Diploma in Industrial Safety) at NIFS India. Factories Act 1948 recognized. Check 2026 fees, eligibility (10+2/Diploma/Grad), subjects & syllabus PDF.",
   },
   {
     slug: "pg-diploma-in-fire-safety-pg-dfs",
