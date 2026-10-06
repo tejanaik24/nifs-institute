@@ -31,7 +31,7 @@ export async function sendCertificateEmail(opts: {
       <p>Your official certificate is attached to this email as a PDF.</p>
       <p>This certified qualification awards Continuing Professional Development (CPD) credits, recognized towards fast-track admission into the Advance Diploma in Industrial Safety (ADIS) and B.Sc. in Fire &amp; Industrial Safety.</p>
       <p style="background: #FDF4E7; border: 1px solid #E9D5A8; border-radius: 6px; padding: 12px 16px; margin: 16px 0;">
-        <strong>Thinking about a full career in fire &amp; industrial safety?</strong> This course is your first step — NIFS graduates go on to work with Adani, L&amp;T, ITC, Amazon and more. Reply to this email or call/WhatsApp <strong>+91 8374 340 999</strong> and our admissions team will walk you through the next course and placement support, free of cost.
+        <strong>Thinking about a full career in fire &amp; industrial safety?</strong> This course is your first step — NIFS graduates step into high-demand careers as <strong>Safety Officers, Fire &amp; Safety Engineers, EHS Managers, and Plant Safety Coordinators</strong> across core industrial sectors. Reply to this email or call/WhatsApp <strong>+91 8374 340 999</strong> and our admissions team will walk you through the next course and placement support, free of cost.
       </p>
       <p style="margin-top: 24px;">Warm regards,<br/>Controller of Academics &amp; Examination Board<br/>National Institute of Fire &amp; Safety (NIFS India)<br/>Govt. Recognized • Estd. 2004</p>
     </div>

@@ -7,6 +7,7 @@ CREATE TABLE IF NOT EXISTS nifs.course_registrations (
   name TEXT NOT NULL,
   phone VARCHAR(15) NOT NULL,
   email TEXT NOT NULL,
+  country TEXT DEFAULT 'India',
   token TEXT NOT NULL UNIQUE,
   assignment_answers JSONB,
   assignment_at TIMESTAMPTZ,

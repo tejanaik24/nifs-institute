@@ -52,14 +52,20 @@ export function FreeCourseBlogSignup() {
         3 hours online, a study guide and a certificate by email. Fill this in and you go straight into the course.
       </p>
       <form onSubmit={submit} aria-busy={busy} className="mt-5 space-y-3.5">
-        <div>
-          <label htmlFor={`${id}-name`} className={label}>Your name</label>
-          <input id={`${id}-name`} name="name" required minLength={2} maxLength={100} autoComplete="name" className={input} />
+        <div className="grid gap-3.5 sm:grid-cols-2">
+          <div>
+            <label htmlFor={`${id}-name`} className={label}>Your name</label>
+            <input id={`${id}-name`} name="name" required minLength={2} maxLength={100} autoComplete="name" placeholder="Full name for certificate" className={input} />
+          </div>
+          <div>
+            <label htmlFor={`${id}-country`} className={label}>Which country are you from?</label>
+            <input id={`${id}-country`} name="country" required minLength={2} maxLength={100} defaultValue="India" placeholder="e.g. India, UAE, Oman, Nigeria" className={input} />
+          </div>
         </div>
         <div className="grid gap-3.5 sm:grid-cols-2">
           <div>
             <label htmlFor={`${id}-phone`} className={label}>Mobile</label>
-            <input id={`${id}-phone`} name="phone" type="tel" inputMode="tel" required maxLength={25} autoComplete="tel" placeholder="10 digits" className={input} />
+            <input id={`${id}-phone`} name="phone" type="tel" inputMode="tel" required maxLength={25} autoComplete="tel" placeholder="With country code if outside India" className={input} />
           </div>
           <div>
             <label htmlFor={`${id}-email`} className={label}>Email</label>

@@ -199,6 +199,7 @@ export const courseRegistrations = pgTable("course_registrations", {
   name: text("name").notNull(),
   phone: varchar("phone", { length: 15 }).notNull(),
   email: text("email").notNull(),
+  country: text("country"),
   token: text("token").notNull().unique(),
   assignmentAnswers: jsonb("assignment_answers").$type<string[]>(),
   assignmentAt: timestamp("assignment_at", { withTimezone: true }),

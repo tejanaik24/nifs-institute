@@ -46,15 +46,21 @@ export function RegisterCard({ onAuthed }: { onAuthed: (token: string, state: Co
 
       <form onSubmit={submit} aria-busy={busy} className="mt-4 space-y-3.5">
         {mode === "register" && (
-          <div>
-            <label htmlFor={`${id}-name`} className={label}>Your name</label>
-            <input id={`${id}-name`} name="name" required minLength={2} maxLength={100} autoComplete="name" className={field} />
+          <div className="grid gap-3.5 sm:grid-cols-2">
+            <div>
+              <label htmlFor={`${id}-name`} className={label}>Your name</label>
+              <input id={`${id}-name`} name="name" required minLength={2} maxLength={100} autoComplete="name" placeholder="Full name for certificate" className={field} />
+            </div>
+            <div>
+              <label htmlFor={`${id}-country`} className={label}>Which country are you from?</label>
+              <input id={`${id}-country`} name="country" required minLength={2} maxLength={100} defaultValue="India" placeholder="e.g. India, UAE, Oman, Nigeria" className={field} />
+            </div>
           </div>
         )}
         <div className="grid gap-3.5 sm:grid-cols-2">
           <div>
             <label htmlFor={`${id}-phone`} className={label}>Mobile</label>
-            <input id={`${id}-phone`} name="phone" type="tel" inputMode="tel" required maxLength={25} autoComplete="tel" placeholder="10 digits" className={field} />
+            <input id={`${id}-phone`} name="phone" type="tel" inputMode="tel" required maxLength={25} autoComplete="tel" placeholder="With country code if outside India" className={field} />
           </div>
           <div>
             <label htmlFor={`${id}-email`} className={label}>Email</label>

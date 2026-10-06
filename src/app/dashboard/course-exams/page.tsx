@@ -8,6 +8,7 @@ const fmt = (d: Date | null) => (d ? d.toLocaleString("en-IN", { dateStyle: "med
 
 const exportCols = [
   { key: "name", label: "Candidate Name" },
+  { key: "country", label: "Country" },
   { key: "phone", label: "Mobile" },
   { key: "email", label: "Email" },
   { key: "certificateId", label: "Certificate ID" },
@@ -29,6 +30,7 @@ export default async function CourseExamsPage() {
   // Pre-format data server-side — no functions cross the Server→Client boundary
   const exportData = rows.map((r) => ({
     name: r.name ?? "",
+    country: r.country || "India",
     phone: r.phone ?? "",
     email: r.email ?? "",
     certificateId: `NIFS-ES-${String(r.id).padStart(5, "0")}`,
@@ -64,7 +66,7 @@ export default async function CourseExamsPage() {
           <table className="w-full text-left text-sm">
             <thead className="bg-[var(--dash-surface)] text-[var(--dash-text-muted)]">
               <tr>
-                {["Name", "Mobile", "Email", "Assignment", "Exam", "Score", "Certificate"].map((h) => (
+                {["Name", "Country", "Mobile", "Email", "Assignment", "Exam", "Score", "Certificate"].map((h) => (
                   <th key={h} className="px-4 py-2 font-medium">{h}</th>
                 ))}
               </tr>
@@ -72,8 +74,9 @@ export default async function CourseExamsPage() {
             <tbody>
               {rows.map((r) => (
                 <tr key={r.id} className="border-t border-[var(--dash-border)] align-top">
-                  <td className="px-4 py-2">{r.name}</td>
-                  <td className="px-4 py-2"><a className="underline" href={`tel:+91${r.phone}`}>{r.phone}</a></td>
+                  <td className="px-4 py-2 font-medium">{r.name}</td>
+                  <td className="px-4 py-2 text-xs text-[var(--dash-text-muted)]">{r.country || "India"}</td>
+                  <td className="px-4 py-2"><a className="underline" href={`tel:${r.phone}`}>{r.phone}</a></td>
                   <td className="px-4 py-2"><a className="underline" href={`mailto:${r.email}`}>{r.email}</a></td>
                   <td className="px-4 py-2">{r.assignmentAt ? "Submitted" : "—"}</td>
                   <td className="px-4 py-2 text-[var(--dash-text-muted)]">{r.examSubmittedAt ? fmt(r.examSubmittedAt) : r.examStartedAt ? "In progress" : "—"}</td>

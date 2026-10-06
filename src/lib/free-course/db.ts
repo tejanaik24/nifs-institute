@@ -11,6 +11,7 @@ export const registerSchema = z.object({
   name: enquirySchema.shape.name,
   phone: enquirySchema.shape.phone,
   email: z.string().trim().toLowerCase().max(200, "Email is too long").pipe(z.email("Enter a valid email address")),
+  country: z.string().trim().min(2, "Enter your country").max(100, "Country is too long").default("India"),
 });
 
 export const tokenSchema = z.object({ token: z.string().length(48) });
@@ -19,6 +20,7 @@ export type Row = typeof t.$inferSelect;
 export type CourseState = {
   name: string;
   email: string;
+  country?: string | null;
   rollNo: string;
   timedOut?: boolean;
   assignmentDone: boolean;
@@ -33,6 +35,7 @@ export function stateOf(r: Row, now = Date.now()): CourseState {
   return {
     name: r.name,
     email: r.email,
+    country: r.country ?? "India",
     rollNo: `NIFS-ES-${String(r.id).padStart(5, "0")}`,
     assignmentDone: !!r.assignmentAt,
     exam,
@@ -60,9 +63,16 @@ export async function getByToken(token: string): Promise<Row | null> {
 export async function registerStudent(v: z.output<typeof registerSchema>, city: string, state: string): Promise<Row> {
   const [existing] = await db.select().from(t).where(and(eq(t.course, "ergonomic-safety"), eq(t.phone, v.phone), eq(t.email, v.email))).limit(1);
   if (existing) return existing;
-  const [row] = await db.insert(t).values({ name: v.name, phone: v.phone, email: v.email, token: randomBytes(24).toString("hex") }).returning();
+  const [row] = await db.insert(t).values({
+    name: v.name,
+    phone: v.phone,
+    email: v.email,
+    country: v.country || "India",
+    token: randomBytes(24).toString("hex"),
+  }).returning();
   // Keep the lead in the existing callbacks list too.
-  await db.insert(enquiries).values({ name: v.name, phone: v.phone, course: COURSE_TAG, city, state }).catch(() => {});
+  const leadCity = v.country && v.country.toLowerCase() !== "india" ? `${city || ""}, ${v.country}` : city;
+  await db.insert(enquiries).values({ name: v.name, phone: v.phone, course: COURSE_TAG, city: leadCity, state }).catch(() => {});
   return row;
 }
 
