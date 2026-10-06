@@ -1,3 +1,5 @@
+import { SITE } from "@/lib/data/site-constants";
+
 export type AboutCard = {
   title: string;
   body: string;
@@ -42,7 +44,7 @@ export const aboutPages: AboutPage[] = [
     slug: "company-profile",
     seoTitle: "Company Profile — 22+ Years in Safety Training | NIFS India",
     seoDescription:
-      "NIFS India: Founded 2004, 65+ centers across 18 states, 45,000+ alumni. NSDC approved, ISO 9001:2015 certified, HQ in Visakhapatnam.",
+      `NIFS India: Founded 2004, 65+ centers across 18 states, ${SITE.studentsPlaced} alumni. NSDC approved, ISO 9001:2015 certified, HQ in Visakhapatnam.`,
     hero: {
       eyebrow: "Company Profile",
       title: "22+ years of building India's industrial safety workforce",
@@ -56,7 +58,7 @@ export const aboutPages: AboutPage[] = [
           { value: "22+", label: "Years of Excellence (Est. 2004)" },
           { value: "65+", label: "Centers Nationwide" },
           { value: "18", label: "States & UTs Covered" },
-          { value: "45,000+", label: "Alumni Placed" },
+          { value: SITE.studentsPlaced, label: "Alumni Placed" },
         ],
       },
       {
@@ -103,7 +105,7 @@ export const aboutPages: AboutPage[] = [
           },
           {
             meta: "Outcomes",
-            title: "45,000+ alumni placed",
+            title: `${SITE.studentsPlaced} alumni placed`,
             body: "Graduates working as safety officers and EHS professionals at Adani, L&T, GMR, ITC, Amazon and more.",
           },
         ],
@@ -130,7 +132,7 @@ export const aboutPages: AboutPage[] = [
             title:
               "A global leader in fire engineering and industrial safety education",
             paragraphs: [
-              "From a network of 65+ centers across 18 states & UTs, NIFS is building India's industrial safety workforce — recognized by NSDC and Skill India, ISO 9001:2015 certified, and trusted by 45,000+ alumni placed with companies like Adani, L&T, ITC, GMR, and Amazon.",
+              `From a network of 65+ centers across 18 states & UTs, NIFS is building India's industrial safety workforce — recognized by NSDC and Skill India, ISO 9001:2015 certified, and trusted by ${SITE.studentsPlaced} alumni placed with companies like Adani, L&T, ITC, GMR, and Amazon.`,
             ],
           },
           {

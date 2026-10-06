@@ -3,11 +3,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { SITE } from "@/lib/data/site-constants";
 
 const headlineWords = ["Igniting", "Careers", "In Safety"];
 
 const statPills = [
-  { value: "45,000+", label: "Alumni" },
+  { value: SITE.studentsPlaced, label: "Alumni" },
   { value: "65+", label: "Centers" },
   { value: "25", label: "Years" },
 ];

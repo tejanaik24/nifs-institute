@@ -6,6 +6,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { recruiterLogos } from "@/lib/data/centers";
 import { StatBadge3D } from "@/components/three/StatBadge3D";
 import { SpineGutterBg, SpineSplit } from "@/components/sections/spine-helpers";
+import { SITE } from "@/lib/data/site-constants";
 
 const roles = [
   "Fire Safety Officer",
@@ -108,7 +109,7 @@ export function Placements() {
           }
           center={
             <motion.div {...fadeUp} className="w-full max-w-[380px] h-[380px] flex items-center justify-center mx-auto">
-              <StatBadge3D value="45,000+" label="Candidates Placed" />
+              <StatBadge3D value={SITE.studentsPlaced} label="Candidates Placed" />
             </motion.div>
           }
           right={
@@ -136,7 +137,7 @@ export function Placements() {
         </motion.div>
 
         <motion.div {...fadeUp} className="mt-10 w-full max-w-[380px] h-[380px] flex items-center justify-center mx-auto">
-          <StatBadge3D value="45,000+" label="Candidates Placed" />
+          <StatBadge3D value={SITE.studentsPlaced} label="Candidates Placed" />
         </motion.div>
 
         <motion.div {...fadeUp} className="mx-auto mt-8 flex max-w-[340px] flex-wrap justify-center gap-2">

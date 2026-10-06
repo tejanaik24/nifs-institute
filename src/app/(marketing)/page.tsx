@@ -18,11 +18,12 @@ import HomeFaq from "@/components/sections/home/home-faq";
 import HomePopularSearches from "@/components/sections/home/home-popular-searches";
 import HomeApplyCta from "@/components/sections/home/home-apply-cta";
 import HomeAnimations from "@/components/sections/home/home-animations";
+import { SITE } from "@/lib/data/site-constants";
 
 export const metadata: Metadata = {
   title: "National Institute of Fire and Safety (NIFS) — India",
   description:
-    "National Institute of Fire and Safety (NIFS) — India's leading fire and industrial safety training institute. 65+ centers across 18 states & UTs, NSDC approved, ISO certified, 45,000+ alumni placed.",
+    `National Institute of Fire and Safety (NIFS) — India's leading fire and industrial safety training institute. 65+ centers across 18 states & UTs, NSDC approved, ISO certified, ${SITE.studentsPlaced} alumni placed.`,
   alternates: { canonical: "/" },
 };
 

@@ -1,3 +1,4 @@
+import { SITE } from "@/lib/data/site-constants";
 import { PageHero } from "@/components/sections/page-hero";
 import { centers } from "@/lib/data/centers";
 import { courses } from "@/lib/data/courses";
@@ -580,7 +581,7 @@ export default async function DynamicCenterPage({
     },
     {
       question: `Does NIFS provide placement assistance in ${cityName}?`,
-      answer: `Yes, NIFS provides dedicated placement support with over 45,000 alumni. Graduates are eligible for opportunities with Pan-India recruiters like L&T, Adani, ITC, Amazon, and regional industrial plants.`,
+      answer: `Yes, NIFS provides dedicated placement support with over  alumni. Graduates are eligible for opportunities with Pan-India recruiters like L&T, Adani, ITC, Amazon, and regional industrial plants.`,
     },
   ];
 
@@ -734,7 +735,7 @@ export default async function DynamicCenterPage({
               <ul className="space-y-3">
                 {[
                   "Government recognized: NSDC, Skill India & State Board approved",
-                  "25+ years educational legacy with 45,000+ placed alumni nationwide",
+                  `25+ years educational legacy with  placed alumni nationwide`,
                   "Access to Asia's dedicated Practical Firefighting Training Yard in Visakhapatnam",
                   "Regular campus interview drives with L&T, Adani, ITC, Reliance & Amazon",
                   "Direct counseling and flexible batch timings (Classroom & Virtual)",

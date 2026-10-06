@@ -1,5 +1,6 @@
 import { PageHero } from "@/components/sections/page-hero";
 import { StoryBlock } from "@/components/sections/story-block";
+import { SITE } from "@/lib/data/site-constants";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,7 +8,7 @@ import Link from "next/link";
 const aboutSections = [
   {
     title: "Company Profile",
-    body: "25+ years, 65+ centers, 45,000+ alumni.",
+    body: `25+ years, 65+ centers, ${SITE.studentsPlaced} alumni.`,
     href: "/about/company-profile",
   },
   {

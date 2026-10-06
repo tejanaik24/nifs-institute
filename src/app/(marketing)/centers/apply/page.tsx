@@ -56,8 +56,8 @@ const PARTNERSHIP_PILLARS = [
   {
     icon: Briefcase,
     title: "Central Placement Network",
-    desc: "Your candidates gain direct entry into centralized campus drives with 45,000+ placed alumni across L&T, Adani, Tata Steel, Reliance, and leading EPC contractors.",
-    tag: "45k+ Placed",
+    desc: `Your candidates gain direct entry into centralized campus drives with ${SITE.studentsPlaced} placed alumni across L&T, Adani, Tata Steel, Reliance, and leading EPC contractors.`,
+    tag: `${SITE.studentsPlaced} Placed`,
     iconBoxClass: "border-emerald-500/30 bg-emerald-500/15 text-emerald-400 shadow-sm shadow-emerald-500/15",
     tagClass: "border-emerald-500/30 bg-emerald-500/10 text-emerald-300",
   },
@@ -205,7 +205,7 @@ export default function ApplyForNewCenterPage() {
                     <div className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">States</div>
                   </div>
                   <div className="rounded-xl bg-white/[0.03] border border-white/5 py-2 px-1">
-                    <div className="text-base sm:text-lg font-black text-amber-400 font-sans">45k+</div>
+                    <div className="text-base sm:text-lg font-black text-amber-400 font-sans">{SITE.studentsPlaced}</div>
                     <div className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Alumni</div>
                   </div>
                   <div className="rounded-xl bg-white/[0.03] border border-white/5 py-2 px-1">

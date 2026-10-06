@@ -1,3 +1,4 @@
+import { SITE } from "@/lib/data/site-constants";
 import type { Metadata } from "next";
 import {
   BreadcrumbSchema,
@@ -45,7 +46,7 @@ export const SURAT_FAQS = [
   {
     question: "Does NIFS provide placement assistance in Surat?",
     answer:
-      "Yes. NIFS provides dedicated placement assistance with over 45,000 placed alumni working across India. Graduates are eligible for placements across leading Pan-India corporate recruiters including L&T, Adani, Tata Projects, ITC, and regional industrial employers.",
+      `Yes. NIFS provides dedicated placement assistance with over ${SITE.studentsPlaced} placed alumni working across India. Graduates are eligible for placements across leading Pan-India corporate recruiters including L&T, Adani, Tata Projects, ITC, and regional industrial employers.`,
   },
   {
     question: "Are NIFS diplomas accepted by Gujarat factory inspectorates?",
@@ -62,7 +63,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Fire & Safety Officer Course in Surat | NIFS Institute Gauravpath",
     description:
-      "Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Surat. 45,000+ placements with Reliance, L&T, and leading industrial employers.",
+      `Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Surat. ${SITE.studentsPlaced} placements with Reliance, L&T, and leading industrial employers.`,
     url: PAGE_URL,
     siteName: "NIFS India",
     locale: "en_IN",

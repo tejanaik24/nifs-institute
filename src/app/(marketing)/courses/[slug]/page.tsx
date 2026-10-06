@@ -184,7 +184,7 @@ export default async function CourseDetailPage({
             </div>
             <div className="flex items-center gap-2 text-xs font-semibold text-muted-foreground">
               <CheckCircle2 className="h-4 w-4 text-primary shrink-0" />
-              <span>45,000+ Placed</span>
+              <span>{SITE.studentsPlaced} Placed</span>
             </div>
             <div className="flex items-center gap-2 text-xs font-semibold text-muted-foreground">
               <CheckCircle2 className="h-4 w-4 text-primary shrink-0" />

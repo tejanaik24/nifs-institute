@@ -11,7 +11,7 @@ const ITEMS = [
   },
   {
     title: "Direct Placement Cell",
-    desc: "Dedicated team with direct recruiter relationships at Adani, L&T, GMR and 45,000+ placements across India.",
+    desc: `Dedicated team with direct recruiter relationships at Adani, L&T, GMR and ${SITE.studentsPlaced} placements across India.`,
     img: "/why_placement_bg.webp",
   },
   {

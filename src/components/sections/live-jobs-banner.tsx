@@ -2,6 +2,7 @@ import { getOpenJobs } from "@/lib/db/jobs";
 import { ArrowRight, Briefcase, MapPin, Sparkles, Users } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { SITE } from "@/lib/data/site-constants";
 
 export async function LiveJobsBanner() {
   const openJobs = await getOpenJobs().catch(() => []);
@@ -15,7 +16,7 @@ export async function LiveJobsBanner() {
               <Sparkles className="h-3.5 w-3.5" /> NIFS Campus Recruitment Cell
             </div>
             <h3 className="font-display text-2xl italic font-bold text-foreground">
-              Direct Placement Assistance for 45,000+ Safety Alumni
+              Direct Placement Assistance for {SITE.studentsPlaced} Safety Alumni
             </h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Leading MNCs and EPC giants including Adani, L&amp;T, ITC, GMR,

@@ -1,3 +1,5 @@
+import { SITE } from "@/lib/data/site-constants";
+
 export type Facility = {
   eyebrow: string;
   name: string;
@@ -52,7 +54,7 @@ export type ProofSlide = {
 
 export const proofSlide: ProofSlide = {
   eyebrow: "Outcomes",
-  headline: "45,000 Candidates Placed",
+  headline: `${SITE.studentsPlaced} Candidates Placed`,
   description:
     "Two decades of proven career outcomes across India's leading industrial and infrastructure companies.",
   photoLeft: "/images/placement-female.png",

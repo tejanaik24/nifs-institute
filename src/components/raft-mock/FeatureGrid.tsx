@@ -14,7 +14,7 @@ const items = [
   {
     number: "02",
     title: "Direct Placement Cell",
-    body: "Dedicated team with direct recruiter relationships at Adani, L&T, GMR and 45,000+ placements across India.",
+    body: `Dedicated team with direct recruiter relationships at Adani, L&T, GMR and ${SITE.studentsPlaced} placements across India.`,
     icon: "/images/icons/placement-cell.png",
   },
   {
@@ -50,7 +50,7 @@ export function FeatureGrid() {
           </h2>
           <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
             Since 2004, NIFS has turned classroom training into real industrial
-            safety careers — trusted by 45,000+ professionals and recruiters
+            safety careers — trusted by {SITE.studentsPlaced} professionals and recruiters
             like Adani, L&amp;T and GMR.
           </p>
         </div>

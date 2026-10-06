@@ -1,4 +1,5 @@
 import { BreadcrumbSchema, FAQSchema } from "@/lib/seo/schema";
+import { SITE } from "@/lib/data/site-constants";
 import {
   ArrowRight,
   Award,
@@ -85,7 +86,7 @@ export default function SafetyOfficerCourseAfter12thPage() {
             <strong className="text-foreground">
               National Institute of Fire and Safety (NIFS India)
             </strong>{" "}
-            • 25+ Years of Academic Excellence • 45,000+ Placements
+            • 25+ Years of Academic Excellence • {SITE.studentsPlaced} Placements
           </p>
 
           {/* Quick AI Answer Box */}

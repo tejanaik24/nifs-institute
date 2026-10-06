@@ -13,12 +13,12 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Safety Officer Course in India 2026: Eligibility, Fees & Jobs | NIFS",
   description:
-    "Become a certified Safety Officer in India. NSDC-approved courses at NIFS — ADIS, DIS, ADFS, BSc. Eligibility: 10+2. 45,000+ placed. Apply now.",
+    `Become a certified Safety Officer in India. NSDC-approved courses at NIFS — ADIS, DIS, ADFS, BSc. Eligibility: 10+2. ${SITE.studentsPlaced} placed. Apply now.`,
   alternates: { canonical: "/courses/safety-officer-course/" },
   openGraph: {
     title: "Safety Officer Course India 2026 | NIFS",
     description:
-      "NSDC-approved safety officer courses. Eligibility 10+2. 65+ centers across India. 45,000+ candidates placed.",
+      `NSDC-approved safety officer courses. Eligibility 10+2. 65+ centers across India. ${SITE.studentsPlaced} candidates placed.`,
   },
 };
 
@@ -151,7 +151,7 @@ export default function SafetyOfficerCoursePage() {
             <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
               NIFS offers NSDC-approved Safety Officer courses from Certificate
               to B.Sc level — classroom and online. 65+ centers across India,
-              45,000+ candidates placed in top companies.
+              {SITE.studentsPlaced} candidates placed in top companies.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
@@ -176,7 +176,7 @@ export default function SafetyOfficerCoursePage() {
           {/* Stats row */}
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 mb-14">
             {[
-              { label: "Candidates Placed", value: "45,000+" },
+              { label: "Candidates Placed", value: SITE.studentsPlaced },
               { label: "Training Centers", value: "65+" },
               { label: "Years of Experience", value: "25+" },
               { label: "Course Modes", value: "Online & Classroom" },
@@ -273,7 +273,7 @@ export default function SafetyOfficerCoursePage() {
               },
               {
                 title: "Placement Support",
-                desc: "45,000+ candidates placed in Adani, L&T, GMR, Amazon, ITC, MEIL and 100+ other companies. Active placement cell.",
+                desc: `${SITE.studentsPlaced} candidates placed in Adani, L&T, GMR, Amazon, ITC, MEIL and 100+ other companies. Active placement cell.`,
               },
               {
                 title: `${SITE.centerCount} Centers`,

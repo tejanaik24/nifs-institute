@@ -4,9 +4,10 @@ import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { SITE } from "@/lib/data/site-constants";
 
 const statPills = [
-  { value: "45,000+", label: "Alumni" },
+  { value: SITE.studentsPlaced, label: "Alumni" },
   { value: "65+", label: "Centers" },
   { value: "25", label: "Years" },
 ];

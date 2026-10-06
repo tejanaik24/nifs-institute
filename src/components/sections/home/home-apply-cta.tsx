@@ -1,3 +1,5 @@
+import { SITE } from "@/lib/data/site-constants";
+
 export default function HomeApplyCta() {
   return (
     <section
@@ -11,7 +13,7 @@ export default function HomeApplyCta() {
       </h2>
       <p className="font-sans text-white font-medium text-[22px] max-sm:text-[16px] mb-10 max-w-[600px]">
         Admissions open for Diploma, PG Diploma, Degree, and Certificate
-        programs. Education loans and scholarships available. Join 45,000+
+        programs. Education loans and scholarships available. Join {SITE.studentsPlaced}{" "}
         alumni.
       </p>
       <p className="font-sans text-white font-semibold text-[16px] mb-8">

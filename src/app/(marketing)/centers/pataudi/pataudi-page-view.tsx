@@ -1,4 +1,5 @@
 "use client";
+import { SITE } from "@/lib/data/site-constants";
 
 import { TiltWrapper } from "@/components/motion/tilt-wrapper";
 import { getCenterGallery } from "@/lib/data/center-gallery";
@@ -143,7 +144,7 @@ export function PataudiPageView({
             <div className="lg:col-span-7 space-y-6">
               <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-primary shadow-sm">
                 <span className="h-2.5 w-2.5 rounded-full bg-primary animate-pulse" />
-                <span>45,000+ Safety Officers Placed Since 2004</span>
+                <span>{SITE.studentsPlaced} Safety Officers Placed Since 2004</span>
               </div>
 
               <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.08]">
@@ -176,7 +177,7 @@ Pataudi
               <div className="grid grid-cols-3 gap-4 pt-3 border-y border-slate-200 py-5 max-w-xl">
                 <div>
                   <p className="font-display text-3xl sm:text-4xl font-black text-slate-900">
-                    45,000+
+                    {SITE.studentsPlaced}
                   </p>
                   <p className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
                     Officers Placed
@@ -297,7 +298,7 @@ Pataudi
                     </span>
                   </div>
                   <span className="text-[11px] font-mono text-slate-300">
-                    45,000+ Alumni Placed
+                    {SITE.studentsPlaced} Alumni Placed
                   </span>
                 </div>
               </div>
@@ -561,7 +562,7 @@ Pataudi
                     NSDC &amp; Skill India Approved
                   </p>
                   <p className="text-xs font-semibold text-slate-600 mt-1">
-                    ISO 9001:2015 Certified &middot; 45,000+ Alumni Placed Nationwide
+                    ISO 9001:2015 Certified &middot; {SITE.studentsPlaced} Alumni Placed Nationwide
                   </p>
                 </div>
               </div>

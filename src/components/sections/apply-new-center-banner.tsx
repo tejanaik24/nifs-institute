@@ -57,7 +57,7 @@ export function ApplyNewCenterBanner() {
             </div>
             <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-200">
               <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-400" />
-              <span>45,000+ Alumni Network &amp; Placement Tie-ups</span>
+              <span>{SITE.studentsPlaced} Alumni Network &amp; Placement Tie-ups</span>
             </div>
             <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-200">
               <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-400" />

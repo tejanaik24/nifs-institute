@@ -1,3 +1,5 @@
+import { SITE } from "@/lib/data/site-constants";
+
 export function PlacementsDualCta() {
   return (
     <section
@@ -9,7 +11,7 @@ export function PlacementsDualCta() {
           Want a placement like this?
         </h2>
         <p className="max-w-[420px] font-sans text-sm text-white/90 sm:text-base">
-          Join 45,000+ alumni placed at Adani, L&amp;T, MEIL, GMR, ITC and
+          Join {SITE.studentsPlaced} alumni placed at Adani, L&amp;T, MEIL, GMR, ITC and
           more. Admissions open for Diploma, PG Diploma, Degree, and
           Certificate programs.
         </p>

@@ -12,6 +12,7 @@ import {
   trainingYardSlide,
   proofSlide,
 } from "@/lib/data/facilities";
+import { SITE } from "@/lib/data/site-constants";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -304,7 +305,7 @@ function Beat6Desktop() {
     const el = counterRef.current;
 
     if (prefersReducedMotion) {
-      el.textContent = "45,000";
+      el.textContent = SITE.studentsPlaced;
       return;
     }
 
@@ -556,7 +557,7 @@ function MobileProofSection() {
             {proofSlide.eyebrow}
           </span>
           <div className="font-display text-[clamp(3rem,12vw,5rem)] leading-[0.85] text-white italic">
-            45,000
+            {SITE.studentsPlaced}
           </div>
           <div className="h-px w-12 bg-white/40" />
           <p className="font-display text-[1.5rem] leading-[1.1] text-white/80 italic">

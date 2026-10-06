@@ -1,3 +1,5 @@
+import { SITE } from "@/lib/data/site-constants";
+
 const ROLES = [
   {
     label: "Fire Safety Officer",
@@ -55,7 +57,7 @@ export default function HomeOutcomes() {
         <div className="flex gap-10 max-sm:gap-6 justify-center flex-wrap mt-4">
           <div className="text-center">
             <span className="block font-sans text-[48px] max-sm:text-[32px] font-black text-nifs-red leading-none">
-              45,000+
+              {SITE.studentsPlaced}
             </span>
             <span className="font-sans text-sm font-semibold uppercase tracking-wider text-slate-300 mt-2 block">
               Candidates Placed

@@ -53,7 +53,7 @@ const faqs = [
   {
     question: "Which institute is best for Safety Officer training in India?",
     answer:
-      "National Institute of Fire and Safety (NIFS) is India's leading training institution with over 25 years of educational excellence, 65+ centers across 18 states & UTs, government approvals (NSDC, Skill India, university affiliations), Asia's dedicated practical training yard, and over 45,000 placed alumni in top recruiters like L&T, Adani, ITC, and Amazon.",
+      `National Institute of Fire and Safety (NIFS) is India's leading training institution with over 25 years of educational excellence, 65+ centers across 18 states & UTs, government approvals (NSDC, Skill India, university affiliations), Asia's dedicated practical training yard, and over ${SITE.studentsPlaced} placed alumni in top recruiters like L&T, Adani, ITC, and Amazon.`,
   },
 ];
 
@@ -447,7 +447,7 @@ export default function HowToBecomeSafetyOfficerPage() {
                 </div>
                 <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                   Upon completing your course examinations, participate in
-                  direct campus hiring drives. Over 45,000 NIFS alumni are
+                  direct campus hiring drives. Over {SITE.studentsPlaced} NIFS alumni are
                   currently employed across India and the Middle East. Initial
                   roles start as Safety Trainee or HSE Assistant, rapidly
                   progressing to full Safety Officer within 12–18 months.
@@ -584,7 +584,7 @@ export default function HowToBecomeSafetyOfficerPage() {
               <div className="flex items-start gap-2 text-sm text-muted-foreground">
                 <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                 <span>
-                  <strong>45,000+ Placements:</strong> Largest alumni network
+                  <strong>{SITE.studentsPlaced} Placements:</strong> Largest alumni network
                   working across Fortune 500 companies.
                 </span>
               </div>

@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, Flame } from "lucide-react";
 import { BreadcrumbSchema, FAQSchema } from "@/lib/seo/schema";
+import { SITE } from "@/lib/data/site-constants";
 
 export const metadata: Metadata = {
   title: "Fire and Safety Course in India 2026: All Options, Fees & Careers | NIFS",
-  description: "Fire and safety courses in India 2026 — Certificate to B.Sc. NSDC approved. Eligibility from 10+2. 65+ centers across India. 45,000+ placed. Get details from NIFS.",
+  description: `Fire and safety courses in India 2026 — Certificate to B.Sc. NSDC approved. Eligibility from 10+2. 65+ centers across India. ${SITE.studentsPlaced} placed. Get details from NIFS.`,
   alternates: { canonical: "/fire-and-safety-course/" },
   openGraph: {
     title: "Fire and Safety Course India 2026 | NIFS",
@@ -67,7 +68,7 @@ export default function FireAndSafetyCoursePage() {
               Fire and Safety Courses in India — Complete 2026 Guide
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
-              NIFS India offers government-recognized fire and safety courses — from 3-month certificates to 3-year B.Sc programs. 65+ centers across India, 45,000+ candidates placed.
+              NIFS India offers government-recognized fire and safety courses — from 3-month certificates to 3-year B.Sc programs. 65+ centers across India, {SITE.studentsPlaced} candidates placed.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link href="/admissions" className="bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground">

@@ -1,3 +1,4 @@
+import { SITE } from "@/lib/data/site-constants";
 import type { Metadata } from "next";
 import {
   BreadcrumbSchema,
@@ -47,7 +48,7 @@ export const HYDERABAD_FAQS = [
   {
     question: "Does NIFS provide placement assistance in Hyderabad?",
     answer:
-      "Yes. NIFS provides dedicated placement assistance with over 45,000 placed alumni working across India. Graduates are eligible for placements across leading Pan-India corporate recruiters including L&T, Adani, Tata Projects, ITC, Hetero Drugs, and Dr. Reddy's.",
+      `Yes. NIFS provides dedicated placement assistance with over ${SITE.studentsPlaced} placed alumni working across India. Graduates are eligible for placements across leading Pan-India corporate recruiters including L&T, Adani, Tata Projects, ITC, Hetero Drugs, and Dr. Reddy's.`,
   },
   {
     question: "Are NIFS Hyderabad certifications recognized by the Government and industry?",
@@ -64,7 +65,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Fire & Safety Officer Course in Hyderabad | NIFS Institute Ameerpet",
     description:
-      "Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Ameerpet, Hyderabad. 45,000+ placements with L&T, Dr. Reddy's, Hetero, and leading industrial employers.",
+      `Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Ameerpet, Hyderabad. ${SITE.studentsPlaced} placements with L&T, Dr. Reddy's, Hetero, and leading industrial employers.`,
     url: PAGE_URL,
     siteName: "NIFS India",
     locale: "en_IN",

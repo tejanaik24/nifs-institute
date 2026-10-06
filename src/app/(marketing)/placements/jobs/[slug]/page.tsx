@@ -538,7 +538,7 @@ export default async function JobDetailPage({ params }: Props) {
                   </div>
                   <div className="mt-6 border-t border-border pt-4">
                     <p className="text-center text-xs text-muted-foreground">
-                      Over 45,000+ Alumni Placed Across {SITE.centerCount} Centers Nationwide
+                      Over {SITE.studentsPlaced} Alumni Placed Across {SITE.centerCount} Centers Nationwide
                     </p>
                   </div>
                 </div>

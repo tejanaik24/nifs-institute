@@ -1,5 +1,6 @@
 import { LiveJobsBanner } from "@/components/sections/live-jobs-banner";
 import { BreadcrumbSchema, FAQSchema } from "@/lib/seo/schema";
+import { SITE } from "@/lib/data/site-constants";
 import {
   ArrowRight,
   Award,
@@ -149,7 +150,7 @@ export default function SafetyOfficerSalaryInIndiaPage() {
             <strong className="text-foreground">
               National Institute of Fire and Safety (NIFS India)
             </strong>{" "}
-            • Based on Real Placement Data Across 45,000+ Alumni
+            • Based on Real Placement Data Across {SITE.studentsPlaced} Alumni
           </p>
 
           {/* Quick AI Answer Box */}
@@ -704,7 +705,7 @@ export default function SafetyOfficerSalaryInIndiaPage() {
               Boost Your Earning Potential with NIFS India
             </h2>
             <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-              Join India&apos;s leading fire and safety academy. Over 45,000
+              Join India&apos;s leading fire and safety academy. Over {SITE.studentsPlaced}
               candidates placed with guaranteed campus interview support. Talk
               to an admissions counselor on WhatsApp for batch timings and
               course fees:

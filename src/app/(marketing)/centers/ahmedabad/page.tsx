@@ -1,3 +1,4 @@
+import { SITE } from "@/lib/data/site-constants";
 import type { Metadata } from "next";
 import {
   BreadcrumbSchema,
@@ -45,7 +46,7 @@ export const AHMEDABAD_FAQS = [
   {
     question: "Does NIFS provide placement assistance in Ahmedabad?",
     answer:
-      "Yes. NIFS provides dedicated placement assistance with over 45,000 placed alumni working across India. Recruiter partners include Torrent Pharma, Cadila, L&T, Adani, and ITC. Placement drives and interviews are organized regularly at our regional centers.",
+      `Yes. NIFS provides dedicated placement assistance with over ${SITE.studentsPlaced} placed alumni working across India. Recruiter partners include Torrent Pharma, Cadila, L&T, Adani, and ITC. Placement drives and interviews are organized regularly at our regional centers.`,
   },
   {
     question: "Does NIFS offer placement in Ahmedabad pharma companies?",
@@ -62,7 +63,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Fire & Safety Officer Course in Ahmedabad | NIFS Institute Ghatlodia",
     description:
-      "Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Ahmedabad. 45,000+ placements with Torrent Pharma, Cadila, and leading industrial employers.",
+      `Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Ahmedabad. ${SITE.studentsPlaced} placements with Torrent Pharma, Cadila, and leading industrial employers.`,
     url: PAGE_URL,
     siteName: "NIFS India",
     locale: "en_IN",

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { SITE } from "@/lib/data/site-constants";
 
 export function Hero() {
   return (
@@ -36,7 +37,7 @@ export function Hero() {
           India&apos;s leading industrial safety and fire engineering
           institute — NSDC &amp; Skill India approved, ISO 9001:2015
           certified, with graduates placed at Adani, L&amp;T, ITC, Amazon
-          and 45,000+ placements nationwide.
+          and {SITE.studentsPlaced} placements nationwide.
         </p>
         <div className="mt-8 flex flex-wrap gap-4">
           <Link

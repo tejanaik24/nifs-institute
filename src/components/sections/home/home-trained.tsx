@@ -1,3 +1,5 @@
+import { SITE } from "@/lib/data/site-constants";
+
 export default function HomeTrained() {
   return (
     <section className="w-full py-[120px] max-lg:py-[70px] bg-[#101010] flex justify-center items-center flex-col">
@@ -5,7 +7,7 @@ export default function HomeTrained() {
         <div className="text-center w-full">
           <h2 className="font-sans text-[6vw] max-lg:text-[8vw] font-black text-white leading-none break-words">Trained. Placed. <span className="font-display italic">Proven.</span></h2>
           <p className="text-white/60 font-sans text-[20px] max-sm:text-[16px] mt-6 max-w-[700px] mx-auto">
-            Since 2004, NIFS has turned classroom training into real industrial safety careers — trusted by 45,000+ professionals and
+            Since 2004, NIFS has turned classroom training into real industrial safety careers — trusted by {SITE.studentsPlaced} professionals and
             recruiters like Adani, L&T and GMR.
           </p>
         </div>

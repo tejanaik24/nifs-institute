@@ -1,3 +1,5 @@
+import { SITE } from "@/lib/data/site-constants";
+
 export type NavItem = {
   label: string;
   href: string;
@@ -26,7 +28,7 @@ export const primaryNav: NavItem[] = [
       {
         label: "Company Profile",
         href: "/about/company-profile",
-        description: "25+ years, 65+ centers, 45,000+ alumni",
+        description: `25+ years, 65+ centers, ${SITE.studentsPlaced} alumni`,
       },
       {
         label: "Vision & Mission",

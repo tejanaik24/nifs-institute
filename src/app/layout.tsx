@@ -2,6 +2,7 @@ import { DevAnnotations } from "@/components/DevAnnotations";
 import { PhoneClickTracker } from "@/components/analytics/phone-click-tracker";
 import { WhatsAppClickTracker } from "@/components/analytics/whatsapp-click-tracker";
 import { CombinedGraphSchema } from "@/lib/seo/schema";
+import { SITE } from "@/lib/data/site-constants";
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import Script from "next/script";
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
     template: "%s",
   },
   description:
-    "National Institute of Fire and Safety (NIFS) — India's leading industrial safety and fire engineering training institute. NSDC & Skill India approved, ISO 9001:2015 certified, 45,000+ placements, placements with Adani, L&T, ITC, Amazon and more.",
+    `National Institute of Fire and Safety (NIFS) — India's leading industrial safety and fire engineering training institute. NSDC & Skill India approved, ISO 9001:2015 certified, ${SITE.studentsPlaced} placements, placements with Adani, L&T, ITC, Amazon and more.`,
   keywords: [
     "fire and safety course",
     "safety officer course",
@@ -53,7 +54,7 @@ export const metadata: Metadata = {
     siteName: "NIFS India",
     title: "NIFS India — Fire & Industrial Safety Training Institute",
     description:
-      "Established 2004 (22+ years). 65+ verified training centers across 18 states & UTs. 45,000+ alumni. NSDC approved and university-collaborated fire and industrial safety courses.",
+      `Established 2004 (22+ years). 65+ verified training centers across 18 states & UTs. ${SITE.studentsPlaced} alumni. NSDC approved and university-collaborated fire and industrial safety courses.`,
     images: [
       {
         url: "/images/og-default.jpg",
@@ -67,7 +68,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "NIFS India — Fire & Industrial Safety Training",
     description:
-      "India's leading fire safety institute. Est. 2004, 65+ centers across 18 states & UTs, 45,000+ alumni placed at Adani, L&T, Amazon.",
+      `India's leading fire safety institute. Est. 2004, 65+ centers across 18 states & UTs, ${SITE.studentsPlaced} alumni placed at Adani, L&T, Amazon.`,
     images: ["/images/og-default.jpg"],
   },
   robots: {

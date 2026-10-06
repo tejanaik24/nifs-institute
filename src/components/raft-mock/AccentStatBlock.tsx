@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
+import { SITE } from "@/lib/data/site-constants";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -54,7 +55,7 @@ export function AccentStatBlock() {
         <span className="text-xs font-semibold tracking-[0.15em] text-white/70 uppercase">
           Career Outcomes
         </span>
-        <div className="mt-4 text-6xl font-bold text-white lg:text-7xl">45,000+</div>
+        <div className="mt-4 text-6xl font-bold text-white lg:text-7xl">{SITE.studentsPlaced}</div>
         <p className="mt-2 text-lg text-white/85">Candidates Placed</p>
         <p className="mt-6 text-sm text-white/70">
           Where our graduates work:

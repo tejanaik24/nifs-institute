@@ -1,4 +1,5 @@
 import { recruiters } from "@/lib/data/centers";
+import { SITE } from "@/lib/data/site-constants";
 import { SpineGutterBg, SpineSplit } from "@/components/sections/spine-helpers";
 
 export function LogoBar() {
@@ -17,7 +18,7 @@ export function LogoBar() {
         }
         center={
           <span className="font-display text-[40px] leading-none text-white italic">
-            45K+
+            {SITE.studentsPlaced}
           </span>
         }
         right={
