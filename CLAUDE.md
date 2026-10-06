@@ -1,3 +1,13 @@
+## Mandatory NIFS SEO Guardrails (Non-Negotiable)
+Before modifying or creating any copy, metadata, blogs, or UI numbers:
+1. READ `SEO-RULES.md`.
+2. NEVER write forbidden claims: "100% placement", "guaranteed placement", "top-rated", "#1 in India".
+3. ALWAYS import stats from `src/lib/data/site-constants.ts` (e.g., `SITE.centerCount`, `SITE.studentsPlaced`). Never hardcode center or student counts.
+4. Any new blog post must have an `author` object and minimum 1200 words.
+5. Violations will be rejected by the automated pre-commit linter.
+
+---
+
 ## SESSION START — Read Before Anything
 1. ~/.claude/CLAUDE.md (all agency rules)
 2. D:\Vyzma\_BRAIN\vyzma-website-build-standards.md
