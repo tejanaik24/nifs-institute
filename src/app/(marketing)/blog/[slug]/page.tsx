@@ -139,9 +139,16 @@ export default async function BlogPostPage({
               <div className="flex h-7 w-7 items-center justify-center rounded-full bg-slate-100 font-bold text-slate-700">
                 {post.author ? post.author.name.charAt(0) : "N"}
               </div>
-              <span className="font-semibold text-slate-700">
-                {post.author ? post.author.name : "NIFS Safety Editorial"}
-              </span>
+              <div className="flex flex-col">
+                <span className="font-semibold text-slate-700">
+                  {post.author ? post.author.name : "NIFS Safety Editorial"}
+                </span>
+                {post.author?.title && (
+                  <span className="text-[10px] text-slate-400">
+                    {post.author.title}
+                  </span>
+                )}
+              </div>
             </div>
             <span>•</span>
             <span className="flex items-center gap-1">

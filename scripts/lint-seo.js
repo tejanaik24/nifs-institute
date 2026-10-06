@@ -73,14 +73,37 @@ if (fs.existsSync(blogPostsPath)) {
   try {
     const posts = JSON.parse(fs.readFileSync(blogPostsPath, 'utf8'));
     posts.forEach((post) => {
-      // Check 2026 posts for required author
-      if (post.date && post.date.startsWith('2026') && (!post.author || !post.author.name)) {
-        error(`Blog "${post.slug}" (2026) is missing a named author object in blog-posts.json`);
+      // Check all posts for required author
+      if (!post.author || !post.author.name) {
+        error(`Blog "${post.slug}" is missing a named author object in blog-posts.json`);
       }
       // Check if thin posts are properly shielded with noindex
       if (post.wordCount > 0 && post.wordCount < 400 && post.noindex !== true) {
         error(`Blog "${post.slug}" is under 400 words (${post.wordCount}) but missing "noindex: true"`);
       }
+
+      // Deep scan all blog fields for forbidden claims
+      const fieldsToCheck = [
+        { name: 'title', val: post.title },
+        { name: 'excerpt', val: post.excerpt },
+        { name: 'contentHtml', val: post.contentHtml },
+        { name: 'content', val: post.content },
+      ];
+      if (Array.isArray(post.faqs)) {
+        post.faqs.forEach((faq, fIdx) => {
+          fieldsToCheck.push({ name: `faqs[${fIdx}].question`, val: faq.question });
+          fieldsToCheck.push({ name: `faqs[${fIdx}].answer`, val: faq.answer });
+        });
+      }
+
+      fieldsToCheck.forEach(({ name: fieldName, val }) => {
+        if (!val || typeof val !== 'string') return;
+        FORBIDDEN_CLAIMS.forEach(({ pattern, name: claimName }) => {
+          if (pattern.test(val)) {
+            error(`Blog "${post.slug}" in field "${fieldName}" contains forbidden claim "${claimName}"`);
+          }
+        });
+      });
     });
   } catch (err) {
     error(`Failed to parse src/lib/data/blog-posts.json: ${err.message}`);
@@ -119,3 +142,4 @@ if (errors > 0) {
   success('All files passed SEO integrity checks. Zero forbidden claims detected.');
   process.exit(0);
 }
+

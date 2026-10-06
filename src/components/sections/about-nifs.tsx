@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { StatBadge3D } from "@/components/three/StatBadge3D";
+import { SITE } from "@/lib/data/site-constants";
 
 const gutterCalc = `calc(50% - ${450 / 2}px)`;
 
@@ -68,7 +69,7 @@ export function AboutNifs() {
               <strong className="text-foreground">
                 ISO 9001:2015 certified
               </strong>
-              , ensuring consistent quality across all 65+ centers.
+              , ensuring consistent quality across all {SITE.centerCount} centers.
             </motion.p>
           </div>
         </div>
@@ -174,7 +175,7 @@ export function AboutNifs() {
           <strong className="text-foreground">
             ISO 9001:2015 certified
           </strong>
-          , ensuring consistent quality across all 65+ centers.
+          , ensuring consistent quality across all {SITE.centerCount} centers.
         </motion.p>
 
         <motion.div

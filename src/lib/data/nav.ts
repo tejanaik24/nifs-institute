@@ -175,7 +175,7 @@ export const primaryNav: NavItem[] = [
       {
         label: "All Training Centers",
         href: "/centers",
-        description: "Verified centers across 18 states & UTs",
+        description: `Verified centers across ${SITE.stateCount} states & UTs`,
         highlight: "green",
         badge: "Directory",
       },
