@@ -27,7 +27,7 @@ export function PlacementsDualCta() {
         </h2>
         <p className="max-w-[420px] font-sans text-sm text-white/90 sm:text-base">
           Partner with NIFS Placement Cell for pre-trained, industry-ready
-          Fire &amp; Industrial Safety candidates across 70+ centers,
+          Fire &amp; Industrial Safety candidates across 65+ centers,
           available for immediate joining.
         </p>
         <a

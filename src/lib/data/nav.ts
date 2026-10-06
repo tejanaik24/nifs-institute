@@ -26,7 +26,7 @@ export const primaryNav: NavItem[] = [
       {
         label: "Company Profile",
         href: "/about/company-profile",
-        description: "25+ years, 70+ centers, 45,000+ alumni",
+        description: "25+ years, 65+ centers, 45,000+ alumni",
       },
       {
         label: "Vision & Mission",
@@ -173,7 +173,7 @@ export const primaryNav: NavItem[] = [
       {
         label: "All Training Centers",
         href: "/centers",
-        description: "Verified centers across 21 states & UTs",
+        description: "Verified centers across 18 states & UTs",
         highlight: "green",
         badge: "Directory",
       },

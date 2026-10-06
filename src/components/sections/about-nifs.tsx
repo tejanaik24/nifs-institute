@@ -68,7 +68,7 @@ export function AboutNifs() {
               <strong className="text-foreground">
                 ISO 9001:2015 certified
               </strong>
-              , ensuring consistent quality across all 86 centers.
+              , ensuring consistent quality across all 65+ centers.
             </motion.p>
           </div>
         </div>
@@ -174,7 +174,7 @@ export function AboutNifs() {
           <strong className="text-foreground">
             ISO 9001:2015 certified
           </strong>
-          , ensuring consistent quality across all 86 centers.
+          , ensuring consistent quality across all 65+ centers.
         </motion.p>
 
         <motion.div

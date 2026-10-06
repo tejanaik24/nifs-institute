@@ -38,7 +38,7 @@ const ADMISSION_CENTERS = [
   "Delhi NCR",
   "Bhubaneswar (Odisha)",
   "Kolkata (West Bengal)",
-  "Other Nearest Center (70+ Pan-India)",
+  "Other Nearest Center (65+ Pan-India)",
 ];
 
 export function EnquiryForm() {

@@ -123,7 +123,7 @@ export function ApplyNewCenterBanner() {
             <div className="absolute bottom-3 inset-x-3 sm:bottom-4 sm:inset-x-4 z-10 flex items-center justify-between gap-2 rounded-xl border border-white/15 bg-zinc-950/85 px-3.5 py-2 backdrop-blur-md text-xs">
               <div className="flex items-center gap-1.5 text-slate-300">
                 <Compass className="h-3.5 w-3.5 text-emerald-400" />
-                <span className="font-semibold text-white">70+ Centers Nationwide</span>
+                <span className="font-semibold text-white">65+ Centers Nationwide</span>
               </div>
               <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-300 bg-emerald-500/20 border border-emerald-500/40 px-2 py-0.5 rounded-full">
                 Turnkey Setup

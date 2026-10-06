@@ -5,7 +5,7 @@ import { CenterDirectory } from "@/components/sections/center-directory";
 import { ApplyNewCenterBanner } from "@/components/sections/apply-new-center-banner";
 
 export const metadata: Metadata = {
-  title: "NIFS Training Centers — 69 Locations, 21 States | NIFS India",
+  title: "NIFS Training Centers — 65+ Locations, 18 States & UTs | NIFS India",
   description:
     "Find your nearest NIFS training center — verified centers across India with phone numbers and directions for every location.",
   alternates: { canonical: "/centers/" },

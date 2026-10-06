@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Safety Officer Course India 2026 | NIFS",
     description:
-      "NSDC-approved safety officer courses. Eligibility 10+2. 70+ centers across India. 45,000+ candidates placed.",
+      "NSDC-approved safety officer courses. Eligibility 10+2. 65+ centers across India. 45,000+ candidates placed.",
   },
 };
 
@@ -51,7 +51,7 @@ const faqs = [
   {
     question: "Can I do a Safety Officer course online?",
     answer:
-      "Yes. NIFS offers online and classroom modes for DIS, ADIS, DHSE, PG DHSE, and certificate courses. Classroom-based programs with practical training are available at 70+ centers across India.",
+      "Yes. NIFS offers online and classroom modes for DIS, ADIS, DHSE, PG DHSE, and certificate courses. Classroom-based programs with practical training are available at 65+ centers across India.",
   },
 ];
 
@@ -149,7 +149,7 @@ export default function SafetyOfficerCoursePage() {
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
               NIFS offers NSDC-approved Safety Officer courses from Certificate
-              to B.Sc level — classroom and online. 70+ centers across India,
+              to B.Sc level — classroom and online. 65+ centers across India,
               45,000+ candidates placed in top companies.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
@@ -176,7 +176,7 @@ export default function SafetyOfficerCoursePage() {
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 mb-14">
             {[
               { label: "Candidates Placed", value: "45,000+" },
-              { label: "Training Centers", value: "70+" },
+              { label: "Training Centers", value: "65+" },
               { label: "Years of Experience", value: "25+" },
               { label: "Course Modes", value: "Online & Classroom" },
             ].map((s) => (
@@ -275,7 +275,7 @@ export default function SafetyOfficerCoursePage() {
                 desc: "45,000+ candidates placed in Adani, L&T, GMR, Amazon, ITC, MEIL and 100+ other companies. Active placement cell.",
               },
               {
-                title: "70+ Centers",
+                title: "65+ Centers",
                 desc: "Training centers across Visakhapatnam, Hyderabad, Delhi, Mumbai, Chennai, Kolkata, Nagpur, and 60+ more cities.",
               },
               {

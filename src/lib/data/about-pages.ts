@@ -93,7 +93,7 @@ export const aboutPages: AboutPage[] = [
           },
           {
             meta: "Network",
-            title: "70+ centers across 24 states",
+            title: "65+ centers across 18 states & UTs",
             body: "Learn near home, with the freedom to transfer between centers as the network grows.",
           },
           {
@@ -130,7 +130,7 @@ export const aboutPages: AboutPage[] = [
             title:
               "A global leader in fire engineering and industrial safety education",
             paragraphs: [
-              "From a network of 70+ centers across 24 states, NIFS is building India's industrial safety workforce — recognized by NSDC and Skill India, ISO 9001:2015 certified, and trusted by 45,000+ alumni placed with companies like Adani, L&T, ITC, GMR, and Amazon.",
+              "From a network of 65+ centers across 18 states & UTs, NIFS is building India's industrial safety workforce — recognized by NSDC and Skill India, ISO 9001:2015 certified, and trusted by 45,000+ alumni placed with companies like Adani, L&T, ITC, GMR, and Amazon.",
             ],
           },
           {

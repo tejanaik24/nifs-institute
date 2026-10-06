@@ -68,7 +68,7 @@ export function getContextualLinks(
 }
 
 function titleForUrl(url: string): string {
-  if (url === "/centers/") return "Find a Center Near You (70+ Nationwide)";
+  if (url === "/centers/") return "Find a Center Near You (65+ Nationwide)";
   if (url === "/admissions/") return "Admissions Open — Apply Online";
   if (url === "/how-to-become-a-safety-officer-in-india/")
     return "Step-by-Step Guide: How to Become a Safety Officer";

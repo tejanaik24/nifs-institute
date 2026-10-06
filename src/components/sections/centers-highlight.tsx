@@ -122,7 +122,7 @@ export function CentersHighlight() {
             </h2>
 
             <p className="mt-5 max-w-[480px] text-[14px] leading-[1.8] text-muted-foreground">
-              With a presence in 21 states, NIFS is one of India&apos;s most accessible
+              With a presence in 18 states & UTs, NIFS is one of India&apos;s most accessible
               safety training networks.
             </p>
           </div>
@@ -141,7 +141,7 @@ export function CentersHighlight() {
         </h2>
 
         <p className="mx-auto mt-5 max-w-[480px] text-[14px] leading-[1.8] text-muted-foreground">
-          With a presence in 21 states, NIFS is one of India&apos;s most accessible
+          With a presence in 18 states & UTs, NIFS is one of India&apos;s most accessible
           safety training networks.
         </p>
 

@@ -19,7 +19,7 @@ const ITEMS = [
     img: "/why_government_bg.webp",
   },
   {
-    title: "70+ Centers Nationwide",
+    title: "65+ Centers Nationwide",
     desc: "Learn near home. Transfer between centers anytime. New centers opening every quarter.",
     img: "/why_centers_bg.webp",
   },

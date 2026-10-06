@@ -22,7 +22,7 @@ import HomeAnimations from "@/components/sections/home/home-animations";
 export const metadata: Metadata = {
   title: "National Institute of Fire and Safety (NIFS) — India",
   description:
-    "National Institute of Fire and Safety (NIFS) — India's leading fire and industrial safety training institute. 70+ centers, NSDC approved, ISO certified, 45,000+ alumni placed.",
+    "National Institute of Fire and Safety (NIFS) — India's leading fire and industrial safety training institute. 65+ centers across 18 states & UTs, NSDC approved, ISO certified, 45,000+ alumni placed.",
   alternates: { canonical: "/" },
 };
 

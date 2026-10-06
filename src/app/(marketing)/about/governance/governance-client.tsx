@@ -103,7 +103,7 @@ const advisors: Advisor[] = [
     qualification: "Chairman & CEO, NIFS Group",
     icon: Briefcase,
     type: "Management",
-    details: "Founding visionary leading NIFS's strategic growth, international safety alliances, and academic collaboration programs across 21 states.",
+    details: "Founding visionary leading NIFS's strategic growth, international safety alliances, and academic collaboration programs across 18 states & UTs.",
   },
   {
     id: 8,

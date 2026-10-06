@@ -33,7 +33,7 @@ export default function NotFound() {
           <Link href="/centers" className="border border-border p-5 text-left hover:border-primary transition-colors">
             <MapPin className="h-5 w-5 text-primary" />
             <p className="mt-3 font-medium">Find a Center</p>
-            <p className="mt-1 text-sm text-muted-foreground">70+ centers across India</p>
+            <p className="mt-1 text-sm text-muted-foreground">65+ centers across India</p>
           </Link>
           <Link href="/admissions" className="border border-border p-5 text-left hover:border-primary transition-colors">
             <Phone className="h-5 w-5 text-primary" />

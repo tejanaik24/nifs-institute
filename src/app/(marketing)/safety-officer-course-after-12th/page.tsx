@@ -498,7 +498,7 @@ export default function SafetyOfficerCourseAfter12thPage() {
               Ready to Start Your Safety Career After 12th?
             </h2>
             <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-              Admissions for the 2026 academic batch are now open across our 70+
+              Admissions for the 2026 academic batch are now open across our 65+
               centers nationwide. Connect with an admissions counselor today for
               free career guidance:
             </p>

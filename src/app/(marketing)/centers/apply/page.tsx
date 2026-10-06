@@ -137,7 +137,7 @@ export default function ApplyForNewCenterPage() {
                     <span className="relative inline-flex h-2 w-2 rounded-full bg-red-500" />
                   </span>
                   <Compass className="h-3.5 w-3.5 text-red-400" />
-                  <span>Pan-India Expansion • 21 States</span>
+                  <span>Pan-India Expansion • 18 States &amp; UTs</span>
                 </div>
 
                 {/* Punchy Sans Heading */}
@@ -150,7 +150,7 @@ export default function ApplyForNewCenterPage() {
 
                 {/* Crisp High-Contrast Body */}
                 <p className="text-slate-300 text-xs sm:text-sm leading-relaxed mb-6 font-normal">
-                  With <strong className="text-white font-semibold">70+ verified centers across 21 states</strong>, NIFS is India&apos;s pioneering institutional network for statutory safety education. Launching an authorized center establishes a premier training facility in your district with turnkey curriculum, university degree affiliations, and corporate placement pipelines.
+                  With <strong className="text-white font-semibold">65+ verified centers across 18 states & UTs</strong>, NIFS is India&apos;s pioneering institutional network for statutory safety education. Launching an authorized center establishes a premier training facility in your district with turnkey curriculum, university degree affiliations, and corporate placement pipelines.
                 </p>
 
                 {/* 4 Refined Editorial Micro-Cards */}
@@ -196,7 +196,7 @@ export default function ApplyForNewCenterPage() {
                 {/* Institutional Proof Bar */}
                 <div className="mt-6 pt-5 border-t border-white/10 grid grid-cols-4 gap-2 text-center">
                   <div className="rounded-xl bg-white/[0.03] border border-white/5 py-2 px-1">
-                    <div className="text-base sm:text-lg font-black text-white font-sans">70+</div>
+                    <div className="text-base sm:text-lg font-black text-white font-sans">65+</div>
                     <div className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Centers</div>
                   </div>
                   <div className="rounded-xl bg-white/[0.03] border border-white/5 py-2 px-1">

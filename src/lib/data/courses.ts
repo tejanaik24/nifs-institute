@@ -33,7 +33,7 @@ export const courses: Course[] = [
         question:
           "Is there a fire and safety certificate course near me / in India?",
         answer:
-          "Yes. NIFS India runs the Certificate Course in Fire & Safety (CCFS) across its network of 86+ centers in 24 states, in classroom and online mode.",
+          "Yes. NIFS India runs the Certificate Course in Fire & Safety (CCFS) across its network of 65+ centers across 18 states & UTs, in classroom and online mode.",
       },
       {
         question: "What is the duration of a fire safety certificate course?",
@@ -333,7 +333,7 @@ export const courses: Course[] = [
       {
         question: "Which colleges offer a B.Sc in fire and industrial safety?",
         answer:
-          "NIFS India offers the B.Sc in Fire & Industrial Safety across its network of 86+ centers in 24 states, in classroom or online mode.",
+          "NIFS India offers the B.Sc in Fire & Industrial Safety across its network of 65+ centers across 18 states & UTs, in classroom or online mode.",
       },
       {
         question:

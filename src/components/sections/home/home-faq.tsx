@@ -17,7 +17,7 @@ const FAQS = [
   },
   {
     q: "Where are NIFS centers located?",
-    a: "86 training centers across 24 states. Headquarters in Visakhapatnam, Andhra Pradesh. Major centers in Chennai, Mumbai, Delhi NCR, Kolkata, Bangalore, Hyderabad, Ahmedabad, and many more. Also in 3+ African countries.",
+    a: "65+ training centers across 18 states & UTs. Headquarters in Visakhapatnam, Andhra Pradesh. Major centers in Chennai, Mumbai, Delhi NCR, Kolkata, Bangalore, Hyderabad, Ahmedabad, and many more. Also in 3+ African countries.",
   },
   {
     q: "Are NIFS certifications recognized for government jobs?",
