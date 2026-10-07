@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 import blogPosts from "./src/lib/data/blog-posts.json";
 import galleryCategories from "./src/lib/data/gallery.json";
+import mergedBlogRedirects from "./src/lib/data/merged-blog-redirects.json";
 
 // Moving to Vercel (2026-08-28, NIFS Dashboard build — see
 // docs/superpowers/specs/2026-08-28-nifs-dashboard-v1-design.md) so blog
@@ -50,55 +51,11 @@ const UTILITY_REDIRECTS: Record<string, string> = {
   "about/benefits": "/about/company-profile/",
 };
 
-// 2026-09-19: duplicate-topic city blog posts merged into one strong page
-// per real search intent (fixing a Google scaled-content spam flag).
-// oldSlug -> the surviving slug's redirect target.
-const MERGED_BLOG_REDIRECTS: Record<string, string> = {
-  "everything-you-need-to-know-about-nsdc-fire-and-safety-courses-in-vizag":
-    "build-a-safer-tomorrow-with-nsdc-certified-fire-and-safety-courses-in-vizag",
-  "nsdc-fire-safety-courses-in-vizag-your-gateway-to-a-secure-career":
-    "build-a-safer-tomorrow-with-nsdc-certified-fire-and-safety-courses-in-vizag",
-  "become-a-certified-safety-executive-in-vizag-with-job-ready-training-programs":
-    "fire-safety-training-visakhapatnam-complete-guide",
-  "industrial-safety-training-in-vizag-that-meets-national-and-global-standards":
-    "fire-safety-training-visakhapatnam-complete-guide",
-  "how-trained-safety-technicians-in-vizag-are-transforming-workplace-safety-standards":
-    "fire-safety-training-visakhapatnam-complete-guide",
-  "hands-on-fire-and-safety-training-in-vizag-for-real-world-emergency-skills":
-    "fire-safety-training-visakhapatnam-complete-guide",
-  "job-oriented-safety-courses-in-visakhapatnam-at-nifs-build-your-future-with-confidence":
-    "fire-safety-training-visakhapatnam-complete-guide",
-  "diploma-in-fire-and-safety-in-vishakhapatnam-courses-fees-salary-jobs-and-scope":
-    "fire-safety-training-visakhapatnam-complete-guide",
-  "fire-and-safety-courses-in-visakhapatnam-a-path-to-secure-careers":
-    "fire-safety-training-visakhapatnam-complete-guide",
-  "start-a-rewarding-career-by-joining-the-fire-and-safety-course-in-tambaram-by-nifs-india":
-    "nifs-fire-safety-training-centers-chennai-vijayawada-guntur-bhubaneswar",
-  "kickstart-your-career-with-government-recognized-fireman-safety-course-in-hyderabad":
-    "fire-and-safety-courses-in-hyderabad-enhancing-workplace-safety",
-  // Exact same article republished under a "-2" slug.
-  "how-to-use-a-fire-extinguisher-your-complete-guide-to-fire-safety-2":
-    "how-to-use-a-fire-extinguisher-your-complete-guide-to-fire-safety",
-
-  // 2026-09-24: 7 separate Chennai/Vijayawada/Guntur/Bhubaneswar posts
-  // (3 of them just for Chennai) merged into one real center-comparison
-  // guide — same scaled-content pattern as the Vizag/Chennai merge above,
-  // caught before Google flagged it this time.
-  "fire-and-safety-courses-in-chennai-essential-training-for-a-safe-and-secure-future":
-    "nifs-fire-safety-training-centers-chennai-vijayawada-guntur-bhubaneswar",
-  "explore-nsdc-approved-fire-and-safety-courses-in-chennai-for-high-demand-jobs":
-    "nifs-fire-safety-training-centers-chennai-vijayawada-guntur-bhubaneswar",
-  "unleashing-your-potential-how-a-fire-and-safety-course-in-chennai-can-boost-your-career":
-    "nifs-fire-safety-training-centers-chennai-vijayawada-guntur-bhubaneswar",
-  "fire-and-safety-courses-in-vijayawada-a-path-to-secure-future":
-    "nifs-fire-safety-training-centers-chennai-vijayawada-guntur-bhubaneswar",
-  "choosing-the-best-institute-for-fire-and-safety-course-in-guntur-your-guide-to-a-successful-career":
-    "nifs-fire-safety-training-centers-chennai-vijayawada-guntur-bhubaneswar",
-  "industrial-safety-course-in-bhubaneswar-best-institute-certifications-and-career-opportunities":
-    "nifs-fire-safety-training-centers-chennai-vijayawada-guntur-bhubaneswar",
-  "fire-safety-management-training-and-job-placement-services-in-bhubaneswar":
-    "nifs-fire-safety-training-centers-chennai-vijayawada-guntur-bhubaneswar",
-};
+// Merged/duplicate blog posts: oldSlug -> surviving slug. Lives in JSON so the
+// sitemap can skip these (they redirect) — see src/app/sitemap.ts.
+// 2026-09-19 Vizag/Chennai/Hyderabad merge; 2026-09-24 Chennai/Vijayawada/
+// Guntur/Bhubaneswar merge (scaled-content spam fix).
+const MERGED_BLOG_REDIRECTS: Record<string, string> = mergedBlogRedirects;
 
 const nextConfig: NextConfig = {
   // Isolate the cPanel release build from an interrupted local build.
