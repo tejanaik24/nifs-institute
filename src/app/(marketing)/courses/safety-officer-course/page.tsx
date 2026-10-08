@@ -273,7 +273,7 @@ export default function SafetyOfficerCoursePage() {
               },
               {
                 title: "Placement Support",
-                desc: `${SITE.studentsPlaced} candidates placed in Adani, L&T, GMR, Amazon, ITC, MEIL and 100+ other companies. Active placement cell.`,
+                desc: `${SITE.studentsPlaced} alumni. Active placement cell.`,
               },
               {
                 title: `${SITE.centerCount} Centers`,

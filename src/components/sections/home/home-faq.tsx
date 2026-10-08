@@ -13,7 +13,7 @@ const FAQS = [
   },
   {
     q: "Does NIFS provide placement assistance?",
-    a: "Yes. Dedicated placement cell connecting graduates with Adani, L&T, ITC, GMR, Amazon, Lansum, MEIL, Nilkamal, and hundreds of leading industries. Resume preparation, interview readiness, and recruiter coordination included.",
+    a: "Yes. NIFS has a dedicated placement cell. Resume preparation, interview readiness, and recruiter coordination included.",
   },
   {
     q: "Where are NIFS centers located?",

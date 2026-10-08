@@ -211,7 +211,7 @@ export const courses: Course[] = [
       {
         question: "What jobs can you get after ADIS?",
         answer:
-          "ADIS graduates from NIFS India go on to roles such as Industrial Safety Officer, Plant Safety Coordinator, and EHS Engineer, with placement support drawing on NIFS's recruiter network including L&T, Adani, and Amazon.",
+          "ADIS graduates from NIFS India go on to roles such as Industrial Safety Officer, Plant Safety Coordinator, and EHS Engineer.",
       },
       {
         question: "Is ADIS the same as ADFS?",

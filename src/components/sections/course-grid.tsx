@@ -20,7 +20,7 @@ export function CourseGrid() {
       <div className="mb-12 flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
         <div>
           <span className="text-xs font-semibold uppercase tracking-widest text-primary">
-            Certificate → Diploma → PG Diploma → B.Sc → MBA
+            Certificate → Diploma → PG Diploma → B.Sc
           </span>
           <h2 className="font-display mt-2 max-w-xl text-4xl italic leading-tight md:text-5xl">
             A course for every stage of a safety career
