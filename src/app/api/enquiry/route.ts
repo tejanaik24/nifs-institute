@@ -17,7 +17,7 @@ export async function POST(request: NextRequest) {
   if (!parsed.success) {
     return NextResponse.json({ error: "invalid payload" }, { status: 400 });
   }
-  const { name, phone, course } = parsed.data;
+  const { name, phone, course, pagePath } = parsed.data;
   const draftId = typeof raw?.draftId === "number" ? raw.draftId : null;
   const draftToken = typeof raw?.draftToken === "string" ? raw.draftToken : null;
   const { city, state } = getRequestLocation(request);
@@ -34,14 +34,14 @@ export async function POST(request: NextRequest) {
       // submitting, so the submit-time location is the more accurate one.
       updated = await db
         .update(enquiries)
-        .set({ name, phone, course: course || "General Enquiry", city, state, status: "submitted" })
+        .set({ name, phone, course: course || "General Enquiry", city, state, pagePath: pagePath || null, status: "submitted" })
         .where(and(eq(enquiries.id, draftId), eq(enquiries.status, "draft"), eq(enquiries.draftToken, draftToken)))
         .returning({ id: enquiries.id });
     }
     if (updated.length === 0) {
       // No draftId given, or it didn't match a real draft row — insert fresh
       // rather than lose the submission.
-      await db.insert(enquiries).values({ name, phone, course: course || "General Enquiry", city, state });
+      await db.insert(enquiries).values({ name, phone, course: course || "General Enquiry", city, state, pagePath: pagePath || null });
     }
   } catch (error) {
     // Saving the lead failed (DB down, constraint, etc.). Record why, then

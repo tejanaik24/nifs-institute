@@ -68,6 +68,7 @@ export const enquiries = pgTable("enquiries", {
   name: text("name").notNull(),
   phone: varchar("phone", { length: 15 }).notNull(),
   course: text("course").notNull().default(""),
+  pagePath: text("page_path"),
   // Visitor's city/state, read from Vercel's edge geolocation headers at
   // submit/draft-create time (see src/lib/geo.ts) — empty outside Vercel
   // (e.g. local dev) or for rows created before this column existed.

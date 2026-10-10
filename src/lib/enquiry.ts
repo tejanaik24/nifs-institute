@@ -7,19 +7,26 @@ export const enquirySchema = z.object({
     .transform((value) => value.replace(/[\s()-]/g, "").replace(/^(?:\+91|0091|91)(?=\d{10}$)/, "").replace(/^0(?=\d{10}$)/, ""))
     .pipe(z.string().regex(/^[6-9]\d{9}$/, "Enter a 10-digit Indian mobile number; +91 is also accepted")),
   course: z.string().trim().max(200, "Keep the course name under 200 characters").optional(),
+  pagePath: z.string().trim().max(500, "Keep page path under 500 characters").optional(),
 });
 
 export type EnquiryValues = z.output<typeof enquirySchema>;
 
-export async function submitEnquiry(values: EnquiryValues, draftId?: number, draftToken?: string): Promise<void> {
+export async function submitEnquiry(values: EnquiryValues, draftId?: number, draftToken?: string, pagePath?: string): Promise<void> {
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 15000);
+  const resolvedPagePath = pagePath ?? values.pagePath ?? (typeof window !== "undefined" ? window.location.pathname : undefined);
   try {
+    const payload = {
+      ...values,
+      ...(resolvedPagePath ? { pagePath: resolvedPagePath } : {}),
+      ...(draftId && draftToken ? { draftId, draftToken } : {}),
+    };
     const response = await fetch("/api/enquiry", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       signal: controller.signal,
-      body: JSON.stringify(draftId && draftToken ? { ...values, draftId, draftToken } : values),
+      body: JSON.stringify(payload),
     });
     if (!response.ok) throw new Error(`http_${response.status}`);
     const ack = (await response.json().catch(() => null)) as { ok?: unknown } | null;
