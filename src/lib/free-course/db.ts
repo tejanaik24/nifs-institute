@@ -12,6 +12,7 @@ export const registerSchema = z.object({
   phone: enquirySchema.shape.phone,
   email: z.string().trim().toLowerCase().max(200, "Email is too long").pipe(z.email("Enter a valid email address")),
   country: z.string().trim().min(2, "Enter your country").max(100, "Country is too long").default("India"),
+  pagePath: z.string().trim().max(500).optional(),
 });
 
 export const tokenSchema = z.object({ token: z.string().length(48) });
@@ -72,7 +73,7 @@ export async function registerStudent(v: z.output<typeof registerSchema>, city: 
   }).returning();
   // Keep the lead in the existing callbacks list too.
   const leadCity = v.country && v.country.toLowerCase() !== "india" ? `${city || ""}, ${v.country}` : city;
-  await db.insert(enquiries).values({ name: v.name, phone: v.phone, course: COURSE_TAG, city: leadCity, state }).catch(() => {});
+  await db.insert(enquiries).values({ name: v.name, phone: v.phone, course: COURSE_TAG, city: leadCity, state, pagePath: v.pagePath || null }).catch(() => {});
   return row;
 }
 

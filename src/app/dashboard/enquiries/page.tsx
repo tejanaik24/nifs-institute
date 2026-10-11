@@ -7,6 +7,7 @@ const exportCols = [
   { key: "name", label: "Candidate Name" },
   { key: "phone", label: "Phone Number" },
   { key: "course", label: "Course Requested" },
+  { key: "pagePath", label: "Came From Page" },
   { key: "city", label: "City" },
   { key: "state", label: "State" },
   { key: "status", label: "Status" },
@@ -21,6 +22,7 @@ export default async function EnquiriesPage() {
     name: row.name ?? "",
     phone: row.phone ?? "",
     course: row.course ?? "",
+    pagePath: row.pagePath ?? "",
     city: row.city ?? "",
     state: row.state ?? "",
     status: row.status || "Submitted",
@@ -58,6 +60,7 @@ export default async function EnquiriesPage() {
                 <th className="px-4 py-2 font-medium">Name</th>
                 <th className="px-4 py-2 font-medium">Phone</th>
                 <th className="px-4 py-2 font-medium">Course</th>
+                <th className="px-4 py-2 font-medium">Came from</th>
                 <th className="px-4 py-2 font-medium">City</th>
                 <th className="px-4 py-2 font-medium">State</th>
                 <th className="px-4 py-2 font-medium">Received</th>
@@ -72,6 +75,7 @@ export default async function EnquiriesPage() {
                     <a className="underline" href={`tel:+91${row.phone}`}>{row.phone}</a>
                   </td>
                   <td className="px-4 py-2">{row.course}</td>
+                  <td className="px-4 py-2">{row.pagePath || "—"}</td>
                   <td className="px-4 py-2">{row.city || "—"}</td>
                   <td className="px-4 py-2">{row.state || "—"}</td>
                   <td className="px-4 py-2 text-[var(--dash-text-muted)]">

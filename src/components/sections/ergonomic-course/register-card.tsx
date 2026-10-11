@@ -24,7 +24,7 @@ export function RegisterCard({ onAuthed }: { onAuthed: (token: string, state: Co
       const res = await fetch(`/api/free-course/${mode}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(Object.fromEntries(f)),
+        body: JSON.stringify({ ...Object.fromEntries(f), pagePath: window.location.pathname }),
       });
       const j = await res.json().catch(() => ({}));
       if (!res.ok || !j.token) throw new Error(j.error || "Something went wrong. Please try again.");

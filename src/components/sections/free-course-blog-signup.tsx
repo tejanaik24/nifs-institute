@@ -31,7 +31,7 @@ export function FreeCourseBlogSignup() {
       const res = await fetch("/api/free-course/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(Object.fromEntries(form)),
+        body: JSON.stringify({ ...Object.fromEntries(form), pagePath: window.location.pathname }),
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok || !data.token) throw new Error(data.error || "Something went wrong. Please try again.");
