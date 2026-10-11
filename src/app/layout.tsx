@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     template: "%s",
   },
   description:
-    `National Institute of Fire and Safety (NIFS) — India's leading industrial safety and fire engineering training institute. NSDC & Skill India approved, ISO 9001:2015 certified, ${SITE.studentsPlaced} placements, placements with Adani, L&T, ITC, Amazon and more.`,
+    `National Institute of Fire and Safety (NIFS) — India's leading industrial safety and fire engineering training institute. NSDC & Skill India approved, ISO 9001:2015 certified, ${SITE.studentsPlaced} placements.`,
   keywords: [
     "fire and safety course",
     "safety officer course",
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "NIFS India — Fire & Industrial Safety Training",
     description:
-      `India's leading fire safety institute. Est. 2004, 65+ centers across 18 states & UTs, ${SITE.studentsPlaced} alumni placed at Adani, L&T, Amazon.`,
+      `India's leading fire safety institute. Est. 2004, 65+ centers across 18 states & UTs, ${SITE.studentsPlaced} alumni.`,
     images: ["/images/og-default.jpg"],
   },
   robots: {
