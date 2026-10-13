@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 // Ported from the old static homepage.html course/job finder widget
 // ("Priya — NIFS Advisor"). Kept as close to the original working
@@ -10,6 +11,9 @@ import { useEffect } from "react";
 // change: dropped the stray 'Montserrat' font-family so it inherits the
 // site's font-sans (Inter) instead of introducing a third typeface.
 export function PriyaWidget() {
+  const pathname = usePathname();
+  const isContactPage = pathname === "/contact" || pathname?.startsWith("/contact/");
+
   useEffect(() => {
     type Course = {
       name: string;
@@ -708,8 +712,9 @@ export function PriyaWidget() {
         }
         @media (max-width: 767px) {
           #cf-bubble {
-            bottom: 68px;
-            left: 10px;
+            bottom: 20px;
+            left: 16px;
+            ${isContactPage ? "display: none !important;" : ""}
           }
         }
         #cf-trigger {
@@ -818,12 +823,15 @@ export function PriyaWidget() {
             display: none;
           }
           #cf-trig-avatar {
-            width: 96px;
-            height: 96px;
+            width: 56px;
+            height: 56px;
           }
           #cf-trig-dot {
-            width: 20px;
-            height: 20px;
+            width: 14px;
+            height: 14px;
+          }
+          #cf-teaser {
+            display: none !important;
           }
         }
         @media (prefers-reduced-motion: reduce) {
