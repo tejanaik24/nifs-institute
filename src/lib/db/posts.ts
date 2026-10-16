@@ -16,6 +16,17 @@ export type BlogPostView = {
   noindex?: boolean;
 };
 
+/** Posts hidden from Google on purpose. Chosen by hand, never by word count -
+ * an automatic <400-word rule (2026-10-06) hid posts that were earning traffic. */
+export const NOINDEX_SLUGS = new Set([
+  "the-key-difference-between-preventive-action-and-corrective-action-explained",
+  "things-to-know-before-enrolling-in-fire-and-safety-courses",
+  "why-petroleum-safety-training-is-crucial-for-oil-and-gas-professionals",
+  "industrial-safety-practices-to-prevent-major-accidents",
+  "how-fire-safety-training-can-save-lives-and-boost-workplace-readiness",
+  "what-you-need-to-know-before-starting-a-career-in-petroleum-safety",
+]);
+
 /** Maps a `posts` DB row onto the shape existing blog pages/components expect
  * (`src/lib/data/blog.ts`'s `BlogPost` type) — kept as an adapter here rather
  * than changing every consumer component's prop shape. */
@@ -33,7 +44,7 @@ export function toBlogPostView(row: typeof posts.$inferSelect): BlogPostView {
     author: row.authorName
       ? { name: row.authorName, title: row.authorTitle }
       : undefined,
-    noindex: (row as any).noindex ?? (row.wordCount > 0 && row.wordCount < 400),
+    noindex: NOINDEX_SLUGS.has(row.slug),
   };
 }
 
