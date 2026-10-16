@@ -163,7 +163,8 @@ export default async function BlogPostPage({
           </div>
 
           {/* Cover Photo */}
-          {post.coverImage && (
+          {/* Skip when the article body already shows the same image (avoids a repeated first photo) */}
+          {post.coverImage && !post.contentHtml.includes(post.coverImage) && (
             <div className="relative mt-8 aspect-[16/9] w-full overflow-hidden rounded-xl border border-slate-200 shadow-sm bg-slate-100">
               <Image
                 src={post.coverImage}
