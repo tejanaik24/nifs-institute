@@ -87,6 +87,8 @@ export default async function BlogPostPage({
   if (!row) notFound();
   const post = toBlogPostView(row);
   const exploreLinks = getContextualLinks(post);
+  // Hindi posts are detected by Devanagari in the title; English posts get no lang attribute.
+  const contentLang = /[ऀ-ॿ]/.test(post.title) ? "hi" : undefined;
 
   return (
     <div className="bg-slate-50/50 min-h-screen pt-32 pb-20 lg:pt-36">
@@ -97,6 +99,7 @@ export default async function BlogPostPage({
         image={post.coverImage}
         datePublished={post.date}
         author={post.author}
+        inLanguage={contentLang}
       />
       <BreadcrumbSchema
         items={[
@@ -130,7 +133,7 @@ export default async function BlogPostPage({
             </div>
           )}
 
-          <h1 className="text-2xl font-extrabold leading-tight text-slate-900 sm:text-4xl">
+          <h1 lang={contentLang} className="text-2xl font-extrabold leading-tight text-slate-900 sm:text-4xl">
             {post.title}
           </h1>
 
@@ -197,7 +200,7 @@ export default async function BlogPostPage({
           )}
 
           {/* Post Content */}
-          <div className="blog-prose mt-8 border-t border-slate-100 pt-8">
+          <div lang={contentLang} className="blog-prose mt-8 border-t border-slate-100 pt-8">
             {/* A post can drop <!--free-course-signup--> anywhere in its HTML to show the free-course sign-up form there. */}
             {post.contentHtml.split(FREE_COURSE_SIGNUP_MARKER).map((html, i) => (
               <Fragment key={i}>
@@ -240,7 +243,7 @@ export default async function BlogPostPage({
                 <HelpCircle className="h-4 w-4 text-primary" />
                 Frequently Asked Questions
               </h2>
-              <div className="mt-4 space-y-3">
+              <div lang={contentLang} className="mt-4 space-y-3">
                 {post.faqs.map((item, idx) => (
                   <div
                     key={idx}

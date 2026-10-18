@@ -236,6 +236,7 @@ export function BlogPostingSchema({
   image,
   datePublished,
   author,
+  inLanguage,
 }: {
   headline: string;
   description: string;
@@ -243,6 +244,7 @@ export function BlogPostingSchema({
   image?: string | null;
   datePublished: string;
   author?: { name: string; title: string };
+  inLanguage?: string;
 }) {
   return (
     <script
@@ -251,6 +253,7 @@ export function BlogPostingSchema({
         __html: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "BlogPosting",
+          ...(inLanguage ? { inLanguage } : {}),
           headline,
           description,
           url,
