@@ -226,7 +226,7 @@ export const courses: Course[] = [
     eligibility: "10+2 / Diploma (Any Stream)",
     mode: "Classroom / Online",
     summary:
-      "Focused on plant-floor safety management — hazard control, machine safeguarding, and safety audits — for candidates aiming at core industrial safety officer roles.",
+      "ADIS stands for Advanced Diploma in Industrial Safety: a 12-month course (10+2 or Diploma in any stream) focused on plant-floor safety management — hazard control, machine safeguarding, and safety audits — for candidates aiming at core industrial safety officer roles.",
     subjects: [
       "Industrial Safety Management",
       "Machine Safeguarding",
@@ -240,10 +240,10 @@ export const courses: Course[] = [
     ],
     image: "/images/course-card-industrial-safety.jpg",
     seoTitle:
-      "ADIS Course 2026: Full Form, Fees, Eligibility, Syllabus & Admissions | NIFS India",
+      "ADIS Full Form & ADIS Course 2026: Eligibility, Duration, Jobs | NIFS India",
     h1: "Advanced Diploma in Industrial Safety (ADIS) Course 2026",
     seoDescription:
-      "Official ADIS Course (Advanced Diploma in Industrial Safety) at NIFS India. Factories Act 1948 recognized. Check 2026 fees, eligibility (10+2/Diploma/Grad), subjects & syllabus PDF.",
+      "ADIS full form: Advanced Diploma in Industrial Safety. A 12-month course for 10+2 or Diploma holders, classroom or online. See subjects, jobs, salary range and how to get the fee details.",
   },
   {
     slug: "pg-diploma-in-fire-safety-pg-dfs",

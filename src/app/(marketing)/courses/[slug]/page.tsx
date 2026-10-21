@@ -110,10 +110,10 @@ export default async function CourseDetailPage({
             className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6"
           >
             {[
-              { label: "Duration", value: course.duration, isAction: false },
-              { label: "Eligibility", value: course.eligibility, isAction: false },
-              { label: "Mode", value: course.mode, isAction: false },
-              { label: "Tier", value: course.tier, isAction: false },
+              { label: "Duration", value: course.duration, isAction: true, targetId: "#faq" },
+              { label: "Eligibility", value: course.eligibility, isAction: true, targetId: "#faq" },
+              { label: "Mode", value: course.mode, isAction: true, targetId: "#faq" },
+              { label: "Tier", value: course.tier, isAction: true, targetId: "#curriculum" },
               { label: "Fee Aid", value: "EMI & Assistance", isAction: true, targetId: "#fee-brochure" },
               { label: "Salary Scope", value: "₹3.0L – ₹4.8L/Yr", isAction: true, targetId: "#salary-scope" },
             ].map((f) =>
@@ -262,7 +262,7 @@ export default async function CourseDetailPage({
           </div>
 
           {/* Section: What You Will Learn & Career Scope */}
-          <div className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-2">
+          <div id="curriculum" className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-2">
             <div className="rounded-xl border border-border bg-card p-6">
               <h2 className="font-display text-2xl italic text-foreground">
                 Core Curriculum &amp; Modules
@@ -418,7 +418,7 @@ export default async function CourseDetailPage({
               ].map((comp) => (
                 <span
                   key={comp}
-                  className="rounded-full border border-border bg-card px-4 py-2 text-xs font-semibold text-foreground"
+                  className="text-xs font-semibold text-foreground"
                 >
                   {comp}
                 </span>
@@ -427,7 +427,7 @@ export default async function CourseDetailPage({
           </div>
 
           {/* FAQ */}
-          <div className="mt-12 space-y-4">
+          <div id="faq" className="mt-12 space-y-4">
             <h2 className="font-display text-2xl italic text-foreground">
               Frequently Asked Questions
             </h2>
