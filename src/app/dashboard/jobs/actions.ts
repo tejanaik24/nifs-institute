@@ -133,6 +133,7 @@ export async function saveJobAction(
       positions: cleanPositions,
     });
     revalidatePath("/placements");
+    revalidatePath("/sitemap.xml");
     revalidatePath("/dashboard/jobs");
     if (updated) {
       revalidatePath(`/placements/jobs/${updated.slug}`);
@@ -159,6 +160,7 @@ export async function saveJobAction(
       positions: cleanPositions,
     });
     revalidatePath("/placements");
+    revalidatePath("/sitemap.xml");
     revalidatePath("/dashboard/jobs");
     if (publish) await notifySearchEngines(jobUrl(created.slug));
     return { success: true, id: created.id, redirectUrl: "/dashboard/jobs" };
@@ -175,6 +177,7 @@ export async function closeJobAction(id: number) {
   }
   const closed = await closeJob(id);
   revalidatePath("/placements");
+  revalidatePath("/sitemap.xml");
   revalidatePath("/dashboard/jobs");
   if (closed) {
     revalidatePath(`/placements/jobs/${closed.slug}`);
@@ -193,6 +196,7 @@ export async function publishJobByIdAction(id: number) {
   }
   const published = await publishJob(id);
   revalidatePath("/placements");
+  revalidatePath("/sitemap.xml");
   revalidatePath("/dashboard/jobs");
   if (published) {
     revalidatePath(`/placements/jobs/${published.slug}`);
@@ -208,6 +212,7 @@ export async function deleteJobAction(id: number) {
   }
   await deleteJob(id);
   revalidatePath("/placements");
+  revalidatePath("/sitemap.xml");
   revalidatePath("/dashboard/jobs");
   redirect("/dashboard/jobs");
 }

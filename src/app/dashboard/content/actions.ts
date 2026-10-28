@@ -47,6 +47,7 @@ export async function updatePostAction(id: number, formData: FormData) {
   const data = readPostForm(formData);
   await updatePost(id, data);
   revalidatePath("/blog");
+  revalidatePath("/sitemap.xml");
   revalidatePath(`/blog/${data.slug}`);
   redirect("/dashboard/content");
 }
@@ -55,6 +56,7 @@ export async function publishPostAction(id: number, slug: string) {
   "use server";
   await publishPost(id);
   revalidatePath("/blog");
+  revalidatePath("/sitemap.xml");
   revalidatePath(`/blog/${slug}`);
   revalidatePath("/dashboard/content");
 }
@@ -63,6 +65,7 @@ export async function unpublishPostAction(id: number, slug: string) {
   "use server";
   await unpublishPost(id);
   revalidatePath("/blog");
+  revalidatePath("/sitemap.xml");
   revalidatePath(`/blog/${slug}`);
   revalidatePath("/dashboard/content");
 }
@@ -71,6 +74,7 @@ export async function deletePostAction(id: number, slug: string) {
   "use server";
   await deletePost(id);
   revalidatePath("/blog");
+  revalidatePath("/sitemap.xml");
   revalidatePath(`/blog/${slug}`);
   revalidatePath("/dashboard/content");
 }
