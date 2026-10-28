@@ -698,7 +698,6 @@ export const accreditations = [
     desc: "Ministry of Skill Development & Entrepreneurship",
   },
   { name: "Acharya Nagarjuna University", desc: "Academic Collaboration" },
-  { name: "Annamalai University", desc: "Academic Collaboration" },
   { name: "National Safety Council", desc: "Affiliated Body" },
   { name: "SBTET", desc: "State Board of Technical Education, AP" },
   { name: "DNV IAF Management", desc: "ISO 9001:2015 Certified" },
@@ -712,10 +711,6 @@ export const accreditationLogos: Recruiter[] = [
   {
     name: "Acharya Nagarjuna University",
     logo: "/images/logos/accreditations/acharya_nagaarjuna_university.jpg",
-  },
-  {
-    name: "Annamalai University",
-    logo: "/images/logos/accreditations/annamalai_university.png",
   },
   {
     name: "National Safety Council",

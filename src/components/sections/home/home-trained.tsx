@@ -145,10 +145,6 @@ export default function HomeTrained() {
                 <ul className="text-white/90 text-[14px] space-y-3 font-semibold">
                   <li className="flex items-center gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-nifs-green" />
-                    Annamalai University
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-nifs-green" />
                     Acharya Nagarjuna University
                   </li>
                   <li className="flex items-center gap-2">

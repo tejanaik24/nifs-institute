@@ -114,7 +114,7 @@ const faqs = [
   {
     question: "Is NIFS Visakhapatnam government recognized?",
     answer:
-      "Yes. NIFS is NSDC and Skill India approved, ISO 9001:2015 certified, with SBTET Andhra Pradesh recognition for diploma-level courses and degree affiliation through Acharya Nagarjuna University and Annamalai University.",
+      "Yes. NIFS is NSDC and Skill India approved, ISO 9001:2015 certified, with SBTET Andhra Pradesh recognition for diploma-level courses and degree affiliation through Acharya Nagarjuna University.",
   },
   {
     question: "Which industries in Visakhapatnam hire NIFS graduates?",
@@ -240,7 +240,7 @@ export default function VisakhapatnamCenterPage() {
           <ul className="space-y-4">
             {[
               "NSDC and Skill India approved, ISO 9001:2015 certified",
-              "Degree programs affiliated with Acharya Nagarjuna University and Annamalai University",
+              "Degree programs affiliated with Acharya Nagarjuna University",
               "SBTET, Andhra Pradesh recognition for diploma-level courses",
               "Dedicated practical training yard — live equipment, drills, hazard simulations",
               "15+ training centers across India, headquartered right here in Visakhapatnam",

@@ -227,12 +227,6 @@ export function WhyNIFS() {
                 </div>
                 <ul className="space-y-1.5 text-xs leading-[1.5]">
                   <li className="flex items-start gap-2">
-                    <span className="mt-[5px] h-1.5 w-1.5 shrink-0 rounded-full bg-blue-600" />
-                    <span className="font-bold text-blue-600">
-                      Annamalai University
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
                     <span className="mt-[5px] h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-600" />
                     <span className="font-bold text-indigo-600">
                       Acharya Nagarjuna University

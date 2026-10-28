@@ -21,7 +21,7 @@ const FAQS = [
   },
   {
     q: "Are NIFS certifications recognized for government jobs?",
-    a: "Yes. NSDC approved, affiliated with Acharya Nagarjuna University, Annamalai University, and recognized by SBTET, Andhra Pradesh. Qualifications are valid for government and public sector job applications across India, Gulf, and international markets.",
+    a: "Yes. NSDC approved, affiliated with Acharya Nagarjuna University and recognized by SBTET, Andhra Pradesh. Qualifications are valid for government and public sector job applications across India, Gulf, and international markets.",
   },
   {
     q: "Is education loan facility available?",

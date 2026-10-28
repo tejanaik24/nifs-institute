@@ -176,7 +176,6 @@ lines.push(
 lines.push("- Skill India Recognized");
 lines.push("- ISO 9001:2015 Certified Institution");
 lines.push("- Academic Collaboration with Acharya Nagarjuna University (ANU)");
-lines.push("- Academic Collaboration with Annamalai University");
 lines.push("");
 
 lines.push("## Courses (full list)");
