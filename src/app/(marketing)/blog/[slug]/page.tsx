@@ -20,17 +20,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Fragment } from "react";
+import { CANONICAL_OVERRIDES } from "@/lib/seo/canonical-overrides";
 
 const FREE_COURSE_SIGNUP_MARKER = "<!--free-course-signup-->";
 
-// Canonical consolidation: Resolves keyword cannibalization where a blog post
-// competes against a high-converting core landing page on Google.
-const CANONICAL_OVERRIDES: Record<string, string> = {
-  "a-complete-guide-on-fire-courses-at-nifs":
-    "/courses/diploma-in-fire-safety/",
-  "how-to-become-a-safety-officer-in-india-2026-guide":
-    "/how-to-become-a-safety-officer-in-india/",
-};
 
 // Blog posts are database-backed now (publish/unpublish takes effect
 // immediately) — no generateStaticParams here, this route renders on demand.

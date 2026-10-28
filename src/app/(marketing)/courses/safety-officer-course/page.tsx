@@ -26,7 +26,7 @@ const faqs = [
   {
     question: "What is the eligibility for a Safety Officer course in India?",
     answer:
-      "Most Safety Officer courses require a minimum of 10+2 (Class 12) qualification. Advanced diploma programs typically require a degree or diploma in any stream. The ADIS and DIS courses at NIFS accept 10+2, ITI, or any stream qualification.",
+      "At NIFS, the Diploma in Industrial Safety (DIS) accepts 10th / SSC. ADIS, ADFS, DFS and DHSE accept 10+2 (ITI or a diploma also qualifies for some). The B.Sc in Fire & Industrial Safety needs 10+2, ITI or a diploma.",
   },
   {
     question: "How long does a Safety Officer course take?",
@@ -42,7 +42,12 @@ const faqs = [
   {
     question: "Is NIFS's Safety Officer course recognized by the government?",
     answer:
-      "Yes. NIFS courses are NSDC (National Skill Development Corporation) approved and affiliated with Acharya Nagarjuna University (ANU). The institute is ISO 9001:2015 certified and a Skill India approved training partner.",
+      "Yes. NIFS courses are NSDC (National Skill Development Corporation) approved, and the certificate for every NIFS course is issued by Acharya Nagarjuna University (ANU), a State Government University in Andhra Pradesh. The institute is ISO 9001:2015 certified and a Skill India approved training partner.",
+  },
+  {
+    question: "What is the fee for a Safety Officer course at NIFS?",
+    answer:
+      "The fee depends on the course (diploma, advanced diploma or B.Sc), the mode (classroom or online) and the centre. NIFS shares the exact current fee on WhatsApp or phone. Before you pay any institute, check that the fee covers practical training, exams, the certificate and placement support.",
   },
   {
     question: "Which Safety Officer course is best — DIS, ADIS, or BSc?",
@@ -149,9 +154,14 @@ export default function SafetyOfficerCoursePage() {
               Safety Officer Course in India — 2026 Guide
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
-              NIFS offers NSDC-approved Safety Officer courses from Certificate
-              to B.Sc level — classroom and online. 65+ centers across India,
-              {SITE.studentsPlaced} candidates placed in top companies.
+              To become a Safety Officer in India, pick a course by your
+              qualification: after 10th, the 12-month Diploma in Industrial
+              Safety (DIS); after 10+2, the 12-month Advanced Diploma in
+              Industrial Safety (ADIS); for a full degree, the 3-year B.Sc in
+              Fire &amp; Industrial Safety. At NIFS every course is NSDC
+              approved, the certificate is issued by Acharya Nagarjuna
+              University, and you can study in a classroom at{" "}
+              {SITE.centerCount} centers or online.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
@@ -217,6 +227,9 @@ export default function SafetyOfficerCoursePage() {
                     <span className="text-xs text-muted-foreground">
                       Eligibility: {c.eligibility}
                     </span>
+                    <span className="text-xs text-muted-foreground">
+                      Certificate: Acharya Nagarjuna University
+                    </span>
                     <span className="text-xs font-medium text-primary">
                       {c.tier}
                     </span>
@@ -231,6 +244,34 @@ export default function SafetyOfficerCoursePage() {
               </div>
             ))}
           </div>
+
+          {/* Fees */}
+          <h2 className="font-display text-3xl italic mt-16">
+            Safety Officer Course Fees
+          </h2>
+          <p className="mt-3 max-w-3xl text-muted-foreground">
+            The fee depends on three things: the course (diploma, advanced
+            diploma or B.Sc), the mode (classroom or online) and the centre you
+            choose. NIFS shares the exact current fee for your course and centre
+            on WhatsApp or phone. Whichever institute you choose, check that the
+            fee covers practical training, exams, the certificate and placement
+            support — see{" "}
+            <Link
+              href="/blog/safety-officer-course-fees-in-india-what-the-fee-should-cover/"
+              className="text-primary underline underline-offset-4"
+            >
+              what a safety officer course fee should cover
+            </Link>
+            .
+          </p>
+          <a
+            href="https://wa.me/918374340999?text=Please share the fee for the Safety Officer course at NIFS"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-5 inline-flex items-center gap-2 bg-primary px-6 py-3 text-sm font-medium text-primary-foreground"
+          >
+            Get the fee on WhatsApp <ArrowRight className="h-4 w-4" />
+          </a>
 
           {/* Career outcomes */}
           <h2 className="font-display text-3xl italic mt-16">

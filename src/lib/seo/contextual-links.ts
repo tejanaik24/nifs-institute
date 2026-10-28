@@ -40,7 +40,7 @@ LINK_MAP["practical training"] = "/gallery/practical-training-yard/";
 // appear on other posts' titles/categories.
 LINK_MAP["safety officer"] =
   "/blog/how-safety-officer-training-equips-you-to-lead-in-industrial-environments/";
-LINK_MAP["fire and safety course"] = "/blog/a-complete-guide-on-fire-courses-at-nifs/";
+LINK_MAP["fire and safety course"] = "/courses/diploma-in-fire-safety/";
 LINK_MAP["safety engineer"] =
   "/blog/why-safety-engineering-courses-by-nifs-are-your-best-for-a-secure-future/";
 

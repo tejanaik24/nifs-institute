@@ -2,6 +2,7 @@ import { centers } from "@/lib/data/centers";
 import { courses } from "@/lib/data/courses";
 import { getOpenJobs } from "@/lib/db/jobs";
 import mergedBlogRedirects from "@/lib/data/merged-blog-redirects.json";
+import { CANONICAL_OVERRIDES } from "@/lib/seo/canonical-overrides";
 import { getPublishedPosts, NOINDEX_SLUGS } from "@/lib/db/posts";
 import type { MetadataRoute } from "next";
 import { slugifyCity } from "./(marketing)/centers/[city]/page";
@@ -82,6 +83,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     .filter((post) => {
       // Exclude posts that 308 elsewhere (see next.config.ts redirects)
       if (post.slug in mergedBlogRedirects) return false;
+      // Exclude posts whose canonical points to another page
+      if (post.slug in CANONICAL_OVERRIDES) return false;
       if (post.slug === "fire-safety-courses-after-12th") return false;
       // Exclude hand-picked noindex posts from the sitemap
       if (NOINDEX_SLUGS.has(post.slug)) return false;
