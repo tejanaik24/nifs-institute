@@ -1,6 +1,7 @@
-import { and, desc, eq } from "drizzle-orm";
+import { and, desc, eq, sql } from "drizzle-orm";
 import { db } from "./client";
 import { posts } from "./schema";
+import { uploadBlogImage } from "@/lib/storage/images";
 
 export type BlogPostView = {
   slug: string;
@@ -164,14 +165,29 @@ type PostInput = {
   seoTitle: string;
   metaDescription: string;
   ogImage: string;
+  faqs?: { question: string; answer: string }[];
 };
 
+/** Pasted images arrive as huge base64 text inside the HTML (one post hit 3 MB).
+ * Every save path runs through here, so they are moved to the image bucket once. */
+async function moveInlineImages(html: string) {
+  const srcs = [...new Set([...html.matchAll(/src=["'](data:image\/[a-z+]+;base64,[^"']+)["']/gi)].map((m) => m[1]))];
+  for (const src of srcs) {
+    const [, type, b64] = src.match(/^data:(image\/[a-z+]+);base64,(.+)$/i)!;
+    const url = await uploadBlogImage(new File([Buffer.from(b64, "base64")], `inline.${type.split("/")[1]}`, { type }));
+    html = html.split(src).join(url);
+  }
+  return html;
+}
+
 export async function createPost(data: PostInput) {
+  data = { ...data, content: await moveInlineImages(data.content) };
   const rows = await db.insert(posts).values(data).returning();
   return rows[0];
 }
 
 export async function updatePost(id: number, data: Partial<PostInput>) {
+  if (data.content) data = { ...data, content: await moveInlineImages(data.content) };
   const rows = await db
     .update(posts)
     .set({ ...data, updatedAt: new Date() })
@@ -204,4 +220,28 @@ export async function unpublishPost(id: number) {
 
 export async function deletePost(id: number) {
   await db.delete(posts).where(eq(posts.id, id));
+}
+
+/** DB-only lookup (no JSON fallback) so a bot edit can never hit the wrong row. */
+export async function getPostRowBySlug(slug: string) {
+  const rows = await db.select().from(posts).where(eq(posts.slug, slug)).limit(1);
+  return rows[0] ?? null;
+}
+
+/** Keeps the full old row before every bot edit, so any bad edit can be undone by hand. */
+export async function savePostVersion(row: typeof posts.$inferSelect, editedBy: string) {
+  await db.execute(sql`
+    CREATE TABLE IF NOT EXISTS nifs.post_versions (
+      id SERIAL PRIMARY KEY,
+      post_id INTEGER NOT NULL,
+      slug VARCHAR(255) NOT NULL,
+      edited_by TEXT NOT NULL,
+      old_row JSONB NOT NULL,
+      created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+    )
+  `);
+  await db.execute(sql`
+    INSERT INTO nifs.post_versions (post_id, slug, edited_by, old_row)
+    VALUES (${row.id}, ${row.slug}, ${editedBy}, ${JSON.stringify(row)}::jsonb)
+  `);
 }

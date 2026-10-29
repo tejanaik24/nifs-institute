@@ -1,11 +1,20 @@
 import { timingSafeEqual } from "node:crypto";
 import { NextRequest, NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
-import { createPost, getPostBySlug, publishPost, slugify } from "@/lib/db/posts";
+import {
+  createPost,
+  getPostBySlug,
+  getPostRowBySlug,
+  publishPost,
+  savePostVersion,
+  slugify,
+  updatePost,
+} from "@/lib/db/posts";
 import { uploadBlogImage } from "@/lib/storage/images";
 
-// Publishing door for the Grok SEO bot: one POST = blog live. Only creates new
-// posts (never edits/deletes), and only for holders of BLOG_BOT_TOKEN.
+// Publishing door for the Grok SEO bot: POST = new blog live, PATCH = edit an
+// existing blog (old version saved first). Never deletes, unpublishes or
+// renames, and only for holders of BLOG_BOT_TOKEN.
 // Images are re-hosted in our own bucket so expiring AI-image URLs never break.
 
 function authorized(request: NextRequest) {
@@ -77,4 +86,51 @@ export async function POST(request: NextRequest) {
   revalidatePath("/sitemap.xml");
   revalidatePath(`/blog/${slug}`);
   return NextResponse.json({ ok: true, url: `https://nifsindia.net/blog/${slug}/` });
+}
+
+const EDITABLE = ["title", "excerpt", "content", "category", "seoTitle", "metaDescription"] as const;
+
+export async function PATCH(request: NextRequest) {
+  if (!authorized(request)) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+  const body = (await request.json().catch(() => null)) as Record<string, unknown> | null;
+  const str = (k: string) => (typeof body?.[k] === "string" ? (body[k] as string).trim() : "");
+
+  const slug = str("slug");
+  if (!slug) return NextResponse.json({ error: "slug is required" }, { status: 400 });
+
+  const changes: Record<string, unknown> = {}; // only EDITABLE keys, coverImage/ogImage and faqs end up here
+  for (const k of EDITABLE) if (str(k)) changes[k] = str(k);
+  if (Array.isArray(body?.faqs)) {
+    changes.faqs = (body.faqs as { question?: unknown; answer?: unknown }[])
+      .filter((f) => typeof f?.question === "string" && typeof f?.answer === "string")
+      .map((f) => ({ question: (f.question as string).trim(), answer: (f.answer as string).trim() }));
+  }
+  if (!Object.keys(changes).length && !str("coverImage")) {
+    return NextResponse.json({ error: `Nothing to change. Editable: ${EDITABLE.join(", ")}, coverImage, faqs` }, { status: 400 });
+  }
+
+  try {
+    const row = await getPostRowBySlug(slug);
+    if (!row) return NextResponse.json({ error: `No post with slug "${slug}"` }, { status: 404 });
+
+    if (typeof changes.content === "string") {
+      let content = changes.content;
+      const srcs = [...new Set([...content.matchAll(/<img[^>]+src=["']((?:https?:|data:image\/)[^"']+)["']/gi)].map((m) => m[1]))]
+        .filter((src) => src.startsWith("data:") || !row.content.includes(src)); // https images already on the post stay
+      for (const src of srcs) content = content.split(src).join(await rehost(src));
+      changes.content = stripDangerousHtml(content);
+    }
+    if (str("coverImage")) changes.coverImage = changes.ogImage = await rehost(str("coverImage"));
+
+    await savePostVersion(row, "grok-seo-bot");
+    await updatePost(row.id, changes as Parameters<typeof updatePost>[1]);
+  } catch (e) {
+    return NextResponse.json({ error: e instanceof Error ? e.message : "Edit failed" }, { status: 500 });
+  }
+
+  revalidatePath("/blog");
+  revalidatePath(`/blog/${slug}`);
+  return NextResponse.json({ ok: true, url: `https://nifsindia.net/blog/${slug}/`, changed: Object.keys(changes) });
 }
