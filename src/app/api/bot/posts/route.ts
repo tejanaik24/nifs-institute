@@ -25,7 +25,10 @@ function stripDangerousHtml(html: string) {
 }
 
 async function rehost(url: string) {
-  const res = await fetch(url);
+  // Wikimedia and some CDNs 403 requests without an identifying User-Agent.
+  const res = await fetch(url, {
+    headers: { "User-Agent": "NIFSIndiaBlogBot/1.0 (https://nifsindia.net; admin@nifsindia.net)" },
+  });
   if (!res.ok) throw new Error(`Image download failed (${res.status}): ${url}`);
   const type = res.headers.get("content-type")?.split(";")[0] ?? "image/jpeg";
   const ext = type.split("/")[1] ?? "jpg";
