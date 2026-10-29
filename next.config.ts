@@ -46,7 +46,7 @@ const UTILITY_REDIRECTS: Record<string, string> = {
   "annamalai-university-courses": "/courses/",
   "acharya-nagarjuna-university-courses": "/courses/",
   "mba-in-safety-management": "/courses/",
-  "b-sc-in-health-safety-environment": "/courses/",
+  "b-sc-in-health-safety-environment": "/courses/b-sc-in-fire-industrial-safety/",
   "about/mission-vision": "/about/vision-mission/",
   "about/benefits": "/about/company-profile/",
 };
@@ -83,6 +83,12 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       { source: "/homepage.html", destination: "/", permanent: true },
+      // 2026-10-29: B.Sc HSE is no longer offered; its course URL still got Google clicks.
+      {
+        source: "/courses/b-sc-in-health-safety-environment",
+        destination: "/courses/b-sc-in-fire-industrial-safety/",
+        permanent: true,
+      },
 
       // 2026-09-19: merged duplicate-topic city blog posts (Vizag/Chennai/
       // Hyderabad) into one strong page per real search intent, fixing a
