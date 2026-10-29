@@ -9,7 +9,7 @@ import { uploadBlogImage } from "@/lib/storage/images";
 // Images are re-hosted in our own bucket so expiring AI-image URLs never break.
 
 function authorized(request: NextRequest) {
-  const token = process.env.BLOG_BOT_TOKEN;
+  const token = process.env.BLOG_BOT_TOKEN?.trim();
   const given = request.headers.get("authorization")?.replace(/^Bearer\s+/i, "") ?? "";
   if (!token || given.length !== token.length) return false;
   return timingSafeEqual(Buffer.from(given), Buffer.from(token));
