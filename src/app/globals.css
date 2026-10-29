@@ -499,6 +499,15 @@
   border-bottom: 1px solid #1e293b;
 }
 
+/* Columns keep a readable width (no "12 mont hs" splits); wide tables scroll sideways instead. */
+.blog-prose th,
+.blog-prose td {
+  min-width: 7.5rem;
+  word-break: normal;
+  overflow-wrap: normal;
+  hyphens: none;
+}
+
 .blog-prose td {
   padding: 0.85rem 1rem;
   font-size: 0.875rem;

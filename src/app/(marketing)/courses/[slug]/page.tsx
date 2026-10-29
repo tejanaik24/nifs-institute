@@ -152,7 +152,7 @@ export default async function CourseDetailPage({
           >
             <span className="flex items-center gap-1.5 font-medium text-foreground">
               <CheckCircle2 className="h-4 w-4 text-primary shrink-0" />
-              Transparent Govt-Approved Fee Structure with Flexible Installment / EMI options across all 65+ centers.
+              Transparent Govt-Approved Fee Structure with Flexible Installment / EMI options across all 70+ centers.
             </span>
             <a
               href={`https://wa.me/918374340999?text=${encodeURIComponent(`Hi NIFS, I want to know the 2026 fee structure, installment plans, and syllabus for ${course.name}.`)}`}

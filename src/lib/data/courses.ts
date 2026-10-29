@@ -240,10 +240,10 @@ export const courses: Course[] = [
     ],
     image: "/images/course-card-industrial-safety.jpg",
     seoTitle:
-      "ADIS Full Form & ADIS Course 2026: Eligibility, Duration, Jobs | NIFS India",
+      "ADIS Full Form: Advanced Diploma in Industrial Safety",
     h1: "Advanced Diploma in Industrial Safety (ADIS) Course 2026",
     seoDescription:
-      "ADIS full form: Advanced Diploma in Industrial Safety. A 12-month course for 10+2 or Diploma holders, classroom or online. See subjects, jobs, salary range and how to get the fee details.",
+      "ADIS means Advanced Diploma in Industrial Safety: 12 months, 10+2 or diploma. See eligibility, subjects and jobs. Contact NIFS for fees.",
   },
   {
     slug: "pg-diploma-in-fire-safety-pg-dfs",

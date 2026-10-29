@@ -23,7 +23,7 @@ import { SITE } from "@/lib/data/site-constants";
 export const metadata: Metadata = {
   title: "National Institute of Fire and Safety (NIFS) — India",
   description:
-    `National Institute of Fire and Safety (NIFS) — India's leading fire and industrial safety training institute. 65+ centers across 18 states & UTs, NSDC approved, ISO certified, ${SITE.studentsPlaced} alumni placed.`,
+    `National Institute of Fire and Safety (NIFS) — India's leading fire and industrial safety training institute. 70+ centers across 24 states & UTs, NSDC approved, ISO certified, ${SITE.studentsPlaced} alumni placed.`,
   alternates: { canonical: "/" },
 };
 

@@ -235,6 +235,7 @@ export function BlogPostingSchema({
   url,
   image,
   datePublished,
+  dateModified,
   author,
   inLanguage,
 }: {
@@ -243,6 +244,7 @@ export function BlogPostingSchema({
   url: string;
   image?: string | null;
   datePublished: string;
+  dateModified?: string;
   author?: { name: string; title: string };
   inLanguage?: string;
 }) {
@@ -257,8 +259,10 @@ export function BlogPostingSchema({
           headline,
           description,
           url,
-          ...(image ? { image: `https://nifsindia.net${image}` } : {}),
+          // Bot cover images are full storage URLs; only site paths need the domain.
+          ...(image ? { image: image.startsWith("/") ? `https://nifsindia.net${image}` : image } : {}),
           datePublished,
+          ...(dateModified ? { dateModified } : {}),
           author: author
             ? { "@type": "Person", name: author.name, jobTitle: author.title }
             : { "@id": ORG_ID },

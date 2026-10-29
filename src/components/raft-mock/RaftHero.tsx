@@ -8,7 +8,7 @@ import { SITE } from "@/lib/data/site-constants";
 
 const statPills = [
   { value: SITE.studentsPlaced, label: "Alumni" },
-  { value: "65+", label: "Centers" },
+  { value: "70+", label: "Centers" },
   { value: "25", label: "Years" },
 ];
 
@@ -66,7 +66,7 @@ export function RaftHero() {
           className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-muted-foreground"
         >
           25+ years of placing graduates at India&apos;s top industrial companies.
-          NSDC approved. ISO certified. 65+ centers across 18 states & UTs.
+          NSDC approved. ISO certified. 70+ centers across 24 states & UTs.
         </motion.p>
 
         <motion.div

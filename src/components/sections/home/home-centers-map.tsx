@@ -204,7 +204,7 @@ const STATS = [
     icon: "🏢",
     bg: "bg-nifs-red/10",
     color: "text-nifs-red",
-    value: "65+",
+    value: "70+",
     label: "Centers",
   },
   {

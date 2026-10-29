@@ -39,11 +39,21 @@ export async function generateMetadata({
   if (!post || !row) return {};
 
   const canonicalPath = CANONICAL_OVERRIDES[slug] || `/blog/${slug}/`;
+  const title = row.seoTitle ? row.seoTitle : `${post.title} | NIFS India`;
+  const description = row.metaDescription || post.excerpt;
+  // Share previews use the post's own image; without this every post showed og-default.jpg.
+  const shareImage = absoluteUrl(row.ogImage || post.coverImage);
 
   return {
-    title: row.seoTitle ? row.seoTitle : `${post.title} | NIFS India`,
-    description: row.metaDescription || post.excerpt,
+    title,
+    description,
     alternates: { canonical: canonicalPath },
+    ...(shareImage
+      ? {
+          openGraph: { type: "article", title, description, url: canonicalPath, images: [shareImage] },
+          twitter: { card: "summary_large_image", title, description, images: [shareImage] },
+        }
+      : {}),
     ...(post.noindex
       ? {
           robots: {
@@ -53,6 +63,11 @@ export async function generateMetadata({
         }
       : {}),
   };
+}
+
+function absoluteUrl(src: string | null | undefined) {
+  if (!src) return undefined;
+  return src.startsWith("/") ? `https://nifsindia.net${src}` : src;
 }
 
 function formatDate(iso: string) {
@@ -82,6 +97,11 @@ export default async function BlogPostPage({
   const exploreLinks = getContextualLinks(post);
   // Hindi posts are detected by Devanagari in the title; English posts get no lang attribute.
   const contentLang = /[ऀ-ॿ]/.test(post.title) ? "hi" : undefined;
+  // Show the edit date once a post was changed a day or more after publishing.
+  const updated =
+    row.updatedAt && row.updatedAt.getTime() - new Date(post.date).getTime() > 86_400_000
+      ? row.updatedAt.toISOString()
+      : undefined;
 
   return (
     <div className="bg-slate-50/50 min-h-screen pt-32 pb-20 lg:pt-36">
@@ -91,6 +111,7 @@ export default async function BlogPostPage({
         url={`https://nifsindia.net/blog/${post.slug}/`}
         image={post.coverImage}
         datePublished={post.date}
+        dateModified={updated}
         author={post.author}
         inLanguage={contentLang}
       />
@@ -149,7 +170,7 @@ export default async function BlogPostPage({
             <span>•</span>
             <span className="flex items-center gap-1">
               <Calendar className="h-3.5 w-3.5 text-slate-400" />
-              {formatDate(post.date)}
+              {updated ? `Updated ${formatDate(updated)}` : formatDate(post.date)}
             </span>
             <span>•</span>
             <span className="flex items-center gap-1">
