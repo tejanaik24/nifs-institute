@@ -53,7 +53,7 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    const srcs = [...new Set([...content.matchAll(/<img[^>]+src=["'](https?:[^"']+)["']/gi)].map((m) => m[1]))];
+    const srcs = [...new Set([...content.matchAll(/<img[^>]+src=["']((?:https?:|data:image\/)[^"']+)["']/gi)].map((m) => m[1]))];
     for (const src of srcs) content = content.split(src).join(await rehost(src));
     const coverImage = str("coverImage") ? await rehost(str("coverImage")) : "";
 
