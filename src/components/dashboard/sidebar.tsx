@@ -13,12 +13,15 @@ import {
   Inbox,
   LayoutDashboard,
   LogOut,
+  Menu,
   PhoneCall,
   ShieldCheck,
   Users,
+  X,
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 const STAFF_NAV_ITEMS = [
   { href: "/dashboard", label: "Dashboard Home", icon: LayoutDashboard },
@@ -40,11 +43,48 @@ const ADMIN_NAV_ITEMS = [
 export function Sidebar({ user }: { user?: SessionPayload | null }) {
   const pathname = usePathname();
   const isAdmin = user?.role === "admin";
+  const [open, setOpen] = useState(false);
+
+  // Close the phone drawer after navigating
+  useEffect(() => setOpen(false), [pathname]);
 
   const navItems = [...STAFF_NAV_ITEMS, ...(isAdmin ? ADMIN_NAV_ITEMS : [])];
 
   return (
-    <nav className="flex h-full w-60 flex-col border-r border-[var(--dash-border)] bg-[var(--dash-surface)] p-4 shadow-sm">
+    <>
+      {/* Phone top bar (below md the sidebar becomes a slide-out drawer) */}
+      <div className="fixed inset-x-0 top-0 z-30 flex h-14 items-center gap-3 border-b border-[var(--dash-border)] bg-[var(--dash-surface)] px-4 md:hidden">
+        <button
+          type="button"
+          onClick={() => setOpen(true)}
+          aria-label="Open menu"
+          aria-expanded={open}
+          className="rounded-lg p-2 text-[var(--dash-text)] hover:bg-black/5"
+        >
+          <Menu size={20} />
+        </button>
+        <span className="text-sm font-bold text-[var(--dash-text)]">NIFS India Dashboard</span>
+      </div>
+      {open && (
+        <div
+          className="fixed inset-0 z-40 bg-black/40 md:hidden"
+          onClick={() => setOpen(false)}
+          aria-hidden="true"
+        />
+      )}
+    <nav
+      className={`fixed inset-y-0 left-0 z-50 flex w-64 shrink-0 flex-col overflow-y-auto border-r border-[var(--dash-border)] bg-[var(--dash-surface)] p-4 shadow-sm transition-transform md:sticky md:top-0 md:z-auto md:h-screen md:w-60 md:translate-x-0 ${
+        open ? "translate-x-0" : "-translate-x-full"
+      }`}
+    >
+      <button
+        type="button"
+        onClick={() => setOpen(false)}
+        aria-label="Close menu"
+        className="absolute right-3 top-3 rounded-lg p-1.5 text-[var(--dash-text-muted)] hover:bg-black/5 md:hidden"
+      >
+        <X size={18} />
+      </button>
       {/* Brand & Website Home Link (Clicking logo goes to Website Homepage) */}
       <Link
         href="/"
@@ -141,6 +181,7 @@ export function Sidebar({ user }: { user?: SessionPayload | null }) {
         </form>
       </div>
     </nav>
+    </>
   );
 }
 
