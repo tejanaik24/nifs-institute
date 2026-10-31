@@ -83,6 +83,9 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       { source: "/homepage.html", destination: "/", permanent: true },
+      // Moved from vercel.json when hosting moved to the VPS (2026-10-31).
+      { source: "/nifs-visakhapatnam", destination: "/centers/visakhapatnam/", permanent: true },
+      { source: "/practical-training-yard", destination: "/gallery/practical-training-yard/", permanent: true },
       // 2026-10-29: B.Sc HSE is no longer offered; its course URL still got Google clicks.
       {
         source: "/courses/b-sc-in-health-safety-environment",
