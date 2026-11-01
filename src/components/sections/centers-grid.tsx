@@ -91,13 +91,13 @@ export function CentersGrid() {
               Find a center near you
             </h3>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-              NIFS trains and places candidates from 70+ centers across India
+              NIFS trains and places candidates from 65+ centers across India
               — tap a location on the map or a city below to see its details.
             </p>
 
             <div className="mt-6 flex gap-8 border-y border-border py-5">
               <div>
-                <div className="font-display text-3xl italic text-primary">70+</div>
+                <div className="font-display text-3xl italic text-primary">65+</div>
                 <div className="text-xs text-muted-foreground">Centers</div>
               </div>
               <div>

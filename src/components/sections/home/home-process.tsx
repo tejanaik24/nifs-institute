@@ -121,7 +121,7 @@ export default function HomeProcess() {
                 <p className="text-right font-normal font-sans text-[24px] max-md:text-[15px] text-gray-600">
                   Complete enrollment with flexible payment options. Education
                   loan facility available for all courses. Begin your training
-                  at any of our 70+ centers.
+                  at any of our 65+ centers.
                 </p>
               </div>
               <div className="rounded-[48px] max-md:rounded-[32px] h-[40px] bg-gray-200">
