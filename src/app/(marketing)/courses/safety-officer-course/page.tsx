@@ -1,24 +1,18 @@
 import { SITE } from "@/lib/data/site-constants";
 import { BreadcrumbSchema, CourseSchema, FAQSchema } from "@/lib/seo/schema";
-import {
-  ArrowRight,
-  Award,
-  CheckCircle2,
-  Shield,
-  TrendingUp,
-} from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Safety Officer Course in India 2026: Eligibility, Fees & Jobs | NIFS",
+  title: { absolute: "Safety Officer Course: Duration & Eligibility | NIFS" },
   description:
-    `Become a certified Safety Officer in India. NSDC-approved courses at NIFS — ADIS, DIS, ADFS, BSc. Eligibility: 10+2. ${SITE.studentsPlaced} placed. Apply now.`,
+    "Safety officer courses at NIFS take 3 months to 1 year, or 3 years for the B.Sc. Join after 10th, 10+2 or a diploma. NSDC approved. Contact for fees.",
   alternates: { canonical: "/courses/safety-officer-course/" },
   openGraph: {
     title: "Safety Officer Course India 2026 | NIFS",
     description:
-      `NSDC-approved safety officer courses. Eligibility 10+2. 65+ centers across India. ${SITE.studentsPlaced} candidates placed.`,
+      `NSDC-approved safety officer courses. Eligibility 10+2. 65+ centers across India. ${SITE.studentsPlaced} alumni.`,
   },
 };
 
@@ -37,7 +31,7 @@ const faqs = [
     question:
       "What is the salary of a Safety Officer in India after completing this course?",
     answer:
-      "Entry-level Safety Officers earn ₹2.5–4 LPA. Mid-level with 3–5 years experience earn ₹5–9 LPA. Senior Safety Officers in oil & gas, construction, and MNCs earn ₹10–15 LPA+. Gulf-based roles typically offer ₹8–18 LPA equivalent.",
+      "Pay depends on experience, city and industry. Our salary guide lists safety officer and HSE officer pay per month, with every figure linked to its source (AmbitionBox and PayScale).",
   },
   {
     question: "Is NIFS's Safety Officer course recognized by the government?",
@@ -50,7 +44,7 @@ const faqs = [
       "The fee depends on the course (diploma, advanced diploma or B.Sc), the mode (classroom or online) and the centre. NIFS shares the exact current fee on WhatsApp or phone. Before you pay any institute, check that the fee covers practical training, exams, the certificate and placement support.",
   },
   {
-    question: "Which Safety Officer course is best — DIS, ADIS, or BSc?",
+    question: "Which safety officer course should I choose?",
     answer:
       "If you've just passed 10+2, start with DIS (1 year). If you have a degree, ADIS (12 months) gives faster access to supervisory roles. BSc in Fire & Industrial Safety (3 years) is ideal for those wanting a full degree for long-term career growth.",
   },
@@ -112,13 +106,16 @@ const courses = [
   },
 ];
 
-const outcomes = [
-  { title: "Safety Officer", salary: "₹2.5–6 LPA", icon: Shield },
-  { title: "EHS Officer", salary: "₹4–9 LPA", icon: Award },
-  { title: "Fire Safety Officer", salary: "₹3–8 LPA", icon: Shield },
-  { title: "Safety Manager", salary: "₹8–15 LPA", icon: TrendingUp },
-  { title: "Gulf Safety Officer", salary: "₹8–18 LPA", icon: TrendingUp },
-  { title: "EHS Consultant", salary: "₹10–20 LPA", icon: Award },
+const durationTable = [
+  ["Certificate Course in Fire & Safety (CCFS)", "3-6 months", "10th pass / 10+2"],
+  ["Diploma in Industrial Safety (DIS)", "12 months", "10th / SSC / HSE"],
+  ["Diploma in Fire & Safety (DFS)", "1 year", "10+2 / ITI / any stream"],
+  ["Diploma in Health, Safety & Environment (DHSE)", "1 year", "10+2 / ITI / any stream"],
+  ["Advanced Diploma in Industrial Safety (ADIS)", "12 months", "10+2 / diploma (any stream)"],
+  ["Advanced Diploma in Fire & Safety (ADFS)", "12 months", "10+2 / diploma (any stream)"],
+  ["PG Diploma in Fire & Safety (PG DFS)", "1 year", "Any graduate"],
+  ["PG Diploma in Health, Safety & Environment (PG DHSE)", "1 year", "Any graduate"],
+  ["B.Sc in Fire & Industrial Safety", "3 years (6 semesters)", "10+2 / diploma (3 yrs)"],
 ];
 
 export default function SafetyOfficerCoursePage() {
@@ -154,14 +151,12 @@ export default function SafetyOfficerCoursePage() {
               Safety Officer Course in India — 2026 Guide
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
-              To become a Safety Officer in India, pick a course by your
-              qualification: after 10th, the 12-month Diploma in Industrial
-              Safety (DIS); after 10+2, the 12-month Advanced Diploma in
-              Industrial Safety (ADIS); for a full degree, the 3-year B.Sc in
-              Fire &amp; Industrial Safety. At NIFS every course is NSDC
-              approved, the certificate is issued by Acharya Nagarjuna
-              University, and you can study in a classroom at{" "}
-              {SITE.centerCount} centers or online.
+              A safety officer course trains you to prevent accidents and fires
+              at work. At NIFS it takes 3-6 months (Certificate Course in Fire
+              &amp; Safety), 12 months (DIS, DFS, DHSE, ADIS, ADFS) or 3 years
+              (B.Sc in Fire &amp; Industrial Safety). You can join after 10th,
+              10+2 or a diploma, and all paid courses carry an Acharya
+              Nagarjuna University certificate.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
@@ -186,9 +181,9 @@ export default function SafetyOfficerCoursePage() {
           {/* Stats row */}
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 mb-14">
             {[
-              { label: "Candidates Placed", value: SITE.studentsPlaced },
+              { label: "Alumni", value: SITE.studentsPlaced },
               { label: "Training Centers", value: "65+" },
-              { label: "Years of Experience", value: "25+" },
+              { label: "Established", value: "2004" },
               { label: "Course Modes", value: "Online & Classroom" },
             ].map((s) => (
               <div key={s.label} className="border border-border p-4">
@@ -198,6 +193,33 @@ export default function SafetyOfficerCoursePage() {
                 </p>
               </div>
             ))}
+          </div>
+
+          {/* Duration / eligibility table */}
+          <h2 className="font-display text-3xl italic">
+            How long is a safety officer course, and who can join?
+          </h2>
+          <div className="mt-6 overflow-x-auto">
+            <table className="w-full min-w-[560px] border border-border text-left text-sm">
+              <thead className="bg-muted">
+                <tr>
+                  <th className="p-3 font-medium">Course</th>
+                  <th className="p-3 font-medium">Duration</th>
+                  <th className="p-3 font-medium">Eligibility</th>
+                  <th className="p-3 font-medium">Fees</th>
+                </tr>
+              </thead>
+              <tbody>
+                {durationTable.map((r) => (
+                  <tr key={r[0]} className="border-t border-border">
+                    <td className="p-3 font-medium">{r[0]}</td>
+                    <td className="p-3">{r[1]}</td>
+                    <td className="p-3">{r[2]}</td>
+                    <td className="p-3">Contact for fees</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
 
           {/* Course list */}
@@ -278,20 +300,17 @@ export default function SafetyOfficerCoursePage() {
             Career Outcomes & Salary
           </h2>
           <p className="mt-3 text-muted-foreground">
-            Roles and salary ranges for Safety Officers in India (2026 data).
+            Safety officer, EHS officer and fire safety officer are common
+            roles after these courses. Pay depends on experience, city and
+            industry.
           </p>
-          <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3">
-            {outcomes.map((o) => (
-              <div key={o.title} className="border border-border p-5">
-                <o.icon className="h-5 w-5 text-primary" />
-                <p className="mt-3 font-medium text-sm">{o.title}</p>
-                <p className="mt-1 text-primary font-bold">{o.salary}</p>
-              </div>
-            ))}
-          </div>
-          <p className="mt-4 text-xs text-muted-foreground">
-            Salary ranges are indicative based on industry data. Actual packages
-            depend on experience, location, and employer.
+          <p className="mt-4">
+            <Link
+              href="/blog/safety-officer-salary-in-india-2026-complete-guide/"
+              className="text-primary underline underline-offset-4"
+            >
+              See safety officer salary per month in India, with sources
+            </Link>
           </p>
 
           {/* Why choose NIFS */}

@@ -176,7 +176,7 @@ export default async function CourseDetailPage({
             </div>
             <div className="flex items-center gap-2 text-xs font-semibold text-muted-foreground">
               <CheckCircle2 className="h-4 w-4 text-primary shrink-0" />
-              <span>25+ Years Legacy</span>
+              <span>Est. 2004</span>
             </div>
             <div className="flex items-center gap-2 text-xs font-semibold text-muted-foreground">
               <CheckCircle2 className="h-4 w-4 text-primary shrink-0" />
@@ -326,34 +326,15 @@ export default async function CourseDetailPage({
               like {course.name} from NIFS India gives you direct compliance
               eligibility for registered factory inspectorate audits.
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
-              <div className="rounded-lg border border-border bg-background p-4 text-center">
-                <span className="text-xs font-semibold text-muted-foreground uppercase">
-                  Domestic Starting Salary
-                </span>
-                <p className="text-xl font-bold text-foreground mt-1">
-                  ₹3.0L – ₹4.8L / Year
-                </p>
-              </div>
-              <div className="rounded-lg border border-border bg-background p-4 text-center">
-                <span className="text-xs font-semibold text-muted-foreground uppercase">
-                  Mid-Career (3-5 Years)
-                </span>
-                <p className="text-xl font-bold text-primary mt-1">
-                  ₹6.5L – ₹11.0L / Year
-                </p>
-              </div>
-              <div className="rounded-lg border border-border bg-background p-4 text-center">
-                <span className="text-xs font-semibold text-muted-foreground uppercase">
-                  Gulf / Middle East
-                </span>
-                <p className="text-xl font-bold text-foreground mt-1">
-                  ₹18L – ₹35L / Year
-                </p>
-              </div>
-            </div>
+            <p className="text-sm">
+              <Link
+                href="/blog/safety-officer-salary-in-india-2026-complete-guide/"
+                className="font-medium text-primary underline underline-offset-4"
+              >
+                See safety officer salary per month in India, with sources
+              </Link>
+            </p>
           </div>
-
           {/* Section: Practical Training Yard Experience */}
           <div className="mt-12 space-y-4 rounded-2xl border border-primary/20 bg-primary/5 p-6 sm:p-8">
             <h2 className="font-display text-2xl italic text-foreground">
