@@ -189,10 +189,10 @@ Siban
                 </div>
                 <div>
                   <p className="font-display text-3xl sm:text-4xl font-black text-slate-900">
-                    2004
+                    22+
                   </p>
                   <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mt-1">
-                    Established
+                    Years Established
                   </p>
                 </div>
               </div>

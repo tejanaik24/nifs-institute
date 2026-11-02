@@ -96,7 +96,7 @@ export function TunnelHero() {
           initial="hidden"
           animate="visible"
         >
-          Est. 2004. Graduates working at India&apos;s major industrial
+          25+ years of placing graduates at India&apos;s top industrial
           companies. NSDC approved. ISO certified. 65+ centers across 20
           states &amp; UTs.
         </motion.p>

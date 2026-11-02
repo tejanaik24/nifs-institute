@@ -222,7 +222,7 @@ export default async function CourseDetailPage({
             </div>
             <div className="flex items-center gap-2 text-xs font-semibold text-muted-foreground">
               <CheckCircle2 className="h-4 w-4 text-primary shrink-0" />
-              <span>Est. 2004</span>
+              <span>25+ Years Legacy</span>
             </div>
             <div className="flex items-center gap-2 text-xs font-semibold text-muted-foreground">
               <CheckCircle2 className="h-4 w-4 text-primary shrink-0" />

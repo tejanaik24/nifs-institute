@@ -65,7 +65,7 @@ export function RaftHero() {
           transition={{ delay: 0.3 }}
           className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-muted-foreground"
         >
-          Est. 2004. Graduates working at India&apos;s major industrial companies.
+          25+ years of placing graduates at India&apos;s top industrial companies.
           NSDC approved. ISO certified. 65+ centers across 20 states & UTs.
         </motion.p>
 

@@ -8,7 +8,7 @@ import Link from "next/link";
 const aboutSections = [
   {
     title: "Company Profile",
-    body: `Est. 2004, ${SITE.centerCount} centers, ${SITE.studentsPlaced} alumni.`,
+    body: `25+ years, ${SITE.centerCount} centers, ${SITE.studentsPlaced} alumni.`,
     href: "/about/company-profile",
   },
   {
@@ -71,7 +71,7 @@ export default function AboutPage() {
               responsible management.
             </p>
             <p>
-              Since 2004, NIFS has been dedicated to
+              Since 2004 (for over 22 years), NIFS has been dedicated to
               developing competent, proactive, and industry-ready safety
               professionals through quality education and practical training.
             </p>

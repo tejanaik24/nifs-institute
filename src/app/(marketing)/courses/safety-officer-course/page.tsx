@@ -183,7 +183,7 @@ export default function SafetyOfficerCoursePage() {
             {[
               { label: "Alumni", value: SITE.studentsPlaced },
               { label: "Training Centers", value: "65+" },
-              { label: "Established", value: "2004" },
+              { label: "Years of Experience", value: "25+" },
               { label: "Course Modes", value: "Online & Classroom" },
             ].map((s) => (
               <div key={s.label} className="border border-border p-4">

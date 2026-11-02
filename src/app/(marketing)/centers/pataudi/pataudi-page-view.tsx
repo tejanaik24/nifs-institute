@@ -185,18 +185,18 @@ Pataudi
                 </div>
                 <div className="border-x border-slate-200 px-4">
                   <p className="font-display text-3xl sm:text-4xl font-black text-amber-500">
-                    2004
+                    22+
                   </p>
                   <p className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
-                    Established
+                    Years Established
                   </p>
                 </div>
                 <div>
                   <p className="font-display text-3xl sm:text-4xl font-black text-primary">
-                    65+
+                    25+ Yrs
                   </p>
                   <p className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
-                    Centers
+                    National Legacy
                   </p>
                 </div>
               </div>

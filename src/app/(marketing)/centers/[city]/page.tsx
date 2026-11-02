@@ -735,7 +735,7 @@ export default async function DynamicCenterPage({
               <ul className="space-y-3">
                 {[
                   "Government recognized: NSDC, Skill India & State Board approved",
-                  `Est. 2004 with ${SITE.studentsPlaced} alumni nationwide`,
+                  `25+ years educational legacy with ${SITE.studentsPlaced} alumni nationwide`,
                   "Access to Asia's dedicated Practical Firefighting Training Yard in Visakhapatnam",
                   "Regular campus interview drives with L&T, Adani, ITC, Reliance & Amazon",
                   "Direct counseling and flexible batch timings (Classroom & Virtual)",

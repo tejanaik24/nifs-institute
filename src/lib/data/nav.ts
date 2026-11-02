@@ -28,7 +28,7 @@ export const primaryNav: NavItem[] = [
       {
         label: "Company Profile",
         href: "/about/company-profile",
-        description: `Est. 2004, 65+ centers, ${SITE.studentsPlaced} alumni`,
+        description: `25+ years, 65+ centers, ${SITE.studentsPlaced} alumni`,
       },
       {
         label: "Vision & Mission",
