@@ -74,10 +74,10 @@ export function AboutNifs() {
           </div>
         </div>
 
-        {/* ── CENTER SPINE — 3D 25 Years of Excellence badge ── */}
+        {/* ── CENTER SPINE — 3D Est. 2004 badge ── */}
         <div className="relative z-[3] flex items-center justify-center w-full">
           <motion.div {...fadeUp} className="w-full max-w-[380px] h-[380px] flex items-center justify-center">
-            <StatBadge3D value="25+" label="Years of Excellence" />
+            <StatBadge3D value="2004" label="Established" />
           </motion.div>
         </div>
 

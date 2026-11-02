@@ -55,7 +55,7 @@ export const aboutPages: AboutPage[] = [
       {
         type: "stats",
         stats: [
-          { value: "22+", label: "Years of Excellence (Est. 2004)" },
+          { value: "2004", label: "Established" },
           { value: "65+", label: "Centers Nationwide" },
           { value: "18", label: "States & UTs Covered" },
           { value: SITE.studentsPlaced, label: "Alumni Placed" },
