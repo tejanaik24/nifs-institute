@@ -29,7 +29,7 @@ export const AHMEDABAD_FAQS = [
       "NIFS Ahmedabad is located at 425, Kalasagar Shopping Hub, Near Satadhar Cross Road, Front of Saibaba Temple, Ghatlodia, Ahmedabad – 380061, Gujarat. For instant directions and counseling, call +91 79400 36356 or +91 98250 79730.",
   },
   {
-    question: "Which safety course is best for Ahmedabad GIDC factory jobs?",
+    question: "Which safety course suits Ahmedabad GIDC factory jobs?",
     answer:
       "The Advanced Diploma in Industrial Safety (ADIS) is ideal for GIDC factory roles in Naroda, Vatva, Sanand, and Changodar. The Diploma in Fire & Safety (DFS) is also popular for entry-level positions in pharmaceutical and chemical manufacturing units.",
   },
@@ -46,7 +46,7 @@ export const AHMEDABAD_FAQS = [
   {
     question: "Does NIFS provide placement assistance in Ahmedabad?",
     answer:
-      `Yes. NIFS provides dedicated placement assistance with over ${SITE.studentsPlaced} placed alumni working across India. Recruiter partners include Torrent Pharma, Cadila, L&T, Adani, and ITC. Placement drives and interviews are organized regularly at our regional centers.`,
+      `Yes. NIFS provides dedicated placement assistance with over ${SITE.studentsPlaced} alumni working across India. Recruiter partners include Torrent Pharma, Cadila, L&T, Adani, and ITC. Placement drives and interviews are organized regularly at our regional centers.`,
   },
   {
     question: "Does NIFS offer placement in Ahmedabad pharma companies?",
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Fire & Safety Officer Course in Ahmedabad | NIFS Institute Ghatlodia",
     description:
-      `Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Ahmedabad. ${SITE.studentsPlaced} placements with Torrent Pharma, Cadila, and leading industrial employers.`,
+      `Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Ahmedabad. ${SITE.studentsPlaced} alumni.`,
     url: PAGE_URL,
     siteName: "NIFS India",
     locale: "en_IN",

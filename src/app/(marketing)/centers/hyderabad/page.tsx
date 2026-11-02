@@ -36,7 +36,7 @@ export const HYDERABAD_FAQS = [
       "Course fees at NIFS Hyderabad range from ₹25,000 to ₹35,000 for Certificate programs, ₹35,000 to ₹55,000 for 1-Year Government-Approved Diplomas (DFS/DHSE), and ₹45,000 to ₹65,000 for the Advanced Diploma in Industrial Safety (ADIS). Flexible no-cost installment plans and merit concessions are available for upcoming 2026 batches.",
   },
   {
-    question: "Which fire and safety course is best for jobs in Hyderabad pharma companies?",
+    question: "Which fire and safety course suits jobs in Hyderabad pharma companies?",
     answer:
       "The Advanced Diploma in Industrial Safety (ADIS) and Diploma in Health, Safety & Environment (DHSE) are the most demanded qualifications in Hyderabad's pharmaceutical hubs (Genome Valley, Pashamylaram, and Jeedimetla). These courses cover hazardous chemical safety, Hazchem storage, toxic gas handling, and statutory EHS compliance under the Factories Act.",
   },
@@ -48,7 +48,7 @@ export const HYDERABAD_FAQS = [
   {
     question: "Does NIFS provide placement assistance in Hyderabad?",
     answer:
-      `Yes. NIFS provides dedicated placement assistance with over ${SITE.studentsPlaced} placed alumni working across India. Graduates are eligible for placements across leading Pan-India corporate recruiters including L&T, Adani, Tata Projects, ITC, Hetero Drugs, and Dr. Reddy's.`,
+      `Yes. NIFS provides dedicated placement assistance with over ${SITE.studentsPlaced} alumni working across India. Graduates are eligible for placements across Pan-India corporate recruiters including L&T, Adani, Tata Projects, ITC, Hetero Drugs, and Dr. Reddy's.`,
   },
   {
     question: "Are NIFS Hyderabad certifications recognized by the Government and industry?",
@@ -58,14 +58,14 @@ export const HYDERABAD_FAQS = [
 ];
 
 export const metadata: Metadata = {
-  title: "Fire and Safety Course in Hyderabad | Govt Approved NIFS Ameerpet",
+  title: "Fire and Safety Course in Hyderabad | NIFS Ameerpet",
   description:
-    "Join Hyderabad's recognized Fire & Safety Officer training institute in Ameerpet. NSDC approved 1-Year Diploma (DFS, ADIS), live practical yard drills, and placement support in Pharma & Industrial Safety.",
+    "Fire & Safety Officer training in Ameerpet, Hyderabad. NSDC approved 1-year Diploma (DFS, ADIS) with live practical yard drills and placement support.",
   alternates: { canonical: "/centers/hyderabad/" },
   openGraph: {
-    title: "Fire & Safety Officer Course in Hyderabad | NIFS Institute Ameerpet",
+    title: "Fire & Safety Officer Course in Hyderabad | NIFS Ameerpet",
     description:
-      `Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Ameerpet, Hyderabad. ${SITE.studentsPlaced} placements with L&T, Dr. Reddy's, Hetero, and leading industrial employers.`,
+      `Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Ameerpet, Hyderabad. ${SITE.studentsPlaced} alumni.`,
     url: PAGE_URL,
     siteName: "NIFS India",
     locale: "en_IN",

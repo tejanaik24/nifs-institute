@@ -46,14 +46,14 @@ export const LAKSHMINAGAR_FAQS = [
   },
   {
     question:
-      "Which diploma is best for factory safety jobs in Patparganj?",
+      "Which diploma suits factory safety jobs in Patparganj?",
     answer:
       "The 1-Year Diploma in Fire & Safety (DFS) and the Advanced Diploma in Industrial Safety (ADIS) are both well-suited for factory safety roles in Patparganj and Jhilmil industrial areas.",
   },
   {
     question: "Does NIFS provide placement assistance in Delhi NCR?",
     answer:
-      `Yes. NIFS provides dedicated placement assistance with over ${SITE.studentsPlaced} placed alumni working across India. Graduates are eligible for placements across leading Pan-India corporate recruiters including L&T, Adani, Tata Projects, ITC, and regional industrial employers.`,
+      `Yes. NIFS provides dedicated placement assistance with over ${SITE.studentsPlaced} alumni working across India. Graduates are eligible for placements across Pan-India corporate recruiters including L&T, Adani, Tata Projects, ITC, and regional industrial employers.`,
   },
 ];
 
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Fire & Safety Officer Course in Laxmi Nagar Delhi East | NIFS Institute",
     description:
-      `Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Laxmi Nagar, East Delhi. ${SITE.studentsPlaced} placements with L&T, Adani, and leading industrial employers.`,
+      `Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Laxmi Nagar, East Delhi. ${SITE.studentsPlaced} alumni.`,
     url: PAGE_URL,
     siteName: "NIFS India",
     locale: "en_IN",

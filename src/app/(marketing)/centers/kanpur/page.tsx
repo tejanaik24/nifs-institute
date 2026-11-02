@@ -46,7 +46,7 @@ export const KANPUR_FAQS = [
   {
     question: "Does NIFS provide placement assistance in Kanpur?",
     answer:
-      `Yes. NIFS provides dedicated placement assistance with over ${SITE.studentsPlaced} placed alumni working across India. Graduates are eligible for placements across leading Pan-India recruiters including L&T, Adani, Tata Projects, and regional industrial employers.`,
+      `Yes. NIFS provides dedicated placement assistance with over ${SITE.studentsPlaced} alumni working across India. Graduates are eligible for placements across Pan-India recruiters including L&T, Adani, Tata Projects, and regional industrial employers.`,
   },
   {
     question: "Are NIFS certifications recognized by the Government and industry?",

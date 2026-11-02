@@ -29,7 +29,7 @@ export const SURAT_FAQS = [
       "NIFS Surat is located at 304, 3rd Floor, Rajhans Stadium Plaza, Near L.P. Savani School, Palanpur, Gauravpath, Surat – 395009, Gujarat. For instant directions and counseling, call +91 92777 08217 or +91 99246 69967.",
   },
   {
-    question: "Which safety course is best for Surat textile factory jobs?",
+    question: "Which safety course suits Surat textile factory jobs?",
     answer:
       "The Advanced Diploma in Industrial Safety (ADIS) and the 1-Year Diploma in Fire & Safety (DFS) are most sought after for textile dyeing, printing, and chemical factory positions in Surat's Katargam, Varachha, and Udhana industrial zones.",
   },
@@ -46,7 +46,7 @@ export const SURAT_FAQS = [
   {
     question: "Does NIFS provide placement assistance in Surat?",
     answer:
-      `Yes. NIFS provides dedicated placement assistance with over ${SITE.studentsPlaced} placed alumni working across India. Graduates are eligible for placements across leading Pan-India corporate recruiters including L&T, Adani, Tata Projects, ITC, and regional industrial employers.`,
+      `Yes. NIFS provides dedicated placement assistance with over ${SITE.studentsPlaced} alumni working across India. Graduates are eligible for placements across Pan-India corporate recruiters including L&T, Adani, Tata Projects, ITC, and regional industrial employers.`,
   },
   {
     question: "Are NIFS diplomas accepted by Gujarat factory inspectorates?",
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Fire & Safety Officer Course in Surat | NIFS Institute Gauravpath",
     description:
-      `Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Surat. ${SITE.studentsPlaced} placements with Reliance, L&T, and leading industrial employers.`,
+      `Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Surat. ${SITE.studentsPlaced} alumni.`,
     url: PAGE_URL,
     siteName: "NIFS India",
     locale: "en_IN",

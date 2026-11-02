@@ -144,7 +144,7 @@ export function BadarpurPageView({
             <div className="lg:col-span-7 space-y-6">
               <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-primary shadow-sm">
                 <span className="h-2.5 w-2.5 rounded-full bg-primary animate-pulse" />
-                <span>{SITE.studentsPlaced} Safety Officers Placed Since 2004</span>
+                <span>{SITE.studentsPlaced} alumni since 2004</span>
               </div>
 
               <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.08]">
@@ -180,23 +180,23 @@ Badarpur
                     {SITE.studentsPlaced}
                   </p>
                   <p className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
-                    Officers Placed
+                    Alumni
                   </p>
                 </div>
                 <div className="border-x border-slate-200 px-4">
                   <p className="font-display text-3xl sm:text-4xl font-black text-amber-500">
-                    22+
+                    2004
                   </p>
                   <p className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
-                    Years Established
+                    Established
                   </p>
                 </div>
                 <div>
                   <p className="font-display text-3xl sm:text-4xl font-black text-primary">
-                    25+ Yrs
+                    65+
                   </p>
                   <p className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
-                    National Legacy
+                    Centers
                   </p>
                 </div>
               </div>
@@ -298,7 +298,7 @@ Badarpur
                     </span>
                   </div>
                   <span className="text-[11px] font-mono text-slate-300">
-                    {SITE.studentsPlaced} Alumni Placed
+                    {SITE.studentsPlaced} alumni
                   </span>
                 </div>
               </div>
@@ -399,52 +399,7 @@ Badarpur
 
       {/* 5. DYNAMIC INTERACTIVE SALARY ROI SLIDER */}
             {/* 5. VERIFIED PLACEMENT COMPENSATION RECORDS */}
-      <section className="mx-auto max-w-7xl px-6 py-16 lg:px-10 lg:py-20">
-        <div className="rounded-3xl border border-slate-200 bg-gradient-to-br from-white via-slate-50 to-slate-100/50 p-8 sm:p-12 shadow-xl relative overflow-hidden">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            <div className="lg:col-span-7 space-y-4">
-              <div className="space-y-2">
-                <span className="text-xs font-bold uppercase tracking-widest text-primary flex items-center gap-1.5">
-                  <TrendingUp className="h-4 w-4" />
-                  <span>Documented Placement Records</span>
-                </span>
-                <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-slate-900">
-                  Placement Compensation at NIFS
-                </h2>
-                <p className="text-base text-slate-700 leading-relaxed font-medium">NIFS placement records show packages from <span className="font-bold text-slate-900">₹1.2 L to ₹8.2 L</span> per year (based on 90 recorded placements).</p>
-                <p className="text-xs text-slate-500 leading-relaxed pt-1">
-                  Figures reflect documented institutional placement records across Indian industrial sectors including manufacturing, construction, energy, and infrastructure. Individual compensation depends on academic qualification, technical role, prior experience, and recruiting employer standards.
-                </p>
-              </div>
-            </div>
-            <div className="lg:col-span-5 flex flex-col justify-center space-y-4">
-              <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-md space-y-3">
-                <div className="flex justify-between items-center">
-                  <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
-                    Recorded Annual Package
-                  </span>
-                  <span className="text-[11px] font-bold text-primary bg-primary/10 px-2.5 py-0.5 rounded-full">
-                    Verified Records
-                  </span>
-                </div>
-                <p className="font-display text-3xl sm:text-4xl font-extrabold text-slate-900">₹1.2 L – ₹8.2 L <span className="text-sm font-normal text-slate-500">/ year</span></p>
-                <p className="text-xs text-slate-500">
-                  Based on 90 documented alumni records across India.
-                </p>
-              </div>
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="cursor-pointer w-full inline-flex items-center justify-center gap-2 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white py-4 text-xs sm:text-sm font-bold shadow-lg transition-all hover:scale-105"
-              >
-                <span>Book Free Placement Career Counseling</span>
-                <ChevronRight className="h-4 w-4" />
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      
 
       {/* 6. BENTO COURSE MATCHER */}
       <section className="border-t border-slate-200/80 bg-slate-50/50 py-20 lg:py-24">
@@ -562,7 +517,7 @@ Badarpur
                     NSDC &amp; Skill India Approved
                   </p>
                   <p className="text-xs font-semibold text-slate-600 mt-1">
-                    ISO 9001:2015 Certified &middot; {SITE.studentsPlaced} Alumni Placed Nationwide
+                    ISO 9001:2015 Certified &middot; {SITE.studentsPlaced} alumni
                   </p>
                 </div>
               </div>

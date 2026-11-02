@@ -119,7 +119,7 @@ const faqs = [
   {
     question: "Which industries in Visakhapatnam hire NIFS graduates?",
     answer:
-      "Steel (Visakhapatnam Steel Plant / RINL), petroleum refining (HPCL Visakhapatnam Refinery), port and shipping operations, and pharmaceutical manufacturing (JNPC) are the largest local employers of certified fire and safety officers.",
+      "Steel (Visakhapatnam Steel Plant / RINL), petroleum refining (HPCL Visakhapatnam Refinery), port and shipping operations, and pharmaceutical manufacturing (JNPC) are major local employers of certified fire and safety officers.",
   },
 ];
 
@@ -185,7 +185,7 @@ export default function VisakhapatnamCenterPage() {
         </h2>
         <p className="mt-4 max-w-2xl text-muted-foreground">
           Fire and safety officers aren&rsquo;t optional hires in this city — Visakhapatnam&rsquo;s
-          largest employers are legally required to staff them.
+          major employers are legally required to staff them.
         </p>
         <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {industries.map((ind) => (

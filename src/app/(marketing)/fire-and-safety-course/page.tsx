@@ -21,8 +21,8 @@ const faqs = [
     answer: "A fire and safety course trains students in fire prevention, firefighting techniques, industrial safety protocols, emergency response planning, and workplace hazard management. Courses range from short certificates (3–6 months) to full degree programs (B.Sc — 3 years).",
   },
   {
-    question: "What are the best fire and safety courses in India in 2026?",
-    answer: "Top fire and safety courses include: DFS (Diploma in Fire & Safety, 1 year), ADFS (Advanced Diploma in Fire & Safety, 12 months), DIS (Diploma in Industrial Safety, 12 months), ADIS (Advanced Diploma in Industrial Safety), and B.Sc in Fire & Industrial Safety (3 years). NIFS offers all these with NSDC approval.",
+    question: "Which fire and safety courses does NIFS offer in India?",
+    answer: "NIFS fire and safety courses include: DFS (Diploma in Fire & Safety, 1 year), ADFS (Advanced Diploma in Fire & Safety, 12 months), DIS (Diploma in Industrial Safety, 12 months), ADIS (Advanced Diploma in Industrial Safety), and B.Sc in Fire & Industrial Safety (3 years). NIFS offers all these with NSDC approval.",
   },
   {
     question: "What is the eligibility for fire and safety courses in India?",
@@ -69,7 +69,7 @@ export default function FireAndSafetyCoursePage() {
               Fire and Safety Courses in India — Complete 2026 Guide
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
-              NIFS India offers government-recognized fire and safety courses — from 3-month certificates to 3-year B.Sc programs. 65+ centers across India, {SITE.studentsPlaced} candidates placed.
+              A fire and safety course trains you to prevent fires, control workplace hazards and respond to emergencies. NIFS India offers fire and safety programmes from certificate level to B.Sc., and most start after 10+2. Every NIFS course carries an Acharya Nagarjuna University (State Government University) certificate. Contact NIFS for current fees.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link href="/admissions" className="bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground">
@@ -94,6 +94,7 @@ export default function FireAndSafetyCoursePage() {
                   <th className="text-left p-3 font-medium">Level</th>
                   <th className="text-left p-3 font-medium">Duration</th>
                   <th className="text-left p-3 font-medium">Eligibility</th>
+                  <th className="text-left p-3 font-medium">Fees</th>
                   <th className="text-left p-3 font-medium">Details</th>
                 </tr>
               </thead>
@@ -112,6 +113,7 @@ export default function FireAndSafetyCoursePage() {
                     <td className="p-3 text-muted-foreground">{c.level}</td>
                     <td className="p-3 text-muted-foreground">{c.duration}</td>
                     <td className="p-3 text-muted-foreground">{c.eligibility}</td>
+                    <td className="p-3 text-muted-foreground">Contact for fees</td>
                     <td className="p-3"><Link href={`/courses/${c.slug}`} className="text-primary inline-flex items-center gap-1 font-medium">View <ArrowRight className="h-3 w-3" /></Link></td>
                   </tr>
                 ))}
@@ -125,7 +127,7 @@ export default function FireAndSafetyCoursePage() {
             {[
               { point: "Mandatory statutory requirement", desc: "The Factories Act, 1948 and National Building Code mandate certified fire safety officers in industrial and commercial facilities." },
               { point: "Shortage of qualified professionals", desc: "India has a significant shortage of certified fire and safety officers, creating strong demand and job security for qualified graduates." },
-              { point: "Gulf & international opportunities", desc: "Indian fire and safety qualifications are recognized by Gulf employers. Experienced safety officers earn ₹8–18 LPA in UAE, Saudi Arabia, Qatar." },
+              { point: "Gulf & international opportunities", desc: "Indian fire and safety qualifications are recognized by Gulf employers. Experienced safety officers also find roles with Gulf employers." },
               { point: "Government and PSU hiring", desc: "Government factories, PSUs, and defense establishments actively hire from government-recognized fire safety programs." },
             ].map((w) => (
               <div key={w.point} className="border border-border p-5">

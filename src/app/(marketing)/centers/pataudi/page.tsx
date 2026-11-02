@@ -52,7 +52,7 @@ export const PATAUDI_FAQS = [
   {
     question: "Does NIFS provide placement assistance in Gurgaon district?",
     answer:
-      `Yes. NIFS provides dedicated placement assistance with over ${SITE.studentsPlaced} placed alumni working across India. Graduates are eligible for placements across leading Pan-India corporate recruiters including L&T, Adani, Tata Projects, ITC, and regional industrial employers.`,
+      `Yes. NIFS provides dedicated placement assistance with over ${SITE.studentsPlaced} alumni working across India. Graduates are eligible for placements across Pan-India corporate recruiters including L&T, Adani, Tata Projects, ITC, and regional industrial employers.`,
   },
 ];
 
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Fire & Safety Officer Course in Pataudi Haryana | NIFS Institute",
     description:
-      `Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Pataudi, Gurgaon district. ${SITE.studentsPlaced} placements with L&T, Maruti Suzuki, and leading industrial employers.`,
+      `Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Pataudi, Gurgaon district. ${SITE.studentsPlaced} alumni.`,
     url: PAGE_URL,
     siteName: "NIFS India",
     locale: "en_IN",

@@ -158,7 +158,7 @@ export default async function BlogPostPage({
               </div>
               <div className="flex flex-col">
                 <span className="font-semibold text-slate-700">
-                  {post.author ? post.author.name : "NIFS Safety Editorial"}
+                  {post.author ? post.author.name : "NIFS India"}
                 </span>
                 {post.author?.title && (
                   <span className="text-[10px] text-slate-400">

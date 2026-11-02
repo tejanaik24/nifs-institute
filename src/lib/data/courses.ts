@@ -214,6 +214,11 @@ export const courses: Course[] = [
           "ADIS graduates from NIFS India go on to roles such as Industrial Safety Officer, Plant Safety Coordinator, and EHS Engineer.",
       },
       {
+        question: "ADIS course fees?",
+        answer:
+          "Fees depend on centre and mode. Contact NIFS on WhatsApp for current ADIS fees.",
+      },
+      {
         question: "Is ADIS the same as ADFS?",
         answer:
           "No. ADIS (Advanced Diploma in Industrial Safety) focuses on plant-floor industrial safety — machine safeguarding and hazardous zone safety — while ADFS (Advanced Diploma in Fire & Safety) focuses on fire engineering and fire prevention & control. Both are 12-month NIFS programs with the same 10+2/Diploma eligibility.",

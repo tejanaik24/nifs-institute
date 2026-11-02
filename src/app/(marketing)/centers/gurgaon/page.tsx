@@ -46,7 +46,7 @@ export const GURGAON_FAQS = [
   {
     question: "Does NIFS provide placement assistance in Gurgaon?",
     answer:
-      `Yes. NIFS provides dedicated placement assistance with over ${SITE.studentsPlaced} placed alumni working across India. Recruiter partners include L&T, Adani, Maruti Suzuki, Hero MotoCorp, and Bosch. Placement drives and interviews are organized regularly at our regional centers.`,
+      `Yes. NIFS provides dedicated placement assistance with over ${SITE.studentsPlaced} alumni working across India. Recruiter partners include L&T, Adani, Maruti Suzuki, Hero MotoCorp, and Bosch. Placement drives and interviews are organized regularly at our regional centers.`,
   },
   {
     question: "Are NIFS certifications recognized by the Government and industry?",
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Fire & Safety Officer Course in Gurgaon | NIFS Institute Ashok Vihar",
     description:
-      `Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Gurgaon. ${SITE.studentsPlaced} placements with Maruti Suzuki, Hero MotoCorp, and leading industrial employers.`,
+      `Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Gurgaon. ${SITE.studentsPlaced} alumni.`,
     url: PAGE_URL,
     siteName: "NIFS India",
     locale: "en_IN",

@@ -103,11 +103,58 @@ export default async function CourseDetailPage({
             <p className="speakable-summary mt-6 max-w-2xl text-lg text-muted-foreground">
               {course.summary}
             </p>
+            {course.slug === "advanced-diploma-in-industrial-safety-adis" && (
+              <>
+                <p className="mt-4 max-w-2xl text-base text-muted-foreground">
+                  ADIS full form is Advanced Diploma in Industrial Safety. It is
+                  a 12-month course for students with
+                  10+2 or a diploma in any stream. You learn hazard control,
+                  machine safeguarding and safety audits, and prepare for
+                  industrial safety officer roles. NIFS India ADIS carries an
+                  Acharya Nagarjuna University (State Government University)
+                  certificate.
+                </p>
+                <p className="mt-3 max-w-2xl text-base text-muted-foreground">
+                  ADIS ka full form hai Advanced Diploma in Industrial Safety.
+                </p>
+                <div className="mt-6 max-w-2xl overflow-x-auto">
+                  <table className="w-full border border-border text-left text-sm">
+                    <thead className="bg-muted">
+                      <tr>
+                        <th className="p-3 font-medium">Course</th>
+                        <th className="p-3 font-medium">Full form</th>
+                        <th className="p-3 font-medium">Eligibility</th>
+                        <th className="p-3 font-medium">Duration</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {courses
+                        .filter((c) =>
+                          [
+                            "advanced-diploma-in-industrial-safety-adis",
+                            "diploma-in-fire-safety",
+                          ].includes(c.slug),
+                        )
+                        .map((c) => (
+                          <tr key={c.slug} className="border-t border-border">
+                            <td className="p-3 font-medium">{c.shortName}</td>
+                            <td className="p-3">
+                              {c.name.replace(/\s*\(.*\)$/, "")}
+                            </td>
+                            <td className="p-3">{c.eligibility}</td>
+                            <td className="p-3">{c.duration}</td>
+                          </tr>
+                        ))}
+                    </tbody>
+                  </table>
+                </div>
+              </>
+            )}
           </div>
 
           <div
             data-path-target="true"
-            className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6"
+            className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5"
           >
             {[
               { label: "Duration", value: course.duration, isAction: true, targetId: "#faq" },
@@ -115,7 +162,6 @@ export default async function CourseDetailPage({
               { label: "Mode", value: course.mode, isAction: true, targetId: "#faq" },
               { label: "Tier", value: course.tier, isAction: true, targetId: "#curriculum" },
               { label: "Fee Aid", value: "EMI & Assistance", isAction: true, targetId: "#fee-brochure" },
-              { label: "Salary Scope", value: "₹3.0L – ₹4.8L/Yr", isAction: true, targetId: "#salary-scope" },
             ].map((f) =>
               f.isAction ? (
                 <a
@@ -184,7 +230,7 @@ export default async function CourseDetailPage({
             </div>
             <div className="flex items-center gap-2 text-xs font-semibold text-muted-foreground">
               <CheckCircle2 className="h-4 w-4 text-primary shrink-0" />
-              <span>{SITE.studentsPlaced} Placed</span>
+              <span>{SITE.studentsPlaced} Alumni</span>
             </div>
             <div className="flex items-center gap-2 text-xs font-semibold text-muted-foreground">
               <CheckCircle2 className="h-4 w-4 text-primary shrink-0" />
@@ -384,7 +430,7 @@ export default async function CourseDetailPage({
               Top Hiring Partners for {course.shortName}
             </h2>
             <p className="text-xs text-muted-foreground">
-              Our alumni have been placed across leading industrial powerhouses:
+              Our alumni work across industrial sectors, including:
             </p>
             <div className="flex flex-wrap items-center gap-6 pt-2">
               {[

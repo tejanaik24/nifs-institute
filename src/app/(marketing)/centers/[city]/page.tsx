@@ -190,7 +190,7 @@ const CITY_DATA: Record<
       },
       {
         question:
-          "Which safety course is best for jobs in Hyderabad pharma companies?",
+          "Which safety course suits jobs in Hyderabad pharma companies?",
         answer:
           "The Advanced Diploma in Industrial Safety (ADIS) and Diploma in Health, Safety & Environment (DHSE) are ideal for jobs in Genome Valley, Pashamylaram, and Jeedimetla pharma units.",
       },
@@ -215,7 +215,7 @@ const CITY_DATA: Record<
       {
         name: "Jawahar Autonagar",
         detail:
-          "One of Asia's largest automobile body building and industrial fabrication hubs with over 1,500 industrial units.",
+          "A major automobile body building and industrial fabrication hubs with over 1,500 industrial units.",
       },
       {
         name: "Vijayawada Railway Division & Gannavaram Airport",
@@ -250,7 +250,7 @@ const CITY_DATA: Record<
       {
         name: "Spices & Agro-Processing Hub",
         detail:
-          "Asia's largest chili market, cold storage complexes, and food processing plants with strict fire safety norms.",
+          "a major chili market, cold storage complexes, and food processing plants with strict fire safety norms.",
       },
       {
         name: "Tobacco Board & Textile Mills",
@@ -301,7 +301,7 @@ const CITY_DATA: Record<
       {
         question: "Are NIFS diplomas recognized for corporate and industrial jobs from Chennai?",
         answer:
-          "Yes, NIFS diplomas — including the UGC-recognized degree issued through Acharya Nagarjuna University — are widely accepted by leading employers hiring through Chennai recruitment channels.",
+          "Yes, NIFS diplomas — including the degree issued through Acharya Nagarjuna University — are accepted by employers hiring through Chennai recruitment channels.",
       },
     ],
   },
@@ -318,7 +318,7 @@ const CITY_DATA: Record<
       {
         name: "Peenya Industrial Area",
         detail:
-          "One of South East Asia's largest industrial estates housing over 5,000 engineering and chemical units.",
+          "A major industrial estate housing over 5,000 engineering and chemical units.",
       },
       {
         name: "Whitefield & Electronic City Data Centers",
@@ -352,7 +352,7 @@ const CITY_DATA: Record<
       {
         name: "Jawaharlal Nehru Port Trust (JNPT)",
         detail:
-          "India's largest container port with intensive cargo handling, hazmat transportation, and crane safety.",
+          "A major container port with intensive cargo handling, hazmat transportation, and crane safety.",
       },
       {
         name: "Mumbai High-Rise & Infrastructure Projects",
@@ -376,7 +376,7 @@ const CITY_DATA: Record<
   kolkata: {
     tagline: "Eastern India Industrial Gateway",
     heroDesc:
-      "Leading Fire & Safety institute serving steel plants, Haldia petrochemicals, Kolkata port, and mining heavy industries across Eastern India.",
+      "Fire & Safety institute serving steel plants, Haldia petrochemicals, Kolkata port, and mining heavy industries across Eastern India.",
     industries: [
       {
         name: "Haldia Petrochemical Complex & Port",
@@ -436,7 +436,7 @@ const CITY_DATA: Record<
       },
       {
         question:
-          "Which safety course is best for jobs in GIDA and UP factories?",
+          "Which safety course suits jobs in GIDA and UP factories?",
         answer:
           "The 1-Year Diploma in Fire & Safety (DFS) and Advanced Diploma in Industrial Safety (ADIS) are the most demanded statutory credentials across Uttar Pradesh factories.",
       },
@@ -572,7 +572,7 @@ export default async function DynamicCenterPage({
 
   const faqs = cityMeta?.localFaqs ?? [
     {
-      question: `Which is the best Fire and Safety course in ${cityName}?`,
+      question: `Which Fire and Safety course should I choose in ${cityName}?`,
       answer: `The Advanced Diploma in Industrial Safety (ADIS) and 1-Year Diploma in Fire & Safety (DFS) are the recognized courses for fast placement in ${cityName} and surrounding industrial zones.`,
     },
     {
@@ -735,7 +735,7 @@ export default async function DynamicCenterPage({
               <ul className="space-y-3">
                 {[
                   "Government recognized: NSDC, Skill India & State Board approved",
-                  `25+ years educational legacy with  placed alumni nationwide`,
+                  `Est. 2004 with ${SITE.studentsPlaced} alumni nationwide`,
                   "Access to Asia's dedicated Practical Firefighting Training Yard in Visakhapatnam",
                   "Regular campus interview drives with L&T, Adani, ITC, Reliance & Amazon",
                   "Direct counseling and flexible batch timings (Classroom & Virtual)",

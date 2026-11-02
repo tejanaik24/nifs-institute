@@ -211,8 +211,8 @@ const STATS = [
     icon: "📍",
     bg: "bg-nifs-green/10",
     color: "text-nifs-green",
-    value: "24",
-    label: "States",
+    value: "20",
+    label: "States & UTs",
   },
   {
     icon: "🌍",
@@ -254,7 +254,7 @@ export default function HomeCentersMap() {
                 <span className="font-display italic">{SITE.stateCount} States & UTs</span>
               </h2>
               <p className="font-sans text-gray-500 text-[15px] mt-2 font-medium">
-                India&apos;s largest network of safety training institutes,
+                A network of safety training institutes,
                 offering local courses to international standards.
               </p>
             </div>

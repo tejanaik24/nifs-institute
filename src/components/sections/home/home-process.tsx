@@ -168,7 +168,7 @@ export default function HomeProcess() {
               </h3>
               <p className="font-normal font-sans text-[24px] max-md:text-[15px] text-gray-500 text-center">
                 Our dedicated placement cell connects you with top recruiters.
-                Graduate into a career at leading industries across India and
+                Graduate into a career at industries across India and
                 abroad.
               </p>
             </div>

@@ -386,12 +386,12 @@ export default function HomeHero() {
             ref={h1Ref}
             className="font-sans text-[7.5vh] font-black text-left max-lg:text-[9vw] max-sm:text-[8vw] leading-[105%] max-lg:leading-[100%] max-sm:leading-[112%] w-full text-white md:text-black break-words"
           >
-            India&apos;s Leader in Fire &amp;
+            Fire &amp;
             <span className="font-display italic text-nifs-red">
               {" "}
               Industrial Safety
             </span>{" "}
-            Organization
+            Training Institute
           </h1>
 
           {/* Hero CTAs: Primary WhatsApp-First + Secondary Courses */}

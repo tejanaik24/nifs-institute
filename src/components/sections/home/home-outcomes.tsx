@@ -60,7 +60,7 @@ export default function HomeOutcomes() {
               {SITE.studentsPlaced}
             </span>
             <span className="font-sans text-sm font-semibold uppercase tracking-wider text-slate-300 mt-2 block">
-              Candidates Placed
+              Alumni
             </span>
           </div>
         </div>
