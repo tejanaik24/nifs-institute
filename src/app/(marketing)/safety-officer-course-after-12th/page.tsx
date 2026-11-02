@@ -86,7 +86,7 @@ export default function SafetyOfficerCourseAfter12thPage() {
             <strong className="text-foreground">
               National Institute of Fire and Safety (NIFS India)
             </strong>{" "}
-            • 25+ Years of Academic Excellence • {SITE.studentsPlaced} Placements
+            • Est. 2004 • {SITE.studentsPlaced} Alumni
           </p>
 
           {/* Quick AI Answer Box */}

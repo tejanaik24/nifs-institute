@@ -44,7 +44,7 @@ export function AboutNifs() {
               {...fadeUp}
               className="font-display mt-4 max-w-[640px] text-[clamp(1.75rem,3.5vw,3rem)] leading-[1.1] italic text-[#7A0F0C]"
             >
-              25+ Years of Excellence
+              Est. 2004
               <br />
               in Industrial Safety Education
             </motion.h2>
@@ -151,7 +151,7 @@ export function AboutNifs() {
           {...fadeUp}
           className="font-display mx-auto mt-4 max-w-[640px] text-[clamp(1.75rem,3.5vw,3rem)] leading-[1.1] italic text-[#7A0F0C]"
         >
-          25+ Years of Excellence
+          Est. 2004
           <br />
           in Industrial Safety Education
         </motion.h2>

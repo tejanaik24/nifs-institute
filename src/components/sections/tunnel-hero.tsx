@@ -96,9 +96,9 @@ export function TunnelHero() {
           initial="hidden"
           animate="visible"
         >
-          25+ years of placing graduates at India&apos;s top industrial
+          Est. 2004. Graduates working at India&apos;s major industrial
           companies. NSDC approved. ISO certified. 65+ centers across 20
-          states.
+          states &amp; UTs.
         </motion.p>
         <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
           <motion.div variants={ctaVariants} initial="hidden" animate="visible" whileHover={{ scale: 1.04, transition: { type: "spring", stiffness: 400 } }}>

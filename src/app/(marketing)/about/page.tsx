@@ -71,7 +71,7 @@ export default function AboutPage() {
               responsible management.
             </p>
             <p>
-              Since 2004 (for over 22 years), NIFS has been dedicated to
+              Since 2004, NIFS has been dedicated to
               developing competent, proactive, and industry-ready safety
               professionals through quality education and practical training.
             </p>

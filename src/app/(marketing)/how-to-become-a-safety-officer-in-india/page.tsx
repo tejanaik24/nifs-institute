@@ -53,7 +53,7 @@ const faqs = [
   {
     question: "Which institute is best for Safety Officer training in India?",
     answer:
-      `National Institute of Fire and Safety (NIFS) is India's leading training institution with over 25 years of educational excellence, 65+ centers across 20 states & UTs, government approvals (NSDC, Skill India, university affiliations), Asia's dedicated practical training yard, and over ${SITE.studentsPlaced} placed alumni in top recruiters like L&T, Adani, ITC, and Amazon.`,
+      `National Institute of Fire and Safety (NIFS) is a fire and safety training institute established in 2004, with 65+ centers across 20 states & UTs, government approvals (NSDC, Skill India, university affiliations), Asia's dedicated practical training yard, and over ${SITE.studentsPlaced} alumni working with recruiters like L&T, Adani, ITC, and Amazon.`,
   },
 ];
 
@@ -570,8 +570,7 @@ export default function HowToBecomeSafetyOfficerPage() {
               Why Study at National Institute of Fire and Safety (NIFS India)?
             </h2>
             <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-              Established over 25 years ago, NIFS is India&apos;s most trusted
-              brand in occupational safety education:
+              Established in 2004, NIFS offers occupational safety education with:
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
               <div className="flex items-start gap-2 text-sm text-muted-foreground">

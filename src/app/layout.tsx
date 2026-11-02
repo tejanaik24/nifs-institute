@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     template: "%s",
   },
   description:
-    `National Institute of Fire and Safety (NIFS) — India's leading industrial safety and fire engineering training institute. NSDC & Skill India approved, ISO 9001:2015 certified, ${SITE.studentsPlaced} placements.`,
+    `National Institute of Fire and Safety (NIFS) — industrial safety and fire engineering training institute, est. 2004. NSDC & Skill India approved, ISO 9001:2015 certified, ${SITE.studentsPlaced} alumni.`,
   keywords: [
     "fire and safety course",
     "safety officer course",

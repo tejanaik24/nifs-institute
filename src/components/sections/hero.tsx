@@ -34,8 +34,7 @@ export function Hero() {
           Ready for the Career.
         </h1>
         <p className="mt-6 max-w-xl text-lg text-white/85">
-          India&apos;s leading industrial safety and fire engineering
-          institute — NSDC &amp; Skill India approved, ISO 9001:2015
+          Industrial safety and fire engineering institute, est. 2004 — NSDC &amp; Skill India approved, ISO 9001:2015
           certified, with graduates placed at Adani, L&amp;T, ITC, Amazon
           and {SITE.studentsPlaced} placements nationwide.
         </p>

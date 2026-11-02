@@ -705,8 +705,8 @@ export default function SafetyOfficerSalaryInIndiaPage() {
               Boost Your Earning Potential with NIFS India
             </h2>
             <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-              Join India&apos;s leading fire and safety academy. Over {SITE.studentsPlaced}
-              candidates placed with guaranteed campus interview support. Talk
+              Join NIFS India, est. 2004. Over {SITE.studentsPlaced}
+              alumni, with campus interview support. Talk
               to an admissions counselor on WhatsApp for batch timings and
               course fees:
             </p>
