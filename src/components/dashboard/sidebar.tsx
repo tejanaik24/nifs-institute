@@ -1,5 +1,6 @@
 "use client";
 
+import { ROLE_PAGES } from "@/lib/auth/role-pages";
 import type { SessionPayload } from "@/lib/auth/session";
 import {
   BarChart3,
@@ -49,10 +50,11 @@ export function Sidebar({ user }: { user?: SessionPayload | null }) {
   // Close the phone drawer after navigating
   useEffect(() => setOpen(false), [pathname]);
 
-  // "leads" logins only see the two lead lists (enforced in middleware.ts)
+  // Limited logins only see their own pages (enforced in middleware.ts)
+  const rolePages = ROLE_PAGES[user?.role ?? ""];
   const navItems =
-    user?.role === "leads"
-      ? STAFF_NAV_ITEMS.filter((i) => i.href === "/dashboard/enquiries" || i.href === "/dashboard/free-course-leads")
+    rolePages
+      ? STAFF_NAV_ITEMS.filter((i) => rolePages.includes(i.href))
       : [...STAFF_NAV_ITEMS, ...(isAdmin ? ADMIN_NAV_ITEMS : [])];
 
   return (

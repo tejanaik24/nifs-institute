@@ -20,7 +20,7 @@ export const users = pgTable("users", {
   email: varchar("email", { length: 255 }).notNull().unique(),
   passwordHash: text("password_hash").notNull(),
   name: text("name").notNull().default(""),
-  role: varchar("role", { length: 20 }).notNull().default("staff"), // "admin" | "staff" | "leads" (lead lists only)
+  role: varchar("role", { length: 20 }).notNull().default("staff"), // "admin" | "staff" | "leads" | "freecourse" (see lib/auth/role-pages.ts)
   createdAt: timestamp("created_at").notNull().defaultNow(),
 });
 

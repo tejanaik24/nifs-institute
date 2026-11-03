@@ -1,3 +1,4 @@
+import { ROLE_PAGES } from "@/lib/auth/role-pages";
 import { verifySessionToken } from "@/lib/auth/session";
 import { AI_BOTS, INTERNAL_HEADER } from "@/lib/internal-secret";
 import { NextRequest, NextResponse } from "next/server";
@@ -5,17 +6,14 @@ import { NextRequest, NextResponse } from "next/server";
 // GA4 never sees AI-crawler hits (bots don't run JS), so /api/bot-hit is the
 // only real record of AI-crawler traffic anywhere in the stack.
 
-// "leads" role: a login that may only open the two lead lists (Callbacks +
-// Free Course Leads). Everything else redirects there.
-const LEADS_ONLY_PATHS = ["/dashboard/enquiries", "/dashboard/free-course-leads"];
 
 export async function middleware(request: NextRequest) {
-  // Server actions can be POSTed to any page URL, so block them for leads-only
-  // sessions everywhere (their two pages have no actions) — except /login.
+  // Server actions can be POSTed to any page URL, so block them for limited
+  // logins everywhere (their lead pages have no actions) — except /login.
   if (request.headers.has("next-action") && !request.nextUrl.pathname.startsWith("/login")) {
     const token = request.cookies.get("nifs_session")?.value;
     const session = token ? await verifySessionToken(token) : null;
-    if (session?.role === "leads") {
+    if (session?.role && ROLE_PAGES[session.role]) {
       return new NextResponse("Forbidden", { status: 403 });
     }
   }
@@ -30,15 +28,16 @@ export async function middleware(request: NextRequest) {
     if (!session) {
       return NextResponse.redirect(new URL("/login", request.url));
     }
-    if (session.role === "leads") {
+    const allowed = ROLE_PAGES[session.role ?? ""];
+    if (allowed) {
       const path = request.nextUrl.pathname;
-      if (LEADS_ONLY_PATHS.some((p) => path === p || path.startsWith(p + "/"))) {
+      if (allowed.some((p) => path === p || path.startsWith(p + "/"))) {
         return NextResponse.next();
       }
       if (path.startsWith("/api/")) {
         return new NextResponse("Forbidden", { status: 403 });
       }
-      return NextResponse.redirect(new URL(LEADS_ONLY_PATHS[0] + "/", request.url));
+      return NextResponse.redirect(new URL(allowed[0] + "/", request.url));
     }
     if (
       request.nextUrl.pathname.startsWith("/dashboard/admin") &&
