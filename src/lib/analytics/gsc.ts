@@ -36,7 +36,7 @@ export async function getTopQueriesRaw(rowLimit = 25) {
   }));
 }
 
-export const getTopQueries = withCache(getTopQueriesRaw, FIVE_MINUTES);
+export const getTopQueries = withCache(getTopQueriesRaw, FIVE_MINUTES, "gsc-top-queries");
 
 /** Real site-wide totals — no `query` dimension, so this is the actual total
  * across every keyword, not a sum of only the top N rows (which understates
@@ -72,7 +72,7 @@ export async function getSiteTotalsRaw() {
   };
 }
 
-export const getSiteTotals = withCache(getSiteTotalsRaw, FIVE_MINUTES);
+export const getSiteTotals = withCache(getSiteTotalsRaw, FIVE_MINUTES, "gsc-site-totals");
 
 /** Cross-checks a list of target keywords (from NIFS-CHEAT-SHEET.md's active
  * keyword table) against real GSC data — flags any with zero impressions as

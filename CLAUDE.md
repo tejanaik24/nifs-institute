@@ -118,3 +118,21 @@ Premium website rebuild for NIFS India — fire & industrial safety training ins
 ## Session 2026-10-03
 - Done: safety-engineer blog live (posts id 819); sitemap now includes open jobs + /courses/online/; job publish/close pings Google Indexing API + IndexNow (src/lib/seo/notify-search.ts); llms.txt lists free course + jobs; security fixes + Resend certificate email deployed.
 - Pending: weekly job posts + WhatsApp channel; job schema hiringOrganization.sameAs; Course schema on /courses/online/; interlink blogs to jobs/free course; legacy NEBOSH/IOSH blogs; staff session revocation; live certificate-email test; recheck GSC 'safety engineer course' ~2026-10-17.
+
+## 2026-10-30 Bot Desk round (commit 4948857, deployed + verified live)
+- Blog: og/twitter image = post cover, schema image fix for full URLs, Updated date + dateModified, table min column width.
+- 70+ centers / 24 states sitewide (was 65+/18). ADIS + fire-and-safety-course titles/metas shortened.
+- Open: SBTET vs ANU (Industrial Safety Engineer course + sitewide SBTET mentions) waiting Teja; Est. 2004 (22+ yrs) vs 25+ years waiting Teja.
+
+## 2026-11-02 Centre numbers fixed (Teja decided)
+- 65+ centers / 20 states sitewide (= real centers.ts list). Code commit ae87868 deployed + live-checked. 146 DB blog posts updated (old rows in nifs.post_versions, edited_by 'claude: 65+/20 states fix 2026-11-02'). "70+ partner firms" left as is. Never use 70+/24/18 again.
+
+## Session 2026-11-03 (dashboard leads split + speed) — BUILT LOCALLY, NOT DEPLOYED (Teja reviews first)
+- Placement Leads page + menu link removed (2 old rows kept in nifs.placement_leads).
+- Callbacks & Leads now real leads only; new /dashboard/free-course-leads shows free-course sign-ups (both read nifs.enquiries, split on COURSE_TAG; shared `components/dashboard/leads-table.tsx`). Old 200-row limit removed (it was hiding older real leads).
+- Home: counts/latest table = real leads only (175 unique vs old mixed 407); "Free Course Leads (256)" button in header.
+- Speed: analytics cache (lib/analytics/cache.ts) moved from per-server memory to Next data cache (cold GA4 = ~2.3s); home no longer loads unused risk-flags + bot-hits.
+- Local `next build` fails on job-page prerender: DB ETIMEDOUT 36.50.82.174:5432 from this PC (too many parallel connections?) — not from these changes; compile + type check passed.
+- Lead status: `src/lib/lead-status.ts` — a draft row is only "Half-filled" if that phone never submitted; else "Submitted later" / "Joined free course" (form keeps draft id in memory only, so reload+submit leaves old draft rows). Home half-filled 34 -> 11 people.
+- REAL slowness cause found: DB host db.nifsindia.net (VPS 36.50.82.174) silently drops ~1 in 12 new TCP connects (also port 443, 2/20; ping 0% loss) -> page hung 21s. `lib/db/client.ts` now 4s connect timeout + retry x3 + keepAlive/60s idle: home 21s -> 0.2-0.3s locally. VPS-side cause (firewall/conntrack/rate-limit?) NOT fixed yet — affects all VPS sites.
+- New role "leads" (middleware.ts + sidebar): only /dashboard/enquiries + /dashboard/free-course-leads; other pages redirect, /api/analytics|agent 403, server actions 403. Tested locally. The actual leads user is NOT created yet — create it only AFTER deploy (live code would treat role "leads" like full staff).

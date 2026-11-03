@@ -17,11 +17,11 @@ import {
   getSourceBreakdown,
 } from "@/lib/analytics/ga4";
 import { getSession } from "@/lib/auth/session";
-import { getBotHitSummary } from "@/lib/db/bot-hits";
+import { getLeadStatusResolver } from "@/lib/lead-status";
 import { db } from "@/lib/db/client";
 import { enquiries, jobApplications, jobs, posts, whatsappClicks } from "@/lib/db/schema";
-import { getRiskFlags } from "@/lib/risk-flags";
-import { desc, eq, sql } from "drizzle-orm";
+import { COURSE_TAG } from "@/components/sections/ergonomic-course/course-data";
+import { desc, eq, ne, sql } from "drizzle-orm";
 import {
   Activity,
   ArrowRight,
@@ -42,7 +42,6 @@ export default async function DashboardIndexPage() {
 
   // Fetch live database counts & analytics telemetry in parallel
   const [
-    flags,
     recentEnquiriesRes,
     enquiriesCountRes,
     recentJobs,
@@ -54,25 +53,29 @@ export default async function DashboardIndexPage() {
     intentRes,
     centerCitiesRes,
     courseMatrixRes,
-    botHitsRes,
     sourcesRes,
     whatsappClicksRes,
     hourlyTrafficRes,
+    leadStatus,
   ] = await Promise.all([
-    getRiskFlags().catch(() => []),
     db
       .select()
       .from(enquiries)
+      .where(ne(enquiries.course, COURSE_TAG))
       .orderBy(desc(enquiries.createdAt))
       .limit(10)
       .catch(() => []),
     db
       .select({
-        count: sql<number>`(count(distinct phone) filter (where status = 'submitted'))::int`,
-        drafts: sql<number>`(count(*) filter (where status = 'draft'))::int`,
+        // Free-course sign-ups are counted separately (they live in the same table)
+        count: sql<number>`(count(distinct phone) filter (where status = 'submitted' and course <> ${COURSE_TAG}))::int`,
+        // Real half-filled = people whose phone never submitted anywhere
+        // (see lib/lead-status.ts for why old draft rows linger)
+        drafts: sql<number>`(count(distinct phone) filter (where status = 'draft' and course <> ${COURSE_TAG} and phone not in (select phone from ${enquiries} where status = 'submitted')))::int`,
+        freeCourse: sql<number>`(count(distinct phone) filter (where course = ${COURSE_TAG}))::int`,
       })
       .from(enquiries)
-      .catch(() => [{ count: 0, drafts: 0 }]),
+      .catch(() => [{ count: 0, drafts: 0, freeCourse: 0 }]),
     db
       .select()
       .from(jobs)
@@ -97,17 +100,18 @@ export default async function DashboardIndexPage() {
     getIntentBreakdown().catch(() => null),
     getCenterCityBreakdown().catch(() => []),
     getCourseDemandMatrix().catch(() => []),
-    getBotHitSummary().catch(() => []),
     getSourceBreakdown().catch(() => []),
     db
       .select({ count: sql<number>`count(*)::int` })
       .from(whatsappClicks)
       .catch(() => [{ count: 0 }]),
     getHourlyTraffic().catch(() => []),
+    getLeadStatusResolver().catch(() => () => "Submitted" as const),
   ]);
 
   const totalEnquiries = enquiriesCountRes[0]?.count ?? 0;
   const halfFilledEnquiries = enquiriesCountRes[0]?.drafts ?? 0;
+  const freeCourseLeads = enquiriesCountRes[0]?.freeCourse ?? 0;
   const activeJobs = jobsCountRes[0]?.count ?? 0;
   const totalApplications = applicationsCountRes[0]?.count ?? 0;
   const totalPosts = postsCountRes[0]?.count ?? 0;
@@ -181,7 +185,7 @@ export default async function DashboardIndexPage() {
         courses={validCourses}
         cities={centerCitiesRes}
         intent={intentRes}
-        rawEnquiries={recentEnquiriesRes}
+        rawEnquiries={recentEnquiriesRes.map((e) => ({ ...e, status: leadStatus(e) }))}
         totalEnquiriesCount={totalEnquiries}
         halfFilledCount={halfFilledEnquiries}
         lastRefreshTime={refreshTimestamp}
@@ -407,6 +411,13 @@ export default async function DashboardIndexPage() {
           >
             <BarChart3 size={15} className="text-blue-500" />
             <span>Full Analytics Hub</span>
+          </Link>
+          <Link
+            href="/dashboard/free-course-leads"
+            className="inline-flex items-center gap-1.5 rounded-xl border border-[var(--dash-border)] bg-[var(--dash-card)] px-4 py-2.5 text-xs font-bold text-[var(--dash-text)] transition-colors hover:bg-[var(--dash-bg)] shadow-2xs"
+          >
+            <GraduationCap size={15} className="text-emerald-500" />
+            <span>Free Course Leads ({freeCourseLeads})</span>
           </Link>
         </div>
       </div>

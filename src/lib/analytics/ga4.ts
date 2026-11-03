@@ -44,7 +44,7 @@ export async function getDailySummaryRaw() {
   return { visitors, topPages };
 }
 
-export const getDailySummary = withCache(getDailySummaryRaw, FIVE_MINUTES);
+export const getDailySummary = withCache(getDailySummaryRaw, FIVE_MINUTES, "ga4-daily-summary");
 
 export async function getActiveUsersRightNow(): Promise<number> {
   const propertyId = process.env.GA4_PROPERTY_ID!;
@@ -71,7 +71,7 @@ async function runDimensionReport(dimension: string, limit = 10) {
   }));
 }
 
-const cachedDimensionReport = withCache(runDimensionReport, FIVE_MINUTES);
+const cachedDimensionReport = withCache(runDimensionReport, FIVE_MINUTES, "ga4-dimension");
 
 /** Where visitors came from (organic search, direct, social, referral...). */
 export function getTrafficSources() {
@@ -136,7 +136,13 @@ export async function getBlogPostViewsRaw(): Promise<Map<string, number>> {
   return bySlug;
 }
 
-export const getBlogPostViews = withCache(getBlogPostViewsRaw, FIVE_MINUTES);
+// Map isn't JSON-serializable, so cache the entries and rebuild the Map.
+const getBlogPostViewEntries = withCache(
+  async () => [...(await getBlogPostViewsRaw())],
+  FIVE_MINUTES,
+  "ga4-blog-views",
+);
+export const getBlogPostViews = async () => new Map(await getBlogPostViewEntries());
 
 export type IntentBreakdown = {
   courseViews: number;
@@ -258,10 +264,7 @@ export async function getIntentBreakdownRaw(): Promise<IntentBreakdown> {
   };
 }
 
-export const getIntentBreakdown = withCache(
-  getIntentBreakdownRaw,
-  FIVE_MINUTES,
-);
+export const getIntentBreakdown = withCache(getIntentBreakdownRaw, FIVE_MINUTES, "ga4-intent");
 
 export type TimeSeriesPoint = {
   date: string;
@@ -293,10 +296,7 @@ export async function getDailyTimeSeriesRaw(): Promise<TimeSeriesPoint[]> {
   });
 }
 
-export const getDailyTimeSeries = withCache(
-  getDailyTimeSeriesRaw,
-  FIVE_MINUTES,
-);
+export const getDailyTimeSeries = withCache(getDailyTimeSeriesRaw, FIVE_MINUTES, "ga4-time-series");
 
 export type CenterCityMetric = {
   city: string;
@@ -355,10 +355,7 @@ export async function getCenterCityBreakdownRaw(): Promise<CenterCityMetric[]> {
     });
 }
 
-export const getCenterCityBreakdown = withCache(
-  getCenterCityBreakdownRaw,
-  FIVE_MINUTES,
-);
+export const getCenterCityBreakdown = withCache(getCenterCityBreakdownRaw, FIVE_MINUTES, "ga4-cities");
 
 export type CourseDemandMetric = {
   path: string;
@@ -446,10 +443,7 @@ export async function getCourseDemandMatrixRaw(): Promise<
   });
 }
 
-export const getCourseDemandMatrix = withCache(
-  getCourseDemandMatrixRaw,
-  FIVE_MINUTES,
-);
+export const getCourseDemandMatrix = withCache(getCourseDemandMatrixRaw, FIVE_MINUTES, "ga4-course-demand");
 
 export type HourlyTrafficMetric = {
   hour: number;
@@ -512,4 +506,4 @@ export async function getHourlyTrafficRaw(): Promise<HourlyTrafficMetric[]> {
   return result;
 }
 
-export const getHourlyTraffic = withCache(getHourlyTrafficRaw, FIVE_MINUTES);
+export const getHourlyTraffic = withCache(getHourlyTrafficRaw, FIVE_MINUTES, "ga4-hourly");

@@ -3,6 +3,7 @@
 import type { SessionPayload } from "@/lib/auth/session";
 import {
   BarChart3,
+  BookOpen,
   Bot,
   Briefcase,
   Building2,
@@ -26,11 +27,11 @@ import { useEffect, useState } from "react";
 const STAFF_NAV_ITEMS = [
   { href: "/dashboard", label: "Dashboard Home", icon: LayoutDashboard },
   { href: "/dashboard/enquiries", label: "Callbacks & Leads", icon: PhoneCall },
+  { href: "/dashboard/free-course-leads", label: "Free Course Leads", icon: BookOpen },
   { href: "/dashboard/center-applications", label: "Center Proposals", icon: Building2 },
   { href: "/dashboard/course-exams", label: "Course Certificates", icon: GraduationCap },
   { href: "/dashboard/jobs", label: "Job Postings", icon: Briefcase },
   { href: "/dashboard/applications", label: "Job Applications", icon: Inbox },
-  { href: "/dashboard/placement-leads", label: "Placement Leads", icon: Users },
   { href: "/dashboard/analytics", label: "Visitor Traffic & Stats", icon: BarChart3 },
 ];
 
@@ -48,7 +49,11 @@ export function Sidebar({ user }: { user?: SessionPayload | null }) {
   // Close the phone drawer after navigating
   useEffect(() => setOpen(false), [pathname]);
 
-  const navItems = [...STAFF_NAV_ITEMS, ...(isAdmin ? ADMIN_NAV_ITEMS : [])];
+  // "leads" logins only see the two lead lists (enforced in middleware.ts)
+  const navItems =
+    user?.role === "leads"
+      ? STAFF_NAV_ITEMS.filter((i) => i.href === "/dashboard/enquiries" || i.href === "/dashboard/free-course-leads")
+      : [...STAFF_NAV_ITEMS, ...(isAdmin ? ADMIN_NAV_ITEMS : [])];
 
   return (
     <>

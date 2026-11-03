@@ -1,25 +1,22 @@
-// Short-TTL in-memory cache for analytics API calls. GA4/GSC/Bing data moves
-// on a daily/hourly basis — re-fetching it on every dashboard load makes
-// Content/Analytics pages wait on 10+ external API round-trips per click, so
-// we cache each result for 5 minutes instead. Real-time fetches (e.g. the
-// "right now" badge) do NOT use this.
-async function cached<T>(cache: Map<string, { expiresAt: number; value: unknown }>, key: string, ttlMs: number, fn: () => Promise<T>): Promise<T> {
-  const hit = cache.get(key);
-  if (hit && hit.expiresAt > Date.now()) return hit.value as T;
-  const value = await fn();
-  cache.set(key, { expiresAt: Date.now() + ttlMs, value });
-  return value;
-}
+import { unstable_cache } from "next/cache";
 
-/** Wraps an async function so repeated calls within `ttlMs` reuse the result.
- * Each wrapped function keeps its own cache, so no-arg calls can never clash
- * across different functions; args are part of the key within that function. */
+// Cache for analytics API calls. GA4/GSC/Bing data moves on a daily/hourly
+// basis — re-fetching it on every dashboard load makes pages wait on 10+
+// external API round-trips (~2s cold). Uses Next's data cache, not process
+// memory: on Vercel every new/cold server instance used to start with an empty
+// in-memory cache, so the dashboard was randomly slow. After `ttlMs` the stale
+// value is still served instantly while a fresh one is fetched in the
+// background. Real-time fetches (e.g. the "right now" badge) do NOT use this.
+
+/** Wraps an async function so calls within `ttlMs` reuse the result. `key`
+ * must be unique per wrapped function; args are part of the key. Results must
+ * be JSON-serializable (no Map/Date). */
 export function withCache<TArgs extends unknown[], TResult>(
   fn: (...args: TArgs) => Promise<TResult>,
   ttlMs: number,
+  key: string,
 ): (...args: TArgs) => Promise<TResult> {
-  const cache = new Map<string, { expiresAt: number; value: unknown }>();
-  return (...args: TArgs) => cached(cache, JSON.stringify(args), ttlMs, () => fn(...args));
+  return unstable_cache(fn, ["analytics", key], { revalidate: Math.round(ttlMs / 1000) });
 }
 
 export const FIVE_MINUTES = 5 * 60 * 1000;

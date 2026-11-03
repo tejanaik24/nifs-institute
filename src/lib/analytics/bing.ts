@@ -29,4 +29,4 @@ export async function getBingTrafficSummaryRaw() {
   return { totalClicks, totalImpressions, days: last28 };
 }
 
-export const getBingTrafficSummary = withCache(getBingTrafficSummaryRaw, FIVE_MINUTES);
+export const getBingTrafficSummary = withCache(getBingTrafficSummaryRaw, FIVE_MINUTES, "bing-traffic");

@@ -161,6 +161,8 @@ export function BIMasterTable({
                         className={`inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold ${
                           row.status === "Half-filled"
                             ? "bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20"
+                            : row.status !== "Submitted"
+                            ? "bg-[var(--dash-surface)] text-[var(--dash-text-muted)] border border-[var(--dash-border)]"
                             : "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20"
                         }`}
                       >

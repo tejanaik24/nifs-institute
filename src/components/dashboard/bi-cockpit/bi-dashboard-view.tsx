@@ -185,7 +185,7 @@ export function BIDashboardView({
         // only captured for enquiries since 2026-09-19.
         city: [enq.city, enq.state].filter(Boolean).join(", "),
         type: "enquiry" as const,
-        status: enq.status === "draft" ? "Half-filled" : "Submitted",
+        status: enq.status, // already resolved by lib/lead-status.ts
         dateStr,
       };
     });
