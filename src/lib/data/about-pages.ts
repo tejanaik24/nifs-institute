@@ -42,12 +42,12 @@ export type AboutPage = {
 export const aboutPages: AboutPage[] = [
   {
     slug: "company-profile",
-    seoTitle: "Company Profile — 22+ Years in Safety Training | NIFS India",
+    seoTitle: "Company Profile — 25+ Years in Safety Training | NIFS India",
     seoDescription:
-      `NIFS India: Founded 2004, 65+ centers across 20 states, ${SITE.studentsPlaced} alumni. NSDC approved, ISO 9001:2015 certified, HQ in Visakhapatnam.`,
+      `NIFS India: 25+ years, 65+ centers across 20 states, ${SITE.studentsPlaced} alumni. NSDC approved, ISO 9001:2015 certified, HQ in Visakhapatnam.`,
     hero: {
       eyebrow: "Company Profile",
-      title: "22+ years of building India's industrial safety workforce",
+      title: "25+ years of building India's industrial safety workforce",
       description:
         "NIFS is a unit of SSB Institute of Higher Studies Educational Society — NSDC approved, ISO 9001:2015 certified, and headquartered in Visakhapatnam.",
     },
@@ -55,9 +55,9 @@ export const aboutPages: AboutPage[] = [
       {
         type: "stats",
         stats: [
-          { value: "22+", label: "Years of Excellence (Est. 2004)" },
+          { value: "25+", label: "Years of Excellence" },
           { value: "65+", label: "Centers Nationwide" },
-          { value: "18", label: "States & UTs Covered" },
+          { value: "20", label: "States & UTs Covered" },
           { value: SITE.studentsPlaced, label: "Alumni Placed" },
         ],
       },
@@ -89,9 +89,9 @@ export const aboutPages: AboutPage[] = [
         cols: 2,
         cards: [
           {
-            meta: "Since 2004",
+            meta: "25+ years",
             title: "Training the industrial safety workforce",
-            body: "NIFS has trained professionals in fire engineering and industrial safety for over two decades.",
+            body: "NIFS has trained professionals in fire engineering and industrial safety for over 25 years.",
           },
           {
             meta: "Network",

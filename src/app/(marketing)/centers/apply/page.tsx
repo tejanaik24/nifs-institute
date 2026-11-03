@@ -209,7 +209,7 @@ export default function ApplyForNewCenterPage() {
                     <div className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Alumni</div>
                   </div>
                   <div className="rounded-xl bg-white/[0.03] border border-white/5 py-2 px-1">
-                    <div className="text-base sm:text-lg font-black text-red-400 font-sans">22+</div>
+                    <div className="text-base sm:text-lg font-black text-red-400 font-sans">25+</div>
                     <div className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Years</div>
                   </div>
                 </div>

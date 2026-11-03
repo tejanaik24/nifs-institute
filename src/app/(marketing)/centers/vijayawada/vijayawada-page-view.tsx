@@ -144,7 +144,7 @@ export function VijayawadaPageView({
             <div className="lg:col-span-7 space-y-6">
               <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-primary shadow-sm">
                 <span className="h-2.5 w-2.5 rounded-full bg-primary animate-pulse" />
-                <span>{SITE.studentsPlaced} alumni since 2004</span>
+                <span>{SITE.studentsPlaced} alumni</span>
               </div>
 
               <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.08]">
@@ -189,7 +189,7 @@ Vijayawada
                 </div>
                 <div>
                   <p className="font-display text-3xl sm:text-4xl font-black text-slate-900">
-                    22+
+                    25+
                   </p>
                   <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mt-1">
                     Years Established

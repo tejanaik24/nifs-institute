@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     siteName: "NIFS India",
     title: "NIFS India — Fire & Industrial Safety Training Institute",
     description:
-      `Established 2004 (22+ years). 65+ verified training centers across 20 states & UTs. ${SITE.studentsPlaced} alumni. NSDC approved and university-collaborated fire and industrial safety courses.`,
+      `25+ years. 65+ verified training centers across 20 states & UTs. ${SITE.studentsPlaced} alumni. NSDC approved and university-collaborated fire and industrial safety courses.`,
     images: [
       {
         url: "/images/og-default.jpg",

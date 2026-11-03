@@ -54,7 +54,7 @@ export function AboutNifs() {
               {...fadeUp}
               className="mt-6 max-w-[360px] text-[14px] leading-[1.8] text-muted-foreground"
             >
-              Since 2004, NIFS has been India&apos;s trusted pathway into
+              NIFS has been India&apos;s trusted pathway into
               industrial safety careers. As an{" "}
               <strong className="text-primary">
                 approved training partner of the National Skill Development
@@ -160,7 +160,7 @@ export function AboutNifs() {
           {...fadeUp}
           className="mx-auto mt-6 max-w-[560px] text-[14px] leading-[1.8] text-muted-foreground"
         >
-          Since 2004, NIFS has been India&apos;s trusted pathway into
+          NIFS has been India&apos;s trusted pathway into
           industrial safety careers. As an{" "}
           <strong className="text-primary">
             approved training partner of the National Skill Development
