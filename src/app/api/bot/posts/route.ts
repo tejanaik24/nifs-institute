@@ -44,6 +44,13 @@ async function rehost(url: string) {
   return uploadBlogImage(new File([await res.arrayBuffer()], `bot.${ext}`, { type }));
 }
 
+function parseFaqs(raw: unknown) {
+  if (!Array.isArray(raw)) return undefined;
+  return (raw as { question?: unknown; answer?: unknown }[])
+    .filter((f) => typeof f?.question === "string" && typeof f?.answer === "string")
+    .map((f) => ({ question: (f.question as string).trim(), answer: (f.answer as string).trim() }));
+}
+
 export async function POST(request: NextRequest) {
   if (!authorized(request)) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -76,6 +83,7 @@ export async function POST(request: NextRequest) {
       seoTitle: str("seoTitle") || title,
       metaDescription: str("metaDescription") || str("excerpt"),
       ogImage: coverImage,
+      faqs: parseFaqs(body?.faqs),
     });
     await publishPost(post.id);
   } catch (e) {
@@ -102,11 +110,8 @@ export async function PATCH(request: NextRequest) {
 
   const changes: Record<string, unknown> = {}; // only EDITABLE keys, coverImage/ogImage and faqs end up here
   for (const k of EDITABLE) if (str(k)) changes[k] = str(k);
-  if (Array.isArray(body?.faqs)) {
-    changes.faqs = (body.faqs as { question?: unknown; answer?: unknown }[])
-      .filter((f) => typeof f?.question === "string" && typeof f?.answer === "string")
-      .map((f) => ({ question: (f.question as string).trim(), answer: (f.answer as string).trim() }));
-  }
+  const faqs = parseFaqs(body?.faqs);
+  if (faqs) changes.faqs = faqs;
   if (!Object.keys(changes).length && !str("coverImage")) {
     return NextResponse.json({ error: `Nothing to change. Editable: ${EDITABLE.join(", ")}, coverImage, faqs` }, { status: 400 });
   }
