@@ -36,8 +36,8 @@ const WHATSAPP_URL =
     "Hi NIFS, I am interested in Fire and Safety courses at the Kanpur center. Please share fee structure and batch details.",
   );
 const GOOGLE_MAPS_NAV_URL =
-  "https://www.google.com/maps/dir/?api=1&destination=" +
-  encodeURIComponent("NIFS Fire and Safety Kanpur 17/NM/114, 1st Floor, Dr. Jha Lane, Avon Market, Kakadev, Kanpur – 208025");
+  "https://www.google.com/maps/search/?api=1&query=" +
+  encodeURIComponent("NIFS Fire and Safety 17/NM/114, 1st Floor, Dr. Jha Lane, Avon Market, Kakadev, Kanpur – 208025");
 const GOOGLE_REVIEW_URL = "https://g.page/r/nifs-kanpur/review";
 const CENTER_ADDRESS = "17/NM/114, 1st Floor, Dr. Jha Lane, Avon Market, Kakadev, Kanpur – 208025";
 

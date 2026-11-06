@@ -34,7 +34,8 @@ const WHATSAPP_URL =
     "Hi NIFS, I am interested in Fire and Safety courses at the Hyderabad (Ameerpet) center. Please share fee structure and batch details.",
   );
 const GOOGLE_MAPS_NAV_URL =
-  "https://www.google.com/maps/dir/?api=1&destination=17.4375,78.4482";
+  "https://www.google.com/maps/search/?api=1&query=" +
+  encodeURIComponent("NIFS Fire and Safety H.No. 7-1-619/A, Flat No. 301, Santhi Nilayam, SAP Street, Gayathri Nagar, Ameerpet, Hyderabad, Telangana – 500016");
 const GOOGLE_REVIEW_URL = "https://g.page/r/nifs-hyderabad/review";
 
 // Recruiter Logos

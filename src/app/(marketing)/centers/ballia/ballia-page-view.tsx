@@ -36,8 +36,8 @@ const WHATSAPP_URL =
     "Hi NIFS, I am interested in Fire and Safety courses at the Ballia center. Please share fee structure and batch details.",
   );
 const GOOGLE_MAPS_NAV_URL =
-  "https://www.google.com/maps/dir/?api=1&destination=" +
-  encodeURIComponent("NIFS Fire and Safety Ballia C/o R N International School, Village: Nagra, District: Ballia, Uttar Pradesh – 221711");
+  "https://www.google.com/maps/search/?api=1&query=" +
+  encodeURIComponent("NIFS Fire and Safety Village: Nagra, District: Ballia, Uttar Pradesh – 221711");
 const GOOGLE_REVIEW_URL = "https://g.page/r/nifs-ballia/review";
 const CENTER_ADDRESS = "C/o R N International School, Village: Nagra, District: Ballia, Uttar Pradesh – 221711";
 

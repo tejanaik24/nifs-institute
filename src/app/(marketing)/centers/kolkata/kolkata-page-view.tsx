@@ -36,8 +36,8 @@ const WHATSAPP_URL =
     "Hi NIFS, I am interested in Fire and Safety courses at the Kolkata center. Please share fee structure and batch details.",
   );
 const GOOGLE_MAPS_NAV_URL =
-  "https://www.google.com/maps/dir/?api=1&destination=" +
-  encodeURIComponent("NIFS Fire and Safety Kolkata Plot No. 164, CIT Scheme 7M, 3rd Floor, Kolkata – 700054");
+  "https://www.google.com/maps/search/?api=1&query=" +
+  encodeURIComponent("NIFS Fire and Safety Plot No. 164, CIT Scheme 7M, 3rd Floor, Kolkata – 700054");
 const GOOGLE_REVIEW_URL = "https://g.page/r/nifs-kolkata/review";
 const CENTER_ADDRESS = "Plot No. 164, CIT Scheme 7M, 3rd Floor, Kolkata – 700054";
 

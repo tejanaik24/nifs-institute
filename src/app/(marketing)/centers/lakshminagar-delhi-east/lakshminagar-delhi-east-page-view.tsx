@@ -36,7 +36,8 @@ const WHATSAPP_URL =
     "Hi NIFS, I am interested in Fire and Safety courses at the Lakshminagar (Delhi East) center. Please share fee structure and batch details.",
   );
 const GOOGLE_MAPS_NAV_URL =
-  "https://www.google.com/maps/dir/?api=1&destination=28.6375,77.2935";
+  "https://www.google.com/maps/search/?api=1&query=" +
+  encodeURIComponent("NIFS Fire and Safety U-75, 1st Floor, Kalra Complex, Near Laxminagar Metro Station, Gate-2, Delhi – 110092");
 const GOOGLE_REVIEW_URL = "https://g.page/r/nifs-lakshminagar/review";
 const CENTER_ADDRESS =
   "U-75, 1st Floor, Kalra Complex, Near Laxminagar Metro Station, Gate-2, Delhi – 110092";
@@ -560,7 +561,7 @@ Lakshminagar
               <div className="rounded-2xl overflow-hidden border border-slate-200 h-64 relative bg-slate-100">
                 <iframe
                   title="NIFS Lakshminagar Delhi East Center Map"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14003.5!2d77.2935!3d28.6375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sLaxmi+Nagar%2C+Delhi!5e0!3m2!1sen!2sin!4v1725140000000!5m2!1sen!2sin"
+                  src={"https://maps.google.com/maps?q=" + encodeURIComponent("NIFS Fire and Safety U-75, 1st Floor, Kalra Complex, Near Laxminagar Metro Station, Gate-2, Delhi – 110092") + "&output=embed"}
                   style={{ border: 0 }}
                   allowFullScreen={true}
                   loading="lazy"

@@ -36,7 +36,8 @@ const WHATSAPP_URL =
     "Hi NIFS, I am interested in Fire and Safety courses at the Badarpur (Delhi South) center. Please share fee structure and batch details.",
   );
 const GOOGLE_MAPS_NAV_URL =
-  "https://www.google.com/maps/dir/?api=1&destination=28.4848,77.2996";
+  "https://www.google.com/maps/search/?api=1&query=" +
+  encodeURIComponent("NIFS Fire and Safety Office No. 31, 3rd Floor, Chaudhary Dharamveer Market, Opp. Badarpur Metro Station, Badarpur, New Delhi");
 const GOOGLE_REVIEW_URL = "https://g.page/r/nifs-badarpur/review";
 const CENTER_ADDRESS =
   "Office No. 31, 3rd Floor, Chaudhary Dharamveer Market, Opp. Badarpur Metro Station, Badarpur, New Delhi";
@@ -560,7 +561,7 @@ Badarpur
               <div className="rounded-2xl overflow-hidden border border-slate-200 h-64 relative bg-slate-100">
                 <iframe
                   title="NIFS Badarpur Delhi South Center Map"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14003.8!2d77.2996!3d28.4848!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sBadarpur%2C+New+Delhi!5e0!3m2!1sen!2sin!4v1725140000000!5m2!1sen!2sin"
+                  src={"https://maps.google.com/maps?q=" + encodeURIComponent("NIFS Fire and Safety Office No. 31, 3rd Floor, Chaudhary Dharamveer Market, Opp. Badarpur Metro Station, Badarpur, New Delhi") + "&output=embed"}
                   style={{ border: 0 }}
                   allowFullScreen={true}
                   loading="lazy"

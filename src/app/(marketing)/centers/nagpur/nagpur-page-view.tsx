@@ -36,8 +36,8 @@ const WHATSAPP_URL =
     "Hi NIFS, I am interested in Fire and Safety courses at the Nagpur center. Please share fee structure and batch details.",
   );
 const GOOGLE_MAPS_NAV_URL =
-  "https://www.google.com/maps/dir/?api=1&destination=" +
-  encodeURIComponent("NIFS Fire and Safety Nagpur #152, Pardi, Post: Walni, Kalmeshwar Road, Nagpur – 441501");
+  "https://www.google.com/maps/search/?api=1&query=" +
+  encodeURIComponent("NIFS Fire and Safety #152, Pardi, Post: Walni, Kalmeshwar Road, Nagpur – 441501");
 const GOOGLE_REVIEW_URL = "https://g.page/r/nifs-nagpur/review";
 const CENTER_ADDRESS = "#152, Pardi, Post: Walni, Kalmeshwar Road, Nagpur – 441501";
 

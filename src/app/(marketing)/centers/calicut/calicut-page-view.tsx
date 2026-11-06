@@ -36,8 +36,8 @@ const WHATSAPP_URL =
     "Hi NIFS, I am interested in Fire and Safety courses at the Calicut center. Please share fee structure and batch details.",
   );
 const GOOGLE_MAPS_NAV_URL =
-  "https://www.google.com/maps/dir/?api=1&destination=" +
-  encodeURIComponent("NIFS Fire and Safety Calicut 2nd Floor, Vandhana Building, Behind Kannankandy, Mavoor Road, Calicut – 673004");
+  "https://www.google.com/maps/search/?api=1&query=" +
+  encodeURIComponent("NIFS Fire and Safety 2nd Floor, Vandhana Building, Behind Kannankandy, Mavoor Road, Calicut – 673004");
 const GOOGLE_REVIEW_URL = "https://g.page/r/nifs-calicut/review";
 const CENTER_ADDRESS = "2nd Floor, Vandhana Building, Behind Kannankandy, Mavoor Road, Calicut – 673004";
 

@@ -36,8 +36,8 @@ const WHATSAPP_URL =
     "Hi NIFS, I am interested in Fire and Safety courses at the Vijayawada center. Please share fee structure and batch details.",
   );
 const GOOGLE_MAPS_NAV_URL =
-  "https://www.google.com/maps/dir/?api=1&destination=" +
-  encodeURIComponent("NIFS Fire and Safety Vijayawada Door No. 26-9-38, 2nd Floor, Yerneni Mansion, Gandhinagar, Vijayawada – 520003, Andhra Pradesh");
+  "https://www.google.com/maps/search/?api=1&query=" +
+  encodeURIComponent("NIFS Fire and Safety Door No. 26-9-38, 2nd Floor, Yerneni Mansion, Gandhinagar, Vijayawada – 520003, Andhra Pradesh");
 const GOOGLE_REVIEW_URL = "https://g.page/r/nifs-vijayawada/review";
 const CENTER_ADDRESS = "Door No. 26-9-38, 2nd Floor, Yerneni Mansion, Gandhinagar, Vijayawada – 520003, Andhra Pradesh";
 

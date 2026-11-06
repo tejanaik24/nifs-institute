@@ -77,7 +77,7 @@ const trainingPhotos = [
     alt: "Acharya Nagarjuna University and NIFS officials holding agreement documents",
     label: "University Collaboration",
     caption:
-      "Officials of Acharya Nagarjuna University and NIFS holding documents for programs at the Visakhapatnam campus.",
+      "Officials of Acharya Nagarjuna University and NIFS holding documents for programs at Nagarjuna University, Guntur.",
   },
   {
     src: "/images/real/vizag/rpf-corporate-training-nifs-hq-v2.webp",

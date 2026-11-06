@@ -36,8 +36,8 @@ const WHATSAPP_URL =
     "Hi NIFS, I am interested in Fire and Safety courses at the Trichy center. Please share fee structure and batch details.",
   );
 const GOOGLE_MAPS_NAV_URL =
-  "https://www.google.com/maps/dir/?api=1&destination=" +
-  encodeURIComponent("NIFS Fire and Safety Trichy C/o School of Safety, No. 6E, Rishivanam, Near Bishop Heber College, Vayalur Road, Puthur, Trichy – 620017");
+  "https://www.google.com/maps/search/?api=1&query=" +
+  encodeURIComponent("NIFS Fire and Safety No. 6E, Rishivanam, Near Bishop Heber College, Vayalur Road, Puthur, Trichy – 620017");
 const GOOGLE_REVIEW_URL = "https://g.page/r/nifs-trichy/review";
 const CENTER_ADDRESS = "C/o School of Safety, No. 6E, Rishivanam, Near Bishop Heber College, Vayalur Road, Puthur, Trichy – 620017";
 

@@ -36,8 +36,8 @@ const WHATSAPP_URL =
     "Hi NIFS, I am interested in Fire and Safety courses at the Haldia center. Please share fee structure and batch details.",
   );
 const GOOGLE_MAPS_NAV_URL =
-  "https://www.google.com/maps/dir/?api=1&destination=" +
-  encodeURIComponent("NIFS Fire and Safety Haldia NIFS Haldia, Plot No. 17, Block F, 2nd Floor, Durgachak Colony, PO/PS Durgachak, Dist. Purba Medinipur, Haldia – 721602, West Bengal");
+  "https://www.google.com/maps/search/?api=1&query=" +
+  encodeURIComponent("NIFS Fire and Safety NIFS Haldia, Plot No. 17, Block F, 2nd Floor, Durgachak Colony, PO/PS Durgachak, Dist. Purba Medinipur, Haldia – 721602, West Bengal");
 const GOOGLE_REVIEW_URL = "https://g.page/r/nifs-haldia/review";
 const CENTER_ADDRESS = "NIFS Haldia, Plot No. 17, Block F, 2nd Floor, Durgachak Colony, PO/PS Durgachak, Dist. Purba Medinipur, Haldia – 721602, West Bengal";
 

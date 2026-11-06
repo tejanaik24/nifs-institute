@@ -36,8 +36,8 @@ const WHATSAPP_URL =
     "Hi NIFS, I am interested in Fire and Safety courses at the Coimbatore center. Please share fee structure and batch details.",
   );
 const GOOGLE_MAPS_NAV_URL =
-  "https://www.google.com/maps/dir/?api=1&destination=" +
-  encodeURIComponent("NIFS Fire and Safety Coimbatore C/o Coimbatore Industrial FIRE HSE Safety Vocational Training College, 244, 4th Floor, Sow Ma Business Complex, Sathy Main Road, Gandhipuram (Near Signal), Coimbatore – 641012");
+  "https://www.google.com/maps/search/?api=1&query=" +
+  encodeURIComponent("NIFS Fire and Safety 244, 4th Floor, Sow Ma Business Complex, Sathy Main Road, Gandhipuram, Coimbatore – 641012");
 const GOOGLE_REVIEW_URL = "https://g.page/r/nifs-coimbatore/review";
 const CENTER_ADDRESS = "C/o Coimbatore Industrial FIRE HSE Safety Vocational Training College, 244, 4th Floor, Sow Ma Business Complex, Sathy Main Road, Gandhipuram (Near Signal), Coimbatore – 641012";
 

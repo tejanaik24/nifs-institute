@@ -36,8 +36,8 @@ const WHATSAPP_URL =
     "Hi NIFS, I am interested in Fire and Safety courses at the Bhubaneswar center. Please share fee structure and batch details.",
   );
 const GOOGLE_MAPS_NAV_URL =
-  "https://www.google.com/maps/dir/?api=1&destination=" +
-  encodeURIComponent("NIFS Fire and Safety Bhubaneswar Room No. 7, 3rd Floor, B.M.C. Panchadeep Market Complex, Unit 4, Bhubaneswar – 751001, Dist. Khurda");
+  "https://www.google.com/maps/search/?api=1&query=" +
+  encodeURIComponent("NIFS Fire and Safety Room No. 7, 3rd Floor, B.M.C. Panchadeep Market Complex, Unit 4, Bhubaneswar – 751001, Dist. Khurda");
 const GOOGLE_REVIEW_URL = "https://g.page/r/nifs-bhubaneswar/review";
 const CENTER_ADDRESS = "Room No. 7, 3rd Floor, B.M.C. Panchadeep Market Complex, Unit 4, Bhubaneswar – 751001, Dist. Khurda";
 

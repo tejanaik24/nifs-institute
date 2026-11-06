@@ -36,8 +36,8 @@ const WHATSAPP_URL =
     "Hi NIFS, I am interested in Fire and Safety courses at the Lucknow center. Please share fee structure and batch details.",
   );
 const GOOGLE_MAPS_NAV_URL =
-  "https://www.google.com/maps/dir/?api=1&destination=" +
-  encodeURIComponent("NIFS Fire and Safety Lucknow Basement II, Skylark Building, Newal Kishore Road, Hazratganj, Lucknow – 226001");
+  "https://www.google.com/maps/search/?api=1&query=" +
+  encodeURIComponent("NIFS Fire and Safety Basement II, Skylark Building, Newal Kishore Road, Hazratganj, Lucknow – 226001");
 const GOOGLE_REVIEW_URL = "https://g.page/r/nifs-lucknow/review";
 const CENTER_ADDRESS = "Basement II, Skylark Building, Newal Kishore Road, Hazratganj, Lucknow – 226001";
 

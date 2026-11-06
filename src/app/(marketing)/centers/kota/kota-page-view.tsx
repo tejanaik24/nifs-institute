@@ -36,8 +36,8 @@ const WHATSAPP_URL =
     "Hi NIFS, I am interested in Fire and Safety courses at the Kota center. Please share fee structure and batch details.",
   );
 const GOOGLE_MAPS_NAV_URL =
-  "https://www.google.com/maps/dir/?api=1&destination=" +
-  encodeURIComponent("NIFS Fire and Safety Kota 777, Shastri Nagar Main Road, Dadabari Main Road, Near PNB Bank, Kota – 324009");
+  "https://www.google.com/maps/search/?api=1&query=" +
+  encodeURIComponent("NIFS Fire and Safety 777, Shastri Nagar Main Road, Dadabari Main Road, Near PNB Bank, Kota – 324009");
 const GOOGLE_REVIEW_URL = "https://g.page/r/nifs-kota/review";
 const CENTER_ADDRESS = "777, Shastri Nagar Main Road, Dadabari Main Road, Near PNB Bank, Kota – 324009";
 

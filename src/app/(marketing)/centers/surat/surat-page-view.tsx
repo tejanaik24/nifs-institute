@@ -36,7 +36,8 @@ const WHATSAPP_URL =
     "Hi NIFS, I am interested in Fire and Safety courses at the Surat (Gauravpath) center. Please share fee structure and batch details.",
   );
 const GOOGLE_MAPS_NAV_URL =
-  "https://www.google.com/maps/dir/?api=1&destination=21.1702,72.8311";
+  "https://www.google.com/maps/search/?api=1&query=" +
+  encodeURIComponent("NIFS Fire and Safety 304, 3rd Floor, Rajhans Stadium Plaza, Near L.P. Savani School, Palanpur, Gauravpath, Surat – 395009, Gujarat");
 const GOOGLE_REVIEW_URL = "https://g.page/r/nifs-surat/review";
 const CENTER_ADDRESS =
   "304, 3rd Floor, Rajhans Stadium Plaza, Near L.P. Savani School, Palanpur, Gauravpath, Surat – 395009, Gujarat";
@@ -560,7 +561,7 @@ Surat
               <div className="rounded-2xl overflow-hidden border border-slate-200 h-64 relative bg-slate-100">
                 <iframe
                   title="NIFS Surat Gauravpath Center Map"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29797.6!2d72.8311!3d21.1702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sSurat%2C+Gujarat!5e0!3m2!1sen!2sin!4v1725140000000!5m2!1sen!2sin"
+                  src={"https://maps.google.com/maps?q=" + encodeURIComponent("NIFS Fire and Safety 304, 3rd Floor, Rajhans Stadium Plaza, Near L.P. Savani School, Palanpur, Gauravpath, Surat – 395009, Gujarat") + "&output=embed"}
                   style={{ border: 0 }}
                   allowFullScreen={true}
                   loading="lazy"

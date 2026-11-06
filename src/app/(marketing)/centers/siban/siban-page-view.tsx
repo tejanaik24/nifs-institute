@@ -7,22 +7,18 @@ import type { Course } from "@/lib/data/courses";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   ArrowRight,
-    Calendar,
-  Check,
+  Calendar,
   CheckCircle2,
   ChevronDown,
   ChevronRight,
   Compass,
-  Copy,
   ExternalLink,
   Flame,
   HelpCircle,
   MapPin,
-  Navigation,
   Phone,
   TrendingUp,
   Star,
-  Train,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -33,13 +29,9 @@ const LOCAL_TEL = "tel:+919889922888";
 const WHATSAPP_URL =
   "https://wa.me/918374340999?text=" +
   encodeURIComponent(
-    "Hi NIFS, I am interested in Fire and Safety courses at the Siban center. Please share fee structure and batch details.",
+    "Hi NIFS, I am interested in Fire and Safety courses at the Siwan center. Please share fee structure and batch details.",
   );
-const GOOGLE_MAPS_NAV_URL =
-  "https://www.google.com/maps/dir/?api=1&destination=" +
-  encodeURIComponent("NIFS Fire and Safety Siban Ramrajya More, Santi Nagar, Near Railway Station, Siban, Bihar");
 const GOOGLE_REVIEW_URL = "https://g.page/r/nifs-siban/review";
-const CENTER_ADDRESS = "Ramrajya More, Santi Nagar, Near Railway Station, Siban, Bihar";
 
 const RECRUITER_LOGOS = [
   { name: "L&T", logo: "/images/logos/recruiters/lt.png" },
@@ -116,17 +108,6 @@ export function SibanPageView({
     QUALIFICATIONS[0].id,
   );
   const [openFaq, setOpenFaq] = useState<number | null>(0);
-  const [copiedAddress, setCopiedAddress] = useState(false);
-
-  const handleCopyAddress = async () => {
-    try {
-      await navigator.clipboard.writeText(CENTER_ADDRESS);
-      setCopiedAddress(true);
-      setTimeout(() => setCopiedAddress(false), 2000);
-    } catch (err) {
-      console.error("Failed to copy address:", err);
-    }
-  };
 
   const matched =
     QUALIFICATIONS.find((q) => q.id === selectedQualification) ||
@@ -148,7 +129,7 @@ export function SibanPageView({
               </div>
 
               <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.08]">
-Siban 
+Siwan 
                 <span className="font-serif italic font-normal text-primary">
                   Fire &amp; Industrial Safety
                 </span>{" "}
@@ -162,7 +143,7 @@ Siban
               <div className="flex flex-wrap gap-2.5 pt-1">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-semibold border border-slate-200">
                   <CheckCircle2 className="h-3.5 w-3.5 text-[#25D366]" />
-                  <span>Siban Campus</span>
+                  <span>Siwan Desk</span>
                 </span>
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-semibold border border-slate-200">
                   <CheckCircle2 className="h-3.5 w-3.5 text-[#25D366]" />
@@ -205,7 +186,7 @@ Siban
                   className="cursor-pointer inline-flex items-center justify-center gap-2 rounded-2xl bg-[#25D366] hover:bg-[#20bd5a] px-7 py-4 text-sm font-bold text-white shadow-xl hover:shadow-2xl transition-all hover:scale-105 active:scale-95"
                 >
                   <Phone className="h-4 w-4" />
-                  <span>Connect with Siban Desk</span>
+                  <span>Connect with Siwan Desk</span>
                 </a>
                 <a
                   href={LOCAL_TEL}
@@ -222,7 +203,7 @@ Siban
                 <div className="space-y-2">
                   <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold">
                     <Flame className="h-3.5 w-3.5" />
-                    <span>2026 Admissions Open in Siban</span>
+                    <span>2026 Admissions Open in Siwan</span>
                   </div>
                   <h3 className="font-display text-2xl font-bold text-slate-900">
                     Book Free Counseling Session
@@ -284,7 +265,7 @@ Siban
       <section className="border-b border-slate-200/80 bg-slate-50/50 py-10 overflow-hidden">
         <div className="mx-auto max-w-7xl px-6 lg:px-10 mb-6 text-center">
           <p className="text-xs font-bold uppercase tracking-widest text-slate-500">
-            Top Hiring Partners for Siban Safety Officers
+            Top Hiring Partners for Siwan Safety Officers
           </p>
         </div>
 
@@ -502,7 +483,7 @@ Siban
               rel="noopener noreferrer"
               className="cursor-pointer w-full inline-flex items-center justify-center gap-2 rounded-2xl bg-[#25D366] hover:bg-[#20bd5a] px-6 py-4 text-xs sm:text-sm font-bold text-white shadow-lg transition-all hover:scale-105"
             >
-              <span>Message Siban Counseling Desk</span>
+              <span>Message Siwan Counseling Desk</span>
             </a>
           </div>
 
@@ -511,77 +492,42 @@ Siban
               <div className="flex items-center justify-between">
                 <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-primary">
                   <MapPin className="h-4 w-4" />
-                  <span>Siban Regional Campus</span>
+                  <span>Siwan Information Desk</span>
                 </div>
                 <span className="text-xs font-bold text-slate-500">
                   Mon – Sat: 9 AM – 7 PM
                 </span>
               </div>
 
-              <div className="rounded-2xl bg-slate-50 p-4 border border-slate-200 flex items-center justify-between text-xs font-semibold">
-                <div className="flex items-center gap-3">
-                  <Train className="h-5 w-5 text-primary shrink-0" />
-                  <span className="text-slate-900">
-                    Gandhi Maidan / Central Bus Terminal
-                  </span>
-                </div>
-                <span className="bg-primary/10 text-primary px-3 py-1 rounded-full font-bold border border-primary/20 shrink-0">
-                  10 Min Drive
-                </span>
-              </div>
-
-              <div className="rounded-2xl overflow-hidden border border-slate-200 h-64 relative bg-slate-100 flex items-center justify-center text-center p-6">
-                <div className="space-y-2">
-                  <MapPin className="h-8 w-8 text-primary mx-auto animate-bounce" />
-                  <p className="font-bold text-slate-900 text-sm">
-                    NIFS Siban Regional Campus
-                  </p>
-                  <p className="text-xs text-slate-500 max-w-md">
-                    {CENTER_ADDRESS}
+              <div className="rounded-2xl border border-slate-200 bg-slate-50/70 p-6 space-y-4">
+                <div className="space-y-1">
+                  <p className="font-display font-bold text-slate-900 text-lg sm:text-xl">
+                    NIFS Information &amp; Admissions Desk, Siwan, Bihar
                   </p>
                 </div>
-              </div>
-
-              <div className="rounded-2xl border border-slate-200 bg-slate-50/70 p-4 space-y-2.5">
-                <div className="flex items-start justify-between gap-3">
-                  <div className="space-y-1 text-xs">
-                    <p className="font-bold text-slate-900 uppercase tracking-wider text-[10px]">
-                      Full Campus Address
-                    </p>
-                    <p className="text-slate-600 leading-relaxed font-medium">
-                      {CENTER_ADDRESS}
-                    </p>
-                  </div>
-                  <button
-                    type="button"
-                    onClick={handleCopyAddress}
-                    className="cursor-pointer shrink-0 inline-flex items-center gap-1.5 rounded-xl border border-slate-300 bg-white hover:bg-slate-100 px-3 py-1.5 text-xs font-bold text-slate-700 hover:text-slate-900 shadow-sm transition-all active:scale-95"
-                    aria-label="Copy full campus address"
-                  >
-                    {copiedAddress ? (
-                      <>
-                        <Check className="h-3.5 w-3.5 text-[#25D366]" />
-                        <span className="text-[#25D366]">Copied!</span>
-                      </>
-                    ) : (
-                      <>
-                        <Copy className="h-3.5 w-3.5 text-slate-500" />
-                        <span>Copy Address</span>
-                      </>
-                    )}
-                  </button>
+                <div className="space-y-2 text-sm text-slate-700">
+                  <p>
+                    <span className="font-semibold text-slate-900">Contact Helpline:</span>{" "}
+                    <a href="tel:+919889922888" className="text-primary font-bold hover:underline">
+                      +91 9889922888
+                    </a>
+                  </p>
+                  <p>
+                    <span className="font-semibold text-slate-900">Admissions Status:</span>{" "}
+                    <span className="font-semibold text-emerald-600">
+                      2026 Batch Admissions Open
+                    </span>
+                  </p>
                 </div>
               </div>
             </div>
 
             <a
-              href={GOOGLE_MAPS_NAV_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="tel:+919889922888"
               className="cursor-pointer w-full inline-flex items-center justify-center gap-2 rounded-2xl bg-primary hover:bg-primary/90 px-6 py-4 text-xs sm:text-sm font-bold text-white shadow-lg transition-all hover:scale-105"
             >
-              <Navigation className="h-4 w-4" />
-              <span>Open in Google Maps Navigation</span>
+              <Phone className="h-4 w-4" />
+              <span>Contact Helpline: +91 9889922888</span>
             </a>
           </div>
         </div>
@@ -648,7 +594,7 @@ Siban
             <span>Direct Campus Desk</span>
           </div>
           <h2 className="font-display text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
-            Start Your Safety Career in Siban Today
+            Start Your Safety Career in Siwan Today
           </h2>
           <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
             Get government-recognized certifications with dedicated practical fire
@@ -661,7 +607,7 @@ Siban
               rel="noopener noreferrer"
               className="cursor-pointer w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-2xl bg-[#25D366] hover:bg-[#20bd5a] px-8 py-4 text-sm font-bold text-white shadow-xl transition-all hover:scale-105"
             >
-              <span>Chat with Siban Counselor</span>
+              <span>Chat with Siwan Counselor</span>
             </a>
             <a
               href={LOCAL_TEL}

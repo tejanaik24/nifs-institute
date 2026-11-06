@@ -36,8 +36,8 @@ const WHATSAPP_URL =
     "Hi NIFS, I am interested in Fire and Safety courses at the Borivali-W (Mumbai) center. Please share fee structure and batch details.",
   );
 const GOOGLE_MAPS_NAV_URL =
-  "https://www.google.com/maps/dir/?api=1&destination=" +
-  encodeURIComponent("NIFS Fire and Safety Borivali-W (Mumbai) Star Plaza Tower, 17th Floor, Office No. 1704, Opp. Borivali Station East, Above Burger King, MM Mithaiwala, Borivali East – 400066");
+  "https://www.google.com/maps/search/?api=1&query=" +
+  encodeURIComponent("NIFS Fire and Safety Star Plaza Tower, 17th Floor, Office No. 1704, Opp. Borivali Station East, Above Burger King, MM Mithaiwala, Borivali East – 400066");
 const GOOGLE_REVIEW_URL = "https://g.page/r/nifs-borivali-w-mumbai/review";
 const CENTER_ADDRESS = "Star Plaza Tower, 17th Floor, Office No. 1704, Opp. Borivali Station East, Above Burger King, MM Mithaiwala, Borivali East – 400066";
 

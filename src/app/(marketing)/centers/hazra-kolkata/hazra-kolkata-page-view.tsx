@@ -36,8 +36,8 @@ const WHATSAPP_URL =
     "Hi NIFS, I am interested in Fire and Safety courses at the Hazra (Kolkata) center. Please share fee structure and batch details.",
   );
 const GOOGLE_MAPS_NAV_URL =
-  "https://www.google.com/maps/dir/?api=1&destination=" +
-  encodeURIComponent("NIFS Fire and Safety Hazra (Kolkata) C/o Srimati Techno Institute, 114/2B, Hazra Road, Near Kalighat Fire Brigade, Kolkata – 700026");
+  "https://www.google.com/maps/search/?api=1&query=" +
+  encodeURIComponent("NIFS Fire and Safety 114/2B, Hazra Road, Near Kalighat Fire Brigade, Kolkata – 700026");
 const GOOGLE_REVIEW_URL = "https://g.page/r/nifs-hazra-kolkata/review";
 const CENTER_ADDRESS = "C/o Srimati Techno Institute, 114/2B, Hazra Road, Near Kalighat Fire Brigade, Kolkata – 700026";
 

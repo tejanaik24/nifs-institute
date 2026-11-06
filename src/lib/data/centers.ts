@@ -85,10 +85,10 @@ export const centers: Center[] = [
   {
     city: "Siban",
     state: "Bihar",
+    isInformationCentre: true,
     x: 54.54,
     y: 35.89,
-    address: "Ramrajya More, Santi Nagar, Near Railway Station, Siban, Bihar",
-    phones: ["9889922888", "7562848697"],
+    phones: ["9889922888"],
   },
 
   // ===== CHHATTISGARH =====

@@ -36,8 +36,8 @@ const WHATSAPP_URL =
     "Hi NIFS, I am interested in Fire and Safety courses at the Bangalore center. Please share fee structure and batch details.",
   );
 const GOOGLE_MAPS_NAV_URL =
-  "https://www.google.com/maps/dir/?api=1&destination=" +
-  encodeURIComponent("NIFS Fire and Safety Bangalore Brundavan Homes, House No. 1, 1st Floor, 103 E-Cross, Horamavu Agara, Hennur Gardens, Bangalore – 560043, Karnataka");
+  "https://www.google.com/maps/search/?api=1&query=" +
+  encodeURIComponent("NIFS Fire and Safety Brundavan Homes, House No. 1, 1st Floor, 103 E-Cross, Horamavu Agara, Hennur Gardens, Bangalore – 560043, Karnataka");
 const GOOGLE_REVIEW_URL = "https://g.page/r/nifs-bangalore/review";
 const CENTER_ADDRESS = "Brundavan Homes, House No. 1, 1st Floor, 103 E-Cross, Horamavu Agara, Hennur Gardens, Bangalore – 560043, Karnataka";
 

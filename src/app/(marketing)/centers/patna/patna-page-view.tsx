@@ -36,8 +36,8 @@ const WHATSAPP_URL =
     "Hi NIFS, I am interested in Fire and Safety courses at the Patna center. Please share fee structure and batch details.",
   );
 const GOOGLE_MAPS_NAV_URL =
-  "https://www.google.com/maps/dir/?api=1&destination=" +
-  encodeURIComponent("NIFS Fire and Safety Patna C/o Wasisth Educational and Charitable Trust, 3rd Floor, Room No. 35, Ashiyana Galaxy, Exhibition Road, Near Gandhi Maidan, Patna – 01, Bihar");
+  "https://www.google.com/maps/search/?api=1&query=" +
+  encodeURIComponent("NIFS Fire and Safety 3rd Floor, Room No. 35, Ashiyana Galaxy, Exhibition Road, Near Gandhi Maidan, Patna – 01, Bihar");
 const GOOGLE_REVIEW_URL = "https://g.page/r/nifs-patna/review";
 const CENTER_ADDRESS = "C/o Wasisth Educational and Charitable Trust, 3rd Floor, Room No. 35, Ashiyana Galaxy, Exhibition Road, Near Gandhi Maidan, Patna – 01, Bihar";
 

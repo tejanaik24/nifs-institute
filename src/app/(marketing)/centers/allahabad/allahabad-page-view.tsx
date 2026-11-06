@@ -36,8 +36,8 @@ const WHATSAPP_URL =
     "Hi NIFS, I am interested in Fire and Safety courses at the Allahabad center. Please share fee structure and batch details.",
   );
 const GOOGLE_MAPS_NAV_URL =
-  "https://www.google.com/maps/dir/?api=1&destination=" +
-  encodeURIComponent("NIFS Fire and Safety Allahabad B-741, G.T.B. Nagar, Kareli, Near Bank of Baroda (Above Stop & Shop Super Store), Prayagraj, Allahabad – 211016");
+  "https://www.google.com/maps/search/?api=1&query=" +
+  encodeURIComponent("NIFS Fire and Safety B-741, G.T.B. Nagar, Kareli, Near Bank of Baroda, Prayagraj, Allahabad – 211016");
 const GOOGLE_REVIEW_URL = "https://g.page/r/nifs-allahabad/review";
 const CENTER_ADDRESS = "B-741, G.T.B. Nagar, Kareli, Near Bank of Baroda (Above Stop & Shop Super Store), Prayagraj, Allahabad – 211016";
 

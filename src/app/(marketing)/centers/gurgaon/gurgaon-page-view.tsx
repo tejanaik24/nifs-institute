@@ -36,7 +36,8 @@ const WHATSAPP_URL =
     "Hi NIFS, I am interested in Fire and Safety courses at the Gurgaon (Ashok Vihar) center. Please share fee structure and batch details.",
   );
 const GOOGLE_MAPS_NAV_URL =
-  "https://www.google.com/maps/dir/?api=1&destination=28.4595,77.0266";
+  "https://www.google.com/maps/search/?api=1&query=" +
+  encodeURIComponent("NIFS Fire and Safety Sector 5, Palm Vihar Road, Phase II, Ashok Vihar, Gurgaon – 122001");
 const GOOGLE_REVIEW_URL = "https://g.page/r/nifs-gurgaon/review";
 const CENTER_ADDRESS =
   "Sector 5, Palm Vihar Road (Near HP Petrol Pump, Dataram Mandir), Phase II, Ashok Vihar, Gurgaon (Haryana) – 122001";
@@ -560,7 +561,7 @@ Gurgaon
               <div className="rounded-2xl overflow-hidden border border-slate-200 h-64 relative bg-slate-100">
                 <iframe
                   title="NIFS Gurgaon Ashok Vihar Center Map"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14004.3!2d77.0266!3d28.4595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d147d5bc3e6b7%3A0x0!2sGurgaon%2C+Haryana!5e0!3m2!1sen!2sin!4v1725140000000!5m2!1sen!2sin"
+                  src={"https://maps.google.com/maps?q=" + encodeURIComponent("NIFS Fire and Safety Sector 5, Palm Vihar Road, Phase II, Ashok Vihar, Gurgaon – 122001") + "&output=embed"}
                   style={{ border: 0 }}
                   allowFullScreen={true}
                   loading="lazy"

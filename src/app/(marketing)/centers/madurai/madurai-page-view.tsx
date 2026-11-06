@@ -36,8 +36,8 @@ const WHATSAPP_URL =
     "Hi NIFS, I am interested in Fire and Safety courses at the Madurai center. Please share fee structure and batch details.",
   );
 const GOOGLE_MAPS_NAV_URL =
-  "https://www.google.com/maps/dir/?api=1&destination=" +
-  encodeURIComponent("NIFS Fire and Safety Madurai No. 15, Chinna Chokkikulam, Vishal Mall Road, Opp. Malligai Sweets, Madurai – 625002");
+  "https://www.google.com/maps/search/?api=1&query=" +
+  encodeURIComponent("NIFS Fire and Safety No. 15, Chinna Chokkikulam, Vishal Mall Road, Opp. Malligai Sweets, Madurai – 625002");
 const GOOGLE_REVIEW_URL = "https://g.page/r/nifs-madurai/review";
 const CENTER_ADDRESS = "No. 15, Chinna Chokkikulam, Vishal Mall Road, Opp. Malligai Sweets, Madurai – 625002";
 

@@ -24,27 +24,27 @@ const featuredCourses = FEATURED_SLUGS.map(
 
 export const SIBAN_FAQS = [
   {
-    question: "Where is the NIFS center located in Siban?",
+    question: "Where is the NIFS center located in Siwan?",
     answer:
-      "NIFS Siban campus is located at Ramrajya More, Santi Nagar, Near Railway Station, Siban, Bihar. For instant batch details, fee structure, and counseling, call +91-9889-922-888 or +91 83743 40999.",
+      "NIFS Siwan information and admissions desk serves students in Siwan, Bihar. For instant batch details, fee structure, and counseling, call +91-9889-922-888 or +91 83743 40999.",
   },
   {
-    question: "Which industries hire safety officers near Siban?",
+    question: "Which industries hire safety officers near Siwan?",
     answer:
-      "Graduates from NIFS Siban are hired across Refinery complexes (Barauni), super thermal power stations (Barh/Kahalgaon), and large-scale infrastructure construction projects, including recruiters such as IOCL Barauni Refinery, NTPC Barh Power, L&T Construction, and major infrastructure projects.",
+      "Graduates from NIFS Siwan are hired across Refinery complexes (Barauni), super thermal power stations (Barh/Kahalgaon), and large-scale infrastructure construction projects, including recruiters such as IOCL Barauni Refinery, NTPC Barh Power, L&T Construction, and major infrastructure projects.",
   },
   {
-    question: "What is the fee for Fire and Safety courses at NIFS in Siban?",
+    question: "What is the fee for Fire and Safety courses at NIFS in Siwan?",
     answer:
       "Course fees range from ₹25,000 to ₹35,000 for Certificate programs, ₹35,000 to ₹55,000 for 1-Year Government-Approved Diplomas (DFS/DHSE), and ₹45,000 to ₹65,000 for the Advanced Diploma in Industrial Safety (ADIS). Flexible no-cost installment plans and merit concessions are available.",
   },
   {
-    question: "What is the minimum qualification required to join NIFS in Siban?",
+    question: "What is the minimum qualification required to join NIFS in Siwan?",
     answer:
       "Eligibility varies by course level: Certificate and Diploma in Fire & Safety (DFS) require a minimum 10th or 10+2 (Intermediate in any stream) or ITI. Advanced Diplomas (ADIS/ADFS) and PG Diplomas require a Polytechnic Diploma or Graduate Degree (B.Sc, B.Com, B.A, B.Tech/B.E).",
   },
   {
-    question: "Does NIFS provide placement assistance in Siban?",
+    question: "Does NIFS provide placement assistance in Siwan?",
     answer:
       `Yes. NIFS provides dedicated placement assistance with over ${SITE.studentsPlaced} alumni working across India. Graduates are eligible for placements across Pan-India recruiters including L&T, Adani, Tata Projects, and regional industrial employers.`,
   },
@@ -56,14 +56,14 @@ export const SIBAN_FAQS = [
 ];
 
 export const metadata: Metadata = {
-  title: "Fire and Safety Course in Siban | Govt Approved NIFS Campus",
+  title: "Fire and Safety Course in Siwan | Govt Approved NIFS Campus",
   description:
-    "Join Siban's recognized Fire & Safety Officer training institute. NSDC approved 1-Year Diploma (DFS, ADIS), live practical training yard drills, and placement support in Bihar.",
+    "Join Siwan's recognized Fire & Safety Officer training institute. NSDC approved 1-Year Diploma (DFS, ADIS), live practical training yard drills, and placement support in Bihar.",
   alternates: { canonical: "/centers/siban/" },
   openGraph: {
-    title: "Fire & Safety Officer Course in Siban | NIFS Institute",
+    title: "Fire & Safety Officer Course in Siwan | NIFS Institute",
     description:
-      "Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Siban, Bihar. Live practical training and placement support.",
+      "Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Siwan, Bihar. Live practical training and placement support.",
     url: PAGE_URL,
     siteName: "NIFS India",
     locale: "en_IN",
@@ -78,7 +78,7 @@ export default function SibanCenterPage() {
         items={[
           { name: "Home", url: "https://nifsindia.net" },
           { name: "Training Centers", url: "https://nifsindia.net/centers/" },
-          { name: "Siban", url: PAGE_URL },
+          { name: "Siwan", url: PAGE_URL },
         ]}
       />
 
@@ -91,10 +91,10 @@ export default function SibanCenterPage() {
               {
                 "@id": `${PAGE_URL}#business`,
                 "@type": ["LocalBusiness", "EducationalOrganization"],
-                name: "National Institute of Fire and Safety (NIFS) — Siban Center",
+                name: "National Institute of Fire and Safety (NIFS) — Siwan Center",
                 alternateName: [
-                  "NIFS Siban",
-                  "National Institute of Fire and Safety Siban",
+                  "NIFS Siwan",
+                  "National Institute of Fire and Safety Siwan",
                 ],
                 url: PAGE_URL,
                 telephone: "+919889922888",
@@ -102,8 +102,7 @@ export default function SibanCenterPage() {
                 image: "https://nifsindia.net/images/nifs-crest.png",
                 address: {
                   "@type": "PostalAddress",
-                  streetAddress: "Ramrajya More, Santi Nagar, Near Railway Station, Siban, Bihar",
-                  addressLocality: "Siban",
+                  addressLocality: "Siwan",
                   addressRegion: "Bihar",
                   addressCountry: "IN",
                 },

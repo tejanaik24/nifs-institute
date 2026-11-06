@@ -36,8 +36,8 @@ const WHATSAPP_URL =
     "Hi NIFS, I am interested in Fire and Safety courses at the Amritsar center. Please share fee structure and batch details.",
   );
 const GOOGLE_MAPS_NAV_URL =
-  "https://www.google.com/maps/dir/?api=1&destination=" +
-  encodeURIComponent("NIFS Fire and Safety Amritsar SCO 55-F, Second Floor, Near Webberz, City Centre, Main Bus Stand, Amritsar (Punjab) – 143001");
+  "https://www.google.com/maps/search/?api=1&query=" +
+  encodeURIComponent("NIFS Fire and Safety SCO 55-F, Second Floor, Near Webberz, City Centre, Main Bus Stand, Amritsar – 143001");
 const GOOGLE_REVIEW_URL = "https://g.page/r/nifs-amritsar/review";
 const CENTER_ADDRESS = "SCO 55-F, Second Floor, Near Webberz, City Centre, Main Bus Stand, Amritsar (Punjab) – 143001";
 

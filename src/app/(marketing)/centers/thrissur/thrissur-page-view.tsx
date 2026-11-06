@@ -36,8 +36,8 @@ const WHATSAPP_URL =
     "Hi NIFS, I am interested in Fire and Safety courses at the Thrissur center. Please share fee structure and batch details.",
   );
 const GOOGLE_MAPS_NAV_URL =
-  "https://www.google.com/maps/dir/?api=1&destination=" +
-  encodeURIComponent("NIFS Fire and Safety Thrissur C/o Safety Careers Institute, Room No. 28, II Floor, Lakshmi Towers, Opp. Parayil Agencies, Poothole Road, Thrissur – 680004");
+  "https://www.google.com/maps/search/?api=1&query=" +
+  encodeURIComponent("NIFS Fire and Safety Room No. 28, II Floor, Lakshmi Towers, Opp. Parayil Agencies, Poothole Road, Thrissur – 680004");
 const GOOGLE_REVIEW_URL = "https://g.page/r/nifs-thrissur/review";
 const CENTER_ADDRESS = "C/o Safety Careers Institute, Room No. 28, II Floor, Lakshmi Towers, Opp. Parayil Agencies, Poothole Road, Thrissur – 680004";
 
