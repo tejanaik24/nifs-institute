@@ -2,6 +2,7 @@ import { desc } from "drizzle-orm";
 import { db } from "@/lib/db/client";
 import { centerApplications as t } from "@/lib/db/schema";
 import { ExportButton } from "@/components/dashboard/export-button";
+import Link from "next/link";
 import { Building2, Mail, Phone } from "lucide-react";
 
 const exportCols = [
@@ -14,8 +15,12 @@ const exportCols = [
   { key: "dateSubmitted", label: "Submitted Date" },
 ];
 
-export default async function CenterApplicationsPage() {
-  const rows = await db.select().from(t).orderBy(desc(t.createdAt));
+export default async function CenterApplicationsPage({ searchParams }: { searchParams: Promise<{ spam?: string }> }) {
+  const showSpam = (await searchParams).spam === "1";
+  const all = await db.select().from(t).orderBy(desc(t.createdAt));
+  // Bot rows are kept (status "spam"), just hidden unless asked for.
+  const spamCount = all.filter((r) => r.status === "spam").length;
+  const rows = showSpam ? all : all.filter((r) => r.status !== "spam");
 
   // Pre-format data server-side — no function props cross the Server→Client boundary
   const exportData = rows.map((r) => ({
@@ -50,6 +55,14 @@ export default async function CenterApplicationsPage() {
         </div>
 
         <div className="flex items-center gap-2.5">
+          {spamCount > 0 && (
+            <Link
+              href={showSpam ? "/dashboard/center-applications/" : "/dashboard/center-applications/?spam=1"}
+              className="text-xs text-[var(--dash-text-muted)] underline hover:text-[var(--dash-text)]"
+            >
+              {showSpam ? "Hide spam" : `Show spam (${spamCount})`}
+            </Link>
+          )}
           <ExportButton
             data={exportData}
             filename="nifs-center-applications"
@@ -84,6 +97,9 @@ export default async function CenterApplicationsPage() {
                 <tr key={r.id} className="hover:bg-black/5 transition-colors align-top">
                   <td className="px-4 py-3 font-semibold text-[var(--dash-text)]">
                     {r.name}
+                    {r.status === "spam" && (
+                      <span className="ml-2 rounded-full bg-black/10 px-2 py-0.5 text-[10px] font-semibold uppercase text-[var(--dash-text-muted)]">Spam</span>
+                    )}
                   </td>
                   <td className="px-4 py-3 whitespace-nowrap">
                     <div className="flex items-center gap-1.5">

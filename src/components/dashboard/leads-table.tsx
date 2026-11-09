@@ -1,6 +1,6 @@
 import { desc, eq, ne } from "drizzle-orm";
 import { db } from "@/lib/db/client";
-import { enquiries } from "@/lib/db/schema";
+import { courseRegistrations, enquiries } from "@/lib/db/schema";
 import { ExportButton } from "@/components/dashboard/export-button";
 import { COURSE_TAG } from "@/components/sections/ergonomic-course/course-data";
 import { getLeadStatusResolver } from "@/lib/lead-status";
@@ -8,6 +8,7 @@ import { getLeadStatusResolver } from "@/lib/lead-status";
 const exportCols = [
   { key: "name", label: "Candidate Name" },
   { key: "phone", label: "Phone Number" },
+  { key: "email", label: "Email" },
   { key: "course", label: "Course Requested" },
   { key: "pagePath", label: "Came From Page" },
   { key: "city", label: "City" },
@@ -29,12 +30,20 @@ export async function LeadsTable({ freeCourse }: { freeCourse: boolean }) {
       .orderBy(desc(enquiries.createdAt)),
     getLeadStatusResolver(),
   ]);
+  // Free-course emails live on course_registrations; match them by phone.
+  const emailByPhone = new Map<string, string>();
+  if (freeCourse) {
+    const regs = await db.select({ phone: courseRegistrations.phone, email: courseRegistrations.email }).from(courseRegistrations);
+    for (const r of regs) if (!emailByPhone.has(r.phone)) emailByPhone.set(r.phone, r.email);
+  }
+  const cols = freeCourse ? exportCols : exportCols.filter((c) => c.key !== "email");
   const title = freeCourse ? "Free Course Leads" : "Callback Requests & Leads";
 
   // Pre-format data server-side — no functions cross the Server→Client boundary
   const exportData = rows.map((row) => ({
     name: row.name ?? "",
     phone: row.phone ?? "",
+    email: emailByPhone.get(row.phone) ?? "",
     course: row.course ?? "",
     pagePath: row.pagePath ?? "",
     city: row.city ?? "",
@@ -61,7 +70,7 @@ export async function LeadsTable({ freeCourse }: { freeCourse: boolean }) {
         <ExportButton
           data={exportData}
           filename={freeCourse ? "nifs-free-course-leads" : "nifs-callbacks"}
-          columns={exportCols}
+          columns={cols}
           label="Export to Excel / CSV"
         />
       </div>
@@ -75,6 +84,7 @@ export async function LeadsTable({ freeCourse }: { freeCourse: boolean }) {
               <tr>
                 <th className="px-4 py-2 font-medium">Name</th>
                 <th className="px-4 py-2 font-medium">Phone</th>
+                {freeCourse && <th className="px-4 py-2 font-medium">Email</th>}
                 <th className="px-4 py-2 font-medium">Course</th>
                 <th className="px-4 py-2 font-medium">Came from</th>
                 <th className="px-4 py-2 font-medium">City</th>
@@ -90,6 +100,13 @@ export async function LeadsTable({ freeCourse }: { freeCourse: boolean }) {
                   <td className="px-4 py-2">
                     <a className="underline" href={`tel:+91${row.phone}`}>{row.phone}</a>
                   </td>
+                  {freeCourse && (
+                    <td className="px-4 py-2">
+                      {emailByPhone.get(row.phone) ? (
+                        <a className="underline" href={`mailto:${emailByPhone.get(row.phone)}`}>{emailByPhone.get(row.phone)}</a>
+                      ) : "—"}
+                    </td>
+                  )}
                   <td className="px-4 py-2">{row.course}</td>
                   <td className="px-4 py-2">{row.pagePath || "—"}</td>
                   <td className="px-4 py-2">{row.city || "—"}</td>

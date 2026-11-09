@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
+import { and, eq, gt, or } from "drizzle-orm";
 import { db } from "@/lib/db/client";
 import { centerApplications } from "@/lib/db/schema";
-import { centerApplicationSchema, type CenterApplicationValues } from "@/lib/center-application";
+import { centerApplicationSchema, isSpamApplication, type CenterApplicationValues } from "@/lib/center-application";
 
 export { centerApplicationSchema, type CenterApplicationValues };
 
@@ -18,6 +19,27 @@ export async function POST(request: NextRequest) {
   }
 
   const data = parsed.data;
+
+  // Bots get a normal-looking success so they don't adapt; nothing is stored or mailed.
+  if (isSpamApplication(data)) {
+    return NextResponse.json({ ok: true, applicationId: "NIFS-CTR-PENDING", directorEmail: DIRECTOR_EMAIL });
+  }
+
+  // One application per phone or email per hour.
+  const [recent] = await db
+    .select({ id: centerApplications.id })
+    .from(centerApplications)
+    .where(and(
+      or(eq(centerApplications.phone, data.phone), eq(centerApplications.email, data.email)),
+      gt(centerApplications.createdAt, new Date(Date.now() - 60 * 60 * 1000)),
+    ))
+    .limit(1);
+  if (recent) {
+    return NextResponse.json(
+      { ok: false, error: "We already received your application. Our team will contact you soon." },
+      { status: 429 },
+    );
+  }
 
   // Split location into city and state if comma present, otherwise store location in city
   const locParts = data.location.split(",");

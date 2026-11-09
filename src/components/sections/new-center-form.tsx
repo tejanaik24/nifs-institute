@@ -45,6 +45,7 @@ export function NewCenterForm() {
       phone: "",
       email: "",
       message: "",
+      website: "",
     },
   });
 
@@ -187,6 +188,8 @@ export function NewCenterForm() {
       )}
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+        {/* Honeypot: off-screen, people never see it; bots that fill it are dropped server-side. */}
+        <input type="text" tabIndex={-1} autoComplete="off" aria-hidden="true" {...register("website")} className="absolute -left-[9999px] h-0 w-0 opacity-0" />
         {/* Full Name */}
         <div>
           <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5">

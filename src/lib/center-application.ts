@@ -29,7 +29,24 @@ export const centerApplicationSchema = z.object({
     .max(2000, "Keep message under 2000 characters")
     .optional()
     .default(""),
+  // Honeypot: hidden from people, bots fill it. Any value = silently dropped.
+  website: z.string().max(200).optional().default(""),
 });
+
+// Bot spam (Oct-Nov 2026) used one random mixed-case word for name/city, e.g.
+// "pOEoCWyfkUjqFihXU". Real names have spaces or read as one normal word.
+// ponytail: heuristic, catches this bot family only; add a captcha if new spam gets past it.
+function looksRandom(s: string): boolean {
+  const t = s.trim();
+  if (/\s/.test(t) || t.length < 10) return false;
+  const bumps = (t.match(/[a-z][A-Z]/g) ?? []).length;
+  return bumps >= 2;
+}
+
+export function isSpamApplication(v: { name: string; location: string; message?: string; website?: string }): boolean {
+  if (v.website) return true;
+  return looksRandom(v.name) || looksRandom(v.location) || looksRandom(v.message ?? "");
+}
 
 export type CenterApplicationInput = z.input<typeof centerApplicationSchema>;
 export type CenterApplicationValues = z.output<typeof centerApplicationSchema>;
