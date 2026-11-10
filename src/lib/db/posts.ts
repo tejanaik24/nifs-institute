@@ -228,6 +228,36 @@ export async function getPostRowBySlug(slug: string) {
   return rows[0] ?? null;
 }
 
+/** Old built-in posts live only in blog-posts.json, so the bot could not PATCH them
+ * (Bot Desk row 195). The first edit copies the post into the DB as-is (same slug,
+ * date and author); from then on the DB copy is the live one. */
+export async function copyJsonPostToDb(slug: string) {
+  const p = require("../data/blog-posts.json").find((post: any) => post.slug === slug);
+  if (!p) return null;
+  const rows = await db
+    .insert(posts)
+    .values({
+      slug: p.slug,
+      title: p.title,
+      excerpt: p.excerpt ?? "",
+      content: p.contentHtml ?? "",
+      coverImage: p.coverImage ?? null,
+      category: p.categories?.[0] ?? "",
+      seoTitle: p.title,
+      metaDescription: p.excerpt ?? "",
+      ogImage: p.coverImage ?? null,
+      wordCount: p.wordCount ?? 0,
+      faqs: p.faqs ?? null,
+      authorName: p.author?.name ?? null,
+      authorTitle: p.author?.title ?? null,
+      status: "published",
+      publishedAt: new Date(p.date),
+      createdAt: new Date(p.date),
+    })
+    .returning();
+  return rows[0];
+}
+
 /** Keeps the full old row before every bot edit, so any bad edit can be undone by hand. */
 export async function savePostVersion(row: typeof posts.$inferSelect, editedBy: string) {
   await db.execute(sql`

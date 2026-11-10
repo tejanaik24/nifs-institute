@@ -12,10 +12,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title:
-    "How to Become a Safety Officer in India (2026 Step-by-Step Career Guide) | NIFS India",
+  title: "How to Become a Safety Officer in India (2026 Guide)",
   description:
-    "Complete 2026 step-by-step guide on how to become a certified Safety Officer in India. Eligibility after 10th/12th/Graduation, top courses (ADIS, DFS), training duration, salary (₹3L–₹25L/yr), and proven placement roadmap.",
+    "Become a safety officer in India: finish 10th, 12th or a diploma, take a 1-year safety diploma or 3-year B.Sc, then train on site. Contact for fees.",
   alternates: { canonical: "/how-to-become-a-safety-officer-in-india/" },
   openGraph: {
     title: "How to Become a Safety Officer in India (2026 Guide) — NIFS India",

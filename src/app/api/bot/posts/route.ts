@@ -2,6 +2,7 @@ import { timingSafeEqual } from "node:crypto";
 import { NextRequest, NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
 import {
+  copyJsonPostToDb,
   createPost,
   getPostBySlug,
   getPostRowBySlug,
@@ -117,7 +118,7 @@ export async function PATCH(request: NextRequest) {
   }
 
   try {
-    const row = await getPostRowBySlug(slug);
+    const row = (await getPostRowBySlug(slug)) ?? (await copyJsonPostToDb(slug));
     if (!row) return NextResponse.json({ error: `No post with slug "${slug}"` }, { status: 404 });
 
     if (typeof changes.content === "string") {
@@ -136,6 +137,7 @@ export async function PATCH(request: NextRequest) {
   }
 
   revalidatePath("/blog");
+  revalidatePath("/sitemap.xml");
   revalidatePath(`/blog/${slug}`);
   return NextResponse.json({ ok: true, url: `https://nifsindia.net/blog/${slug}/`, changed: Object.keys(changes) });
 }
