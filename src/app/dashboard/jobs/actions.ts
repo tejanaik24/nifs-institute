@@ -10,6 +10,7 @@ import {
   closeJob,
   deleteJob,
   JobPositionInput,
+  parseIstDateTime,
 } from "@/lib/db/jobs";
 import { uploadJobPoster, uploadCompanyLogo } from "@/lib/storage/images";
 import { getAllCompanyLogos, createCompanyLogo } from "@/lib/db/company-logos";
@@ -112,7 +113,7 @@ export async function saveJobAction(
     }
   }
 
-  const applyBy = data.applyByDate ? new Date(data.applyByDate) : null;
+  const applyBy = data.applyByDate ? parseIstDateTime(data.applyByDate) : null;
 
   if (id) {
     const updated = await updateJob(id, {

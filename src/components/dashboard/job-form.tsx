@@ -37,7 +37,7 @@ export function JobForm({
   const [otherBenefits, setOtherBenefits] = useState(initialJob?.otherBenefits ?? "");
   const [applyByDate, setApplyByDate] = useState(
     initialJob?.applyByDate
-      ? new Date(initialJob.applyByDate).toISOString().slice(0, 16)
+      ? new Date(new Date(initialJob.applyByDate).getTime() + 330 * 60000).toISOString().slice(0, 16)
       : ""
   );
   const [placementOfficerName, setPlacementOfficerName] = useState(

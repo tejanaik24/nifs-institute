@@ -10,6 +10,9 @@ import HomeOutcomes from "@/components/sections/home/home-outcomes";
 import HomePlacements from "@/components/sections/home/home-placements";
 import { PlacementsDualCta } from "@/components/sections/placements-dual-cta";
 
+// Re-render hourly so jobs drop off once their deadline passes.
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: "Placements — Graduates at Adani, L&T, ITC | NIFS India",
   description:

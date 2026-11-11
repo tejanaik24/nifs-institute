@@ -1,4 +1,4 @@
-import { and, asc, desc, eq, gt, isNull } from "drizzle-orm";
+import { and, asc, desc, eq, gt, isNull, or } from "drizzle-orm";
 import { db } from "./client";
 import { jobApplications, jobPositions, jobs, users } from "./schema";
 
@@ -77,11 +77,29 @@ export async function getAllJobs(): Promise<JobWithPositions[]> {
   });
 }
 
+// A job past its apply-by deadline is closed, whatever its status says.
+export function isJobClosed(job: { status: string | null; applyByDate: Date | null }) {
+  return (
+    job.status === "closed" ||
+    (!!job.applyByDate && new Date(job.applyByDate).getTime() <= Date.now())
+  );
+}
+
+// Dashboard datetime-local values carry no zone; NIFS staff enter IST.
+export function parseIstDateTime(value: string): Date {
+  return new Date(/[zZ]|[+-]\d\d:?\d\d$/.test(value) ? value : `${value}+05:30`);
+}
+
 export async function getOpenJobs(): Promise<JobWithPositions[]> {
   const openJobsList = await db
     .select()
     .from(jobs)
-    .where(eq(jobs.status, "open"))
+    .where(
+      and(
+        eq(jobs.status, "open"),
+        or(isNull(jobs.applyByDate), gt(jobs.applyByDate, new Date())),
+      ),
+    )
     .orderBy(desc(jobs.createdAt));
   if (openJobsList.length === 0) return [];
 

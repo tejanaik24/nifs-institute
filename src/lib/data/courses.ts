@@ -163,12 +163,12 @@ export const courses: Course[] = [
       {
         question: "What does ADFS full form / stand for in safety?",
         answer:
-          "ADFS stands for Advanced Diploma in Fire & Safety — a 12-month NIFS India program combining fire engineering with hands-on drills at NIFS's practical training yard, open to candidates with 10+2 or a diploma in any stream.",
+          "ADFS stands for Advanced Diploma in Fire & Safety — an 18-month NIFS India program combining fire engineering with hands-on drills at NIFS's practical training yard, open to candidates with 10+2 or a diploma in any stream.",
       },
       {
         question: "What is the Advance Diploma in Fire and Safety course?",
         answer:
-          "ADFS is a 12-month advanced diploma at NIFS India covering advanced fire engineering, hazard identification & risk assessment, fire prevention & control techniques, and emergency response planning, aimed at candidates targeting mid-level safety leadership roles such as Fire Safety Officer or Industrial Safety Supervisor.",
+          "ADFS is an 18-month advanced diploma at NIFS India covering advanced fire engineering, hazard identification & risk assessment, fire prevention & control techniques, and emergency response planning, aimed at candidates targeting mid-level safety leadership roles such as Fire Safety Officer or Industrial Safety Supervisor.",
       },
       {
         question: "What is the eligibility for ADFS?",
@@ -181,7 +181,7 @@ export const courses: Course[] = [
     name: "Advanced Diploma in Fire & Safety (ADFS)",
     shortName: "ADFS",
     tier: "Advanced Diploma",
-    duration: "12 Months",
+    duration: "18 Months",
     eligibility: "10+2 / Diploma (Any Stream)",
     mode: "Classroom / Online",
     summary:
@@ -221,7 +221,7 @@ export const courses: Course[] = [
       {
         question: "Is ADIS the same as ADFS?",
         answer:
-          "No. ADIS (Advanced Diploma in Industrial Safety) focuses on plant-floor industrial safety — machine safeguarding and hazardous zone safety — while ADFS (Advanced Diploma in Fire & Safety) focuses on fire engineering and fire prevention & control. Both are 12-month NIFS programs with the same 10+2/Diploma eligibility.",
+          "No. ADIS (Advanced Diploma in Industrial Safety) focuses on plant-floor industrial safety — machine safeguarding and hazardous zone safety — while ADFS (Advanced Diploma in Fire & Safety) focuses on fire engineering and fire prevention & control. ADIS runs 12 months and ADFS 18 months, with the same 10+2/Diploma eligibility.",
       },
     ],
     name: "Advanced Diploma in Industrial Safety (ADIS)",

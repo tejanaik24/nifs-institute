@@ -4,7 +4,7 @@ import { PageHero } from "@/components/sections/page-hero";
 import { centers } from "@/lib/data/centers";
 import { slugifyCity } from "@/lib/data/center-gallery";
 import { SITE } from "@/lib/data/site-constants";
-import { getAllJobs, getJobBySlug, getOpenJobs } from "@/lib/db/jobs";
+import { getAllJobs, getJobBySlug, getOpenJobs, isJobClosed } from "@/lib/db/jobs";
 import {
   AlertCircle,
   Building2,
@@ -46,19 +46,25 @@ function jobLocationAddress(location: string) {
   };
 }
 
-// Parses free-text salary ("₹15,000 - ₹20,000/month") into schema.org baseSalary.
+// Parses free-text salary ("₹15,000 - ₹20,000/month", "6 LPA", "18K to 22K") into schema.org baseSalary.
 // ponytail: regex-based, skips unparseable formats rather than fabricating numbers.
 function parseBaseSalary(salary: string | null | undefined) {
   if (!salary) return undefined;
-  const nums = salary
-    .match(/[\d,]+(?:\.\d+)?/g)
-    ?.map((n) => Number(n.replace(/,/g, "")));
-  if (!nums || nums.length === 0) return undefined;
-  const unitText = /year|annum|p\.?a\.?/i.test(salary)
-    ? "YEAR"
-    : /day/i.test(salary)
-      ? "DAY"
-      : "MONTH";
+  const lakhs = /lpa|lakh|lac/i.test(salary);
+  const nums = [...salary.matchAll(/([\d,]+(?:\.\d+)?)\s*(k)?/gi)]
+    .map((m) => {
+      const n = Number(m[1].replace(/,/g, ""));
+      return m[2] ? n * 1000 : lakhs && n < 1000 ? n * 100000 : n;
+    })
+    .filter((n) => n > 0);
+  if (nums.length === 0) return undefined;
+  // No stated unit and a lakh-plus figure = annual CTC (no fresher earns that per month).
+  const unitText =
+    lakhs || /year|annum|p\.?a\.?/i.test(salary) || (!/month|day/i.test(salary) && Math.max(...nums) >= 100000)
+      ? "YEAR"
+      : /day/i.test(salary)
+        ? "DAY"
+        : "MONTH";
   return {
     "@type": "MonetaryAmount",
     currency: "INR",
@@ -74,6 +80,9 @@ function parseBaseSalary(salary: string | null | undefined) {
 
 type Props = { params: Promise<{ slug: string }> };
 
+// Re-render hourly so jobs flip to closed once their deadline passes.
+export const revalidate = 3600;
+
 export async function generateStaticParams() {
   const jobs = await getAllJobs().catch(() => []);
   return jobs
@@ -86,7 +95,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const job = await getJobBySlug(slug);
   if (!job || job.status === "draft") return {};
 
-  const isClosed = job.status === "closed";
+  const isClosed = isJobClosed(job);
   const title = `${job.companyName}${job.clientCompany ? ` (${job.clientCompany})` : ""} — ${isClosed ? "Drive Completed" : "Recruitment Drive"} | NIFS India`;
   const desc = isClosed
     ? `Recruitment drive by ${job.companyName} in ${job.location} is completed. View eligibility criteria, salary benchmarks, and upcoming campus drives at NIFS India.`
@@ -109,12 +118,13 @@ export default async function JobDetailPage({ params }: Props) {
   const job = await getJobBySlug(slug);
   if (!job || job.status === "draft") notFound();
 
-  const isClosed = job.status === "closed";
+  const isClosed = isJobClosed(job);
 
   const formattedApplyDate = job.applyByDate
     ? new Date(job.applyByDate).toLocaleString("en-IN", {
         dateStyle: "medium",
         timeStyle: "short",
+        timeZone: "Asia/Kolkata",
       })
     : null;
 
@@ -180,16 +190,19 @@ export default async function JobDetailPage({ params }: Props) {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            jobPostingSchemas.length === 1
-              ? jobPostingSchemas[0]
-              : jobPostingSchemas,
-          ),
-        }}
-      />
+      {/* Google job rules: no JobPosting markup once a job has closed. */}
+      {!isClosed && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(
+              jobPostingSchemas.length === 1
+                ? jobPostingSchemas[0]
+                : jobPostingSchemas,
+            ),
+          }}
+        />
+      )}
       <PageHero
         eyebrow="Placement Drive"
         title={job.companyName}

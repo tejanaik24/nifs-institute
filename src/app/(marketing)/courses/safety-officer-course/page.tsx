@@ -25,7 +25,7 @@ const faqs = [
   {
     question: "How long does a Safety Officer course take?",
     answer:
-      "Certificate courses run 3–6 months. Diploma courses (DIS, DFS) take 1 year. Advanced Diploma (ADIS, ADFS) takes 12 months. B.Sc in Fire & Industrial Safety takes 3 years. NIFS offers flexible classroom and online modes.",
+      "Certificate courses run 3–6 months. Diploma courses (DIS, DFS) take 1 year. Advanced Diploma takes 12 months (ADIS) or 18 months (ADFS). B.Sc in Fire & Industrial Safety takes 3 years. NIFS offers flexible classroom and online modes.",
   },
   {
     question:
@@ -112,7 +112,7 @@ const durationTable = [
   ["Diploma in Fire & Safety (DFS)", "1 year", "10+2 / ITI / any stream"],
   ["Diploma in Health, Safety & Environment (DHSE)", "1 year", "10+2 / ITI / any stream"],
   ["Advanced Diploma in Industrial Safety (ADIS)", "12 months", "10+2 / diploma (any stream)"],
-  ["Advanced Diploma in Fire & Safety (ADFS)", "12 months", "10+2 / diploma (any stream)"],
+  ["Advanced Diploma in Fire & Safety (ADFS)", "18 months", "10+2 / diploma (any stream)"],
   ["PG Diploma in Fire & Safety (PG DFS)", "1 year", "Any graduate"],
   ["PG Diploma in Health, Safety & Environment (PG DHSE)", "1 year", "Any graduate"],
   ["B.Sc in Fire & Industrial Safety", "3 years (6 semesters)", "10+2 / diploma (3 yrs)"],
@@ -153,7 +153,7 @@ export default function SafetyOfficerCoursePage() {
             <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
               A safety officer course trains you to prevent accidents and fires
               at work. At NIFS it takes 3-6 months (Certificate Course in Fire
-              &amp; Safety), 12 months (DIS, DFS, DHSE, ADIS, ADFS) or 3 years
+              &amp; Safety), 12 months (DIS, DFS, DHSE, ADIS), 18 months (ADFS) or 3 years
               (B.Sc in Fire &amp; Industrial Safety). You can join after 10th,
               10+2 or a diploma, and all paid courses carry an Acharya
               Nagarjuna University certificate.

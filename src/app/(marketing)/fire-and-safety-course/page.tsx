@@ -22,7 +22,7 @@ const faqs = [
   },
   {
     question: "Which fire and safety courses does NIFS offer in India?",
-    answer: "NIFS fire and safety courses include: DFS (Diploma in Fire & Safety, 1 year), ADFS (Advanced Diploma in Fire & Safety, 12 months), DIS (Diploma in Industrial Safety, 12 months), ADIS (Advanced Diploma in Industrial Safety), and B.Sc in Fire & Industrial Safety (3 years). NIFS offers all these with NSDC approval.",
+    answer: "NIFS fire and safety courses include: DFS (Diploma in Fire & Safety, 1 year), ADFS (Advanced Diploma in Fire & Safety, 18 months), DIS (Diploma in Industrial Safety, 12 months), ADIS (Advanced Diploma in Industrial Safety), and B.Sc in Fire & Industrial Safety (3 years). NIFS offers all these with NSDC approval.",
   },
   {
     question: "What is the eligibility for fire and safety courses in India?",
@@ -102,7 +102,7 @@ export default function FireAndSafetyCoursePage() {
                 {[
                   { name: "Certificate Course in Fire & Safety (CCFS)", slug: "certificate-course-in-fire-safety", level: "Certificate", duration: "3–6 Months", eligibility: "10th Pass" },
                   { name: "Diploma in Fire & Safety (DFS)", slug: "diploma-in-fire-safety", level: "Diploma", duration: "1 Year", eligibility: "10+2 / ITI" },
-                  { name: "Advanced Diploma in Fire & Safety (ADFS)", slug: "advanced-diploma-in-fire-safety-adfs", level: "Advanced Diploma", duration: "12 Months", eligibility: "10+2 / Diploma" },
+                  { name: "Advanced Diploma in Fire & Safety (ADFS)", slug: "advanced-diploma-in-fire-safety-adfs", level: "Advanced Diploma", duration: "18 Months", eligibility: "10+2 / Diploma" },
                   { name: "PG Diploma in Fire & Safety (PG DFS)", slug: "pg-diploma-in-fire-safety-pg-dfs", level: "PG Diploma", duration: "1 Year", eligibility: "Any Graduate" },
                   { name: "B.Sc in Fire & Industrial Safety", slug: "b-sc-in-fire-industrial-safety", level: "B.Sc Degree", duration: "3 Years", eligibility: "10+2 / ITI / Diploma" },
                   { name: "Diploma in Industrial Safety (DIS)", slug: "diploma-in-industrial-safety-dis", level: "Diploma", duration: "12 Months", eligibility: "10th / SSC / HSE" },
