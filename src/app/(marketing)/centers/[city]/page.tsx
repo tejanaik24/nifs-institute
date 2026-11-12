@@ -581,7 +581,7 @@ export default async function DynamicCenterPage({
     },
     {
       question: `Does NIFS provide placement assistance in ${cityName}?`,
-      answer: `Yes, NIFS provides dedicated placement support with over  alumni. Graduates are eligible for opportunities with Pan-India recruiters like L&T, Adani, ITC, Amazon, and regional industrial plants.`,
+      answer: `Yes, NIFS provides dedicated placement support with over ${SITE.studentsPlaced} alumni. Graduates are eligible for opportunities with Pan-India recruiters like L&T, Adani, ITC, Amazon, and regional industrial plants.`,
     },
   ];
 
