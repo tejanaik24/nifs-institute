@@ -159,6 +159,17 @@ Chennai
                 Government-approved NSDC safety certifications with NIFS practical fire training yard drills and placement track record in Tamil Nadu.
               </p>
 
+              {/* Direct answer block (Bot Desk row 266) */}
+              <p className="text-sm sm:text-base text-slate-700 max-w-xl leading-relaxed">
+                NIFS Chennai (P.H. Road, Aminjikarai) runs fire and industrial
+                safety courses: {courses.map((c) => c.shortName).join(", ")}.
+                Two more Chennai-area NIFS centres:{" "}
+                <Link href="/centers/tambaram/" className="font-semibold text-primary underline underline-offset-2">Tambaram</Link>{" "}
+                and{" "}
+                <Link href="/centers/virungabakkam/" className="font-semibold text-primary underline underline-offset-2">Virungabakkam</Link>
+                . Call or WhatsApp for batch dates and fees.
+              </p>
+
               <div className="flex flex-wrap gap-2.5 pt-1">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-semibold border border-slate-200">
                   <CheckCircle2 className="h-3.5 w-3.5 text-[#25D366]" />

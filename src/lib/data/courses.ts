@@ -231,7 +231,7 @@ export const courses: Course[] = [
     eligibility: "10+2 / Diploma (Any Stream)",
     mode: "Classroom / Online",
     summary:
-      "ADIS stands for Advanced Diploma in Industrial Safety: a 12-month course (10+2 or Diploma in any stream) focused on plant-floor safety management — hazard control, machine safeguarding, and safety audits — for candidates aiming at core industrial safety officer roles.",
+      "ADIS stands for Advanced Diploma in Industrial Safety. At NIFS it is a 12-month course for students with 10+2 or a diploma in any stream, in classroom or online mode. You learn hazard control, machine safeguarding and safety audits, and get an Acharya Nagarjuna University certificate. Fees depend on centre and mode, so contact NIFS for fees.",
     subjects: [
       "Industrial Safety Management",
       "Machine Safeguarding",
@@ -248,7 +248,7 @@ export const courses: Course[] = [
       "ADIS Full Form: Advanced Diploma in Industrial Safety",
     h1: "Advanced Diploma in Industrial Safety (ADIS) Course 2026",
     seoDescription:
-      "ADIS means Advanced Diploma in Industrial Safety: 12 months, 10+2 or diploma. See eligibility, subjects and jobs. Contact NIFS for fees.",
+      "ADIS full form is Advanced Diploma in Industrial Safety: a 12-month NIFS course after 10+2 or a diploma, with an Acharya Nagarjuna University certificate.",
   },
   {
     slug: "pg-diploma-in-fire-safety-pg-dfs",

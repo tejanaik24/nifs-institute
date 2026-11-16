@@ -186,6 +186,17 @@ Hyderabad
                 Government-approved NSDC safety certifications with NIFS practical fire training yard drills and placement track record in Telangana.
               </p>
 
+              {/* Direct answer block (Bot Desk row 265) */}
+              <p className="text-sm sm:text-base text-slate-700 max-w-xl leading-relaxed">
+                NIFS Hyderabad (Ameerpet, near Ameerpet Metro) runs fire and
+                industrial safety courses: {courses.map((c) => c.shortName).join(", ")}.
+                Call or WhatsApp for batch dates and fees. Guide:{" "}
+                <Link href="/blog/fire-and-safety-courses-in-hyderabad-enhancing-workplace-safety/" className="font-semibold text-primary underline underline-offset-2">
+                  fire and safety courses in Hyderabad
+                </Link>
+                .
+              </p>
+
               {/* Micro-Features Row */}
               <div className="flex flex-wrap gap-2.5 pt-1">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-semibold border border-slate-200">

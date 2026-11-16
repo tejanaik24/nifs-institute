@@ -105,15 +105,6 @@ export default async function CourseDetailPage({
             </p>
             {course.slug === "advanced-diploma-in-industrial-safety-adis" && (
               <>
-                <p className="mt-4 max-w-2xl text-base text-muted-foreground">
-                  ADIS full form is Advanced Diploma in Industrial Safety. It is
-                  a 12-month course for students with
-                  10+2 or a diploma in any stream. You learn hazard control,
-                  machine safeguarding and safety audits, and prepare for
-                  industrial safety officer roles. NIFS India ADIS carries an
-                  Acharya Nagarjuna University (State Government University)
-                  certificate.
-                </p>
                 <p className="mt-3 max-w-2xl text-base text-muted-foreground">
                   ADIS ka full form hai Advanced Diploma in Industrial Safety.
                 </p>
