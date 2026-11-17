@@ -195,6 +195,13 @@ export function SiteFooter() {
             <span>Igniting Careers in Fire and Industrial Safety</span>
             <span>•</span>
             <Link
+              href="/privacy-policy/"
+              className="hover:text-background transition-colors"
+            >
+              Privacy
+            </Link>
+            <span>•</span>
+            <Link
               href="/login"
               className="hover:text-background transition-colors"
             >
