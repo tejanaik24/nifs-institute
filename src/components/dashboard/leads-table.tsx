@@ -1,9 +1,13 @@
 import { desc, eq, ne } from "drizzle-orm";
 import { db } from "@/lib/db/client";
-import { courseRegistrations, enquiries } from "@/lib/db/schema";
+import { courseRegistrations, enquiries, leadFeedback } from "@/lib/db/schema";
 import { ExportButton } from "@/components/dashboard/export-button";
 import { COURSE_TAG } from "@/components/sections/ergonomic-course/course-data";
 import { getLeadStatusResolver } from "@/lib/lead-status";
+import {
+  LeadFeedbackControl,
+  type SerializedFeedback,
+} from "@/components/dashboard/lead-feedback-control";
 
 const exportCols = [
   { key: "name", label: "Candidate Name" },
@@ -14,6 +18,8 @@ const exportCols = [
   { key: "city", label: "City" },
   { key: "state", label: "State" },
   { key: "status", label: "Status" },
+  { key: "outcome", label: "Outcome" },
+  { key: "reason", label: "Reason" },
   { key: "dateReceived", label: "Date Received" },
 ];
 
@@ -36,23 +42,53 @@ export async function LeadsTable({ freeCourse }: { freeCourse: boolean }) {
     const regs = await db.select({ phone: courseRegistrations.phone, email: courseRegistrations.email }).from(courseRegistrations);
     for (const r of regs) if (!emailByPhone.has(r.phone)) emailByPhone.set(r.phone, r.email);
   }
+
+  // Counsellor feedback: get the latest status per enquiry row
+  const feedbackByEnquiryId = new Map<number, SerializedFeedback>();
+  try {
+    const feedbacks = await db
+      .select()
+      .from(leadFeedback)
+      .orderBy(desc(leadFeedback.createdAt), desc(leadFeedback.id));
+    for (const fb of feedbacks) {
+      if (!feedbackByEnquiryId.has(fb.enquiryId)) {
+        feedbackByEnquiryId.set(fb.enquiryId, {
+          id: fb.id,
+          enquiryId: fb.enquiryId,
+          outcome: fb.outcome,
+          reason: fb.reason,
+          note: fb.note,
+          staffName: fb.staffName,
+          createdAt: fb.createdAt ? fb.createdAt.toISOString() : null,
+        });
+      }
+    }
+  } catch (err) {
+    console.warn("Could not query lead_feedback table:", err);
+  }
+
   const cols = freeCourse ? exportCols : exportCols.filter((c) => c.key !== "email");
   const title = freeCourse ? "Free Course Leads" : "Callback Requests & Leads";
 
   // Pre-format data server-side — no functions cross the Server→Client boundary
-  const exportData = rows.map((row) => ({
-    name: row.name ?? "",
-    phone: row.phone ?? "",
-    email: emailByPhone.get(row.phone) ?? "",
-    course: row.course ?? "",
-    pagePath: row.pagePath ?? "",
-    city: row.city ?? "",
-    state: row.state ?? "",
-    status: leadStatus(row),
-    dateReceived: row.createdAt
-      ? new Date(row.createdAt).toLocaleString("en-IN", { dateStyle: "medium", timeStyle: "short" })
-      : "",
-  }));
+  const exportData = rows.map((row) => {
+    const fb = feedbackByEnquiryId.get(row.id);
+    return {
+      name: row.name ?? "",
+      phone: row.phone ?? "",
+      email: emailByPhone.get(row.phone) ?? "",
+      course: row.course ?? "",
+      pagePath: row.pagePath ?? "",
+      city: row.city ?? "",
+      state: row.state ?? "",
+      status: leadStatus(row),
+      outcome: fb?.outcome ?? "",
+      reason: fb?.reason ?? "",
+      dateReceived: row.createdAt
+        ? new Date(row.createdAt).toLocaleString("en-IN", { dateStyle: "medium", timeStyle: "short" })
+        : "",
+    };
+  });
 
   return (
     <div>
@@ -89,6 +125,7 @@ export async function LeadsTable({ freeCourse }: { freeCourse: boolean }) {
                 <th className="px-4 py-2 font-medium">Came from</th>
                 <th className="px-4 py-2 font-medium">City</th>
                 <th className="px-4 py-2 font-medium">State</th>
+                <th className="px-4 py-2 font-medium">Feedback</th>
                 <th className="px-4 py-2 font-medium">Received</th>
                 <th className="px-4 py-2 font-medium"></th>
               </tr>
@@ -111,6 +148,13 @@ export async function LeadsTable({ freeCourse }: { freeCourse: boolean }) {
                   <td className="px-4 py-2">{row.pagePath || "—"}</td>
                   <td className="px-4 py-2">{row.city || "—"}</td>
                   <td className="px-4 py-2">{row.state || "—"}</td>
+                  <td className="px-4 py-2">
+                    <LeadFeedbackControl
+                      enquiryId={row.id}
+                      candidateName={row.name}
+                      initialFeedback={feedbackByEnquiryId.get(row.id) ?? null}
+                    />
+                  </td>
                   <td className="px-4 py-2 text-[var(--dash-text-muted)]">
                     {row.createdAt.toLocaleString("en-IN", { dateStyle: "medium", timeStyle: "short" })}
                   </td>

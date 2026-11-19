@@ -1,5 +1,6 @@
 import {
   date,
+  index,
   integer,
   jsonb,
   pgSchema,
@@ -263,4 +264,25 @@ export const centerApplications = pgTable("center_applications", {
   status: varchar("status", { length: 20 }).notNull().default("new"),
   createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
 });
+
+// Counsellor feedback on enquiries and free course leads (see migrations/lead-feedback.sql).
+// Preserves full history: every save is an append-only row. Latest row per enquiry is current status.
+export const leadFeedback = pgTable(
+  "lead_feedback",
+  {
+    id: serial("id").primaryKey(),
+    enquiryId: integer("enquiry_id")
+      .notNull()
+      .references(() => enquiries.id),
+    outcome: varchar("outcome", { length: 30 }).notNull(),
+    reason: varchar("reason", { length: 40 }),
+    note: text("note"),
+    staffName: text("staff_name").notNull().default(""),
+    createdAt: timestamp("created_at").defaultNow(),
+  },
+  (table) => [
+    index("idx_lead_feedback_enquiry_id").on(table.enquiryId),
+  ],
+);
+
 

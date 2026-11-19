@@ -1,4 +1,6 @@
 import { AnalyticsDashboardView } from "@/components/dashboard/analytics-view";
+import { getSession } from "@/lib/auth/session";
+import { getLeadFeedbackSummary } from "@/lib/db/lead-feedback";
 import { getBingTrafficSummary } from "@/lib/analytics/bing";
 import {
   getAgeBreakdown,
@@ -36,6 +38,7 @@ async function safe<T>(
 
 export default async function AnalyticsPage() {
   const [
+    session,
     summary,
     queries,
     siteTotals,
@@ -58,6 +61,7 @@ export default async function AnalyticsPage() {
     whatsappClickCount,
     phoneClickCount,
   ] = await Promise.all([
+    getSession(),
     safe(getDailySummary()),
     safe(getTopQueries()),
     safe(getSiteTotals()),
@@ -97,6 +101,9 @@ export default async function AnalyticsPage() {
         .then((r) => r[0]?.n ?? 0),
     ),
   ]);
+
+  const isAdmin = session?.role === "admin";
+  const leadFeedbackSummary = isAdmin ? await getLeadFeedbackSummary(30) : undefined;
   const fetchedAt = new Date().toISOString();
 
   return (
@@ -105,6 +112,7 @@ export default async function AnalyticsPage() {
       enquiryCount={enquiryCount.ok ? enquiryCount.data : undefined}
       whatsappClickCount={whatsappClickCount.ok ? whatsappClickCount.data : undefined}
       phoneClickCount={phoneClickCount.ok ? phoneClickCount.data : undefined}
+      leadFeedbackSummary={leadFeedbackSummary}
       summary={summary}
       queries={queries}
       siteTotals={siteTotals}

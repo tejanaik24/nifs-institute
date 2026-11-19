@@ -34,6 +34,8 @@ import { IntentSplitCard } from "./intent-split-card";
 import { PeakHoursHeatmap } from "./peak-hours-heatmap";
 import { RealtimeBadge } from "./realtime-badge";
 import { ReportExportButton } from "./report-export-button";
+import { LeadFeedbackSummaryCard } from "./lead-feedback-summary-card";
+import type { FeedbackSummaryData } from "@/lib/db/lead-feedback";
 
 type TopPage = { path: string; views: number; avgTimeSeconds: number };
 type Query = {
@@ -125,6 +127,7 @@ interface AnalyticsViewProps {
   centerCities?: { ok: boolean; data?: CenterCityMetric[]; error?: string };
   courseMatrix?: { ok: boolean; data?: CourseDemandMetric[]; error?: string };
   hourlyTraffic?: { ok: boolean; data?: HourlyTrafficMetric[]; error?: string };
+  leadFeedbackSummary?: FeedbackSummaryData;
 }
 
 type TabKey = "overview" | "intent" | "seo" | "audience" | "ai-health";
@@ -134,6 +137,7 @@ export function AnalyticsDashboardView({
   enquiryCount,
   whatsappClickCount,
   phoneClickCount,
+  leadFeedbackSummary,
   summary,
   queries,
   siteTotals,
@@ -466,6 +470,11 @@ export function AnalyticsDashboardView({
       {/* TAB 1: EXECUTIVE OVERVIEW & TRENDS */}
       {activeTab === "overview" && (
         <div className="space-y-6">
+          {/* Admin-Only: Lead Feedback Summary (Last 30 Days) */}
+          {leadFeedbackSummary && (
+            <LeadFeedbackSummaryCard summary={leadFeedbackSummary} />
+          )}
+
           {/* 30-Day SVG Trend Area Chart */}
           {timeSeries?.ok && <AnalyticsTrendChart points={timeSeries.data} />}
 
