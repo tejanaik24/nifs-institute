@@ -20,6 +20,9 @@ const exportCols = [
   { key: "status", label: "Status" },
   { key: "outcome", label: "Outcome" },
   { key: "reason", label: "Reason" },
+  { key: "note", label: "Note" },
+  { key: "updatedBy", label: "Updated by" },
+  { key: "updatedAt", label: "Updated at" },
   { key: "dateReceived", label: "Date Received" },
 ];
 
@@ -84,6 +87,15 @@ export async function LeadsTable({ freeCourse }: { freeCourse: boolean }) {
       status: leadStatus(row),
       outcome: fb?.outcome ?? "",
       reason: fb?.reason ?? "",
+      note: fb?.note ?? "",
+      updatedBy: fb?.staffName ?? "",
+      updatedAt: fb?.createdAt
+        ? new Date(fb.createdAt).toLocaleString("en-IN", {
+            dateStyle: "medium",
+            timeStyle: "short",
+            timeZone: "Asia/Kolkata",
+          })
+        : "",
       dateReceived: row.createdAt
         ? new Date(row.createdAt).toLocaleString("en-IN", { dateStyle: "medium", timeStyle: "short" })
         : "",
