@@ -58,14 +58,14 @@ export const HYDERABAD_FAQS = [
 ];
 
 export const metadata: Metadata = {
-  title: "Fire and Safety Course in Hyderabad | NIFS Ameerpet",
+  title: "Fire and Safety Course in Ameerpet, Hyderabad | NIFS",
   description:
-    "Fire & Safety Officer training in Ameerpet, Hyderabad. NSDC approved 1-year Diploma (DFS, ADIS) with live practical yard drills and placement support.",
+    "NIFS Ameerpet, Hyderabad: fire and safety courses with an Acharya Nagarjuna University certificate. NSDC approved. Call or WhatsApp for fees.",
   alternates: { canonical: "/centers/hyderabad/" },
   openGraph: {
-    title: "Fire & Safety Officer Course in Hyderabad | NIFS Ameerpet",
+    title: "Fire and Safety Course in Ameerpet, Hyderabad | NIFS",
     description:
-      `Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Ameerpet, Hyderabad. ${SITE.studentsPlaced} alumni.`,
+      "NIFS Ameerpet, Hyderabad: fire and safety courses with an Acharya Nagarjuna University certificate. NSDC approved. Call or WhatsApp for fees.",
     url: PAGE_URL,
     siteName: "NIFS India",
     locale: "en_IN",

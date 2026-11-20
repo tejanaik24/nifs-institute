@@ -56,14 +56,14 @@ export const BARRACKPURKOLKATA_FAQS = [
 ];
 
 export const metadata: Metadata = {
-  title: "Fire and Safety Course in Barrackpur (Kolkata) | Govt Approved NIFS Campus",
+  title: "Fire and Safety Course in Barrackpur, Kolkata | NIFS",
   description:
-    "Join Barrackpur (Kolkata)'s recognized Fire & Safety Officer training institute. NSDC approved 1-Year Diploma (DFS, ADIS), live practical training yard drills, and placement support in West Bengal.",
+    "NIFS Barrackpur, Kolkata: fire and safety courses with an Acharya Nagarjuna University certificate. NSDC approved. Call or WhatsApp for fees.",
   alternates: { canonical: "/centers/barrackpur-kolkata/" },
   openGraph: {
-    title: "Fire & Safety Officer Course in Barrackpur (Kolkata) | NIFS Institute",
+    title: "Fire and Safety Course in Barrackpur, Kolkata | NIFS",
     description:
-      "Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Barrackpur (Kolkata), West Bengal. Live practical training and placement support.",
+      "NIFS Barrackpur, Kolkata: fire and safety courses with an Acharya Nagarjuna University certificate. NSDC approved. Call or WhatsApp for fees.",
     url: PAGE_URL,
     siteName: "NIFS India",
     locale: "en_IN",

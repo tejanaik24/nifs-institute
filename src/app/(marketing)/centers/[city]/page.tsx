@@ -507,6 +507,24 @@ export function generateStaticParams() {
   return Array.from(citySlugs).map((city) => ({ city }));
 }
 
+const CITY_META_OVERRIDES: Record<string, { title: string; description: string }> = {
+  mumbai: {
+    title: "Fire and Safety Course in Mumbai: 3 NIFS Centres",
+    description:
+      "Fire and safety courses in Mumbai at 3 NIFS centres: Borivali, Thane and Vashi. ANU certificate on paid courses. Call or WhatsApp for fees.",
+  },
+  delhi: {
+    title: "Fire and Safety Course in Delhi | NIFS Delhi NCR",
+    description:
+      "NIFS fire and safety courses in Delhi with an Acharya Nagarjuna University certificate. NSDC approved, 25+ years. Call or WhatsApp for fees.",
+  },
+  kochi: {
+    title: "Fire and Safety Course in Kochi, Kerala | NIFS",
+    description:
+      "NIFS Kochi: fire and safety courses with an Acharya Nagarjuna University certificate. NSDC approved, 25+ years. Call or WhatsApp for fees.",
+  },
+};
+
 export async function generateMetadata({
   params,
 }: {
@@ -520,6 +538,17 @@ export async function generateMetadata({
   const cityName =
     matchedCenter?.city ?? city.charAt(0).toUpperCase() + city.slice(1);
   const stateName = matchedCenter?.state ?? "India";
+
+  // Hand-written titles for city hubs that get real search traffic (Bot Desk 305).
+  const custom = CITY_META_OVERRIDES[normalizedSlug];
+  if (custom) {
+    return {
+      title: custom.title,
+      description: custom.description,
+      alternates: { canonical: `/centers/${normalizedSlug}/` },
+      openGraph: { title: custom.title, description: custom.description, url: `https://nifsindia.net/centers/${normalizedSlug}/` },
+    };
+  }
 
   return {
     title: `Fire and Safety Officer Course in ${cityName}, ${stateName} | NIFS India`,

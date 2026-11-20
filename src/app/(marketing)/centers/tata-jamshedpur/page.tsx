@@ -56,14 +56,14 @@ export const TATAJAMSHEDPUR_FAQS = [
 ];
 
 export const metadata: Metadata = {
-  title: "Fire and Safety Course in Tata Jamshedpur | Govt Approved NIFS Campus",
+  title: "Fire and Safety Course in Jamshedpur | NIFS Jharkhand",
   description:
-    "Join Tata Jamshedpur's recognized Fire & Safety Officer training institute. NSDC approved 1-Year Diploma (DFS, ADIS), live practical training yard drills, and placement support in Jharkhand.",
+    "NIFS Jamshedpur: fire and safety courses with an Acharya Nagarjuna University certificate. Centres also in Ranchi and Bokaro. Contact for fees.",
   alternates: { canonical: "/centers/tata-jamshedpur/" },
   openGraph: {
-    title: "Fire & Safety Officer Course in Tata Jamshedpur | NIFS Institute",
+    title: "Fire and Safety Course in Jamshedpur | NIFS Jharkhand",
     description:
-      "Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Tata Jamshedpur, Jharkhand. Live practical training and placement support.",
+      "NIFS Jamshedpur: fire and safety courses with an Acharya Nagarjuna University certificate. Centres also in Ranchi and Bokaro. Contact for fees.",
     url: PAGE_URL,
     siteName: "NIFS India",
     locale: "en_IN",

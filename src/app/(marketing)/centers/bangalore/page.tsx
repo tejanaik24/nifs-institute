@@ -56,14 +56,14 @@ export const BANGALORE_FAQS = [
 ];
 
 export const metadata: Metadata = {
-  title: "Fire and Safety Course in Bangalore | Govt Approved NIFS Campus",
+  title: "Fire and Safety Course in Bangalore | NIFS Karnataka",
   description:
-    "Join Bangalore's recognized Fire & Safety Officer training institute. NSDC approved 1-Year Diploma (DFS, ADIS), live practical training yard drills, and placement support in Karnataka.",
+    "NIFS Bangalore: fire and safety courses with an Acharya Nagarjuna University certificate. NSDC approved, 25+ years. Call or WhatsApp for fees.",
   alternates: { canonical: "/centers/bangalore/" },
   openGraph: {
-    title: "Fire & Safety Officer Course in Bangalore | NIFS Institute",
+    title: "Fire and Safety Course in Bangalore | NIFS Karnataka",
     description:
-      "Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Bangalore, Karnataka. Live practical training and placement support.",
+      "NIFS Bangalore: fire and safety courses with an Acharya Nagarjuna University certificate. NSDC approved, 25+ years. Call or WhatsApp for fees.",
     url: PAGE_URL,
     siteName: "NIFS India",
     locale: "en_IN",

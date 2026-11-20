@@ -56,14 +56,14 @@ export const BORIVALIWMUMBAI_FAQS = [
 ];
 
 export const metadata: Metadata = {
-  title: "Fire and Safety Course in Borivali-W (Mumbai) | Govt Approved NIFS Campus",
+  title: "Fire and Safety Course in Borivali, Mumbai | NIFS",
   description:
-    "Join Borivali-W (Mumbai)'s recognized Fire & Safety Officer training institute. NSDC approved 1-Year Diploma (DFS, ADIS), live practical training yard drills, and placement support in Maharashtra.",
+    "NIFS Borivali, opp. Borivali Station East: fire and safety diploma with an ANU certificate. Also at Thane and Vashi. Call or WhatsApp for fees.",
   alternates: { canonical: "/centers/borivali-w-mumbai/" },
   openGraph: {
-    title: "Fire & Safety Officer Course in Borivali-W (Mumbai) | NIFS Institute",
+    title: "Fire and Safety Course in Borivali, Mumbai | NIFS",
     description:
-      "Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Borivali-W (Mumbai), Maharashtra. Live practical training and placement support.",
+      "NIFS Borivali, opp. Borivali Station East: fire and safety diploma with an ANU certificate. Also at Thane and Vashi. Call or WhatsApp for fees.",
     url: PAGE_URL,
     siteName: "NIFS India",
     locale: "en_IN",

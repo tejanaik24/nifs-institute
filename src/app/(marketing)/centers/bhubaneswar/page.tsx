@@ -56,14 +56,14 @@ export const BHUBANESWAR_FAQS = [
 ];
 
 export const metadata: Metadata = {
-  title: "Fire and Safety Course in Bhubaneswar | Govt Approved NIFS Campus",
+  title: "Fire and Safety Course in Bhubaneswar | NIFS Odisha",
   description:
-    "Join Bhubaneswar's recognized Fire & Safety Officer training institute. NSDC approved 1-Year Diploma (DFS, ADIS), live practical training yard drills, and placement support in Odisha.",
+    "NIFS Bhubaneswar, Unit 4: fire and safety courses with an ANU certificate. Odisha centres also in Rourkela and Berhampur. Contact for fees.",
   alternates: { canonical: "/centers/bhubaneswar/" },
   openGraph: {
-    title: "Fire & Safety Officer Course in Bhubaneswar | NIFS Institute",
+    title: "Fire and Safety Course in Bhubaneswar | NIFS Odisha",
     description:
-      "Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Bhubaneswar, Odisha. Live practical training and placement support.",
+      "NIFS Bhubaneswar, Unit 4: fire and safety courses with an ANU certificate. Odisha centres also in Rourkela and Berhampur. Contact for fees.",
     url: PAGE_URL,
     siteName: "NIFS India",
     locale: "en_IN",

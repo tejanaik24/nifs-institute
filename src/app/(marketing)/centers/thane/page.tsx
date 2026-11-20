@@ -56,14 +56,14 @@ export const THANE_FAQS = [
 ];
 
 export const metadata: Metadata = {
-  title: "Fire and Safety Course in Thane | Govt Approved NIFS Campus",
+  title: "Fire and Safety Course in Thane (Near Station) | NIFS",
   description:
-    "Join Thane's recognized Fire & Safety Officer training institute. NSDC approved 1-Year Diploma (DFS, ADIS), live practical training yard drills, and placement support in Maharashtra.",
+    "NIFS Thane, near Thane Railway Station (West): fire and safety courses with an ANU certificate. Call or WhatsApp for fees and the next batch.",
   alternates: { canonical: "/centers/thane/" },
   openGraph: {
-    title: "Fire & Safety Officer Course in Thane | NIFS Institute",
+    title: "Fire and Safety Course in Thane (Near Station) | NIFS",
     description:
-      "Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Thane, Maharashtra. Live practical training and placement support.",
+      "NIFS Thane, near Thane Railway Station (West): fire and safety courses with an ANU certificate. Call or WhatsApp for fees and the next batch.",
     url: PAGE_URL,
     siteName: "NIFS India",
     locale: "en_IN",

@@ -62,7 +62,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ] as const;
 
   const centerSlugs = Array.from(
-    new Set(centers.map((c) => slugifyCity(c.city))),
+    // + city hubs with no single centre of their own (Mumbai = Borivali/Thane/Vashi, Delhi = Badarpur/Lakshminagar)
+    new Set([...centers.map((c) => slugifyCity(c.city)), "mumbai", "delhi"]),
   );
   const centerRoutes = centerSlugs.map((slug) => ({
     url: `${baseUrl}/centers/${slug}/`,

@@ -56,14 +56,14 @@ export const VASHINAVIMUMBAI_FAQS = [
 ];
 
 export const metadata: Metadata = {
-  title: "Fire and Safety Course in Vashi (Navi Mumbai) | Govt Approved NIFS Campus",
+  title: "Fire and Safety Course in Vashi, Navi Mumbai | NIFS",
   description:
-    "Join Vashi (Navi Mumbai)'s recognized Fire & Safety Officer training institute. NSDC approved 1-Year Diploma (DFS, ADIS), live practical training yard drills, and placement support in Maharashtra.",
+    "NIFS Vashi, near Inorbit Mall, Navi Mumbai: fire and safety courses with an ANU certificate. Also in Thane and Borivali. Contact for fees.",
   alternates: { canonical: "/centers/vashi-navi-mumbai/" },
   openGraph: {
-    title: "Fire & Safety Officer Course in Vashi (Navi Mumbai) | NIFS Institute",
+    title: "Fire and Safety Course in Vashi, Navi Mumbai | NIFS",
     description:
-      "Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Vashi (Navi Mumbai), Maharashtra. Live practical training and placement support.",
+      "NIFS Vashi, near Inorbit Mall, Navi Mumbai: fire and safety courses with an ANU certificate. Also in Thane and Borivali. Contact for fees.",
     url: PAGE_URL,
     siteName: "NIFS India",
     locale: "en_IN",

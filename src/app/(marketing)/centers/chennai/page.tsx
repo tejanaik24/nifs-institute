@@ -56,14 +56,14 @@ export const CHENNAI_FAQS = [
 ];
 
 export const metadata: Metadata = {
-  title: "Fire and Safety Course in Chennai | Govt Approved NIFS Campus",
+  title: "Fire and Safety Course in Chennai (Aminjikarai) | NIFS",
   description:
-    "Join Chennai's recognized Fire & Safety Officer training institute. NSDC approved 1-Year Diploma (DFS, ADIS), live practical training yard drills, and placement support in Tamil Nadu.",
+    "NIFS Chennai on P.H. Road, Aminjikarai: ADIS, DFS, DHSE, PG DFS and B.Sc courses with an ANU certificate. Call or WhatsApp for fees.",
   alternates: { canonical: "/centers/chennai/" },
   openGraph: {
-    title: "Fire & Safety Officer Course in Chennai | NIFS Institute",
+    title: "Fire and Safety Course in Chennai (Aminjikarai) | NIFS",
     description:
-      "Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Chennai, Tamil Nadu. Live practical training and placement support.",
+      "NIFS Chennai on P.H. Road, Aminjikarai: ADIS, DFS, DHSE, PG DFS and B.Sc courses with an ANU certificate. Call or WhatsApp for fees.",
     url: PAGE_URL,
     siteName: "NIFS India",
     locale: "en_IN",

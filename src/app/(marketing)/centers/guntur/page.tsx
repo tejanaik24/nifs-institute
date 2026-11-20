@@ -56,14 +56,14 @@ export const GUNTUR_FAQS = [
 ];
 
 export const metadata: Metadata = {
-  title: "Fire and Safety Course in Guntur | Govt Approved NIFS Campus",
+  title: "Fire and Safety Course in Guntur at ANU Campus | NIFS",
   description:
-    "Join Guntur's recognized Fire & Safety Officer training institute. NSDC approved 1-Year Diploma (DFS, ADIS), live practical training yard drills, and placement support in Andhra Pradesh.",
+    "NIFS Guntur is inside Acharya Nagarjuna University: fire and industrial safety courses with an ANU certificate. Call or WhatsApp for fees.",
   alternates: { canonical: "/centers/guntur/" },
   openGraph: {
-    title: "Fire & Safety Officer Course in Guntur | NIFS Institute",
+    title: "Fire and Safety Course in Guntur at ANU Campus | NIFS",
     description:
-      "Govt-approved ADIS, Diploma in Fire & Safety, and EHS programs in Guntur, Andhra Pradesh. Live practical training and placement support.",
+      "NIFS Guntur is inside Acharya Nagarjuna University: fire and industrial safety courses with an ANU certificate. Call or WhatsApp for fees.",
     url: PAGE_URL,
     siteName: "NIFS India",
     locale: "en_IN",
