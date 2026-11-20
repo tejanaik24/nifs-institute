@@ -192,7 +192,10 @@ async function main() {
     lines.push(`*NIFS Leads - ${dateFormatted}*`);
 
     if (totalNewLeads > 0) {
-      lines.push(`New leads today: ${totalNewLeads} (Website ${websiteLeads}, Free course ${freeCourseLeads})`);
+      // Same phone can fill both forms: counted once in total, once in each source.
+      const both = websiteLeads + freeCourseLeads - totalNewLeads;
+      const bothNote = both > 0 ? ` - ${both} filled both` : "";
+      lines.push(`New leads today: ${totalNewLeads} people (Website ${websiteLeads}, Free course ${freeCourseLeads}${bothNote})`);
     } else {
       lines.push("New leads today: 0");
     }
