@@ -26,6 +26,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { CenterQuickAnswer, CenterStickyBar } from "@/components/sections/center-quick-answer";
 import { useState } from "react";
 
 const LOCAL_PHONE = "+91-9283-762-538";
@@ -156,8 +157,17 @@ Chennai
               </h1>
 
               <p className="text-base sm:text-lg text-slate-600 max-w-xl leading-relaxed font-medium">
-                Government-approved NSDC safety certifications with NIFS practical fire training yard drills and placement track record in Tamil Nadu.
+                Government-approved NSDC safety certifications with NIFS practical fire training yard drills in Tamil Nadu.
               </p>
+              <CenterQuickAnswer
+                slug="chennai"
+                city="Chennai"
+                address={CENTER_ADDRESS}
+                phone={LOCAL_PHONE}
+                tel={LOCAL_TEL}
+                whatsapp={WHATSAPP_URL}
+                courses={courses.map((c) => c.name)}
+              />
 
               {/* Direct answer block (Bot Desk row 266) */}
               <p className="text-sm sm:text-base text-slate-700 max-w-xl leading-relaxed">
@@ -239,8 +249,8 @@ Chennai
                     Book Free Counseling Session
                   </h3>
                   <p className="text-xs text-slate-500 leading-relaxed">
-                    Get full fee breakdown, government approval certificates,
-                    and previous batch placement record.
+                    Get the current fee, the next batch date
+                    and the course that suits you.
                   </p>
                 </div>
 
@@ -329,7 +339,7 @@ Chennai
               <span>PHOTOS FROM NIFS TRAINING PROGRAMS</span>
             </span>
             <h2 className="font-display text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
-              Practical Training at NIFS
+              Fire and Safety Course in Chennai: Practical Training
             </h2>
             <p className="mt-2 text-sm text-slate-600">
               Representative photos from NIFS training programs across India. Not specific to this center.
@@ -394,7 +404,7 @@ Chennai
               <span>Interactive Course Matcher</span>
             </span>
             <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-slate-900">
-              Find Your Ideal Safety Program
+              Which Safety Officer Course in Chennai Suits You
             </h2>
             <p className="text-sm text-slate-600">
               Select your qualification to see the recommended
@@ -659,11 +669,11 @@ Chennai
             <span>Direct Campus Desk</span>
           </div>
           <h2 className="font-display text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
-            Start Your Safety Career in Chennai Today
+            How to Apply at NIFS Chennai
           </h2>
           <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
             Get government-recognized certifications with dedicated practical fire
-            ground drills and placement support.
+            ground drills.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
             <a
@@ -701,6 +711,7 @@ Chennai
           </p>
         </div>
       </section>
+      <CenterStickyBar tel={LOCAL_TEL} whatsapp={WHATSAPP_URL} />
     </article>
   );
 }

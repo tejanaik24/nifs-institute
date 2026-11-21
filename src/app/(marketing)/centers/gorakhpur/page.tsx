@@ -31,22 +31,22 @@ export const GORAKHPUR_FAQS = [
   {
     question: "Which industries hire safety officers near Gorakhpur?",
     answer:
-      "Graduates from NIFS Gorakhpur are hired across Heavy electrical manufacturing, UPSIDC industrial areas, thermal power projects, and engineering fabrication corridors, including recruiters such as Tata Motors, BHEL Haridwar / Jhansi, NTPC Unchahar, and major infrastructure projects.",
+      "Graduates from NIFS Gorakhpur are hired across Heavy electrical manufacturing, UPSIDC industrial areas, thermal power projects, and engineering fabrication corridors.",
   },
   {
     question: "What is the fee for Fire and Safety courses at NIFS in Gorakhpur?",
     answer:
-      "Course fees range from ₹25,000 to ₹35,000 for Certificate programs, ₹35,000 to ₹55,000 for 1-Year Government-Approved Diplomas (DFS/DHSE), and ₹45,000 to ₹65,000 for the Advanced Diploma in Industrial Safety (ADIS). Flexible no-cost installment plans and merit concessions are available.",
+      "Fees depend on the course and the batch. Call or WhatsApp this NIFS centre for the current fee and the next batch date.",
   },
   {
     question: "What is the minimum qualification required to join NIFS in Gorakhpur?",
     answer:
-      "Eligibility varies by course level: Certificate and Diploma in Fire & Safety (DFS) require a minimum 10th or 10+2 (Intermediate in any stream) or ITI. Advanced Diplomas (ADIS/ADFS) and PG Diplomas require a Polytechnic Diploma or Graduate Degree (B.Sc, B.Com, B.A, B.Tech/B.E).",
+      "Eligibility varies by course level: Certificate and Diploma in Fire & Safety (DFS) require a minimum 10th or 10+2 (Intermediate in any stream) or ITI. For Advanced and PG Diplomas, see each course page or call this centre.Sc, B.Com, B.A, B.Tech/B.E).",
   },
   {
     question: "Does NIFS provide placement assistance in Gorakhpur?",
     answer:
-      `Yes. NIFS provides dedicated placement assistance with over ${SITE.studentsPlaced} alumni working across India. Graduates are eligible for placements across Pan-India recruiters including L&T, Adani, Tata Projects, and regional industrial employers.`,
+      `Yes. NIFS provides dedicated placement assistance with over ${SITE.studentsPlaced} alumni working across India.`,
   },
   {
     question: "Are NIFS certifications recognized by the Government and industry?",

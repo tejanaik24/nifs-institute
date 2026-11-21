@@ -330,7 +330,7 @@ const CITY_DATA: Record<
       {
         question: "What is the fee for Safety Officer courses in Bangalore?",
         answer:
-          "Course fees for 1-year diplomas range from ₹35,000 to ₹65,000 with flexible installment options. Contact +91 83743 40999 for details.",
+          "Fees depend on the course and the batch. Call or WhatsApp this NIFS centre for the current fee and the next batch date.",
       },
       {
         question: "Is ADIS course available in Bangalore?",
@@ -367,9 +367,9 @@ const CITY_DATA: Record<
           "Yes, NIFS provides online theory lectures combined with modular on-site practical training yard sessions.",
       },
       {
-        question: "Which recruiters hire NIFS safety graduates in Mumbai?",
+        question: "Which NIFS centres are in Mumbai?",
         answer:
-          "L&T, Tata Projects, Shapoorji Pallonji, Reliance, and Godrej regularly recruit NIFS certified officers.",
+          "NIFS has 3 centres in the Mumbai area: Borivali (opp. Borivali Station East), Thane (near Thane Railway Station West) and Vashi (near Inorbit Mall, Navi Mumbai). Call or WhatsApp any of them for fees and the next batch.",
       },
     ],
   },
@@ -610,7 +610,7 @@ export default async function DynamicCenterPage({
     },
     {
       question: `Does NIFS provide placement assistance in ${cityName}?`,
-      answer: `Yes, NIFS provides dedicated placement support with over ${SITE.studentsPlaced} alumni. Graduates are eligible for opportunities with Pan-India recruiters like L&T, Adani, ITC, Amazon, and regional industrial plants.`,
+      answer: `Yes, NIFS provides dedicated placement support with over ${SITE.studentsPlaced} alumni.`,
     },
   ];
 

@@ -14,6 +14,10 @@ export function PhoneClickTracker() {
       // Staff dialing leads from inside the dashboard isn't visitor
       // interest — don't let it inflate the same click count.
       if (window.location.pathname.startsWith("/dashboard")) return;
+      // GA4 event (Bot Desk 305); marking it a key event is a GA setting, left to Teja.
+      (window as { gtag?: (...a: unknown[]) => void }).gtag?.("event", "call_click", {
+        page_path: window.location.pathname,
+      });
       const payload = JSON.stringify({
         pagePath: window.location.pathname,
         linkLabel: anchor.textContent?.trim().slice(0, 200) ?? "",

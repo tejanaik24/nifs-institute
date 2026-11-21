@@ -26,6 +26,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { CenterQuickAnswer, CenterStickyBar } from "@/components/sections/center-quick-answer";
 import { useState } from "react";
 
 const LOCAL_PHONE = "+91-9842-208-221";
@@ -156,8 +157,17 @@ Coimbatore
               </h1>
 
               <p className="text-base sm:text-lg text-slate-600 max-w-xl leading-relaxed font-medium">
-                Government-approved NSDC safety certifications with NIFS practical fire training yard drills and placement track record in Tamil Nadu.
+                Government-approved NSDC safety certifications with NIFS practical fire training yard drills in Tamil Nadu.
               </p>
+              <CenterQuickAnswer
+                slug="coimbatore"
+                city="Coimbatore"
+                address={CENTER_ADDRESS}
+                phone={LOCAL_PHONE}
+                tel={LOCAL_TEL}
+                whatsapp={WHATSAPP_URL}
+                courses={courses.map((c) => c.name)}
+              />
 
               <div className="flex flex-wrap gap-2.5 pt-1">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-semibold border border-slate-200">
@@ -228,8 +238,8 @@ Coimbatore
                     Book Free Counseling Session
                   </h3>
                   <p className="text-xs text-slate-500 leading-relaxed">
-                    Get full fee breakdown, government approval certificates,
-                    and previous batch placement record.
+                    Get the current fee, the next batch date
+                    and the course that suits you.
                   </p>
                 </div>
 
@@ -318,7 +328,7 @@ Coimbatore
               <span>PHOTOS FROM NIFS TRAINING PROGRAMS</span>
             </span>
             <h2 className="font-display text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
-              Practical Training at NIFS
+              Fire and Safety Course in Coimbatore: Practical Training
             </h2>
             <p className="mt-2 text-sm text-slate-600">
               Representative photos from NIFS training programs across India. Not specific to this center.
@@ -383,7 +393,7 @@ Coimbatore
               <span>Interactive Course Matcher</span>
             </span>
             <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-slate-900">
-              Find Your Ideal Safety Program
+              Which Safety Officer Course in Coimbatore Suits You
             </h2>
             <p className="text-sm text-slate-600">
               Select your qualification to see the recommended
@@ -648,11 +658,11 @@ Coimbatore
             <span>Direct Campus Desk</span>
           </div>
           <h2 className="font-display text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
-            Start Your Safety Career in Coimbatore Today
+            How to Apply at NIFS Coimbatore
           </h2>
           <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
             Get government-recognized certifications with dedicated practical fire
-            ground drills and placement support.
+            ground drills.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
             <a
@@ -686,6 +696,7 @@ Coimbatore
           </p>
         </div>
       </section>
+      <CenterStickyBar tel={LOCAL_TEL} whatsapp={WHATSAPP_URL} />
     </article>
   );
 }

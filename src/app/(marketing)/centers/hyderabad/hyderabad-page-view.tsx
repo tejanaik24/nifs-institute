@@ -183,7 +183,7 @@ Hyderabad
 
               {/* Concise Authority Subtitle */}
               <p className="text-base sm:text-lg text-slate-600 max-w-xl leading-relaxed font-medium">
-                Government-approved NSDC safety certifications with NIFS practical fire training yard drills and placement track record in Telangana.
+                Government-approved NSDC safety certifications with NIFS practical fire training yard drills in Telangana.
               </p>
 
               {/* Direct answer block (Bot Desk row 265) */}

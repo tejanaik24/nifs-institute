@@ -157,7 +157,7 @@ Surat
               </h1>
 
               <p className="text-base sm:text-lg text-slate-600 max-w-xl leading-relaxed font-medium">
-                Government-approved NSDC safety certifications with NIFS practical fire training yard drills and placement track record in Gujarat.
+                Government-approved NSDC safety certifications with NIFS practical fire training yard drills in Gujarat.
               </p>
 
               <div className="flex flex-wrap gap-2.5 pt-1">

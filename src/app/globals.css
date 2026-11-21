@@ -766,3 +766,10 @@
     transform: none !important;
   }
 }
+
+/* Centre pages: the Call + WhatsApp bar replaces the round WhatsApp button on phones. */
+@media (max-width: 639px) {
+  body:has(#centre-bar) .wa-float {
+    display: none;
+  }
+}
