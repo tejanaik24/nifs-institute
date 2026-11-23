@@ -7,9 +7,10 @@ import { getPublishedPosts, NOINDEX_SLUGS } from "@/lib/db/posts";
 import type { MetadataRoute } from "next";
 import { slugifyCity } from "./(marketing)/centers/[city]/page";
 
-// Hourly refresh (not force-static) so a newly published job shows up in the
-// sitemap without waiting for the next deploy.
-export const revalidate = 3600;
+// Built per request: `revalidate = 3600` + revalidatePath left Vercel serving a
+// 2-day-old copy that missed new bot posts (Bot Desk 364). Crawlers fetch this
+// rarely, so one DB read per fetch is cheap.
+export const dynamic = "force-dynamic";
 
 const baseUrl = "https://nifsindia.net";
 

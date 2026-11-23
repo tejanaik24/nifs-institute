@@ -16,6 +16,10 @@ export function WhatsAppClickTracker() {
       // Staff messaging leads from inside the dashboard isn't visitor
       // interest — don't let it inflate the same click count.
       if (window.location.pathname.startsWith("/dashboard")) return;
+      // GA4 event (Bot Desk 330), mirrors call_click; the DB row below stays the source of truth.
+      (window as { gtag?: (...a: unknown[]) => void }).gtag?.("event", "whatsapp_click", {
+        page_path: window.location.pathname,
+      });
       const payload = JSON.stringify({
         pagePath: window.location.pathname,
         linkLabel: anchor.textContent?.trim().slice(0, 200) ?? "",

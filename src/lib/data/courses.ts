@@ -624,8 +624,9 @@ export const courses: Course[] = [
           "The one-year course covers Industrial Safety Engineering, Hazard Identification & Risk Assessment, Safety Legislation, and Project & Practical Training.",
       },
     ],
+    seoTitle: "SBTET Full Form & Industrial Safety Engineer Course",
     seoDescription:
-      "A full-time SBTET Andhra Pradesh-affiliated program for practicing engineers moving into dedicated industrial safety roles.",
+      "SBTET full form is State Board of Technical Education and Training, Andhra Pradesh. See the NIFS Industrial Safety Engineer course. Call for fees.",
     name: "Industrial Safety Engineer (SBTET)",
     shortName: "SBTET ISE",
     tier: "Advanced Diploma",

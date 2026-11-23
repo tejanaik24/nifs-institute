@@ -141,6 +141,11 @@ export default async function CourseDetailPage({
                 </div>
               </>
             )}
+            {course.slug === "industrial-safety-engineer-sbtet" && (
+              <p className="mt-3 max-w-2xl text-base text-muted-foreground">
+                SBTET full form is State Board of Technical Education &amp; Training, Andhra Pradesh. SBTET is a government board, not a course. NIFS India&apos;s Industrial Safety Engineer program is affiliated to SBTET AP and runs as a one-year, full-time classroom course. Call or WhatsApp +91 83743 40999 for fees and the next batch.
+              </p>
+            )}
           </div>
 
           <div
