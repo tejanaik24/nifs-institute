@@ -24,6 +24,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { CenterStickyBar } from "@/components/sections/center-quick-answer";
 import { useState } from "react";
 
 const LOCAL_PHONE = "+91-9246-616-282";
@@ -397,7 +398,7 @@ Hyderabad
               <span>PHOTOS FROM NIFS TRAINING PROGRAMS</span>
             </span>
             <h2 className="font-display text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
-              Practical Training at NIFS
+              Fire and Safety Course in Hyderabad: Practical Training
             </h2>
             <p className="mt-2 text-sm text-slate-600">
               Representative photos from NIFS training programs across India. Not specific to this center.
@@ -465,7 +466,7 @@ Hyderabad
               <span>Interactive Course Matcher</span>
             </span>
             <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-slate-900">
-              Find Your Ideal Safety Program
+              Which Safety Officer Course in Hyderabad Suits You
             </h2>
             <p className="text-sm text-slate-600">
               Select your qualification to see the recommended
@@ -712,7 +713,7 @@ Hyderabad
           </div>
 
           <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white max-w-4xl mx-auto leading-tight">
-            Launch Your High-Paying Safety Career from Hyderabad Today
+            How to Apply at NIFS Hyderabad
           </h2>
 
           <p className="text-sm sm:text-base text-white/90 max-w-xl mx-auto">
@@ -741,6 +742,7 @@ Hyderabad
           </div>
         </div>
       </section>
+      <CenterStickyBar tel={LOCAL_TEL} whatsapp={WHATSAPP_URL} />
     </article>
   );
 }

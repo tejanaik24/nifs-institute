@@ -230,6 +230,13 @@ export default function VisakhapatnamCenterPage() {
             </Link>
             .
           </p>
+          <p className="mt-3 text-sm text-muted-foreground">
+            Studying outside Vizag? NIFS also has centres in{" "}
+            <Link href="/centers/guntur/" className="font-medium text-primary underline">Guntur (ANU campus)</Link>,{" "}
+            <Link href="/centers/chennai/" className="font-medium text-primary underline">Chennai</Link>,{" "}
+            <Link href="/centers/bhubaneswar/" className="font-medium text-primary underline">Bhubaneswar</Link> and{" "}
+            <Link href="/centers/mumbai/" className="font-medium text-primary underline">Mumbai</Link>.
+          </p>
         </div>
       </section>
 

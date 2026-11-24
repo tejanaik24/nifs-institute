@@ -26,6 +26,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { CenterQuickAnswer, CenterStickyBar } from "@/components/sections/center-quick-answer";
 import { useState } from "react";
 
 const LOCAL_PHONE = "+91-9313-234-145";
@@ -159,6 +160,15 @@ Pataudi
               <p className="text-base sm:text-lg text-slate-600 max-w-xl leading-relaxed font-medium">
                 Government-approved NSDC safety certifications with NIFS practical fire training yard drills in Haryana.
               </p>
+              <CenterQuickAnswer
+                slug="pataudi"
+                city="Pataudi"
+                address={CENTER_ADDRESS}
+                phone={LOCAL_PHONE}
+                tel={LOCAL_TEL}
+                whatsapp={WHATSAPP_URL}
+                courses={courses.map((c) => c.name)}
+              />
 
               <div className="flex flex-wrap gap-2.5 pt-1">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-semibold border border-slate-200">
@@ -346,7 +356,7 @@ Pataudi
               <span>PHOTOS FROM NIFS TRAINING PROGRAMS</span>
             </span>
             <h2 className="font-display text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
-              Practical Training at NIFS
+              Fire and Safety Course in Pataudi: Practical Training
             </h2>
             <p className="mt-2 text-sm text-slate-600">
               Representative photos from NIFS training programs across India. Not specific to this center.
@@ -411,7 +421,7 @@ Pataudi
               <span>Interactive Course Matcher</span>
             </span>
             <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-slate-900">
-              Find Your Ideal Safety Program
+              Which Safety Officer Course in Pataudi Suits You
             </h2>
             <p className="text-sm text-slate-600">
               Select your qualification to see the recommended
@@ -675,7 +685,7 @@ Pataudi
           </div>
 
           <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white max-w-4xl mx-auto leading-tight">
-            Launch Your High-Paying Safety Career from Pataudi Today
+            How to Apply at NIFS Pataudi
           </h2>
 
           <p className="text-sm sm:text-base text-white/90 max-w-xl mx-auto">
@@ -704,6 +714,7 @@ Pataudi
           </div>
         </div>
       </section>
+      <CenterStickyBar tel={LOCAL_TEL} whatsapp={WHATSAPP_URL} />
     </article>
   );
 }
