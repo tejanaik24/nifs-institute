@@ -26,7 +26,7 @@ export const JALANDHAR_FAQS = [
   {
     question: "Where is the NIFS center located in Jalandhar?",
     answer:
-      "NIFS Jalandhar campus is located at GK Tower, 3rd Floor, BSF Colony Market, Opp. HMV College, Jalandhar – 144004. For instant batch details, fee structure, and counseling, call +91-9023-133-687 or +91 83743 40999.",
+      "NIFS Jalandhar centre details are shared on enquiry. For instant batch details, fee structure, and counseling, call or WhatsApp +91 83743 40999.",
   },
   {
     question: "Which industries hire safety officers near Jalandhar?",
@@ -97,12 +97,11 @@ export default function JalandharCenterPage() {
                   "National Institute of Fire and Safety Jalandhar",
                 ],
                 url: PAGE_URL,
-                telephone: "+919023133687",
+                telephone: "+918374340999",
                 priceRange: "₹₹",
                 image: "https://nifsindia.net/images/nifs-crest.png",
                 address: {
                   "@type": "PostalAddress",
-                  streetAddress: "GK Tower, 3rd Floor, BSF Colony Market, Opp. HMV College, Jalandhar – 144004",
                   addressLocality: "Jalandhar",
                   addressRegion: "Haryana & Punjab",
                   addressCountry: "IN",

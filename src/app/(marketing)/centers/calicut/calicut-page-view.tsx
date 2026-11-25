@@ -38,9 +38,9 @@ const WHATSAPP_URL =
   );
 const GOOGLE_MAPS_NAV_URL =
   "https://www.google.com/maps/search/?api=1&query=" +
-  encodeURIComponent("NIFS Fire and Safety 2nd Floor, Vandhana Building, Behind Kannankandy, Mavoor Road, Calicut – 673004");
+  encodeURIComponent("NIFS Fire and Safety Calicut");
 const GOOGLE_REVIEW_URL = "https://g.page/r/nifs-calicut/review";
-const CENTER_ADDRESS = "2nd Floor, Vandhana Building, Behind Kannankandy, Mavoor Road, Calicut – 673004";
+const CENTER_ADDRESS = "The exact address is shared when you enquire. Call or WhatsApp NIFS for directions.";
 
 const RECRUITER_LOGOS = [
   { name: "L&T", logo: "/images/logos/recruiters/lt.png" },

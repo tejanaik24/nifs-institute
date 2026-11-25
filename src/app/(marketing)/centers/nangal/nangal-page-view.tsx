@@ -38,9 +38,9 @@ const WHATSAPP_URL =
   );
 const GOOGLE_MAPS_NAV_URL =
   "https://www.google.com/maps/search/?api=1&query=" +
-  encodeURIComponent("NIFS Fire and Safety Khwaja Peer Road, Near Ashoka Gas Agency, Raj Nagar, Nangal Dam – 140124");
+  encodeURIComponent("NIFS Fire and Safety Nangal");
 const GOOGLE_REVIEW_URL = "https://g.page/r/nifs-nangal/review";
-const CENTER_ADDRESS = "Khwaja Peer Road, Near Ashoka Gas Agency, Raj Nagar, Nangal Dam – 140124";
+const CENTER_ADDRESS = "The exact address is shared when you enquire. Call or WhatsApp NIFS for directions.";
 
 const RECRUITER_LOGOS = [
   { name: "L&T", logo: "/images/logos/recruiters/lt.png" },

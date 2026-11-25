@@ -29,8 +29,8 @@ import Link from "next/link";
 import { CenterQuickAnswer, CenterStickyBar } from "@/components/sections/center-quick-answer";
 import { useState } from "react";
 
-const LOCAL_PHONE = "+91-9023-133-687";
-const LOCAL_TEL = "tel:+919023133687";
+const LOCAL_PHONE = "+91-8374-340-999";
+const LOCAL_TEL = "tel:+918374340999";
 const WHATSAPP_URL =
   "https://wa.me/918374340999?text=" +
   encodeURIComponent(
@@ -38,9 +38,9 @@ const WHATSAPP_URL =
   );
 const GOOGLE_MAPS_NAV_URL =
   "https://www.google.com/maps/search/?api=1&query=" +
-  encodeURIComponent("NIFS Fire and Safety GK Tower, 3rd Floor, BSF Colony Market, Opp. HMV College, Jalandhar – 144004");
+  encodeURIComponent("NIFS Fire and Safety Jalandhar");
 const GOOGLE_REVIEW_URL = "https://g.page/r/nifs-jalandhar/review";
-const CENTER_ADDRESS = "GK Tower, 3rd Floor, BSF Colony Market, Opp. HMV College, Jalandhar – 144004";
+const CENTER_ADDRESS = "The exact address is shared when you enquire. Call or WhatsApp NIFS for directions.";
 
 const RECRUITER_LOGOS = [
   { name: "L&T", logo: "/images/logos/recruiters/lt.png" },

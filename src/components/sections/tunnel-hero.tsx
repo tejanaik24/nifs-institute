@@ -9,7 +9,7 @@ const headlineWords = ["Igniting", "Careers", "In Safety"];
 
 const statPills = [
   { value: SITE.studentsPlaced, label: "Alumni" },
-  { value: "65+", label: "Centers" },
+  { value: "60+", label: "Centers" },
   { value: "25", label: "Years" },
 ];
 
@@ -97,7 +97,7 @@ export function TunnelHero() {
           animate="visible"
         >
           25+ years of placing graduates at India&apos;s top industrial
-          companies. NSDC approved. ISO certified. 65+ centers across 20
+          companies. NSDC approved. ISO certified. 60+ centers across 20
           states &amp; UTs.
         </motion.p>
         <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">

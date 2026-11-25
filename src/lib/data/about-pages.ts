@@ -44,7 +44,7 @@ export const aboutPages: AboutPage[] = [
     slug: "company-profile",
     seoTitle: "Company Profile — 25+ Years in Safety Training | NIFS India",
     seoDescription:
-      `NIFS India: 25+ years, 65+ centers across 20 states, ${SITE.studentsPlaced} alumni. NSDC approved, ISO 9001:2015 certified, HQ in Visakhapatnam.`,
+      `NIFS India: 25+ years, 60+ centers across 20 states, ${SITE.studentsPlaced} alumni. NSDC approved, ISO 9001:2015 certified, HQ in Visakhapatnam.`,
     hero: {
       eyebrow: "Company Profile",
       title: "25+ years of building India's industrial safety workforce",
@@ -56,7 +56,7 @@ export const aboutPages: AboutPage[] = [
         type: "stats",
         stats: [
           { value: "25+", label: "Years of Excellence" },
-          { value: "65+", label: "Centers Nationwide" },
+          { value: "60+", label: "Centers Nationwide" },
           { value: "20", label: "States & UTs Covered" },
           { value: SITE.studentsPlaced, label: "Alumni Placed" },
         ],
@@ -95,7 +95,7 @@ export const aboutPages: AboutPage[] = [
           },
           {
             meta: "Network",
-            title: "65+ centers across 20 states & UTs",
+            title: "60+ centers across 20 states & UTs",
             body: "Learn near home, with the freedom to transfer between centers as the network grows.",
           },
           {
@@ -132,7 +132,7 @@ export const aboutPages: AboutPage[] = [
             title:
               "A global leader in fire engineering and industrial safety education",
             paragraphs: [
-              `From a network of 65+ centers across 20 states & UTs, NIFS is building India's industrial safety workforce — recognized by NSDC and Skill India, ISO 9001:2015 certified, and trusted by ${SITE.studentsPlaced} alumni placed with companies like Adani, L&T, ITC, GMR, and Amazon.`,
+              `From a network of 60+ centers across 20 states & UTs, NIFS is building India's industrial safety workforce — recognized by NSDC and Skill India, ISO 9001:2015 certified, and trusted by ${SITE.studentsPlaced} alumni placed with companies like Adani, L&T, ITC, GMR, and Amazon.`,
             ],
           },
           {

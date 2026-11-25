@@ -40,7 +40,7 @@ export default function CoursesPage() {
           <CourseCatalog />
         </div>
         <p className="text-sm text-muted-foreground">
-          These courses run at 65+ NIFS centres in 20 states &amp; UTs, including{" "}
+          These courses run at 60+ NIFS centres in 20 states &amp; UTs, including{" "}
           <Link href="/centers/mumbai/" className="font-medium text-primary underline">Mumbai</Link>,{" "}
           <Link href="/centers/chennai/" className="font-medium text-primary underline">Chennai</Link>,{" "}
           <Link href="/centers/guntur/" className="font-medium text-primary underline">Guntur (ANU campus)</Link> and{" "}

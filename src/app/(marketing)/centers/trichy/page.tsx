@@ -26,7 +26,7 @@ export const TRICHY_FAQS = [
   {
     question: "Where is the NIFS center located in Trichy?",
     answer:
-      "NIFS Trichy campus is located at C/o School of Safety, No. 6E, Rishivanam, Near Bishop Heber College, Vayalur Road, Puthur, Trichy – 620017. For instant batch details, fee structure, and counseling, call +91-9842-208-221 or +91 83743 40999.",
+      "NIFS Trichy centre details are shared on enquiry. For instant batch details, fee structure, and counseling, call +91-9842-208-221 or +91 83743 40999.",
   },
   {
     question: "Which industries hire safety officers near Trichy?",
@@ -102,7 +102,6 @@ export default function TrichyCenterPage() {
                 image: "https://nifsindia.net/images/nifs-crest.png",
                 address: {
                   "@type": "PostalAddress",
-                  streetAddress: "C/o School of Safety, No. 6E, Rishivanam, Near Bishop Heber College, Vayalur Road, Puthur, Trichy – 620017",
                   addressLocality: "Trichy",
                   addressRegion: "Tamil Nadu",
                   addressCountry: "IN",

@@ -26,7 +26,7 @@ export const NANGAL_FAQS = [
   {
     question: "Where is the NIFS center located in Nangal?",
     answer:
-      "NIFS Nangal campus is located at Khwaja Peer Road, Near Ashoka Gas Agency, Raj Nagar, Nangal Dam – 140124. For instant batch details, fee structure, and counseling, call +91-8427-791-818 or +91 83743 40999.",
+      "NIFS Nangal centre details are shared on enquiry. For instant batch details, fee structure, and counseling, call +91-8427-791-818 or +91 83743 40999.",
   },
   {
     question: "Which industries hire safety officers near Nangal?",
@@ -102,7 +102,6 @@ export default function NangalCenterPage() {
                 image: "https://nifsindia.net/images/nifs-crest.png",
                 address: {
                   "@type": "PostalAddress",
-                  streetAddress: "Khwaja Peer Road, Near Ashoka Gas Agency, Raj Nagar, Nangal Dam – 140124",
                   addressLocality: "Nangal",
                   addressRegion: "Haryana & Punjab",
                   addressCountry: "IN",

@@ -26,7 +26,7 @@ export const CALICUT_FAQS = [
   {
     question: "Where is the NIFS center located in Calicut?",
     answer:
-      "NIFS Calicut campus is located at 2nd Floor, Vandhana Building, Behind Kannankandy, Mavoor Road, Calicut – 673004. For instant batch details, fee structure, and counseling, call +91-9567-362-262 or +91 83743 40999.",
+      "NIFS Calicut centre details are shared on enquiry. For instant batch details, fee structure, and counseling, call +91-9567-362-262 or +91 83743 40999.",
   },
   {
     question: "Which industries hire safety officers near Calicut?",
@@ -102,7 +102,6 @@ export default function CalicutCenterPage() {
                 image: "https://nifsindia.net/images/nifs-crest.png",
                 address: {
                   "@type": "PostalAddress",
-                  streetAddress: "2nd Floor, Vandhana Building, Behind Kannankandy, Mavoor Road, Calicut – 673004",
                   addressLocality: "Calicut",
                   addressRegion: "Kerala",
                   addressCountry: "IN",

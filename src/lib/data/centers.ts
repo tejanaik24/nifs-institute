@@ -80,7 +80,6 @@ export const centers: Center[] = [
     isInformationCentre: true,
     x: 56.43,
     y: 36.18,
-    phones: ["9204615085", "7209310635", "9835494385"],
   },
   {
     city: "Siban",
@@ -88,7 +87,7 @@ export const centers: Center[] = [
     isInformationCentre: true,
     x: 54.54,
     y: 35.89,
-    phones: ["9889922888"],
+    phones: ["9889922888", "7562848697"],
   },
 
   // ===== CHHATTISGARH =====
@@ -147,7 +146,6 @@ export const centers: Center[] = [
     isInformationCentre: true,
     x: 35.82,
     y: 67.69,
-    phones: ["8374340999", "9246624868"],
   },
 
   // ===== GUJARAT =====
@@ -163,6 +161,7 @@ export const centers: Center[] = [
   {
     city: "Ahmedabad",
     state: "Gujarat",
+    isInformationCentre: true,
     x: 32.98,
     y: 45.2,
     address:
@@ -183,19 +182,16 @@ export const centers: Center[] = [
   {
     city: "Jalandhar",
     state: "Haryana & Punjab",
+    isInformationCentre: true,
     x: 38.47,
     y: 21.02,
-    address:
-      "GK Tower, 3rd Floor, BSF Colony Market, Opp. HMV College, Jalandhar – 144004",
-    phones: ["9023133687", "7087882925"],
   },
   {
     city: "Nangal",
     state: "Haryana & Punjab",
+    isInformationCentre: true,
     x: 39.94,
     y: 20.89,
-    address:
-      "Khwaja Peer Road, Near Ashoka Gas Agency, Raj Nagar, Nangal Dam – 140124",
     phones: ["8427791818", "8427791518"],
   },
   {
@@ -206,6 +202,15 @@ export const centers: Center[] = [
     address:
       "SCO 55-F, Second Floor, Near Webberz, City Centre, Main Bus Stand, Amritsar (Punjab) – 143001",
     phones: ["7973874720", "9115955730", "9115955731"],
+  },
+  {
+    city: "Chandigarh (Zirakpur)",
+    state: "Haryana & Punjab",
+    x: 40.2,
+    y: 20.0,
+    address:
+      "SCF 9, Kalgidhar Enclave, Furniture Market, Opp. Wedding Resort, Baltana, Zirakpur, Punjab",
+    phones: ["7973874720", "9814200000"],
   },
 
 
@@ -295,10 +300,9 @@ export const centers: Center[] = [
   {
     city: "Calicut",
     state: "Kerala",
+    isInformationCentre: true,
     x: 38.85,
     y: 79.45,
-    address:
-      "2nd Floor, Vandhana Building, Behind Kannankandy, Mavoor Road, Calicut – 673004",
     phones: ["9567362262", "9995431240"],
   },
 
@@ -315,6 +319,7 @@ export const centers: Center[] = [
   {
     city: "Nagpur",
     state: "Maharashtra",
+    isInformationCentre: true,
     x: 44.9,
     y: 50.66,
     address: "#152, Pardi, Post: Walni, Kalmeshwar Road, Nagpur – 441501",
@@ -361,6 +366,7 @@ export const centers: Center[] = [
   {
     city: "Berhampur",
     state: "Odisha",
+    isInformationCentre: true,
     x: 55.34,
     y: 55.99,
     address:
@@ -395,7 +401,6 @@ export const centers: Center[] = [
     isInformationCentre: true,
     x: 38.86,
     y: 33.87,
-    phones: ["9958032663", "9555766661"],
   },
   {
     city: "Chittorgarh",
@@ -409,6 +414,7 @@ export const centers: Center[] = [
   {
     city: "Jhalawar",
     state: "Rajasthan",
+    isInformationCentre: true,
     x: 39.54,
     y: 40.61,
     address:
@@ -457,7 +463,6 @@ export const centers: Center[] = [
     isInformationCentre: true,
     x: 46.8,
     y: 74.6,
-    phones: ["9283762538", "8015097231"],
   },
   {
     city: "Madurai",
@@ -471,6 +476,7 @@ export const centers: Center[] = [
   {
     city: "Cuddalore",
     state: "Tamil Nadu",
+    isInformationCentre: true,
     x: 46.15,
     y: 78.03,
     address:
@@ -496,10 +502,9 @@ export const centers: Center[] = [
   {
     city: "Trichy",
     state: "Tamil Nadu",
+    isInformationCentre: true,
     x: 44.2,
     y: 80.82,
-    address:
-      "C/o School of Safety, No. 6E, Rishivanam, Near Bishop Heber College, Vayalur Road, Puthur, Trichy – 620017",
     phones: ["9842208221", "9043000940"],
   },
 
@@ -599,6 +604,7 @@ export const centers: Center[] = [
   {
     city: "Kolkata",
     state: "West Bengal",
+    isInformationCentre: true,
     x: 61.87,
     y: 46.51,
     address: "Plot No. 164, CIT Scheme 7M, 3rd Floor, Kolkata – 700054",
@@ -616,6 +622,7 @@ export const centers: Center[] = [
   {
     city: "Barrackpur (Kolkata)",
     state: "West Bengal",
+    isInformationCentre: true,
     x: 61.87,
     y: 45.96,
     address: "D.No. 220/B, East Station Road, New Barrackpore, Kolkata",
@@ -624,6 +631,7 @@ export const centers: Center[] = [
   {
     city: "Haldia",
     state: "West Bengal",
+    isInformationCentre: true,
     x: 61.33,
     y: 48.11,
     address:

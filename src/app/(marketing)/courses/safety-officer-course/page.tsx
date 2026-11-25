@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Safety Officer Course India 2026 | NIFS",
     description:
-      `NSDC-approved safety officer courses. Eligibility 10+2. 65+ centers across India. ${SITE.studentsPlaced} alumni.`,
+      `NSDC-approved safety officer courses. Eligibility 10+2. 60+ centers across India. ${SITE.studentsPlaced} alumni.`,
   },
 };
 
@@ -51,7 +51,7 @@ const faqs = [
   {
     question: "Can I do a Safety Officer course online?",
     answer:
-      "Yes. NIFS offers online and classroom modes for DIS, ADIS, DHSE, PG DHSE, and certificate courses. Classroom-based programs with practical training are available at 65+ centers across India.",
+      "Yes. NIFS offers online and classroom modes for DIS, ADIS, DHSE, PG DHSE, and certificate courses. Classroom-based programs with practical training are available at 60+ centers across India.",
   },
 ];
 
@@ -182,7 +182,7 @@ export default function SafetyOfficerCoursePage() {
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 mb-14">
             {[
               { label: "Alumni", value: SITE.studentsPlaced },
-              { label: "Training Centers", value: "65+" },
+              { label: "Training Centers", value: "60+" },
               { label: "Years of Experience", value: "25+" },
               { label: "Course Modes", value: "Online & Classroom" },
             ].map((s) => (

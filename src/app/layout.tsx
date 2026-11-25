@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     siteName: "NIFS India",
     title: "NIFS India — Fire & Industrial Safety Training Institute",
     description:
-      `25+ years. 65+ verified training centers across 20 states & UTs. ${SITE.studentsPlaced} alumni. NSDC approved and university-collaborated fire and industrial safety courses.`,
+      `25+ years. 60+ verified training centers across 20 states & UTs. ${SITE.studentsPlaced} alumni. NSDC approved and university-collaborated fire and industrial safety courses.`,
     images: [
       {
         url: "/images/og-default.jpg",
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "NIFS India — Fire & Industrial Safety Training",
     description:
-      `Fire and industrial safety training. Est. 2004, 65+ centers across 20 states & UTs, ${SITE.studentsPlaced} alumni.`,
+      `Fire and industrial safety training. Est. 2004, 60+ centers across 20 states & UTs, ${SITE.studentsPlaced} alumni.`,
     images: ["/images/og-default.jpg"],
   },
   robots: {
